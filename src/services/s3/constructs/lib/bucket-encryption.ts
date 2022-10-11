@@ -5,8 +5,18 @@ import { CfnBucket } from "aws-cdk-lib/aws-s3";
 import { IConstruct } from "constructs";
 
 
-enum BucketEncryptionAlgorithm {
+/**
+ * Algorithms for enabling at rest encryption on S3 buckets.
+ */
+export enum BucketEncryptionAlgorithm {
+    /**
+     * Encrypt files using S3.
+     */
     KMS = 'aws:kms',
+
+    /**
+     * Encrypt files using S3 managed AES256 encryption.
+     */
     AES256 = 'AES256'
 }
 

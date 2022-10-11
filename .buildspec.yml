@@ -1,0 +1,11 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:
+      - npx typedoc --tsconfig ./tsconfig.dev.json
+artifacts:
+  files:
+    - docs/generated/**/*

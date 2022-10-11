@@ -4,7 +4,7 @@ import { IConstruct } from "constructs";
 import { definedFieldsOrUndefined } from "../../../../utils/formatting";
 
 
-interface BufferingConfigurationOptions {
+export interface BufferingConfigurationOptions {
     readonly interval?: Duration;
     readonly sizeInMb?: number;
 }
