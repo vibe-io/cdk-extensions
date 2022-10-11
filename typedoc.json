@@ -1,0 +1,9 @@
+{
+    "emit": "docs",
+    "entryPoints": [
+        "./src"
+    ],
+    "entryPointStrategy": "expand",
+    "excludeExternals": true,
+    "out": "./docs/generated"
+}
