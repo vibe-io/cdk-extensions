@@ -4,4 +4,4 @@
 
 export * from './constructs/flow-log';
 
-export * from './constructs/lib/flow-log-destination'
+export * from './constructs/lib/flow-log-destination';

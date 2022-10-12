@@ -1,6 +1,6 @@
 const { awscdk } = require('projen');
 
-const cdkVersion = '2.45.0'
+const cdkVersion = '2.45.0';
 
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Kevin Lucas',
@@ -8,7 +8,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   cdkVersion: cdkVersion,
   defaultReleaseBranch: 'master',
   gitignore: [
-    '/docs/generated/'
+    '/docs/generated/',
   ],
   name: 'cdk-extensions',
   repositoryUrl: 'https://github.com/Pharrox/cdk-extensions.git',
