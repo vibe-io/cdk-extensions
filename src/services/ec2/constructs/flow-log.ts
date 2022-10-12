@@ -1,5 +1,5 @@
 import { Lazy, Names, Resource, ResourceProps } from "aws-cdk-lib";
-import { CfnFlowLog, FlowLog as CdkFlowLog, FlowLogDestinationType, FlowLogResourceType, FlowLogTrafficType, IFlowLog } from "aws-cdk-lib/aws-ec2";
+import { CfnFlowLog, FlowLog as CdkFlowLog, FlowLogResourceType, FlowLogTrafficType, IFlowLog } from "aws-cdk-lib/aws-ec2";
 import { IRole } from "aws-cdk-lib/aws-iam";
 import { ILogGroup } from "aws-cdk-lib/aws-logs";
 import { IBucket } from "aws-cdk-lib/aws-s3";
@@ -448,33 +448,127 @@ export class FlowLogFormat {
  * Configuration for the FlowLog class.
  */
 export interface FlowLogProps extends ResourceProps {
+    /**
+     * The location where flow logs should be delivered.
+     * 
+     * @see [FlowLog LogDestination](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination)
+     * @see [FlowLog LogDestinationType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype)
+     * 
+     * @group Inputs
+     */
     readonly destination?: FlowLogDestination;
+
+    /**
+     * The fields to include in the flow log record, in the order in which they
+     * should appear. For a list of available fields, see {@link FlowLogField}.
+     * 
+     * @see [FlowLog LogFormat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat)
+     * 
+     * @group Inputs
+     */
     readonly format?: FlowLogFormat;
+
+    /**
+     * The maximum interval of time during which a flow of packets is captured
+     * and aggregated into a flow log record.
+     * 
+     * @see [FlowLog MaxAggregationInterval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval)
+     * 
+     * @group Inputs
+     */
     readonly maxAggregationInterval?: FlowLogAggregationInterval;
+
+    /**
+     * Details for the resource from which flow logs will be captured.
+     * 
+     * @see [FlowLog ResourceId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid)
+     * @see [FlowLog ResourceType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype)
+     * 
+     * @group Inputs
+     */
     readonly resourceType: FlowLogResourceType;
+
+    /**
+     * The type of traffic to monitor (accepted traffic, rejected traffic, or
+     * all traffic).
+     * 
+     * @see [FlowLog TrafficType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype)
+     * 
+     * @group Inputs
+     */
     readonly trafficType?: FlowLogTrafficType
 }
 
 export class FlowLog extends Resource implements IFlowLog {
-    // Input properties
+    /**
+     * The location where flow logs should be delivered.
+     * 
+     * @see [FlowLog LogDestination](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination)
+     * @see [FlowLog LogDestinationType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype)
+     * 
+     * @group Inputs
+     */
     public readonly destination: FlowLogDestination;
-    public readonly destinationType: FlowLogDestinationType;
-    public readonly destinationOptions?: {[key: string]: any};
+
+    /**
+     * The fields to include in the flow log record, in the order in which they
+     * should appear. For a list of available fields, see {@link FlowLogField}.
+     * 
+     * @see [FlowLog LogFormat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat)
+     * 
+     * @group Inputs
+     */
     public readonly format: FlowLogFormat;
-    public readonly keyPrefix?: string;
+
+    /**
+     * The maximum interval of time during which a flow of packets is captured
+     * and aggregated into a flow log record.
+     * 
+     * @see [FlowLog MaxAggregationInterval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval)
+     * 
+     * @group Inputs
+     */
     public readonly maxAggregationInterval?: FlowLogAggregationInterval;
+
+    /**
+     * Details for the resource from which flow logs will be captured.
+     * 
+     * @see [FlowLog ResourceId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid)
+     * @see [FlowLog ResourceType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype)
+     * 
+     * @group Inputs
+     */
     public readonly resourceType: FlowLogResourceType;
-    public readonly s3Path?: string;
+
+    /**
+     * The type of traffic to monitor (accepted traffic, rejected traffic, or
+     * all traffic).
+     * 
+     * @see [FlowLog TrafficType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype)
+     * 
+     * @group Inputs
+     */
     public readonly trafficType: FlowLogTrafficType;
 
-    // Resource properties
-    public readonly bucket?: IBucket;
-    public readonly logGroup?: ILogGroup;
-    public readonly role?: IRole;
+
+    /**
+     * The underlying FlowLog CloudFormation resource.
+     * 
+     * @see [AWS::EC2::FlowLog](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html)
+     * 
+     * @group Resources
+     */
     public readonly resource: CfnFlowLog;
 
-    // Standard properties
+    
+    /**
+     * The Amazon Resource Name (ARN) of the flow log.
+     */
     public readonly flowLogArn: string;
+
+    /**
+     * The ID of the flow log.
+     */
     public readonly flowLogId: string;
 
 
@@ -488,6 +582,7 @@ export class FlowLog extends Resource implements IFlowLog {
      */
     constructor(scope: IConstruct, id: string, props: FlowLogProps) {
         super(scope, id);
+
         this.format = props.format ?? FlowLogFormat.V2;
         this.maxAggregationInterval = props.maxAggregationInterval;
         this.resourceType = props.resourceType;
@@ -501,20 +596,14 @@ export class FlowLog extends Resource implements IFlowLog {
         );
 
         const resolvedDestination = this.destination.bind(this);
-        this.bucket = resolvedDestination.bucket;
-        this.destinationOptions = resolvedDestination.destinationOptions;
-        this.destinationType = resolvedDestination.destinationType;
-        this.keyPrefix = resolvedDestination.keyPrefix;
-        this.logGroup = resolvedDestination.logGroup;
-        this.role = resolvedDestination.role;
-        this.s3Path = resolvedDestination.s3Path;
         
         this.resource = new CfnFlowLog(this, 'Resource', {
-            deliverLogsPermissionArn: this.role?.roleArn,
-            logDestination: this.s3Path,
-            logDestinationType: this.destinationType,
+            deliverLogsPermissionArn: resolvedDestination.role?.roleArn,
+            destinationOptions: resolvedDestination.destinationOptions,
+            logDestination: resolvedDestination.s3Path,
+            logDestinationType: resolvedDestination.destinationType,
             logFormat: this.format.template,
-            logGroupName: this.logGroup?.logGroupName,
+            logGroupName: resolvedDestination.logGroup?.logGroupName,
             maxAggregationInterval: this.maxAggregationInterval,
             resourceId: this.resourceType.resourceId,
             resourceType: this.resourceType.resourceType,
@@ -527,14 +616,5 @@ export class FlowLog extends Resource implements IFlowLog {
             service: 'ec2'
         });
         this.flowLogId = this.resource.ref;
-
-        const iface = CdkFlowLog.fromFlowLogId(this, 'interface', this.flowLogId);
-        Object.keys(iface).forEach((x) => {
-            if (!(x in this)) {
-                Object.defineProperty(this, x, {
-                    value: iface[x as keyof IFlowLog]
-                });
-            }
-        });
     }
 }
