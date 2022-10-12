@@ -1,6 +1,14 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: Deploys resources used for configuring the `cdk-extensions` library in AWS.
 Parameters:
+  PriceClass:
+    AllowedValues:
+      - PriceClass_100
+      - PriceClass_200
+      - PriceClass_All
+    Default: PriceClass_100
+    Description: The price class to use for the CloudFront Distribution hosting the docs bucket.
+    Type: String
   RepositoryName:
     Default: cdk-extensions
     Description: The name of the CodeCommit Repository.
@@ -16,6 +24,46 @@ Resources:
         RestrictPublicBuckets: 'true'
       WebsiteConfiguration:
         IndexDocument: index.html
+  DocsBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref 'DocsBucket'
+      PolicyDocument:
+        Statement:
+          - Action: s3:GetObject
+            Effect: Allow
+            Principal:
+              AWS: !Sub 'arn:${AWS::Partition}:iam::cloudfront:user/CloudFront Origin Access Identity ${DocsOriginAccessIdentity}'
+            Resource: !Sub '${DocsBucket.Arn}/*'
+  DocsDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - GET
+            - HEAD
+            - OPTIONS
+          DefaultTTL: '3600'
+          ForwardedValues:
+            Cookies:
+              Forward: none
+            QueryString: 'true'
+          TargetOriginId: docs-bucket
+          ViewerProtocolPolicy: redirect-to-https
+        DefaultRootObject: index.html
+        Enabled: 'true'
+        HttpVersion: http2
+        Origins:
+          - DomainName: !GetAtt 'DocsBucket.RegionalDomainName'
+            Id: docs-bucket
+            S3OriginConfig:
+              OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${DocsOriginAccessIdentity}'
+  DocsOriginAccessIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: For accessinf cdk-extensions documentation.
   Repository:
     Type: AWS::CodeCommit::Repository
     Properties:
