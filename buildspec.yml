@@ -7,6 +7,3 @@ phases:
     commands:
       - npx projen build
       - echo "npx typedoc --tsconfig ./tsconfig.dev.json"
-artifacts:
-  files:
-    - docs/generated/**/*
