@@ -1,6 +1,6 @@
 const { awscdk } = require('projen');
 
-const cdkVersion = '2.31.0'
+const cdkVersion = '2.45.0'
 
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Kevin Lucas',
