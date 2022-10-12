@@ -30,23 +30,21 @@ export interface NamedQueryProps extends ResourceProps {
 }
 
 export class NamedQuery extends Resource {
-    // Input properties
-
     /**
      * The Glue database to which the query belongs.
-     * @group inputs
+     * @group Inputs
      */
     public readonly database: Database;
 
     /**
      * A human friendly description explaining the functionality of the query.
-     * @group inputs
+     * @group Inputs
      */
     public readonly description?: string;
 
     /**
      * The name of the query.
-     * @group inputs
+     * @group Inputs
      */
     public readonly name?: string;
 
@@ -57,16 +55,13 @@ export class NamedQuery extends Resource {
     public readonly queryString: string;
 
 
-    // Resource properties
-
     /**
      * The underlying NamedQuery CloudFormation resource.
-     * @group resources
+     * @group Resources
      */
     public readonly resource: CfnNamedQuery;
 
 
-    // Standard properties
     /**
      * The unique ID of the query.
      */
@@ -81,9 +76,10 @@ export class NamedQuery extends Resource {
     /**
      * Creates a new instance of the NamedQuery class.
      * 
-     * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
-     * @param id A name to be associated with the stack and used in resource naming. Must be unique 
-     * within the context of 'scope'.
+     * @param scope A CDK Construct that will serve as this stack's parent in 
+     * the construct tree.
+     * @param id A name to be associated with the stack and used in resource 
+     * naming. Must be unique within the context of 'scope'.
      * @param props Arguments related to the configuration of the resource.
      */
     constructor(scope: Construct, id: string, props: NamedQueryProps) {
