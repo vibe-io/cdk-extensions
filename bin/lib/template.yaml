@@ -163,7 +163,7 @@ Resources:
               - codecommit:GetUploadArchiveStatus
               - codecommit:UploadArchive
             Effect: Allow
-            Resource: !GetAtt 'Repository.Arn'
+            Resource: !Sub 'arn:${AWS::Partition}:codecommit:${AWS::Region}:${AWS::AccountId}:*'
           - Action: s3:*
             Effect: Allow
             Resource:
