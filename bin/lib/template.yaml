@@ -98,7 +98,7 @@ Resources:
                 BranchName: master
                 OutputArtifactFormat: CODE_ZIP
                 PollForSourceChanges: 'false'
-                RepositoryName: !Ref 'Repository'
+                RepositoryName: !GetAtt 'Repository.Name'
               Name: source
               OutputArtifacts:
                 - Name: source-code
@@ -163,7 +163,7 @@ Resources:
               - codecommit:GetUploadArchiveStatus
               - codecommit:UploadArchive
             Effect: Allow
-            Resource: !Sub 'arn:${AWS::Partition}:codecommit:${AWS::Region}:${AWS::AccountId}:*'
+            Resource: !GetAtt 'Repository.Arn'
           - Action: s3:*
             Effect: Allow
             Resource:
