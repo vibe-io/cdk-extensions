@@ -1,11 +1,6 @@
-import { CfnDeliveryStream } from "aws-cdk-lib/aws-kinesisfirehose";
 import { IConstruct } from "constructs";
 import { DeliveryStreamProcessor } from "./processors/delivery-stream-processor";
 
-export interface BackupConfigurationResult {
-    readonly s3BackupConfiguration?: CfnDeliveryStream.S3DestinationConfigurationProperty;
-    readonly s3BackupMode?: string;
-}
 
 export interface ProcessorConfigurationResult {
     readonly enabled?: boolean;
