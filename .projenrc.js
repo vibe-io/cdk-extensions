@@ -7,6 +7,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'kevinluc08@gmail.com',
   cdkVersion: cdkVersion,
   defaultReleaseBranch: 'master',
+  gitignore: [
+    '/docs/generated/'
+  ],
   name: 'cdk-extensions',
   repositoryUrl: 'https://github.com/Pharrox/cdk-extensions.git',
 
