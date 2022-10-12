@@ -103,8 +103,8 @@ export class InstanceAccessControlAttributeConfiguration extends Resource {
      * identity source with an attribute in IAM Identity Center.
      * @param sources The identity sources to use when mapping a specified
      * attribute to IAM Identity Center.
-     * @returns An {@link AccessControlAttribute} resource that will be applied
-     * to the configuration and supports continued management.
+     * @returns An AccessControlAttribute resource that will be applied to the
+     * configuration and supports continued management.
      */
     public addAttribute(key: string, ...sources: string[]): AccessControlAttribute {
         const attribute = new AccessControlAttribute({

@@ -8,24 +8,73 @@ import { Database } from '../../glue/constructs/database';
  * Configuration for Database
  */
 export interface NamedQueryProps extends ResourceProps {
+    /**
+     * The Glue database to which the query belongs.
+     */
     readonly database: Database;
+
+    /**
+     * A human friendly description explaining the functionality of the query.
+     */
     readonly description?: string;
+
+    /**
+     * The name of the query.
+     */
     readonly name?: string;
+
+    /**
+     * The SQL statements that make up the query.
+     */
     readonly queryString: string;
 }
 
 export class NamedQuery extends Resource {
     // Input properties
+
+    /**
+     * The Glue database to which the query belongs.
+     * @group inputs
+     */
     public readonly database: Database;
+
+    /**
+     * A human friendly description explaining the functionality of the query.
+     * @group inputs
+     */
     public readonly description?: string;
+
+    /**
+     * The name of the query.
+     * @group inputs
+     */
     public readonly name?: string;
+
+    /**
+     * The SQL statements that make up the query.
+     * @group inputs
+     */
     public readonly queryString: string;
 
+
     // Resource properties
+
+    /**
+     * The underlying NamedQuery CloudFormation resource.
+     * @group resources
+     */
     public readonly resource: CfnNamedQuery;
 
+
     // Standard properties
+    /**
+     * The unique ID of the query.
+     */
     public readonly namedQueryId: string;
+
+    /**
+     * The name of the query.
+     */
     public readonly namedQueryName: string;
 
 

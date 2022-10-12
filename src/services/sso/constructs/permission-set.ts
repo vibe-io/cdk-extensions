@@ -31,7 +31,7 @@ export interface PermissionSetProps extends ResourceProps {
     /**
      * A list of the IAM managed policies that you want to attach to the
      * permission set. Managed policies specified here must be AWS managed. 
-     * To reference custom managed policies use the {@link addCustomerManagedPolicy}
+     * To reference custom managed policies use the {@link PermissionSet.addCustomerManagedPolicy}
      * method.
      */
     readonly managedPolicies?: IManagedPolicy[];
