@@ -83,3 +83,7 @@ Resources:
     Properties:
       RepositoryDescription: Additional CDK resources and constructs.
       RepositoryName: !Ref 'RepositoryName'
+  Pipeline:
+    Type: AWS::CodePipeline::Pipeline
+  Project:
+    Type: AWS::CodeBuild::Project

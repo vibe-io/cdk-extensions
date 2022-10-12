@@ -2,10 +2,11 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - npm install
+      - yarn
   build:
     commands:
-      - npx typedoc --tsconfig ./tsconfig.dev.json
+      - npx projen build
+      - echo "npx typedoc --tsconfig ./tsconfig.dev.json"
 artifacts:
   files:
     - docs/generated/**/*
