@@ -10,21 +10,30 @@ import { Database } from '../../glue/constructs/database';
 export interface NamedQueryProps extends ResourceProps {
     /**
      * The Glue database to which the query belongs.
+     * 
+     * @see [NamedQuery Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database)
      */
     readonly database: Database;
 
     /**
      * A human friendly description explaining the functionality of the query.
+     * 
+     * @see [NamedQuery Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description)
      */
     readonly description?: string;
 
     /**
      * The name of the query.
+     * 
+     * @see [NamedQuery Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name)
      */
     readonly name?: string;
 
     /**
      * The SQL statements that make up the query.
+     * 
+     * @see [NamedQuery QueryString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring)
+     * @see [Athena SQL reference](https://docs.aws.amazon.com/athena/latest/ug/ddl-sql-reference.html)
      */
     readonly queryString: string;
 }
@@ -32,24 +41,37 @@ export interface NamedQueryProps extends ResourceProps {
 export class NamedQuery extends Resource {
     /**
      * The Glue database to which the query belongs.
+     * 
+     * @see [NamedQuery Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database)
+     * 
      * @group Inputs
      */
     public readonly database: Database;
 
     /**
      * A human friendly description explaining the functionality of the query.
+     * 
+     * @see [NamedQuery Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description)
+     * 
      * @group Inputs
      */
     public readonly description?: string;
 
     /**
      * The name of the query.
+     * 
+     * @see [NamedQuery Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name)
+     * 
      * @group Inputs
      */
     public readonly name?: string;
 
     /**
      * The SQL statements that make up the query.
+     * 
+     * @see [NamedQuery QueryString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring)
+     * @see [Athena SQL reference](https://docs.aws.amazon.com/athena/latest/ug/ddl-sql-reference.html)
+     * 
      * @group inputs
      */
     public readonly queryString: string;
@@ -57,6 +79,9 @@ export class NamedQuery extends Resource {
 
     /**
      * The underlying NamedQuery CloudFormation resource.
+     * 
+     * @see [AWS::Athena::NamedQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html)
+     * 
      * @group Resources
      */
     public readonly resource: CfnNamedQuery;
