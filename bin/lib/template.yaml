@@ -164,6 +164,11 @@ Resources:
               - codecommit:UploadArchive
             Effect: Allow
             Resource: !GetAtt 'Repository.Arn'
+          - Action:
+              - codebuild:BatchGetBuilds
+              - codebuild:StartBuild
+            Effect: Allow
+            Resource: !GetAtt 'Project.Arn'
           - Action: s3:*
             Effect: Allow
             Resource:
@@ -218,7 +223,7 @@ Resources:
             Resource: !Sub 'arn:${AWS::Partition}:codepipeline:${AWS::Region}:${AWS::AccountId}:${Pipeline}'
         Version: 2012-10-17
       Roles:
-        - !Ref 'ProjectServiceRole'
+        - !Ref 'PipelineTriggerServiceRole'
   Project:
     Type: AWS::CodeBuild::Project
     Properties:
