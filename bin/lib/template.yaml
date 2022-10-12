@@ -78,12 +78,208 @@ Resources:
     Properties:
       CloudFrontOriginAccessIdentityConfig:
         Comment: For accessinf cdk-extensions documentation.
+  Pipeline:
+    Type: AWS::CodePipeline::Pipeline
+    Properties:
+      ArtifactStores:
+        - ArtifactStore:
+            Location: !Ref 'PipelineArtifactBucket'
+            Type: S3
+          Region: !Ref 'AWS::Region'
+      RoleArn: !GetAtt 'PipelineServiceRole.Arn'
+      Stages:
+        - Actions:
+            - ActionTypeId:
+                Category: Source
+                Owner: AWS
+                Provider: CodeCommit
+                Version: '1'
+              Configuration:
+                BranchName: master
+                OutputArtifactFormat: CODE_ZIP
+                PollForSourceChanges: 'false'
+                RepositoryName: !Ref 'Repository'
+              Name: source
+              OutputArtifacts:
+                - Name: source-code
+          Name: source
+        - Actions:
+            - ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Provider: CodeBuild
+                Version: '1'
+              Configuration:
+                ProjectName: !Ref 'Project'
+              InputArtifacts:
+                - Name: source-code
+              Name: build
+          Name: build
+  PipelineArtifactBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      LifecycleConfiguration:
+        Rules:
+          - AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: '1'
+            ExpirationInDays: '30'
+            NoncurrentVersionExpiration:
+              NoncurrentDays: '7'
+            Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: 'true'
+        BlockPublicPolicy: 'true'
+        IgnorePublicAcls: 'true'
+        RestrictPublicBuckets: 'true'
+      VersioningConfiguration:
+        Status: Enabled
+  PipelineServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: 'Allow'
+            Principal:
+              Service: codepipeline.amazonaws.com
+        Version: 2012-10-17
+      Path: /service-role/
+  PipelineServiceRolePolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      Description: Grants permissions needed by CodePipeline to build and deploy cdk-extensions.
+      Path: /service-role/
+      PolicyDocument:
+        Statement:
+          - Action:
+              - codecommit:CancelUploadArchive
+              - codecommit:GetBranch
+              - codecommit:GetCommit
+              - codecommit:GetRepository
+              - codecommit:GetUploadArchiveStatus
+              - codecommit:UploadArchive
+            Effect: Allow
+            Resource: !GetAtt 'Repository.Arn'
+          - Action: s3:*
+            Effect: Allow
+            Resource:
+              - !GetAtt 'PipelineArtifactBucket.Arn'
+              - !Sub '${PipelineArtifactBucket.Arn}/*'
+        Version: 2012-10-17
+      Roles:
+        - !Ref 'PipelineServiceRole'
+  PipelineTrigger:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Automatically starts cdk-extensions pipeline when a change occurs in CodeCommit.
+      EventPattern:
+        detail:
+          event:
+            - referenceCreated
+            - referenceUpdated
+          referenceType:
+            - branch
+          referenceName:
+            - master
+        detail-type:
+          - CodeCommit Repository State Change
+        resources:
+          - !GetAtt 'Repository.Arn'
+        source:
+          - aws.codecommit
+      Targets:
+        - Arn: !Sub 'arn:${AWS::Partition}:codepipeline:${AWS::Region}:${AWS::AccountId}:${Pipeline}'
+          Id: cdk-extensions-build-pipeline
+          RoleArn: !GetAtt 'PipelineTriggerServiceRole.Arn'
+  PipelineTriggerServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: 'Allow'
+            Principal:
+              Service: events.amazonaws.com
+        Version: 2012-10-17
+      Path: /service-role/
+  PipelineTriggerServiceRolePolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      Description: Grants the ability for EventBridge to start cdk-extensions pipeline.
+      Path: /service-role/
+      PolicyDocument:
+        Statement:
+          - Action: codepipeline:StartPipelineExecution
+            Effect: Allow
+            Resource: !Sub 'arn:${AWS::Partition}:codepipeline:${AWS::Region}:${AWS::AccountId}:${Pipeline}'
+        Version: 2012-10-17
+      Roles:
+        - !Ref 'ProjectServiceRole'
+  Project:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Artifacts:
+        Type: CODEPIPELINE
+      Description: Builds JSII artifacts for cdk-extensions.
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: aws/codebuild/amazonlinux2-x86_64-standard:4.0
+        ImagePullCredentialsType: CODEBUILD
+        Type: LINUX_CONTAINER
+      LogsConfig:
+        CloudWatchLogs:
+          GroupName: !Ref 'ProjectLogGroup'
+          Status: ENABLED
+      ServiceRole: !GetAtt 'ProjectServiceRole.Arn'
+      Source:
+        Type: CODEPIPELINE
+  ProjectLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      RetentionInDays: '30'
+  ProjectServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: 'Allow'
+            Principal:
+              Service: codebuild.amazonaws.com
+        Version: 2012-10-17
+      Path: /service-role/
+  ProjectServiceRolePolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      Description: Grants permissions needed by CodeBuild to build and deploy cdk-extensions.
+      Path: /service-role/
+      PolicyDocument:
+        Statement:
+          - Action:
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+            Effect: Allow
+            Resource: !GetAtt 'ProjectLogGroup.Arn'
+          - Action:
+              - s3:GetBucketAcl
+              - s3:GetBucketLocation
+            Effect: Allow
+            Resource: !GetAtt 'PipelineArtifactBucket.Arn'
+          - Action:
+              - s3:GetObject
+              - s3:GetObjectVersion
+              - s3:PutObject
+            Effect: Allow
+            Resource: !Sub '${PipelineArtifactBucket.Arn}/*'
+        Version: 2012-10-17
+      Roles:
+        - !Ref 'ProjectServiceRole'
   Repository:
     Type: AWS::CodeCommit::Repository
     Properties:
       RepositoryDescription: Additional CDK resources and constructs.
       RepositoryName: !Ref 'RepositoryName'
-  Pipeline:
-    Type: AWS::CodePipeline::Pipeline
-  Project:
-    Type: AWS::CodeBuild::Project
