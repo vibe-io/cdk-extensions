@@ -275,6 +275,9 @@ Resources:
           - Action: codeartifact:GetRepositoryEndpoint
             Effect: Allow
             Resource: !GetAtt 'ArtifactRepository.Arn'
+          - Action: codeartifact:PublishPackageVersion
+            Effect: Allow
+            Resource: !Sub 'arn:${AWS::Partition}:codeartifact:${AWS::Region}:${ArtifactDomain.Owner}:package/${ArtifactDomain.Name}/${ArtifactRepository.Name}/*'
           - Action:
               - logs:CreateLogStream
               - logs:PutLogEvents
