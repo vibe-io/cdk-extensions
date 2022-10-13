@@ -272,6 +272,9 @@ Resources:
           - Action: codeartifact:GetAuthorizationToken
             Effect: Allow
             Resource: !GetAtt 'ArtifactDomain.Arn'
+          - Action: codeartifact:GetRepositoryEndpoint
+            Effect: Allow
+            Resource: !GetAtt 'ArtifactRepository.Arn'
           - Action:
               - logs:CreateLogStream
               - logs:PutLogEvents
