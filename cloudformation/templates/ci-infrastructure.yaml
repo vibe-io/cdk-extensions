@@ -272,7 +272,9 @@ Resources:
           - Action: codeartifact:GetAuthorizationToken
             Effect: Allow
             Resource: !GetAtt 'ArtifactDomain.Arn'
-          - Action: codeartifact:GetRepositoryEndpoint
+          - Action:
+              - codeartifact:GetRepositoryEndpoint
+              - codeartifact:ReadFromRepository
             Effect: Allow
             Resource: !GetAtt 'ArtifactRepository.Arn'
           - Action: codeartifact:PublishPackageVersion
