@@ -7,3 +7,7 @@ phases:
     commands:
       - npx projen build
       - echo "npx typedoc --tsconfig ./tsconfig.dev.json"
+  post_build:
+    commands:
+      - aws codeartifact login --tool npm --repository jsii --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}"
+      - npm publish
