@@ -3,7 +3,7 @@ phases:
   install:
     commands:
       - yarn
-      - python -m pip install twine
+      - pip install twine
   pre_build:
     commands:
       - aws codeartifact login --tool npm --repository jsii --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}"
