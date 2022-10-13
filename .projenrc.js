@@ -8,10 +8,14 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'kevinluc08@gmail.com',
   cdkVersion: cdkVersion,
   defaultReleaseBranch: 'master',
+  dotnet: {
+    dotNetNamespace: 'CdkExtensions',
+    packageId: 'CdkExtensions',
+  },
   gitignore: [
     '/docs/generated/',
   ],
-  publishToPypi: {
+  python: {
     distName: projectName,
     module: projectName,
   },

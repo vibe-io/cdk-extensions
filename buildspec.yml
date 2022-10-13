@@ -12,5 +12,7 @@ phases:
     commands:
       - aws codeartifact login --tool npm --repository jsii --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}"
       - aws codeartifact login --tool twine --repository jsii --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}"
+      - aws codeartifact login --tool nuget --repository jsii --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}"
+      - tree dist
       - npm publish
       - twine upload --repository codeartifact ./dist/python/*.tar.gz
