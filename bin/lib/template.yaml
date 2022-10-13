@@ -288,6 +288,9 @@ Resources:
               - s3:PutObject
             Effect: Allow
             Resource: !Sub '${PipelineArtifactBucket.Arn}/*'
+          - Action: sts:GetServiceBearerToken
+            Effect: Allow
+            Resource: '*'
         Version: 2012-10-17
       Roles:
         - !Ref 'ProjectServiceRole'
