@@ -5,7 +5,7 @@ phases:
       - yarn
   build:
     commands:
-      - npx projen build
+      - npx projen release
       - echo "npx typedoc --tsconfig ./tsconfig.dev.json"
   post_build:
     commands:
