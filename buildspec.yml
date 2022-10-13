@@ -17,4 +17,4 @@ phases:
       - tree dist
       - npm publish
       - twine upload --repository codeartifact ./dist/python/*.tar.gz
-      - dotnet nuget push ./dist/dotnet/*.nupkg
+      - dotnet nuget push ./dist/dotnet/*.nupkg -s "$(aws codeartifact get-repository-endpoint --domain cdk-extensions --repository jsii --format nuget --query repositoryEndpoint --output text)"

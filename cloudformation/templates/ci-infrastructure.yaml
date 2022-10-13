@@ -237,6 +237,8 @@ Resources:
             Value: !GetAtt 'ArtifactDomain.Name'
           - Name: CODE_ARTIFACT_OWNER
             Value: !GetAtt 'ArtifactDomain.Owner'
+          - Name: NUGET_SOURCE
+            Value: !GetAtt
         Image: aws/codebuild/amazonlinux2-x86_64-standard:4.0
         ImagePullCredentialsType: CODEBUILD
         Type: LINUX_CONTAINER
