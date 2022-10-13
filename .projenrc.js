@@ -15,6 +15,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   gitignore: [
     '/docs/generated/',
   ],
+  publishToMaven: {
+    javaPackage: 'com.pharrox.jsii',
+    mavenArtifactId: 'cdk-extensions',
+    mavenGroupId: 'com.pharrox.jsii'
+  },
   python: {
     distName: projectName,
     module: projectName,
