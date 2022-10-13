@@ -1,5 +1,6 @@
 const { awscdk } = require('projen');
 
+const projectName = 'cdk-extensions';
 const cdkVersion = '2.45.0';
 
 const project = new awscdk.AwsCdkConstructLibrary({
@@ -10,7 +11,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   gitignore: [
     '/docs/generated/',
   ],
-  name: 'cdk-extensions',
+  publishToPypi: {
+    distName: projectName,
+    module: projectName,
+  },
+  name: projectName,
   repositoryUrl: 'https://github.com/Pharrox/cdk-extensions.git',
 
   // deps: [],                /* Runtime dependencies of this module. */
