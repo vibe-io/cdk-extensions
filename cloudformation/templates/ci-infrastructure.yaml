@@ -96,7 +96,7 @@ Resources:
                 Version: '1'
               Configuration:
                 BranchName: master
-                OutputArtifactFormat: CODE_ZIP
+                OutputArtifactFormat:  CODEBUILD_CLONE_REF
                 PollForSourceChanges: 'false'
                 RepositoryName: !GetAtt 'Repository.Name'
               Name: source
@@ -285,6 +285,9 @@ Resources:
               - logs:PutLogEvents
             Effect: Allow
             Resource: !GetAtt 'ProjectLogGroup.Arn'
+          - Action: codecommit:GitPull
+            Effect: Allow
+            Resource: !GetAtt 'Repository.Arn'
           - Action:
               - s3:GetBucketAcl
               - s3:GetBucketLocation
