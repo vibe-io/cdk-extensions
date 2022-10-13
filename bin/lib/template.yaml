@@ -269,6 +269,9 @@ Resources:
       Path: /service-role/
       PolicyDocument:
         Statement:
+          - Action: codeartifact:GetAuthorizationToken
+            Effect: Allow
+            Resource: !GetAtt 'ArtifactDomain.Arn'
           - Action:
               - logs:CreateLogStream
               - logs:PutLogEvents
