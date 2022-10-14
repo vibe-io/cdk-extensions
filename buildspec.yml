@@ -17,17 +17,11 @@ phases:
           MAVEN_PASSWORD="${CODE_ARTIFACT_TOKEN}"
           MAVEN_SERVER_ID='codeartifact'
           MAVEN_REPOSITORY_URL="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format maven --query repositoryEndpoint --output text)"
-          npx -p publib@latest publib-maven
-      - >-
+          NPM_DIST_TAG='latest'
+          NPM_REGISTRY="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format npm --query repositoryEndpoint --output text | sed -r 's!^https?://!!')"
+          NUGET_API_KEY="${CODE_ARTIFACT_TOKEN}"
+          NUGET_SERVER="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format nuget --query repositoryEndpoint --output text)v3/index.json"
           TWINE_USERNAME='aws'
           TWINE_PASSWORD="${CODE_ARTIFACT_TOKEN}"
           TWINE_REPOSITORY_URL="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format pypi --query repositoryEndpoint --output text)"
-          npx -p publib@latest publib-pypi
-      - >-
-          NUGET_API_KEY="${CODE_ARTIFACT_TOKEN}"
-          NUGET_SERVER="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format nuget --query repositoryEndpoint --output text)v3/index.json"
-          npx -p publib@latest publib-nuget
-      - >-
-          NPM_DIST_TAG='latest'
-          NPM_REGISTRY="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format npm --query repositoryEndpoint --output text)"
-          npx -p publib@latest publib-npm
+          npx -p publib@latest publib
