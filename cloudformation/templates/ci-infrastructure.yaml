@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: Deploys resources used for configuring the `cdk-extensions` library in AWS.
 Parameters:
   ArtifactDomainName:
-    Default: cdk-extensions
+    Default: jsii
     Description: The name of the CodeArtifact Domain.
     Type: String
   PriceClass:
@@ -27,7 +27,7 @@ Resources:
     Properties:
       Description: Hosts JSII packages for cdk-extensions
       DomainName: !GetAtt 'ArtifactDomain.Name'
-      RepositoryName: jsii
+      RepositoryName: !Ref 'RepositoryName'
   DocsBucket:
     Type: AWS::S3::Bucket
     Properties:
