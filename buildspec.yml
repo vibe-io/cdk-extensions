@@ -17,6 +17,7 @@ phases:
       - env
       - git config user.name "codecommit"
       - git config user.email "codecommit@amazonaws.com"
+      - git remote -v
       - RELEASE_TAG="$(cat dist/releasetag.txt)"
       - echo "Using release tag '${RELEASE_TAG}'"
       - git tag "${RELEASE_TAG}"
