@@ -2,9 +2,12 @@ version: 0.2
 phases:
   install:
     commands:
-      - yum install -y tree
       - yarn
       - pip install twine
+      - dotnet tool install -g AWS.CodeArtifact.NuGet.CredentialProvider
+  pre_build:
+    commands:
+      - dotnet codeartifact-creds install
   build:
     commands:
       - npx projen release
