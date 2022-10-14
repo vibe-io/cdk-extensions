@@ -23,6 +23,8 @@ phases:
       - git tag "${RELEASE_TAG}"
       - git push codecommit "${RELEASE_TAG}"
       - aws s3 sync ./docs/generated/ "s3://${DOCS_BUCKET}/" --only-show-errors
+      - env
+      - echo "${JAVA_HOME}"
       - tree dist
       - CODE_ARTIFACT_TOKEN="$(aws codeartifact get-authorization-token --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}" --query authorizationToken --output text)"
       - >-
