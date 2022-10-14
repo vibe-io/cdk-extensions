@@ -237,6 +237,10 @@ Resources:
             Value: !GetAtt 'ArtifactDomain.Name'
           - Name: CODE_ARTIFACT_OWNER
             Value: !GetAtt 'ArtifactDomain.Owner'
+          - Name: CODE_ARTIFACT_REPO
+            Value: !GetAtt 'ArtifactRepositoy.Name'
+          - Name: CODECOMMIT_GRC_URL
+            Value: !Sub 'codecommit::${AWS::Region}://${Repository.Name}'
         Image: aws/codebuild/amazonlinux2-x86_64-standard:4.0
         ImagePullCredentialsType: CODEBUILD
         Type: LINUX_CONTAINER
