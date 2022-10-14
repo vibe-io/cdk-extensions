@@ -12,6 +12,7 @@ phases:
       - git config user.email "codecommit@amazonaws.com"
       - git remote add codecommit "${CODECOMMIT_GRC_URL}"
       - dotnet codeartifact-creds install
+      - yum install -y java-17-amazon-corretto-devel
       - mv "$(which mvn)" /tmp/mvn
       - echo -e '#!/bin/bash\n/tmp/mvn "$@" | tee /tmp/mvn-log.txt' > /usr/bin/mvn
       - chmod +x /usr/bin/mvn
