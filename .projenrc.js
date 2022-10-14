@@ -10,6 +10,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   defaultReleaseBranch: 'master',
   gitignore: [
     '/docs/generated/',
+    '/.vscode/'
   ],
   publishToNuget: {
     dotNetNamespace: 'CdkExtensions',
