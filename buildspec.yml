@@ -11,6 +11,12 @@ phases:
       - echo "npx typedoc --tsconfig ./tsconfig.dev.json"
   post_build:
     commands:
+      - CODE_ARTIFACT_TOKEN="$(aws codeartifact get-authorization-token --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}" --query authorizationToken --output text)"
+      - >-
+          MAVEN_USERNAME="aws"
+          MAVEN_PASSWORD="${CODE_ARTIFACT_TOKEN}"
+          MAVEN_REPOSITORY_URL="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format maven --query repositoryEndpoint --output text)"
+          npx -p publib@latest publib-maven
       - aws codeartifact login --tool npm --repository jsii --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}"
       - aws codeartifact login --tool twine --repository jsii --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}"
       - aws codeartifact login --tool dotnet --repository jsii --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}"
@@ -19,8 +25,3 @@ phases:
       - npm publish
       - twine upload --repository codeartifact ./dist/python/*.tar.gz
       - dotnet nuget push ./dist/dotnet/*.nupkg -s "${CODE_ARTIFACT_DOMAIN}/jsii"
-      - >-
-          MAVEN_USERNAME="aws"
-          MAVEN_PASSWORD="$(aws codeartifact get-authorization-token --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}" --query authorizationToken --output text)"
-          MAVEN_REPOSITORY_URL="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format maven --query repositoryEndpoint --output text)"
-          npx -p publib@latest publib-maven
