@@ -1,4 +1,4 @@
-const { awscdk } = require('projen');
+const { awscdk, LogLevel } = require('projen');
 
 const projectName = 'cdk-extensions';
 const cdkVersion = '2.45.0';
@@ -12,6 +12,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '/docs/generated/',
     '/.vscode/',
   ],
+  logging: {
+    level: LogLevel.VERBOSE
+  },
   publishToNuget: {
     dotNetNamespace: 'CdkExtensions',
     packageId: 'CdkExtensions',

@@ -10,7 +10,8 @@
             "request": "launch",
             "name": "Package Java",
             "env": {
-                "NVM_DIR": "/root/.nvm"
+                "NVM_DIR": "/root/.nvm",
+                "MAVEN_OPTS": "-Dlog-file=/tmp/mvn-out.txt"
             },
             "skipFiles": [
                 "<node_internals>/**"
