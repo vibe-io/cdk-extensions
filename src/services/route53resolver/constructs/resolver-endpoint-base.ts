@@ -93,7 +93,7 @@ export class ResolverEndpointBase extends Resource {
   public readonly resolverEndpointIpAddressCount: string;
 
   /**
-     * The IP addresses of the resolver. Only available if {@link ResolverEndpointBaseProps.subnetOffset | subnetOffset} is specified.
+     * The IP addresses of the resolver. Only available if `subnetOffset` is specified.
      */
   public readonly resolverEndpointIps?: string[];
 

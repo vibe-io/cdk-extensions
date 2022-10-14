@@ -12,7 +12,7 @@ export function trimString(input: string, length: number): string {
 }
 
 export function undefinedIfNoKeys<A>(obj: A): A | undefined {
-  const allUndefined = Object.values(obj).every(val => val === undefined);
+  const allUndefined = Object.values(obj as any).every(val => val === undefined);
   return allUndefined ? undefined : obj;
 }
 
@@ -28,7 +28,7 @@ export function definedElementsOrUndefined<A>(obj: (A | undefined)[]): A[] | und
 }
 
 export function definedFields<A>(obj: A): A {
-  return Object.keys(obj).reduce((prev, cur) => {
+  return Object.keys(obj as any).reduce((prev, cur) => {
     const key = cur as keyof A;
     if (obj[key] !== undefined) {
       prev[key] = obj[key];
