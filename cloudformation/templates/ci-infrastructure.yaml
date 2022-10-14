@@ -287,9 +287,6 @@ Resources:
             Effect: Allow
             Resource: !Sub 'arn:${AWS::Partition}:codeartifact:${AWS::Region}:${ArtifactDomain.Owner}:package/${ArtifactDomain.Name}/${ArtifactRepository.Name}/*'
           - Action: codecommit:GitPush
-            Condition:
-              StringLike:
-                codecommit:References: refs/tags/*
             Effect: Allow
             Resource: !GetAtt 'Repository.Arn'
           - Action:
