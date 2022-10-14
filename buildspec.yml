@@ -4,22 +4,17 @@ phases:
     commands:
       - yarn
       - pip install git-remote-codecommit twine
+      - yum install -y java-17-amazon-corretto-devel
       - dotnet tool install -g AWS.CodeArtifact.NuGet.CredentialProvider
-      - yum install -y tree
+      - dotnet codeartifact-creds install
   pre_build:
     commands:
       - git config user.name "codecommit"
       - git config user.email "codecommit@amazonaws.com"
       - git remote add codecommit "${CODECOMMIT_GRC_URL}"
-      - dotnet codeartifact-creds install
-      - yum install -y java-17-amazon-corretto-devel
-      - mv "$(which mvn)" /tmp/mvn
-      - echo -e '#!/bin/bash\n/tmp/mvn "$@" | tee /tmp/mvn-log.txt' > /usr/bin/mvn
-      - chmod +x /usr/bin/mvn
   build:
     commands:
       - npx projen release
-      - cat /tmp/mvn-log.txt
       - npx typedoc --tsconfig ./tsconfig.dev.json
   post_build:
     commands:
@@ -28,9 +23,6 @@ phases:
       - git tag "${RELEASE_TAG}"
       - git push codecommit "${RELEASE_TAG}"
       - aws s3 sync ./docs/generated/ "s3://${DOCS_BUCKET}/" --only-show-errors
-      - env
-      - echo "${JAVA_HOME}"
-      - tree dist
       - CODE_ARTIFACT_TOKEN="$(aws codeartifact get-authorization-token --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}" --query authorizationToken --output text)"
       - >-
           MAVEN_USERNAME='aws'
