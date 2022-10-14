@@ -72,7 +72,7 @@ export class NamedQuery extends Resource {
      * @see [NamedQuery QueryString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring)
      * @see [Athena SQL reference](https://docs.aws.amazon.com/athena/latest/ug/ddl-sql-reference.html)
      *
-     * @group inputs
+     * @group Inputs
      */
   public readonly queryString: string;
 
@@ -122,7 +122,7 @@ export class NamedQuery extends Resource {
       queryString: this.queryString,
     });
 
-    this.namedQueryId = this.resource.attrNamedQueryId;
-    this.namedQueryName = this.resource.ref;
+this.namedQueryId = this.resource.attrNamedQueryId;
+                                             this.namedQueryName = this.resource.ref;
   }
 }
