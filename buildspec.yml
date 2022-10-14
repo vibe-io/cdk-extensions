@@ -17,7 +17,6 @@ phases:
       - echo "npx typedoc --tsconfig ./tsconfig.dev.json"
   post_build:
     commands:
-      - env
       - RELEASE_TAG="$(cat dist/releasetag.txt)"
       - echo "Using release tag '${RELEASE_TAG}'"
       - git tag "${RELEASE_TAG}"
