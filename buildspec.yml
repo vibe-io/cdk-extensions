@@ -19,7 +19,7 @@ phases:
           npx -p publib@latest publib-pypi
       - >-
           NPM_DIST_TAG='latest'
-          NPM_REGISTRY="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format npm --query repositoryEndpoint --output text)"
+          NPM_REGISTRY="$(aws codeartifact get-repository-endpoint --domain "kltest${CODE_ARTIFACT_DOMAIN}" --repository jsii --format npm --query repositoryEndpoint --output text)"
           npx -p publib@latest publib-npm
       - >-
           export MAVEN_USERNAME='aws' &&
