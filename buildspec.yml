@@ -10,6 +10,10 @@ phases:
       - npx projen release
       - MAVEN_METADATA_DIR="$(dirname "$(find ./dist/java/ -name 'maven-metadata.xml' -type f | head -1)")"
       - MAVEN_RELEASE_DIR="$(find "${MAVEN_METADATA_DIR}" -maxdepth 1 -regex '.*/[0-9]\.[0-9]\.[0-9]' -type d | head -1)"
+      - echo 'Poms:'
+      - find "${MAVEN_METADATA_DIR}" -name '*.pom' -exec cat {} \;
+      - echp 'Maven metadata:'
+      - find "${MAVEN_METADATA_DIR}" -name 'maven-metadata.xml' -exec cat {} \;
       - find "${MAVEN_METADATA_DIR}" -name 'maven-metadata.xml*' -exec mv {} "${MAVEN_RELEASE_DIR}" \;
       - tree dist
       - echo "npx typedoc --tsconfig ./tsconfig.dev.json"
