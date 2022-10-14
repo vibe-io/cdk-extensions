@@ -237,8 +237,6 @@ Resources:
             Value: !GetAtt 'ArtifactDomain.Name'
           - Name: CODE_ARTIFACT_OWNER
             Value: !GetAtt 'ArtifactDomain.Owner'
-          - Name: NUGET_SOURCE
-            Value: !GetAtt
         Image: aws/codebuild/amazonlinux2-x86_64-standard:4.0
         ImagePullCredentialsType: CODEBUILD
         Type: LINUX_CONTAINER
@@ -279,7 +277,9 @@ Resources:
               - codeartifact:ReadFromRepository
             Effect: Allow
             Resource: !GetAtt 'ArtifactRepository.Arn'
-          - Action: codeartifact:PublishPackageVersion
+          - Action:
+              - codeartifact:PublishPackageVersion
+              - codeartifact:PutPackageMetadata
             Effect: Allow
             Resource: !Sub 'arn:${AWS::Partition}:codeartifact:${AWS::Region}:${ArtifactDomain.Owner}:package/${ArtifactDomain.Name}/${ArtifactRepository.Name}/*'
           - Action:
