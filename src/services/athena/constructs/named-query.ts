@@ -122,7 +122,7 @@ export class NamedQuery extends Resource {
       queryString: this.queryString,
     });
 
-this.namedQueryId = this.resource.attrNamedQueryId;
-                                             this.namedQueryName = this.resource.ref;
+    this.namedQueryId = this.resource.attrNamedQueryId;
+    this.namedQueryName = this.resource.ref;
   }
 }
