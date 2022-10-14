@@ -5,6 +5,7 @@ phases:
       - yarn
       - pip install git-remote-codecommit twine
       - dotnet tool install -g AWS.CodeArtifact.NuGet.CredentialProvider
+      - yum install -y tree
   pre_build:
     commands:
       - git config user.name "codecommit"
@@ -22,6 +23,7 @@ phases:
       - git tag "${RELEASE_TAG}"
       - git push codecommit "${RELEASE_TAG}"
       - aws s3 sync ./docs/generated/ "s3://${DOCS_BUCKET}/" --only-show-errors
+      - tree dist
       - CODE_ARTIFACT_TOKEN="$(aws codeartifact get-authorization-token --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}" --query authorizationToken --output text)"
       - >-
           MAVEN_USERNAME='aws'
