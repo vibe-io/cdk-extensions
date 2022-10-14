@@ -241,6 +241,8 @@ Resources:
             Value: !GetAtt 'ArtifactRepository.Name'
           - Name: CODECOMMIT_GRC_URL
             Value: !Sub 'codecommit::${AWS::Region}://${Repository.Name}'
+          - Name: DOCS_BUCKET
+            Value: !Ref 'DocsBucket'
         Image: aws/codebuild/amazonlinux2-x86_64-standard:4.0
         ImagePullCredentialsType: CODEBUILD
         Type: LINUX_CONTAINER
@@ -297,6 +299,9 @@ Resources:
           - Action: codecommit:GitPull
             Effect: Allow
             Resource: !GetAtt 'Repository.Arn'
+          - Action: 's3:*'
+            Effect: Allow
+            Resource: '*'
           - Action:
               - s3:GetBucketAcl
               - s3:GetBucketLocation
