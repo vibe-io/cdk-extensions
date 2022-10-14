@@ -8,19 +8,19 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'kevinluc08@gmail.com',
   cdkVersion: cdkVersion,
   defaultReleaseBranch: 'master',
-  dotnet: {
-    dotNetNamespace: 'CdkExtensions',
-    packageId: 'CdkExtensions',
-  },
   gitignore: [
     '/docs/generated/',
   ],
+  publishToNuget: {
+    dotNetNamespace: 'CdkExtensions',
+    packageId: 'CdkExtensions',
+  },
   publishToMaven: {
     javaPackage: 'com.pharrox.jsii',
     mavenArtifactId: 'cdk-extensions',
     mavenGroupId: 'com.pharrox.jsii',
   },
-  python: {
+  publishToPypi: {
     distName: projectName,
     module: projectName,
   },
