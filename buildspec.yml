@@ -13,9 +13,18 @@ phases:
     commands:
       - CODE_ARTIFACT_TOKEN="$(aws codeartifact get-authorization-token --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}" --query authorizationToken --output text)"
       - >-
-          MAVEN_USERNAME="aws"
-          MAVEN_PASSWORD="${CODE_ARTIFACT_TOKEN}"
-          MAVEN_REPOSITORY_URL="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format maven --query repositoryEndpoint --output text)"
+          TWINE_USERNAME='aws'
+          TWINE_PASSWORD="${CODE_ARTIFACT_TOKEN}"
+          TWINE_REPOSITORY_URL="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format pypi --query repositoryEndpoint --output text)"
+          npx -p publib@latest publib-pypi
+      - >-
+          NPM_DIST_TAG='latest'
+          NPM_REGISTRY="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format npm --query repositoryEndpoint --output text)"
+          npx -p publib@latest publib-npm
+      - >-
+          export MAVEN_USERNAME='aws' &&
+          export MAVEN_PASSWORD="${CODE_ARTIFACT_TOKEN}" &&
+          export MAVEN_REPOSITORY_URL="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format maven --query repositoryEndpoint --output text)" &&
           npx -p publib@latest publib-maven
       - aws codeartifact login --tool npm --repository jsii --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}"
       - aws codeartifact login --tool twine --repository jsii --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}"
