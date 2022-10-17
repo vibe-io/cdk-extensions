@@ -12,6 +12,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '/docs/generated/',
     '/.vscode/',
   ],
+  publishToGo: {
+    moduleName: 'cdk-extensions'
+  },
   publishToNuget: {
     dotNetNamespace: 'CdkExtensions',
     packageId: 'CdkExtensions',
