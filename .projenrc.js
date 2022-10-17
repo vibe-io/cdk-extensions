@@ -21,7 +21,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     module: projectName,
   },
   name: projectName,
-  repositoryUrl: 'https://github.com/Pharrox/cdk-extensions.git',
+  repositoryUrl: 'https://github.com/RightBrain-Networks/cdk-extensions.git',
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
