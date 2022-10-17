@@ -13,6 +13,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '/.vscode/',
   ],
   publishToGo: {
+    githubTokenSecret: 'GITHUB_TOKEN',
     moduleName: 'github.com/RightBrain-Networks/cdk-extensions',
   },
   publishToNuget: {
