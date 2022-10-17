@@ -16,11 +16,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
     dotNetNamespace: 'CdkExtensions',
     packageId: 'CdkExtensions',
   },
-  publishToMaven: {
-    javaPackage: 'com.pharrox.jsii',
-    mavenArtifactId: 'cdk-extensions',
-    mavenGroupId: 'com.pharrox.jsii',
-  },
   publishToPypi: {
     distName: projectName,
     module: projectName,
