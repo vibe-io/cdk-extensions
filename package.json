@@ -127,7 +127,7 @@
         "packageId": "CdkExtensions"
       },
       "go": {
-        "moduleName": "cdk-extensions"
+        "moduleName": "cdkextensions"
       }
     },
     "tsc": {
