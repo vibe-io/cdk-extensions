@@ -22,7 +22,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     packageId: 'CdkExtensions',
   },
   publishToPypi: {
-    distName: projectName,
+    distName: 'cdk_extensions',
     module: projectName,
   },
   name: projectName,

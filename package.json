@@ -119,7 +119,7 @@
     "outdir": "dist",
     "targets": {
       "python": {
-        "distName": "cdk-extensions",
+        "distName": "cdk_extensions",
         "module": "cdk-extensions"
       },
       "dotnet": {
