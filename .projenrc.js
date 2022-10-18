@@ -22,8 +22,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
     packageId: 'CdkExtensions',
   },
   publishToPypi: {
-    distName: 'cdk_extensions',
-    module: projectName,
+    distName: 'cdk-extensions',
+    module: 'cdk_extensions',
   },
   name: projectName,
   repositoryUrl: 'https://github.com/vibe-io/cdk-extensions.git',
