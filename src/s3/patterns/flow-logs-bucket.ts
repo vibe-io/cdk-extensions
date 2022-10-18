@@ -1,11 +1,8 @@
 import { PhysicalName, ResourceProps } from 'aws-cdk-lib';
 import { Schedule } from 'aws-cdk-lib/aws-events';
 import { Construct } from 'constructs';
-import { FlowLogFormat } from '../../ec2/constructs/flow-log';
-import { ConfigurationVersion, Crawler, PartitionUpdateBehavior, UpdateBehavior } from '../../glue/constructs/crawler';
-import { Database } from '../../glue/constructs/database';
-import { S3Target } from '../../glue/constructs/lib/targets/s3-target';
-import { FlowLogsTable } from '../../glue/patterns/flow-logs-table';
+import { FlowLogFormat } from '../../ec2';
+import { ConfigurationVersion, Crawler, Database, FlowLogsTable, PartitionUpdateBehavior, S3Target, UpdateBehavior } from '../../glue';
 import { RawBucket } from './private/raw-bucket';
 
 

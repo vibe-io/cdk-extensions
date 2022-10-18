@@ -1,7 +1,6 @@
 import { PhysicalName, ResourceProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { Database } from '../../glue/constructs/database';
-import { SesLogsTable } from '../../glue/patterns/ses-logs-table';
+import { Database, SesLogsTable } from '../../glue';
 import { RawBucket } from './private/raw-bucket';
 
 

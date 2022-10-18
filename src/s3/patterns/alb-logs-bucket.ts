@@ -1,7 +1,6 @@
 import { PhysicalName, ResourceProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { Database } from '../../glue/constructs/database';
-import { AlbLogsTable } from '../../glue/patterns/alb-logs-table';
+import { AlbLogsTable, Database } from '../../glue';
 import { RawBucket } from './private/raw-bucket';
 
 

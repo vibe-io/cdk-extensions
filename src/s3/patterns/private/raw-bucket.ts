@@ -34,27 +34,6 @@ export class RawBucket extends Resource implements IBucket {
   public readonly encryptionKey?: IKey | undefined;
   public readonly isWebsite?: boolean | undefined;
 
-  // IBucket methods
-  public addEventNotification: { (event: EventType, dest: IBucketNotificationDestination, ...filters: NotificationKeyFilter[]): void };
-  public addObjectCreatedNotification: { (dest: IBucketNotificationDestination, ...filters: NotificationKeyFilter[]): void };
-  public addObjectRemovedNotification: { (dest: IBucketNotificationDestination, ...filters: NotificationKeyFilter[]): void };
-  public arnForObjects: { (keyPattern: string): string };
-  public enableEventBridgeNotification: { (): void };
-  public grantDelete: { (identity: IGrantable, objectsKeyPattern?: any): Grant };
-  public grantPublicAccess: { (keyPrefix?: string, ...allowedActions: string[]): Grant };
-  public grantPut: { (identity: IGrantable, objectsKeyPattern?: any): Grant };
-  public grantPutAcl: { (identity: IGrantable, objectsKeyPattern?: string): Grant };
-  public grantRead: { (identity: IGrantable, objectsKeyPattern?: any): Grant };
-  public grantReadWrite: { (identity: IGrantable, objectsKeyPattern?: any): Grant };
-  public grantWrite: { (identity: IGrantable, objectsKeyPattern?: any): Grant };
-  public onCloudTrailEvent: { (id: string, options?: OnCloudTrailBucketEventOptions): Rule };
-  public onCloudTrailPutObject: { (id: string, options?: OnCloudTrailBucketEventOptions): Rule };
-  public onCloudTrailWriteObject: { (id: string, options?: OnCloudTrailBucketEventOptions): Rule };
-  public s3UrlForObject: { (key?: string): string };
-  public transferAccelerationUrlForObject: { (key?: string, options?: TransferAccelerationUrlOptions): string };
-  public urlForObject: { (key?: string): string };
-  public virtualHostedUrlForObject: { (key?: string, options?: VirtualHostedStyleUrlOptions): string };
-
 
   /**
      * Creates a new instance of the ReplicatedBucket class.
@@ -126,6 +105,82 @@ export class RawBucket extends Resource implements IBucket {
     this.transferAccelerationUrlForObject = this._cdkBucket.transferAccelerationUrlForObject;
     this.urlForObject = this._cdkBucket.urlForObject;
     this.virtualHostedUrlForObject = this._cdkBucket.virtualHostedUrlForObject;
+  }
+
+  public urlForObject(_key?: string): string {
+    throw new Error('Method not implemented.');
+  }
+
+  public transferAccelerationUrlForObject(_key?: string, _options?: TransferAccelerationUrlOptions): string {
+    throw new Error('Method not implemented.');
+  }
+
+  public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string {
+    throw new Error('Method not implemented.');
+  }
+
+  public s3UrlForObject(_key?: string): string {
+    throw new Error('Method not implemented.');
+  }
+
+  public arnForObjects(_keyPattern: string): string {
+    throw new Error('Method not implemented.');
+  }
+
+  public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant {
+    throw new Error('Method not implemented.');
+  }
+
+  public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant {
+    throw new Error('Method not implemented.');
+  }
+
+  public grantPut(_identity: IGrantable, _objectsKeyPattern?: any): Grant {
+    throw new Error('Method not implemented.');
+  }
+
+  public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant {
+    throw new Error('Method not implemented.');
+  }
+
+  public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant {
+    throw new Error('Method not implemented.');
+  }
+
+  public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant {
+    throw new Error('Method not implemented.');
+  }
+
+  public grantPublicAccess(_keyPrefix?: string, ..._allowedActions: string[]): Grant {
+    throw new Error('Method not implemented.');
+  }
+
+  public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule {
+    throw new Error('Method not implemented.');
+  }
+
+  public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule {
+    throw new Error('Method not implemented.');
+  }
+
+  public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule {
+    throw new Error('Method not implemented.');
+  }
+
+  public addEventNotification(_event: EventType, _dest: IBucketNotificationDestination, ..._filters: NotificationKeyFilter[]): void {
+    throw new Error('Method not implemented.');
+  }
+
+  public addObjectCreatedNotification(_dest: IBucketNotificationDestination, ..._filters: NotificationKeyFilter[]): void {
+    throw new Error('Method not implemented.');
+  }
+
+  public addObjectRemovedNotification(_dest: IBucketNotificationDestination, ..._filters: NotificationKeyFilter[]): void {
+    throw new Error('Method not implemented.');
+  }
+
+  public enableEventBridgeNotification(): void {
+    throw new Error('Method not implemented.');
   }
 
   public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult {

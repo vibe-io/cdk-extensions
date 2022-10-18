@@ -2,6 +2,1405 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
+### AlbLogsBucket <a name="AlbLogsBucket" id="cdk-extensions.s3.AlbLogsBucket"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.s3.AlbLogsBucket.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+new s3.AlbLogsBucket(scope: Construct, id: string, props?: AlbLogsBucketProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.s3.AlbLogsBucketProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.s3.AlbLogsBucket.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.s3.AlbLogsBucket.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.s3.AlbLogsBucket.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.s3.AlbLogsBucketProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.s3.AlbLogsBucket.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.s3.AlbLogsBucket.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.s3.AlbLogsBucket.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addEventNotification` <a name="addEventNotification" id="cdk-extensions.s3.AlbLogsBucket.addEventNotification"></a>
+
+```typescript
+public addEventNotification(_event: EventType, _dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Adds a bucket notification event destination.
+
+###### `_event`<sup>Required</sup> <a name="_event" id="cdk-extensions.s3.AlbLogsBucket.addEventNotification.parameter._event"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.EventType
+
+---
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.AlbLogsBucket.addEventNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.AlbLogsBucket.addEventNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectCreatedNotification` <a name="addObjectCreatedNotification" id="cdk-extensions.s3.AlbLogsBucket.addObjectCreatedNotification"></a>
+
+```typescript
+public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is created in the bucket.
+
+This is identical to calling
+`onEvent(s3.EventType.OBJECT_CREATED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.AlbLogsBucket.addObjectCreatedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.AlbLogsBucket.addObjectCreatedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectRemovedNotification` <a name="addObjectRemovedNotification" id="cdk-extensions.s3.AlbLogsBucket.addObjectRemovedNotification"></a>
+
+```typescript
+public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is removed from the bucket.
+
+This is identical to calling
+`onEvent(EventType.OBJECT_REMOVED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.AlbLogsBucket.addObjectRemovedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.AlbLogsBucket.addObjectRemovedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addToResourcePolicy` <a name="addToResourcePolicy" id="cdk-extensions.s3.AlbLogsBucket.addToResourcePolicy"></a>
+
+```typescript
+public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
+```
+
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
+
+###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3.AlbLogsBucket.addToResourcePolicy.parameter.permission"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+##### `arnForObjects` <a name="arnForObjects" id="cdk-extensions.s3.AlbLogsBucket.arnForObjects"></a>
+
+```typescript
+public arnForObjects(_keyPattern: string): string
+```
+
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+
+To represent all keys, specify ``"*"``.
+
+###### `_keyPattern`<sup>Required</sup> <a name="_keyPattern" id="cdk-extensions.s3.AlbLogsBucket.arnForObjects.parameter._keyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `enableEventBridgeNotification` <a name="enableEventBridgeNotification" id="cdk-extensions.s3.AlbLogsBucket.enableEventBridgeNotification"></a>
+
+```typescript
+public enableEventBridgeNotification(): void
+```
+
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
+
+##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3.AlbLogsBucket.grantDelete"></a>
+
+```typescript
+public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.AlbLogsBucket.grantDelete.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.AlbLogsBucket.grantDelete.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPublicAccess` <a name="grantPublicAccess" id="cdk-extensions.s3.AlbLogsBucket.grantPublicAccess"></a>
+
+```typescript
+public grantPublicAccess(_allowedActions: string, _keyPrefix?: string): Grant
+```
+
+Allows unrestricted access to objects from this bucket.
+
+IMPORTANT: This permission allows anyone to perform actions on S3 objects
+in this bucket, which is useful for when you configure your bucket as a
+website and want everyone to be able to read objects in the bucket without
+needing to authenticate.
+
+Without arguments, this method will grant read ("s3:GetObject") access to
+all objects ("*") in the bucket.
+
+The method returns the `iam.Grant` object, which can then be modified
+as needed. For example, you can add a condition that will restrict access only
+to an IPv4 range like this:
+
+     const grant = bucket.grantPublicAccess();
+     grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
+
+###### `_allowedActions`<sup>Required</sup> <a name="_allowedActions" id="cdk-extensions.s3.AlbLogsBucket.grantPublicAccess.parameter._allowedActions"></a>
+
+- *Type:* string
+
+---
+
+###### `_keyPrefix`<sup>Optional</sup> <a name="_keyPrefix" id="cdk-extensions.s3.AlbLogsBucket.grantPublicAccess.parameter._keyPrefix"></a>
+
+- *Type:* string
+
+---
+
+##### `grantPut` <a name="grantPut" id="cdk-extensions.s3.AlbLogsBucket.grantPut"></a>
+
+```typescript
+public grantPut(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.AlbLogsBucket.grantPut.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.AlbLogsBucket.grantPut.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPutAcl` <a name="grantPutAcl" id="cdk-extensions.s3.AlbLogsBucket.grantPutAcl"></a>
+
+```typescript
+public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
+```
+
+Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
+
+If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+in this case, if you need to modify object ACLs, call this method explicitly.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.AlbLogsBucket.grantPutAcl.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.AlbLogsBucket.grantPutAcl.parameter._objectsKeyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `grantRead` <a name="grantRead" id="cdk-extensions.s3.AlbLogsBucket.grantRead"></a>
+
+```typescript
+public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If encryption is used, permission to use the key to decrypt the contents
+of the bucket will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.AlbLogsBucket.grantRead.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.AlbLogsBucket.grantRead.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantReadWrite` <a name="grantReadWrite" id="cdk-extensions.s3.AlbLogsBucket.grantReadWrite"></a>
+
+```typescript
+public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If an encryption key is used, permission to use the key for
+encrypt/decrypt will also be granted.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.AlbLogsBucket.grantReadWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.AlbLogsBucket.grantReadWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3.AlbLogsBucket.grantWrite"></a>
+
+```typescript
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant write permissions to this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.AlbLogsBucket.grantWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.AlbLogsBucket.grantWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3.AlbLogsBucket.onCloudTrailEvent"></a>
+
+```typescript
+public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines a CloudWatch event that triggers when something happens to this bucket.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.AlbLogsBucket.onCloudTrailEvent.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.AlbLogsBucket.onCloudTrailEvent.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailPutObject` <a name="onCloudTrailPutObject" id="cdk-extensions.s3.AlbLogsBucket.onCloudTrailPutObject"></a>
+
+```typescript
+public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using `onCloudTrailWriteObject` may be preferable.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.AlbLogsBucket.onCloudTrailPutObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.AlbLogsBucket.onCloudTrailPutObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailWriteObject` <a name="onCloudTrailWriteObject" id="cdk-extensions.s3.AlbLogsBucket.onCloudTrailWriteObject"></a>
+
+```typescript
+public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+
+This includes
+the events PutObject, CopyObject, and CompleteMultipartUpload.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using this method may be preferable to `onCloudTrailPutObject`.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.AlbLogsBucket.onCloudTrailWriteObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.AlbLogsBucket.onCloudTrailWriteObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `s3UrlForObject` <a name="s3UrlForObject" id="cdk-extensions.s3.AlbLogsBucket.s3UrlForObject"></a>
+
+```typescript
+public s3UrlForObject(_key?: string): string
+```
+
+The S3 URL of an S3 object.
+
+For example:
+- `s3://onlybucket`
+- `s3://bucket/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.AlbLogsBucket.s3UrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `transferAccelerationUrlForObject` <a name="transferAccelerationUrlForObject" id="cdk-extensions.s3.AlbLogsBucket.transferAccelerationUrlForObject"></a>
+
+```typescript
+public transferAccelerationUrlForObject(_key?: string, _options?: TransferAccelerationUrlOptions): string
+```
+
+The https Transfer Acceleration URL of an S3 object.
+
+Specify `dualStack: true` at the options
+for dual-stack endpoint (connect to the bucket over IPv6). For example:
+
+- `https://bucket.s3-accelerate.amazonaws.com`
+- `https://bucket.s3-accelerate.amazonaws.com/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.AlbLogsBucket.transferAccelerationUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.AlbLogsBucket.transferAccelerationUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.TransferAccelerationUrlOptions
+
+---
+
+##### `urlForObject` <a name="urlForObject" id="cdk-extensions.s3.AlbLogsBucket.urlForObject"></a>
+
+```typescript
+public urlForObject(_key?: string): string
+```
+
+The https URL of an S3 object. For example:.
+
+`https://s3.us-west-1.amazonaws.com/onlybucket`
+- `https://s3.us-west-1.amazonaws.com/bucket/key`
+- `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.AlbLogsBucket.urlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `virtualHostedUrlForObject` <a name="virtualHostedUrlForObject" id="cdk-extensions.s3.AlbLogsBucket.virtualHostedUrlForObject"></a>
+
+```typescript
+public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
+```
+
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+
+`https://only-bucket.s3.us-west-1.amazonaws.com`
+- `https://bucket.s3.us-west-1.amazonaws.com/key`
+- `https://bucket.s3.amazonaws.com/key`
+- `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.AlbLogsBucket.virtualHostedUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.AlbLogsBucket.virtualHostedUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.VirtualHostedStyleUrlOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.s3.AlbLogsBucket.isConstruct"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.AlbLogsBucket.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.s3.AlbLogsBucket.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.s3.AlbLogsBucket.isOwnedResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.AlbLogsBucket.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.AlbLogsBucket.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.s3.AlbLogsBucket.isResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.AlbLogsBucket.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.AlbLogsBucket.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.bucketArn">bucketArn</a></code> | <code>string</code> | The ARN of the bucket. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.bucketDomainName">bucketDomainName</a></code> | <code>string</code> | The IPv4 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.bucketDualStackDomainName">bucketDualStackDomainName</a></code> | <code>string</code> | The IPv6 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.bucketName">bucketName</a></code> | <code>string</code> | The name of the bucket. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.bucketRegionalDomainName">bucketRegionalDomainName</a></code> | <code>string</code> | The regional domain name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.bucketWebsiteDomainName">bucketWebsiteDomainName</a></code> | <code>string</code> | The Domain name of the static website. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.bucketWebsiteUrl">bucketWebsiteUrl</a></code> | <code>string</code> | The URL of the static website. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | Optional KMS encryption key associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.isWebsite">isWebsite</a></code> | <code>boolean</code> | If this bucket has been configured for static website hosting. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.policy">policy</a></code> | <code>aws-cdk-lib.aws_s3.BucketPolicy</code> | The resource policy associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.table">table</a></code> | <code>cdk-extensions.glue.AlbLogsTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucket.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.s3.AlbLogsBucket.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.s3.AlbLogsBucket.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.s3.AlbLogsBucket.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `bucketArn`<sup>Required</sup> <a name="bucketArn" id="cdk-extensions.s3.AlbLogsBucket.property.bucketArn"></a>
+
+```typescript
+public readonly bucketArn: string;
+```
+
+- *Type:* string
+
+The ARN of the bucket.
+
+---
+
+##### `bucketDomainName`<sup>Required</sup> <a name="bucketDomainName" id="cdk-extensions.s3.AlbLogsBucket.property.bucketDomainName"></a>
+
+```typescript
+public readonly bucketDomainName: string;
+```
+
+- *Type:* string
+
+The IPv4 DNS name of the specified bucket.
+
+---
+
+##### `bucketDualStackDomainName`<sup>Required</sup> <a name="bucketDualStackDomainName" id="cdk-extensions.s3.AlbLogsBucket.property.bucketDualStackDomainName"></a>
+
+```typescript
+public readonly bucketDualStackDomainName: string;
+```
+
+- *Type:* string
+
+The IPv6 DNS name of the specified bucket.
+
+---
+
+##### `bucketName`<sup>Required</sup> <a name="bucketName" id="cdk-extensions.s3.AlbLogsBucket.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+The name of the bucket.
+
+---
+
+##### `bucketRegionalDomainName`<sup>Required</sup> <a name="bucketRegionalDomainName" id="cdk-extensions.s3.AlbLogsBucket.property.bucketRegionalDomainName"></a>
+
+```typescript
+public readonly bucketRegionalDomainName: string;
+```
+
+- *Type:* string
+
+The regional domain name of the specified bucket.
+
+---
+
+##### `bucketWebsiteDomainName`<sup>Required</sup> <a name="bucketWebsiteDomainName" id="cdk-extensions.s3.AlbLogsBucket.property.bucketWebsiteDomainName"></a>
+
+```typescript
+public readonly bucketWebsiteDomainName: string;
+```
+
+- *Type:* string
+
+The Domain name of the static website.
+
+---
+
+##### `bucketWebsiteUrl`<sup>Required</sup> <a name="bucketWebsiteUrl" id="cdk-extensions.s3.AlbLogsBucket.property.bucketWebsiteUrl"></a>
+
+```typescript
+public readonly bucketWebsiteUrl: string;
+```
+
+- *Type:* string
+
+The URL of the static website.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.s3.AlbLogsBucket.property.resource"></a>
+
+```typescript
+public readonly resource: CfnBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket
+
+---
+
+##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="cdk-extensions.s3.AlbLogsBucket.property.encryptionKey"></a>
+
+```typescript
+public readonly encryptionKey: IKey;
+```
+
+- *Type:* aws-cdk-lib.aws_kms.IKey
+
+Optional KMS encryption key associated with this bucket.
+
+---
+
+##### `isWebsite`<sup>Optional</sup> <a name="isWebsite" id="cdk-extensions.s3.AlbLogsBucket.property.isWebsite"></a>
+
+```typescript
+public readonly isWebsite: boolean;
+```
+
+- *Type:* boolean
+
+If this bucket has been configured for static website hosting.
+
+---
+
+##### `policy`<sup>Optional</sup> <a name="policy" id="cdk-extensions.s3.AlbLogsBucket.property.policy"></a>
+
+```typescript
+public readonly policy: BucketPolicy;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.BucketPolicy
+
+The resource policy associated with this bucket.
+
+If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the
+first call to addToResourcePolicy(s).
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.s3.AlbLogsBucket.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="cdk-extensions.s3.AlbLogsBucket.property.table"></a>
+
+```typescript
+public readonly table: AlbLogsTable;
+```
+
+- *Type:* cdk-extensions.glue.AlbLogsTable
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.s3.AlbLogsBucket.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.s3.AlbLogsBucket.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+
+### AlbLogsTable <a name="AlbLogsTable" id="cdk-extensions.glue.AlbLogsTable"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.AlbLogsTable.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.AlbLogsTable(scope: Construct, id: string, props: AlbLogsTableProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.AlbLogsTableProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.AlbLogsTable.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.AlbLogsTable.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.AlbLogsTable.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.glue.AlbLogsTableProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.addColumn">addColumn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.addParameter">addParameter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.addPartitionKey">addPartitionKey</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.addSerdeParameter">addSerdeParameter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.addStorageParameter">addStorageParameter</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.glue.AlbLogsTable.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.glue.AlbLogsTable.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.glue.AlbLogsTable.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addColumn` <a name="addColumn" id="cdk-extensions.glue.AlbLogsTable.addColumn"></a>
+
+```typescript
+public addColumn(column: Column): void
+```
+
+###### `column`<sup>Required</sup> <a name="column" id="cdk-extensions.glue.AlbLogsTable.addColumn.parameter.column"></a>
+
+- *Type:* cdk-extensions.glue.Column
+
+---
+
+##### `addParameter` <a name="addParameter" id="cdk-extensions.glue.AlbLogsTable.addParameter"></a>
+
+```typescript
+public addParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.AlbLogsTable.addParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.AlbLogsTable.addParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addPartitionKey` <a name="addPartitionKey" id="cdk-extensions.glue.AlbLogsTable.addPartitionKey"></a>
+
+```typescript
+public addPartitionKey(column: Column): void
+```
+
+###### `column`<sup>Required</sup> <a name="column" id="cdk-extensions.glue.AlbLogsTable.addPartitionKey.parameter.column"></a>
+
+- *Type:* cdk-extensions.glue.Column
+
+---
+
+##### `addSerdeParameter` <a name="addSerdeParameter" id="cdk-extensions.glue.AlbLogsTable.addSerdeParameter"></a>
+
+```typescript
+public addSerdeParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.AlbLogsTable.addSerdeParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.AlbLogsTable.addSerdeParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addStorageParameter` <a name="addStorageParameter" id="cdk-extensions.glue.AlbLogsTable.addStorageParameter"></a>
+
+```typescript
+public addStorageParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.AlbLogsTable.addStorageParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.AlbLogsTable.addStorageParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.glue.AlbLogsTable.isConstruct"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.AlbLogsTable.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.glue.AlbLogsTable.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.glue.AlbLogsTable.isOwnedResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.AlbLogsTable.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.AlbLogsTable.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.glue.AlbLogsTable.isResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.AlbLogsTable.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.AlbLogsTable.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.status5xxNamedQuery">status5xxNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTable.property.topIpsNamedQuery">topIpsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.glue.AlbLogsTable.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.glue.AlbLogsTable.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.glue.AlbLogsTable.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue.AlbLogsTable.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.AlbLogsTable.property.resource"></a>
+
+```typescript
+public readonly resource: CfnTable;
+```
+
+- *Type:* aws-cdk-lib.aws_glue.CfnTable
+
+---
+
+##### `tableArn`<sup>Required</sup> <a name="tableArn" id="cdk-extensions.glue.AlbLogsTable.property.tableArn"></a>
+
+```typescript
+public readonly tableArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tableName`<sup>Required</sup> <a name="tableName" id="cdk-extensions.glue.AlbLogsTable.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `compressed`<sup>Optional</sup> <a name="compressed" id="cdk-extensions.glue.AlbLogsTable.property.compressed"></a>
+
+```typescript
+public readonly compressed: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue.AlbLogsTable.property.dataFormat"></a>
+
+```typescript
+public readonly dataFormat: DataFormat;
+```
+
+- *Type:* cdk-extensions.glue.DataFormat
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.AlbLogsTable.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue.AlbLogsTable.property.location"></a>
+
+```typescript
+public readonly location: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.AlbLogsTable.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue.AlbLogsTable.property.owner"></a>
+
+```typescript
+public readonly owner: string;
+```
+
+- *Type:* string
+
+---
+
+##### `retention`<sup>Optional</sup> <a name="retention" id="cdk-extensions.glue.AlbLogsTable.property.retention"></a>
+
+```typescript
+public readonly retention: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue.AlbLogsTable.property.serdeName"></a>
+
+```typescript
+public readonly serdeName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `storedAsSubDirectories`<sup>Optional</sup> <a name="storedAsSubDirectories" id="cdk-extensions.glue.AlbLogsTable.property.storedAsSubDirectories"></a>
+
+```typescript
+public readonly storedAsSubDirectories: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue.AlbLogsTable.property.tableType"></a>
+
+```typescript
+public readonly tableType: TableType;
+```
+
+- *Type:* cdk-extensions.glue.TableType
+
+---
+
+##### `targetTable`<sup>Optional</sup> <a name="targetTable" id="cdk-extensions.glue.AlbLogsTable.property.targetTable"></a>
+
+```typescript
+public readonly targetTable: Table;
+```
+
+- *Type:* cdk-extensions.glue.Table
+
+---
+
+##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue.AlbLogsTable.property.viewExpandedText"></a>
+
+```typescript
+public readonly viewExpandedText: string;
+```
+
+- *Type:* string
+
+---
+
+##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue.AlbLogsTable.property.viewOriginalText"></a>
+
+```typescript
+public readonly viewOriginalText: string;
+```
+
+- *Type:* string
+
+---
+
+##### `createQueries`<sup>Required</sup> <a name="createQueries" id="cdk-extensions.glue.AlbLogsTable.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue.AlbLogsTable.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `status5xxNamedQuery`<sup>Optional</sup> <a name="status5xxNamedQuery" id="cdk-extensions.glue.AlbLogsTable.property.status5xxNamedQuery"></a>
+
+```typescript
+public readonly status5xxNamedQuery: NamedQuery;
+```
+
+- *Type:* cdk-extensions.athena.NamedQuery
+
+---
+
+##### `topIpsNamedQuery`<sup>Optional</sup> <a name="topIpsNamedQuery" id="cdk-extensions.glue.AlbLogsTable.property.topIpsNamedQuery"></a>
+
+```typescript
+public readonly topIpsNamedQuery: NamedQuery;
+```
+
+- *Type:* cdk-extensions.athena.NamedQuery
+
+---
+
+
 ### Assignment <a name="Assignment" id="cdk-extensions.sso.Assignment"></a>
 
 Assigns access to a Principal for a specified AWS account using a specified permission set.
@@ -269,6 +1668,3786 @@ The resource you wish to grant the {@link principal} entity access to using the 
 
 For example,
 an AWS account.
+
+---
+
+
+### AwsLoggingStack <a name="AwsLoggingStack" id="cdk-extensions.stacks.AwsLoggingStack"></a>
+
+Creates a demo web service running in Fargate that is accessible through an application load balancer.
+
+The demo service serves a generic "Welcome to nginx" page.
+
+The service can be accessed remotely using ECS Exec. For details see the documentation at:
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html#ecs-exec-running-commands
+
+#### Initializers <a name="Initializers" id="cdk-extensions.stacks.AwsLoggingStack.Initializer"></a>
+
+```typescript
+import { stacks } from 'cdk-extensions'
+
+new stacks.AwsLoggingStack(scope: Construct, id: string, props?: AwsLoggingStackProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.stacks.AwsLoggingStackProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.stacks.AwsLoggingStackProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.addDependency">addDependency</a></code> | Add a dependency between this stack and another stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.addMetadata">addMetadata</a></code> | Adds an arbitary key-value pair, with information you want to record about the stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.addTransform">addTransform</a></code> | Add a Transform to this stack. A Transform is a macro that AWS CloudFormation uses to process your template. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.exportValue">exportValue</a></code> | Create a CloudFormation Export for a value. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.formatArn">formatArn</a></code> | Creates an ARN from components. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.getLogicalId">getLogicalId</a></code> | Allocates a stack-unique CloudFormation-compatible logical identity for a specific resource. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.regionalFact">regionalFact</a></code> | Look up a fact value for the given fact for the region of this stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.renameLogicalId">renameLogicalId</a></code> | Rename a generated logical identities. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.reportMissingContextKey">reportMissingContextKey</a></code> | Indicate that a context key was expected. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.resolve">resolve</a></code> | Resolve a tokenized value in the context of the current stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.splitArn">splitArn</a></code> | Splits the provided ARN into its components. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.toJsonString">toJsonString</a></code> | Convert an object, potentially containing tokens, to a JSON string. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.stacks.AwsLoggingStack.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addDependency` <a name="addDependency" id="cdk-extensions.stacks.AwsLoggingStack.addDependency"></a>
+
+```typescript
+public addDependency(target: Stack, reason?: string): void
+```
+
+Add a dependency between this stack and another stack.
+
+This can be used to define dependencies between any two stacks within an
+app, and also supports nested stacks.
+
+###### `target`<sup>Required</sup> <a name="target" id="cdk-extensions.stacks.AwsLoggingStack.addDependency.parameter.target"></a>
+
+- *Type:* aws-cdk-lib.Stack
+
+---
+
+###### `reason`<sup>Optional</sup> <a name="reason" id="cdk-extensions.stacks.AwsLoggingStack.addDependency.parameter.reason"></a>
+
+- *Type:* string
+
+---
+
+##### `addMetadata` <a name="addMetadata" id="cdk-extensions.stacks.AwsLoggingStack.addMetadata"></a>
+
+```typescript
+public addMetadata(key: string, value: any): void
+```
+
+Adds an arbitary key-value pair, with information you want to record about the stack.
+
+These get translated to the Metadata section of the generated template.
+
+> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html)
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.stacks.AwsLoggingStack.addMetadata.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.stacks.AwsLoggingStack.addMetadata.parameter.value"></a>
+
+- *Type:* any
+
+---
+
+##### `addTransform` <a name="addTransform" id="cdk-extensions.stacks.AwsLoggingStack.addTransform"></a>
+
+```typescript
+public addTransform(transform: string): void
+```
+
+Add a Transform to this stack. A Transform is a macro that AWS CloudFormation uses to process your template.
+
+Duplicate values are removed when stack is synthesized.
+
+> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html)
+
+*Example*
+
+```typescript
+declare const stack: Stack;
+
+stack.addTransform('AWS::Serverless-2016-10-31')
+```
+
+
+###### `transform`<sup>Required</sup> <a name="transform" id="cdk-extensions.stacks.AwsLoggingStack.addTransform.parameter.transform"></a>
+
+- *Type:* string
+
+The transform to add.
+
+---
+
+##### `exportValue` <a name="exportValue" id="cdk-extensions.stacks.AwsLoggingStack.exportValue"></a>
+
+```typescript
+public exportValue(exportedValue: any, options?: ExportValueOptions): string
+```
+
+Create a CloudFormation Export for a value.
+
+Returns a string representing the corresponding `Fn.importValue()`
+expression for this Export. You can control the name for the export by
+passing the `name` option.
+
+If you don't supply a value for `name`, the value you're exporting must be
+a Resource attribute (for example: `bucket.bucketName`) and it will be
+given the same name as the automatic cross-stack reference that would be created
+if you used the attribute in another Stack.
+
+One of the uses for this method is to *remove* the relationship between
+two Stacks established by automatic cross-stack references. It will
+temporarily ensure that the CloudFormation Export still exists while you
+remove the reference from the consuming stack. After that, you can remove
+the resource and the manual export.
+
+## Example
+
+Here is how the process works. Let's say there are two stacks,
+`producerStack` and `consumerStack`, and `producerStack` has a bucket
+called `bucket`, which is referenced by `consumerStack` (perhaps because
+an AWS Lambda Function writes into it, or something like that).
+
+It is not safe to remove `producerStack.bucket` because as the bucket is being
+deleted, `consumerStack` might still be using it.
+
+Instead, the process takes two deployments:
+
+### Deployment 1: break the relationship
+
+- Make sure `consumerStack` no longer references `bucket.bucketName` (maybe the consumer
+   stack now uses its own bucket, or it writes to an AWS DynamoDB table, or maybe you just
+   remove the Lambda Function altogether).
+- In the `ProducerStack` class, call `this.exportValue(this.bucket.bucketName)`. This
+   will make sure the CloudFormation Export continues to exist while the relationship
+   between the two stacks is being broken.
+- Deploy (this will effectively only change the `consumerStack`, but it's safe to deploy both).
+
+### Deployment 2: remove the bucket resource
+
+- You are now free to remove the `bucket` resource from `producerStack`.
+- Don't forget to remove the `exportValue()` call as well.
+- Deploy again (this time only the `producerStack` will be changed -- the bucket will be deleted).
+
+###### `exportedValue`<sup>Required</sup> <a name="exportedValue" id="cdk-extensions.stacks.AwsLoggingStack.exportValue.parameter.exportedValue"></a>
+
+- *Type:* any
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.stacks.AwsLoggingStack.exportValue.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.ExportValueOptions
+
+---
+
+##### `formatArn` <a name="formatArn" id="cdk-extensions.stacks.AwsLoggingStack.formatArn"></a>
+
+```typescript
+public formatArn(components: ArnComponents): string
+```
+
+Creates an ARN from components.
+
+If `partition`, `region` or `account` are not specified, the stack's
+partition, region and account will be used.
+
+If any component is the empty string, an empty string will be inserted
+into the generated ARN at the location that component corresponds to.
+
+The ARN will be formatted as follows:
+
+   arn:{partition}:{service}:{region}:{account}:{resource}{sep}{resource-name}
+
+The required ARN pieces that are omitted will be taken from the stack that
+the 'scope' is attached to. If all ARN pieces are supplied, the supplied scope
+can be 'undefined'.
+
+###### `components`<sup>Required</sup> <a name="components" id="cdk-extensions.stacks.AwsLoggingStack.formatArn.parameter.components"></a>
+
+- *Type:* aws-cdk-lib.ArnComponents
+
+---
+
+##### `getLogicalId` <a name="getLogicalId" id="cdk-extensions.stacks.AwsLoggingStack.getLogicalId"></a>
+
+```typescript
+public getLogicalId(element: CfnElement): string
+```
+
+Allocates a stack-unique CloudFormation-compatible logical identity for a specific resource.
+
+This method is called when a `CfnElement` is created and used to render the
+initial logical identity of resources. Logical ID renames are applied at
+this stage.
+
+This method uses the protected method `allocateLogicalId` to render the
+logical ID for an element. To modify the naming scheme, extend the `Stack`
+class and override this method.
+
+###### `element`<sup>Required</sup> <a name="element" id="cdk-extensions.stacks.AwsLoggingStack.getLogicalId.parameter.element"></a>
+
+- *Type:* aws-cdk-lib.CfnElement
+
+The CloudFormation element for which a logical identity is needed.
+
+---
+
+##### `regionalFact` <a name="regionalFact" id="cdk-extensions.stacks.AwsLoggingStack.regionalFact"></a>
+
+```typescript
+public regionalFact(factName: string, defaultValue?: string): string
+```
+
+Look up a fact value for the given fact for the region of this stack.
+
+Will return a definite value only if the region of the current stack is resolved.
+If not, a lookup map will be added to the stack and the lookup will be done at
+CDK deployment time.
+
+What regions will be included in the lookup map is controlled by the
+`@aws-cdk/core:target-partitions` context value: it must be set to a list
+of partitions, and only regions from the given partitions will be included.
+If no such context key is set, all regions will be included.
+
+This function is intended to be used by construct library authors. Application
+builders can rely on the abstractions offered by construct libraries and do
+not have to worry about regional facts.
+
+If `defaultValue` is not given, it is an error if the fact is unknown for
+the given region.
+
+###### `factName`<sup>Required</sup> <a name="factName" id="cdk-extensions.stacks.AwsLoggingStack.regionalFact.parameter.factName"></a>
+
+- *Type:* string
+
+---
+
+###### `defaultValue`<sup>Optional</sup> <a name="defaultValue" id="cdk-extensions.stacks.AwsLoggingStack.regionalFact.parameter.defaultValue"></a>
+
+- *Type:* string
+
+---
+
+##### `renameLogicalId` <a name="renameLogicalId" id="cdk-extensions.stacks.AwsLoggingStack.renameLogicalId"></a>
+
+```typescript
+public renameLogicalId(oldId: string, newId: string): void
+```
+
+Rename a generated logical identities.
+
+To modify the naming scheme strategy, extend the `Stack` class and
+override the `allocateLogicalId` method.
+
+###### `oldId`<sup>Required</sup> <a name="oldId" id="cdk-extensions.stacks.AwsLoggingStack.renameLogicalId.parameter.oldId"></a>
+
+- *Type:* string
+
+---
+
+###### `newId`<sup>Required</sup> <a name="newId" id="cdk-extensions.stacks.AwsLoggingStack.renameLogicalId.parameter.newId"></a>
+
+- *Type:* string
+
+---
+
+##### `reportMissingContextKey` <a name="reportMissingContextKey" id="cdk-extensions.stacks.AwsLoggingStack.reportMissingContextKey"></a>
+
+```typescript
+public reportMissingContextKey(report: MissingContext): void
+```
+
+Indicate that a context key was expected.
+
+Contains instructions which will be emitted into the cloud assembly on how
+the key should be supplied.
+
+###### `report`<sup>Required</sup> <a name="report" id="cdk-extensions.stacks.AwsLoggingStack.reportMissingContextKey.parameter.report"></a>
+
+- *Type:* aws-cdk-lib.cloud_assembly_schema.MissingContext
+
+The set of parameters needed to obtain the context.
+
+---
+
+##### `resolve` <a name="resolve" id="cdk-extensions.stacks.AwsLoggingStack.resolve"></a>
+
+```typescript
+public resolve(obj: any): any
+```
+
+Resolve a tokenized value in the context of the current stack.
+
+###### `obj`<sup>Required</sup> <a name="obj" id="cdk-extensions.stacks.AwsLoggingStack.resolve.parameter.obj"></a>
+
+- *Type:* any
+
+---
+
+##### `splitArn` <a name="splitArn" id="cdk-extensions.stacks.AwsLoggingStack.splitArn"></a>
+
+```typescript
+public splitArn(arn: string, arnFormat: ArnFormat): ArnComponents
+```
+
+Splits the provided ARN into its components.
+
+Works both if 'arn' is a string like 'arn:aws:s3:::bucket',
+and a Token representing a dynamic CloudFormation expression
+(in which case the returned components will also be dynamic CloudFormation expressions,
+encoded as Tokens).
+
+###### `arn`<sup>Required</sup> <a name="arn" id="cdk-extensions.stacks.AwsLoggingStack.splitArn.parameter.arn"></a>
+
+- *Type:* string
+
+the ARN to split into its components.
+
+---
+
+###### `arnFormat`<sup>Required</sup> <a name="arnFormat" id="cdk-extensions.stacks.AwsLoggingStack.splitArn.parameter.arnFormat"></a>
+
+- *Type:* aws-cdk-lib.ArnFormat
+
+the expected format of 'arn' - depends on what format the service 'arn' represents uses.
+
+---
+
+##### `toJsonString` <a name="toJsonString" id="cdk-extensions.stacks.AwsLoggingStack.toJsonString"></a>
+
+```typescript
+public toJsonString(obj: any, space?: number): string
+```
+
+Convert an object, potentially containing tokens, to a JSON string.
+
+###### `obj`<sup>Required</sup> <a name="obj" id="cdk-extensions.stacks.AwsLoggingStack.toJsonString.parameter.obj"></a>
+
+- *Type:* any
+
+---
+
+###### `space`<sup>Optional</sup> <a name="space" id="cdk-extensions.stacks.AwsLoggingStack.toJsonString.parameter.space"></a>
+
+- *Type:* number
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.isStack">isStack</a></code> | Return whether the given object is a Stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.of">of</a></code> | Looks up the first stack scope in which `construct` is defined. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.stacks.AwsLoggingStack.isConstruct"></a>
+
+```typescript
+import { stacks } from 'cdk-extensions'
+
+stacks.AwsLoggingStack.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.stacks.AwsLoggingStack.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isStack` <a name="isStack" id="cdk-extensions.stacks.AwsLoggingStack.isStack"></a>
+
+```typescript
+import { stacks } from 'cdk-extensions'
+
+stacks.AwsLoggingStack.isStack(x: any)
+```
+
+Return whether the given object is a Stack.
+
+We do attribute detection since we can't reliably use 'instanceof'.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.stacks.AwsLoggingStack.isStack.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.stacks.AwsLoggingStack.of"></a>
+
+```typescript
+import { stacks } from 'cdk-extensions'
+
+stacks.AwsLoggingStack.of(construct: IConstruct)
+```
+
+Looks up the first stack scope in which `construct` is defined.
+
+Fails if there is no stack up the tree.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.stacks.AwsLoggingStack.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct to start the search from.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.account">account</a></code> | <code>string</code> | The AWS account into which this stack will be deployed. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.artifactId">artifactId</a></code> | <code>string</code> | The ID of the cloud assembly artifact for this stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | Returns the list of AZs that are available in the AWS environment (account/region) associated with this stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.bundlingRequired">bundlingRequired</a></code> | <code>boolean</code> | Indicates whether the stack requires bundling or not. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.dependencies">dependencies</a></code> | <code>aws-cdk-lib.Stack[]</code> | Return the stacks this stack depends on. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.environment">environment</a></code> | <code>string</code> | The environment coordinates in which this stack is deployed. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.nested">nested</a></code> | <code>boolean</code> | Indicates if this is a nested stack, in which case `parentStack` will include a reference to it's parent. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.notificationArns">notificationArns</a></code> | <code>string[]</code> | Returns the list of notification Amazon Resource Names (ARNs) for the current stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.partition">partition</a></code> | <code>string</code> | The partition in which this stack is defined. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.region">region</a></code> | <code>string</code> | The AWS region into which this stack will be deployed (e.g. `us-west-2`). |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.stackId">stackId</a></code> | <code>string</code> | The ID of the stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.stackName">stackName</a></code> | <code>string</code> | The concrete CloudFormation physical stack name. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.synthesizer">synthesizer</a></code> | <code>aws-cdk-lib.IStackSynthesizer</code> | Synthesis method for this stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.tags">tags</a></code> | <code>aws-cdk-lib.TagManager</code> | Tags to be applied to the stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.templateFile">templateFile</a></code> | <code>string</code> | The name of the CloudFormation template file emitted to the output directory during synthesis. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.templateOptions">templateOptions</a></code> | <code>aws-cdk-lib.ITemplateOptions</code> | Options for CloudFormation template (like version, transform, description). |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.urlSuffix">urlSuffix</a></code> | <code>string</code> | The Amazon domain suffix for the region in which this stack is defined. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.nestedStackParent">nestedStackParent</a></code> | <code>aws-cdk-lib.Stack</code> | If this is a nested stack, returns it's parent stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.nestedStackResource">nestedStackResource</a></code> | <code>aws-cdk-lib.CfnResource</code> | If this is a nested stack, this represents its `AWS::CloudFormation::Stack` resource. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.terminationProtection">terminationProtection</a></code> | <code>boolean</code> | Whether termination protection is enabled for this stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.albLogsBucket">albLogsBucket</a></code> | <code>cdk-extensions.s3.AlbLogsBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.cloudfrontLogsBucket">cloudfrontLogsBucket</a></code> | <code>cdk-extensions.s3.CloudfrontLogsBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.cloudtrailLogsBucket">cloudtrailLogsBucket</a></code> | <code>cdk-extensions.s3.CloudtrailBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.databaseName">databaseName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.flowLogsBucket">flowLogsBucket</a></code> | <code>cdk-extensions.s3.FlowLogsBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.flowLogsFormat">flowLogsFormat</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.s3AccessLogsBucket">s3AccessLogsBucket</a></code> | <code>cdk-extensions.s3.S3AccessLogsBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.sesLogsBucket">sesLogsBucket</a></code> | <code>cdk-extensions.s3.SesLogsBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.standardizeNames">standardizeNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.wafLogsBucket">wafLogsBucket</a></code> | <code>cdk-extensions.s3.WafLogsBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.stacks.AwsLoggingStack.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `account`<sup>Required</sup> <a name="account" id="cdk-extensions.stacks.AwsLoggingStack.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+
+The AWS account into which this stack will be deployed.
+
+This value is resolved according to the following rules:
+
+1. The value provided to `env.account` when the stack is defined. This can
+    either be a concrete account (e.g. `585695031111`) or the
+    `Aws.ACCOUNT_ID` token.
+3. `Aws.ACCOUNT_ID`, which represents the CloudFormation intrinsic reference
+    `{ "Ref": "AWS::AccountId" }` encoded as a string token.
+
+Preferably, you should use the return value as an opaque string and not
+attempt to parse it to implement your logic. If you do, you must first
+check that it is a concerete value an not an unresolved token. If this
+value is an unresolved token (`Token.isUnresolved(stack.account)` returns
+`true`), this implies that the user wishes that this stack will synthesize
+into a **account-agnostic template**. In this case, your code should either
+fail (throw an error, emit a synth error using `Annotations.of(construct).addError()`) or
+implement some other region-agnostic behavior.
+
+---
+
+##### `artifactId`<sup>Required</sup> <a name="artifactId" id="cdk-extensions.stacks.AwsLoggingStack.property.artifactId"></a>
+
+```typescript
+public readonly artifactId: string;
+```
+
+- *Type:* string
+
+The ID of the cloud assembly artifact for this stack.
+
+---
+
+##### `availabilityZones`<sup>Required</sup> <a name="availabilityZones" id="cdk-extensions.stacks.AwsLoggingStack.property.availabilityZones"></a>
+
+```typescript
+public readonly availabilityZones: string[];
+```
+
+- *Type:* string[]
+
+Returns the list of AZs that are available in the AWS environment (account/region) associated with this stack.
+
+If the stack is environment-agnostic (either account and/or region are
+tokens), this property will return an array with 2 tokens that will resolve
+at deploy-time to the first two availability zones returned from CloudFormation's
+`Fn::GetAZs` intrinsic function.
+
+If they are not available in the context, returns a set of dummy values and
+reports them as missing, and let the CLI resolve them by calling EC2
+`DescribeAvailabilityZones` on the target environment.
+
+To specify a different strategy for selecting availability zones override this method.
+
+---
+
+##### `bundlingRequired`<sup>Required</sup> <a name="bundlingRequired" id="cdk-extensions.stacks.AwsLoggingStack.property.bundlingRequired"></a>
+
+```typescript
+public readonly bundlingRequired: boolean;
+```
+
+- *Type:* boolean
+
+Indicates whether the stack requires bundling or not.
+
+---
+
+##### `dependencies`<sup>Required</sup> <a name="dependencies" id="cdk-extensions.stacks.AwsLoggingStack.property.dependencies"></a>
+
+```typescript
+public readonly dependencies: Stack[];
+```
+
+- *Type:* aws-cdk-lib.Stack[]
+
+Return the stacks this stack depends on.
+
+---
+
+##### `environment`<sup>Required</sup> <a name="environment" id="cdk-extensions.stacks.AwsLoggingStack.property.environment"></a>
+
+```typescript
+public readonly environment: string;
+```
+
+- *Type:* string
+
+The environment coordinates in which this stack is deployed.
+
+In the form
+`aws://account/region`. Use `stack.account` and `stack.region` to obtain
+the specific values, no need to parse.
+
+You can use this value to determine if two stacks are targeting the same
+environment.
+
+If either `stack.account` or `stack.region` are not concrete values (e.g.
+`Aws.ACCOUNT_ID` or `Aws.REGION`) the special strings `unknown-account` and/or
+`unknown-region` will be used respectively to indicate this stack is
+region/account-agnostic.
+
+---
+
+##### `nested`<sup>Required</sup> <a name="nested" id="cdk-extensions.stacks.AwsLoggingStack.property.nested"></a>
+
+```typescript
+public readonly nested: boolean;
+```
+
+- *Type:* boolean
+
+Indicates if this is a nested stack, in which case `parentStack` will include a reference to it's parent.
+
+---
+
+##### `notificationArns`<sup>Required</sup> <a name="notificationArns" id="cdk-extensions.stacks.AwsLoggingStack.property.notificationArns"></a>
+
+```typescript
+public readonly notificationArns: string[];
+```
+
+- *Type:* string[]
+
+Returns the list of notification Amazon Resource Names (ARNs) for the current stack.
+
+---
+
+##### `partition`<sup>Required</sup> <a name="partition" id="cdk-extensions.stacks.AwsLoggingStack.property.partition"></a>
+
+```typescript
+public readonly partition: string;
+```
+
+- *Type:* string
+
+The partition in which this stack is defined.
+
+---
+
+##### `region`<sup>Required</sup> <a name="region" id="cdk-extensions.stacks.AwsLoggingStack.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+
+The AWS region into which this stack will be deployed (e.g. `us-west-2`).
+
+This value is resolved according to the following rules:
+
+1. The value provided to `env.region` when the stack is defined. This can
+    either be a concerete region (e.g. `us-west-2`) or the `Aws.REGION`
+    token.
+3. `Aws.REGION`, which is represents the CloudFormation intrinsic reference
+    `{ "Ref": "AWS::Region" }` encoded as a string token.
+
+Preferably, you should use the return value as an opaque string and not
+attempt to parse it to implement your logic. If you do, you must first
+check that it is a concerete value an not an unresolved token. If this
+value is an unresolved token (`Token.isUnresolved(stack.region)` returns
+`true`), this implies that the user wishes that this stack will synthesize
+into a **region-agnostic template**. In this case, your code should either
+fail (throw an error, emit a synth error using `Annotations.of(construct).addError()`) or
+implement some other region-agnostic behavior.
+
+---
+
+##### `stackId`<sup>Required</sup> <a name="stackId" id="cdk-extensions.stacks.AwsLoggingStack.property.stackId"></a>
+
+```typescript
+public readonly stackId: string;
+```
+
+- *Type:* string
+
+The ID of the stack.
+
+---
+
+*Example*
+
+```typescript
+// After resolving, looks like
+'arn:aws:cloudformation:us-west-2:123456789012:stack/teststack/51af3dc0-da77-11e4-872e-1234567db123'
+```
+
+
+##### `stackName`<sup>Required</sup> <a name="stackName" id="cdk-extensions.stacks.AwsLoggingStack.property.stackName"></a>
+
+```typescript
+public readonly stackName: string;
+```
+
+- *Type:* string
+
+The concrete CloudFormation physical stack name.
+
+This is either the name defined explicitly in the `stackName` prop or
+allocated based on the stack's location in the construct tree. Stacks that
+are directly defined under the app use their construct `id` as their stack
+name. Stacks that are defined deeper within the tree will use a hashed naming
+scheme based on the construct path to ensure uniqueness.
+
+If you wish to obtain the deploy-time AWS::StackName intrinsic,
+you can use `Aws.STACK_NAME` directly.
+
+---
+
+##### `synthesizer`<sup>Required</sup> <a name="synthesizer" id="cdk-extensions.stacks.AwsLoggingStack.property.synthesizer"></a>
+
+```typescript
+public readonly synthesizer: IStackSynthesizer;
+```
+
+- *Type:* aws-cdk-lib.IStackSynthesizer
+
+Synthesis method for this stack.
+
+---
+
+##### `tags`<sup>Required</sup> <a name="tags" id="cdk-extensions.stacks.AwsLoggingStack.property.tags"></a>
+
+```typescript
+public readonly tags: TagManager;
+```
+
+- *Type:* aws-cdk-lib.TagManager
+
+Tags to be applied to the stack.
+
+---
+
+##### `templateFile`<sup>Required</sup> <a name="templateFile" id="cdk-extensions.stacks.AwsLoggingStack.property.templateFile"></a>
+
+```typescript
+public readonly templateFile: string;
+```
+
+- *Type:* string
+
+The name of the CloudFormation template file emitted to the output directory during synthesis.
+
+Example value: `MyStack.template.json`
+
+---
+
+##### `templateOptions`<sup>Required</sup> <a name="templateOptions" id="cdk-extensions.stacks.AwsLoggingStack.property.templateOptions"></a>
+
+```typescript
+public readonly templateOptions: ITemplateOptions;
+```
+
+- *Type:* aws-cdk-lib.ITemplateOptions
+
+Options for CloudFormation template (like version, transform, description).
+
+---
+
+##### `urlSuffix`<sup>Required</sup> <a name="urlSuffix" id="cdk-extensions.stacks.AwsLoggingStack.property.urlSuffix"></a>
+
+```typescript
+public readonly urlSuffix: string;
+```
+
+- *Type:* string
+
+The Amazon domain suffix for the region in which this stack is defined.
+
+---
+
+##### `nestedStackParent`<sup>Optional</sup> <a name="nestedStackParent" id="cdk-extensions.stacks.AwsLoggingStack.property.nestedStackParent"></a>
+
+```typescript
+public readonly nestedStackParent: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+If this is a nested stack, returns it's parent stack.
+
+---
+
+##### `nestedStackResource`<sup>Optional</sup> <a name="nestedStackResource" id="cdk-extensions.stacks.AwsLoggingStack.property.nestedStackResource"></a>
+
+```typescript
+public readonly nestedStackResource: CfnResource;
+```
+
+- *Type:* aws-cdk-lib.CfnResource
+
+If this is a nested stack, this represents its `AWS::CloudFormation::Stack` resource.
+
+`undefined` for top-level (non-nested) stacks.
+
+---
+
+##### `terminationProtection`<sup>Optional</sup> <a name="terminationProtection" id="cdk-extensions.stacks.AwsLoggingStack.property.terminationProtection"></a>
+
+```typescript
+public readonly terminationProtection: boolean;
+```
+
+- *Type:* boolean
+
+Whether termination protection is enabled for this stack.
+
+---
+
+##### `albLogsBucket`<sup>Required</sup> <a name="albLogsBucket" id="cdk-extensions.stacks.AwsLoggingStack.property.albLogsBucket"></a>
+
+```typescript
+public readonly albLogsBucket: AlbLogsBucket;
+```
+
+- *Type:* cdk-extensions.s3.AlbLogsBucket
+
+---
+
+##### `cloudfrontLogsBucket`<sup>Required</sup> <a name="cloudfrontLogsBucket" id="cdk-extensions.stacks.AwsLoggingStack.property.cloudfrontLogsBucket"></a>
+
+```typescript
+public readonly cloudfrontLogsBucket: CloudfrontLogsBucket;
+```
+
+- *Type:* cdk-extensions.s3.CloudfrontLogsBucket
+
+---
+
+##### `cloudtrailLogsBucket`<sup>Required</sup> <a name="cloudtrailLogsBucket" id="cdk-extensions.stacks.AwsLoggingStack.property.cloudtrailLogsBucket"></a>
+
+```typescript
+public readonly cloudtrailLogsBucket: CloudtrailBucket;
+```
+
+- *Type:* cdk-extensions.s3.CloudtrailBucket
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.stacks.AwsLoggingStack.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `databaseName`<sup>Required</sup> <a name="databaseName" id="cdk-extensions.stacks.AwsLoggingStack.property.databaseName"></a>
+
+```typescript
+public readonly databaseName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `flowLogsBucket`<sup>Required</sup> <a name="flowLogsBucket" id="cdk-extensions.stacks.AwsLoggingStack.property.flowLogsBucket"></a>
+
+```typescript
+public readonly flowLogsBucket: FlowLogsBucket;
+```
+
+- *Type:* cdk-extensions.s3.FlowLogsBucket
+
+---
+
+##### `flowLogsFormat`<sup>Required</sup> <a name="flowLogsFormat" id="cdk-extensions.stacks.AwsLoggingStack.property.flowLogsFormat"></a>
+
+```typescript
+public readonly flowLogsFormat: FlowLogFormat;
+```
+
+- *Type:* cdk-extensions.ec2.FlowLogFormat
+
+---
+
+##### `s3AccessLogsBucket`<sup>Required</sup> <a name="s3AccessLogsBucket" id="cdk-extensions.stacks.AwsLoggingStack.property.s3AccessLogsBucket"></a>
+
+```typescript
+public readonly s3AccessLogsBucket: S3AccessLogsBucket;
+```
+
+- *Type:* cdk-extensions.s3.S3AccessLogsBucket
+
+---
+
+##### `sesLogsBucket`<sup>Required</sup> <a name="sesLogsBucket" id="cdk-extensions.stacks.AwsLoggingStack.property.sesLogsBucket"></a>
+
+```typescript
+public readonly sesLogsBucket: SesLogsBucket;
+```
+
+- *Type:* cdk-extensions.s3.SesLogsBucket
+
+---
+
+##### `standardizeNames`<sup>Required</sup> <a name="standardizeNames" id="cdk-extensions.stacks.AwsLoggingStack.property.standardizeNames"></a>
+
+```typescript
+public readonly standardizeNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `wafLogsBucket`<sup>Required</sup> <a name="wafLogsBucket" id="cdk-extensions.stacks.AwsLoggingStack.property.wafLogsBucket"></a>
+
+```typescript
+public readonly wafLogsBucket: WafLogsBucket;
+```
+
+- *Type:* cdk-extensions.s3.WafLogsBucket
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.stacks.AwsLoggingStack.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+
+### CloudfrontLogsBucket <a name="CloudfrontLogsBucket" id="cdk-extensions.s3.CloudfrontLogsBucket"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.s3.CloudfrontLogsBucket.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+new s3.CloudfrontLogsBucket(scope: Construct, id: string, props?: CloudfrontLogsBucketProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.s3.CloudfrontLogsBucketProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.s3.CloudfrontLogsBucket.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.s3.CloudfrontLogsBucket.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.s3.CloudfrontLogsBucket.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.s3.CloudfrontLogsBucketProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.s3.CloudfrontLogsBucket.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.s3.CloudfrontLogsBucket.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.s3.CloudfrontLogsBucket.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addEventNotification` <a name="addEventNotification" id="cdk-extensions.s3.CloudfrontLogsBucket.addEventNotification"></a>
+
+```typescript
+public addEventNotification(_event: EventType, _dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Adds a bucket notification event destination.
+
+###### `_event`<sup>Required</sup> <a name="_event" id="cdk-extensions.s3.CloudfrontLogsBucket.addEventNotification.parameter._event"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.EventType
+
+---
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.CloudfrontLogsBucket.addEventNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.CloudfrontLogsBucket.addEventNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectCreatedNotification` <a name="addObjectCreatedNotification" id="cdk-extensions.s3.CloudfrontLogsBucket.addObjectCreatedNotification"></a>
+
+```typescript
+public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is created in the bucket.
+
+This is identical to calling
+`onEvent(s3.EventType.OBJECT_CREATED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.CloudfrontLogsBucket.addObjectCreatedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.CloudfrontLogsBucket.addObjectCreatedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectRemovedNotification` <a name="addObjectRemovedNotification" id="cdk-extensions.s3.CloudfrontLogsBucket.addObjectRemovedNotification"></a>
+
+```typescript
+public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is removed from the bucket.
+
+This is identical to calling
+`onEvent(EventType.OBJECT_REMOVED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.CloudfrontLogsBucket.addObjectRemovedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.CloudfrontLogsBucket.addObjectRemovedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addToResourcePolicy` <a name="addToResourcePolicy" id="cdk-extensions.s3.CloudfrontLogsBucket.addToResourcePolicy"></a>
+
+```typescript
+public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
+```
+
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
+
+###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3.CloudfrontLogsBucket.addToResourcePolicy.parameter.permission"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+##### `arnForObjects` <a name="arnForObjects" id="cdk-extensions.s3.CloudfrontLogsBucket.arnForObjects"></a>
+
+```typescript
+public arnForObjects(_keyPattern: string): string
+```
+
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+
+To represent all keys, specify ``"*"``.
+
+###### `_keyPattern`<sup>Required</sup> <a name="_keyPattern" id="cdk-extensions.s3.CloudfrontLogsBucket.arnForObjects.parameter._keyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `enableEventBridgeNotification` <a name="enableEventBridgeNotification" id="cdk-extensions.s3.CloudfrontLogsBucket.enableEventBridgeNotification"></a>
+
+```typescript
+public enableEventBridgeNotification(): void
+```
+
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
+
+##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3.CloudfrontLogsBucket.grantDelete"></a>
+
+```typescript
+public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.CloudfrontLogsBucket.grantDelete.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.CloudfrontLogsBucket.grantDelete.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPublicAccess` <a name="grantPublicAccess" id="cdk-extensions.s3.CloudfrontLogsBucket.grantPublicAccess"></a>
+
+```typescript
+public grantPublicAccess(_allowedActions: string, _keyPrefix?: string): Grant
+```
+
+Allows unrestricted access to objects from this bucket.
+
+IMPORTANT: This permission allows anyone to perform actions on S3 objects
+in this bucket, which is useful for when you configure your bucket as a
+website and want everyone to be able to read objects in the bucket without
+needing to authenticate.
+
+Without arguments, this method will grant read ("s3:GetObject") access to
+all objects ("*") in the bucket.
+
+The method returns the `iam.Grant` object, which can then be modified
+as needed. For example, you can add a condition that will restrict access only
+to an IPv4 range like this:
+
+     const grant = bucket.grantPublicAccess();
+     grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
+
+###### `_allowedActions`<sup>Required</sup> <a name="_allowedActions" id="cdk-extensions.s3.CloudfrontLogsBucket.grantPublicAccess.parameter._allowedActions"></a>
+
+- *Type:* string
+
+---
+
+###### `_keyPrefix`<sup>Optional</sup> <a name="_keyPrefix" id="cdk-extensions.s3.CloudfrontLogsBucket.grantPublicAccess.parameter._keyPrefix"></a>
+
+- *Type:* string
+
+---
+
+##### `grantPut` <a name="grantPut" id="cdk-extensions.s3.CloudfrontLogsBucket.grantPut"></a>
+
+```typescript
+public grantPut(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.CloudfrontLogsBucket.grantPut.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.CloudfrontLogsBucket.grantPut.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPutAcl` <a name="grantPutAcl" id="cdk-extensions.s3.CloudfrontLogsBucket.grantPutAcl"></a>
+
+```typescript
+public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
+```
+
+Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
+
+If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+in this case, if you need to modify object ACLs, call this method explicitly.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.CloudfrontLogsBucket.grantPutAcl.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.CloudfrontLogsBucket.grantPutAcl.parameter._objectsKeyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `grantRead` <a name="grantRead" id="cdk-extensions.s3.CloudfrontLogsBucket.grantRead"></a>
+
+```typescript
+public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If encryption is used, permission to use the key to decrypt the contents
+of the bucket will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.CloudfrontLogsBucket.grantRead.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.CloudfrontLogsBucket.grantRead.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantReadWrite` <a name="grantReadWrite" id="cdk-extensions.s3.CloudfrontLogsBucket.grantReadWrite"></a>
+
+```typescript
+public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If an encryption key is used, permission to use the key for
+encrypt/decrypt will also be granted.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.CloudfrontLogsBucket.grantReadWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.CloudfrontLogsBucket.grantReadWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3.CloudfrontLogsBucket.grantWrite"></a>
+
+```typescript
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant write permissions to this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.CloudfrontLogsBucket.grantWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.CloudfrontLogsBucket.grantWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3.CloudfrontLogsBucket.onCloudTrailEvent"></a>
+
+```typescript
+public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines a CloudWatch event that triggers when something happens to this bucket.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.CloudfrontLogsBucket.onCloudTrailEvent.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.CloudfrontLogsBucket.onCloudTrailEvent.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailPutObject` <a name="onCloudTrailPutObject" id="cdk-extensions.s3.CloudfrontLogsBucket.onCloudTrailPutObject"></a>
+
+```typescript
+public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using `onCloudTrailWriteObject` may be preferable.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.CloudfrontLogsBucket.onCloudTrailPutObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.CloudfrontLogsBucket.onCloudTrailPutObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailWriteObject` <a name="onCloudTrailWriteObject" id="cdk-extensions.s3.CloudfrontLogsBucket.onCloudTrailWriteObject"></a>
+
+```typescript
+public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+
+This includes
+the events PutObject, CopyObject, and CompleteMultipartUpload.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using this method may be preferable to `onCloudTrailPutObject`.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.CloudfrontLogsBucket.onCloudTrailWriteObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.CloudfrontLogsBucket.onCloudTrailWriteObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `s3UrlForObject` <a name="s3UrlForObject" id="cdk-extensions.s3.CloudfrontLogsBucket.s3UrlForObject"></a>
+
+```typescript
+public s3UrlForObject(_key?: string): string
+```
+
+The S3 URL of an S3 object.
+
+For example:
+- `s3://onlybucket`
+- `s3://bucket/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.CloudfrontLogsBucket.s3UrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `transferAccelerationUrlForObject` <a name="transferAccelerationUrlForObject" id="cdk-extensions.s3.CloudfrontLogsBucket.transferAccelerationUrlForObject"></a>
+
+```typescript
+public transferAccelerationUrlForObject(_key?: string, _options?: TransferAccelerationUrlOptions): string
+```
+
+The https Transfer Acceleration URL of an S3 object.
+
+Specify `dualStack: true` at the options
+for dual-stack endpoint (connect to the bucket over IPv6). For example:
+
+- `https://bucket.s3-accelerate.amazonaws.com`
+- `https://bucket.s3-accelerate.amazonaws.com/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.CloudfrontLogsBucket.transferAccelerationUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.CloudfrontLogsBucket.transferAccelerationUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.TransferAccelerationUrlOptions
+
+---
+
+##### `urlForObject` <a name="urlForObject" id="cdk-extensions.s3.CloudfrontLogsBucket.urlForObject"></a>
+
+```typescript
+public urlForObject(_key?: string): string
+```
+
+The https URL of an S3 object. For example:.
+
+`https://s3.us-west-1.amazonaws.com/onlybucket`
+- `https://s3.us-west-1.amazonaws.com/bucket/key`
+- `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.CloudfrontLogsBucket.urlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `virtualHostedUrlForObject` <a name="virtualHostedUrlForObject" id="cdk-extensions.s3.CloudfrontLogsBucket.virtualHostedUrlForObject"></a>
+
+```typescript
+public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
+```
+
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+
+`https://only-bucket.s3.us-west-1.amazonaws.com`
+- `https://bucket.s3.us-west-1.amazonaws.com/key`
+- `https://bucket.s3.amazonaws.com/key`
+- `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.CloudfrontLogsBucket.virtualHostedUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.CloudfrontLogsBucket.virtualHostedUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.VirtualHostedStyleUrlOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.s3.CloudfrontLogsBucket.isConstruct"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.CloudfrontLogsBucket.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.s3.CloudfrontLogsBucket.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.s3.CloudfrontLogsBucket.isOwnedResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.CloudfrontLogsBucket.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.CloudfrontLogsBucket.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.s3.CloudfrontLogsBucket.isResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.CloudfrontLogsBucket.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.CloudfrontLogsBucket.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.bucketArn">bucketArn</a></code> | <code>string</code> | The ARN of the bucket. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.bucketDomainName">bucketDomainName</a></code> | <code>string</code> | The IPv4 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.bucketDualStackDomainName">bucketDualStackDomainName</a></code> | <code>string</code> | The IPv6 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.bucketName">bucketName</a></code> | <code>string</code> | The name of the bucket. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.bucketRegionalDomainName">bucketRegionalDomainName</a></code> | <code>string</code> | The regional domain name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.bucketWebsiteDomainName">bucketWebsiteDomainName</a></code> | <code>string</code> | The Domain name of the static website. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.bucketWebsiteUrl">bucketWebsiteUrl</a></code> | <code>string</code> | The URL of the static website. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | Optional KMS encryption key associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.isWebsite">isWebsite</a></code> | <code>boolean</code> | If this bucket has been configured for static website hosting. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.policy">policy</a></code> | <code>aws-cdk-lib.aws_s3.BucketPolicy</code> | The resource policy associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.table">table</a></code> | <code>cdk-extensions.glue.CloudfrontLogsTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucket.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.s3.CloudfrontLogsBucket.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.s3.CloudfrontLogsBucket.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.s3.CloudfrontLogsBucket.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `bucketArn`<sup>Required</sup> <a name="bucketArn" id="cdk-extensions.s3.CloudfrontLogsBucket.property.bucketArn"></a>
+
+```typescript
+public readonly bucketArn: string;
+```
+
+- *Type:* string
+
+The ARN of the bucket.
+
+---
+
+##### `bucketDomainName`<sup>Required</sup> <a name="bucketDomainName" id="cdk-extensions.s3.CloudfrontLogsBucket.property.bucketDomainName"></a>
+
+```typescript
+public readonly bucketDomainName: string;
+```
+
+- *Type:* string
+
+The IPv4 DNS name of the specified bucket.
+
+---
+
+##### `bucketDualStackDomainName`<sup>Required</sup> <a name="bucketDualStackDomainName" id="cdk-extensions.s3.CloudfrontLogsBucket.property.bucketDualStackDomainName"></a>
+
+```typescript
+public readonly bucketDualStackDomainName: string;
+```
+
+- *Type:* string
+
+The IPv6 DNS name of the specified bucket.
+
+---
+
+##### `bucketName`<sup>Required</sup> <a name="bucketName" id="cdk-extensions.s3.CloudfrontLogsBucket.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+The name of the bucket.
+
+---
+
+##### `bucketRegionalDomainName`<sup>Required</sup> <a name="bucketRegionalDomainName" id="cdk-extensions.s3.CloudfrontLogsBucket.property.bucketRegionalDomainName"></a>
+
+```typescript
+public readonly bucketRegionalDomainName: string;
+```
+
+- *Type:* string
+
+The regional domain name of the specified bucket.
+
+---
+
+##### `bucketWebsiteDomainName`<sup>Required</sup> <a name="bucketWebsiteDomainName" id="cdk-extensions.s3.CloudfrontLogsBucket.property.bucketWebsiteDomainName"></a>
+
+```typescript
+public readonly bucketWebsiteDomainName: string;
+```
+
+- *Type:* string
+
+The Domain name of the static website.
+
+---
+
+##### `bucketWebsiteUrl`<sup>Required</sup> <a name="bucketWebsiteUrl" id="cdk-extensions.s3.CloudfrontLogsBucket.property.bucketWebsiteUrl"></a>
+
+```typescript
+public readonly bucketWebsiteUrl: string;
+```
+
+- *Type:* string
+
+The URL of the static website.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.s3.CloudfrontLogsBucket.property.resource"></a>
+
+```typescript
+public readonly resource: CfnBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket
+
+---
+
+##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="cdk-extensions.s3.CloudfrontLogsBucket.property.encryptionKey"></a>
+
+```typescript
+public readonly encryptionKey: IKey;
+```
+
+- *Type:* aws-cdk-lib.aws_kms.IKey
+
+Optional KMS encryption key associated with this bucket.
+
+---
+
+##### `isWebsite`<sup>Optional</sup> <a name="isWebsite" id="cdk-extensions.s3.CloudfrontLogsBucket.property.isWebsite"></a>
+
+```typescript
+public readonly isWebsite: boolean;
+```
+
+- *Type:* boolean
+
+If this bucket has been configured for static website hosting.
+
+---
+
+##### `policy`<sup>Optional</sup> <a name="policy" id="cdk-extensions.s3.CloudfrontLogsBucket.property.policy"></a>
+
+```typescript
+public readonly policy: BucketPolicy;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.BucketPolicy
+
+The resource policy associated with this bucket.
+
+If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the
+first call to addToResourcePolicy(s).
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.s3.CloudfrontLogsBucket.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="cdk-extensions.s3.CloudfrontLogsBucket.property.table"></a>
+
+```typescript
+public readonly table: CloudfrontLogsTable;
+```
+
+- *Type:* cdk-extensions.glue.CloudfrontLogsTable
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.s3.CloudfrontLogsBucket.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.s3.CloudfrontLogsBucket.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+
+### CloudfrontLogsTable <a name="CloudfrontLogsTable" id="cdk-extensions.glue.CloudfrontLogsTable"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.CloudfrontLogsTable.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.CloudfrontLogsTable(scope: Construct, id: string, props: CloudfrontLogsTableProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.CloudfrontLogsTableProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.CloudfrontLogsTable.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.CloudfrontLogsTable.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.CloudfrontLogsTable.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.glue.CloudfrontLogsTableProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.addColumn">addColumn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.addParameter">addParameter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.addPartitionKey">addPartitionKey</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.addSerdeParameter">addSerdeParameter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.addStorageParameter">addStorageParameter</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.glue.CloudfrontLogsTable.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.glue.CloudfrontLogsTable.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.glue.CloudfrontLogsTable.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addColumn` <a name="addColumn" id="cdk-extensions.glue.CloudfrontLogsTable.addColumn"></a>
+
+```typescript
+public addColumn(column: Column): void
+```
+
+###### `column`<sup>Required</sup> <a name="column" id="cdk-extensions.glue.CloudfrontLogsTable.addColumn.parameter.column"></a>
+
+- *Type:* cdk-extensions.glue.Column
+
+---
+
+##### `addParameter` <a name="addParameter" id="cdk-extensions.glue.CloudfrontLogsTable.addParameter"></a>
+
+```typescript
+public addParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.CloudfrontLogsTable.addParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.CloudfrontLogsTable.addParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addPartitionKey` <a name="addPartitionKey" id="cdk-extensions.glue.CloudfrontLogsTable.addPartitionKey"></a>
+
+```typescript
+public addPartitionKey(column: Column): void
+```
+
+###### `column`<sup>Required</sup> <a name="column" id="cdk-extensions.glue.CloudfrontLogsTable.addPartitionKey.parameter.column"></a>
+
+- *Type:* cdk-extensions.glue.Column
+
+---
+
+##### `addSerdeParameter` <a name="addSerdeParameter" id="cdk-extensions.glue.CloudfrontLogsTable.addSerdeParameter"></a>
+
+```typescript
+public addSerdeParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.CloudfrontLogsTable.addSerdeParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.CloudfrontLogsTable.addSerdeParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addStorageParameter` <a name="addStorageParameter" id="cdk-extensions.glue.CloudfrontLogsTable.addStorageParameter"></a>
+
+```typescript
+public addStorageParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.CloudfrontLogsTable.addStorageParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.CloudfrontLogsTable.addStorageParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.glue.CloudfrontLogsTable.isConstruct"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.CloudfrontLogsTable.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.glue.CloudfrontLogsTable.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.glue.CloudfrontLogsTable.isOwnedResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.CloudfrontLogsTable.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.CloudfrontLogsTable.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.glue.CloudfrontLogsTable.isResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.CloudfrontLogsTable.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.CloudfrontLogsTable.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.distributionStatisticsNamedQuery">distributionStatisticsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.requestErrorsNamedQuery">requestErrorsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.topIpsNamedQuery">topIpsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTable.property.topObjectsNamedQuery">topObjectsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.glue.CloudfrontLogsTable.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.glue.CloudfrontLogsTable.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.glue.CloudfrontLogsTable.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue.CloudfrontLogsTable.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.CloudfrontLogsTable.property.resource"></a>
+
+```typescript
+public readonly resource: CfnTable;
+```
+
+- *Type:* aws-cdk-lib.aws_glue.CfnTable
+
+---
+
+##### `tableArn`<sup>Required</sup> <a name="tableArn" id="cdk-extensions.glue.CloudfrontLogsTable.property.tableArn"></a>
+
+```typescript
+public readonly tableArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tableName`<sup>Required</sup> <a name="tableName" id="cdk-extensions.glue.CloudfrontLogsTable.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `compressed`<sup>Optional</sup> <a name="compressed" id="cdk-extensions.glue.CloudfrontLogsTable.property.compressed"></a>
+
+```typescript
+public readonly compressed: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue.CloudfrontLogsTable.property.dataFormat"></a>
+
+```typescript
+public readonly dataFormat: DataFormat;
+```
+
+- *Type:* cdk-extensions.glue.DataFormat
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.CloudfrontLogsTable.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue.CloudfrontLogsTable.property.location"></a>
+
+```typescript
+public readonly location: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.CloudfrontLogsTable.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue.CloudfrontLogsTable.property.owner"></a>
+
+```typescript
+public readonly owner: string;
+```
+
+- *Type:* string
+
+---
+
+##### `retention`<sup>Optional</sup> <a name="retention" id="cdk-extensions.glue.CloudfrontLogsTable.property.retention"></a>
+
+```typescript
+public readonly retention: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue.CloudfrontLogsTable.property.serdeName"></a>
+
+```typescript
+public readonly serdeName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `storedAsSubDirectories`<sup>Optional</sup> <a name="storedAsSubDirectories" id="cdk-extensions.glue.CloudfrontLogsTable.property.storedAsSubDirectories"></a>
+
+```typescript
+public readonly storedAsSubDirectories: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue.CloudfrontLogsTable.property.tableType"></a>
+
+```typescript
+public readonly tableType: TableType;
+```
+
+- *Type:* cdk-extensions.glue.TableType
+
+---
+
+##### `targetTable`<sup>Optional</sup> <a name="targetTable" id="cdk-extensions.glue.CloudfrontLogsTable.property.targetTable"></a>
+
+```typescript
+public readonly targetTable: Table;
+```
+
+- *Type:* cdk-extensions.glue.Table
+
+---
+
+##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue.CloudfrontLogsTable.property.viewExpandedText"></a>
+
+```typescript
+public readonly viewExpandedText: string;
+```
+
+- *Type:* string
+
+---
+
+##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue.CloudfrontLogsTable.property.viewOriginalText"></a>
+
+```typescript
+public readonly viewOriginalText: string;
+```
+
+- *Type:* string
+
+---
+
+##### `createQueries`<sup>Required</sup> <a name="createQueries" id="cdk-extensions.glue.CloudfrontLogsTable.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue.CloudfrontLogsTable.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `distributionStatisticsNamedQuery`<sup>Optional</sup> <a name="distributionStatisticsNamedQuery" id="cdk-extensions.glue.CloudfrontLogsTable.property.distributionStatisticsNamedQuery"></a>
+
+```typescript
+public readonly distributionStatisticsNamedQuery: NamedQuery;
+```
+
+- *Type:* cdk-extensions.athena.NamedQuery
+
+---
+
+##### `requestErrorsNamedQuery`<sup>Optional</sup> <a name="requestErrorsNamedQuery" id="cdk-extensions.glue.CloudfrontLogsTable.property.requestErrorsNamedQuery"></a>
+
+```typescript
+public readonly requestErrorsNamedQuery: NamedQuery;
+```
+
+- *Type:* cdk-extensions.athena.NamedQuery
+
+---
+
+##### `topIpsNamedQuery`<sup>Optional</sup> <a name="topIpsNamedQuery" id="cdk-extensions.glue.CloudfrontLogsTable.property.topIpsNamedQuery"></a>
+
+```typescript
+public readonly topIpsNamedQuery: NamedQuery;
+```
+
+- *Type:* cdk-extensions.athena.NamedQuery
+
+---
+
+##### `topObjectsNamedQuery`<sup>Optional</sup> <a name="topObjectsNamedQuery" id="cdk-extensions.glue.CloudfrontLogsTable.property.topObjectsNamedQuery"></a>
+
+```typescript
+public readonly topObjectsNamedQuery: NamedQuery;
+```
+
+- *Type:* cdk-extensions.athena.NamedQuery
+
+---
+
+
+### CloudtrailBucket <a name="CloudtrailBucket" id="cdk-extensions.s3.CloudtrailBucket"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.s3.CloudtrailBucket.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+new s3.CloudtrailBucket(scope: Construct, id: string, props?: CloudtrailBucketProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.s3.CloudtrailBucketProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.s3.CloudtrailBucket.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.s3.CloudtrailBucket.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.s3.CloudtrailBucket.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.s3.CloudtrailBucketProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.s3.CloudtrailBucket.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.s3.CloudtrailBucket.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.s3.CloudtrailBucket.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addEventNotification` <a name="addEventNotification" id="cdk-extensions.s3.CloudtrailBucket.addEventNotification"></a>
+
+```typescript
+public addEventNotification(_event: EventType, _dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Adds a bucket notification event destination.
+
+###### `_event`<sup>Required</sup> <a name="_event" id="cdk-extensions.s3.CloudtrailBucket.addEventNotification.parameter._event"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.EventType
+
+---
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.CloudtrailBucket.addEventNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.CloudtrailBucket.addEventNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectCreatedNotification` <a name="addObjectCreatedNotification" id="cdk-extensions.s3.CloudtrailBucket.addObjectCreatedNotification"></a>
+
+```typescript
+public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is created in the bucket.
+
+This is identical to calling
+`onEvent(s3.EventType.OBJECT_CREATED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.CloudtrailBucket.addObjectCreatedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.CloudtrailBucket.addObjectCreatedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectRemovedNotification` <a name="addObjectRemovedNotification" id="cdk-extensions.s3.CloudtrailBucket.addObjectRemovedNotification"></a>
+
+```typescript
+public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is removed from the bucket.
+
+This is identical to calling
+`onEvent(EventType.OBJECT_REMOVED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.CloudtrailBucket.addObjectRemovedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.CloudtrailBucket.addObjectRemovedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addToResourcePolicy` <a name="addToResourcePolicy" id="cdk-extensions.s3.CloudtrailBucket.addToResourcePolicy"></a>
+
+```typescript
+public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
+```
+
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
+
+###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3.CloudtrailBucket.addToResourcePolicy.parameter.permission"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+##### `arnForObjects` <a name="arnForObjects" id="cdk-extensions.s3.CloudtrailBucket.arnForObjects"></a>
+
+```typescript
+public arnForObjects(_keyPattern: string): string
+```
+
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+
+To represent all keys, specify ``"*"``.
+
+###### `_keyPattern`<sup>Required</sup> <a name="_keyPattern" id="cdk-extensions.s3.CloudtrailBucket.arnForObjects.parameter._keyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `enableEventBridgeNotification` <a name="enableEventBridgeNotification" id="cdk-extensions.s3.CloudtrailBucket.enableEventBridgeNotification"></a>
+
+```typescript
+public enableEventBridgeNotification(): void
+```
+
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
+
+##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3.CloudtrailBucket.grantDelete"></a>
+
+```typescript
+public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.CloudtrailBucket.grantDelete.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.CloudtrailBucket.grantDelete.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPublicAccess` <a name="grantPublicAccess" id="cdk-extensions.s3.CloudtrailBucket.grantPublicAccess"></a>
+
+```typescript
+public grantPublicAccess(_allowedActions: string, _keyPrefix?: string): Grant
+```
+
+Allows unrestricted access to objects from this bucket.
+
+IMPORTANT: This permission allows anyone to perform actions on S3 objects
+in this bucket, which is useful for when you configure your bucket as a
+website and want everyone to be able to read objects in the bucket without
+needing to authenticate.
+
+Without arguments, this method will grant read ("s3:GetObject") access to
+all objects ("*") in the bucket.
+
+The method returns the `iam.Grant` object, which can then be modified
+as needed. For example, you can add a condition that will restrict access only
+to an IPv4 range like this:
+
+     const grant = bucket.grantPublicAccess();
+     grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
+
+###### `_allowedActions`<sup>Required</sup> <a name="_allowedActions" id="cdk-extensions.s3.CloudtrailBucket.grantPublicAccess.parameter._allowedActions"></a>
+
+- *Type:* string
+
+---
+
+###### `_keyPrefix`<sup>Optional</sup> <a name="_keyPrefix" id="cdk-extensions.s3.CloudtrailBucket.grantPublicAccess.parameter._keyPrefix"></a>
+
+- *Type:* string
+
+---
+
+##### `grantPut` <a name="grantPut" id="cdk-extensions.s3.CloudtrailBucket.grantPut"></a>
+
+```typescript
+public grantPut(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.CloudtrailBucket.grantPut.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.CloudtrailBucket.grantPut.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPutAcl` <a name="grantPutAcl" id="cdk-extensions.s3.CloudtrailBucket.grantPutAcl"></a>
+
+```typescript
+public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
+```
+
+Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
+
+If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+in this case, if you need to modify object ACLs, call this method explicitly.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.CloudtrailBucket.grantPutAcl.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.CloudtrailBucket.grantPutAcl.parameter._objectsKeyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `grantRead` <a name="grantRead" id="cdk-extensions.s3.CloudtrailBucket.grantRead"></a>
+
+```typescript
+public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If encryption is used, permission to use the key to decrypt the contents
+of the bucket will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.CloudtrailBucket.grantRead.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.CloudtrailBucket.grantRead.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantReadWrite` <a name="grantReadWrite" id="cdk-extensions.s3.CloudtrailBucket.grantReadWrite"></a>
+
+```typescript
+public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If an encryption key is used, permission to use the key for
+encrypt/decrypt will also be granted.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.CloudtrailBucket.grantReadWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.CloudtrailBucket.grantReadWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3.CloudtrailBucket.grantWrite"></a>
+
+```typescript
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant write permissions to this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.CloudtrailBucket.grantWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.CloudtrailBucket.grantWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3.CloudtrailBucket.onCloudTrailEvent"></a>
+
+```typescript
+public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines a CloudWatch event that triggers when something happens to this bucket.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.CloudtrailBucket.onCloudTrailEvent.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.CloudtrailBucket.onCloudTrailEvent.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailPutObject` <a name="onCloudTrailPutObject" id="cdk-extensions.s3.CloudtrailBucket.onCloudTrailPutObject"></a>
+
+```typescript
+public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using `onCloudTrailWriteObject` may be preferable.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.CloudtrailBucket.onCloudTrailPutObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.CloudtrailBucket.onCloudTrailPutObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailWriteObject` <a name="onCloudTrailWriteObject" id="cdk-extensions.s3.CloudtrailBucket.onCloudTrailWriteObject"></a>
+
+```typescript
+public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+
+This includes
+the events PutObject, CopyObject, and CompleteMultipartUpload.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using this method may be preferable to `onCloudTrailPutObject`.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.CloudtrailBucket.onCloudTrailWriteObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.CloudtrailBucket.onCloudTrailWriteObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `s3UrlForObject` <a name="s3UrlForObject" id="cdk-extensions.s3.CloudtrailBucket.s3UrlForObject"></a>
+
+```typescript
+public s3UrlForObject(_key?: string): string
+```
+
+The S3 URL of an S3 object.
+
+For example:
+- `s3://onlybucket`
+- `s3://bucket/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.CloudtrailBucket.s3UrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `transferAccelerationUrlForObject` <a name="transferAccelerationUrlForObject" id="cdk-extensions.s3.CloudtrailBucket.transferAccelerationUrlForObject"></a>
+
+```typescript
+public transferAccelerationUrlForObject(_key?: string, _options?: TransferAccelerationUrlOptions): string
+```
+
+The https Transfer Acceleration URL of an S3 object.
+
+Specify `dualStack: true` at the options
+for dual-stack endpoint (connect to the bucket over IPv6). For example:
+
+- `https://bucket.s3-accelerate.amazonaws.com`
+- `https://bucket.s3-accelerate.amazonaws.com/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.CloudtrailBucket.transferAccelerationUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.CloudtrailBucket.transferAccelerationUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.TransferAccelerationUrlOptions
+
+---
+
+##### `urlForObject` <a name="urlForObject" id="cdk-extensions.s3.CloudtrailBucket.urlForObject"></a>
+
+```typescript
+public urlForObject(_key?: string): string
+```
+
+The https URL of an S3 object. For example:.
+
+`https://s3.us-west-1.amazonaws.com/onlybucket`
+- `https://s3.us-west-1.amazonaws.com/bucket/key`
+- `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.CloudtrailBucket.urlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `virtualHostedUrlForObject` <a name="virtualHostedUrlForObject" id="cdk-extensions.s3.CloudtrailBucket.virtualHostedUrlForObject"></a>
+
+```typescript
+public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
+```
+
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+
+`https://only-bucket.s3.us-west-1.amazonaws.com`
+- `https://bucket.s3.us-west-1.amazonaws.com/key`
+- `https://bucket.s3.amazonaws.com/key`
+- `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.CloudtrailBucket.virtualHostedUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.CloudtrailBucket.virtualHostedUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.VirtualHostedStyleUrlOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.s3.CloudtrailBucket.isConstruct"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.CloudtrailBucket.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.s3.CloudtrailBucket.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.s3.CloudtrailBucket.isOwnedResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.CloudtrailBucket.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.CloudtrailBucket.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.s3.CloudtrailBucket.isResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.CloudtrailBucket.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.CloudtrailBucket.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.bucketArn">bucketArn</a></code> | <code>string</code> | The ARN of the bucket. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.bucketDomainName">bucketDomainName</a></code> | <code>string</code> | The IPv4 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.bucketDualStackDomainName">bucketDualStackDomainName</a></code> | <code>string</code> | The IPv6 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.bucketName">bucketName</a></code> | <code>string</code> | The name of the bucket. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.bucketRegionalDomainName">bucketRegionalDomainName</a></code> | <code>string</code> | The regional domain name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.bucketWebsiteDomainName">bucketWebsiteDomainName</a></code> | <code>string</code> | The Domain name of the static website. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.bucketWebsiteUrl">bucketWebsiteUrl</a></code> | <code>string</code> | The URL of the static website. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | Optional KMS encryption key associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.isWebsite">isWebsite</a></code> | <code>boolean</code> | If this bucket has been configured for static website hosting. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.policy">policy</a></code> | <code>aws-cdk-lib.aws_s3.BucketPolicy</code> | The resource policy associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.table">table</a></code> | <code>cdk-extensions.glue.CloudtrailTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucket.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.s3.CloudtrailBucket.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.s3.CloudtrailBucket.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.s3.CloudtrailBucket.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `bucketArn`<sup>Required</sup> <a name="bucketArn" id="cdk-extensions.s3.CloudtrailBucket.property.bucketArn"></a>
+
+```typescript
+public readonly bucketArn: string;
+```
+
+- *Type:* string
+
+The ARN of the bucket.
+
+---
+
+##### `bucketDomainName`<sup>Required</sup> <a name="bucketDomainName" id="cdk-extensions.s3.CloudtrailBucket.property.bucketDomainName"></a>
+
+```typescript
+public readonly bucketDomainName: string;
+```
+
+- *Type:* string
+
+The IPv4 DNS name of the specified bucket.
+
+---
+
+##### `bucketDualStackDomainName`<sup>Required</sup> <a name="bucketDualStackDomainName" id="cdk-extensions.s3.CloudtrailBucket.property.bucketDualStackDomainName"></a>
+
+```typescript
+public readonly bucketDualStackDomainName: string;
+```
+
+- *Type:* string
+
+The IPv6 DNS name of the specified bucket.
+
+---
+
+##### `bucketName`<sup>Required</sup> <a name="bucketName" id="cdk-extensions.s3.CloudtrailBucket.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+The name of the bucket.
+
+---
+
+##### `bucketRegionalDomainName`<sup>Required</sup> <a name="bucketRegionalDomainName" id="cdk-extensions.s3.CloudtrailBucket.property.bucketRegionalDomainName"></a>
+
+```typescript
+public readonly bucketRegionalDomainName: string;
+```
+
+- *Type:* string
+
+The regional domain name of the specified bucket.
+
+---
+
+##### `bucketWebsiteDomainName`<sup>Required</sup> <a name="bucketWebsiteDomainName" id="cdk-extensions.s3.CloudtrailBucket.property.bucketWebsiteDomainName"></a>
+
+```typescript
+public readonly bucketWebsiteDomainName: string;
+```
+
+- *Type:* string
+
+The Domain name of the static website.
+
+---
+
+##### `bucketWebsiteUrl`<sup>Required</sup> <a name="bucketWebsiteUrl" id="cdk-extensions.s3.CloudtrailBucket.property.bucketWebsiteUrl"></a>
+
+```typescript
+public readonly bucketWebsiteUrl: string;
+```
+
+- *Type:* string
+
+The URL of the static website.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.s3.CloudtrailBucket.property.resource"></a>
+
+```typescript
+public readonly resource: CfnBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket
+
+---
+
+##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="cdk-extensions.s3.CloudtrailBucket.property.encryptionKey"></a>
+
+```typescript
+public readonly encryptionKey: IKey;
+```
+
+- *Type:* aws-cdk-lib.aws_kms.IKey
+
+Optional KMS encryption key associated with this bucket.
+
+---
+
+##### `isWebsite`<sup>Optional</sup> <a name="isWebsite" id="cdk-extensions.s3.CloudtrailBucket.property.isWebsite"></a>
+
+```typescript
+public readonly isWebsite: boolean;
+```
+
+- *Type:* boolean
+
+If this bucket has been configured for static website hosting.
+
+---
+
+##### `policy`<sup>Optional</sup> <a name="policy" id="cdk-extensions.s3.CloudtrailBucket.property.policy"></a>
+
+```typescript
+public readonly policy: BucketPolicy;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.BucketPolicy
+
+The resource policy associated with this bucket.
+
+If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the
+first call to addToResourcePolicy(s).
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.s3.CloudtrailBucket.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="cdk-extensions.s3.CloudtrailBucket.property.table"></a>
+
+```typescript
+public readonly table: CloudtrailTable;
+```
+
+- *Type:* cdk-extensions.glue.CloudtrailTable
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.s3.CloudtrailBucket.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.s3.CloudtrailBucket.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+
+### CloudtrailTable <a name="CloudtrailTable" id="cdk-extensions.glue.CloudtrailTable"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.CloudtrailTable.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.CloudtrailTable(scope: Construct, id: string, props: CloudtrailTableProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.CloudtrailTableProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.CloudtrailTable.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.CloudtrailTable.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.CloudtrailTable.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.glue.CloudtrailTableProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.addColumn">addColumn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.addParameter">addParameter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.addPartitionKey">addPartitionKey</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.addSerdeParameter">addSerdeParameter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.addStorageParameter">addStorageParameter</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.glue.CloudtrailTable.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.glue.CloudtrailTable.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.glue.CloudtrailTable.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addColumn` <a name="addColumn" id="cdk-extensions.glue.CloudtrailTable.addColumn"></a>
+
+```typescript
+public addColumn(column: Column): void
+```
+
+###### `column`<sup>Required</sup> <a name="column" id="cdk-extensions.glue.CloudtrailTable.addColumn.parameter.column"></a>
+
+- *Type:* cdk-extensions.glue.Column
+
+---
+
+##### `addParameter` <a name="addParameter" id="cdk-extensions.glue.CloudtrailTable.addParameter"></a>
+
+```typescript
+public addParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.CloudtrailTable.addParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.CloudtrailTable.addParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addPartitionKey` <a name="addPartitionKey" id="cdk-extensions.glue.CloudtrailTable.addPartitionKey"></a>
+
+```typescript
+public addPartitionKey(column: Column): void
+```
+
+###### `column`<sup>Required</sup> <a name="column" id="cdk-extensions.glue.CloudtrailTable.addPartitionKey.parameter.column"></a>
+
+- *Type:* cdk-extensions.glue.Column
+
+---
+
+##### `addSerdeParameter` <a name="addSerdeParameter" id="cdk-extensions.glue.CloudtrailTable.addSerdeParameter"></a>
+
+```typescript
+public addSerdeParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.CloudtrailTable.addSerdeParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.CloudtrailTable.addSerdeParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addStorageParameter` <a name="addStorageParameter" id="cdk-extensions.glue.CloudtrailTable.addStorageParameter"></a>
+
+```typescript
+public addStorageParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.CloudtrailTable.addStorageParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.CloudtrailTable.addStorageParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.glue.CloudtrailTable.isConstruct"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.CloudtrailTable.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.glue.CloudtrailTable.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.glue.CloudtrailTable.isOwnedResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.CloudtrailTable.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.CloudtrailTable.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.glue.CloudtrailTable.isResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.CloudtrailTable.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.CloudtrailTable.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.location">location</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.unauthorizedNamedQuery">unauthorizedNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTable.property.userLoginsNamedQuery">userLoginsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.glue.CloudtrailTable.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.glue.CloudtrailTable.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.glue.CloudtrailTable.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue.CloudtrailTable.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.CloudtrailTable.property.resource"></a>
+
+```typescript
+public readonly resource: CfnTable;
+```
+
+- *Type:* aws-cdk-lib.aws_glue.CfnTable
+
+---
+
+##### `tableArn`<sup>Required</sup> <a name="tableArn" id="cdk-extensions.glue.CloudtrailTable.property.tableArn"></a>
+
+```typescript
+public readonly tableArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tableName`<sup>Required</sup> <a name="tableName" id="cdk-extensions.glue.CloudtrailTable.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `compressed`<sup>Optional</sup> <a name="compressed" id="cdk-extensions.glue.CloudtrailTable.property.compressed"></a>
+
+```typescript
+public readonly compressed: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue.CloudtrailTable.property.dataFormat"></a>
+
+```typescript
+public readonly dataFormat: DataFormat;
+```
+
+- *Type:* cdk-extensions.glue.DataFormat
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.CloudtrailTable.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue.CloudtrailTable.property.location"></a>
+
+```typescript
+public readonly location: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.CloudtrailTable.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue.CloudtrailTable.property.owner"></a>
+
+```typescript
+public readonly owner: string;
+```
+
+- *Type:* string
+
+---
+
+##### `retention`<sup>Optional</sup> <a name="retention" id="cdk-extensions.glue.CloudtrailTable.property.retention"></a>
+
+```typescript
+public readonly retention: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue.CloudtrailTable.property.serdeName"></a>
+
+```typescript
+public readonly serdeName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `storedAsSubDirectories`<sup>Optional</sup> <a name="storedAsSubDirectories" id="cdk-extensions.glue.CloudtrailTable.property.storedAsSubDirectories"></a>
+
+```typescript
+public readonly storedAsSubDirectories: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue.CloudtrailTable.property.tableType"></a>
+
+```typescript
+public readonly tableType: TableType;
+```
+
+- *Type:* cdk-extensions.glue.TableType
+
+---
+
+##### `targetTable`<sup>Optional</sup> <a name="targetTable" id="cdk-extensions.glue.CloudtrailTable.property.targetTable"></a>
+
+```typescript
+public readonly targetTable: Table;
+```
+
+- *Type:* cdk-extensions.glue.Table
+
+---
+
+##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue.CloudtrailTable.property.viewExpandedText"></a>
+
+```typescript
+public readonly viewExpandedText: string;
+```
+
+- *Type:* string
+
+---
+
+##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue.CloudtrailTable.property.viewOriginalText"></a>
+
+```typescript
+public readonly viewOriginalText: string;
+```
+
+- *Type:* string
+
+---
+
+##### `createQueries`<sup>Required</sup> <a name="createQueries" id="cdk-extensions.glue.CloudtrailTable.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue.CloudtrailTable.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `unauthorizedNamedQuery`<sup>Optional</sup> <a name="unauthorizedNamedQuery" id="cdk-extensions.glue.CloudtrailTable.property.unauthorizedNamedQuery"></a>
+
+```typescript
+public readonly unauthorizedNamedQuery: NamedQuery;
+```
+
+- *Type:* cdk-extensions.athena.NamedQuery
+
+---
+
+##### `userLoginsNamedQuery`<sup>Optional</sup> <a name="userLoginsNamedQuery" id="cdk-extensions.glue.CloudtrailTable.property.userLoginsNamedQuery"></a>
+
+```typescript
+public readonly userLoginsNamedQuery: NamedQuery;
+```
+
+- *Type:* cdk-extensions.athena.NamedQuery
 
 ---
 
@@ -2081,6 +7260,1438 @@ The maximum interval of time during which a flow of packets is captured and aggr
 ---
 
 
+### FlowLogsBucket <a name="FlowLogsBucket" id="cdk-extensions.s3.FlowLogsBucket"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.s3.FlowLogsBucket.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+new s3.FlowLogsBucket(scope: Construct, id: string, props?: FlowLogsBucketProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.s3.FlowLogsBucketProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.s3.FlowLogsBucket.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.s3.FlowLogsBucket.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.s3.FlowLogsBucket.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.s3.FlowLogsBucketProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.s3.FlowLogsBucket.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.s3.FlowLogsBucket.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.s3.FlowLogsBucket.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addEventNotification` <a name="addEventNotification" id="cdk-extensions.s3.FlowLogsBucket.addEventNotification"></a>
+
+```typescript
+public addEventNotification(_event: EventType, _dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Adds a bucket notification event destination.
+
+###### `_event`<sup>Required</sup> <a name="_event" id="cdk-extensions.s3.FlowLogsBucket.addEventNotification.parameter._event"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.EventType
+
+---
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.FlowLogsBucket.addEventNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.FlowLogsBucket.addEventNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectCreatedNotification` <a name="addObjectCreatedNotification" id="cdk-extensions.s3.FlowLogsBucket.addObjectCreatedNotification"></a>
+
+```typescript
+public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is created in the bucket.
+
+This is identical to calling
+`onEvent(s3.EventType.OBJECT_CREATED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.FlowLogsBucket.addObjectCreatedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.FlowLogsBucket.addObjectCreatedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectRemovedNotification` <a name="addObjectRemovedNotification" id="cdk-extensions.s3.FlowLogsBucket.addObjectRemovedNotification"></a>
+
+```typescript
+public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is removed from the bucket.
+
+This is identical to calling
+`onEvent(EventType.OBJECT_REMOVED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.FlowLogsBucket.addObjectRemovedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.FlowLogsBucket.addObjectRemovedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addToResourcePolicy` <a name="addToResourcePolicy" id="cdk-extensions.s3.FlowLogsBucket.addToResourcePolicy"></a>
+
+```typescript
+public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
+```
+
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
+
+###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3.FlowLogsBucket.addToResourcePolicy.parameter.permission"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+##### `arnForObjects` <a name="arnForObjects" id="cdk-extensions.s3.FlowLogsBucket.arnForObjects"></a>
+
+```typescript
+public arnForObjects(_keyPattern: string): string
+```
+
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+
+To represent all keys, specify ``"*"``.
+
+###### `_keyPattern`<sup>Required</sup> <a name="_keyPattern" id="cdk-extensions.s3.FlowLogsBucket.arnForObjects.parameter._keyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `enableEventBridgeNotification` <a name="enableEventBridgeNotification" id="cdk-extensions.s3.FlowLogsBucket.enableEventBridgeNotification"></a>
+
+```typescript
+public enableEventBridgeNotification(): void
+```
+
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
+
+##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3.FlowLogsBucket.grantDelete"></a>
+
+```typescript
+public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.FlowLogsBucket.grantDelete.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.FlowLogsBucket.grantDelete.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPublicAccess` <a name="grantPublicAccess" id="cdk-extensions.s3.FlowLogsBucket.grantPublicAccess"></a>
+
+```typescript
+public grantPublicAccess(_allowedActions: string, _keyPrefix?: string): Grant
+```
+
+Allows unrestricted access to objects from this bucket.
+
+IMPORTANT: This permission allows anyone to perform actions on S3 objects
+in this bucket, which is useful for when you configure your bucket as a
+website and want everyone to be able to read objects in the bucket without
+needing to authenticate.
+
+Without arguments, this method will grant read ("s3:GetObject") access to
+all objects ("*") in the bucket.
+
+The method returns the `iam.Grant` object, which can then be modified
+as needed. For example, you can add a condition that will restrict access only
+to an IPv4 range like this:
+
+     const grant = bucket.grantPublicAccess();
+     grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
+
+###### `_allowedActions`<sup>Required</sup> <a name="_allowedActions" id="cdk-extensions.s3.FlowLogsBucket.grantPublicAccess.parameter._allowedActions"></a>
+
+- *Type:* string
+
+---
+
+###### `_keyPrefix`<sup>Optional</sup> <a name="_keyPrefix" id="cdk-extensions.s3.FlowLogsBucket.grantPublicAccess.parameter._keyPrefix"></a>
+
+- *Type:* string
+
+---
+
+##### `grantPut` <a name="grantPut" id="cdk-extensions.s3.FlowLogsBucket.grantPut"></a>
+
+```typescript
+public grantPut(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.FlowLogsBucket.grantPut.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.FlowLogsBucket.grantPut.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPutAcl` <a name="grantPutAcl" id="cdk-extensions.s3.FlowLogsBucket.grantPutAcl"></a>
+
+```typescript
+public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
+```
+
+Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
+
+If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+in this case, if you need to modify object ACLs, call this method explicitly.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.FlowLogsBucket.grantPutAcl.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.FlowLogsBucket.grantPutAcl.parameter._objectsKeyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `grantRead` <a name="grantRead" id="cdk-extensions.s3.FlowLogsBucket.grantRead"></a>
+
+```typescript
+public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If encryption is used, permission to use the key to decrypt the contents
+of the bucket will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.FlowLogsBucket.grantRead.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.FlowLogsBucket.grantRead.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantReadWrite` <a name="grantReadWrite" id="cdk-extensions.s3.FlowLogsBucket.grantReadWrite"></a>
+
+```typescript
+public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If an encryption key is used, permission to use the key for
+encrypt/decrypt will also be granted.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.FlowLogsBucket.grantReadWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.FlowLogsBucket.grantReadWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3.FlowLogsBucket.grantWrite"></a>
+
+```typescript
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant write permissions to this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.FlowLogsBucket.grantWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.FlowLogsBucket.grantWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3.FlowLogsBucket.onCloudTrailEvent"></a>
+
+```typescript
+public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines a CloudWatch event that triggers when something happens to this bucket.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.FlowLogsBucket.onCloudTrailEvent.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.FlowLogsBucket.onCloudTrailEvent.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailPutObject` <a name="onCloudTrailPutObject" id="cdk-extensions.s3.FlowLogsBucket.onCloudTrailPutObject"></a>
+
+```typescript
+public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using `onCloudTrailWriteObject` may be preferable.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.FlowLogsBucket.onCloudTrailPutObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.FlowLogsBucket.onCloudTrailPutObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailWriteObject` <a name="onCloudTrailWriteObject" id="cdk-extensions.s3.FlowLogsBucket.onCloudTrailWriteObject"></a>
+
+```typescript
+public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+
+This includes
+the events PutObject, CopyObject, and CompleteMultipartUpload.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using this method may be preferable to `onCloudTrailPutObject`.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.FlowLogsBucket.onCloudTrailWriteObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.FlowLogsBucket.onCloudTrailWriteObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `s3UrlForObject` <a name="s3UrlForObject" id="cdk-extensions.s3.FlowLogsBucket.s3UrlForObject"></a>
+
+```typescript
+public s3UrlForObject(_key?: string): string
+```
+
+The S3 URL of an S3 object.
+
+For example:
+- `s3://onlybucket`
+- `s3://bucket/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.FlowLogsBucket.s3UrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `transferAccelerationUrlForObject` <a name="transferAccelerationUrlForObject" id="cdk-extensions.s3.FlowLogsBucket.transferAccelerationUrlForObject"></a>
+
+```typescript
+public transferAccelerationUrlForObject(_key?: string, _options?: TransferAccelerationUrlOptions): string
+```
+
+The https Transfer Acceleration URL of an S3 object.
+
+Specify `dualStack: true` at the options
+for dual-stack endpoint (connect to the bucket over IPv6). For example:
+
+- `https://bucket.s3-accelerate.amazonaws.com`
+- `https://bucket.s3-accelerate.amazonaws.com/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.FlowLogsBucket.transferAccelerationUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.FlowLogsBucket.transferAccelerationUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.TransferAccelerationUrlOptions
+
+---
+
+##### `urlForObject` <a name="urlForObject" id="cdk-extensions.s3.FlowLogsBucket.urlForObject"></a>
+
+```typescript
+public urlForObject(_key?: string): string
+```
+
+The https URL of an S3 object. For example:.
+
+`https://s3.us-west-1.amazonaws.com/onlybucket`
+- `https://s3.us-west-1.amazonaws.com/bucket/key`
+- `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.FlowLogsBucket.urlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `virtualHostedUrlForObject` <a name="virtualHostedUrlForObject" id="cdk-extensions.s3.FlowLogsBucket.virtualHostedUrlForObject"></a>
+
+```typescript
+public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
+```
+
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+
+`https://only-bucket.s3.us-west-1.amazonaws.com`
+- `https://bucket.s3.us-west-1.amazonaws.com/key`
+- `https://bucket.s3.amazonaws.com/key`
+- `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.FlowLogsBucket.virtualHostedUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.FlowLogsBucket.virtualHostedUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.VirtualHostedStyleUrlOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.s3.FlowLogsBucket.isConstruct"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.FlowLogsBucket.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.s3.FlowLogsBucket.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.s3.FlowLogsBucket.isOwnedResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.FlowLogsBucket.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.FlowLogsBucket.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.s3.FlowLogsBucket.isResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.FlowLogsBucket.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.FlowLogsBucket.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.bucketArn">bucketArn</a></code> | <code>string</code> | The ARN of the bucket. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.bucketDomainName">bucketDomainName</a></code> | <code>string</code> | The IPv4 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.bucketDualStackDomainName">bucketDualStackDomainName</a></code> | <code>string</code> | The IPv6 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.bucketName">bucketName</a></code> | <code>string</code> | The name of the bucket. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.bucketRegionalDomainName">bucketRegionalDomainName</a></code> | <code>string</code> | The regional domain name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.bucketWebsiteDomainName">bucketWebsiteDomainName</a></code> | <code>string</code> | The Domain name of the static website. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.bucketWebsiteUrl">bucketWebsiteUrl</a></code> | <code>string</code> | The URL of the static website. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | Optional KMS encryption key associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.isWebsite">isWebsite</a></code> | <code>boolean</code> | If this bucket has been configured for static website hosting. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.policy">policy</a></code> | <code>aws-cdk-lib.aws_s3.BucketPolicy</code> | The resource policy associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.crawler">crawler</a></code> | <code>cdk-extensions.glue.Crawler</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.table">table</a></code> | <code>cdk-extensions.glue.FlowLogsTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.crawlerSchedule">crawlerSchedule</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucket.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.s3.FlowLogsBucket.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.s3.FlowLogsBucket.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.s3.FlowLogsBucket.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `bucketArn`<sup>Required</sup> <a name="bucketArn" id="cdk-extensions.s3.FlowLogsBucket.property.bucketArn"></a>
+
+```typescript
+public readonly bucketArn: string;
+```
+
+- *Type:* string
+
+The ARN of the bucket.
+
+---
+
+##### `bucketDomainName`<sup>Required</sup> <a name="bucketDomainName" id="cdk-extensions.s3.FlowLogsBucket.property.bucketDomainName"></a>
+
+```typescript
+public readonly bucketDomainName: string;
+```
+
+- *Type:* string
+
+The IPv4 DNS name of the specified bucket.
+
+---
+
+##### `bucketDualStackDomainName`<sup>Required</sup> <a name="bucketDualStackDomainName" id="cdk-extensions.s3.FlowLogsBucket.property.bucketDualStackDomainName"></a>
+
+```typescript
+public readonly bucketDualStackDomainName: string;
+```
+
+- *Type:* string
+
+The IPv6 DNS name of the specified bucket.
+
+---
+
+##### `bucketName`<sup>Required</sup> <a name="bucketName" id="cdk-extensions.s3.FlowLogsBucket.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+The name of the bucket.
+
+---
+
+##### `bucketRegionalDomainName`<sup>Required</sup> <a name="bucketRegionalDomainName" id="cdk-extensions.s3.FlowLogsBucket.property.bucketRegionalDomainName"></a>
+
+```typescript
+public readonly bucketRegionalDomainName: string;
+```
+
+- *Type:* string
+
+The regional domain name of the specified bucket.
+
+---
+
+##### `bucketWebsiteDomainName`<sup>Required</sup> <a name="bucketWebsiteDomainName" id="cdk-extensions.s3.FlowLogsBucket.property.bucketWebsiteDomainName"></a>
+
+```typescript
+public readonly bucketWebsiteDomainName: string;
+```
+
+- *Type:* string
+
+The Domain name of the static website.
+
+---
+
+##### `bucketWebsiteUrl`<sup>Required</sup> <a name="bucketWebsiteUrl" id="cdk-extensions.s3.FlowLogsBucket.property.bucketWebsiteUrl"></a>
+
+```typescript
+public readonly bucketWebsiteUrl: string;
+```
+
+- *Type:* string
+
+The URL of the static website.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.s3.FlowLogsBucket.property.resource"></a>
+
+```typescript
+public readonly resource: CfnBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket
+
+---
+
+##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="cdk-extensions.s3.FlowLogsBucket.property.encryptionKey"></a>
+
+```typescript
+public readonly encryptionKey: IKey;
+```
+
+- *Type:* aws-cdk-lib.aws_kms.IKey
+
+Optional KMS encryption key associated with this bucket.
+
+---
+
+##### `isWebsite`<sup>Optional</sup> <a name="isWebsite" id="cdk-extensions.s3.FlowLogsBucket.property.isWebsite"></a>
+
+```typescript
+public readonly isWebsite: boolean;
+```
+
+- *Type:* boolean
+
+If this bucket has been configured for static website hosting.
+
+---
+
+##### `policy`<sup>Optional</sup> <a name="policy" id="cdk-extensions.s3.FlowLogsBucket.property.policy"></a>
+
+```typescript
+public readonly policy: BucketPolicy;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.BucketPolicy
+
+The resource policy associated with this bucket.
+
+If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the
+first call to addToResourcePolicy(s).
+
+---
+
+##### `crawler`<sup>Required</sup> <a name="crawler" id="cdk-extensions.s3.FlowLogsBucket.property.crawler"></a>
+
+```typescript
+public readonly crawler: Crawler;
+```
+
+- *Type:* cdk-extensions.glue.Crawler
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.s3.FlowLogsBucket.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `format`<sup>Required</sup> <a name="format" id="cdk-extensions.s3.FlowLogsBucket.property.format"></a>
+
+```typescript
+public readonly format: FlowLogFormat;
+```
+
+- *Type:* cdk-extensions.ec2.FlowLogFormat
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="cdk-extensions.s3.FlowLogsBucket.property.table"></a>
+
+```typescript
+public readonly table: FlowLogsTable;
+```
+
+- *Type:* cdk-extensions.glue.FlowLogsTable
+
+---
+
+##### `crawlerSchedule`<sup>Optional</sup> <a name="crawlerSchedule" id="cdk-extensions.s3.FlowLogsBucket.property.crawlerSchedule"></a>
+
+```typescript
+public readonly crawlerSchedule: Schedule;
+```
+
+- *Type:* aws-cdk-lib.aws_events.Schedule
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.s3.FlowLogsBucket.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.s3.FlowLogsBucket.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+
+### FlowLogsTable <a name="FlowLogsTable" id="cdk-extensions.glue.FlowLogsTable"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.FlowLogsTable.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.FlowLogsTable(scope: Construct, id: string, props: FlowLogsTableProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.FlowLogsTableProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.FlowLogsTable.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.FlowLogsTable.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.FlowLogsTable.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.glue.FlowLogsTableProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.addColumn">addColumn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.addParameter">addParameter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.addPartitionKey">addPartitionKey</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.addSerdeParameter">addSerdeParameter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.addStorageParameter">addStorageParameter</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.glue.FlowLogsTable.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.glue.FlowLogsTable.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.glue.FlowLogsTable.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addColumn` <a name="addColumn" id="cdk-extensions.glue.FlowLogsTable.addColumn"></a>
+
+```typescript
+public addColumn(column: Column): void
+```
+
+###### `column`<sup>Required</sup> <a name="column" id="cdk-extensions.glue.FlowLogsTable.addColumn.parameter.column"></a>
+
+- *Type:* cdk-extensions.glue.Column
+
+---
+
+##### `addParameter` <a name="addParameter" id="cdk-extensions.glue.FlowLogsTable.addParameter"></a>
+
+```typescript
+public addParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.FlowLogsTable.addParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.FlowLogsTable.addParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addPartitionKey` <a name="addPartitionKey" id="cdk-extensions.glue.FlowLogsTable.addPartitionKey"></a>
+
+```typescript
+public addPartitionKey(column: Column): void
+```
+
+###### `column`<sup>Required</sup> <a name="column" id="cdk-extensions.glue.FlowLogsTable.addPartitionKey.parameter.column"></a>
+
+- *Type:* cdk-extensions.glue.Column
+
+---
+
+##### `addSerdeParameter` <a name="addSerdeParameter" id="cdk-extensions.glue.FlowLogsTable.addSerdeParameter"></a>
+
+```typescript
+public addSerdeParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.FlowLogsTable.addSerdeParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.FlowLogsTable.addSerdeParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addStorageParameter` <a name="addStorageParameter" id="cdk-extensions.glue.FlowLogsTable.addStorageParameter"></a>
+
+```typescript
+public addStorageParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.FlowLogsTable.addStorageParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.FlowLogsTable.addStorageParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.glue.FlowLogsTable.isConstruct"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.FlowLogsTable.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.glue.FlowLogsTable.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.glue.FlowLogsTable.isOwnedResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.FlowLogsTable.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.FlowLogsTable.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.glue.FlowLogsTable.isResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.FlowLogsTable.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.FlowLogsTable.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTable.property.internalRejectedNamedQuery">internalRejectedNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.glue.FlowLogsTable.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.glue.FlowLogsTable.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.glue.FlowLogsTable.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue.FlowLogsTable.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.FlowLogsTable.property.resource"></a>
+
+```typescript
+public readonly resource: CfnTable;
+```
+
+- *Type:* aws-cdk-lib.aws_glue.CfnTable
+
+---
+
+##### `tableArn`<sup>Required</sup> <a name="tableArn" id="cdk-extensions.glue.FlowLogsTable.property.tableArn"></a>
+
+```typescript
+public readonly tableArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tableName`<sup>Required</sup> <a name="tableName" id="cdk-extensions.glue.FlowLogsTable.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `compressed`<sup>Optional</sup> <a name="compressed" id="cdk-extensions.glue.FlowLogsTable.property.compressed"></a>
+
+```typescript
+public readonly compressed: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue.FlowLogsTable.property.dataFormat"></a>
+
+```typescript
+public readonly dataFormat: DataFormat;
+```
+
+- *Type:* cdk-extensions.glue.DataFormat
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.FlowLogsTable.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue.FlowLogsTable.property.location"></a>
+
+```typescript
+public readonly location: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.FlowLogsTable.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue.FlowLogsTable.property.owner"></a>
+
+```typescript
+public readonly owner: string;
+```
+
+- *Type:* string
+
+---
+
+##### `retention`<sup>Optional</sup> <a name="retention" id="cdk-extensions.glue.FlowLogsTable.property.retention"></a>
+
+```typescript
+public readonly retention: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue.FlowLogsTable.property.serdeName"></a>
+
+```typescript
+public readonly serdeName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `storedAsSubDirectories`<sup>Optional</sup> <a name="storedAsSubDirectories" id="cdk-extensions.glue.FlowLogsTable.property.storedAsSubDirectories"></a>
+
+```typescript
+public readonly storedAsSubDirectories: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue.FlowLogsTable.property.tableType"></a>
+
+```typescript
+public readonly tableType: TableType;
+```
+
+- *Type:* cdk-extensions.glue.TableType
+
+---
+
+##### `targetTable`<sup>Optional</sup> <a name="targetTable" id="cdk-extensions.glue.FlowLogsTable.property.targetTable"></a>
+
+```typescript
+public readonly targetTable: Table;
+```
+
+- *Type:* cdk-extensions.glue.Table
+
+---
+
+##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue.FlowLogsTable.property.viewExpandedText"></a>
+
+```typescript
+public readonly viewExpandedText: string;
+```
+
+- *Type:* string
+
+---
+
+##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue.FlowLogsTable.property.viewOriginalText"></a>
+
+```typescript
+public readonly viewOriginalText: string;
+```
+
+- *Type:* string
+
+---
+
+##### `createQueries`<sup>Required</sup> <a name="createQueries" id="cdk-extensions.glue.FlowLogsTable.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `format`<sup>Required</sup> <a name="format" id="cdk-extensions.glue.FlowLogsTable.property.format"></a>
+
+```typescript
+public readonly format: FlowLogFormat;
+```
+
+- *Type:* cdk-extensions.ec2.FlowLogFormat
+
+---
+
+##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue.FlowLogsTable.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `internalRejectedNamedQuery`<sup>Optional</sup> <a name="internalRejectedNamedQuery" id="cdk-extensions.glue.FlowLogsTable.property.internalRejectedNamedQuery"></a>
+
+```typescript
+public readonly internalRejectedNamedQuery: NamedQuery;
+```
+
+- *Type:* cdk-extensions.athena.NamedQuery
+
+---
+
+
 ### GroupBase <a name="GroupBase" id="cdk-extensions.sso.GroupBase"></a>
 
 - *Implements:* cdk-extensions.sso.IGroup, cdk-extensions.sso.IIdentityCenterPrincipal
@@ -2791,6 +9402,383 @@ public readonly instanceArn: string;
 
 ```typescript
 public readonly instanceId: string;
+```
+
+- *Type:* string
+
+---
+
+
+### JdbcConnection <a name="JdbcConnection" id="cdk-extensions.glue.JdbcConnection"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.JdbcConnection.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.JdbcConnection(scope: Construct, id: string, props: JdbcConnectionProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.JdbcConnectionProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.JdbcConnection.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.JdbcConnection.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.JdbcConnection.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.glue.JdbcConnectionProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.addMatchCriteria">addMatchCriteria</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.addProperty">addProperty</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.glue.JdbcConnection.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.glue.JdbcConnection.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.glue.JdbcConnection.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addMatchCriteria` <a name="addMatchCriteria" id="cdk-extensions.glue.JdbcConnection.addMatchCriteria"></a>
+
+```typescript
+public addMatchCriteria(value: string): void
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.JdbcConnection.addMatchCriteria.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addProperty` <a name="addProperty" id="cdk-extensions.glue.JdbcConnection.addProperty"></a>
+
+```typescript
+public addProperty(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.JdbcConnection.addProperty.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.JdbcConnection.addProperty.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.glue.JdbcConnection.isConstruct"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.JdbcConnection.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.glue.JdbcConnection.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.glue.JdbcConnection.isOwnedResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.JdbcConnection.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.JdbcConnection.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.glue.JdbcConnection.isResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.JdbcConnection.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.JdbcConnection.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.connectionArn">connectionArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.connectionName">connectionName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The network connections associated with this resource. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.connectionType">connectionType</a></code> | <code>cdk-extensions.glue.ConnectionType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnConnection</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.securityGroup">securityGroup</a></code> | <code>aws-cdk-lib.aws_ec2.SecurityGroup</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.password">password</a></code> | <code>aws-cdk-lib.SecretValue</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.url">url</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.username">username</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.glue.JdbcConnection.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.glue.JdbcConnection.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.glue.JdbcConnection.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `connectionArn`<sup>Required</sup> <a name="connectionArn" id="cdk-extensions.glue.JdbcConnection.property.connectionArn"></a>
+
+```typescript
+public readonly connectionArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `connectionName`<sup>Required</sup> <a name="connectionName" id="cdk-extensions.glue.JdbcConnection.property.connectionName"></a>
+
+```typescript
+public readonly connectionName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `connections`<sup>Required</sup> <a name="connections" id="cdk-extensions.glue.JdbcConnection.property.connections"></a>
+
+```typescript
+public readonly connections: Connections;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.Connections
+
+The network connections associated with this resource.
+
+---
+
+##### `connectionType`<sup>Required</sup> <a name="connectionType" id="cdk-extensions.glue.JdbcConnection.property.connectionType"></a>
+
+```typescript
+public readonly connectionType: ConnectionType;
+```
+
+- *Type:* cdk-extensions.glue.ConnectionType
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.JdbcConnection.property.resource"></a>
+
+```typescript
+public readonly resource: CfnConnection;
+```
+
+- *Type:* aws-cdk-lib.aws_glue.CfnConnection
+
+---
+
+##### `securityGroups`<sup>Required</sup> <a name="securityGroups" id="cdk-extensions.glue.JdbcConnection.property.securityGroups"></a>
+
+```typescript
+public readonly securityGroups: ISecurityGroup[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.JdbcConnection.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.JdbcConnection.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `securityGroup`<sup>Optional</sup> <a name="securityGroup" id="cdk-extensions.glue.JdbcConnection.property.securityGroup"></a>
+
+```typescript
+public readonly securityGroup: SecurityGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SecurityGroup
+
+---
+
+##### `subnets`<sup>Optional</sup> <a name="subnets" id="cdk-extensions.glue.JdbcConnection.property.subnets"></a>
+
+```typescript
+public readonly subnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+---
+
+##### `vpc`<sup>Optional</sup> <a name="vpc" id="cdk-extensions.glue.JdbcConnection.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+---
+
+##### `password`<sup>Required</sup> <a name="password" id="cdk-extensions.glue.JdbcConnection.property.password"></a>
+
+```typescript
+public readonly password: SecretValue;
+```
+
+- *Type:* aws-cdk-lib.SecretValue
+
+---
+
+##### `url`<sup>Required</sup> <a name="url" id="cdk-extensions.glue.JdbcConnection.property.url"></a>
+
+```typescript
+public readonly url: string;
+```
+
+- *Type:* string
+
+---
+
+##### `username`<sup>Required</sup> <a name="username" id="cdk-extensions.glue.JdbcConnection.property.username"></a>
+
+```typescript
+public readonly username: string;
 ```
 
 - *Type:* string
@@ -3932,6 +10920,855 @@ The length of time that the application user sessions are valid for.
 ---
 
 
+### RawBucket <a name="RawBucket" id="cdk-extensions.s3.RawBucket"></a>
+
+- *Implements:* aws-cdk-lib.aws_s3.IBucket
+
+Do not use directly.
+
+Will be removed once a better replacemnt is written.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.s3.RawBucket.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+new s3.RawBucket(scope: Construct, id: string, props?: RawBucketProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.RawBucket.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.s3.RawBucket.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.s3.RawBucket.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.s3.RawBucketProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.s3.RawBucket.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.s3.RawBucket.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.s3.RawBucket.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.s3.RawBucketProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.RawBucket.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.s3.RawBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.s3.RawBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
+| <code><a href="#cdk-extensions.s3.RawBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3.RawBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3.RawBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3.RawBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.RawBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.RawBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.RawBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.RawBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3.RawBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3.RawBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.RawBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.RawBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3.RawBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.s3.RawBucket.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.s3.RawBucket.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.s3.RawBucket.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addEventNotification` <a name="addEventNotification" id="cdk-extensions.s3.RawBucket.addEventNotification"></a>
+
+```typescript
+public addEventNotification(_event: EventType, _dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Adds a bucket notification event destination.
+
+###### `_event`<sup>Required</sup> <a name="_event" id="cdk-extensions.s3.RawBucket.addEventNotification.parameter._event"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.EventType
+
+---
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.RawBucket.addEventNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.RawBucket.addEventNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectCreatedNotification` <a name="addObjectCreatedNotification" id="cdk-extensions.s3.RawBucket.addObjectCreatedNotification"></a>
+
+```typescript
+public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is created in the bucket.
+
+This is identical to calling
+`onEvent(s3.EventType.OBJECT_CREATED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.RawBucket.addObjectCreatedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.RawBucket.addObjectCreatedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectRemovedNotification` <a name="addObjectRemovedNotification" id="cdk-extensions.s3.RawBucket.addObjectRemovedNotification"></a>
+
+```typescript
+public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is removed from the bucket.
+
+This is identical to calling
+`onEvent(EventType.OBJECT_REMOVED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.RawBucket.addObjectRemovedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.RawBucket.addObjectRemovedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addToResourcePolicy` <a name="addToResourcePolicy" id="cdk-extensions.s3.RawBucket.addToResourcePolicy"></a>
+
+```typescript
+public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
+```
+
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
+
+###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3.RawBucket.addToResourcePolicy.parameter.permission"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+##### `arnForObjects` <a name="arnForObjects" id="cdk-extensions.s3.RawBucket.arnForObjects"></a>
+
+```typescript
+public arnForObjects(_keyPattern: string): string
+```
+
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+
+To represent all keys, specify ``"*"``.
+
+###### `_keyPattern`<sup>Required</sup> <a name="_keyPattern" id="cdk-extensions.s3.RawBucket.arnForObjects.parameter._keyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `enableEventBridgeNotification` <a name="enableEventBridgeNotification" id="cdk-extensions.s3.RawBucket.enableEventBridgeNotification"></a>
+
+```typescript
+public enableEventBridgeNotification(): void
+```
+
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
+
+##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3.RawBucket.grantDelete"></a>
+
+```typescript
+public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.RawBucket.grantDelete.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.RawBucket.grantDelete.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPublicAccess` <a name="grantPublicAccess" id="cdk-extensions.s3.RawBucket.grantPublicAccess"></a>
+
+```typescript
+public grantPublicAccess(_allowedActions: string, _keyPrefix?: string): Grant
+```
+
+Allows unrestricted access to objects from this bucket.
+
+IMPORTANT: This permission allows anyone to perform actions on S3 objects
+in this bucket, which is useful for when you configure your bucket as a
+website and want everyone to be able to read objects in the bucket without
+needing to authenticate.
+
+Without arguments, this method will grant read ("s3:GetObject") access to
+all objects ("*") in the bucket.
+
+The method returns the `iam.Grant` object, which can then be modified
+as needed. For example, you can add a condition that will restrict access only
+to an IPv4 range like this:
+
+     const grant = bucket.grantPublicAccess();
+     grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
+
+###### `_allowedActions`<sup>Required</sup> <a name="_allowedActions" id="cdk-extensions.s3.RawBucket.grantPublicAccess.parameter._allowedActions"></a>
+
+- *Type:* string
+
+---
+
+###### `_keyPrefix`<sup>Optional</sup> <a name="_keyPrefix" id="cdk-extensions.s3.RawBucket.grantPublicAccess.parameter._keyPrefix"></a>
+
+- *Type:* string
+
+---
+
+##### `grantPut` <a name="grantPut" id="cdk-extensions.s3.RawBucket.grantPut"></a>
+
+```typescript
+public grantPut(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.RawBucket.grantPut.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.RawBucket.grantPut.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPutAcl` <a name="grantPutAcl" id="cdk-extensions.s3.RawBucket.grantPutAcl"></a>
+
+```typescript
+public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
+```
+
+Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
+
+If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+in this case, if you need to modify object ACLs, call this method explicitly.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.RawBucket.grantPutAcl.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.RawBucket.grantPutAcl.parameter._objectsKeyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `grantRead` <a name="grantRead" id="cdk-extensions.s3.RawBucket.grantRead"></a>
+
+```typescript
+public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If encryption is used, permission to use the key to decrypt the contents
+of the bucket will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.RawBucket.grantRead.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.RawBucket.grantRead.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantReadWrite` <a name="grantReadWrite" id="cdk-extensions.s3.RawBucket.grantReadWrite"></a>
+
+```typescript
+public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If an encryption key is used, permission to use the key for
+encrypt/decrypt will also be granted.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.RawBucket.grantReadWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.RawBucket.grantReadWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3.RawBucket.grantWrite"></a>
+
+```typescript
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant write permissions to this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.RawBucket.grantWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.RawBucket.grantWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3.RawBucket.onCloudTrailEvent"></a>
+
+```typescript
+public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines a CloudWatch event that triggers when something happens to this bucket.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.RawBucket.onCloudTrailEvent.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.RawBucket.onCloudTrailEvent.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailPutObject` <a name="onCloudTrailPutObject" id="cdk-extensions.s3.RawBucket.onCloudTrailPutObject"></a>
+
+```typescript
+public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using `onCloudTrailWriteObject` may be preferable.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.RawBucket.onCloudTrailPutObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.RawBucket.onCloudTrailPutObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailWriteObject` <a name="onCloudTrailWriteObject" id="cdk-extensions.s3.RawBucket.onCloudTrailWriteObject"></a>
+
+```typescript
+public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+
+This includes
+the events PutObject, CopyObject, and CompleteMultipartUpload.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using this method may be preferable to `onCloudTrailPutObject`.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.RawBucket.onCloudTrailWriteObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.RawBucket.onCloudTrailWriteObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `s3UrlForObject` <a name="s3UrlForObject" id="cdk-extensions.s3.RawBucket.s3UrlForObject"></a>
+
+```typescript
+public s3UrlForObject(_key?: string): string
+```
+
+The S3 URL of an S3 object.
+
+For example:
+- `s3://onlybucket`
+- `s3://bucket/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.RawBucket.s3UrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `transferAccelerationUrlForObject` <a name="transferAccelerationUrlForObject" id="cdk-extensions.s3.RawBucket.transferAccelerationUrlForObject"></a>
+
+```typescript
+public transferAccelerationUrlForObject(_key?: string, _options?: TransferAccelerationUrlOptions): string
+```
+
+The https Transfer Acceleration URL of an S3 object.
+
+Specify `dualStack: true` at the options
+for dual-stack endpoint (connect to the bucket over IPv6). For example:
+
+- `https://bucket.s3-accelerate.amazonaws.com`
+- `https://bucket.s3-accelerate.amazonaws.com/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.RawBucket.transferAccelerationUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.RawBucket.transferAccelerationUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.TransferAccelerationUrlOptions
+
+---
+
+##### `urlForObject` <a name="urlForObject" id="cdk-extensions.s3.RawBucket.urlForObject"></a>
+
+```typescript
+public urlForObject(_key?: string): string
+```
+
+The https URL of an S3 object. For example:.
+
+`https://s3.us-west-1.amazonaws.com/onlybucket`
+- `https://s3.us-west-1.amazonaws.com/bucket/key`
+- `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.RawBucket.urlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `virtualHostedUrlForObject` <a name="virtualHostedUrlForObject" id="cdk-extensions.s3.RawBucket.virtualHostedUrlForObject"></a>
+
+```typescript
+public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
+```
+
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+
+`https://only-bucket.s3.us-west-1.amazonaws.com`
+- `https://bucket.s3.us-west-1.amazonaws.com/key`
+- `https://bucket.s3.amazonaws.com/key`
+- `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.RawBucket.virtualHostedUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.RawBucket.virtualHostedUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.VirtualHostedStyleUrlOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.RawBucket.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.s3.RawBucket.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.s3.RawBucket.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.s3.RawBucket.isConstruct"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.RawBucket.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.s3.RawBucket.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.s3.RawBucket.isOwnedResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.RawBucket.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.RawBucket.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.s3.RawBucket.isResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.RawBucket.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.RawBucket.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.RawBucket.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.s3.RawBucket.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.RawBucket.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.s3.RawBucket.property.bucketArn">bucketArn</a></code> | <code>string</code> | The ARN of the bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucket.property.bucketDomainName">bucketDomainName</a></code> | <code>string</code> | The IPv4 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucket.property.bucketDualStackDomainName">bucketDualStackDomainName</a></code> | <code>string</code> | The IPv6 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucket.property.bucketName">bucketName</a></code> | <code>string</code> | The name of the bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucket.property.bucketRegionalDomainName">bucketRegionalDomainName</a></code> | <code>string</code> | The regional domain name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucket.property.bucketWebsiteDomainName">bucketWebsiteDomainName</a></code> | <code>string</code> | The Domain name of the static website. |
+| <code><a href="#cdk-extensions.s3.RawBucket.property.bucketWebsiteUrl">bucketWebsiteUrl</a></code> | <code>string</code> | The URL of the static website. |
+| <code><a href="#cdk-extensions.s3.RawBucket.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.RawBucket.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | Optional KMS encryption key associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucket.property.isWebsite">isWebsite</a></code> | <code>boolean</code> | If this bucket has been configured for static website hosting. |
+| <code><a href="#cdk-extensions.s3.RawBucket.property.policy">policy</a></code> | <code>aws-cdk-lib.aws_s3.BucketPolicy</code> | The resource policy associated with this bucket. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.s3.RawBucket.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.s3.RawBucket.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.s3.RawBucket.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `bucketArn`<sup>Required</sup> <a name="bucketArn" id="cdk-extensions.s3.RawBucket.property.bucketArn"></a>
+
+```typescript
+public readonly bucketArn: string;
+```
+
+- *Type:* string
+
+The ARN of the bucket.
+
+---
+
+##### `bucketDomainName`<sup>Required</sup> <a name="bucketDomainName" id="cdk-extensions.s3.RawBucket.property.bucketDomainName"></a>
+
+```typescript
+public readonly bucketDomainName: string;
+```
+
+- *Type:* string
+
+The IPv4 DNS name of the specified bucket.
+
+---
+
+##### `bucketDualStackDomainName`<sup>Required</sup> <a name="bucketDualStackDomainName" id="cdk-extensions.s3.RawBucket.property.bucketDualStackDomainName"></a>
+
+```typescript
+public readonly bucketDualStackDomainName: string;
+```
+
+- *Type:* string
+
+The IPv6 DNS name of the specified bucket.
+
+---
+
+##### `bucketName`<sup>Required</sup> <a name="bucketName" id="cdk-extensions.s3.RawBucket.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+The name of the bucket.
+
+---
+
+##### `bucketRegionalDomainName`<sup>Required</sup> <a name="bucketRegionalDomainName" id="cdk-extensions.s3.RawBucket.property.bucketRegionalDomainName"></a>
+
+```typescript
+public readonly bucketRegionalDomainName: string;
+```
+
+- *Type:* string
+
+The regional domain name of the specified bucket.
+
+---
+
+##### `bucketWebsiteDomainName`<sup>Required</sup> <a name="bucketWebsiteDomainName" id="cdk-extensions.s3.RawBucket.property.bucketWebsiteDomainName"></a>
+
+```typescript
+public readonly bucketWebsiteDomainName: string;
+```
+
+- *Type:* string
+
+The Domain name of the static website.
+
+---
+
+##### `bucketWebsiteUrl`<sup>Required</sup> <a name="bucketWebsiteUrl" id="cdk-extensions.s3.RawBucket.property.bucketWebsiteUrl"></a>
+
+```typescript
+public readonly bucketWebsiteUrl: string;
+```
+
+- *Type:* string
+
+The URL of the static website.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.s3.RawBucket.property.resource"></a>
+
+```typescript
+public readonly resource: CfnBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket
+
+---
+
+##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="cdk-extensions.s3.RawBucket.property.encryptionKey"></a>
+
+```typescript
+public readonly encryptionKey: IKey;
+```
+
+- *Type:* aws-cdk-lib.aws_kms.IKey
+
+Optional KMS encryption key associated with this bucket.
+
+---
+
+##### `isWebsite`<sup>Optional</sup> <a name="isWebsite" id="cdk-extensions.s3.RawBucket.property.isWebsite"></a>
+
+```typescript
+public readonly isWebsite: boolean;
+```
+
+- *Type:* boolean
+
+If this bucket has been configured for static website hosting.
+
+---
+
+##### `policy`<sup>Optional</sup> <a name="policy" id="cdk-extensions.s3.RawBucket.property.policy"></a>
+
+```typescript
+public readonly policy: BucketPolicy;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.BucketPolicy
+
+The resource policy associated with this bucket.
+
+If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the
+first call to addToResourcePolicy(s).
+
+---
+
+
 ### ReferencedManagedPolicy <a name="ReferencedManagedPolicy" id="cdk-extensions.sso.ReferencedManagedPolicy"></a>
 
 A managed policy that is referenced via IAM Identity Center.
@@ -4715,6 +12552,1413 @@ public readonly allowExternalPrincipals: boolean;
 ---
 
 
+### S3AccessLogsBucket <a name="S3AccessLogsBucket" id="cdk-extensions.s3.S3AccessLogsBucket"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.s3.S3AccessLogsBucket.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+new s3.S3AccessLogsBucket(scope: Construct, id: string, props?: S3AccessLogsBucketProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.s3.S3AccessLogsBucketProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.s3.S3AccessLogsBucket.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.s3.S3AccessLogsBucket.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.s3.S3AccessLogsBucket.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.s3.S3AccessLogsBucketProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.addLoggingAspect">addLoggingAspect</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.s3.S3AccessLogsBucket.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.s3.S3AccessLogsBucket.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.s3.S3AccessLogsBucket.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addEventNotification` <a name="addEventNotification" id="cdk-extensions.s3.S3AccessLogsBucket.addEventNotification"></a>
+
+```typescript
+public addEventNotification(_event: EventType, _dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Adds a bucket notification event destination.
+
+###### `_event`<sup>Required</sup> <a name="_event" id="cdk-extensions.s3.S3AccessLogsBucket.addEventNotification.parameter._event"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.EventType
+
+---
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.S3AccessLogsBucket.addEventNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.S3AccessLogsBucket.addEventNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectCreatedNotification` <a name="addObjectCreatedNotification" id="cdk-extensions.s3.S3AccessLogsBucket.addObjectCreatedNotification"></a>
+
+```typescript
+public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is created in the bucket.
+
+This is identical to calling
+`onEvent(s3.EventType.OBJECT_CREATED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.S3AccessLogsBucket.addObjectCreatedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.S3AccessLogsBucket.addObjectCreatedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectRemovedNotification` <a name="addObjectRemovedNotification" id="cdk-extensions.s3.S3AccessLogsBucket.addObjectRemovedNotification"></a>
+
+```typescript
+public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is removed from the bucket.
+
+This is identical to calling
+`onEvent(EventType.OBJECT_REMOVED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.S3AccessLogsBucket.addObjectRemovedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.S3AccessLogsBucket.addObjectRemovedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addToResourcePolicy` <a name="addToResourcePolicy" id="cdk-extensions.s3.S3AccessLogsBucket.addToResourcePolicy"></a>
+
+```typescript
+public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
+```
+
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
+
+###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3.S3AccessLogsBucket.addToResourcePolicy.parameter.permission"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+##### `arnForObjects` <a name="arnForObjects" id="cdk-extensions.s3.S3AccessLogsBucket.arnForObjects"></a>
+
+```typescript
+public arnForObjects(_keyPattern: string): string
+```
+
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+
+To represent all keys, specify ``"*"``.
+
+###### `_keyPattern`<sup>Required</sup> <a name="_keyPattern" id="cdk-extensions.s3.S3AccessLogsBucket.arnForObjects.parameter._keyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `enableEventBridgeNotification` <a name="enableEventBridgeNotification" id="cdk-extensions.s3.S3AccessLogsBucket.enableEventBridgeNotification"></a>
+
+```typescript
+public enableEventBridgeNotification(): void
+```
+
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
+
+##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3.S3AccessLogsBucket.grantDelete"></a>
+
+```typescript
+public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.S3AccessLogsBucket.grantDelete.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.S3AccessLogsBucket.grantDelete.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPublicAccess` <a name="grantPublicAccess" id="cdk-extensions.s3.S3AccessLogsBucket.grantPublicAccess"></a>
+
+```typescript
+public grantPublicAccess(_allowedActions: string, _keyPrefix?: string): Grant
+```
+
+Allows unrestricted access to objects from this bucket.
+
+IMPORTANT: This permission allows anyone to perform actions on S3 objects
+in this bucket, which is useful for when you configure your bucket as a
+website and want everyone to be able to read objects in the bucket without
+needing to authenticate.
+
+Without arguments, this method will grant read ("s3:GetObject") access to
+all objects ("*") in the bucket.
+
+The method returns the `iam.Grant` object, which can then be modified
+as needed. For example, you can add a condition that will restrict access only
+to an IPv4 range like this:
+
+     const grant = bucket.grantPublicAccess();
+     grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
+
+###### `_allowedActions`<sup>Required</sup> <a name="_allowedActions" id="cdk-extensions.s3.S3AccessLogsBucket.grantPublicAccess.parameter._allowedActions"></a>
+
+- *Type:* string
+
+---
+
+###### `_keyPrefix`<sup>Optional</sup> <a name="_keyPrefix" id="cdk-extensions.s3.S3AccessLogsBucket.grantPublicAccess.parameter._keyPrefix"></a>
+
+- *Type:* string
+
+---
+
+##### `grantPut` <a name="grantPut" id="cdk-extensions.s3.S3AccessLogsBucket.grantPut"></a>
+
+```typescript
+public grantPut(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.S3AccessLogsBucket.grantPut.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.S3AccessLogsBucket.grantPut.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPutAcl` <a name="grantPutAcl" id="cdk-extensions.s3.S3AccessLogsBucket.grantPutAcl"></a>
+
+```typescript
+public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
+```
+
+Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
+
+If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+in this case, if you need to modify object ACLs, call this method explicitly.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.S3AccessLogsBucket.grantPutAcl.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.S3AccessLogsBucket.grantPutAcl.parameter._objectsKeyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `grantRead` <a name="grantRead" id="cdk-extensions.s3.S3AccessLogsBucket.grantRead"></a>
+
+```typescript
+public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If encryption is used, permission to use the key to decrypt the contents
+of the bucket will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.S3AccessLogsBucket.grantRead.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.S3AccessLogsBucket.grantRead.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantReadWrite` <a name="grantReadWrite" id="cdk-extensions.s3.S3AccessLogsBucket.grantReadWrite"></a>
+
+```typescript
+public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If an encryption key is used, permission to use the key for
+encrypt/decrypt will also be granted.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.S3AccessLogsBucket.grantReadWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.S3AccessLogsBucket.grantReadWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3.S3AccessLogsBucket.grantWrite"></a>
+
+```typescript
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant write permissions to this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.S3AccessLogsBucket.grantWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.S3AccessLogsBucket.grantWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3.S3AccessLogsBucket.onCloudTrailEvent"></a>
+
+```typescript
+public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines a CloudWatch event that triggers when something happens to this bucket.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.S3AccessLogsBucket.onCloudTrailEvent.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.S3AccessLogsBucket.onCloudTrailEvent.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailPutObject` <a name="onCloudTrailPutObject" id="cdk-extensions.s3.S3AccessLogsBucket.onCloudTrailPutObject"></a>
+
+```typescript
+public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using `onCloudTrailWriteObject` may be preferable.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.S3AccessLogsBucket.onCloudTrailPutObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.S3AccessLogsBucket.onCloudTrailPutObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailWriteObject` <a name="onCloudTrailWriteObject" id="cdk-extensions.s3.S3AccessLogsBucket.onCloudTrailWriteObject"></a>
+
+```typescript
+public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+
+This includes
+the events PutObject, CopyObject, and CompleteMultipartUpload.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using this method may be preferable to `onCloudTrailPutObject`.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.S3AccessLogsBucket.onCloudTrailWriteObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.S3AccessLogsBucket.onCloudTrailWriteObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `s3UrlForObject` <a name="s3UrlForObject" id="cdk-extensions.s3.S3AccessLogsBucket.s3UrlForObject"></a>
+
+```typescript
+public s3UrlForObject(_key?: string): string
+```
+
+The S3 URL of an S3 object.
+
+For example:
+- `s3://onlybucket`
+- `s3://bucket/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.S3AccessLogsBucket.s3UrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `transferAccelerationUrlForObject` <a name="transferAccelerationUrlForObject" id="cdk-extensions.s3.S3AccessLogsBucket.transferAccelerationUrlForObject"></a>
+
+```typescript
+public transferAccelerationUrlForObject(_key?: string, _options?: TransferAccelerationUrlOptions): string
+```
+
+The https Transfer Acceleration URL of an S3 object.
+
+Specify `dualStack: true` at the options
+for dual-stack endpoint (connect to the bucket over IPv6). For example:
+
+- `https://bucket.s3-accelerate.amazonaws.com`
+- `https://bucket.s3-accelerate.amazonaws.com/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.S3AccessLogsBucket.transferAccelerationUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.S3AccessLogsBucket.transferAccelerationUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.TransferAccelerationUrlOptions
+
+---
+
+##### `urlForObject` <a name="urlForObject" id="cdk-extensions.s3.S3AccessLogsBucket.urlForObject"></a>
+
+```typescript
+public urlForObject(_key?: string): string
+```
+
+The https URL of an S3 object. For example:.
+
+`https://s3.us-west-1.amazonaws.com/onlybucket`
+- `https://s3.us-west-1.amazonaws.com/bucket/key`
+- `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.S3AccessLogsBucket.urlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `virtualHostedUrlForObject` <a name="virtualHostedUrlForObject" id="cdk-extensions.s3.S3AccessLogsBucket.virtualHostedUrlForObject"></a>
+
+```typescript
+public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
+```
+
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+
+`https://only-bucket.s3.us-west-1.amazonaws.com`
+- `https://bucket.s3.us-west-1.amazonaws.com/key`
+- `https://bucket.s3.amazonaws.com/key`
+- `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.S3AccessLogsBucket.virtualHostedUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.S3AccessLogsBucket.virtualHostedUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.VirtualHostedStyleUrlOptions
+
+---
+
+##### `addLoggingAspect` <a name="addLoggingAspect" id="cdk-extensions.s3.S3AccessLogsBucket.addLoggingAspect"></a>
+
+```typescript
+public addLoggingAspect(scope: IConstruct, options?: LoggingAspectOptions): void
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.s3.S3AccessLogsBucket.addLoggingAspect.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.s3.S3AccessLogsBucket.addLoggingAspect.parameter.options"></a>
+
+- *Type:* cdk-extensions.s3.LoggingAspectOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.s3.S3AccessLogsBucket.isConstruct"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.S3AccessLogsBucket.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.s3.S3AccessLogsBucket.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.s3.S3AccessLogsBucket.isOwnedResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.S3AccessLogsBucket.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.S3AccessLogsBucket.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.s3.S3AccessLogsBucket.isResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.S3AccessLogsBucket.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.S3AccessLogsBucket.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.bucketArn">bucketArn</a></code> | <code>string</code> | The ARN of the bucket. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.bucketDomainName">bucketDomainName</a></code> | <code>string</code> | The IPv4 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.bucketDualStackDomainName">bucketDualStackDomainName</a></code> | <code>string</code> | The IPv6 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.bucketName">bucketName</a></code> | <code>string</code> | The name of the bucket. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.bucketRegionalDomainName">bucketRegionalDomainName</a></code> | <code>string</code> | The regional domain name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.bucketWebsiteDomainName">bucketWebsiteDomainName</a></code> | <code>string</code> | The Domain name of the static website. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.bucketWebsiteUrl">bucketWebsiteUrl</a></code> | <code>string</code> | The URL of the static website. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | Optional KMS encryption key associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.isWebsite">isWebsite</a></code> | <code>boolean</code> | If this bucket has been configured for static website hosting. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.policy">policy</a></code> | <code>aws-cdk-lib.aws_s3.BucketPolicy</code> | The resource policy associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.table">table</a></code> | <code>cdk-extensions.glue.S3AccessLogsTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucket.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.s3.S3AccessLogsBucket.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.s3.S3AccessLogsBucket.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.s3.S3AccessLogsBucket.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `bucketArn`<sup>Required</sup> <a name="bucketArn" id="cdk-extensions.s3.S3AccessLogsBucket.property.bucketArn"></a>
+
+```typescript
+public readonly bucketArn: string;
+```
+
+- *Type:* string
+
+The ARN of the bucket.
+
+---
+
+##### `bucketDomainName`<sup>Required</sup> <a name="bucketDomainName" id="cdk-extensions.s3.S3AccessLogsBucket.property.bucketDomainName"></a>
+
+```typescript
+public readonly bucketDomainName: string;
+```
+
+- *Type:* string
+
+The IPv4 DNS name of the specified bucket.
+
+---
+
+##### `bucketDualStackDomainName`<sup>Required</sup> <a name="bucketDualStackDomainName" id="cdk-extensions.s3.S3AccessLogsBucket.property.bucketDualStackDomainName"></a>
+
+```typescript
+public readonly bucketDualStackDomainName: string;
+```
+
+- *Type:* string
+
+The IPv6 DNS name of the specified bucket.
+
+---
+
+##### `bucketName`<sup>Required</sup> <a name="bucketName" id="cdk-extensions.s3.S3AccessLogsBucket.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+The name of the bucket.
+
+---
+
+##### `bucketRegionalDomainName`<sup>Required</sup> <a name="bucketRegionalDomainName" id="cdk-extensions.s3.S3AccessLogsBucket.property.bucketRegionalDomainName"></a>
+
+```typescript
+public readonly bucketRegionalDomainName: string;
+```
+
+- *Type:* string
+
+The regional domain name of the specified bucket.
+
+---
+
+##### `bucketWebsiteDomainName`<sup>Required</sup> <a name="bucketWebsiteDomainName" id="cdk-extensions.s3.S3AccessLogsBucket.property.bucketWebsiteDomainName"></a>
+
+```typescript
+public readonly bucketWebsiteDomainName: string;
+```
+
+- *Type:* string
+
+The Domain name of the static website.
+
+---
+
+##### `bucketWebsiteUrl`<sup>Required</sup> <a name="bucketWebsiteUrl" id="cdk-extensions.s3.S3AccessLogsBucket.property.bucketWebsiteUrl"></a>
+
+```typescript
+public readonly bucketWebsiteUrl: string;
+```
+
+- *Type:* string
+
+The URL of the static website.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.s3.S3AccessLogsBucket.property.resource"></a>
+
+```typescript
+public readonly resource: CfnBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket
+
+---
+
+##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="cdk-extensions.s3.S3AccessLogsBucket.property.encryptionKey"></a>
+
+```typescript
+public readonly encryptionKey: IKey;
+```
+
+- *Type:* aws-cdk-lib.aws_kms.IKey
+
+Optional KMS encryption key associated with this bucket.
+
+---
+
+##### `isWebsite`<sup>Optional</sup> <a name="isWebsite" id="cdk-extensions.s3.S3AccessLogsBucket.property.isWebsite"></a>
+
+```typescript
+public readonly isWebsite: boolean;
+```
+
+- *Type:* boolean
+
+If this bucket has been configured for static website hosting.
+
+---
+
+##### `policy`<sup>Optional</sup> <a name="policy" id="cdk-extensions.s3.S3AccessLogsBucket.property.policy"></a>
+
+```typescript
+public readonly policy: BucketPolicy;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.BucketPolicy
+
+The resource policy associated with this bucket.
+
+If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the
+first call to addToResourcePolicy(s).
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.s3.S3AccessLogsBucket.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="cdk-extensions.s3.S3AccessLogsBucket.property.table"></a>
+
+```typescript
+public readonly table: S3AccessLogsTable;
+```
+
+- *Type:* cdk-extensions.glue.S3AccessLogsTable
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.s3.S3AccessLogsBucket.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.s3.S3AccessLogsBucket.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+
+### S3AccessLogsTable <a name="S3AccessLogsTable" id="cdk-extensions.glue.S3AccessLogsTable"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.S3AccessLogsTable.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.S3AccessLogsTable(scope: Construct, id: string, props: S3AccessLogsTableProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.S3AccessLogsTableProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.S3AccessLogsTable.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.S3AccessLogsTable.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.S3AccessLogsTable.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.glue.S3AccessLogsTableProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.addColumn">addColumn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.addParameter">addParameter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.addPartitionKey">addPartitionKey</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.addSerdeParameter">addSerdeParameter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.addStorageParameter">addStorageParameter</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.glue.S3AccessLogsTable.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.glue.S3AccessLogsTable.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.glue.S3AccessLogsTable.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addColumn` <a name="addColumn" id="cdk-extensions.glue.S3AccessLogsTable.addColumn"></a>
+
+```typescript
+public addColumn(column: Column): void
+```
+
+###### `column`<sup>Required</sup> <a name="column" id="cdk-extensions.glue.S3AccessLogsTable.addColumn.parameter.column"></a>
+
+- *Type:* cdk-extensions.glue.Column
+
+---
+
+##### `addParameter` <a name="addParameter" id="cdk-extensions.glue.S3AccessLogsTable.addParameter"></a>
+
+```typescript
+public addParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.S3AccessLogsTable.addParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.S3AccessLogsTable.addParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addPartitionKey` <a name="addPartitionKey" id="cdk-extensions.glue.S3AccessLogsTable.addPartitionKey"></a>
+
+```typescript
+public addPartitionKey(column: Column): void
+```
+
+###### `column`<sup>Required</sup> <a name="column" id="cdk-extensions.glue.S3AccessLogsTable.addPartitionKey.parameter.column"></a>
+
+- *Type:* cdk-extensions.glue.Column
+
+---
+
+##### `addSerdeParameter` <a name="addSerdeParameter" id="cdk-extensions.glue.S3AccessLogsTable.addSerdeParameter"></a>
+
+```typescript
+public addSerdeParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.S3AccessLogsTable.addSerdeParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.S3AccessLogsTable.addSerdeParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addStorageParameter` <a name="addStorageParameter" id="cdk-extensions.glue.S3AccessLogsTable.addStorageParameter"></a>
+
+```typescript
+public addStorageParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.S3AccessLogsTable.addStorageParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.S3AccessLogsTable.addStorageParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.glue.S3AccessLogsTable.isConstruct"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.S3AccessLogsTable.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.glue.S3AccessLogsTable.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.glue.S3AccessLogsTable.isOwnedResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.S3AccessLogsTable.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.S3AccessLogsTable.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.glue.S3AccessLogsTable.isResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.S3AccessLogsTable.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.S3AccessLogsTable.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTable.property.requestErrorsNamedQuery">requestErrorsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.glue.S3AccessLogsTable.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.glue.S3AccessLogsTable.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.glue.S3AccessLogsTable.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue.S3AccessLogsTable.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.S3AccessLogsTable.property.resource"></a>
+
+```typescript
+public readonly resource: CfnTable;
+```
+
+- *Type:* aws-cdk-lib.aws_glue.CfnTable
+
+---
+
+##### `tableArn`<sup>Required</sup> <a name="tableArn" id="cdk-extensions.glue.S3AccessLogsTable.property.tableArn"></a>
+
+```typescript
+public readonly tableArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tableName`<sup>Required</sup> <a name="tableName" id="cdk-extensions.glue.S3AccessLogsTable.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `compressed`<sup>Optional</sup> <a name="compressed" id="cdk-extensions.glue.S3AccessLogsTable.property.compressed"></a>
+
+```typescript
+public readonly compressed: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue.S3AccessLogsTable.property.dataFormat"></a>
+
+```typescript
+public readonly dataFormat: DataFormat;
+```
+
+- *Type:* cdk-extensions.glue.DataFormat
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.S3AccessLogsTable.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue.S3AccessLogsTable.property.location"></a>
+
+```typescript
+public readonly location: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.S3AccessLogsTable.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue.S3AccessLogsTable.property.owner"></a>
+
+```typescript
+public readonly owner: string;
+```
+
+- *Type:* string
+
+---
+
+##### `retention`<sup>Optional</sup> <a name="retention" id="cdk-extensions.glue.S3AccessLogsTable.property.retention"></a>
+
+```typescript
+public readonly retention: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue.S3AccessLogsTable.property.serdeName"></a>
+
+```typescript
+public readonly serdeName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `storedAsSubDirectories`<sup>Optional</sup> <a name="storedAsSubDirectories" id="cdk-extensions.glue.S3AccessLogsTable.property.storedAsSubDirectories"></a>
+
+```typescript
+public readonly storedAsSubDirectories: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue.S3AccessLogsTable.property.tableType"></a>
+
+```typescript
+public readonly tableType: TableType;
+```
+
+- *Type:* cdk-extensions.glue.TableType
+
+---
+
+##### `targetTable`<sup>Optional</sup> <a name="targetTable" id="cdk-extensions.glue.S3AccessLogsTable.property.targetTable"></a>
+
+```typescript
+public readonly targetTable: Table;
+```
+
+- *Type:* cdk-extensions.glue.Table
+
+---
+
+##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue.S3AccessLogsTable.property.viewExpandedText"></a>
+
+```typescript
+public readonly viewExpandedText: string;
+```
+
+- *Type:* string
+
+---
+
+##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue.S3AccessLogsTable.property.viewOriginalText"></a>
+
+```typescript
+public readonly viewOriginalText: string;
+```
+
+- *Type:* string
+
+---
+
+##### `createQueries`<sup>Required</sup> <a name="createQueries" id="cdk-extensions.glue.S3AccessLogsTable.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue.S3AccessLogsTable.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `requestErrorsNamedQuery`<sup>Optional</sup> <a name="requestErrorsNamedQuery" id="cdk-extensions.glue.S3AccessLogsTable.property.requestErrorsNamedQuery"></a>
+
+```typescript
+public readonly requestErrorsNamedQuery: NamedQuery;
+```
+
+- *Type:* cdk-extensions.athena.NamedQuery
+
+---
+
+
 ### SecurityConfiguration <a name="SecurityConfiguration" id="cdk-extensions.glue.SecurityConfiguration"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.SecurityConfiguration.Initializer"></a>
@@ -4977,6 +14221,1405 @@ public readonly s3Encryption: S3Encryption;
 ```
 
 - *Type:* cdk-extensions.glue.S3Encryption
+
+---
+
+
+### SesLogsBucket <a name="SesLogsBucket" id="cdk-extensions.s3.SesLogsBucket"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.s3.SesLogsBucket.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+new s3.SesLogsBucket(scope: Construct, id: string, props?: SesLogsBucketProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.s3.SesLogsBucketProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.s3.SesLogsBucket.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.s3.SesLogsBucket.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.s3.SesLogsBucket.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.s3.SesLogsBucketProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.s3.SesLogsBucket.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.s3.SesLogsBucket.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.s3.SesLogsBucket.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addEventNotification` <a name="addEventNotification" id="cdk-extensions.s3.SesLogsBucket.addEventNotification"></a>
+
+```typescript
+public addEventNotification(_event: EventType, _dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Adds a bucket notification event destination.
+
+###### `_event`<sup>Required</sup> <a name="_event" id="cdk-extensions.s3.SesLogsBucket.addEventNotification.parameter._event"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.EventType
+
+---
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.SesLogsBucket.addEventNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.SesLogsBucket.addEventNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectCreatedNotification` <a name="addObjectCreatedNotification" id="cdk-extensions.s3.SesLogsBucket.addObjectCreatedNotification"></a>
+
+```typescript
+public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is created in the bucket.
+
+This is identical to calling
+`onEvent(s3.EventType.OBJECT_CREATED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.SesLogsBucket.addObjectCreatedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.SesLogsBucket.addObjectCreatedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectRemovedNotification` <a name="addObjectRemovedNotification" id="cdk-extensions.s3.SesLogsBucket.addObjectRemovedNotification"></a>
+
+```typescript
+public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is removed from the bucket.
+
+This is identical to calling
+`onEvent(EventType.OBJECT_REMOVED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.SesLogsBucket.addObjectRemovedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.SesLogsBucket.addObjectRemovedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addToResourcePolicy` <a name="addToResourcePolicy" id="cdk-extensions.s3.SesLogsBucket.addToResourcePolicy"></a>
+
+```typescript
+public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
+```
+
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
+
+###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3.SesLogsBucket.addToResourcePolicy.parameter.permission"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+##### `arnForObjects` <a name="arnForObjects" id="cdk-extensions.s3.SesLogsBucket.arnForObjects"></a>
+
+```typescript
+public arnForObjects(_keyPattern: string): string
+```
+
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+
+To represent all keys, specify ``"*"``.
+
+###### `_keyPattern`<sup>Required</sup> <a name="_keyPattern" id="cdk-extensions.s3.SesLogsBucket.arnForObjects.parameter._keyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `enableEventBridgeNotification` <a name="enableEventBridgeNotification" id="cdk-extensions.s3.SesLogsBucket.enableEventBridgeNotification"></a>
+
+```typescript
+public enableEventBridgeNotification(): void
+```
+
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
+
+##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3.SesLogsBucket.grantDelete"></a>
+
+```typescript
+public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.SesLogsBucket.grantDelete.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.SesLogsBucket.grantDelete.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPublicAccess` <a name="grantPublicAccess" id="cdk-extensions.s3.SesLogsBucket.grantPublicAccess"></a>
+
+```typescript
+public grantPublicAccess(_allowedActions: string, _keyPrefix?: string): Grant
+```
+
+Allows unrestricted access to objects from this bucket.
+
+IMPORTANT: This permission allows anyone to perform actions on S3 objects
+in this bucket, which is useful for when you configure your bucket as a
+website and want everyone to be able to read objects in the bucket without
+needing to authenticate.
+
+Without arguments, this method will grant read ("s3:GetObject") access to
+all objects ("*") in the bucket.
+
+The method returns the `iam.Grant` object, which can then be modified
+as needed. For example, you can add a condition that will restrict access only
+to an IPv4 range like this:
+
+     const grant = bucket.grantPublicAccess();
+     grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
+
+###### `_allowedActions`<sup>Required</sup> <a name="_allowedActions" id="cdk-extensions.s3.SesLogsBucket.grantPublicAccess.parameter._allowedActions"></a>
+
+- *Type:* string
+
+---
+
+###### `_keyPrefix`<sup>Optional</sup> <a name="_keyPrefix" id="cdk-extensions.s3.SesLogsBucket.grantPublicAccess.parameter._keyPrefix"></a>
+
+- *Type:* string
+
+---
+
+##### `grantPut` <a name="grantPut" id="cdk-extensions.s3.SesLogsBucket.grantPut"></a>
+
+```typescript
+public grantPut(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.SesLogsBucket.grantPut.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.SesLogsBucket.grantPut.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPutAcl` <a name="grantPutAcl" id="cdk-extensions.s3.SesLogsBucket.grantPutAcl"></a>
+
+```typescript
+public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
+```
+
+Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
+
+If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+in this case, if you need to modify object ACLs, call this method explicitly.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.SesLogsBucket.grantPutAcl.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.SesLogsBucket.grantPutAcl.parameter._objectsKeyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `grantRead` <a name="grantRead" id="cdk-extensions.s3.SesLogsBucket.grantRead"></a>
+
+```typescript
+public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If encryption is used, permission to use the key to decrypt the contents
+of the bucket will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.SesLogsBucket.grantRead.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.SesLogsBucket.grantRead.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantReadWrite` <a name="grantReadWrite" id="cdk-extensions.s3.SesLogsBucket.grantReadWrite"></a>
+
+```typescript
+public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If an encryption key is used, permission to use the key for
+encrypt/decrypt will also be granted.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.SesLogsBucket.grantReadWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.SesLogsBucket.grantReadWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3.SesLogsBucket.grantWrite"></a>
+
+```typescript
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant write permissions to this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.SesLogsBucket.grantWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.SesLogsBucket.grantWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3.SesLogsBucket.onCloudTrailEvent"></a>
+
+```typescript
+public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines a CloudWatch event that triggers when something happens to this bucket.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.SesLogsBucket.onCloudTrailEvent.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.SesLogsBucket.onCloudTrailEvent.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailPutObject` <a name="onCloudTrailPutObject" id="cdk-extensions.s3.SesLogsBucket.onCloudTrailPutObject"></a>
+
+```typescript
+public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using `onCloudTrailWriteObject` may be preferable.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.SesLogsBucket.onCloudTrailPutObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.SesLogsBucket.onCloudTrailPutObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailWriteObject` <a name="onCloudTrailWriteObject" id="cdk-extensions.s3.SesLogsBucket.onCloudTrailWriteObject"></a>
+
+```typescript
+public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+
+This includes
+the events PutObject, CopyObject, and CompleteMultipartUpload.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using this method may be preferable to `onCloudTrailPutObject`.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.SesLogsBucket.onCloudTrailWriteObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.SesLogsBucket.onCloudTrailWriteObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `s3UrlForObject` <a name="s3UrlForObject" id="cdk-extensions.s3.SesLogsBucket.s3UrlForObject"></a>
+
+```typescript
+public s3UrlForObject(_key?: string): string
+```
+
+The S3 URL of an S3 object.
+
+For example:
+- `s3://onlybucket`
+- `s3://bucket/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.SesLogsBucket.s3UrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `transferAccelerationUrlForObject` <a name="transferAccelerationUrlForObject" id="cdk-extensions.s3.SesLogsBucket.transferAccelerationUrlForObject"></a>
+
+```typescript
+public transferAccelerationUrlForObject(_key?: string, _options?: TransferAccelerationUrlOptions): string
+```
+
+The https Transfer Acceleration URL of an S3 object.
+
+Specify `dualStack: true` at the options
+for dual-stack endpoint (connect to the bucket over IPv6). For example:
+
+- `https://bucket.s3-accelerate.amazonaws.com`
+- `https://bucket.s3-accelerate.amazonaws.com/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.SesLogsBucket.transferAccelerationUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.SesLogsBucket.transferAccelerationUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.TransferAccelerationUrlOptions
+
+---
+
+##### `urlForObject` <a name="urlForObject" id="cdk-extensions.s3.SesLogsBucket.urlForObject"></a>
+
+```typescript
+public urlForObject(_key?: string): string
+```
+
+The https URL of an S3 object. For example:.
+
+`https://s3.us-west-1.amazonaws.com/onlybucket`
+- `https://s3.us-west-1.amazonaws.com/bucket/key`
+- `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.SesLogsBucket.urlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `virtualHostedUrlForObject` <a name="virtualHostedUrlForObject" id="cdk-extensions.s3.SesLogsBucket.virtualHostedUrlForObject"></a>
+
+```typescript
+public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
+```
+
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+
+`https://only-bucket.s3.us-west-1.amazonaws.com`
+- `https://bucket.s3.us-west-1.amazonaws.com/key`
+- `https://bucket.s3.amazonaws.com/key`
+- `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.SesLogsBucket.virtualHostedUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.SesLogsBucket.virtualHostedUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.VirtualHostedStyleUrlOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.s3.SesLogsBucket.isConstruct"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.SesLogsBucket.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.s3.SesLogsBucket.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.s3.SesLogsBucket.isOwnedResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.SesLogsBucket.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.SesLogsBucket.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.s3.SesLogsBucket.isResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.SesLogsBucket.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.SesLogsBucket.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.bucketArn">bucketArn</a></code> | <code>string</code> | The ARN of the bucket. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.bucketDomainName">bucketDomainName</a></code> | <code>string</code> | The IPv4 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.bucketDualStackDomainName">bucketDualStackDomainName</a></code> | <code>string</code> | The IPv6 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.bucketName">bucketName</a></code> | <code>string</code> | The name of the bucket. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.bucketRegionalDomainName">bucketRegionalDomainName</a></code> | <code>string</code> | The regional domain name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.bucketWebsiteDomainName">bucketWebsiteDomainName</a></code> | <code>string</code> | The Domain name of the static website. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.bucketWebsiteUrl">bucketWebsiteUrl</a></code> | <code>string</code> | The URL of the static website. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | Optional KMS encryption key associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.isWebsite">isWebsite</a></code> | <code>boolean</code> | If this bucket has been configured for static website hosting. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.policy">policy</a></code> | <code>aws-cdk-lib.aws_s3.BucketPolicy</code> | The resource policy associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.table">table</a></code> | <code>cdk-extensions.glue.SesLogsTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.SesLogsBucket.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.s3.SesLogsBucket.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.s3.SesLogsBucket.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.s3.SesLogsBucket.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `bucketArn`<sup>Required</sup> <a name="bucketArn" id="cdk-extensions.s3.SesLogsBucket.property.bucketArn"></a>
+
+```typescript
+public readonly bucketArn: string;
+```
+
+- *Type:* string
+
+The ARN of the bucket.
+
+---
+
+##### `bucketDomainName`<sup>Required</sup> <a name="bucketDomainName" id="cdk-extensions.s3.SesLogsBucket.property.bucketDomainName"></a>
+
+```typescript
+public readonly bucketDomainName: string;
+```
+
+- *Type:* string
+
+The IPv4 DNS name of the specified bucket.
+
+---
+
+##### `bucketDualStackDomainName`<sup>Required</sup> <a name="bucketDualStackDomainName" id="cdk-extensions.s3.SesLogsBucket.property.bucketDualStackDomainName"></a>
+
+```typescript
+public readonly bucketDualStackDomainName: string;
+```
+
+- *Type:* string
+
+The IPv6 DNS name of the specified bucket.
+
+---
+
+##### `bucketName`<sup>Required</sup> <a name="bucketName" id="cdk-extensions.s3.SesLogsBucket.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+The name of the bucket.
+
+---
+
+##### `bucketRegionalDomainName`<sup>Required</sup> <a name="bucketRegionalDomainName" id="cdk-extensions.s3.SesLogsBucket.property.bucketRegionalDomainName"></a>
+
+```typescript
+public readonly bucketRegionalDomainName: string;
+```
+
+- *Type:* string
+
+The regional domain name of the specified bucket.
+
+---
+
+##### `bucketWebsiteDomainName`<sup>Required</sup> <a name="bucketWebsiteDomainName" id="cdk-extensions.s3.SesLogsBucket.property.bucketWebsiteDomainName"></a>
+
+```typescript
+public readonly bucketWebsiteDomainName: string;
+```
+
+- *Type:* string
+
+The Domain name of the static website.
+
+---
+
+##### `bucketWebsiteUrl`<sup>Required</sup> <a name="bucketWebsiteUrl" id="cdk-extensions.s3.SesLogsBucket.property.bucketWebsiteUrl"></a>
+
+```typescript
+public readonly bucketWebsiteUrl: string;
+```
+
+- *Type:* string
+
+The URL of the static website.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.s3.SesLogsBucket.property.resource"></a>
+
+```typescript
+public readonly resource: CfnBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket
+
+---
+
+##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="cdk-extensions.s3.SesLogsBucket.property.encryptionKey"></a>
+
+```typescript
+public readonly encryptionKey: IKey;
+```
+
+- *Type:* aws-cdk-lib.aws_kms.IKey
+
+Optional KMS encryption key associated with this bucket.
+
+---
+
+##### `isWebsite`<sup>Optional</sup> <a name="isWebsite" id="cdk-extensions.s3.SesLogsBucket.property.isWebsite"></a>
+
+```typescript
+public readonly isWebsite: boolean;
+```
+
+- *Type:* boolean
+
+If this bucket has been configured for static website hosting.
+
+---
+
+##### `policy`<sup>Optional</sup> <a name="policy" id="cdk-extensions.s3.SesLogsBucket.property.policy"></a>
+
+```typescript
+public readonly policy: BucketPolicy;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.BucketPolicy
+
+The resource policy associated with this bucket.
+
+If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the
+first call to addToResourcePolicy(s).
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.s3.SesLogsBucket.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="cdk-extensions.s3.SesLogsBucket.property.table"></a>
+
+```typescript
+public readonly table: SesLogsTable;
+```
+
+- *Type:* cdk-extensions.glue.SesLogsTable
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.s3.SesLogsBucket.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.s3.SesLogsBucket.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+
+### SesLogsTable <a name="SesLogsTable" id="cdk-extensions.glue.SesLogsTable"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.SesLogsTable.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.SesLogsTable(scope: Construct, id: string, props: SesLogsTableProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.SesLogsTableProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.SesLogsTable.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.SesLogsTable.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.SesLogsTable.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.glue.SesLogsTableProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.addColumn">addColumn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.addParameter">addParameter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.addPartitionKey">addPartitionKey</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.addSerdeParameter">addSerdeParameter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.addStorageParameter">addStorageParameter</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.glue.SesLogsTable.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.glue.SesLogsTable.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.glue.SesLogsTable.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addColumn` <a name="addColumn" id="cdk-extensions.glue.SesLogsTable.addColumn"></a>
+
+```typescript
+public addColumn(column: Column): void
+```
+
+###### `column`<sup>Required</sup> <a name="column" id="cdk-extensions.glue.SesLogsTable.addColumn.parameter.column"></a>
+
+- *Type:* cdk-extensions.glue.Column
+
+---
+
+##### `addParameter` <a name="addParameter" id="cdk-extensions.glue.SesLogsTable.addParameter"></a>
+
+```typescript
+public addParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.SesLogsTable.addParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.SesLogsTable.addParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addPartitionKey` <a name="addPartitionKey" id="cdk-extensions.glue.SesLogsTable.addPartitionKey"></a>
+
+```typescript
+public addPartitionKey(column: Column): void
+```
+
+###### `column`<sup>Required</sup> <a name="column" id="cdk-extensions.glue.SesLogsTable.addPartitionKey.parameter.column"></a>
+
+- *Type:* cdk-extensions.glue.Column
+
+---
+
+##### `addSerdeParameter` <a name="addSerdeParameter" id="cdk-extensions.glue.SesLogsTable.addSerdeParameter"></a>
+
+```typescript
+public addSerdeParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.SesLogsTable.addSerdeParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.SesLogsTable.addSerdeParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addStorageParameter` <a name="addStorageParameter" id="cdk-extensions.glue.SesLogsTable.addStorageParameter"></a>
+
+```typescript
+public addStorageParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.SesLogsTable.addStorageParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.SesLogsTable.addStorageParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.glue.SesLogsTable.isConstruct"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.SesLogsTable.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.glue.SesLogsTable.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.glue.SesLogsTable.isOwnedResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.SesLogsTable.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.SesLogsTable.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.glue.SesLogsTable.isResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.SesLogsTable.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.SesLogsTable.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.bouncesQuery">bouncesQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTable.property.complaintsQuery">complaintsQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.glue.SesLogsTable.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.glue.SesLogsTable.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.glue.SesLogsTable.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue.SesLogsTable.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.SesLogsTable.property.resource"></a>
+
+```typescript
+public readonly resource: CfnTable;
+```
+
+- *Type:* aws-cdk-lib.aws_glue.CfnTable
+
+---
+
+##### `tableArn`<sup>Required</sup> <a name="tableArn" id="cdk-extensions.glue.SesLogsTable.property.tableArn"></a>
+
+```typescript
+public readonly tableArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tableName`<sup>Required</sup> <a name="tableName" id="cdk-extensions.glue.SesLogsTable.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `compressed`<sup>Optional</sup> <a name="compressed" id="cdk-extensions.glue.SesLogsTable.property.compressed"></a>
+
+```typescript
+public readonly compressed: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue.SesLogsTable.property.dataFormat"></a>
+
+```typescript
+public readonly dataFormat: DataFormat;
+```
+
+- *Type:* cdk-extensions.glue.DataFormat
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.SesLogsTable.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue.SesLogsTable.property.location"></a>
+
+```typescript
+public readonly location: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.SesLogsTable.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue.SesLogsTable.property.owner"></a>
+
+```typescript
+public readonly owner: string;
+```
+
+- *Type:* string
+
+---
+
+##### `retention`<sup>Optional</sup> <a name="retention" id="cdk-extensions.glue.SesLogsTable.property.retention"></a>
+
+```typescript
+public readonly retention: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue.SesLogsTable.property.serdeName"></a>
+
+```typescript
+public readonly serdeName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `storedAsSubDirectories`<sup>Optional</sup> <a name="storedAsSubDirectories" id="cdk-extensions.glue.SesLogsTable.property.storedAsSubDirectories"></a>
+
+```typescript
+public readonly storedAsSubDirectories: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue.SesLogsTable.property.tableType"></a>
+
+```typescript
+public readonly tableType: TableType;
+```
+
+- *Type:* cdk-extensions.glue.TableType
+
+---
+
+##### `targetTable`<sup>Optional</sup> <a name="targetTable" id="cdk-extensions.glue.SesLogsTable.property.targetTable"></a>
+
+```typescript
+public readonly targetTable: Table;
+```
+
+- *Type:* cdk-extensions.glue.Table
+
+---
+
+##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue.SesLogsTable.property.viewExpandedText"></a>
+
+```typescript
+public readonly viewExpandedText: string;
+```
+
+- *Type:* string
+
+---
+
+##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue.SesLogsTable.property.viewOriginalText"></a>
+
+```typescript
+public readonly viewOriginalText: string;
+```
+
+- *Type:* string
+
+---
+
+##### `createQueries`<sup>Required</sup> <a name="createQueries" id="cdk-extensions.glue.SesLogsTable.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue.SesLogsTable.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `bouncesQuery`<sup>Optional</sup> <a name="bouncesQuery" id="cdk-extensions.glue.SesLogsTable.property.bouncesQuery"></a>
+
+```typescript
+public readonly bouncesQuery: NamedQuery;
+```
+
+- *Type:* cdk-extensions.athena.NamedQuery
+
+---
+
+##### `complaintsQuery`<sup>Optional</sup> <a name="complaintsQuery" id="cdk-extensions.glue.SesLogsTable.property.complaintsQuery"></a>
+
+```typescript
+public readonly complaintsQuery: NamedQuery;
+```
+
+- *Type:* cdk-extensions.athena.NamedQuery
 
 ---
 
@@ -6002,6 +16645,1405 @@ public readonly userId: string;
 ---
 
 
+### WafLogsBucket <a name="WafLogsBucket" id="cdk-extensions.s3.WafLogsBucket"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.s3.WafLogsBucket.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+new s3.WafLogsBucket(scope: Construct, id: string, props?: WafLogsBucketProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.s3.WafLogsBucketProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.s3.WafLogsBucket.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.s3.WafLogsBucket.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.s3.WafLogsBucket.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.s3.WafLogsBucketProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.s3.WafLogsBucket.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.s3.WafLogsBucket.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.s3.WafLogsBucket.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addEventNotification` <a name="addEventNotification" id="cdk-extensions.s3.WafLogsBucket.addEventNotification"></a>
+
+```typescript
+public addEventNotification(_event: EventType, _dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Adds a bucket notification event destination.
+
+###### `_event`<sup>Required</sup> <a name="_event" id="cdk-extensions.s3.WafLogsBucket.addEventNotification.parameter._event"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.EventType
+
+---
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.WafLogsBucket.addEventNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.WafLogsBucket.addEventNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectCreatedNotification` <a name="addObjectCreatedNotification" id="cdk-extensions.s3.WafLogsBucket.addObjectCreatedNotification"></a>
+
+```typescript
+public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is created in the bucket.
+
+This is identical to calling
+`onEvent(s3.EventType.OBJECT_CREATED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.WafLogsBucket.addObjectCreatedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.WafLogsBucket.addObjectCreatedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addObjectRemovedNotification` <a name="addObjectRemovedNotification" id="cdk-extensions.s3.WafLogsBucket.addObjectRemovedNotification"></a>
+
+```typescript
+public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
+```
+
+Subscribes a destination to receive notifications when an object is removed from the bucket.
+
+This is identical to calling
+`onEvent(EventType.OBJECT_REMOVED)`.
+
+###### `_dest`<sup>Required</sup> <a name="_dest" id="cdk-extensions.s3.WafLogsBucket.addObjectRemovedNotification.parameter._dest"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.IBucketNotificationDestination
+
+---
+
+###### `_filters`<sup>Required</sup> <a name="_filters" id="cdk-extensions.s3.WafLogsBucket.addObjectRemovedNotification.parameter._filters"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+
+---
+
+##### `addToResourcePolicy` <a name="addToResourcePolicy" id="cdk-extensions.s3.WafLogsBucket.addToResourcePolicy"></a>
+
+```typescript
+public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
+```
+
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
+
+###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3.WafLogsBucket.addToResourcePolicy.parameter.permission"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+##### `arnForObjects` <a name="arnForObjects" id="cdk-extensions.s3.WafLogsBucket.arnForObjects"></a>
+
+```typescript
+public arnForObjects(_keyPattern: string): string
+```
+
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+
+To represent all keys, specify ``"*"``.
+
+###### `_keyPattern`<sup>Required</sup> <a name="_keyPattern" id="cdk-extensions.s3.WafLogsBucket.arnForObjects.parameter._keyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `enableEventBridgeNotification` <a name="enableEventBridgeNotification" id="cdk-extensions.s3.WafLogsBucket.enableEventBridgeNotification"></a>
+
+```typescript
+public enableEventBridgeNotification(): void
+```
+
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
+
+##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3.WafLogsBucket.grantDelete"></a>
+
+```typescript
+public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.WafLogsBucket.grantDelete.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.WafLogsBucket.grantDelete.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPublicAccess` <a name="grantPublicAccess" id="cdk-extensions.s3.WafLogsBucket.grantPublicAccess"></a>
+
+```typescript
+public grantPublicAccess(_allowedActions: string, _keyPrefix?: string): Grant
+```
+
+Allows unrestricted access to objects from this bucket.
+
+IMPORTANT: This permission allows anyone to perform actions on S3 objects
+in this bucket, which is useful for when you configure your bucket as a
+website and want everyone to be able to read objects in the bucket without
+needing to authenticate.
+
+Without arguments, this method will grant read ("s3:GetObject") access to
+all objects ("*") in the bucket.
+
+The method returns the `iam.Grant` object, which can then be modified
+as needed. For example, you can add a condition that will restrict access only
+to an IPv4 range like this:
+
+     const grant = bucket.grantPublicAccess();
+     grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
+
+###### `_allowedActions`<sup>Required</sup> <a name="_allowedActions" id="cdk-extensions.s3.WafLogsBucket.grantPublicAccess.parameter._allowedActions"></a>
+
+- *Type:* string
+
+---
+
+###### `_keyPrefix`<sup>Optional</sup> <a name="_keyPrefix" id="cdk-extensions.s3.WafLogsBucket.grantPublicAccess.parameter._keyPrefix"></a>
+
+- *Type:* string
+
+---
+
+##### `grantPut` <a name="grantPut" id="cdk-extensions.s3.WafLogsBucket.grantPut"></a>
+
+```typescript
+public grantPut(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.WafLogsBucket.grantPut.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.WafLogsBucket.grantPut.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantPutAcl` <a name="grantPutAcl" id="cdk-extensions.s3.WafLogsBucket.grantPutAcl"></a>
+
+```typescript
+public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
+```
+
+Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
+
+If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+in this case, if you need to modify object ACLs, call this method explicitly.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.WafLogsBucket.grantPutAcl.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.WafLogsBucket.grantPutAcl.parameter._objectsKeyPattern"></a>
+
+- *Type:* string
+
+---
+
+##### `grantRead` <a name="grantRead" id="cdk-extensions.s3.WafLogsBucket.grantRead"></a>
+
+```typescript
+public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If encryption is used, permission to use the key to decrypt the contents
+of the bucket will also be granted to the same principal.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.WafLogsBucket.grantRead.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.WafLogsBucket.grantRead.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantReadWrite` <a name="grantReadWrite" id="cdk-extensions.s3.WafLogsBucket.grantReadWrite"></a>
+
+```typescript
+public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+
+If an encryption key is used, permission to use the key for
+encrypt/decrypt will also be granted.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.WafLogsBucket.grantReadWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.WafLogsBucket.grantReadWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3.WafLogsBucket.grantWrite"></a>
+
+```typescript
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+```
+
+Grant write permissions to this bucket to an IAM principal.
+
+If encryption is used, permission to use the key to encrypt the contents
+of written files will also be granted to the same principal.
+
+Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
+which could be used to grant read/write object access to IAM principals in other accounts.
+If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
+and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
+in the `context` key of your cdk.json file.
+If you've already updated, but still need the principal to have permissions to modify the ACLs,
+use the {@link grantPutAcl} method.
+
+###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3.WafLogsBucket.grantWrite.parameter._identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `_objectsKeyPattern`<sup>Optional</sup> <a name="_objectsKeyPattern" id="cdk-extensions.s3.WafLogsBucket.grantWrite.parameter._objectsKeyPattern"></a>
+
+- *Type:* any
+
+---
+
+##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3.WafLogsBucket.onCloudTrailEvent"></a>
+
+```typescript
+public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines a CloudWatch event that triggers when something happens to this bucket.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.WafLogsBucket.onCloudTrailEvent.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.WafLogsBucket.onCloudTrailEvent.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailPutObject` <a name="onCloudTrailPutObject" id="cdk-extensions.s3.WafLogsBucket.onCloudTrailPutObject"></a>
+
+```typescript
+public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using `onCloudTrailWriteObject` may be preferable.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.WafLogsBucket.onCloudTrailPutObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.WafLogsBucket.onCloudTrailPutObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `onCloudTrailWriteObject` <a name="onCloudTrailWriteObject" id="cdk-extensions.s3.WafLogsBucket.onCloudTrailWriteObject"></a>
+
+```typescript
+public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
+```
+
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+
+This includes
+the events PutObject, CopyObject, and CompleteMultipartUpload.
+
+Note that some tools like `aws s3 cp` will automatically use either
+PutObject or the multipart upload API depending on the file size,
+so using this method may be preferable to `onCloudTrailPutObject`.
+
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
+
+###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3.WafLogsBucket.onCloudTrailWriteObject.parameter._id"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.WafLogsBucket.onCloudTrailWriteObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.OnCloudTrailBucketEventOptions
+
+---
+
+##### `s3UrlForObject` <a name="s3UrlForObject" id="cdk-extensions.s3.WafLogsBucket.s3UrlForObject"></a>
+
+```typescript
+public s3UrlForObject(_key?: string): string
+```
+
+The S3 URL of an S3 object.
+
+For example:
+- `s3://onlybucket`
+- `s3://bucket/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.WafLogsBucket.s3UrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `transferAccelerationUrlForObject` <a name="transferAccelerationUrlForObject" id="cdk-extensions.s3.WafLogsBucket.transferAccelerationUrlForObject"></a>
+
+```typescript
+public transferAccelerationUrlForObject(_key?: string, _options?: TransferAccelerationUrlOptions): string
+```
+
+The https Transfer Acceleration URL of an S3 object.
+
+Specify `dualStack: true` at the options
+for dual-stack endpoint (connect to the bucket over IPv6). For example:
+
+- `https://bucket.s3-accelerate.amazonaws.com`
+- `https://bucket.s3-accelerate.amazonaws.com/key`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.WafLogsBucket.transferAccelerationUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.WafLogsBucket.transferAccelerationUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.TransferAccelerationUrlOptions
+
+---
+
+##### `urlForObject` <a name="urlForObject" id="cdk-extensions.s3.WafLogsBucket.urlForObject"></a>
+
+```typescript
+public urlForObject(_key?: string): string
+```
+
+The https URL of an S3 object. For example:.
+
+`https://s3.us-west-1.amazonaws.com/onlybucket`
+- `https://s3.us-west-1.amazonaws.com/bucket/key`
+- `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.WafLogsBucket.urlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+##### `virtualHostedUrlForObject` <a name="virtualHostedUrlForObject" id="cdk-extensions.s3.WafLogsBucket.virtualHostedUrlForObject"></a>
+
+```typescript
+public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
+```
+
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+
+`https://only-bucket.s3.us-west-1.amazonaws.com`
+- `https://bucket.s3.us-west-1.amazonaws.com/key`
+- `https://bucket.s3.amazonaws.com/key`
+- `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
+
+###### `_key`<sup>Optional</sup> <a name="_key" id="cdk-extensions.s3.WafLogsBucket.virtualHostedUrlForObject.parameter._key"></a>
+
+- *Type:* string
+
+---
+
+###### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.s3.WafLogsBucket.virtualHostedUrlForObject.parameter._options"></a>
+
+- *Type:* aws-cdk-lib.aws_s3.VirtualHostedStyleUrlOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.s3.WafLogsBucket.isConstruct"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.WafLogsBucket.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.s3.WafLogsBucket.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.s3.WafLogsBucket.isOwnedResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.WafLogsBucket.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.WafLogsBucket.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.s3.WafLogsBucket.isResource"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+s3.WafLogsBucket.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.s3.WafLogsBucket.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.bucketArn">bucketArn</a></code> | <code>string</code> | The ARN of the bucket. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.bucketDomainName">bucketDomainName</a></code> | <code>string</code> | The IPv4 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.bucketDualStackDomainName">bucketDualStackDomainName</a></code> | <code>string</code> | The IPv6 DNS name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.bucketName">bucketName</a></code> | <code>string</code> | The name of the bucket. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.bucketRegionalDomainName">bucketRegionalDomainName</a></code> | <code>string</code> | The regional domain name of the specified bucket. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.bucketWebsiteDomainName">bucketWebsiteDomainName</a></code> | <code>string</code> | The Domain name of the static website. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.bucketWebsiteUrl">bucketWebsiteUrl</a></code> | <code>string</code> | The URL of the static website. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | Optional KMS encryption key associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.isWebsite">isWebsite</a></code> | <code>boolean</code> | If this bucket has been configured for static website hosting. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.policy">policy</a></code> | <code>aws-cdk-lib.aws_s3.BucketPolicy</code> | The resource policy associated with this bucket. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.table">table</a></code> | <code>cdk-extensions.glue.WafLogsTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.WafLogsBucket.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.s3.WafLogsBucket.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.s3.WafLogsBucket.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.s3.WafLogsBucket.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `bucketArn`<sup>Required</sup> <a name="bucketArn" id="cdk-extensions.s3.WafLogsBucket.property.bucketArn"></a>
+
+```typescript
+public readonly bucketArn: string;
+```
+
+- *Type:* string
+
+The ARN of the bucket.
+
+---
+
+##### `bucketDomainName`<sup>Required</sup> <a name="bucketDomainName" id="cdk-extensions.s3.WafLogsBucket.property.bucketDomainName"></a>
+
+```typescript
+public readonly bucketDomainName: string;
+```
+
+- *Type:* string
+
+The IPv4 DNS name of the specified bucket.
+
+---
+
+##### `bucketDualStackDomainName`<sup>Required</sup> <a name="bucketDualStackDomainName" id="cdk-extensions.s3.WafLogsBucket.property.bucketDualStackDomainName"></a>
+
+```typescript
+public readonly bucketDualStackDomainName: string;
+```
+
+- *Type:* string
+
+The IPv6 DNS name of the specified bucket.
+
+---
+
+##### `bucketName`<sup>Required</sup> <a name="bucketName" id="cdk-extensions.s3.WafLogsBucket.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+The name of the bucket.
+
+---
+
+##### `bucketRegionalDomainName`<sup>Required</sup> <a name="bucketRegionalDomainName" id="cdk-extensions.s3.WafLogsBucket.property.bucketRegionalDomainName"></a>
+
+```typescript
+public readonly bucketRegionalDomainName: string;
+```
+
+- *Type:* string
+
+The regional domain name of the specified bucket.
+
+---
+
+##### `bucketWebsiteDomainName`<sup>Required</sup> <a name="bucketWebsiteDomainName" id="cdk-extensions.s3.WafLogsBucket.property.bucketWebsiteDomainName"></a>
+
+```typescript
+public readonly bucketWebsiteDomainName: string;
+```
+
+- *Type:* string
+
+The Domain name of the static website.
+
+---
+
+##### `bucketWebsiteUrl`<sup>Required</sup> <a name="bucketWebsiteUrl" id="cdk-extensions.s3.WafLogsBucket.property.bucketWebsiteUrl"></a>
+
+```typescript
+public readonly bucketWebsiteUrl: string;
+```
+
+- *Type:* string
+
+The URL of the static website.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.s3.WafLogsBucket.property.resource"></a>
+
+```typescript
+public readonly resource: CfnBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket
+
+---
+
+##### `encryptionKey`<sup>Optional</sup> <a name="encryptionKey" id="cdk-extensions.s3.WafLogsBucket.property.encryptionKey"></a>
+
+```typescript
+public readonly encryptionKey: IKey;
+```
+
+- *Type:* aws-cdk-lib.aws_kms.IKey
+
+Optional KMS encryption key associated with this bucket.
+
+---
+
+##### `isWebsite`<sup>Optional</sup> <a name="isWebsite" id="cdk-extensions.s3.WafLogsBucket.property.isWebsite"></a>
+
+```typescript
+public readonly isWebsite: boolean;
+```
+
+- *Type:* boolean
+
+If this bucket has been configured for static website hosting.
+
+---
+
+##### `policy`<sup>Optional</sup> <a name="policy" id="cdk-extensions.s3.WafLogsBucket.property.policy"></a>
+
+```typescript
+public readonly policy: BucketPolicy;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.BucketPolicy
+
+The resource policy associated with this bucket.
+
+If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the
+first call to addToResourcePolicy(s).
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.s3.WafLogsBucket.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `table`<sup>Required</sup> <a name="table" id="cdk-extensions.s3.WafLogsBucket.property.table"></a>
+
+```typescript
+public readonly table: WafLogsTable;
+```
+
+- *Type:* cdk-extensions.glue.WafLogsTable
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.s3.WafLogsBucket.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.s3.WafLogsBucket.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+
+### WafLogsTable <a name="WafLogsTable" id="cdk-extensions.glue.WafLogsTable"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.WafLogsTable.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.WafLogsTable(scope: Construct, id: string, props: WafLogsTableProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.WafLogsTableProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.WafLogsTable.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.WafLogsTable.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.WafLogsTable.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.glue.WafLogsTableProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.addColumn">addColumn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.addParameter">addParameter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.addPartitionKey">addPartitionKey</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.addSerdeParameter">addSerdeParameter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.addStorageParameter">addStorageParameter</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.glue.WafLogsTable.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.glue.WafLogsTable.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.glue.WafLogsTable.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addColumn` <a name="addColumn" id="cdk-extensions.glue.WafLogsTable.addColumn"></a>
+
+```typescript
+public addColumn(column: Column): void
+```
+
+###### `column`<sup>Required</sup> <a name="column" id="cdk-extensions.glue.WafLogsTable.addColumn.parameter.column"></a>
+
+- *Type:* cdk-extensions.glue.Column
+
+---
+
+##### `addParameter` <a name="addParameter" id="cdk-extensions.glue.WafLogsTable.addParameter"></a>
+
+```typescript
+public addParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.WafLogsTable.addParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.WafLogsTable.addParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addPartitionKey` <a name="addPartitionKey" id="cdk-extensions.glue.WafLogsTable.addPartitionKey"></a>
+
+```typescript
+public addPartitionKey(column: Column): void
+```
+
+###### `column`<sup>Required</sup> <a name="column" id="cdk-extensions.glue.WafLogsTable.addPartitionKey.parameter.column"></a>
+
+- *Type:* cdk-extensions.glue.Column
+
+---
+
+##### `addSerdeParameter` <a name="addSerdeParameter" id="cdk-extensions.glue.WafLogsTable.addSerdeParameter"></a>
+
+```typescript
+public addSerdeParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.WafLogsTable.addSerdeParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.WafLogsTable.addSerdeParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addStorageParameter` <a name="addStorageParameter" id="cdk-extensions.glue.WafLogsTable.addStorageParameter"></a>
+
+```typescript
+public addStorageParameter(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.WafLogsTable.addStorageParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.WafLogsTable.addStorageParameter.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.glue.WafLogsTable.isConstruct"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.WafLogsTable.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.glue.WafLogsTable.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.glue.WafLogsTable.isOwnedResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.WafLogsTable.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.WafLogsTable.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.glue.WafLogsTable.isResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.WafLogsTable.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.WafLogsTable.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.status5xxNamedQuery">status5xxNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTable.property.topIpsNamedQuery">topIpsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.glue.WafLogsTable.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.glue.WafLogsTable.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.glue.WafLogsTable.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue.WafLogsTable.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.WafLogsTable.property.resource"></a>
+
+```typescript
+public readonly resource: CfnTable;
+```
+
+- *Type:* aws-cdk-lib.aws_glue.CfnTable
+
+---
+
+##### `tableArn`<sup>Required</sup> <a name="tableArn" id="cdk-extensions.glue.WafLogsTable.property.tableArn"></a>
+
+```typescript
+public readonly tableArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tableName`<sup>Required</sup> <a name="tableName" id="cdk-extensions.glue.WafLogsTable.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `compressed`<sup>Optional</sup> <a name="compressed" id="cdk-extensions.glue.WafLogsTable.property.compressed"></a>
+
+```typescript
+public readonly compressed: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue.WafLogsTable.property.dataFormat"></a>
+
+```typescript
+public readonly dataFormat: DataFormat;
+```
+
+- *Type:* cdk-extensions.glue.DataFormat
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.WafLogsTable.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue.WafLogsTable.property.location"></a>
+
+```typescript
+public readonly location: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.WafLogsTable.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue.WafLogsTable.property.owner"></a>
+
+```typescript
+public readonly owner: string;
+```
+
+- *Type:* string
+
+---
+
+##### `retention`<sup>Optional</sup> <a name="retention" id="cdk-extensions.glue.WafLogsTable.property.retention"></a>
+
+```typescript
+public readonly retention: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue.WafLogsTable.property.serdeName"></a>
+
+```typescript
+public readonly serdeName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `storedAsSubDirectories`<sup>Optional</sup> <a name="storedAsSubDirectories" id="cdk-extensions.glue.WafLogsTable.property.storedAsSubDirectories"></a>
+
+```typescript
+public readonly storedAsSubDirectories: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue.WafLogsTable.property.tableType"></a>
+
+```typescript
+public readonly tableType: TableType;
+```
+
+- *Type:* cdk-extensions.glue.TableType
+
+---
+
+##### `targetTable`<sup>Optional</sup> <a name="targetTable" id="cdk-extensions.glue.WafLogsTable.property.targetTable"></a>
+
+```typescript
+public readonly targetTable: Table;
+```
+
+- *Type:* cdk-extensions.glue.Table
+
+---
+
+##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue.WafLogsTable.property.viewExpandedText"></a>
+
+```typescript
+public readonly viewExpandedText: string;
+```
+
+- *Type:* string
+
+---
+
+##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue.WafLogsTable.property.viewOriginalText"></a>
+
+```typescript
+public readonly viewOriginalText: string;
+```
+
+- *Type:* string
+
+---
+
+##### `createQueries`<sup>Required</sup> <a name="createQueries" id="cdk-extensions.glue.WafLogsTable.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue.WafLogsTable.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `status5xxNamedQuery`<sup>Optional</sup> <a name="status5xxNamedQuery" id="cdk-extensions.glue.WafLogsTable.property.status5xxNamedQuery"></a>
+
+```typescript
+public readonly status5xxNamedQuery: NamedQuery;
+```
+
+- *Type:* cdk-extensions.athena.NamedQuery
+
+---
+
+##### `topIpsNamedQuery`<sup>Optional</sup> <a name="topIpsNamedQuery" id="cdk-extensions.glue.WafLogsTable.property.topIpsNamedQuery"></a>
+
+```typescript
+public readonly topIpsNamedQuery: NamedQuery;
+```
+
+- *Type:* cdk-extensions.athena.NamedQuery
+
+---
+
+
 ### Workflow <a name="Workflow" id="cdk-extensions.glue.Workflow"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.Workflow.Initializer"></a>
@@ -6315,6 +18357,299 @@ A list of identity sources to use when mapping a specified attribute to IAM Iden
 
 ---
 
+### AlbLogsBucketProps <a name="AlbLogsBucketProps" id="cdk-extensions.s3.AlbLogsBucketProps"></a>
+
+Configuration for objects bucket.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.s3.AlbLogsBucketProps.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+const albLogsBucketProps: s3.AlbLogsBucketProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucketProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucketProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucketProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucketProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucketProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucketProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucketProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.AlbLogsBucketProps.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.s3.AlbLogsBucketProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.s3.AlbLogsBucketProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.s3.AlbLogsBucketProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.s3.AlbLogsBucketProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `bucketName`<sup>Optional</sup> <a name="bucketName" id="cdk-extensions.s3.AlbLogsBucketProps.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.s3.AlbLogsBucketProps.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `database`<sup>Optional</sup> <a name="database" id="cdk-extensions.s3.AlbLogsBucketProps.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.s3.AlbLogsBucketProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tableName`<sup>Optional</sup> <a name="tableName" id="cdk-extensions.s3.AlbLogsBucketProps.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+---
+
+### AlbLogsTableProps <a name="AlbLogsTableProps" id="cdk-extensions.glue.AlbLogsTableProps"></a>
+
+Configuration for AlbLogsTable.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.AlbLogsTableProps.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const albLogsTableProps: glue.AlbLogsTableProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.AlbLogsTableProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.AlbLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.AlbLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.AlbLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.AlbLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.AlbLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.AlbLogsTableProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.AlbLogsTableProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.AlbLogsTableProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.AlbLogsTableProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="cdk-extensions.glue.AlbLogsTableProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue.AlbLogsTableProps.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.glue.AlbLogsTableProps.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue.AlbLogsTableProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.AlbLogsTableProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue.AlbLogsTableProps.property.s3Prefix"></a>
+
+```typescript
+public readonly s3Prefix: string;
+```
+
+- *Type:* string
+
+---
+
 ### AppendDelimiterProcessorOptions <a name="AppendDelimiterProcessorOptions" id="cdk-extensions.kinesis_firehose.AppendDelimiterProcessorOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.AppendDelimiterProcessorOptions.Initializer"></a>
@@ -6538,6 +18873,294 @@ an AWS account.
 
 ---
 
+### AwsLoggingStackProps <a name="AwsLoggingStackProps" id="cdk-extensions.stacks.AwsLoggingStackProps"></a>
+
+Configuration for the demo service stack.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.stacks.AwsLoggingStackProps.Initializer"></a>
+
+```typescript
+import { stacks } from 'cdk-extensions'
+
+const awsLoggingStackProps: stacks.AwsLoggingStackProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.analyticsReporting">analyticsReporting</a></code> | <code>boolean</code> | Include runtime versioning information in this Stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.description">description</a></code> | <code>string</code> | A description of the stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.env">env</a></code> | <code>aws-cdk-lib.Environment</code> | The AWS environment (account/region) where this stack will be deployed. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.stackName">stackName</a></code> | <code>string</code> | Name to deploy the stack with. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.synthesizer">synthesizer</a></code> | <code>aws-cdk-lib.IStackSynthesizer</code> | Synthesis method to use while deploying this stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.tags">tags</a></code> | <code>{[ key: string ]: string}</code> | Stack tags that will be applied to all the taggable resources and the stack itself. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.terminationProtection">terminationProtection</a></code> | <code>boolean</code> | Whether to enable termination protection for this stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.albLogsBucket">albLogsBucket</a></code> | <code>cdk-extensions.s3.AlbLogsBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.cloudfrontLogsBucket">cloudfrontLogsBucket</a></code> | <code>cdk-extensions.s3.CloudfrontLogsBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.cloudtrailLogsBucket">cloudtrailLogsBucket</a></code> | <code>cdk-extensions.s3.CloudtrailBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.databaseName">databaseName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.flowLogsBucket">flowLogsBucket</a></code> | <code>cdk-extensions.s3.FlowLogsBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.flowLogsFormat">flowLogsFormat</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.sesLogsBucket">sesLogsBucket</a></code> | <code>cdk-extensions.s3.SesLogsBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.standardizeNames">standardizeNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.wafLogsBucket">wafLogsBucket</a></code> | <code>cdk-extensions.s3.WafLogsBucket</code> | *No description.* |
+
+---
+
+##### `analyticsReporting`<sup>Optional</sup> <a name="analyticsReporting" id="cdk-extensions.stacks.AwsLoggingStackProps.property.analyticsReporting"></a>
+
+```typescript
+public readonly analyticsReporting: boolean;
+```
+
+- *Type:* boolean
+- *Default:* `analyticsReporting` setting of containing `App`, or value of 'aws:cdk:version-reporting' context key
+
+Include runtime versioning information in this Stack.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.stacks.AwsLoggingStackProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+- *Default:* No description.
+
+A description of the stack.
+
+---
+
+##### `env`<sup>Optional</sup> <a name="env" id="cdk-extensions.stacks.AwsLoggingStackProps.property.env"></a>
+
+```typescript
+public readonly env: Environment;
+```
+
+- *Type:* aws-cdk-lib.Environment
+- *Default:* The environment of the containing `Stage` if available, otherwise create the stack will be environment-agnostic.
+
+The AWS environment (account/region) where this stack will be deployed.
+
+Set the `region`/`account` fields of `env` to either a concrete value to
+select the indicated environment (recommended for production stacks), or to
+the values of environment variables
+`CDK_DEFAULT_REGION`/`CDK_DEFAULT_ACCOUNT` to let the target environment
+depend on the AWS credentials/configuration that the CDK CLI is executed
+under (recommended for development stacks).
+
+If the `Stack` is instantiated inside a `Stage`, any undefined
+`region`/`account` fields from `env` will default to the same field on the
+encompassing `Stage`, if configured there.
+
+If either `region` or `account` are not set nor inherited from `Stage`, the
+Stack will be considered "*environment-agnostic*"". Environment-agnostic
+stacks can be deployed to any environment but may not be able to take
+advantage of all features of the CDK. For example, they will not be able to
+use environmental context lookups such as `ec2.Vpc.fromLookup` and will not
+automatically translate Service Principals to the right format based on the
+environment's AWS partition, and other such enhancements.
+
+---
+
+*Example*
+
+```typescript
+// Use a concrete account and region to deploy this stack to:
+// `.account` and `.region` will simply return these values.
+new Stack(app, 'Stack1', {
+  env: {
+    account: '123456789012',
+    region: 'us-east-1'
+  },
+});
+
+// Use the CLI's current credentials to determine the target environment:
+// `.account` and `.region` will reflect the account+region the CLI
+// is configured to use (based on the user CLI credentials)
+new Stack(app, 'Stack2', {
+  env: {
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+    region: process.env.CDK_DEFAULT_REGION
+  },
+});
+
+// Define multiple stacks stage associated with an environment
+const myStage = new Stage(app, 'MyStage', {
+  env: {
+    account: '123456789012',
+    region: 'us-east-1'
+  }
+});
+
+// both of these stacks will use the stage's account/region:
+// `.account` and `.region` will resolve to the concrete values as above
+new MyStack(myStage, 'Stack1');
+new YourStack(myStage, 'Stack2');
+
+// Define an environment-agnostic stack:
+// `.account` and `.region` will resolve to `{ "Ref": "AWS::AccountId" }` and `{ "Ref": "AWS::Region" }` respectively.
+// which will only resolve to actual values by CloudFormation during deployment.
+new MyStack(app, 'Stack1');
+```
+
+
+##### `stackName`<sup>Optional</sup> <a name="stackName" id="cdk-extensions.stacks.AwsLoggingStackProps.property.stackName"></a>
+
+```typescript
+public readonly stackName: string;
+```
+
+- *Type:* string
+- *Default:* Derived from construct path.
+
+Name to deploy the stack with.
+
+---
+
+##### `synthesizer`<sup>Optional</sup> <a name="synthesizer" id="cdk-extensions.stacks.AwsLoggingStackProps.property.synthesizer"></a>
+
+```typescript
+public readonly synthesizer: IStackSynthesizer;
+```
+
+- *Type:* aws-cdk-lib.IStackSynthesizer
+- *Default:* `DefaultStackSynthesizer` if the `@aws-cdk/core:newStyleStackSynthesis` feature flag is set, `LegacyStackSynthesizer` otherwise.
+
+Synthesis method to use while deploying this stack.
+
+---
+
+##### `tags`<sup>Optional</sup> <a name="tags" id="cdk-extensions.stacks.AwsLoggingStackProps.property.tags"></a>
+
+```typescript
+public readonly tags: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+- *Default:* {}
+
+Stack tags that will be applied to all the taggable resources and the stack itself.
+
+---
+
+##### `terminationProtection`<sup>Optional</sup> <a name="terminationProtection" id="cdk-extensions.stacks.AwsLoggingStackProps.property.terminationProtection"></a>
+
+```typescript
+public readonly terminationProtection: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether to enable termination protection for this stack.
+
+---
+
+##### `albLogsBucket`<sup>Optional</sup> <a name="albLogsBucket" id="cdk-extensions.stacks.AwsLoggingStackProps.property.albLogsBucket"></a>
+
+```typescript
+public readonly albLogsBucket: AlbLogsBucket;
+```
+
+- *Type:* cdk-extensions.s3.AlbLogsBucket
+
+---
+
+##### `cloudfrontLogsBucket`<sup>Optional</sup> <a name="cloudfrontLogsBucket" id="cdk-extensions.stacks.AwsLoggingStackProps.property.cloudfrontLogsBucket"></a>
+
+```typescript
+public readonly cloudfrontLogsBucket: CloudfrontLogsBucket;
+```
+
+- *Type:* cdk-extensions.s3.CloudfrontLogsBucket
+
+---
+
+##### `cloudtrailLogsBucket`<sup>Optional</sup> <a name="cloudtrailLogsBucket" id="cdk-extensions.stacks.AwsLoggingStackProps.property.cloudtrailLogsBucket"></a>
+
+```typescript
+public readonly cloudtrailLogsBucket: CloudtrailBucket;
+```
+
+- *Type:* cdk-extensions.s3.CloudtrailBucket
+
+---
+
+##### `databaseName`<sup>Optional</sup> <a name="databaseName" id="cdk-extensions.stacks.AwsLoggingStackProps.property.databaseName"></a>
+
+```typescript
+public readonly databaseName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `flowLogsBucket`<sup>Optional</sup> <a name="flowLogsBucket" id="cdk-extensions.stacks.AwsLoggingStackProps.property.flowLogsBucket"></a>
+
+```typescript
+public readonly flowLogsBucket: FlowLogsBucket;
+```
+
+- *Type:* cdk-extensions.s3.FlowLogsBucket
+
+---
+
+##### `flowLogsFormat`<sup>Optional</sup> <a name="flowLogsFormat" id="cdk-extensions.stacks.AwsLoggingStackProps.property.flowLogsFormat"></a>
+
+```typescript
+public readonly flowLogsFormat: FlowLogFormat;
+```
+
+- *Type:* cdk-extensions.ec2.FlowLogFormat
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.stacks.AwsLoggingStackProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `sesLogsBucket`<sup>Optional</sup> <a name="sesLogsBucket" id="cdk-extensions.stacks.AwsLoggingStackProps.property.sesLogsBucket"></a>
+
+```typescript
+public readonly sesLogsBucket: SesLogsBucket;
+```
+
+- *Type:* cdk-extensions.s3.SesLogsBucket
+
+---
+
+##### `standardizeNames`<sup>Optional</sup> <a name="standardizeNames" id="cdk-extensions.stacks.AwsLoggingStackProps.property.standardizeNames"></a>
+
+```typescript
+public readonly standardizeNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `wafLogsBucket`<sup>Optional</sup> <a name="wafLogsBucket" id="cdk-extensions.stacks.AwsLoggingStackProps.property.wafLogsBucket"></a>
+
+```typescript
+public readonly wafLogsBucket: WafLogsBucket;
+```
+
+- *Type:* cdk-extensions.s3.WafLogsBucket
+
+---
+
 ### BackupConfigurationOptions <a name="BackupConfigurationOptions" id="cdk-extensions.kinesis_firehose.BackupConfigurationOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.BackupConfigurationOptions.Initializer"></a>
@@ -6702,6 +19325,592 @@ public readonly sizeInMb: number;
 ```
 
 - *Type:* number
+
+---
+
+### CloudfrontLogsBucketProps <a name="CloudfrontLogsBucketProps" id="cdk-extensions.s3.CloudfrontLogsBucketProps"></a>
+
+Configuration for objects bucket.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.s3.CloudfrontLogsBucketProps.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+const cloudfrontLogsBucketProps: s3.CloudfrontLogsBucketProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucketProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucketProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucketProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucketProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucketProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucketProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucketProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudfrontLogsBucketProps.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.s3.CloudfrontLogsBucketProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.s3.CloudfrontLogsBucketProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.s3.CloudfrontLogsBucketProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.s3.CloudfrontLogsBucketProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `bucketName`<sup>Optional</sup> <a name="bucketName" id="cdk-extensions.s3.CloudfrontLogsBucketProps.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.s3.CloudfrontLogsBucketProps.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `database`<sup>Optional</sup> <a name="database" id="cdk-extensions.s3.CloudfrontLogsBucketProps.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.s3.CloudfrontLogsBucketProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tableName`<sup>Optional</sup> <a name="tableName" id="cdk-extensions.s3.CloudfrontLogsBucketProps.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+---
+
+### CloudfrontLogsTableProps <a name="CloudfrontLogsTableProps" id="cdk-extensions.glue.CloudfrontLogsTableProps"></a>
+
+Configuration for CloudfrontAccessLogsTable.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.CloudfrontLogsTableProps.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const cloudfrontLogsTableProps: glue.CloudfrontLogsTableProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTableProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudfrontLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.CloudfrontLogsTableProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.CloudfrontLogsTableProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.CloudfrontLogsTableProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.CloudfrontLogsTableProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="cdk-extensions.glue.CloudfrontLogsTableProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue.CloudfrontLogsTableProps.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.glue.CloudfrontLogsTableProps.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue.CloudfrontLogsTableProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.CloudfrontLogsTableProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue.CloudfrontLogsTableProps.property.s3Prefix"></a>
+
+```typescript
+public readonly s3Prefix: string;
+```
+
+- *Type:* string
+
+---
+
+### CloudtrailBucketProps <a name="CloudtrailBucketProps" id="cdk-extensions.s3.CloudtrailBucketProps"></a>
+
+Configuration for objects bucket.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.s3.CloudtrailBucketProps.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+const cloudtrailBucketProps: s3.CloudtrailBucketProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucketProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucketProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucketProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucketProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucketProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucketProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucketProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.CloudtrailBucketProps.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.s3.CloudtrailBucketProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.s3.CloudtrailBucketProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.s3.CloudtrailBucketProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.s3.CloudtrailBucketProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `bucketName`<sup>Optional</sup> <a name="bucketName" id="cdk-extensions.s3.CloudtrailBucketProps.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.s3.CloudtrailBucketProps.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `database`<sup>Optional</sup> <a name="database" id="cdk-extensions.s3.CloudtrailBucketProps.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.s3.CloudtrailBucketProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tableName`<sup>Optional</sup> <a name="tableName" id="cdk-extensions.s3.CloudtrailBucketProps.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+---
+
+### CloudtrailTableProps <a name="CloudtrailTableProps" id="cdk-extensions.glue.CloudtrailTableProps"></a>
+
+Configuration for FlowLogsTable.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.CloudtrailTableProps.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const cloudtrailTableProps: glue.CloudtrailTableProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.CloudtrailTableProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.CloudtrailTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.CloudtrailTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.CloudtrailTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.CloudtrailTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CloudtrailTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.CloudtrailTableProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.CloudtrailTableProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.CloudtrailTableProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.CloudtrailTableProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="cdk-extensions.glue.CloudtrailTableProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue.CloudtrailTableProps.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.glue.CloudtrailTableProps.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue.CloudtrailTableProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.CloudtrailTableProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue.CloudtrailTableProps.property.s3Prefix"></a>
+
+```typescript
+public readonly s3Prefix: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -8747,6 +21956,332 @@ flow log files by the hour in which they were delivered.
 
 ---
 
+### FlowLogsBucketProps <a name="FlowLogsBucketProps" id="cdk-extensions.s3.FlowLogsBucketProps"></a>
+
+Configuration for objects bucket.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.s3.FlowLogsBucketProps.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+const flowLogsBucketProps: s3.FlowLogsBucketProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucketProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucketProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucketProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucketProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucketProps.property.crawlerSchedule">crawlerSchedule</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucketProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucketProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucketProps.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucketProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.FlowLogsBucketProps.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.s3.FlowLogsBucketProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.s3.FlowLogsBucketProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.s3.FlowLogsBucketProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.s3.FlowLogsBucketProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `bucketName`<sup>Optional</sup> <a name="bucketName" id="cdk-extensions.s3.FlowLogsBucketProps.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `crawlerSchedule`<sup>Optional</sup> <a name="crawlerSchedule" id="cdk-extensions.s3.FlowLogsBucketProps.property.crawlerSchedule"></a>
+
+```typescript
+public readonly crawlerSchedule: Schedule;
+```
+
+- *Type:* aws-cdk-lib.aws_events.Schedule
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.s3.FlowLogsBucketProps.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `database`<sup>Optional</sup> <a name="database" id="cdk-extensions.s3.FlowLogsBucketProps.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `format`<sup>Optional</sup> <a name="format" id="cdk-extensions.s3.FlowLogsBucketProps.property.format"></a>
+
+```typescript
+public readonly format: FlowLogFormat;
+```
+
+- *Type:* cdk-extensions.ec2.FlowLogFormat
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.s3.FlowLogsBucketProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tableName`<sup>Optional</sup> <a name="tableName" id="cdk-extensions.s3.FlowLogsBucketProps.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+---
+
+### FlowLogsTableProps <a name="FlowLogsTableProps" id="cdk-extensions.glue.FlowLogsTableProps"></a>
+
+Configuration for FlowLogsTable.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.FlowLogsTableProps.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const flowLogsTableProps: glue.FlowLogsTableProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.FlowLogsTableProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.FlowLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.FlowLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.FlowLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.FlowLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTableProps.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.FlowLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.FlowLogsTableProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.FlowLogsTableProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.FlowLogsTableProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.FlowLogsTableProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="cdk-extensions.glue.FlowLogsTableProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue.FlowLogsTableProps.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.glue.FlowLogsTableProps.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `format`<sup>Optional</sup> <a name="format" id="cdk-extensions.glue.FlowLogsTableProps.property.format"></a>
+
+```typescript
+public readonly format: FlowLogFormat;
+```
+
+- *Type:* cdk-extensions.ec2.FlowLogFormat
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue.FlowLogsTableProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.FlowLogsTableProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue.FlowLogsTableProps.property.s3Prefix"></a>
+
+```typescript
+public readonly s3Prefix: string;
+```
+
+- *Type:* string
+
+---
+
 ### HiveJsonInputSerDeOptions <a name="HiveJsonInputSerDeOptions" id="cdk-extensions.kinesis_firehose.HiveJsonInputSerDeOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.HiveJsonInputSerDeOptions.Initializer"></a>
@@ -9000,6 +22535,191 @@ public readonly attributeMapping: {[ key: string ]: string[]};
 - *Type:* {[ key: string ]: string[]}
 
 Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+
+---
+
+### JdbcConnectionProps <a name="JdbcConnectionProps" id="cdk-extensions.glue.JdbcConnectionProps"></a>
+
+Configuration for the Glue Workflow resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.JdbcConnectionProps.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const jdbcConnectionProps: glue.JdbcConnectionProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.password">password</a></code> | <code>aws-cdk-lib.SecretValue</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.url">url</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.username">username</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.enforceSsl">enforceSsl</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.JdbcConnectionProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.JdbcConnectionProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.JdbcConnectionProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.JdbcConnectionProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `password`<sup>Required</sup> <a name="password" id="cdk-extensions.glue.JdbcConnectionProps.property.password"></a>
+
+```typescript
+public readonly password: SecretValue;
+```
+
+- *Type:* aws-cdk-lib.SecretValue
+
+---
+
+##### `url`<sup>Required</sup> <a name="url" id="cdk-extensions.glue.JdbcConnectionProps.property.url"></a>
+
+```typescript
+public readonly url: string;
+```
+
+- *Type:* string
+
+---
+
+##### `username`<sup>Required</sup> <a name="username" id="cdk-extensions.glue.JdbcConnectionProps.property.username"></a>
+
+```typescript
+public readonly username: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="cdk-extensions.glue.JdbcConnectionProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.JdbcConnectionProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `enforceSsl`<sup>Optional</sup> <a name="enforceSsl" id="cdk-extensions.glue.JdbcConnectionProps.property.enforceSsl"></a>
+
+```typescript
+public readonly enforceSsl: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.JdbcConnectionProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `securityGroups`<sup>Optional</sup> <a name="securityGroups" id="cdk-extensions.glue.JdbcConnectionProps.property.securityGroups"></a>
+
+```typescript
+public readonly securityGroups: ISecurityGroup[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
+
+---
+
+##### `subnets`<sup>Optional</sup> <a name="subnets" id="cdk-extensions.glue.JdbcConnectionProps.property.subnets"></a>
+
+```typescript
+public readonly subnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
 
 ---
 
@@ -9659,6 +23379,56 @@ public readonly lambdaFunction: IFunction;
 ```
 
 - *Type:* aws-cdk-lib.aws_lambda.IFunction
+
+---
+
+### LoggingAspectOptions <a name="LoggingAspectOptions" id="cdk-extensions.s3.LoggingAspectOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.s3.LoggingAspectOptions.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+const loggingAspectOptions: s3.LoggingAspectOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.LoggingAspectOptions.property.exclusions">exclusions</a></code> | <code>constructs.IConstruct[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.LoggingAspectOptions.property.force">force</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.LoggingAspectOptions.property.prefix">prefix</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `exclusions`<sup>Optional</sup> <a name="exclusions" id="cdk-extensions.s3.LoggingAspectOptions.property.exclusions"></a>
+
+```typescript
+public readonly exclusions: IConstruct[];
+```
+
+- *Type:* constructs.IConstruct[]
+
+---
+
+##### `force`<sup>Optional</sup> <a name="force" id="cdk-extensions.s3.LoggingAspectOptions.property.force"></a>
+
+```typescript
+public readonly force: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `prefix`<sup>Optional</sup> <a name="prefix" id="cdk-extensions.s3.LoggingAspectOptions.property.prefix"></a>
+
+```typescript
+public readonly prefix: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -10615,6 +24385,361 @@ Only individual files are supported, directories are not supported.
 
 ---
 
+### RawBucketProps <a name="RawBucketProps" id="cdk-extensions.s3.RawBucketProps"></a>
+
+Configuration for objects bucket.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.s3.RawBucketProps.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+const rawBucketProps: s3.RawBucketProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.accelerateConfiguration">accelerateConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.AccelerateConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Configures the transfer acceleration state for an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.accessControl">accessControl</a></code> | <code>string</code> | A canned access control list (ACL) that grants predefined permissions to the bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.analyticsConfigurations">analyticsConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty \| aws-cdk-lib.IResolvable[]</code> | Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.bucketEncryption">bucketEncryption</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty \| aws-cdk-lib.IResolvable</code> | Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS) bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | A name for the bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.corsConfiguration">corsConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.CorsConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Describes the cross-origin access configuration for objects in an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.intelligentTieringConfigurations">intelligentTieringConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.IntelligentTieringConfigurationProperty \| aws-cdk-lib.IResolvable[]</code> | Defines how Amazon S3 handles Intelligent-Tiering storage. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.inventoryConfigurations">inventoryConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.InventoryConfigurationProperty \| aws-cdk-lib.IResolvable[]</code> | Specifies the inventory configuration for an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.lifecycleConfiguration">lifecycleConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.LifecycleConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Specifies the lifecycle configuration for objects in an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.loggingConfiguration">loggingConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.LoggingConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Settings that define where logs are stored. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.metricsConfigurations">metricsConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.MetricsConfigurationProperty \| aws-cdk-lib.IResolvable[]</code> | Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.notificationConfiguration">notificationConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.NotificationConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Configuration that defines how Amazon S3 handles bucket notifications. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.objectLockConfiguration">objectLockConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.ObjectLockConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Places an Object Lock configuration on the specified bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.objectLockEnabled">objectLockEnabled</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | Indicates whether this bucket has an Object Lock configuration enabled. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.ownershipControls">ownershipControls</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.OwnershipControlsProperty \| aws-cdk-lib.IResolvable</code> | Configuration that defines how Amazon S3 handles Object Ownership rules. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.publicAccessBlockConfiguration">publicAccessBlockConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.PublicAccessBlockConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Configuration that defines how Amazon S3 handles public access. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.replicationConfiguration">replicationConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.ReplicationConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Configuration for replicating objects in an S3 bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.tags">tags</a></code> | <code>aws-cdk-lib.CfnTag[]</code> | An arbitrary set of tags (key-value pairs) for this S3 bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.versioningConfiguration">versioningConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.VersioningConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Enables multiple versions of all objects in this bucket. |
+| <code><a href="#cdk-extensions.s3.RawBucketProps.property.websiteConfiguration">websiteConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.WebsiteConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Information used to configure the bucket as a static website. |
+
+---
+
+##### `accelerateConfiguration`<sup>Optional</sup> <a name="accelerateConfiguration" id="cdk-extensions.s3.RawBucketProps.property.accelerateConfiguration"></a>
+
+```typescript
+public readonly accelerateConfiguration: AccelerateConfigurationProperty | IResolvable;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket.AccelerateConfigurationProperty | aws-cdk-lib.IResolvable
+
+Configures the transfer acceleration state for an Amazon S3 bucket.
+
+For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide* .
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accelerateconfiguration](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accelerateconfiguration)
+
+---
+
+##### `accessControl`<sup>Optional</sup> <a name="accessControl" id="cdk-extensions.s3.RawBucketProps.property.accessControl"></a>
+
+```typescript
+public readonly accessControl: string;
+```
+
+- *Type:* string
+
+A canned access control list (ACL) that grants predefined permissions to the bucket.
+
+For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide* .
+
+Be aware that the syntax for this property differs from the information provided in the *Amazon S3 User Guide* . The AccessControl property is case-sensitive and must be one of the following values: Private, PublicRead, PublicReadWrite, AuthenticatedRead, LogDeliveryWrite, BucketOwnerRead, BucketOwnerFullControl, or AwsExecRead.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accesscontrol](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accesscontrol)
+
+---
+
+##### `analyticsConfigurations`<sup>Optional</sup> <a name="analyticsConfigurations" id="cdk-extensions.s3.RawBucketProps.property.analyticsConfigurations"></a>
+
+```typescript
+public readonly analyticsConfigurations: IResolvable | AnalyticsConfigurationProperty | IResolvable[];
+```
+
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty | aws-cdk-lib.IResolvable[]
+
+Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-analyticsconfigurations](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-analyticsconfigurations)
+
+---
+
+##### `bucketEncryption`<sup>Optional</sup> <a name="bucketEncryption" id="cdk-extensions.s3.RawBucketProps.property.bucketEncryption"></a>
+
+```typescript
+public readonly bucketEncryption: BucketEncryptionProperty | IResolvable;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty | aws-cdk-lib.IResolvable
+
+Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS) bucket.
+
+For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide* .
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-bucketencryption](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-bucketencryption)
+
+---
+
+##### `bucketName`<sup>Optional</sup> <a name="bucketName" id="cdk-extensions.s3.RawBucketProps.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+A name for the bucket.
+
+If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html) . For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide* .
+
+> If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-name](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-name)
+
+---
+
+##### `corsConfiguration`<sup>Optional</sup> <a name="corsConfiguration" id="cdk-extensions.s3.RawBucketProps.property.corsConfiguration"></a>
+
+```typescript
+public readonly corsConfiguration: CorsConfigurationProperty | IResolvable;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket.CorsConfigurationProperty | aws-cdk-lib.IResolvable
+
+Describes the cross-origin access configuration for objects in an Amazon S3 bucket.
+
+For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide* .
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-crossoriginconfig](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-crossoriginconfig)
+
+---
+
+##### `intelligentTieringConfigurations`<sup>Optional</sup> <a name="intelligentTieringConfigurations" id="cdk-extensions.s3.RawBucketProps.property.intelligentTieringConfigurations"></a>
+
+```typescript
+public readonly intelligentTieringConfigurations: IResolvable | IntelligentTieringConfigurationProperty | IResolvable[];
+```
+
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.IntelligentTieringConfigurationProperty | aws-cdk-lib.IResolvable[]
+
+Defines how Amazon S3 handles Intelligent-Tiering storage.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-intelligenttieringconfigurations](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-intelligenttieringconfigurations)
+
+---
+
+##### `inventoryConfigurations`<sup>Optional</sup> <a name="inventoryConfigurations" id="cdk-extensions.s3.RawBucketProps.property.inventoryConfigurations"></a>
+
+```typescript
+public readonly inventoryConfigurations: IResolvable | InventoryConfigurationProperty | IResolvable[];
+```
+
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.InventoryConfigurationProperty | aws-cdk-lib.IResolvable[]
+
+Specifies the inventory configuration for an Amazon S3 bucket.
+
+For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference* .
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-inventoryconfigurations](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-inventoryconfigurations)
+
+---
+
+##### `lifecycleConfiguration`<sup>Optional</sup> <a name="lifecycleConfiguration" id="cdk-extensions.s3.RawBucketProps.property.lifecycleConfiguration"></a>
+
+```typescript
+public readonly lifecycleConfiguration: LifecycleConfigurationProperty | IResolvable;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket.LifecycleConfigurationProperty | aws-cdk-lib.IResolvable
+
+Specifies the lifecycle configuration for objects in an Amazon S3 bucket.
+
+For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide* .
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-lifecycleconfig](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-lifecycleconfig)
+
+---
+
+##### `loggingConfiguration`<sup>Optional</sup> <a name="loggingConfiguration" id="cdk-extensions.s3.RawBucketProps.property.loggingConfiguration"></a>
+
+```typescript
+public readonly loggingConfiguration: LoggingConfigurationProperty | IResolvable;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket.LoggingConfigurationProperty | aws-cdk-lib.IResolvable
+
+Settings that define where logs are stored.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-loggingconfig](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-loggingconfig)
+
+---
+
+##### `metricsConfigurations`<sup>Optional</sup> <a name="metricsConfigurations" id="cdk-extensions.s3.RawBucketProps.property.metricsConfigurations"></a>
+
+```typescript
+public readonly metricsConfigurations: IResolvable | MetricsConfigurationProperty | IResolvable[];
+```
+
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.MetricsConfigurationProperty | aws-cdk-lib.IResolvable[]
+
+Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket.
+
+If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html) .
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-metricsconfigurations](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-metricsconfigurations)
+
+---
+
+##### `notificationConfiguration`<sup>Optional</sup> <a name="notificationConfiguration" id="cdk-extensions.s3.RawBucketProps.property.notificationConfiguration"></a>
+
+```typescript
+public readonly notificationConfiguration: NotificationConfigurationProperty | IResolvable;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket.NotificationConfigurationProperty | aws-cdk-lib.IResolvable
+
+Configuration that defines how Amazon S3 handles bucket notifications.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-notification](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-notification)
+
+---
+
+##### `objectLockConfiguration`<sup>Optional</sup> <a name="objectLockConfiguration" id="cdk-extensions.s3.RawBucketProps.property.objectLockConfiguration"></a>
+
+```typescript
+public readonly objectLockConfiguration: ObjectLockConfigurationProperty | IResolvable;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket.ObjectLockConfigurationProperty | aws-cdk-lib.IResolvable
+
+Places an Object Lock configuration on the specified bucket.
+
+The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) .
+
+> - The `DefaultRetention` settings require both a mode and a period.
+> - The `DefaultRetention` period can be either `Days` or `Years` but you must select one. You cannot specify `Days` and `Years` at the same time.
+> - You can only enable Object Lock for new buckets. If you want to turn on Object Lock for an existing bucket, contact AWS Support.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-objectlockconfiguration](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-objectlockconfiguration)
+
+---
+
+##### `objectLockEnabled`<sup>Optional</sup> <a name="objectLockEnabled" id="cdk-extensions.s3.RawBucketProps.property.objectLockEnabled"></a>
+
+```typescript
+public readonly objectLockEnabled: boolean | IResolvable;
+```
+
+- *Type:* boolean | aws-cdk-lib.IResolvable
+
+Indicates whether this bucket has an Object Lock configuration enabled.
+
+Enable `ObjectLockEnabled` when you apply `ObjectLockConfiguration` to a bucket.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-objectlockenabled](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-objectlockenabled)
+
+---
+
+##### `ownershipControls`<sup>Optional</sup> <a name="ownershipControls" id="cdk-extensions.s3.RawBucketProps.property.ownershipControls"></a>
+
+```typescript
+public readonly ownershipControls: OwnershipControlsProperty | IResolvable;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket.OwnershipControlsProperty | aws-cdk-lib.IResolvable
+
+Configuration that defines how Amazon S3 handles Object Ownership rules.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-ownershipcontrols](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-ownershipcontrols)
+
+---
+
+##### `publicAccessBlockConfiguration`<sup>Optional</sup> <a name="publicAccessBlockConfiguration" id="cdk-extensions.s3.RawBucketProps.property.publicAccessBlockConfiguration"></a>
+
+```typescript
+public readonly publicAccessBlockConfiguration: PublicAccessBlockConfigurationProperty | IResolvable;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket.PublicAccessBlockConfigurationProperty | aws-cdk-lib.IResolvable
+
+Configuration that defines how Amazon S3 handles public access.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-publicaccessblockconfiguration](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-publicaccessblockconfiguration)
+
+---
+
+##### `replicationConfiguration`<sup>Optional</sup> <a name="replicationConfiguration" id="cdk-extensions.s3.RawBucketProps.property.replicationConfiguration"></a>
+
+```typescript
+public readonly replicationConfiguration: ReplicationConfigurationProperty | IResolvable;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket.ReplicationConfigurationProperty | aws-cdk-lib.IResolvable
+
+Configuration for replicating objects in an S3 bucket.
+
+To enable replication, you must also enable versioning by using the `VersioningConfiguration` property.
+
+Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-replicationconfiguration](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-replicationconfiguration)
+
+---
+
+##### `tags`<sup>Optional</sup> <a name="tags" id="cdk-extensions.s3.RawBucketProps.property.tags"></a>
+
+```typescript
+public readonly tags: CfnTag[];
+```
+
+- *Type:* aws-cdk-lib.CfnTag[]
+
+An arbitrary set of tags (key-value pairs) for this S3 bucket.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-tags](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-tags)
+
+---
+
+##### `versioningConfiguration`<sup>Optional</sup> <a name="versioningConfiguration" id="cdk-extensions.s3.RawBucketProps.property.versioningConfiguration"></a>
+
+```typescript
+public readonly versioningConfiguration: VersioningConfigurationProperty | IResolvable;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket.VersioningConfigurationProperty | aws-cdk-lib.IResolvable
+
+Enables multiple versions of all objects in this bucket.
+
+You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-versioning](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-versioning)
+
+---
+
+##### `websiteConfiguration`<sup>Optional</sup> <a name="websiteConfiguration" id="cdk-extensions.s3.RawBucketProps.property.websiteConfiguration"></a>
+
+```typescript
+public readonly websiteConfiguration: WebsiteConfigurationProperty | IResolvable;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.CfnBucket.WebsiteConfigurationProperty | aws-cdk-lib.IResolvable
+
+Information used to configure the bucket as a static website.
+
+For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) .
+
+> [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-websiteconfiguration](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-websiteconfiguration)
+
+---
+
 ### RecordDeaggregationProcessorOptions <a name="RecordDeaggregationProcessorOptions" id="cdk-extensions.kinesis_firehose.RecordDeaggregationProcessorOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.RecordDeaggregationProcessorOptions.Initializer"></a>
@@ -10967,6 +25092,299 @@ public readonly resources: ISharedResource[];
 ```
 
 - *Type:* cdk-extensions.ram.ISharedResource[]
+
+---
+
+### S3AccessLogsBucketProps <a name="S3AccessLogsBucketProps" id="cdk-extensions.s3.S3AccessLogsBucketProps"></a>
+
+Configuration for objects bucket.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.s3.S3AccessLogsBucketProps.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+const s3AccessLogsBucketProps: s3.S3AccessLogsBucketProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucketProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucketProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucketProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucketProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucketProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucketProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucketProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.S3AccessLogsBucketProps.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.s3.S3AccessLogsBucketProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.s3.S3AccessLogsBucketProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.s3.S3AccessLogsBucketProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.s3.S3AccessLogsBucketProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `bucketName`<sup>Optional</sup> <a name="bucketName" id="cdk-extensions.s3.S3AccessLogsBucketProps.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.s3.S3AccessLogsBucketProps.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `database`<sup>Optional</sup> <a name="database" id="cdk-extensions.s3.S3AccessLogsBucketProps.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.s3.S3AccessLogsBucketProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tableName`<sup>Optional</sup> <a name="tableName" id="cdk-extensions.s3.S3AccessLogsBucketProps.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+---
+
+### S3AccessLogsTableProps <a name="S3AccessLogsTableProps" id="cdk-extensions.glue.S3AccessLogsTableProps"></a>
+
+Configuration for S3AccessLogsTable.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.S3AccessLogsTableProps.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const s3AccessLogsTableProps: glue.S3AccessLogsTableProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTableProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3AccessLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.S3AccessLogsTableProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.S3AccessLogsTableProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.S3AccessLogsTableProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.S3AccessLogsTableProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="cdk-extensions.glue.S3AccessLogsTableProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue.S3AccessLogsTableProps.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.glue.S3AccessLogsTableProps.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue.S3AccessLogsTableProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.S3AccessLogsTableProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue.S3AccessLogsTableProps.property.s3Prefix"></a>
+
+```typescript
+public readonly s3Prefix: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -11423,6 +25841,299 @@ public readonly s3Encryption: S3Encryption;
 ```
 
 - *Type:* cdk-extensions.glue.S3Encryption
+
+---
+
+### SesLogsBucketProps <a name="SesLogsBucketProps" id="cdk-extensions.s3.SesLogsBucketProps"></a>
+
+Configuration for objects bucket.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.s3.SesLogsBucketProps.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+const sesLogsBucketProps: s3.SesLogsBucketProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.SesLogsBucketProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucketProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucketProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucketProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.SesLogsBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.SesLogsBucketProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.SesLogsBucketProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.SesLogsBucketProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.SesLogsBucketProps.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.s3.SesLogsBucketProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.s3.SesLogsBucketProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.s3.SesLogsBucketProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.s3.SesLogsBucketProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `bucketName`<sup>Optional</sup> <a name="bucketName" id="cdk-extensions.s3.SesLogsBucketProps.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.s3.SesLogsBucketProps.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `database`<sup>Optional</sup> <a name="database" id="cdk-extensions.s3.SesLogsBucketProps.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.s3.SesLogsBucketProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tableName`<sup>Optional</sup> <a name="tableName" id="cdk-extensions.s3.SesLogsBucketProps.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+---
+
+### SesLogsTableProps <a name="SesLogsTableProps" id="cdk-extensions.glue.SesLogsTableProps"></a>
+
+Configuration for SesLogsTable.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.SesLogsTableProps.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const sesLogsTableProps: glue.SesLogsTableProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.SesLogsTableProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.SesLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.SesLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.SesLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.SesLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SesLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.SesLogsTableProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.SesLogsTableProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.SesLogsTableProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.SesLogsTableProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="cdk-extensions.glue.SesLogsTableProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue.SesLogsTableProps.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.glue.SesLogsTableProps.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue.SesLogsTableProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.SesLogsTableProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue.SesLogsTableProps.property.s3Prefix"></a>
+
+```typescript
+public readonly s3Prefix: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -12125,6 +26836,299 @@ public readonly workflow: Workflow;
 ```
 
 - *Type:* cdk-extensions.glue.Workflow
+
+---
+
+### WafLogsBucketProps <a name="WafLogsBucketProps" id="cdk-extensions.s3.WafLogsBucketProps"></a>
+
+Configuration for objects bucket.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.s3.WafLogsBucketProps.Initializer"></a>
+
+```typescript
+import { s3 } from 'cdk-extensions'
+
+const wafLogsBucketProps: s3.WafLogsBucketProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.s3.WafLogsBucketProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucketProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucketProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucketProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.s3.WafLogsBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.WafLogsBucketProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.WafLogsBucketProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.WafLogsBucketProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.s3.WafLogsBucketProps.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.s3.WafLogsBucketProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.s3.WafLogsBucketProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.s3.WafLogsBucketProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.s3.WafLogsBucketProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `bucketName`<sup>Optional</sup> <a name="bucketName" id="cdk-extensions.s3.WafLogsBucketProps.property.bucketName"></a>
+
+```typescript
+public readonly bucketName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.s3.WafLogsBucketProps.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `database`<sup>Optional</sup> <a name="database" id="cdk-extensions.s3.WafLogsBucketProps.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.s3.WafLogsBucketProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tableName`<sup>Optional</sup> <a name="tableName" id="cdk-extensions.s3.WafLogsBucketProps.property.tableName"></a>
+
+```typescript
+public readonly tableName: string;
+```
+
+- *Type:* string
+
+---
+
+### WafLogsTableProps <a name="WafLogsTableProps" id="cdk-extensions.glue.WafLogsTableProps"></a>
+
+Configuration for S3AccessLogsTable.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.WafLogsTableProps.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const wafLogsTableProps: glue.WafLogsTableProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WafLogsTableProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.WafLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.WafLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.WafLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.WafLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WafLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.WafLogsTableProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.WafLogsTableProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.WafLogsTableProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.WafLogsTableProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `bucket`<sup>Required</sup> <a name="bucket" id="cdk-extensions.glue.WafLogsTableProps.property.bucket"></a>
+
+```typescript
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+---
+
+##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue.WafLogsTableProps.property.database"></a>
+
+```typescript
+public readonly database: Database;
+```
+
+- *Type:* cdk-extensions.glue.Database
+
+---
+
+##### `createQueries`<sup>Optional</sup> <a name="createQueries" id="cdk-extensions.glue.WafLogsTableProps.property.createQueries"></a>
+
+```typescript
+public readonly createQueries: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue.WafLogsTableProps.property.friendlyQueryNames"></a>
+
+```typescript
+public readonly friendlyQueryNames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.WafLogsTableProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue.WafLogsTableProps.property.s3Prefix"></a>
+
+```typescript
+public readonly s3Prefix: string;
+```
+
+- *Type:* string
 
 ---
 

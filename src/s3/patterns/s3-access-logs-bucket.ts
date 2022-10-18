@@ -2,8 +2,7 @@ import { Aspects, Lazy, PhysicalName, ResourceProps, Token } from 'aws-cdk-lib';
 import { Effect, PolicyStatement, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct, IConstruct } from 'constructs';
-import { Database } from '../../glue/constructs/database';
-import { S3AccessLogsTable } from '../../glue/patterns/s3-access-logs-table';
+import { Database, S3AccessLogsTable } from '../../glue';
 import { RawBucket } from './private/raw-bucket';
 
 

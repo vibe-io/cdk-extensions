@@ -1,7 +1,6 @@
 import { Annotations, Lazy, Names, ResourceProps, Token } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { Database } from '../../glue/constructs/database';
-import { WafLogsTable } from '../../glue/patterns/waf-logs-table';
+import { Database, WafLogsTable } from '../../glue';
 import { RawBucket } from './private/raw-bucket';
 
 

@@ -1,7 +1,6 @@
 import { PhysicalName, ResourceProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { Database } from '../../glue/constructs/database';
-import { CloudfrontLogsTable } from '../../glue/patterns/cloudfront-logs-table';
+import { CloudfrontLogsTable, Database } from '../../glue';
 import { RawBucket } from './private/raw-bucket';
 
 
