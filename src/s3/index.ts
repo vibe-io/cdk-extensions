@@ -36,3 +36,5 @@ export * from './patterns/ses-logs-bucket';
  * @category Patterns
  */
 export * from './patterns/waf-logs-bucket';
+
+export * from './patterns/private/raw-bucket';

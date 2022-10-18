@@ -12,6 +12,9 @@ import { contextAwareString } from '../../../utils/lazy';
  */
 export interface RawBucketProps extends CfnBucketProps {}
 
+/**
+ * Do not use directly. Will be removed once a better replacemnt is written.
+ */
 export class RawBucket extends Resource implements IBucket {
   // Internal properties
   private readonly _cdkBucket: IBucket;
