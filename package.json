@@ -2,7 +2,7 @@
   "name": "cdk-extensions",
   "repository": {
     "type": "git",
-    "url": "https://github.com/RightBrain-Networks/cdk-extensions.git"
+    "url": "https://github.com/vibe-io/cdk-extensions.git"
   },
   "bin": {
     "init-aws.sh": "bin/init-aws.sh"
