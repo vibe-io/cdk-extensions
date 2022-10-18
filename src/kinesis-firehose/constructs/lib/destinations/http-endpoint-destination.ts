@@ -3,7 +3,7 @@ import { Effect, IRole, PolicyStatement, PrincipalWithConditions, Role, ServiceP
 import { CfnDeliveryStream } from 'aws-cdk-lib/aws-kinesisfirehose';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { IConstruct } from 'constructs';
-import { definedFieldsOrUndefined, undefinedIfNoKeys } from '../../../../../utils/formatting';
+import { definedFieldsOrUndefined, undefinedIfNoKeys } from '../../../../utils/formatting';
 import { BackupConfiguration } from '../backup-configuration';
 import { BufferingConfiguration } from '../buffering-configuration';
 import { CloudWatchLoggingConfiguration } from '../cloudwatch-logging-configuration';

@@ -2,7 +2,7 @@ import { Lazy } from 'aws-cdk-lib';
 import { CfnDeliveryStream } from 'aws-cdk-lib/aws-kinesisfirehose';
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { IConstruct } from 'constructs';
-import { definedFieldsOrUndefined } from '../../../../../utils/formatting';
+import { definedFieldsOrUndefined } from '../../../../utils/formatting';
 import { BackupConfiguration } from '../backup-configuration';
 import { DataFormatConversion } from '../data-format-processing/data-format-conversion';
 import { DynamicPartitioning } from '../dynamic-partitioning';

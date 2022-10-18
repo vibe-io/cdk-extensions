@@ -2,7 +2,7 @@ import { Annotations, RemovalPolicy } from 'aws-cdk-lib';
 import { CfnDeliveryStream } from 'aws-cdk-lib/aws-kinesisfirehose';
 import { ILogGroup, ILogStream, LogGroup, LogStream, RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { IConstruct } from 'constructs';
-import { definedFieldsOrUndefined } from '../../../../utils/formatting';
+import { definedFieldsOrUndefined } from '../../../utils/formatting';
 
 
 export interface CloudWatchLoggingConfigurationOptions {

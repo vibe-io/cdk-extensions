@@ -4,8 +4,8 @@ import { Effect, IRole, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-
 import { ILogGroup, LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { IConstruct } from 'constructs';
-import { undefinedIfNoKeys } from '../../../../utils/formatting';
 import { FlowLogsBucket } from '../../../s3/patterns/flow-logs-bucket';
+import { undefinedIfNoKeys } from '../../../utils/formatting';
 
 
 /**

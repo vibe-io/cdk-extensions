@@ -2,7 +2,7 @@ import { Duration } from 'aws-cdk-lib';
 import { CfnDeliveryStream } from 'aws-cdk-lib/aws-kinesisfirehose';
 import { IFunction } from 'aws-cdk-lib/aws-lambda';
 import { IConstruct } from 'constructs';
-import { definedFieldsOrUndefined } from '../../../../utils/formatting';
+import { definedFieldsOrUndefined } from '../../../utils/formatting';
 import { JsonQuery } from './metadata-extraction-query';
 import { DeliveryStreamProcessor } from './processors/delivery-stream-processor';
 import { LambdaProcessor } from './processors/lambda-processor';

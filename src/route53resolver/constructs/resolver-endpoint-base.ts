@@ -2,7 +2,7 @@ import { Resource, ResourceProps } from 'aws-cdk-lib';
 import { IVpc, SecurityGroup, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
 import { CfnResolverEndpoint } from 'aws-cdk-lib/aws-route53resolver';
 import { Construct } from 'constructs';
-import { dot2num, num2dot } from '../../../utils/networking';
+import { dot2num, num2dot } from '../../utils/networking';
 
 
 /**
