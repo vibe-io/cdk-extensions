@@ -1,14 +1,8 @@
 import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { FlowLogFormat } from '../ec2/constructs/flow-log';
-import { Database } from '../glue/constructs/database';
-import { AlbLogsBucket } from '../s3/patterns/alb-logs-bucket';
-import { CloudfrontLogsBucket } from '../s3/patterns/cloudfront-logs-bucket';
-import { CloudtrailBucket } from '../s3/patterns/cloudtrail-bucket';
-import { FlowLogsBucket } from '../s3/patterns/flow-logs-bucket';
-import { S3AccessLogsBucket } from '../s3/patterns/s3-access-logs-bucket';
-import { SesLogsBucket } from '../s3/patterns/ses-logs-bucket';
-import { WafLogsBucket } from '../s3/patterns/waf-logs-bucket';
+import { FlowLogFormat } from '../ec2';
+import { Database } from '../glue';
+import { AlbLogsBucket, CloudfrontLogsBucket, CloudtrailBucket, FlowLogsBucket, S3AccessLogsBucket, SesLogsBucket, WafLogsBucket } from '../s3';
 
 
 /**
