@@ -127,7 +127,7 @@
         "packageId": "CdkExtensions"
       },
       "go": {
-        "moduleName": "github.com/RightBrain-Networks/cdk-extensions"
+        "moduleName": "github.com/RightBrain-Networks/cdk-extensions-go"
       }
     },
     "tsc": {

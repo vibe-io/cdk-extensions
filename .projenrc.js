@@ -14,8 +14,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   ],
   publishToGo: {
     gitBranch: 'master',
-    githubTokenSecret: 'GITHUB_TOKEN',
-    moduleName: 'github.com/RightBrain-Networks/cdk-extensions',
+    githubUseSsh: true,
+    moduleName: 'github.com/RightBrain-Networks/cdk-extensions-go',
   },
   publishToNuget: {
     dotNetNamespace: 'CdkExtensions',
