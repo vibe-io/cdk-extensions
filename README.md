@@ -12,7 +12,7 @@ $ npm install cdk-extensions
 ```
 
 #### Usage
-<i>Simple example launching the default AwsLoggingStack. For more details on this and the other available stacks and constructs, consult the respective READMEs.</i>
+<i>Minimal deployable example creates the default AwsLoggingStack. For more details on this and the other available stacks and constructs, consult the respective READMEs.</i>
 ```TypeScript
 import { AwsLoggingStack } from 'cdk-extensions/lib/stacks/aws-logging-stack';
  ...
@@ -32,7 +32,7 @@ $ cdk deploy
 $ pip install cdk-extensions
 ```
 #### Usage
-<i>Simple example launching the default AwsLoggingStack. For more details on this and the other available stacks and constructs, consult the respective READMEs.</i>
+<i>Minimal deployable example creates the default AwsLoggingStack. For more details on this and the other available stacks and constructs, consult the respective READMEs.</i>
 ```Python
 from cdk_extensions.stacks import (
   AwsLoggingStack
