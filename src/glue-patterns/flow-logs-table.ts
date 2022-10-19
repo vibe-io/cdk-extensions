@@ -3,13 +3,10 @@ import { CfnTable } from 'aws-cdk-lib/aws-glue';
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { RegionInfo } from 'aws-cdk-lib/region-info';
 import { Construct } from 'constructs';
-import { NamedQuery } from '../../athena/constructs/named-query';
-import { FlowLogDataType, FlowLogField, FlowLogFormat } from '../../ec2/constructs/flow-log';
-import { includesAll } from '../../utils/formatting';
-import { Database } from '../constructs/database';
-import { BasicColumn } from '../constructs/lib/column';
-import { InputFormat, OutputFormat, SerializationLibrary } from '../constructs/lib/data-format';
-import { Table, TableType } from '../constructs/table';
+import { NamedQuery } from '../athena';
+import { FlowLogDataType, FlowLogField, FlowLogFormat } from '../ec2';
+import { BasicColumn, Database, InputFormat, OutputFormat, SerializationLibrary, Table, TableType } from '../glue';
+import { includesAll } from '../utils/formatting';
 
 
 /**

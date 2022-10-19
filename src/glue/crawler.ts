@@ -3,7 +3,7 @@ import { Schedule } from 'aws-cdk-lib/aws-events';
 import { CfnCrawler } from 'aws-cdk-lib/aws-glue';
 import { ManagedPolicy, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
-import { definedFieldsOrUndefined, flattenedOrUndefined, undefinedIfNoKeys } from '../../utils/formatting';
+import { definedFieldsOrUndefined, flattenedOrUndefined, undefinedIfNoKeys } from '../utils/formatting';
 import { Database } from './database';
 import { SecurityConfiguration } from './security-configuration';
 

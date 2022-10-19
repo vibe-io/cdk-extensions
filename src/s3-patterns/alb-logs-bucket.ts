@@ -1,13 +1,14 @@
 import { PhysicalName, ResourceProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { CloudfrontLogsTable, Database } from '../../glue';
+import { Database } from '../glue';
+import { AlbLogsTable } from '../glue-patterns';
 import { RawBucket } from './private/raw-bucket';
 
 
 /**
  * Configuration for objects bucket
  */
-export interface CloudfrontLogsBucketProps extends ResourceProps {
+export interface AlbLogsBucketProps extends ResourceProps {
   readonly bucketName?: string;
   readonly createQueries?: boolean;
   readonly database?: Database;
@@ -15,10 +16,10 @@ export interface CloudfrontLogsBucketProps extends ResourceProps {
   readonly tableName?: string;
 }
 
-export class CloudfrontLogsBucket extends RawBucket {
+export class AlbLogsBucket extends RawBucket {
   // Resource properties
   public readonly database: Database;
-  public readonly table: CloudfrontLogsTable;
+  public readonly table: AlbLogsTable;
 
   // Input properties
   public readonly createQueries?: boolean;
@@ -33,7 +34,7 @@ export class CloudfrontLogsBucket extends RawBucket {
      * within the context of 'scope'.
      * @param props Arguments related to the configuration of the resource.
      */
-  constructor(scope: Construct, id: string, props: CloudfrontLogsBucketProps = {}) {
+  constructor(scope: Construct, id: string, props: AlbLogsBucketProps = {}) {
     super(scope, id, {
       ...props,
       bucketEncryption: {
@@ -64,7 +65,7 @@ export class CloudfrontLogsBucket extends RawBucket {
       description: 'Database for storing ELB access logs',
     });
 
-    this.table = new CloudfrontLogsTable(this, 'table', {
+    this.table = new AlbLogsTable(this, 'table', {
       bucket: this,
       createQueries: this.createQueries,
       database: this.database,

@@ -1,7 +1,7 @@
 import { Lazy, Names, Resource, ResourceProps } from 'aws-cdk-lib';
 import { CfnFlowLog, FlowLogResourceType, FlowLogTrafficType, IFlowLog } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
-import { FlowLogsBucket } from '../../s3/patterns/flow-logs-bucket';
+import { FlowLogsBucket } from '../../s3-patterns';
 import { FlowLogDestination } from './lib/flow-log-destination';
 
 

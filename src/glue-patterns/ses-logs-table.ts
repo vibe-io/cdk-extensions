@@ -1,11 +1,8 @@
 import { ResourceProps } from 'aws-cdk-lib';
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
-import { NamedQuery } from '../../athena/constructs/named-query';
-import { Database } from '../constructs/database';
-import { ArrayColumn, BasicColumn, StructColumn } from '../constructs/lib/column';
-import { InputFormat, OutputFormat, SerializationLibrary } from '../constructs/lib/data-format';
-import { Table, TableType } from '../constructs/table';
+import { NamedQuery } from '../athena';
+import { ArrayColumn, BasicColumn, Database, InputFormat, OutputFormat, SerializationLibrary, StructColumn, Table, TableType } from '../glue';
 
 
 /**

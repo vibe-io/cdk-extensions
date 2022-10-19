@@ -2,7 +2,7 @@ import { Names, Resource, ResourceProps } from 'aws-cdk-lib';
 import { CfnSecurityConfiguration } from 'aws-cdk-lib/aws-glue';
 import { IKey, Key } from 'aws-cdk-lib/aws-kms';
 import { Construct } from 'constructs';
-import { undefinedIfNoKeys } from '../../utils/formatting';
+import { undefinedIfNoKeys } from '../utils/formatting';
 
 
 /**

@@ -2,8 +2,7 @@ import { ArnFormat, Stack } from 'aws-cdk-lib';
 import { Effect, IRole, PolicyStatement, PrincipalWithConditions, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { CfnDeliveryStream } from 'aws-cdk-lib/aws-kinesisfirehose';
 import { IConstruct } from 'constructs';
-import { Database } from '../../../../glue/constructs/database';
-import { Table } from '../../../../glue/constructs/table';
+import { Database, Table } from '../../../../glue';
 import { InputFormat } from './input-formats';
 import { OutputFormat } from './output-formats';
 

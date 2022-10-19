@@ -1,7 +1,7 @@
 import { Duration, Lazy, Resource, ResourceProps } from 'aws-cdk-lib';
 import { CfnTable } from 'aws-cdk-lib/aws-glue';
 import { Construct } from 'constructs';
-import { undefinedIfNoKeys } from '../../utils/formatting';
+import { undefinedIfNoKeys } from '../utils/formatting';
 import { Database } from './database';
 import { Column } from './lib/column';
 import { DataFormat } from './lib/data-format';

@@ -1,7 +1,7 @@
 import { Names, Resource, ResourceProps } from 'aws-cdk-lib';
 import { CfnNamedQuery } from 'aws-cdk-lib/aws-athena';
 import { Construct } from 'constructs';
-import { Database } from '../../glue/constructs/database';
+import { Database } from '../../glue';
 
 
 /**

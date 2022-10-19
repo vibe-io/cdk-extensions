@@ -3,7 +3,7 @@ import { CfnJob } from 'aws-cdk-lib/aws-glue';
 import { IRole, ManagedPolicy, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { ILogGroup, LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { Construct } from 'constructs';
-import { undefinedIfNoKeys } from '../../utils/formatting';
+import { undefinedIfNoKeys } from '../utils/formatting';
 import { Connection } from './connection';
 import { Code } from './lib/code';
 import { JobExecutable } from './lib/job-executable';

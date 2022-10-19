@@ -2,11 +2,9 @@ import { Annotations, Lazy, ResourceProps, Stack, Stage, Token } from 'aws-cdk-l
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { RegionInfo } from 'aws-cdk-lib/region-info';
 import { Construct } from 'constructs';
-import { NamedQuery } from '../../athena/constructs/named-query';
-import { Database } from '../constructs/database';
-import { BasicColumn } from '../constructs/lib/column';
-import { InputFormat, OutputFormat, SerializationLibrary } from '../constructs/lib/data-format';
-import { Table, TableType } from '../constructs/table';
+import { NamedQuery } from '../athena';
+import { BasicColumn, Database, Table, TableType } from '../glue';
+import { InputFormat, OutputFormat, SerializationLibrary } from '../glue/lib/data-format';
 
 
 /**

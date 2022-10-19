@@ -2,7 +2,7 @@ import { Lazy, Resource, ResourceProps } from 'aws-cdk-lib';
 import { Connections, IConnectable, ISecurityGroup, IVpc, Port, SecurityGroup, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
 import { CfnConnection } from 'aws-cdk-lib/aws-glue';
 import { Construct } from 'constructs';
-import { undefinedIfNoKeys } from '../../utils/formatting';
+import { undefinedIfNoKeys } from '../utils/formatting';
 
 
 export enum ConnectionType {

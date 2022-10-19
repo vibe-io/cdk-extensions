@@ -1,13 +1,14 @@
 import { PhysicalName, ResourceProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { CloudtrailTable, Database } from '../../glue';
+import { Database } from '../glue';
+import { SesLogsTable } from '../glue-patterns';
 import { RawBucket } from './private/raw-bucket';
 
 
 /**
  * Configuration for objects bucket
  */
-export interface CloudtrailBucketProps extends ResourceProps {
+export interface SesLogsBucketProps extends ResourceProps {
   readonly bucketName?: string;
   readonly createQueries?: boolean;
   readonly database?: Database;
@@ -15,10 +16,10 @@ export interface CloudtrailBucketProps extends ResourceProps {
   readonly tableName?: string;
 }
 
-export class CloudtrailBucket extends RawBucket {
+export class SesLogsBucket extends RawBucket {
   // Resource properties
   public readonly database: Database;
-  public readonly table: CloudtrailTable;
+  public readonly table: SesLogsTable;
 
   // Input properties
   public readonly createQueries?: boolean;
@@ -33,7 +34,7 @@ export class CloudtrailBucket extends RawBucket {
      * within the context of 'scope'.
      * @param props Arguments related to the configuration of the resource.
      */
-  constructor(scope: Construct, id: string, props: CloudtrailBucketProps = {}) {
+  constructor(scope: Construct, id: string, props: SesLogsBucketProps = {}) {
     super(scope, id, {
       ...props,
       bucketEncryption: {
@@ -61,10 +62,10 @@ export class CloudtrailBucket extends RawBucket {
     this.friendlyQueryNames = props.friendlyQueryNames;
 
     this.database = props.database ?? new Database(this, 'database', {
-      description: 'Database for storing CloudTrail information',
+      description: 'Database for storing SES event logs',
     });
 
-    this.table = new CloudtrailTable(this, 'table', {
+    this.table = new SesLogsTable(this, 'table', {
       bucket: this,
       createQueries: this.createQueries,
       database: this.database,

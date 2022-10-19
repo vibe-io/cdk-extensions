@@ -4,7 +4,7 @@ import { AddToResourcePolicyResult, Grant, IGrantable, PolicyStatement } from 'a
 import { IKey } from 'aws-cdk-lib/aws-kms';
 import { Bucket, BucketPolicy, CfnBucket, CfnBucketProps, EventType, IBucket, IBucketNotificationDestination, NotificationKeyFilter, OnCloudTrailBucketEventOptions, TransferAccelerationUrlOptions, VirtualHostedStyleUrlOptions } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
-import { contextAwareString } from '../../../utils/lazy';
+import { contextAwareString } from '../../utils/lazy';
 
 
 /**
