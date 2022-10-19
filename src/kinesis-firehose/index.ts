@@ -5,10 +5,10 @@
 /**
  * @category Constructs
  */
-export * from './constructs/delivery-stream';
+export * from './delivery-stream';
 
 
 /**
  * @category Classes
  */
-export * from './constructs/lib';
+export * from './lib';
