@@ -2,6 +2,6 @@
  * @module aws-ec2
  */
 
-export * from './constructs/flow-log';
+export * from './flow-log';
 
-export * from './constructs/lib/flow-log-destination';
+export * from './lib';

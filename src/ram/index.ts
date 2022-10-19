@@ -5,15 +5,15 @@
 /**
  * @category Constructs
  */
-export * from './constructs/resource-share';
+export * from './resource-share';
 
 
 /**
  * @category Classes
  */
-export * from './constructs/lib/shared-principal';
+export * from './lib/shared-principal';
 
 /**
  * @category Classes
  */
-export * from './constructs/lib/shared-resource';
+export * from './lib/shared-resource';

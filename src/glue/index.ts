@@ -1,86 +1,45 @@
 /**
- * @module aws-athena
+ * @module aws-glue
  */
 
-export * from './constructs/lib';
+export * from './lib';
 
 /**
  * @category Constructs
  */
-export * from './constructs/connection';
+export * from './connection';
 
 /**
  * @category Constructs
  */
-export * from './constructs/crawler';
+export * from './crawler';
 
 /**
  * @category Constructs
  */
-export * from './constructs/database';
+export * from './database';
 
 /**
  * @category Constructs
  */
-export * from './constructs/job';
+export * from './job';
 
 /**
  * @category Constructs
  */
-export * from './constructs/security-configuration';
+export * from './security-configuration';
 
 /**
  * @category Constructs
  */
-export * from './constructs/table';
+export * from './table';
 
 /**
  * @category Constructs
  */
-export * from './constructs/trigger';
+export * from './trigger';
 
 /**
  * @category Constructs
  */
-export * from './constructs/workflow';
-
-
-/**
- * @category Patterns
- */
-export * from './patterns/alb-logs-table';
-
-/**
- * @category Patterns
- */
-export * from './patterns/cloudfront-logs-table';
-
-/**
- * @category Patterns
- */
-export * from './patterns/cloudtrail-table';
-
-/**
- * @category Patterns
- */
-export * from './patterns/flow-logs-table';
-
-/**
- * @category Patterns
- */
-export * from './patterns/jdbc-connection';
-
-/**
- * @category Patterns
- */
-export * from './patterns/s3-access-logs-table';
-
-/**
- * @category Patterns
- */
-export * from './patterns/ses-logs-table';
-
-/**
- * @category Patterns
- */
-export * from './patterns/waf-logs-table';
+export * from './workflow';
