@@ -134,18 +134,18 @@ Two AthenaNamedQueries are created by default:
 - **cloudtrail-unauthorized-errors**: Gets the 100 most recent unauthorized AWS API calls.
 - **cloudtrail-user-logins**: Gets the 100 most recent AWS user logins.
 
-### FlowLogsLogsBucket
-Creates an S3 Bucket suitable for storing Elastic Load Balancer access logs.
+### FlowLogsBucket
+Creates an S3 Bucket suitable for storing VPC FlowLogs.
 By default generates a Glue Database and Table, and generates named Athena
 Queries useful in querying ELB acces log data.
 
 #### Usage
 **TypeScript**
 ```typescript
-import { FlowLogsLogsBucket } from 'cdk-extensions/s3-buckets';
+import { FlowLogsBucket } from 'cdk-extensions/s3-buckets';
 ```
 ```typescript
-new FlowLogsLogsBucket(this, 'FlowLogsLogsBucket')
+new FlowLogsLogsBucket(this, 'FlowLogsBucket')
 ```
 **Python**
 ```python
@@ -154,7 +154,7 @@ from cdk_extensions.s3_buckets import (
 )
 ```
 ```python
-cloudtrail_logs_bucket = FlowLogsLogsBucket(self, 'FlowLogsLogsBucket')
+cloudtrail_logs_bucket = FlowLogsBucket(self, 'FlowLogsBucket')
 ```
 
 #### Glue
@@ -162,6 +162,5 @@ By default creates database and tables from FlowLogs logs bucket, using cdk-exte
 construct **FlowLogsTable**, from the **glue-tables** module. Glue crawler performs an ETL process to analyze and categorize data in Amazon S3 and store the associated metadata in the AWS Glue Data Catalog.
 
 #### Athena Queries
-Two AthenaNamedQueries are created by default:
-- **cloudtrail-unauthorized-errors**: Gets the 100 most recent unauthorized AWS API calls.
-- **cloudtrail-user-logins**: Gets the 100 most recent AWS user logins.
+One AthenaNamedQuery is created by default:
+- **flow-logs-internal-rejected**: Gets the 100 most recent rejected packets that stayed within the private network ranges.
