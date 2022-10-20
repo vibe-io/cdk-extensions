@@ -52,24 +52,90 @@ export interface ContinuousLoggingProps {
  * Configuration for the Glue Job resource.
  */
 export interface JobProps extends ResourceProps {
+  /**
+   * The number of capacity units that are allocated to this job.
+   */
   readonly allocatedCapacity?: number;
+  /**
+   * The connections used for this job.
+   */
   readonly connections?: Connection[];
+  /**
+   * Set of properties for configuration of Continuous Logging
+   */
   readonly continuousLogging?: ContinuousLoggingProps;
+  /**
+   * The default arguments for this job, specified as name-value pairs.
+   */
   readonly defaultArguments?: {[key: string]: string};
+  /**
+   * A description of the job.
+   */
   readonly description?: string;
+  /**
+   * Boolean value for whether to enable Profiling Metrics
+   */
   readonly enableProfilingMetrics?: boolean;
+  /**
+   * Executable properties for the Job
+   */
   readonly executable: JobExecutable;
+  /**
+   * The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+   * 
+   * Do not set Max Capacity if using WorkerType and NumberOfWorkers.
+   * 
+   * The value that can be allocated for MaxCapacity depends on whether you are running a Python shell job or an Apache Spark ETL job:
+   * 
+   *    - When you specify a Python shell job (JobCommand.Name="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
+   * 
+   *    - When you specify an Apache Spark ETL job (JobCommand.Name="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
+   * 
+   */
   readonly maxCapacity?: number;
+  /**
+   * Maximum number of concurrent executions
+   */
   readonly maxConcurrentRuns?: number;
+  /**
+   * The maximum number of times to retry this job after a JobRun fails.
+   */
   readonly maxRetries?: number;
+  /**
+   * A name for the Job
+   */
   readonly name?: string;
+  /**
+   * A Duration object to specify the Notification Delay
+   */
   readonly notifyDelayAfter?: Duration;
+  /**
+   * IAM Role to be assumed by the Job
+   */
   readonly role?: IRole;
+  /**
+   * The Security Configuration object to be applied to the Job
+   */
   readonly securityConfiguration?: SecurityConfiguration;
+  /**
+   * A Duration object specifying the desired timeout delay for the Job
+   */
   readonly timeout?: Duration;
+  /**
+   * The number of worker available the Job 
+   */
   readonly workerCount?: number;
+  /**
+   * The type of Workers that should be used by the Job
+   */
   readonly workerType?: WorkerType;
 }
+
+/**
+ * Creates a Glue Job 
+ * 
+ * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html)
+ */
 
 export class Job extends Resource {
   // Internal properties
@@ -101,7 +167,14 @@ export class Job extends Resource {
   public readonly jobArn: string;
   public readonly jobName: string;
 
-
+/**
+ * Creates a new instance of the Job class
+ * 
+ * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
+     * @param id A name to be associated with the stack and used in resource naming. Must be unique
+     * within the context of 'scope'.
+     * @param props Arguments related to the configuration of the resource.
+ */
   constructor(scope: Construct, id: string, props: JobProps) {
     super(scope, id, props);
 

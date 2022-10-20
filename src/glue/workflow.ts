@@ -20,7 +20,13 @@ export interface TriggerOptions extends ResourceProps {
  * Configuration for the Glue Workflow resource.
  */
 export interface WorkflowProps extends ResourceProps {
+  /**
+   * A description of the Workflow
+   */
   readonly description?: string;
+  /**
+   * A name of the Workflow
+   */
   readonly name?: string;
 }
 
@@ -36,7 +42,14 @@ export class Workflow extends Resource {
   public readonly workflowArn: string;
   public readonly workflowName: string;
 
-
+  /**
+     * Creates a new instance of the Workflow class.
+     *
+     * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
+     * @param id A name to be associated with the stack and used in resource naming. Must be unique
+     * within the context of 'scope'.
+     * @param props Arguments related to the configuration of the resource.
+     */
   constructor(scope: Construct, id: string, props: WorkflowProps) {
     super(scope, id, props);
 

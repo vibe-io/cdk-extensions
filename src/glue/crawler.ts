@@ -61,22 +61,80 @@ export interface ICrawlerTarget {
 }
 
 /**
- * Configuration for Crawlner
+ * Configuration for Crawler
  */
 export interface CrawlerProps extends ResourceProps {
+  /**
+   * A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
+   * 
+   * @see [AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-classifiers)
+   */
   readonly classifiers?: string[];
+  /**
+   * Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see Configuring a Crawler.
+   * 
+   * @see [AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-configuration)
+   */
   readonly configuration?: CrawlerConfiguration;
+  /**
+   * The database object in which the crawler's output is stored.
+   */
   readonly database?: Database;
+  /**
+   * The deletion behavior when the crawler finds a deleted object.
+   * 
+   * @see [AWS::Glue::Crawler SchemaChangePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior)
+   */
   readonly deleteBehavior?: DeleteBehavior;
+  /**
+   * Description of the Crawler
+   */
   readonly description?: string;
+  /**
+   * Name of the Crawler
+   */
   readonly name?: string;
+  /**
+   * When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
+   * 
+   * @see [AWS::Glue::Crawler RecrawlPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html)
+   */
   readonly recrawlBehavior?: RecrawlBehavior;
+  /**
+   * Security Configuration object to apply to the Crawler
+   */
   readonly securityConfiguration?: SecurityConfiguration;
+  /**
+   * For scheduled crawlers, the schedule when the crawler runs.
+   * 
+   * @see [AWS::Glue::Crawler Schedule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html)
+   */
   readonly scheduleExpression?: Schedule;
+  /**
+   * The prefix added to the names of tables that are created.
+   * 
+   * @see [AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-tableprefix)
+   */
   readonly tablePrefix?: string;
+  /**
+   * A collection of targets to crawl.
+   * 
+   * @see [AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-targets)
+   */
   readonly targets?: ICrawlerTarget[];
+  /**
+   * The update behavior when the crawler finds a changed schema.
+   * 
+   * @see [AWS::Glue::Crawler SchemaChangePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-updatebehavior)
+   */
   readonly updateBehavior?: UpdateBehavior;
 }
+
+/**
+ * Create a Crawler resource to pull information from the provided resource
+ * 
+ * @see [AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html)
+ */
 
 export class Crawler extends Resource {
   // Internal properties
