@@ -17,18 +17,25 @@ iBucket interface, and creates a CfnBucket resource with some best practice defa
 - **ApplyRemovalPolicy**: Defaults to `RETAIN`.
 
 # Aws Logging Buckets
-These buckets are utilized as part of the logging strategy defined by **stacks/AwsLoggingStack**, but can be deployed individually. For each service a Glue crawler preforms an ETL process to analyze and categorize data in Amazon S3 and store the associated metadata in the AWS Glue Data Catalog.
+These buckets are utilized as part of the logging strategy defined by **stacks/AwsLoggingStack**, but can be deployed individually. For each service a Glue crawler performs an ETL process to analyze and categorize data in Amazon S3 and store the associated metadata in the AWS Glue Data Catalog.
 
 Several default named queries are defined that aid in improving the security posture of your AWS Account. These default named queries have been defined for each AWS service.
 
-Set `createQueries` to `false` to skip Querie creation.
+Set `createQueries` to `false` to skip query creation.
 
 *Examples*
+**TypeScript**
 ```typescript
 const alb_bucket_with_queries = new s3_buckets.AlbLogsBucket(this, "AlbLogsBucket")
-    const clooudtrail_bucket_without_queires = new s3_buckets.CloudtrailBucket(this, 'CloudtrailBucket', {
-      createQueries: false
-    })
+const clooudtrail_bucket_without_queires = new s3_buckets.CloudtrailBucket(this, 'CloudtrailBucket', {
+  createQueries: false
+})
+```
+**Python**
+```Python
+alb_bucket_with_queries = s3_buckets.AlbLogsBucket(self, 'AlbLogsBucket')
+
+cloudtrail_bucket_without_queries = s3_buckets.CloudTrailLogsBucket(self, 'CloudTrailLogsBucket', create_queries=False)
 ```
 ## Buckets
 All log buckets are `CfnBucket` constructs with the additional secure defaults:
