@@ -71,15 +71,15 @@ detail in the logs (like region or AZ details, or AWS service details).
 
 The formats and descriptions are as follows:
 
-ec2.FlowLogFormat.V2: The default format if none is specified. Includes common
+-ec2.FlowLogFormat.V2: The default format if none is specified. Includes common
                       basic details like log status, account ID, source and
                       destination.
-ec2.FlowLogFormat.V3: Includes all fields from V2, as well as information on
+-ec2.FlowLogFormat.V3: Includes all fields from V2, as well as information on
                       the specific AWS resources associated with the traffic
                       like Vpc, subnet and instance IDs.
-ec2.FlowLogFormat.V4: Includes all fields from V3, as well as information about
+-ec2.FlowLogFormat.V4: Includes all fields from V3, as well as information about
                       the region and AZ associated with the traffic.
-ec2.FlowLogFormat.V5: Includes all fields from V4, as well as information that
+-ec2.FlowLogFormat.V5: Includes all fields from V4, as well as information that
                       provides visibility on packet routing.
 
 ### Caveats
