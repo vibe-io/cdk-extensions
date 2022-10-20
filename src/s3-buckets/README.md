@@ -1,9 +1,9 @@
 # Vibe-io CDK-Extensions S3 Buckets Construct Library
-A module for creating s3 buckets that follow commonly used patterns.
-All defaults follow best practices, and utilize most secure settings.
 The cdk-extensions/s3_buckets package contains advanced constructs and patterns
 for setting up S3 Buckets. The constructs presented here are intended to be replacements
 for equivalent AWS constructs in the CDK module, but with additional features included.
+All defaults follow best practices, and utilize secure settings.
+
 
 [AWS CDK S3 API Reference](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3-readme.html)
 
