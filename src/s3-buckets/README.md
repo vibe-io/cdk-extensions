@@ -38,7 +38,7 @@ All log buckets are `CfnBucket` constructs with the additional secure defaults:
 - Versioning is set to `Enabled`
 - Server side bucket encryption using AES256
 
-### alb-logs-bucket
+### AlbLogsBucket
 Creates an S3 Bucket for storing Elastic Load Balancer access logs.
 By default, creates named Athena Queries useful in querying ELB acces log data.
 #### Usage
@@ -68,8 +68,8 @@ Two AthenaNamedQueries are created by default:
 - **alb-top-ips**: Gets the 100 most actvie IP addresses by request count.
 - **alb-5xx-errors**: Gets the 100 most recent ELB 5XX responses
 
-### cloudfront-logs-bucket
-Creates an S3 Bucket suitable for storing Elastic Load Balancer access logs.
+### CloudFrontLogsBucket
+Creates an S3 Bucket suitable for storing CloudFront access logs.
 By default generates a Glue Database and Table, and generates named Athena
 Queries useful in querying ELB acces log data.
 
@@ -93,7 +93,7 @@ cloudfront_logs_bucket = CloudFrontLogsBucket(self, 'CloudFrontLogsBucket')
 
 #### Glue
 By default creates database and tables from CloudFront logs bucket, using cdk-extensions
-construct **CloudFrontLogTables**, from the **glue-tables** module. Glue crawler performs an ETL process to analyze and categorize data in Amazon S3 and store the associated metadata in the AWS Glue Data Catalog.
+construct **CloudFrontLogTable**, from the **glue-tables** module. Glue crawler performs an ETL process to analyze and categorize data in Amazon S3 and store the associated metadata in the AWS Glue Data Catalog.
 
 #### Athena Queries
 Four AthenaNamedQueries are created by default:
@@ -101,3 +101,67 @@ Four AthenaNamedQueries are created by default:
 - **cloudfront-request-errors**: Gets the 100 most recent requests that resulted in an error from CloudFront.
 - **cloudfront-top-ips**: Gets the 100 most active IP addresses by request count.
 - **cloudfront-top-objects**: Gets the 100 most requested CloudFront objects.
+
+### CloudTrailLogsBucket
+Creates an S3 Bucket suitable for storing CloudTrail logs.
+By default generates a Glue Database and Table, and generates named Athena
+Queries useful in querying ELB acces log data.
+
+#### Usage
+**TypeScript**
+```typescript
+import { CloudTrailLogsBucket } from 'cdk-extensions/s3-buckets';
+```
+```typescript
+new CloudTrailLogsBucket(this, 'CloudTrailLogsBucket')
+```
+**Python**
+```python
+from cdk_extensions.s3_buckets import (
+  CloudTrailLogsBucket
+)
+```
+```python
+cloudtrail_logs_bucket = CloudTrailLogsBucket(self, 'CloudTrailLogsBucket')
+```
+
+#### Glue
+By default creates database and tables from CloudTrail logs bucket, using cdk-extensions
+construct **CloudTrailTable**, from the **glue-tables** module. Glue crawler performs an ETL process to analyze and categorize data in Amazon S3 and store the associated metadata in the AWS Glue Data Catalog.
+
+#### Athena Queries
+Two AthenaNamedQueries are created by default:
+- **cloudtrail-unauthorized-errors**: Gets the 100 most recent unauthorized AWS API calls.
+- **cloudtrail-user-logins**: Gets the 100 most recent AWS user logins.
+
+### FlowLogsLogsBucket
+Creates an S3 Bucket suitable for storing Elastic Load Balancer access logs.
+By default generates a Glue Database and Table, and generates named Athena
+Queries useful in querying ELB acces log data.
+
+#### Usage
+**TypeScript**
+```typescript
+import { FlowLogsLogsBucket } from 'cdk-extensions/s3-buckets';
+```
+```typescript
+new FlowLogsLogsBucket(this, 'FlowLogsLogsBucket')
+```
+**Python**
+```python
+from cdk_extensions.s3_buckets import (
+  FlowLogsLogsBucket
+)
+```
+```python
+cloudtrail_logs_bucket = FlowLogsLogsBucket(self, 'FlowLogsLogsBucket')
+```
+
+#### Glue
+By default creates database and tables from FlowLogs logs bucket, using cdk-extensions
+construct **FlowLogsTable**, from the **glue-tables** module. Glue crawler performs an ETL process to analyze and categorize data in Amazon S3 and store the associated metadata in the AWS Glue Data Catalog.
+
+#### Athena Queries
+Two AthenaNamedQueries are created by default:
+- **cloudtrail-unauthorized-errors**: Gets the 100 most recent unauthorized AWS API calls.
+- **cloudtrail-user-logins**: Gets the 100 most recent AWS user logins.
