@@ -15,7 +15,8 @@ $ npm install cdk-extensions
 <i>Minimal deployable example creates the default AwsLoggingStack. For more details on this and the other available stacks and constructs, consult the respective READMEs.</i>
 ```TypeScript
 import { AwsLoggingStack } from 'cdk-extensions/stacks';
- ...
+```
+```TypeScript
 new AwsLoggingStack(this, 'AwsLoggingStack')
 
 ```
@@ -37,9 +38,8 @@ $ pip install cdk-extensions
 from cdk_extensions.stacks import (
   AwsLoggingStack
 )
-
-...
-
+```
+```Python
 aws_logging_stack = AwsLoggingStack(self, 'AwsLoggingStack')
 ```
 
