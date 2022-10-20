@@ -1,9 +1,9 @@
 # Vibe-io CDK-Extensions S3 Buckets Construct Library
-
+A module for creating s3 buckets that follow commonly used patterns.
+All defaults follow best practices, and utilize most secure settings.
 The cdk-extensions/s3_buckets package contains advanced constructs and patterns
 for setting up S3 Buckets. The constructs presented here are intended to be replacements
 for equivalent AWS constructs in the CDK module, but with additional features included.
-All defaults follow best practices, and utilize most secure settings.
 
 [AWS CDK S3 API Reference](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3-readme.html)
 
@@ -32,6 +32,8 @@ These buckets are utilized as part of the logging strategy defined by
 **stacks/AwsLoggingStack**, but can be deployed individually. When applicable, storing
 these logs in S3 offers significant cost savings over CloudWatch. Additionally,
 Glue and Athena can be utilized for fast and efficient analysis of data stored in S3.
+- [Common Settings]('#Common Settings')
+- [Buckets](#Buckets)
 
 ## Common Settings
 By default, for each service in the **AwsLoggingStack** a Glue crawler performs
