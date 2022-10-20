@@ -19,7 +19,7 @@ import cdk_extensions.s3_buckets as s3_buckets
 ```
 
 ## Common defaults
-All S3 buckets extend the private RawBucket resource, which implements the the
+All S3 buckets extend the private RawBucket resource, which implements the
 [`iBucket`](https://docs.aws.amazon.com/cdk/api/v1/docs/@aws-cdk_aws-s3.IBucket.html) interface to expose all
 resource configurations and creates a [`CfnBucket`](https://docs.aws.amazon.com/cdk/api/v1/docs/@aws-cdk_aws-s3.CfnBucket.html) resource.
 
