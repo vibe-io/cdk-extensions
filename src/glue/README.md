@@ -3,7 +3,7 @@
 The `@cdk-extensions/glue` module contains configurations for AWS Glue.
 
 ```ts nofixture
-import * as glue from '@cdk-extensions/glue';
+import * as glue from 'cdk-extensions/glue';
 ```
 
 ## Objective
