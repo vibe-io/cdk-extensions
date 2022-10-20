@@ -1,6 +1,15 @@
-cloudfront# S3 Buckets
+# S3 Buckets
 A module of s3 buckets that follow commonly used patterns.
 All defaults follow best practices, and utilize most secure settings.
+
+#### Typescript
+```typescript
+import * as s3_buckets from 'cdk-extensions/s3-buckets';
+```
+#### Python
+```python
+import cdk_extensions.s3_buckets as s3_buckets
+```
 
 ## Common defaults
 All S3 buckets extend the private raw-bucket resource, which implements the the
@@ -14,12 +23,7 @@ Several default named queries are defined that aid in improving the security pos
 
 Set `createQueries` to `false` to skip Querie creation.
 
-*Example*
-
-TypeScript
-```typescript
-import * as s3_buckets from 'cdk-extensions/s3-buckets';
-```
+*Examples*
 ```typescript
 const alb_bucket_with_queries = new s3_buckets.AlbLogsBucket(this, "AlbLogsBucket")
     const clooudtrail_bucket_without_queires = new s3_buckets.CloudtrailBucket(this, 'CloudtrailBucket', {
@@ -38,11 +42,21 @@ All log buckets are `CfnBucket` constructs with the additional secure defaults:
 Creates an S3 Bucket for storing Elastic Load Balancer access logs.
 By default, creates named Athena Queries useful in querying ELB acces log data.
 #### Usage
+**TypeScript**
 ```typescript
 import { AlbLogsBucket } from 'cdk-extensions/s3-buckets';
 ```
 ```typescript
 new AlbLogsBucket(this, 'AlbLogsBucket')
+```
+**Python**
+```python
+from cdk_extensions.s3_buckets import (
+  AlbLogsBucket
+)
+```
+```python
+alb_logs_bucket = AlbLogsBucket(self, 'AlbLogsBucket')
 ```
 
 #### Glue
@@ -60,11 +74,21 @@ By default generates a Glue Database and Table, and generates named Athena
 Queries useful in querying ELB acces log data.
 
 #### Usage
+**TypeScript**
 ```typescript
 import { CloudFrontLogsBucket } from 'cdk-extensions/s3-buckets';
 ```
 ```typescript
 new CloudFrontLogsBucket(this, 'CloudFrontLogsBucket')
+```
+**Python**
+```python
+from cdk_extensions.s3_buckets import (
+  CloudFrontLogsBucket
+)
+```
+```python
+cloudfront_logs_bucket = CloudFrontLogsBucket(self, 'CloudFrontLogsBucket')
 ```
 
 #### Glue
