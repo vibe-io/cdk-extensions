@@ -152,16 +152,16 @@ Queries useful in querying ELB acces log data.
 import { FlowLogsBucket } from 'cdk-extensions/s3-buckets';
 ```
 ```typescript
-new FlowLogsLogsBucket(this, 'FlowLogsBucket')
+new FlowLogsBucket(this, 'FlowLogsBucket')
 ```
 **Python**
 ```python
 from cdk_extensions.s3_buckets import (
-  FlowLogsLogsBucket
+  FlowLogsBucket
 )
 ```
 ```python
-cloudtrail_logs_bucket = FlowLogsBucket(self, 'FlowLogsBucket')
+flowlogs_bucket = FlowLogsBucket(self, 'FlowLogsBucket')
 ```
 
 #### Glue
@@ -171,3 +171,34 @@ construct **FlowLogsTable**, from the **glue-tables** module. Glue crawler perfo
 #### Athena Queries
 One AthenaNamedQuery is created by default:
 - **flow-logs-internal-rejected**: Gets the 100 most recent rejected packets that stayed within the private network ranges.
+
+### S3AccessLogsBucket
+Creates an S3 Bucket suitable for storing VPC S3AccessLogs.
+By default generates a Glue Database and Table, and generates named Athena
+Queries useful in querying ELB acces log data.
+
+#### Usage
+**TypeScript**
+```typescript
+import { S3AccessLogsBucket } from 'cdk-extensions/s3-buckets';
+```
+```typescript
+new S3AccessLogsBucket(this, 'S3AccessLogsBucket')
+```
+**Python**
+```python
+from cdk_extensions.s3_buckets import (
+  S3AccessLogsLogsBucket
+)
+```
+```python
+s3_access_logs_bucket = S3AccessLogsBucket(self, 'S3AccessLogsBucket')
+```
+
+#### Glue
+By default creates database and tables from S3AccessLogs logs bucket, using cdk-extensions
+construct **S3AccessLogsTable**, from the **glue-tables** module. Glue crawler performs an ETL process to analyze and categorize data in Amazon S3 and store the associated metadata in the AWS Glue Data Catalog.
+
+#### Athena Queries
+One AthenaNamedQuery is created by default:
+- **s3-request-errors**: Gets the 100 most recent failed S3 access requests.
