@@ -47,7 +47,7 @@ By default, for each service in the **AwsLoggingStack** a Glue crawler performs
 an ETL process to analyze and categorize the stored data and store the associated
 metadata in the AWS Glue Data Catalog.
 
-Several default named queries are defined that aid in improving the security posture
+Several default named Athena queries are defined that aid in improving the security posture
 of your AWS Account. These default named queries have been defined for each AWS
 service.
 
