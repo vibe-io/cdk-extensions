@@ -16,15 +16,46 @@ export enum ConnectionType {
  * Configuration for the Glue Workflow resource.
  */
 export interface ConnectionProps extends ResourceProps {
+  /**
+   * Specifies the source type of the connection based on the ConnectType enum. 
+   */
   readonly connectionType: ConnectionType;
+  /**
+   * Basic description of the Connection to be made. (optional)
+   */
   readonly description?: string;
+  /**
+   * Name assigned to the Connection for human-readable identification (optional)
+   */
   readonly name?: string;
+  /**
+   * List of Key/Value pairs defining the properties of the Connection (optional)
+   * Available Properties:
+   *    CatalogId - The ID of the data catalog to create the catalog object in. Currently, this should be the AWS account ID.
+   *    ConnectionInput - The connection that you want to create.
+   * 
+   * @see [AWS::Glue::Connection Properties](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html#Properties)
+   */
   readonly properties?: {[key: string]: string};
+  /**
+   * Existing Security Group to assign to the Connection. If none is provided a new Security Group will be created. (optional)
+   */
   readonly securityGroups?: ISecurityGroup[];
+  /**
+   * Options for selection of subnets from the VPC to attach the Connection to
+   */
   readonly subnets?: SubnetSelection;
+  /**
+   * VPC to attach the Connection to
+   */
   readonly vpc?: IVpc;
 }
 
+/**
+ * Creates a resource specifying a Glue Connection to a data source.
+ * 
+ * @see [AWS::Glue::Connection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html)
+ */
 export class Connection extends Resource implements IConnectable {
   // Internal properties
   private readonly _matchCriteria: string[] = [];
