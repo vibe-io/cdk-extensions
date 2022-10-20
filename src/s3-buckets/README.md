@@ -22,10 +22,11 @@ is deleted.
 
 # AWS Logging Buckets
 These buckets are utilized as part of the logging strategy defined by
-**stacks/AwsLoggingStack**, but can be deployed individually. Storing these logs
-in S3 offers significant cost savings over CloudWatch. Additionally, Glue and Athena
-can be utilized for fast andefficient analysis of data stored in S3.
+**stacks/AwsLoggingStack**, but can be deployed individually. When applicable, storing
+these logs in S3 offers significant cost savings over CloudWatch. Additionally,
+Glue and Athena can be utilized for fast and efficient analysis of data stored in S3.
 
+## Common Settings
 By default, for each service in the **AwsLoggingStack** a Glue crawler performs
 an ETL process to analyze and categorize the stored data and store the associated
 metadata in the AWS Glue Data Catalog.
@@ -61,7 +62,7 @@ with the additional secure defaults:
 - Server side bucket encryption using AES256
 
 ### AlbLogsBucket
-Creates an S3 Bucket and Glue jobs for storing and analyzingElastic Load Balancer
+Creates an S3 Bucket and Glue jobs for storing and analyzing Elastic Load Balancer
 access logs. By default, creates named Athena Queries useful in querying ELB access
 log data.
 #### Usage
