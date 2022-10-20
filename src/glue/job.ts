@@ -54,34 +54,42 @@ export interface ContinuousLoggingProps {
 export interface JobProps extends ResourceProps {
   /**
    * The number of capacity units that are allocated to this job.
+   * 
+   * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-allocatedcapacity)
    */
   readonly allocatedCapacity?: number;
   /**
-   * The connections used for this job.
+   * List of Connections for use with this job.
+   * 
+   * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-connections) 
    */
   readonly connections?: Connection[];
   /**
-   * Set of properties for configuration of Continuous Logging
+   * Set of properties for configuration of Continuous Logging 
    */
   readonly continuousLogging?: ContinuousLoggingProps;
   /**
-   * The default arguments for this job, specified as name-value pairs.
+   * The default arguments for this job, specified as name-value pairs. 
+   * 
+   * You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
+   * 
+   * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-defaultarguments) 
    */
   readonly defaultArguments?: {[key: string]: string};
   /**
-   * A description of the job.
+   * A description of the job. 
    */
   readonly description?: string;
   /**
-   * Boolean value for whether to enable Profiling Metrics
+   * Boolean value for whether to enable Profiling Metrics 
    */
   readonly enableProfilingMetrics?: boolean;
   /**
-   * Executable properties for the Job
+   * Executable properties for the Job 
    */
   readonly executable: JobExecutable;
   /**
-   * The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+   * The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. 
    * 
    * Do not set Max Capacity if using WorkerType and NumberOfWorkers.
    * 
@@ -94,31 +102,39 @@ export interface JobProps extends ResourceProps {
    */
   readonly maxCapacity?: number;
   /**
-   * Maximum number of concurrent executions
+   * Maximum number of concurrent executions 
+   * 
+   * @see [AWS::Glue::Job ExecutionProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html)
    */
   readonly maxConcurrentRuns?: number;
   /**
-   * The maximum number of times to retry this job after a JobRun fails.
+   * The maximum number of times to retry this job after a JobRun fails. 
+   * 
+   * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-maxretries)
    */
   readonly maxRetries?: number;
   /**
-   * A name for the Job
+   * A name for the Job 
    */
   readonly name?: string;
   /**
-   * A Duration object to specify the Notification Delay
+   * After a job run starts, the number of minutes to wait before sending a job run delay notification.
+   * 
+   * @see [AWS::Glue::Job NotificationProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html)
    */
   readonly notifyDelayAfter?: Duration;
   /**
-   * IAM Role to be assumed by the Job
+   * The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
    */
   readonly role?: IRole;
   /**
-   * The Security Configuration object to be applied to the Job
+   * The Security Configuration object to be applied to the Job 
    */
   readonly securityConfiguration?: SecurityConfiguration;
   /**
-   * A Duration object specifying the desired timeout delay for the Job
+   * The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours).
+   * 
+   * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-timeout)
    */
   readonly timeout?: Duration;
   /**
@@ -126,7 +142,12 @@ export interface JobProps extends ResourceProps {
    */
   readonly workerCount?: number;
   /**
-   * The type of Workers that should be used by the Job
+   * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+   *    - For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+   *    - For the G.1X worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+   *    - For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+   * 
+   * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-workertype)
    */
   readonly workerType?: WorkerType;
 }

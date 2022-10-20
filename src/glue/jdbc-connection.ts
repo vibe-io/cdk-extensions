@@ -52,6 +52,8 @@ export interface JdbcConnectionProps extends ResourceProps {
   readonly username: string;
   /**
    * VPC to attach to the Connection 
+   * 
+   * @see [IVpc Interface](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.IVpc.html)
    */
   readonly vpc: IVpc;
 }

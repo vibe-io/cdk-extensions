@@ -7,7 +7,17 @@ import { Crawler, CrawlerTargetCollection, ICrawlerTarget } from '../../crawler'
  * Configuration for Crawler JDBC target
  */
 export interface JdbcTargetOptions {
+  /**
+   * A list of glob patterns used to exclude from the crawl. For more information
+   * 
+   * @see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
+   */
   readonly exclusions?: string[];
+  /**
+   * The path of the JDBC target.
+   * 
+   * @see [AWS::Glue::Crawler JdbcTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-path)
+   */
   readonly paths?: string[];
 }
 
@@ -19,7 +29,14 @@ export class JdbcTarget implements ICrawlerTarget {
   // Input properties
   public readonly connection: Connection;
 
-
+  /**
+     * Creates a new instance of the JdbcTarget class.
+     *
+     * @param scope A Connection Construct that will serve as this stack's parent in the construct tree.
+     * @param id A name to be associated with the stack and used in resource naming. Must be unique
+     * within the context of 'scope'.
+     * @param props Arguments related to the configuration of the resource.
+     */
   constructor(connection: Connection, options: JdbcTargetOptions) {
     this.connection = connection;
 
