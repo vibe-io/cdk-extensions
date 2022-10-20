@@ -14,7 +14,7 @@ $ npm install cdk-extensions
 #### Usage
 <i>Minimal deployable example creates the default AwsLoggingStack. For more details on this and the other available stacks and constructs, consult the respective READMEs.</i>
 ```TypeScript
-import { AwsLoggingStack } from 'cdk-extensions/lib/stacks/aws-logging-stack';
+import { AwsLoggingStack } from 'cdk-extensions/stacks';
  ...
 new AwsLoggingStack(this, 'AwsLoggingStack')
 
