@@ -32,8 +32,15 @@ These buckets are utilized as part of the logging strategy defined by
 **stacks/AwsLoggingStack**, but can be deployed individually. When applicable, storing
 these logs in S3 offers significant cost savings over CloudWatch. Additionally,
 Glue and Athena can be utilized for fast and efficient analysis of data stored in S3.
-- [Common Settings]('#Common Settings')
+- [Common Settings](#CommonSettings)
 - [Buckets](#Buckets)
+  - [AlbLogsBucket](#AlbLogsBucket)
+  - [CloudFrontLogsBucket](#CloudFrontLogsBucket)
+  - [CloudTrailLogsBucket](#CloudTrailLogsBucket)
+  - [FlowLogsBucket](#FlowLogsBucket)
+  - [S3AccessLogsBucket](#S3AccessLogsBucket)
+  - [SesLogsBucket](#SesLogsBucket)
+  - [WafLogsBucket](#WafLogsBucket)
 
 ## Common Settings
 By default, for each service in the **AwsLoggingStack** a Glue crawler performs
