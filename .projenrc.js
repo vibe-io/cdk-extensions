@@ -43,9 +43,6 @@ const releaseWorkflows = project.github.workflows.filter((x) => {
 if (releaseWorkflows.length === 1) {
   const release = releaseWorkflows[0];
   release.addJob('typedoc', {
-    container: {
-      image: 'jsii/superchain:1-buster-slim-node14',
-    },
     needs: [
       'release',
     ],
@@ -56,6 +53,12 @@ if (releaseWorkflows.length === 1) {
       'ubuntu-latest',
     ],
     steps: [
+      {
+        name: 'actions/setup-node@v3',
+        with: {
+          'node-version': '14.x',
+        },
+      },
       {
         name: 'Checkout',
         uses: 'actions/checkout@v3',
