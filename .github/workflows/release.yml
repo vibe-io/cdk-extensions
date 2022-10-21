@@ -52,7 +52,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install typescript
-        run: npm install -g typescript
+        run: npm install typescript
       - name: Install dependencies
         run: yarn install --check-files --production=false
       - name: Generate typedoc
