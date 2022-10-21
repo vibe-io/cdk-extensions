@@ -61,14 +61,18 @@ if (releaseWorkflows.length === 1) {
         uses: 'actions/checkout@v3',
       },
       {
+        name: 'Install dependencies',
+        run: 'yarn install --check-files --frozen-lockfile',
+      },
+      {
         name: 'Generate typedoc',
         run: 'npx -p typedoc@latest typedoc --tsconfig ./tsconfig.dev.json',
       },
       {
         name: 'Upload to S3',
         env: {
-          AWS_ACCESS_KEY_ID: '{{ secrets.AWS_ACCESS_KEY_ID }}',
-          AWS_SECRET_ACCESS_KEY: '{{ secrets.AWS_SECRET_ACCESS_KEY }}',
+          AWS_ACCESS_KEY_ID: '${{ secrets.AWS_ACCESS_KEY_ID }}',
+          AWS_SECRET_ACCESS_KEY: '${{ secrets.AWS_SECRET_ACCESS_KEY }}',
           DOCS_BUCKET: docsBucket,
         },
         run: 'aws s3 sync "s3://${DOCS_BUCKET}/" "./docs/generated"',
