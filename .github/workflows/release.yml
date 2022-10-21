@@ -52,7 +52,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install dependencies
-        run: yarn install --check-files --frozen-lockfile
+        run: npm install
       - name: Generate typedoc
         run: npx -p typedoc@latest typedoc --tsconfig ./tsconfig.dev.json
       - name: Upload to S3
