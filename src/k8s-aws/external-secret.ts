@@ -18,7 +18,7 @@ export interface ExternalSecretProps extends ResourceProps {
   readonly fields?: SecretFieldReference[];
   readonly name?: string;
   readonly refreshInterval?: Duration;
-  readonly secret: ISecret | string;
+  readonly secret: ISecret;
   readonly secretStore: ExternalSecretStore;
 }
 
@@ -28,7 +28,7 @@ export class ExternalSecret extends Resource {
   public readonly fields: SecretFieldReference[];
   public readonly name: string;
   public readonly refreshInterval?: Duration;
-  public readonly secret: ISecret | string;
+  public readonly secret: ISecret;
   public readonly secretStore: ExternalSecretStore;
 
   // Resource properties
@@ -76,7 +76,7 @@ export class ExternalSecret extends Resource {
                     return {
                       secretKey: x.key,
                       remoteRef: {
-                        key: typeof this.secret === 'string' ? this.secret : this.secret.secretArn,
+                        key: this.secret.secretArn,
                         property: x.property ?? x.key,
                       },
                     };

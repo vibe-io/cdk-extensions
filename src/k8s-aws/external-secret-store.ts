@@ -7,7 +7,7 @@ import { ExternalSecret, SecretFieldReference } from './external-secret';
 
 
 export interface IExternalSecretProvider {
-  addExternalSecret(secret: ISecret | string, fields?: SecretFieldReference[]): ExternalSecret;
+  addExternalSecret(secret: ISecret, fields?: SecretFieldReference[]): ExternalSecret;
 }
 
 /**
@@ -98,8 +98,8 @@ export class ExternalSecretStore extends Resource implements IExternalSecretProv
     this.secretStoreName = this.name;
   }
 
-  public addExternalSecret(secret: ISecret | string, fields?: SecretFieldReference[]): ExternalSecret {
-    const id = typeof secret === 'string' ? secret : Names.nodeUniqueId(secret.node);
+  public addExternalSecret(secret: ISecret, fields?: SecretFieldReference[]): ExternalSecret {
+    const id = Names.nodeUniqueId(secret.node);
 
     return new ExternalSecret(this, `secret-${id}`, {
       cluster: this.cluster,
