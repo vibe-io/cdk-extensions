@@ -5,7 +5,7 @@ presented here are intended to be replacements for equivalent AWS constructs in
 the CDK module, but with additional features included.
 
 The patterns here extend the Glue constructs in the **cdk-extensions/glue** module to
-ensure all defaults follow best practices, and utilize most secure settings. and
+ensure all defaults follow best practices, and utilize most secure settings.
 
 To import and use this module within your CDK project:
 
@@ -37,15 +37,16 @@ an S3 Bucket.
 ### Required Parameters
 These constructs are intended to be used internally by the **AwsLoggingStack**. If
 using them directly, requires:
-- **bucket**: An [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html) representing the s3 bucket logs are stored in
+- **bucket**: An [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
+representing the s3 bucket logs are stored in
 - **database**: A **cdk-extensions/glue** `Database` to create the table in.
 
 These tables all expect input from S3_buckets. By default, for each service in
 the **AwsLoggingStack** a Glue crawler performs an ETL process to analyze and categorize
 the stored data and store the associated metadata in the AWS Glue Data Catalog.
 
-For each service, projections are configured where necessary and tables constructed to patterns
-expected for that service.
+For each service, projections are configured where necessary and tables constructed
+to patterns expected for that service.
 
 Several default named queries are defined that aid in improving the security posture
 of your AWS Account. These default named queries have been defined for each AWS
