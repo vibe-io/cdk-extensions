@@ -83,8 +83,19 @@ alb_logging_stack = AlbLogsTable(self, 'AwsLoggingStack',
 ```
 
 ### Glue
+Creates a Glue table using constructs from the **cdk_extensions/glue** module.
+Columns are created for all expected ALB log fields.
+
+The following partition keys are set:
+- `source`
+- `logname`
+- `regionname`
+- `day`
+
+Projection is enabled for the expected `mm/dd/yyyy` log format.
 
 ### Athena Queries
+Creates Athena Queries using the **cdk-extensions/athena** module.
 Two Athena [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html) are created by default:
 - **alb-top-ips**: Gets the 100 most active IP addresses by request count.
 - **alb-5xx-errors**: Gets the 100 most recent ELB 5XX responses
@@ -119,8 +130,11 @@ cloudfront_logging_stack = CloudFrontLogsTable(self, 'AwsLoggingStack',
                                  )
 ```
 ### Glue
+Creates a Glue table using constructs from the **cdk_extensions/glue** module.
+Columns are created for all expected CloudFront log fields.
 
 ### Athena Queries
+Creates Athena Queries using the **cdk-extensions/athena** constructs.
 Four Athena [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html) are created by default:
 - **cloudfront-distribution-statistics**: Gets statistics for CloudFront distributions
   for the last day.
@@ -160,8 +174,17 @@ flowlogs_stack = FlowLogsTable(self, 'AwsLoggingStack',
 ```
 
 ### Glue
+Creates a Glue table using constructs from the **cdk_extensions/glue** module.
+Tables are structured to match expected CloudTrail event logs.
+
+The following partition keys are set:
+- `source`
+- `logname`
+- `regionname`
+- `day`
 
 ### Athena Queries
+Creates Athena Queries using the **cdk-extensions/athena** constructs.
 Two Athena [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html) are created by default:
 - **cloudtrail-unauthorized-errors**: Gets the 100 most recent unauthorized AWS
   API calls.
@@ -200,6 +223,7 @@ s3_access_logging_stack = S3AccessLogsTable(self, 'AwsLoggingStack',
 ### Glue
 
 ### Athena Queries
+Creates an Athena Query using the **cdk-extensions/athena** constructs.
 One AthenaNamedQuery is created by default:
 - **s3-request-errors**: Gets the 100 most recent failed S3 access requests.
 
@@ -236,6 +260,7 @@ ses_logging_stack = SesLogsTable(self, 'AwsLoggingStack',
 ### Glue
 
 ### Athena Queries
+Creates Athena Queries using the **cdk-extensions/athena** constructs.
 Two Athena [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html) are created by default:
 - **ses-bounces**: Gets the 100 most recent bounces from the last day.
 - **ses-complaints**: Gets the 100 most recent complaints from the last day.
