@@ -46,38 +46,37 @@ if (releaseWorkflows.length === 1) {
   const release = releaseWorkflows[0];
   release.addJob('typedoc', {
     container: {
-      image: 'jsii/superchain:1-buster-slim-node14'
+      image: 'jsii/superchain:1-buster-slim-node14',
     },
     needs: [
-      'release'
+      'release',
     ],
     runsOn: [
-      'ubuntu-latest'
+      'ubuntu-latest',
     ],
     steps: [
       {
         name: 'Checkout',
-        uses: 'actions/checkout@v3'
+        uses: 'actions/checkout@v3',
       },
       {
         name: 'Generate typedoc',
-        run: 'npx -p typedoc@latest typedoc --tsconfig ./tsconfig.dev.json'
+        run: 'npx -p typedoc@latest typedoc --tsconfig ./tsconfig.dev.json',
       },
       {
         name: 'Upload to S3',
         env: {
-          'AWS_ACCESS_KEY_ID': '{{ secrets.AWS_ACCESS_KEY_ID }}',
-          'AWS_SECRET_ACCESS_KEY': '{{ secrets.AWS_SECRET_ACCESS_KEY }}',
-          'DOCS_BUCKET': docsBucket,
+          AWS_ACCESS_KEY_ID: '{{ secrets.AWS_ACCESS_KEY_ID }}',
+          AWS_SECRET_ACCESS_KEY: '{{ secrets.AWS_SECRET_ACCESS_KEY }}',
+          DOCS_BUCKET: docsBucket,
         },
-        run: 'aws s3 sync "s3://${DOCS_BUCKET}/" "./docs/generated"'
-      }
-    ]
-  })
+        run: 'aws s3 sync "s3://${DOCS_BUCKET}/" "./docs/generated"',
+      },
+    ],
+  });
   console.log(release);
-}
-else if (releaseWorkflows.length > 1) {
-  console.log('Multiple release workflows found not sure how to set up doc generation. Skipping...')
+} else if (releaseWorkflows.length > 1) {
+  console.log('Multiple release workflows found not sure how to set up doc generation. Skipping...');
 }
 
 project.synth();
