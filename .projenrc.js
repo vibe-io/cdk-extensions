@@ -62,7 +62,7 @@ if (releaseWorkflows.length === 1) {
       },
       {
         name: 'Install dependencies',
-        run: 'npm install',
+        run: 'yarn install --check-files --production=false --verbose',
       },
       {
         name: 'Generate typedoc',
