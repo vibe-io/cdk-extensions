@@ -1,9 +1,16 @@
-# Amazon Athena Library
+# Vibe-io CDK-Extensions Athena Construct Library
 
-The `@cdk-extensions/athena` module contains configurations for AWS Athena.
+The @cdk-extensions/athena package contains advanced constructs and patterns for
+setting up named queries. The constructs presented here are intended
+to be replacements for equivalent AWS constructs in the CDK Athena module, but with
+additional features included.
 
-```ts nofixture
-import * as athena from '@cdk-extensions/athena';
+[AWS CDK Athena API Reference](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_athena-readme.html)
+
+To import and use this module within your CDK project:
+
+```ts
+import * as ec2 from 'cdk-extensions/athena';
 ```
 
 ## Objective
