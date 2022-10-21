@@ -85,6 +85,9 @@ alb_logging_stack = AlbLogsTable(self, 'AwsLoggingStack',
 ### Glue
 
 ### Athena Queries
+Two Athena [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html) are created by default:
+- **alb-top-ips**: Gets the 100 most active IP addresses by request count.
+- **alb-5xx-errors**: Gets the 100 most recent ELB 5XX responses
 
 ## CloudFrontLogsTable
 ### Usage
@@ -118,6 +121,13 @@ cloudfront_logging_stack = CloudFrontLogsTable(self, 'AwsLoggingStack',
 ### Glue
 
 ### Athena Queries
+Four Athena [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html) are created by default:
+- **cloudfront-distribution-statistics**: Gets statistics for CloudFront distributions
+  for the last day.
+- **cloudfront-request-errors**: Gets the 100 most recent requests that resulted
+  in an error from CloudFront.
+- **cloudfront-top-ips**: Gets the 100 most active IP addresses by request count.
+- **cloudfront-top-objects**: Gets the 100 most requested CloudFront objects.
 
 ## FlowLogsTable
 ### Usage
@@ -152,6 +162,10 @@ flowlogs_stack = FlowLogsTable(self, 'AwsLoggingStack',
 ### Glue
 
 ### Athena Queries
+Two Athena [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html) are created by default:
+- **cloudtrail-unauthorized-errors**: Gets the 100 most recent unauthorized AWS
+  API calls.
+- **cloudtrail-user-logins**: Gets the 100 most recent AWS user logins.
 
 ## S3AccessLogsTable
 ### Usage
@@ -186,6 +200,8 @@ s3_access_logging_stack = S3AccessLogsTable(self, 'AwsLoggingStack',
 ### Glue
 
 ### Athena Queries
+One AthenaNamedQuery is created by default:
+- **s3-request-errors**: Gets the 100 most recent failed S3 access requests.
 
 ## SesLogsTable
 ### Usage
@@ -220,6 +236,9 @@ ses_logging_stack = SesLogsTable(self, 'AwsLoggingStack',
 ### Glue
 
 ### Athena Queries
+Two Athena [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html) are created by default:
+- **ses-bounces**: Gets the 100 most recent bounces from the last day.
+- **ses-complaints**: Gets the 100 most recent complaints from the last day.
 
 ## WafLogsTable
 ### Usage
