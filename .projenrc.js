@@ -62,7 +62,7 @@ if (releaseWorkflows.length === 1) {
       },
       {
         name: 'Install dependencies',
-        run: 'yarn install --check-files --frozen-lockfile',
+        run: 'npm install',
       },
       {
         name: 'Generate typedoc',
