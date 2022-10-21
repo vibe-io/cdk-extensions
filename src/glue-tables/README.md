@@ -143,6 +143,53 @@ Four Athena [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aw
 - **cloudfront-top-ips**: Gets the 100 most active IP addresses by request count.
 - **cloudfront-top-objects**: Gets the 100 most requested CloudFront objects.
 
+## CloudTrailTable
+### Usage
+#### Required Parameters
+- **bucket**: An [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
+representing the s3 bucket logs are stored in
+- **database**: A **cdk-extensions/glue** `Database` to create the table in.
+
+**TypeScript**
+```Typescript
+import { CloudTrailTable } from 'cdk-extensions/glue-tables'
+```
+```Typescript
+new CloudTrailTable(this, 'CloudTrailTable', {
+  'bucket': bucket,
+  'database': database
+})
+```
+**Python**
+```Python
+from cdk_extensions.glue_tables import (
+  CloudTrailTable
+)
+```
+```Python
+cloudtrail_table_stack = CloudTrailTable(self, 'AwsLoggingStack',
+                                 bucket=bucket,
+                                 database=database
+                                 )
+```
+
+### Glue
+Creates a Glue table using constructs from the **cdk_extensions/glue** module.
+Tables are structured to match expected CloudTrail event logs.
+
+The following partition keys are set:
+- `source`
+- `logname`
+- `regionname`
+- `day`
+
+### Athena Queries
+Creates Athena Queries using the **cdk-extensions/athena** constructs.
+Two Athena [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html) are created by default:
+- **cloudtrail-unauthorized-errors**: Gets the 100 most recent unauthorized AWS
+  API calls.
+- **cloudtrail-user-logins**: Gets the 100 most recent AWS user logins.
+
 ## FlowLogsTable
 ### Usage
 #### Required Parameters
@@ -174,21 +221,11 @@ flowlogs_stack = FlowLogsTable(self, 'AwsLoggingStack',
 ```
 
 ### Glue
-Creates a Glue table using constructs from the **cdk_extensions/glue** module.
-Tables are structured to match expected CloudTrail event logs.
-
-The following partition keys are set:
-- `source`
-- `logname`
-- `regionname`
-- `day`
 
 ### Athena Queries
-Creates Athena Queries using the **cdk-extensions/athena** constructs.
-Two Athena [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html) are created by default:
-- **cloudtrail-unauthorized-errors**: Gets the 100 most recent unauthorized AWS
-  API calls.
-- **cloudtrail-user-logins**: Gets the 100 most recent AWS user logins.
+One AthenaNamedQuery is created by default:
+- **flow-logs-internal-rejected**: Gets the 100 most recent rejected packets that
+  stayed within the private network ranges.
 
 ## S3AccessLogsTable
 ### Usage
