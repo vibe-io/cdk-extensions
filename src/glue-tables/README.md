@@ -74,12 +74,12 @@ export class AlbLogStack extends Stack {
     });
 
     // Create a cdk-extensions/glue Database with secure defaults
-    const secure_database = new Database(this, 'GlueDatabase');
+    const database = new Database(this, 'GlueDatabase');
 
     // Create the AlbLogsTable Glue table with defaults
     const alb_logs_table = new AlbLogsTable(this, 'AlbLogsTable', {
       'bucket': bucket,
-      'database': secure_database
+      'database': database
     })
   }
 }
