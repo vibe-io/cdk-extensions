@@ -5,7 +5,7 @@ import { Database } from '../glue';
 
 
 /**
- * Configuration for Database
+ * Configuration for a NamedQuery.
  */
 export interface NamedQueryProps extends ResourceProps {
   /**

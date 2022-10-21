@@ -2,7 +2,7 @@ import { Aspects, Lazy, Names, Resource, ResourceProps, Stack, Stage, Token } fr
 import { CfnResourceShare } from 'aws-cdk-lib/aws-ram';
 import { Construct, IConstruct } from 'constructs';
 import { ISharedPrincipal, SharedPrincipal } from './lib/shared-principal';
-import { ISharedResource } from './lib/shared-resource';
+import { ISharable } from './lib/shared-resource';
 
 
 /**
@@ -50,7 +50,7 @@ export interface ResourceShareProps extends ResourceProps {
    *
    * @see [ResourceShare.ResourceArns](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-resourcearns)
    */
-  readonly resources?: ISharedResource[];
+  readonly resources?: ISharable[];
 }
 
 /**
@@ -63,7 +63,7 @@ export class ResourceShare extends Resource {
   // Internal properties
   private _autoDiscovery: boolean = false;
   private readonly _principals: ISharedPrincipal[] = [];
-  private readonly _resources: ISharedResource[] = [];
+  private readonly _resources: ISharable[] = [];
 
   /**
    * Specifies whether principals outside your organization in AWS
@@ -137,7 +137,7 @@ export class ResourceShare extends Resource {
       resourceArns: Lazy.uncachedList({
         produce: () => {
           return this._resources.map((x) => {
-            return x.bind(this);
+            return x.share(this);
           });
         },
       }),
@@ -148,7 +148,7 @@ export class ResourceShare extends Resource {
     this._principals.push(principal);
   }
 
-  public addResource(resource: ISharedResource): void {
+  public addResource(resource: ISharable): void {
     this._resources.push(resource);
   }
 

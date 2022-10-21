@@ -1,13 +1,14 @@
 import { IProject } from 'aws-cdk-lib/aws-codebuild';
 import { ISubnet } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
+import { ITransitGateway } from '../../ec2/transit-gateway';
 
 
-export interface ISharedResource {
-  bind(scope: IConstruct): string;
+export interface ISharable {
+  share(scope: IConstruct): string;
 }
 
-export class SharedResource implements ISharedResource {
+export class SharedResource implements ISharable {
   public static fromArn(arn: string): SharedResource {
     return new SharedResource(arn);
   }
@@ -24,13 +25,17 @@ export class SharedResource implements ISharedResource {
     }));
   }
 
+  public static fromTransitGateway(transitGateway: ITransitGateway): SharedResource {
+    return new SharedResource(transitGateway.transitGatewayArn);
+  }
+
   private readonly arn: string;
 
   private constructor(arn: string) {
     this.arn = arn;
   }
 
-  public bind(_scope: IConstruct): string {
+  public share(_scope: IConstruct): string {
     return this.arn;
   }
 }
