@@ -54,7 +54,7 @@ if (releaseWorkflows.length === 1) {
     ],
     steps: [
       {
-        name: 'actions/setup-node@v3',
+        uses: 'actions/setup-node@v3',
         with: {
           'node-version': '14.x',
         },
