@@ -53,7 +53,8 @@ service.
 
 ### Examples
 
-Creates an ALB Logging stack, with an S3 logging bucket, cdk_extensions Glue database, cdk_extensions `AlbLogsTable` and some default named Athena queries.
+Creates an ALB Logging stack, with an S3 logging bucket, **cdk_extensions/glue** `Database`, and **cdk_extensions** `AlbLogsTable` with some default named Athena queries.
+
 **TypeScript**
 ```typescript
 import { App, Stack, StackProps, RemovalPolicy, aws_s3 as s3 } from 'aws-cdk-lib';
@@ -115,7 +116,7 @@ class AlbLogStack(Stack):
                            )
         # Create a cdk-extensions/glue Database with secure defaults
         database = Database(self, 'MyGlueDatabase')
-        
+
         # Create the AlbLogsTable Glue table with defaults
         alb_logging_stack = AlbLogsTable(self, 'AwsLoggingStack',
                                          bucket=bucket,
