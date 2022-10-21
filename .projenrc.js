@@ -89,7 +89,7 @@ if (releaseWorkflows.length === 1) {
         env: {
           DOCS_BUCKET: docsBucket,
         },
-        run: 'aws s3 sync --debug "s3://${DOCS_BUCKET}/" "./docs/generated"',
+        run: 'aws s3 sync "./docs/generated" "s3://${DOCS_BUCKET}/"',
       },
     ],
   });
