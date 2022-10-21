@@ -362,7 +362,7 @@ No default Athena Queries have been implemented at this time.
 
 ### Examples
 
-Creates an ALB Logging stack, with an S3 logging bucket, **cdk_extensions/glue** `Database`, and **cdk_extensions** `AlbLogsTable` with some default named Athena queries.
+Creates an ALB Logging stack, with an S3 logging bucket, **cdk_extensions/glue** `Database`, and `AlbLogsTable` with its default Athena Queries.
 
 **TypeScript**
 ```typescript
