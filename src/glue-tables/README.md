@@ -53,36 +53,202 @@ of your AWS Account. These default named queries have been defined for each AWS
 service.
 
 ## AlbLogsTable
+### Usage
+#### Required Parameters
+- **bucket**: An [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
+representing the s3 bucket logs are stored in
+- **database**: A **cdk-extensions/glue** `Database` to create the table in.
+
+**TypeScript**
+```Typescript
+import { AlbLogsTable } from 'cdk-extensions/glue-tables'
+```
+```Typescript
+new AlbLogsTable(this, 'AlbLogsTable', {
+  'bucket': bucket,
+  'database': database
+})
+```
+**Python**
+```Python
+from cdk_extensions.glue_tables import (
+  AlbLogsTable
+)
+```
+```Python
+alb_logging_stack = AlbLogsTable(self, 'AwsLoggingStack',
+                                 bucket=bucket,
+                                 database=database
+                                 )
+```
 
 ### Glue
 
 ### Athena Queries
 
 ## CloudFrontLogsTable
+### Usage
+#### Required Parameters
+- **bucket**: An [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
+representing the s3 bucket logs are stored in
+- **database**: A **cdk-extensions/glue** `Database` to create the table in.
 
+**TypeScript**
+```Typescript
+import { CloudFrontLogsTable } from 'cdk-extensions/glue-tables'
+```
+```Typescript
+new CloudFrontLogsTable(this, 'CloudFrontLogsTable', {
+  'bucket': bucket,
+  'database': database
+})
+```
+**Python**
+```Python
+from cdk_extensions.glue_tables import (
+  CloudFrontLogsTable
+)
+```
+```Python
+cloudfront_logging_stack = CloudFrontLogsTable(self, 'AwsLoggingStack',
+                                 bucket=bucket,
+                                 database=database
+                                 )
+```
 ### Glue
 
 ### Athena Queries
 
 ## FlowLogsTable
+### Usage
+#### Required Parameters
+- **bucket**: An [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
+representing the s3 bucket logs are stored in
+- **database**: A **cdk-extensions/glue** `Database` to create the table in.
+
+**TypeScript**
+```Typescript
+import { FlowLogsTable } from 'cdk-extensions/glue-tables'
+```
+```Typescript
+new FlowLogsTable(this, 'FlowLogsTable', {
+  'bucket': bucket,
+  'database': database
+})
+```
+**Python**
+```Python
+from cdk_extensions.glue_tables import (
+  FlowLogsTable
+)
+```
+```Python
+flowlogs_stack = FlowLogsTable(self, 'AwsLoggingStack',
+                                 bucket=bucket,
+                                 database=database
+                                 )
+```
 
 ### Glue
 
 ### Athena Queries
 
 ## S3AccessLogsTable
+### Usage
+#### Required Parameters
+- **bucket**: An [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
+representing the s3 bucket logs are stored in
+- **database**: A **cdk-extensions/glue** `Database` to create the table in.
+
+**TypeScript**
+```Typescript
+import { S3AccessLogsTable } from 'cdk-extensions/glue-tables'
+```
+```Typescript
+new S3AccessLogsTable(this, 'S3AccessLogsTable', {
+  'bucket': bucket,
+  'database': database
+})
+```
+**Python**
+```Python
+from cdk_extensions.glue_tables import (
+  S3AccessLogsTable
+)
+```
+```Python
+s3_access_logging_stack = S3AccessLogsTable(self, 'AwsLoggingStack',
+                                 bucket=bucket,
+                                 database=database
+                                 )
+```
 
 ### Glue
 
 ### Athena Queries
 
 ## SesLogsTable
+### Usage
+#### Required Parameters
+- **bucket**: An [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
+representing the s3 bucket logs are stored in
+- **database**: A **cdk-extensions/glue** `Database` to create the table in.
+
+**TypeScript**
+```Typescript
+import { SesLogsTable } from 'cdk-extensions/glue-tables'
+```
+```Typescript
+new SesLogsTable(this, 'SesLogsTable', {
+  'bucket': bucket,
+  'database': database
+})
+```
+**Python**
+```Python
+from cdk_extensions.glue_tables import (
+  SesLogsTable
+)
+```
+```Python
+ses_logging_stack = SesLogsTable(self, 'AwsLoggingStack',
+                                 bucket=bucket,
+                                 database=database
+                                 )
+```
 
 ### Glue
 
 ### Athena Queries
 
 ## WafLogsTable
+### Usage
+#### Required Paramaters
+- **bucket**: An [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
+representing the s3 bucket logs are stored in
+- **database**: A **cdk-extensions/glue** `Database` to create the table in.
+**TypeScript**
+```Typescript
+import { WafLogsTable } from 'cdk-extensions/glue-tables'
+```
+```Typescript
+new WafLogsTable(this, 'WafLogsTable', {
+  'bucket': bucket,
+  'database': database
+})
+```
+**Python**
+```Python
+from cdk_extensions.glue_tables import (
+  WafLogsTable
+)
+```
+```Python
+waf_logging_stack = WafLogsTable(self, 'AwsLoggingStack',
+                                 bucket=bucket,
+                                 database=database
+                                 )
+```
 
 ### Glue
 
