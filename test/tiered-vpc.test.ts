@@ -173,7 +173,7 @@ describe('cdk compatibility', () => {
     const theirStack = getTestStack();
     new Vpc(theirStack, 'VPC', {
       cidr: '10.0.0.0/16',
-      maxAzs: 4
+      maxAzs: 4,
     });
 
     const ourStack = getTestStack();
@@ -183,13 +183,13 @@ describe('cdk compatibility', () => {
       tiers: [
         {
           accessibility: SubnetType.PUBLIC,
-          name: 'Public'
+          name: 'Public',
         },
         {
           accessibility: SubnetType.PRIVATE_WITH_EGRESS,
-          name: 'Private'
+          name: 'Private',
         },
-      ]
+      ],
     });
 
     const theirTemplate = Template.fromStack(theirStack);
@@ -579,7 +579,7 @@ function getTestStack(): Stack {
     'us-east-1c',
     'us-east-1d',
     'us-east-1e',
-    'us-east-1f'
+    'us-east-1f',
   ]);
 
   return stack;
