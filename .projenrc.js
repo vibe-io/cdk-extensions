@@ -62,7 +62,7 @@ if (releaseWorkflows.length === 1) {
       },
       {
         name: 'Install typescript',
-        run: 'npm install -g typescript',
+        run: 'npm install typescript',
       },
       {
         name: 'Install dependencies',
