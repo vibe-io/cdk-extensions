@@ -50,7 +50,7 @@ if (releaseWorkflows.length === 1) {
       'release',
     ],
     permissions: {
-      contents: 'write'
+      contents: 'write',
     },
     runsOn: [
       'ubuntu-latest',
