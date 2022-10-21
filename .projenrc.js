@@ -61,8 +61,12 @@ if (releaseWorkflows.length === 1) {
         uses: 'actions/checkout@v3',
       },
       {
+        name: 'Install typescript',
+        run: 'npm install -g typescript',
+      },
+      {
         name: 'Install dependencies',
-        run: 'yarn install --check-files --production=false --verbose',
+        run: 'yarn install --check-files --production=false',
       },
       {
         name: 'Generate typedoc',

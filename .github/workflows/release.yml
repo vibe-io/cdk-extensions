@@ -51,8 +51,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Install typescript
+        run: npm install -g typescript
       - name: Install dependencies
-        run: yarn install --check-files --production=false --verbose
+        run: yarn install --check-files --production=false
       - name: Generate typedoc
         run: npx -p typedoc@latest typedoc --tsconfig ./tsconfig.dev.json
       - name: Upload to S3
