@@ -51,8 +51,9 @@ Several default named queries are defined that aid in improving the security pos
 of your AWS Account. These default named queries have been defined for each AWS
 service.
 
-*Examples*
+### Examples
 
+Creates an ALB Logging stack, with an S3 logging bucket, cdk_extensions Glue database, cdk_extensions `AlbLogsTable` and some default named Athena queries.
 **TypeScript**
 ```typescript
 import { App, Stack, StackProps, RemovalPolicy, aws_s3 as s3 } from 'aws-cdk-lib';
@@ -86,7 +87,40 @@ export class AlbLogStack extends Stack {
 ```
 **Python**
 ```Python
+from constructs import Construct
+from aws_cdk import (
+    RemovalPolicy,
+    Stack,
+    aws_s3 as s3
+)
+from cdk_extensions.glue import (
+  Database
+)
+from cdk_extensions.glue_tables import (
+  AlbLogsTable
+)
 
+
+class AlbLogStack(Stack):
+
+    def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
+        super().__init__(scope, construct_id, **kwargs)
+        # If we were to use the cdk-extensions AlbLogsBucket pattern,
+        # Glue tables would be created for us. Instead, we use the
+        # standard library, remembering to set some secure best practices
+        # like encryption and removal policy
+        bucket = s3.Bucket(self, 'MyEncryptedBucket',
+                           encryption=s3.BucketEncryption.KMS,
+                           removalPolicy=RemovalPolicy.RETAIN
+                           )
+        # Create a cdk-extensions/glue Database with secure defaults
+        database = Database(self, 'MyGlueDatabase')
+        
+        # Create the AlbLogsTable Glue table with defaults
+        alb_logging_stack = AlbLogsTable(self, 'AwsLoggingStack',
+                                         bucket=bucket,
+                                         database=database
+                                         )
 ```
 
 ## AlbLogsTable
