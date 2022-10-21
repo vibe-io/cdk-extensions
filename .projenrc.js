@@ -82,7 +82,7 @@ if (releaseWorkflows.length === 1) {
           AWS_SECRET_ACCESS_KEY: '${{ secrets.AWS_SECRET_ACCESS_KEY }}',
           DOCS_BUCKET: docsBucket,
         },
-        run: 'aws s3 sync "s3://${DOCS_BUCKET}/" "./docs/generated"',
+        run: 'aws s3 sync --debug "s3://${DOCS_BUCKET}/" "./docs/generated"',
       },
     ],
   });
