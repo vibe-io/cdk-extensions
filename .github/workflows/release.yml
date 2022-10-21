@@ -68,7 +68,7 @@ jobs:
       - name: Upload to S3
         env:
           DOCS_BUCKET: docs.vibe.io
-        run: aws s3 sync --debug "s3://${DOCS_BUCKET}/" "./docs/generated"
+        run: aws s3 sync "./docs/generated" "s3://${DOCS_BUCKET}/"
   release_github:
     name: Publish to GitHub Releases
     needs: release
