@@ -107,7 +107,7 @@ metadata in the AWS Glue Data Catalog.
 
 #### Athena Queries
 Two Athena [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html) are created by default:
-- **alb-top-ips**: Gets the 100 most actvie IP addresses by request count.
+- **alb-top-ips**: Gets the 100 most active IP addresses by request count.
 - **alb-5xx-errors**: Gets the 100 most recent ELB 5XX responses
 
 ### CloudFrontLogsBucket
