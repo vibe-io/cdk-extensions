@@ -51,32 +51,44 @@ if (this.createQueries) {
 ```
 ### ALB
 See **src/glue-tables/alb-logs-table.ts**
+
 Gets the 100 most actvie IP addresses by request count.
+
 Gets the 100 most recent ELB 5XX responses.
 
 ### CloudFront
 See **src/glue-tables/cloudfront-logs-table.ts**
+
 Gets statistics for CloudFront distributions for the last day.
+
 Gets the 100 most recent requests that resulted in an error from CloudFront.
+
 Gets the 100 most active IP addresses by request count.
+
 Gets the 100 most requested CloudFront objects.
 
 ### CloudTrail
 See **src/glue-tables/cloudtrail-logs-table.ts**
+
 Gets the 100 most recent unauthorized AWS API calls.
+
 Gets the 100 most recent AWS user logins.
 
 ### Flow Logs
 See **src/glue-tables/flow-logs-table.ts**
+
 Gets the 100 most recent rejected packets that stayed within the private network ranges.
 
 ### S3 Access Logs
 See **src/glue-tables/s3-access-logs-table.ts**
+
 Gets the 100 most recent failed S3 access requests.
 
 ### SES Logs
 See **src/glue-tables/ses-logs-table.ts**
+
 Gets the 100 most recent bounces from the last day.
+
 Gets the 100 most recent complaints from the last day.
 
 ### WAF Logs
