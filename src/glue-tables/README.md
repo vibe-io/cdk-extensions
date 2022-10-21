@@ -4,6 +4,8 @@ for setting up commonly needed Glue tables and Athena Named Queries. The constru
 presented here are intended to be replacements for equivalent AWS constructs in
 the CDK module, but with additional features included.
 
+[AWS CDK Glue API Reference](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-glue-alpha-readme.html)
+
 The patterns here extend the Glue constructs in the **cdk-extensions/glue** module to
 ensure all defaults follow best practices, and utilize most secure settings.
 
@@ -83,8 +85,7 @@ alb_logging_stack = AlbLogsTable(self, 'AwsLoggingStack',
 ```
 
 ### Glue
-Creates a Glue table using constructs from the **cdk_extensions/glue** module.
-Columns are created for all expected ALB log fields.
+Creates a Glue table using constructs from the **cdk_extensions/glue** module. Table schema is configured for expected ALB log fields.
 
 The following partition keys are set:
 - `source`
@@ -92,7 +93,7 @@ The following partition keys are set:
 - `regionname`
 - `day`
 
-Projection is enabled for the expected `mm/dd/yyyy` log format.
+Projection is enabled and configured for the expected `yyyy/MM/dd` log format.
 
 ### Athena Queries
 Creates Athena Queries using the **cdk-extensions/athena** module.
@@ -130,8 +131,7 @@ cloudfront_logging_stack = CloudFrontLogsTable(self, 'AwsLoggingStack',
                                  )
 ```
 ### Glue
-Creates a Glue table using constructs from the **cdk_extensions/glue** module.
-Columns are created for all expected CloudFront log fields.
+Creates a Glue table using constructs from the **cdk_extensions/glue** module. Table schema is configured for expected CloudFront log fields.
 
 ### Athena Queries
 Creates Athena Queries using the **cdk-extensions/athena** constructs.
@@ -174,14 +174,15 @@ cloudtrail_table_stack = CloudTrailTable(self, 'AwsLoggingStack',
 ```
 
 ### Glue
-Creates a Glue table using constructs from the **cdk_extensions/glue** module.
-Tables are structured to match expected CloudTrail event logs.
+Creates a Glue table using constructs from the **cdk_extensions/glue** module. Table schema is configured for expected CloudTrail event logs data.
 
 The following partition keys are set:
 - `source`
 - `logname`
 - `regionname`
 - `day`
+
+Projection is enabled and configured for the expected `yyyy/MM/dd` log format.
 
 ### Athena Queries
 Creates Athena Queries using the **cdk-extensions/athena** constructs.
@@ -221,6 +222,15 @@ flowlogs_stack = FlowLogsTable(self, 'AwsLoggingStack',
 ```
 
 ### Glue
+Creates a Glue table using constructs from the **cdk_extensions/glue** module. Table schema is configured for expected VPC FlowLog data.
+
+The following partition keys are set:
+- `source`
+- `logname`
+- `regionname`
+- `day`
+
+Projection is enabled and configured for the expected `yyyy/MM/dd` log format.
 
 ### Athena Queries
 One AthenaNamedQuery is created by default:
@@ -258,6 +268,7 @@ s3_access_logging_stack = S3AccessLogsTable(self, 'AwsLoggingStack',
 ```
 
 ### Glue
+Creates a Glue table using constructs from the **cdk_extensions/glue** module. Table schema is configured for expected S3 Access log data.
 
 ### Athena Queries
 Creates an Athena Query using the **cdk-extensions/athena** constructs.
@@ -295,6 +306,12 @@ ses_logging_stack = SesLogsTable(self, 'AwsLoggingStack',
 ```
 
 ### Glue
+Creates a Glue table using constructs from the **cdk_extensions/glue** module. Table schema is configured for the expected SES event logs.
+
+Projection is enabled and configured for the expected `yyyy/MM/dd` log format.
+
+The following partition keys are set:
+- `day`
 
 ### Athena Queries
 Creates Athena Queries using the **cdk-extensions/athena** constructs.
@@ -332,6 +349,13 @@ waf_logging_stack = WafLogsTable(self, 'AwsLoggingStack',
 ```
 
 ### Glue
+Creates a Glue table using constructs from the **cdk_extensions/glue** module. Table schema is configured for expected WAF log data.
+
+The following partition keys are set:
+- `account`
+- `region`
+
+Projection is enabled.
 
 ### Athena Queries
 No default Athena Queries have been implemented at this time.
