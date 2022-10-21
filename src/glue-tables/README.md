@@ -51,6 +51,43 @@ Several default named queries are defined that aid in improving the security pos
 of your AWS Account. These default named queries have been defined for each AWS
 service.
 
+## AlbLogsTable
+
+### Glue
+
+### Athena Queries
+
+## CloudFrontLogsTable
+
+### Glue
+
+### Athena Queries
+
+## FlowLogsTable
+
+### Glue
+
+### Athena Queries
+
+## S3AccessLogsTable
+
+### Glue
+
+### Athena Queries
+
+## SesLogsTable
+
+### Glue
+
+### Athena Queries
+
+## WafLogsTable
+
+### Glue
+
+### Athena Queries
+No default Athena Queries have been implemented at this time.
+
 ### Examples
 
 Creates an ALB Logging stack, with an S3 logging bucket, **cdk_extensions/glue** `Database`, and **cdk_extensions** `AlbLogsTable` with some default named Athena queries.
@@ -123,40 +160,3 @@ class AlbLogStack(Stack):
                                          database=database
                                          )
 ```
-
-## AlbLogsTable
-
-### Glue
-
-### Athena Queries
-
-## CloudFrontLogsTable
-
-### Glue
-
-### Athena Queries
-
-## FlowLogsTable
-
-### Glue
-
-### Athena Queries
-
-## S3AccessLogsTable
-
-### Glue
-
-### Athena Queries
-
-## SesLogsTable
-
-### Glue
-
-### Athena Queries
-
-## WafLogsTable
-
-### Glue
-
-### Athena Queries
-No default Athena Queries have been implemented at this time.
