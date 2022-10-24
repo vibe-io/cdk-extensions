@@ -29,7 +29,7 @@ an S3 Bucket.
 - [GlueTables](#GlueTables)
   - [AlbLogsTable](#AlbLogsTable)
   - [CloudFrontLogsTable](#CloudFrontLogsTable)
-  - [CloudTrailLogsTable](#CloudTrailLogsTable)
+  - [CloudTrailTable](#CloudTrailTable)
   - [FlowLogsTable](#FlowLogsTable)
   - [S3AccessLogsTable](#S3AccessLogsTable)
   - [SesLogsTable](#SesLogsTable)
