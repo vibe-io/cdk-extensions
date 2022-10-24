@@ -1,19 +1,19 @@
-# Vibe.io 
-Vibe.io CDK extensions is a library of opinionated CDK constructs that will accelerate your project by laying a solid cloud foundation for your team to build on top of. Keeping your team focused on business value, while relying on a community to manage the common fundamentals like VPC, EKS, Cross Account Management Ect. 
+# Vibe.io
+Vibe.io CDK extensions is a library of opinionated CDK constructs that will accelerate your project by laying a solid cloud foundation for your team to build on top of. Keeping your team focused on business value, while relying on a community to manage the common fundamentals like VPC, EKS, Cross Account Management Ect.
 
 # Meet the Maintainers
 [RightBrain Networks](https://www.rightbrainnetworks.com/) has spent the past decade fordging cloud patterns, working with startups and enterprise clients to find the sweet spot, where cloud infrastrcuture sits in a Software Development LifeCycle (SDLC). Identifiying a the right amount of self service to unblock development, but with the right amount of support from operations to ensure we're building a secure, and autiditable platform. We've found that the CDK construt library pattern lends itself in line with our goals, and provideds a framework for adoption that enables us to share our work with the cloud operations community.  
 
-We are confident in our vision that Infrastrcuture as Code should follow an [Environments as Cattle approach](https://www.youtube.com/watch?v=z5XDAhyh9Z4). We've attempted to opensource our patterns many times throughout the years by way of CloudFormation repositories and tropospher initiatives, and the like. CDK broke this wide open for us. We're able to develop and iterate on our patterns with true imparitive code, that can be imported as a library by a consumer and used as necessary. 
+We are confident in our vision that Infrastrcuture as Code should follow an [Environments as Cattle approach](https://www.youtube.com/watch?v=z5XDAhyh9Z4). We've attempted to opensource our patterns many times throughout the years by way of CloudFormation repositories and tropospher initiatives, and the like. CDK broke this wide open for us. We're able to develop and iterate on our patterns with true imparitive code, that can be imported as a library by a consumer and used as necessary.
 
-## If you need help, We're a Communiity. 
+## If you need help, We're a Communiity.
 Use the GitHub issues to addresss problems
 
 ## If you have immedidate concernds Email Joe
 
-Email: joe@rightbrainetworks.com 
+Email: joe@rightbrainetworks.com
 
-![Joe Coleman]('images/joe.webp')
+![Joe Coleman]('./images/joe.webp')
 
 ## Getting Started
 
