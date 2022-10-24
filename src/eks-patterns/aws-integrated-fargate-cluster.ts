@@ -1,10 +1,9 @@
 import { Resource } from 'aws-cdk-lib';
 import { FargateCluster, FargateClusterProps } from 'aws-cdk-lib/aws-eks';
 import { ILogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
-import { Construct, IConstruct, IDependable } from 'constructs';
+import { Construct, IDependable } from 'constructs';
 import { CloudWatchMonitoring } from '../k8s-aws/cloudwatch-monitoring';
 import { ExternalDns } from '../k8s-aws/external-dns';
-import { ExternalSecretsOperator } from '../k8s-aws/external-secrets-operator';
 import { FargateLogger } from '../k8s-aws/fargate-logger';
 
 
@@ -54,7 +53,6 @@ export interface ExternalSecretsOptions {
 export interface AwsIntegratedFargateClusterProps extends FargateClusterProps {
   readonly cloudWatchMonitoringOptions?: CloudWatchMonitoringOptions;
   readonly externalDnsOptions?: ExternalDnsOptions;
-  readonly externalSecretsOptions?: ExternalSecretsOptions;
   readonly loggingOptions?: FargateLoggingOptions;
 }
 
@@ -62,7 +60,6 @@ export class AwsIntegratedFargateCluster extends Resource {
   // Resource properties
   public readonly cloudWatchMonitoring?: CloudWatchMonitoring;
   public readonly externalDns?: ExternalDns;
-  public readonly externalSecrets?: ExternalSecretsOperator;
   public readonly fargateLogger?: FargateLogger;
   public readonly resource: FargateCluster;
 
@@ -101,15 +98,6 @@ export class AwsIntegratedFargateCluster extends Resource {
         cluster: this.resource,
       });
       this.externalDns.node.addDependency(lastResource);
-      lastResource = this.externalDns;
-    }
-
-    if (props?.externalSecretsOptions?.enabled ?? true) {
-      this.externalSecrets = new ExternalSecretsOperator(this, 'external-secrets', {
-        ...(props.externalSecretsOptions ?? {}),
-        cluster: this.resource,
-      });
-      this.externalSecrets.node.addDependency(lastResource);
     }
   }
 }
