@@ -1,7 +1,7 @@
 import { Resource } from 'aws-cdk-lib';
 import { FargateCluster, FargateClusterProps } from 'aws-cdk-lib/aws-eks';
 import { ILogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
-import { Construct } from 'constructs';
+import { Construct, IConstruct, IDependable } from 'constructs';
 import { CloudWatchMonitoring } from '../k8s-aws/cloudwatch-monitoring';
 import { ExternalDns } from '../k8s-aws/external-dns';
 import { ExternalSecretsOperator } from '../k8s-aws/external-secrets-operator';
@@ -74,6 +74,8 @@ export class AwsIntegratedFargateCluster extends Resource {
       ...props,
     });
 
+    let lastResource: IDependable = this.resource;
+
     if (props.loggingOptions?.enabled ?? true) {
       this.fargateLogger = new FargateLogger(this, 'fargate-logger', {
         cluster: this.resource,
@@ -81,12 +83,16 @@ export class AwsIntegratedFargateCluster extends Resource {
           this.resource.defaultProfile,
         ],
       });
+      this.fargateLogger.node.addDependency(lastResource);
+      lastResource = this.fargateLogger;
     }
 
     if (props.cloudWatchMonitoringOptions?.enabled ?? true) {
       this.cloudWatchMonitoring = new CloudWatchMonitoring(this, 'cloudwatch-monitoring', {
         cluster: this.resource,
       });
+      this.cloudWatchMonitoring.node.addDependency(lastResource);
+      lastResource = this.cloudWatchMonitoring;
     }
 
     if (props.externalDnsOptions?.enabled ?? true) {
@@ -94,6 +100,8 @@ export class AwsIntegratedFargateCluster extends Resource {
         ...(props.externalDnsOptions ?? {}),
         cluster: this.resource,
       });
+      this.externalDns.node.addDependency(lastResource);
+      lastResource = this.externalDns;
     }
 
     if (props?.externalSecretsOptions?.enabled ?? true) {
@@ -101,6 +109,7 @@ export class AwsIntegratedFargateCluster extends Resource {
         ...(props.externalSecretsOptions ?? {}),
         cluster: this.resource,
       });
+      this.externalSecrets.node.addDependency(lastResource);
     }
   }
 }
