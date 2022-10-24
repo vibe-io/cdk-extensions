@@ -1,8 +1,9 @@
-const { awscdk, LogLevel } = require('projen');
+const { awscdk } = require('projen');
 
 const projectName = 'cdk-extensions';
 const cdkVersion = '2.45.0';
 const docsBucket = 'docs.vibe.io';
+const docsBucketRegion = 'us-east-1';
 
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Kevin Lucas',
@@ -36,8 +37,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // packageName: undefined,  /* The "name" in package.json. */
 });
 
-//project.github.workflows
-
 const releaseWorkflows = project.github.workflows.filter((x) => {
   return x.name === 'release';
 });
@@ -45,19 +44,41 @@ const releaseWorkflows = project.github.workflows.filter((x) => {
 if (releaseWorkflows.length === 1) {
   const release = releaseWorkflows[0];
   release.addJob('typedoc', {
-    container: {
-      image: 'jsii/superchain:1-buster-slim-node14',
-    },
     needs: [
       'release',
     ],
+    permissions: {
+      contents: 'write',
+    },
     runsOn: [
       'ubuntu-latest',
     ],
     steps: [
       {
+        uses: 'actions/setup-node@v3',
+        with: {
+          'node-version': '16.x',
+        },
+      },
+      {
+        uses: 'aws-actions/configure-aws-credentials@v1',
+        with: {
+          'aws-access-key-id': '${{ secrets.AWS_ACCESS_KEY_ID }}',
+          'aws-secret-access-key': '${{ secrets.AWS_SECRET_ACCESS_KEY }}',
+          'aws-region': docsBucketRegion,
+        },
+      },
+      {
         name: 'Checkout',
         uses: 'actions/checkout@v3',
+      },
+      {
+        name: 'Install typescript',
+        run: 'npm install typescript',
+      },
+      {
+        name: 'Install dependencies',
+        run: 'yarn install --check-files --production=false',
       },
       {
         name: 'Generate typedoc',
@@ -66,15 +87,12 @@ if (releaseWorkflows.length === 1) {
       {
         name: 'Upload to S3',
         env: {
-          AWS_ACCESS_KEY_ID: '{{ secrets.AWS_ACCESS_KEY_ID }}',
-          AWS_SECRET_ACCESS_KEY: '{{ secrets.AWS_SECRET_ACCESS_KEY }}',
           DOCS_BUCKET: docsBucket,
         },
-        run: 'aws s3 sync "s3://${DOCS_BUCKET}/" "./docs/generated"',
+        run: 'aws s3 sync "./docs/generated" "s3://${DOCS_BUCKET}/"',
       },
     ],
   });
-  console.log(release);
 } else if (releaseWorkflows.length > 1) {
   console.log('Multiple release workflows found not sure how to set up doc generation. Skipping...');
 }
