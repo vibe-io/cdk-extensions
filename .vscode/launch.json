@@ -56,6 +56,29 @@
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]
+        },
+        {
+            "type": "pwa-node",
+            "cwd": "${workspaceFolder}/",
+            "request": "launch",
+            "name": "Projen",
+            "env": {
+                "NVM_DIR": "/root/.nvm"
+            },
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "runtimeExecutable": "npx",
+            "runtimeArgs": [
+                "ts-node",
+                "--prefer-ts-exts"
+            ],
+            "runtimeVersion": "16.16.0",
+            "program": "${workspaceFolder}/node_modules/projen/bin/projen",
+            "args": [],
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ]
         }
     ]
 }
