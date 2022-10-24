@@ -13,7 +13,7 @@ Use the GitHub issues to address problems
 
 Email: joe@rightbrainetworks.com
 
-![Joe Coleman]('./images/joe.webp')
+![Joe Coleman](./images/joe.webp)
 
 ## Getting Started
 
