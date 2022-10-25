@@ -2,27 +2,11 @@
 These are full-stack solutions, offering rapid deployment of commonly used enterprise
 scale patterns with little to no configuration needed.
 
+All Stacks utilize patterns and constructs from the **cdk-extensions** library.
+
 - [About](#AboutTheCDK-ExtensionsLibraries)
 - [Stacks](#Stacks)
   - [AwsLoggingStack](#AwsLoggingStack)
-
-## About The CDK-Extensions Libraries
-All Stacks utilize patterns and constructs from the **cdk-extensions** library.
-
-All **cdk-extensions** constructs:
-- Expose their configurations so other resources can make informed
-  decisions about the resource it’s working on.
-- Are fully compatible with **aws-cdk-lib** constructs
-- Every single field in the resources are exposed, so they can be configured
-  - In some cases, this relies on custom features built into the **cdk-extensions**
-    constructs, to allow configuration of Cfn fields not normally exposed in cdk
-  - Anything that can be configured on a resource should be something that can
-    be customized using CDK
-- However, all fields have sane defaults, following best practices(i.e most secure way)
-  - Using the most secure settings should be a feature one opts out of, not the
-    other way around
-  - We should be able to launch constructs that adhere to best practices without
-    a lot of customization
 
 # Stacks
 
