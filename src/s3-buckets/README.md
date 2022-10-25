@@ -36,7 +36,7 @@ Glue and Athena can be utilized for fast and efficient analysis of data stored i
 - [Buckets](#Buckets)
   - [AlbLogsBucket](#AlbLogsBucket)
   - [CloudFrontLogsBucket](#CloudFrontLogsBucket)
-  - [CloudTrailLogsBucket](#CloudTrailLogsBucket)
+  - [CloudTrailBucket](#CloudTrailBucket)
   - [FlowLogsBucket](#FlowLogsBucket)
   - [S3AccessLogsBucket](#S3AccessLogsBucket)
   - [SesLogsBucket](#SesLogsBucket)
@@ -66,7 +66,7 @@ const cloudtrail_bucket_without_queries = new s3_buckets.CloudtrailBucket(this, 
 ```Python
 alb_bucket_with_queries = s3_buckets.AlbLogsBucket(self, 'AlbLogsBucket')
 
-cloudtrail_bucket_without_queries = s3_buckets.CloudTrailLogsBucket(self, 'CloudTrailLogsBucket', create_queries=False)
+cloudtrail_bucket_without_queries = s3_buckets.CloudTrailBucket(self, 'CloudTrailBucket', create_queries=False)
 ```
 ## Buckets
 All log buckets are [`CfnBucket`](https://docs.aws.amazon.com/cdk/api/v1/docs/@aws-cdk_aws-s3.CfnBucket.html) constructs
@@ -148,7 +148,7 @@ Four Athena [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aw
 - **cloudfront-top-ips**: Gets the 100 most active IP addresses by request count.
 - **cloudfront-top-objects**: Gets the 100 most requested CloudFront objects.
 
-### CloudTrailLogsBucket
+### CloudTrailBucket
 Creates an S3 Bucket and Glue jobs for storing and analyzing CloudTrail logs.
 By default generates a Glue Database and Table, and creates named Athena
 Queries useful in querying CloudTrail log data.
@@ -156,19 +156,19 @@ Queries useful in querying CloudTrail log data.
 #### Usage
 **TypeScript**
 ```typescript
-import { CloudTrailLogsBucket } from 'cdk-extensions/s3-buckets';
+import { CloudTrailBucket } from 'cdk-extensions/s3-buckets';
 ```
 ```typescript
-new CloudTrailLogsBucket(this, 'CloudTrailLogsBucket')
+new CloudTrailBucket(this, 'CloudTrailBucket')
 ```
 **Python**
 ```python
 from cdk_extensions.s3_buckets import (
-  CloudTrailLogsBucket
+  CloudTrailBucket
 )
 ```
 ```python
-cloudtrail_logs_bucket = CloudTrailLogsBucket(self, 'CloudTrailLogsBucket')
+cloudtrail_logs_bucket = CloudTrailBucket(self, 'CloudTrailBucket')
 ```
 
 #### Glue
