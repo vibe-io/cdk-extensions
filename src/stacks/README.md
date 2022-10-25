@@ -37,6 +37,7 @@ All **cdk-extensions** constructs:
   - [S3 Access Logs](#S3AccessLogs)
   - [SES](#SES)
   - [WAF](#WAF)
+- [More About The Resources](#MoreInfoAboutTheResources)
 
 ### Summary
 Having a good logging strategy for your AWS Services is a recommended best
