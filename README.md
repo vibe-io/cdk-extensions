@@ -57,3 +57,18 @@ aws_logging_stack = AwsLoggingStack(self, 'AwsLoggingStack')
 ```shell
 $ cdk deploy
 ```
+## CDK-Extensions Design Principles
+### All **cdk-extensions** constructs should
+- Expose their configurations so other resources can make informed
+  decisions about the resource it’s working on.
+- Be fully compatible with **aws-cdk-lib** constructs
+- Expose every single field in the resources, so they can be configured
+  - In some cases, this may rely on custom features built into the **cdk-extensions**
+    constructs, to allow configuration of Cfn fields not normally exposed by CDK
+  - Anything that can be configured on a resource should be something that can
+    be customized using CDK
+- However, all fields have sane defaults, following best practices(i.e most secure way)
+  - Using the most secure settings should be a feature one opts out of, not the
+    other way around
+  - We should be able to launch constructs that adhere to best practices without
+    a lot of customization
