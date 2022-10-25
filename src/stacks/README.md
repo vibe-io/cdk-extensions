@@ -115,7 +115,7 @@ An Athena query is created to expose info about rejected internal traffic
 An Athena query is created that exposes failed attempts to access your S3 buckets
 - **s3-request-errors**: Gets the 100 most recent failed S3 access requests.
 
-### SES
+#### SES
 Protect your domain, and your enterprise's, sending reputation by tracking **bounces**
 and **complaints**
 - **ses-bounces**: Gets the 100 most recent bounces from the last day.
