@@ -13,15 +13,15 @@ All Stacks utilize patterns and constructs from the **cdk-extensions** library.
 ## AwsLoggingStack
 - [Summary](#Summary)
 - [Usage](#Usage)
-- [The Athena Queries](#TheAthenaQueries)
-  - [Application Load Balancer](#ApplicationLoadBalancer)
-  - [CloudFront](#CloudFront)
+- [The Athena Queries](#The-Athena-Queries)
+  - [Application Load Balancer](#Application-Load-Balancer)
+  - [CloudFront](#CloudFront-Distribution)
   - [CloudTrail](#CloudTrail)
-  - [VPC FlowLogs](#VPCFlowlogs)
-  - [S3 Access Logs](#S3AccessLogs)
+  - [VPC FlowLogs](#VPC-Flowlogs)
+  - [S3 Access Logs](#S3-Access-Logs)
   - [SES](#SES)
   - [WAF](#WAF)
-- [More Info About The Resources](#MoreInfoAboutTheResources)
+- [More Info About The Resources](#More-Info-About-The-Resources)
 
 ### Summary
 Having a good logging strategy for your AWS Services is a recommended best
