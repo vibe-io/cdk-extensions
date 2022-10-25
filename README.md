@@ -34,7 +34,7 @@ $ pip install cdk-extensions
 ### Examples
 
 #### AwsLoggingStack
-Minimal deployable example creates the default logging strategy defined in [AwsLoggingStack](./src/stacks/README.md#awsloggingstack) for Elastic Load Balancer, CloudFront, CloudTrail, VPC Flow Logs, S3 access logs, SES logs, and WAF logs. For each service, an S3 bucket is created and a Glue crawler to analyze and categorize the data and store the associated metadata in the AWS Glue Data Catalog. Default named queries have been defined for each AWS service. For more details on this and the other available stacks and constructs, consult the respective READMEs.
+Minimal deployable example creates the default logging strategy defined in [AwsLoggingStack](./src/stacks/README.md#AwsLoggingStack) for Elastic Load Balancer, CloudFront, CloudTrail, VPC Flow Logs, S3 access logs, SES logs, and WAF logs. For each service, an S3 bucket is created and a Glue crawler to analyze and categorize the data and store the associated metadata in the AWS Glue Data Catalog. Default named queries have been defined for each AWS service. For more details on this and the other available stacks and constructs, consult the respective READMEs.
 
 **TypeScript**
 ```TypeScript
