@@ -115,11 +115,6 @@ Creates an S3 Bucket and Glue jobs for storing and analyzing CloudFront access l
 By default generates a Glue Database and Table, and creates named Athena
 Queries useful in querying CloudFront log data.
 
-### SES
-Protect your domain, and your enterprise's, sending reputation by tracking **bounces**
-and **complaints**
-- **ses-bounces**: Gets the 100 most recent bounces from the last day.
-- **ses-complaints**: Gets the 100 most recent complaints from the last day.
 #### Usage
 **TypeScript**
 ```typescript

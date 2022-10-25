@@ -131,6 +131,12 @@ An Athena query is created to expose info about rejected internal traffic
 An Athena query is created that exposes failed attempts to access your S3 buckets
 - **s3-request-errors**: Gets the 100 most recent failed S3 access requests.
 
+### SES
+Protect your domain, and your enterprise's, sending reputation by tracking **bounces**
+and **complaints**
+- **ses-bounces**: Gets the 100 most recent bounces from the last day.
+- **ses-complaints**: Gets the 100 most recent complaints from the last day.
+
 #### WAF
 Strategy is implemented for storage of WAF logs in S3 with ETL jobs loading to the
 Glue table, but no default Athena queries have been added yet.
