@@ -86,22 +86,21 @@ start delivering the logs.
 
 Follow the docs for each service or resource to enable logging to the respective
 `AwsLoggingStack` S3 buckets:
-- [Enable Logging on an ALB](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-access-logging.html#enable-access-logs)
-- [Enable Logging on a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesLoggingOnOff)
-- [Create A Trail on CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html)
-- [Publish VPC Flow Logs to S3](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-s3.html#flow-logs-s3-create-flow-log)
-- [Enable Server Access logging for S3 Access Logs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#enable-server-logging)
-- [Stream SES Event logs](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-using-event-publishing-setup.html)
+- [Enable Logging on an ALB](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer.html#logwbraccesswbrlogsbucket-prefix)
+- [Enable Logging on a CloudFront Distribution](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cloudfront.Distribution.html#enablelogging)
+- [Create A Trail on CloudTrail](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cloudtrail.Trail.html)
+- [Publish VPC Flow Logs to S3](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.FlowLog.html)
+- [Enable Server Access logging for S3 Access Logs](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.CfnBucket.LoggingConfigurationProperty.html)
+- [Stream SES Event logs](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ses.CfnConfigurationSetEventDestination.EventDestinationProperty.html)
   - As described in the documentation linked above, SES event logs first need to
-    publish to an intermediate service, such as Kinesis Firehose, and then be streamed
-    to the S3 bucket
-- [Enable WAF logging to S3](https://docs.aws.amazon.com/waf/latest/developerguide/logging-management.html)
+    publish to an intermediate service, such as [Kinesis Firehose](https://docs.aws.amazon.com/cdk/api/v1/docs/aws-kinesisfirehose-readme.html#s3), and then be streamed to the S3 bucket
+- [Enable WAF logging to S3](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration.html)
 
 ### The Athena Queries
 Once beyond the nuts and bolts of setting up logging buckets and glue jobs to get
 important data into a secure format that can be queried, your data provides its best
 value through well written Athena queries that draw out important metrics and actionable
-intelligence. The **AwsLoggingStack** creates a few immediately useful [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html) for
+intelligence. The **AwsLoggingStack** creates a few immediately useful [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_athena.CfnNamedQuery.html) for
 each service to get you started.
 
 #### Application Load Balancer
