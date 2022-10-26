@@ -90,7 +90,7 @@ Follow the docs for each service or resource to enable logging to the respective
 - [Enable Logging on a CloudFront Distribution](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cloudfront.Distribution.html#enablelogging)
 - [Create A Trail on CloudTrail](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cloudtrail.Trail.html)
 - [Publish VPC Flow Logs to S3](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.FlowLog.html)
-- [Enable Server Access logging for S3 Access Logs](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.CfnBucket.LoggingConfigurationProperty.html)
+- [Enable Server Access logging for S3 Access Logs](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cloudfront.Distribution.html#logbucket)
 - [Stream SES Event logs](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ses.CfnConfigurationSetEventDestination.EventDestinationProperty.html)
   - As described in the documentation linked above, SES event logs first need to
     publish to an intermediate service, such as [Kinesis Firehose](https://docs.aws.amazon.com/cdk/api/v1/docs/aws-kinesisfirehose-readme.html#s3), and then be streamed to the S3 bucket(opinionated Firehose constructs are also
