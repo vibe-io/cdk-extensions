@@ -60,6 +60,7 @@ modules. As such, this stack can be initialized with no parameters to rapidly
 deploy an industry standard logging strategy into an AWS account, including recommended
 named Athena Queries for each service.
 
+#### Install
 To import and use this module within your CDK project:
 
 **TypeScript**
@@ -78,6 +79,23 @@ from cdk_extensions.stacks import (
 ```Python
 aws_logging_stack = AwsLoggingStack(self, 'AwsLoggingStack')
 ```
+
+#### Enable Logging
+**AwsLoggingStack** manages bucket policy and permissions. All that is left is to
+start delivering the logs.
+
+Follow the docs for each service or resource to enable logging to the respective
+`AwsLoggingStack` S3 buckets:
+- [Enable Logging on an ALB](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-access-logging.html#enable-access-logs)
+- [Enable Logging on a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesLoggingOnOff)
+- [Create A Trail on CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html)
+- [Publish VPC Flow Logs to S3](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-s3.html#flow-logs-s3-create-flow-log)
+- [Enable Server Access logging for S3 Access Logs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#enable-server-logging)
+- [Stream SES Event logs](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-using-event-publishing-setup.html)
+  - As described in the documentation linked above, SES event logs first need to
+    publish to an intermediate service, such as Kinesis Firehose, and then be streamed
+    to the S3 bucket
+- [Enable WAF logging to S3](https://docs.aws.amazon.com/waf/latest/developerguide/logging-management.html)
 
 ### The Athena Queries
 Once beyond the nuts and bolts of setting up logging buckets and glue jobs to get
