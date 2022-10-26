@@ -128,10 +128,8 @@ import {
   aws_cloudtrail as cloudtrail
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { Database } from 'cdk-extensions/lib/glue/database';
-import { AlbLogsTable } from 'cdk-extensions/lib/glue-tables';
-import { AwsLoggingStack } from 'cdk-extensions/lib/stacks';
-import { DeliveryStream } from 'cdk-extensions/lib/kinesis-firehose/delivery-stream'
+import { AwsLoggingStack } from 'cdk-extensions/stacks';
+import { DeliveryStream } from 'cdk-extensions/kinesis-firehose/delivery-stream'
 
 export class DemoStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
