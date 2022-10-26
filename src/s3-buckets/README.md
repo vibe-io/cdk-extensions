@@ -76,6 +76,7 @@ with the additional secure defaults:
   `restrictPublicBuckets`)
 - Versioning is set to `Enabled`
 - Server side bucket encryption using AES256
+  - Managed KMS encryption is *not* supported for Service logs
 
 ### AlbLogsBucket
 Creates an S3 Bucket and Glue jobs for storing and analyzing Elastic Load Balancer
