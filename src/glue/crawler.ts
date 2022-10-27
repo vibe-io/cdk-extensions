@@ -77,7 +77,7 @@ export interface CrawlerProps extends ResourceProps {
    */
   readonly configuration?: CrawlerConfiguration;
   /**
-   * The database object in which the crawler's output is stored.
+   * The {@link aws-glue.Database | Database } object in which the crawler's output is stored.
    */
   readonly database?: Database;
   /**
@@ -101,7 +101,7 @@ export interface CrawlerProps extends ResourceProps {
    */
   readonly recrawlBehavior?: RecrawlBehavior;
   /**
-   * Security Configuration object to apply to the Crawler
+   * A {@link aws-glue.SecurityConfiguration | SecurityConfiguration } object to apply to the Crawler
    */
   readonly securityConfiguration?: SecurityConfiguration;
   /**
@@ -142,16 +142,46 @@ export class Crawler extends Resource {
   private readonly _targets: ICrawlerTarget[] = [];
 
   // Input properties
-  public readonly configuration?: CrawlerConfiguration;
-  public readonly database?: Database;
-  public readonly deleteBehavior?: DeleteBehavior;
-  public readonly description?: string;
-  public readonly name?: string;
-  public readonly recrawlBehavior?: RecrawlBehavior;
-  public readonly scheduleExpression?: Schedule;
-  public readonly securityConfiguration?: SecurityConfiguration;
-  public readonly tablePrefix?: string;
-  public readonly updateBehavior?: UpdateBehavior;
+  /**
+		* {@link CrawlerProps.configuration}
+		*/
+	public readonly configuration?: CrawlerConfiguration;
+  /**
+		* {@link CrawlerProps.database}
+		*/
+	public readonly database?: Database;
+  /**
+		* {@link CrawlerProps.deleteBehavior}
+		*/
+	public readonly deleteBehavior?: DeleteBehavior;
+  /**
+		* {@link CrawlerProps.description}
+		*/
+	public readonly description?: string;
+  /**
+		* {@link CrawlerProps.name}
+		*/
+	public readonly name?: string;
+  /**
+		* {@link CrawlerProps.recrawlBehavior}
+		*/
+	public readonly recrawlBehavior?: RecrawlBehavior;
+  /**
+		* {@link CrawlerProps.scheduleExpression}
+		*/
+	public readonly scheduleExpression?: Schedule;
+  /**
+		* {@link CrawlerProps.securityConfiguration}
+		*/
+	public readonly securityConfiguration?: SecurityConfiguration;
+  /**
+		* {@link CrawlerProps.tablePrefix}
+		*/
+	public readonly tablePrefix?: string;
+  /**
+		* {@link CrawlerProps.updateBehavior}
+		*/
+	public readonly updateBehavior?: UpdateBehavior;
 
   // Resource properties
   public readonly role: Role;

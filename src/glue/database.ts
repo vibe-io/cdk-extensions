@@ -30,9 +30,18 @@ export interface DatabaseProps extends ResourceProps {
  */
 export class Database extends Resource {
   // Input properties
-  public readonly description?: string;
-  public readonly locationUri?: string;
-  public readonly name: string;
+  /**
+		* {@link DatabaseProps.description}
+		*/
+	public readonly description?: string;
+  /**
+		* {@link DatabaseProps.locationUri}
+		*/
+	public readonly locationUri?: string;
+  /**
+		* {@link DatabaseProps.name:}
+		*/
+	public readonly name: string;
 
   // Resource properties
   public readonly resource: CfnDatabase;

@@ -27,9 +27,7 @@ export interface ConnectionProps extends ResourceProps {
    */
   readonly connectionType: ConnectionType;
   /**
-   * cfn-glue-connection-connectioninput-connectiontype
-   * 
-   * @see [AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-description)
+   * A description for the Connection.
    */
   readonly description?: string;
   /**
@@ -76,12 +74,30 @@ export class Connection extends Resource implements IConnectable {
   private readonly _properties: {[key: string]: string} = {};
 
   // Input properties
-  public readonly connectionType: ConnectionType;
-  public readonly description?: string;
-  public readonly name?: string;
-  public readonly securityGroups: ISecurityGroup[];
-  public readonly subnets?: SubnetSelection;
-  public readonly vpc?: IVpc;
+  /**
+		* {@link ConnectionProps.connectionType:}
+		*/
+	public readonly connectionType: ConnectionType;
+  /**
+		* {@link ConnectionProps.description}
+		*/
+	public readonly description?: string;
+  /**
+		* {@link ConnectionProps.name}
+		*/
+	public readonly name?: string;
+  /**
+		* {@link ConnectionProps.securityGroups:}
+		*/
+	public readonly securityGroups: ISecurityGroup[];
+  /**
+		* {@link ConnectionProps.subnets}
+		*/
+	public readonly subnets?: SubnetSelection;
+  /**
+		* {@link ConnectionProps.vpc}
+		*/
+	public readonly vpc?: IVpc;
 
   // Resource properties
   public readonly resource: CfnConnection;

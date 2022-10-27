@@ -164,20 +164,62 @@ export class Job extends Resource {
   private readonly _connections: Connection[] = [];
 
   // Input properties
+  /**
+   * {@link JobProps.allocatedCapacity }
+   */
   public readonly allocatedCapacity?: number;
+  /**
+   * {@link JobProps.connections}
+   */
   public readonly connections?: Connection[];
-  public readonly continuousLogging?: ContinuousLoggingProps;
-  public readonly description?: string;
-  public readonly executable: JobExecutable;
-  public readonly maxCapacity?: number;
-  public readonly maxConcurrentRuns?: number;
-  public readonly maxRetries?: number;
-  public readonly name?: string;
-  public readonly notifyDelayAfter?: Duration;
-  public readonly securityConfiguration?: SecurityConfiguration;
-  public readonly timeout?: Duration;
-  public readonly workerCount?: number;
-  public readonly workerType?: WorkerType;
+  /**
+		* {@link JobProps.continuousLogging}
+		*/
+	public readonly continuousLogging?: ContinuousLoggingProps;
+  /**
+		* {@link JobProps.description}
+		*/
+	public readonly description?: string;
+  /**
+		* {@link JobProps.executable:}
+		*/
+	public readonly executable: JobExecutable;
+  /**
+		* {@link JobProps.maxCapacity}
+		*/
+	public readonly maxCapacity?: number;
+  /**
+		* {@link JobProps.maxConcurrentRuns}
+		*/
+	public readonly maxConcurrentRuns?: number;
+  /**
+		* {@link JobProps.maxRetries}
+		*/
+	public readonly maxRetries?: number;
+  /**
+		* {@link JobProps.name}
+		*/
+	public readonly name?: string;
+  /**
+		* {@link JobProps.notifyDelayAfter}
+		*/
+	public readonly notifyDelayAfter?: Duration;
+  /**
+		* {@link JobProps.securityConfiguration}
+		*/
+	public readonly securityConfiguration?: SecurityConfiguration;
+  /**
+		* {@link JobProps.timeout}
+		*/
+	public readonly timeout?: Duration;
+  /**
+		* {@link JobProps.workerCount}
+		*/
+	public readonly workerCount?: number;
+  /**
+		* {@link JobProps.workerType}
+		*/
+	public readonly workerType?: WorkerType;
 
   // Resource properties
   public readonly logGroup?: ILogGroup;

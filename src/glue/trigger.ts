@@ -83,13 +83,34 @@ export class Trigger extends Resource {
   private readonly _predicates: ITriggerPredicate[] = [];
 
   // Input properties
-  public readonly description?: string;
-  public readonly name?: string;
-  public readonly predicateOperator: PredicateOperator;
-  public readonly schedule?: Schedule;
-  public readonly startOnCreation?: boolean;
-  public readonly type: TriggerType;
-  public readonly workflow?: Workflow;
+  /**
+		* {@link TriggerProps.description}
+		*/
+	public readonly description?: string;
+  /**
+		* {@link TriggerProps.name}
+		*/
+	public readonly name?: string;
+  /**
+		* {@link TriggerProps.predicateOperator:}
+		*/
+	public readonly predicateOperator: PredicateOperator;
+  /**
+		* {@link TriggerProps.schedule}
+		*/
+	public readonly schedule?: Schedule;
+  /**
+		* {@link TriggerProps.startOnCreation}
+		*/
+	public readonly startOnCreation?: boolean;
+  /**
+		* {@link TriggerProps.type:}
+		*/
+	public readonly type: TriggerType;
+  /**
+		* {@link TriggerProps.workflow}
+		*/
+	public readonly workflow?: Workflow;
 
   // Resource properties
   public readonly resource: CfnTrigger;

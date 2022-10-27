@@ -65,9 +65,18 @@ export interface JdbcConnectionProps extends ResourceProps {
  */
 export class JdbcConnection extends Connection {
   // Input properties
-  public readonly password: SecretValue;
-  public readonly url: string;
-  public readonly username: string;
+  /**
+		* {@link JdbcConnectionProps.password:}
+		*/
+	public readonly password: SecretValue;
+  /**
+		* {@link JdbcConnectionProps.url:}
+		*/
+	public readonly url: string;
+  /**
+		* {@link JdbcConnectionProps.username:}
+		*/
+	public readonly username: string;
 
 /**
  * Creates a new instance of the JdbcConnection class

@@ -138,20 +138,62 @@ export class Table extends Resource {
   private readonly _storageParameters: {[key: string]: string} = {};
 
   // Input properties
-  public readonly compressed?: boolean;
-  public readonly dataFormat?: DataFormat;
-  public readonly database: Database;
-  public readonly description?: string;
-  public readonly location?: string;
-  public readonly name?: string;
-  public readonly owner?: string;
-  public readonly retention?: Duration;
-  public readonly serdeName?: string;
-  public readonly tableType?: TableType;
-  public readonly targetTable?: Table;
-  public readonly viewExpandedText?: string;
-  public readonly viewOriginalText?: string;
-  public readonly storedAsSubDirectories?: boolean;
+  /**
+		* {@link TableProps.compressed}
+		*/
+	public readonly compressed?: boolean;
+  /**
+		* {@link TableProps.dataFormat}
+		*/
+	public readonly dataFormat?: DataFormat;
+  /**
+		* {@link TableProps.database:}
+		*/
+	public readonly database: Database;
+  /**
+		* {@link TableProps.description}
+		*/
+	public readonly description?: string;
+  /**
+		* {@link TableProps.location}
+		*/
+	public readonly location?: string;
+  /**
+		* {@link TableProps.name}
+		*/
+	public readonly name?: string;
+  /**
+		* {@link TableProps.owner}
+		*/
+	public readonly owner?: string;
+  /**
+		* {@link TableProps.retention}
+		*/
+	public readonly retention?: Duration;
+  /**
+		* {@link TableProps.serdeName}
+		*/
+	public readonly serdeName?: string;
+  /**
+		* {@link TableProps.tableType}
+		*/
+	public readonly tableType?: TableType;
+  /**
+		* {@link TableProps.targetTable}
+		*/
+	public readonly targetTable?: Table;
+  /**
+		* {@link TableProps.viewExpandedText}
+		*/
+	public readonly viewExpandedText?: string;
+  /**
+		* {@link TableProps.viewOriginalText}
+		*/
+	public readonly viewOriginalText?: string;
+  /**
+		* {@link TableProps.storedAsSubDirectories}
+		*/
+	public readonly storedAsSubDirectories?: boolean;
 
   // Resource properties
   public readonly resource: CfnTable;
