@@ -3851,11 +3851,8 @@
     "argparse" "^2.0.1"
 
 "js-yaml@3.14.0":
-<<<<<<< HEAD
-=======
   "integrity" "sha512-/4IbIeHcD9VMHFqDR/gQ7EdZdLimOvW2DdcxFjdyyZ9NsbS+ccrXqVWDtab/lRl5AlUqmpBx8EhPaWR+OtY17A=="
   "resolved" "https://registry.npmjs.org/js-yaml/-/js-yaml-3.14.0.tgz"
->>>>>>> e105e32d159967c071e1fe1394e01713968afda9
   "version" "3.14.0"
   dependencies:
     "argparse" "^1.0.7"
