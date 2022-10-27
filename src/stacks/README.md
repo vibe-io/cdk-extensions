@@ -22,6 +22,7 @@ All Stacks utilize patterns and constructs from the **cdk-extensions** library.
   - [SES](#SES)
   - [WAF](#WAF)
 - [More Info About The Resources](#More-Info-About-The-Resources)
+- [Examples](#Examples)
 
 ### Summary
 Having a good logging strategy for your AWS Services is a recommended best
@@ -92,9 +93,13 @@ buckets, they must be first wrapped in an L2 construct.
 ```Typescript
 logging_stack = new AwsLoggingStack(this, 'LoggingStack')
 
-const l2_cloudtrail_bucket = s3.Bucket.fromCfnBucket(logging_stack.cloudtraillogsBucket.resource)
+const l2_cloudtrail_bucket = s3.Bucket.fromCfnBucket(
+  logging_stack.cloudtraillogsBucket.resource
+);
 // OR
-const l2_cloudtrail_bucket = s3.Bucket.fromBucketName(this, 'FlowlogsBucket', logging_stack.cloudtrailLogsBucket.bucketName)
+const l2_cloudtrail_bucket = s3.Bucket.fromBucketName(this, 'CloudtrailBucket',
+  logging_stack.cloudtrailLogsBucket.bucketName
+);
 
 const trail = new cloudtrail.Trail(this, 'myCloudTrail', {
       bucket: l2_cloudtrail_bucket
@@ -113,87 +118,6 @@ Follow the docs for each service or resource to enable logging to the respective
     publish to an intermediate service, such as [Kinesis Firehose](https://docs.aws.amazon.com/cdk/api/v1/docs/aws-kinesisfirehose-readme.html#s3), and then be streamed to the S3 bucket(opinionated Firehose constructs are also
     available in [cdk-extensions/kinesis-firehose](../kinesis-firehose))
 - [Enable WAF logging to S3](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_wafv2.CfnLoggingConfiguration.html)
-
-##### Full Example
-```TypeScript
-import {
-  App,
-  Stack,
-  StackProps,
-  aws_s3 as s3,
-  aws_elasticloadbalancingv2 as elbv2,
-  aws_ec2 as ec2,
-  aws_cloudfront as cloudfront,
-  aws_cloudfront_origins as origins,
-  aws_cloudtrail as cloudtrail
-} from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-import { AwsLoggingStack } from 'cdk-extensions/stacks';
-import { DeliveryStream } from 'cdk-extensions/kinesis-firehose/delivery-stream'
-
-export class DemoStack extends Stack {
-  constructor(scope: Construct, id: string, props?: StackProps) {
-    super(scope, id, props);
-
-    // Create the Logging stack.
-    const logging_stack = new AwsLoggingStack(this, 'AwsLoggingStack', {
-      env: {
-        account: process.env.CDK_DEFAULT_ACCOUNT,
-        region: process.env.CDK_DEFAULT_REGION
-      }
-    })
-
-    // Create a VPC for demo purposes
-    const vpc = new ec2.Vpc(this, 'VPC')
-
-    // FLOW LOGS
-    // Enable flow log output to the FlowLogs bucket
-    new ec2.FlowLog(this, 'FlowLog', {
-      resourceType: ec2.FlowLogResourceType.fromVpc(vpc),
-      destination: ec2.FlowLogDestination.toS3(
-        // cdk-extensions construct resources are CFN resources. Logging buckets
-        // are exported as 'resource', and can be used to get the iBucket resource
-        // required
-        s3.Bucket.fromCfnBucket(logging_stack.flowLogsBucket.resource)
-      )
-    });
-
-    // ALB ACCESS LOGS
-    // Create a simple Load Balancer for demo purposes
-    const lb = new elbv2.ApplicationLoadBalancer(this, 'LB', {
-          vpc
-    })
-    // Send logs to the AlbLogsBucket
-    lb.logAccessLogs(
-      s3.Bucket.fromCfnBucket(logging_stack.albLogsBucket.resource)
-    )
-
-    // S3 ACCESS LOGS
-    // Create a simple S3 bucket for demo purposes, with access logging sent to
-    // the s3AccessLogsBucket
-    const s3Bucket = new s3.Bucket(this, 'WebsiteBucket', {
-      serverAccessLogsBucket: s3.Bucket.fromCfnBucket(logging_stack.s3AccessLogsBucket.resource)
-    })
-
-    // CLOUDFRONT LOGS
-    // Create a demo CDN in front of the demo bucket, with logBucket configured
-    // to the cloudfrontLogsBucket
-    const cdn = new cloudfront.Distribution(this, 'Distro', {
-      defaultBehavior: {
-        origin: new origins.S3Origin(s3Bucket)
-      },
-      logBucket: s3.Bucket.fromCfnBucket(logging_stack.cloudfrontLogsBucket.resource)
-    })
-
-    // CLOUDTRAIL
-    // Create a Cloudtrail trail that sends logs to the CloudtrailLogsBucket
-    const trail = new cloudtrail.Trail(this, 'myCloudTrail', {
-      bucket: s3.Bucket.fromCfnBucket(logging_stack.cloudtrailLogsBucket.resource)
-    });
-  }
-}
-```
-
 
 ### The Athena Queries
 Once beyond the nuts and bolts of setting up logging buckets and glue jobs to get
@@ -245,3 +169,134 @@ Glue table, but no default Athena queries have been added yet.
 This solution utilizes the **AwsLoggingStack** patterns from the **cdk-extensions/glue-tables** and **cdk-extensions/s3-buckets** libraries, which in turn utilize constructs from
 **cdk-extensions** **Glue** and **Athena** libraries. Detailed info about each is
 covered their respective documentation.
+
+### Examples
+#### TypeScript
+*bin/demo.ts*
+```typescript
+#!/usr/bin/env node
+import * as cdk from 'aws-cdk-lib';
+import { DemoStack } from '../lib/demo-stack';
+import { AwsLoggingStack } from 'cdk-extensions/stacks';
+
+const app = new cdk.App();
+
+// For some cases, like ALB and Flow Logs, we can not have an environment agnostic
+// stack
+const env = {
+  account: process.env.CDK_DEFAULT_ACCOUNT,
+  region: process.env.CDK_DEFAULT_REGION
+}
+
+const aws_logging_stack = new AwsLoggingStack(app, 'AwsLoggingStack', {
+  env: env
+});
+
+new DemoStack(app, 'DemoStack', {
+  env: env,
+  aws_logging_stack: aws_logging_stack
+});
+```
+*/lib/demo-stack*
+```TypeScript
+import {
+  App,
+  Stack,
+  StackProps,
+  aws_s3 as s3,
+  aws_elasticloadbalancingv2 as elbv2,
+  aws_ec2 as ec2,
+  aws_cloudfront as cloudfront,
+  aws_cloudfront_origins as origins,
+  aws_cloudtrail as cloudtrail
+} from 'aws-cdk-lib';
+import { Construct } from 'constructs';
+import { AwsLoggingStack } from 'cdk-extensions/stacks';
+
+export interface DemoProps extends StackProps {
+  readonly aws_logging_stack: AwsLoggingStack;
+}
+
+export class DemoStack extends Stack {
+  // input properties
+  public readonly aws_logging_stack: AwsLoggingStack;
+
+  constructor(scope: Construct, id: string, props: DemoProps) {
+    super(scope, id, props);
+    // Wrap L1 logging bucket in L2 Construct
+    const ses_logs_bucket = s3.Bucket.fromBucketName(this, 'SESLogsBucket',
+      props.aws_logging_stack.sesLogsBucket.bucketName
+    );
+    const waf_logs_bucket = s3.Bucket.fromBucketName(this, 'WAFLogsBucket',
+      props.aws_logging_stack.wafLogsBucket.bucketName
+    );
+
+    // Create the demo resources
+
+    // Create a VPC
+    const vpc = new ec2.Vpc(this, 'VPC')
+
+    // FLOW LOGS
+    // Wrap L1 logging bucket in L2 Construct
+    const flow_logs_bucket = s3.Bucket.fromBucketName(this, 'FlowLogsBucket',
+      props.aws_logging_stack.flowLogsBucket.bucketName
+    );
+    // Enable flow log output to the FlowLogs bucket for the new VPC
+    new ec2.FlowLog(this, 'FlowLog', {
+      resourceType: ec2.FlowLogResourceType.fromVpc(vpc),
+      destination: ec2.FlowLogDestination.toS3(
+        flow_logs_bucket
+      )
+    });
+
+    // S3 ACCESS LOGS
+    const s3_access_logs_bucket = s3.Bucket.fromBucketName(this, 'S3AccessLogsBucket',
+      props.aws_logging_stack.s3AccessLogsBucket.bucketName
+    );
+    // Create a simple S3 bucket, with access logging sent to
+    // the s3AccessLogsBucket
+    const s3Bucket = new s3.Bucket(this, 'WebsiteBucket', {
+      serverAccessLogsBucket: s3_access_logs_bucket
+    })
+
+    // CLOUDFRONT LOGS
+    // Wrap L1 logging bucket in L2 Construct
+    const cloudfront_logs_bucket = s3.Bucket.fromBucketName(this, 'CloudfrontLogsBucket',
+      props.aws_logging_stack.cloudfrontLogsBucket.bucketName
+    );
+    // Create a CDN in front of the demo bucket, with logBucket configured
+    // to the cloudfrontLogsBucket
+    const cdn = new cloudfront.Distribution(this, 'Distro', {
+      defaultBehavior: {
+        origin: new origins.S3Origin(s3Bucket)
+      },
+      logBucket: cloudfront_logs_bucket
+    })
+
+
+    // ALB ACCESS LOGS
+    //  Wrap L1 bucket in L2 construct
+    const alb_logs_bucket = s3.Bucket.fromBucketName(this, 'AlbLogsBucket',
+      props.aws_logging_stack.albLogsBucket.bucketName
+    );
+    // Create a simple Load Balancer
+    const lb = new elbv2.ApplicationLoadBalancer(this, 'LB', {
+          vpc
+    })
+    // Send logs to the AlbLogsBucket
+    lb.logAccessLogs(
+      alb_logs_bucket
+    )
+
+    // CLOUDTRAIL
+    // Wrap L1 logging bucket in L2 Construct
+    const cloudtrail_logs_bucket = s3.Bucket.fromBucketName(this, 'CloudtrailLogsBucket',
+      props.aws_logging_stack.cloudtrailLogsBucket.bucketName
+    );
+    // Create a Cloudtrail trail that sends logs to the CloudtrailLogsBucket
+    const trail = new cloudtrail.Trail(this, 'myCloudTrail', {
+      bucket: cloudtrail_logs_bucket
+    });
+  }
+}
+```
