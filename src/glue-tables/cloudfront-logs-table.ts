@@ -9,11 +9,35 @@ import { BasicColumn, Database, InputFormat, OutputFormat, SerializationLibrary,
  * Configuration for CloudfrontAccessLogsTable
  */
 export interface CloudfrontLogsTableProps extends ResourceProps {
+  /**
+   * The bucket where logs will be contained
+   * 
+   * @see [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
+   */
   readonly bucket: IBucket;
+  /**
+   * Boolean indicating whether to create Athena default Athena queries for the ALB Logs
+   * 
+   * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
+   */
   readonly createQueries?: boolean;
+  /**
+   * A cdk-extensions/glue Database object that the table should be created in.
+   * 
+   * 
+   */
   readonly database: Database;
+  /**
+   * Boolean for adding "friendly names" for the created Athena queries.
+   */
   readonly friendlyQueryNames?: boolean;
+  /**
+   * Name for Cloudfront Logs Table
+   */
   readonly name?: string;
+  /**
+   * Set a custom prefix for the S3 Bucket
+   */
   readonly s3Prefix?: string;
 }
 

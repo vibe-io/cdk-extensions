@@ -38,7 +38,7 @@ export interface AlbLogsTableProps extends ResourceProps {
    */
   readonly name?: string;
   /**
-   * 
+   * Set a custom prefix for the S3 Bucket
    */
   readonly s3Prefix?: string;
 }
