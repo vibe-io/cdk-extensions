@@ -12,7 +12,7 @@ import { InputFormat, OutputFormat, SerializationLibrary } from '../glue/lib/dat
  */
 export interface AlbLogsTableProps extends ResourceProps {
   /**
-   * The bucket where logs will be contained
+   * A bucket where logs will be stored
    * 
    * @see [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
    */
@@ -26,7 +26,7 @@ export interface AlbLogsTableProps extends ResourceProps {
   /**
    * A cdk-extensions/glue Database object that the table should be created in.
    * 
-   * 
+   * @see [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
    */
   readonly database: Database;
   /**
