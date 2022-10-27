@@ -26,13 +26,13 @@ export interface FlowLogsTableProps extends ResourceProps {
    */
   readonly createQueries?: boolean;
   /**
-   * A cdk-extensions/glue Database object that the table should be created in.
+   * A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
    * 
    * @see [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
    */
   readonly database: Database;
   /**
-   * A cdk-extentions/ec2 FlowLogFormat object defining the desired formatting for Flow Logs
+   * A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs
    */
   readonly format?: FlowLogFormat;
   /**
@@ -51,8 +51,19 @@ export interface FlowLogsTableProps extends ResourceProps {
 
 export class FlowLogsTable extends Table {
   // Input properties
+  /**
+   * Boolean indicating whether to create Athena default Athena queries for the ALB Logs
+   * 
+   * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
+   */
   public readonly createQueries: boolean;
+  /**
+   * A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs
+   */
   public readonly format: FlowLogFormat;
+  /**
+   * Boolean for adding "friendly names" for the created Athena queries.
+   */
   public readonly friendlyQueryNames: boolean;
 
   // Resource properties

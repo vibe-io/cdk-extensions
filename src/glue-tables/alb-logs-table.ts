@@ -24,7 +24,7 @@ export interface AlbLogsTableProps extends ResourceProps {
    */
   readonly createQueries?: boolean;
   /**
-   * A cdk-extensions/glue Database object that the table should be created in.
+   * A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
    * 
    * @see [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
    */
@@ -45,7 +45,15 @@ export interface AlbLogsTableProps extends ResourceProps {
 
 export class AlbLogsTable extends Table {
   // Input properties
+  /**
+   * Boolean indicating whether to create Athena default Athena queries for the ALB Logs
+   * 
+   * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
+   */
   public readonly createQueries: boolean;
+  /**
+   * Boolean for adding "friendly names" for the created Athena queries.
+   */
   public readonly friendlyQueryNames: boolean;
 
   // Resource properties

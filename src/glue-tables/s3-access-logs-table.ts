@@ -22,10 +22,10 @@ export interface S3AccessLogsTableProps extends ResourceProps {
     */
    readonly createQueries?: boolean;
    /**
-    * A cdk-extensions/glue Database object that the table should be created in.
-    * 
-    * @see [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
-    */
+   * A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+   * 
+   * @see [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
+   */
    readonly database: Database;
    /**
     * Boolean for adding "friendly names" for the created Athena queries.
