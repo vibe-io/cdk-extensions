@@ -1,10 +1,13 @@
 import { Resource } from 'aws-cdk-lib';
 import { FargateCluster, FargateClusterProps } from 'aws-cdk-lib/aws-eks';
 import { ILogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
+import { ISecret } from 'aws-cdk-lib/aws-secretsmanager';
+import { IParameter } from 'aws-cdk-lib/aws-ssm';
 import { Construct, IDependable } from 'constructs';
 import { CloudWatchMonitoring } from '../k8s-aws/cloudwatch-monitoring';
 import { ExternalDns } from '../k8s-aws/external-dns';
-import { ExternalSecretsOperator } from '../k8s-aws/external-secrets-operator';
+import { ExternalSecret } from '../k8s-aws/external-secret';
+import { ExternalSecretsOperator, NamespacedExternalSecretOptions } from '../k8s-aws/external-secrets-operator';
 import { FargateLogger } from '../k8s-aws/fargate-logger';
 
 
@@ -119,6 +122,22 @@ export class AwsIntegratedFargateCluster extends Resource {
       });
       this.externalSecrets.node.addDependency(lastResource);
       lastResource = this.externalSecrets;
+    }
+  }
+
+  public registerSecretsManagerSecret(id: string, secret: ISecret, options: NamespacedExternalSecretOptions): ExternalSecret {
+    if (this.externalSecrets) {
+      return this.externalSecrets.registerSecretsManagerSecret(id, secret, options);
+    } else {
+      throw new Error('Cannot register secret as external secret functionality was explicitly disabled.');
+    }
+  }
+
+  public registerSsmParameterSecret(id: string, parameter: IParameter, options?: NamespacedExternalSecretOptions): ExternalSecret {
+    if (this.externalSecrets) {
+      return this.externalSecrets.registerSsmParameterSecret(id, parameter, options);
+    } else {
+      throw new Error('Cannot register secret as external secret functionality was explicitly disabled.');
     }
   }
 }

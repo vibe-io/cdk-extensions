@@ -15,6 +15,9 @@ export interface AwsSecretStoreProps extends ResourceProps {
 }
 
 export class AwsSecretStore extends Resource implements ISecretStore {
+  // Static properties
+  public static readonly NAME_VALIDATOR_REGEX=/^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$/;
+
   // Input properties
   public readonly cluster: ICluster;
   public readonly name: string;
@@ -35,9 +38,18 @@ export class AwsSecretStore extends Resource implements ISecretStore {
     });
 
     this.cluster = props.cluster;
-    this.name = props.name ?? `ss${Names.uniqueId(this).slice(-61)}`;
-    this.namespace = props.namespace ?? 'external-secrets';
+    this.name = props.name ?? `ss${Names.uniqueId(this).slice(-61).toLowerCase()}`;
+    this.namespace = props.namespace ?? 'default';
     this.service = props.service;
+
+    if (!AwsSecretStore.NAME_VALIDATOR_REGEX.test(this.name) || this.name.length > 63) {
+      throw new Error([
+        `Invalid external secret store name: '${this.name}'. Valid names`,
+        'must be less than 64 characters long. They can only contain',
+        'lowercase letters, numbers, hyphens, and dots. They must start',
+        'and end with an alphanumeric character.',
+      ].join(' '));
+    }
 
     this.serviceAccount = new ServiceAccount(this, 'service-account', {
       cluster: this.cluster,

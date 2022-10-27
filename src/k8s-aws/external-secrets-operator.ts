@@ -4,9 +4,18 @@ import { ISecret } from 'aws-cdk-lib/aws-secretsmanager';
 import { IParameter } from 'aws-cdk-lib/aws-ssm';
 import { Construct } from 'constructs';
 import { ExternalSecret } from './external-secret';
-import { SecretsManagerFieldMapping, SecretsManagerSecretStore } from './secrets-manager-secret-store';
-import { SsmFieldMapping, SsmSecretStore } from './ssm-secret-store';
+import { SecretsManagerSecretStore } from './secrets-manager-secret-store';
+import { SsmSecretStore } from './ssm-secret-store';
 
+
+export interface ExternalSecretOptions {
+  readonly fields?: {[k8sKey: string]: string};
+  readonly name?: string;
+}
+
+export interface NamespacedExternalSecretOptions extends ExternalSecretOptions {
+  readonly namespace?: string;
+}
 
 /**
  * Configuration for the Inbound Resolver resource.
@@ -65,21 +74,27 @@ export class ExternalSecretsOperator extends Resource {
     this.operatorName = this.name;
   }
 
-  public registerSecretsManagerSecret(secret: ISecret, fields?: SecretsManagerFieldMapping[]): ExternalSecret {
-    const id = 'store-secrets-manager';
-    const store = this.node.tryFindChild(id) as SecretsManagerSecretStore ?? new SecretsManagerSecretStore(this, id, {
+  public registerSecretsManagerSecret(id: string, secret: ISecret, options?: NamespacedExternalSecretOptions): ExternalSecret {
+    const namespace = options?.namespace ?? 'default';
+    const storeId = `store::${namespace}::secrets-manager`;
+    const store = this.node.tryFindChild(storeId) as SecretsManagerSecretStore ?? new SecretsManagerSecretStore(this, storeId, {
       cluster: this.cluster,
+      namespace: options?.namespace,
     });
+    store.node.addDependency(this.resource);
 
-    return store.addSecret(secret, fields);
+    return store.addSecret(id, secret, options);
   }
 
-  public registerSsmParameterSecret(parameter: IParameter, fields?: SsmFieldMapping[]): ExternalSecret {
-    const id = 'store-ssm';
-    const store = this.node.tryFindChild(id) as SsmSecretStore ?? new SsmSecretStore(this, id, {
+  public registerSsmParameterSecret(id: string, parameter: IParameter, options?: NamespacedExternalSecretOptions): ExternalSecret {
+    const namespace = options?.namespace ?? 'default';
+    const storeId = `store::${namespace}::ssm`;
+    const store = this.node.tryFindChild(storeId) as SsmSecretStore ?? new SsmSecretStore(this, storeId, {
       cluster: this.cluster,
+      namespace: options?.namespace,
     });
+    store.node.addDependency(this.resource);
 
-    return store.addSecret(parameter, fields);
+    return store.addSecret(id, parameter, options);
   }
 }

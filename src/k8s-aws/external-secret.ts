@@ -21,6 +21,7 @@ export interface ExternalSecretProps extends ResourceProps {
   readonly cluster: ICluster;
   readonly fields?: SecretFieldReference[];
   readonly name?: string;
+  readonly namespace?: string;
   readonly refreshInterval?: Duration;
   readonly secretStore: ISecretStore;
 }
@@ -30,6 +31,7 @@ export class ExternalSecret extends Resource {
   public readonly cluster: ICluster;
   public readonly fields: SecretFieldReference[];
   public readonly name: string;
+  public readonly namespace?: string;
   public readonly refreshInterval?: Duration;
   public readonly secretStore: ISecretStore;
 
@@ -48,6 +50,7 @@ export class ExternalSecret extends Resource {
     this.cluster = props.cluster;
     this.fields = props.fields ?? [];
     this.name = props.name ?? `es${Names.uniqueId(this).slice(-61).toLowerCase()}`;
+    this.namespace = props.namespace;
     this.refreshInterval = props.refreshInterval ?? Duration.minutes(1);
     this.secretStore = props.secretStore;
 
@@ -59,6 +62,7 @@ export class ExternalSecret extends Resource {
           kind: 'ExternalSecret',
           metadata: {
             name: this.name,
+            namespace: this.namespace,
           },
           spec: {
             refreshInterval: `${this.refreshInterval.toMinutes()}m`,

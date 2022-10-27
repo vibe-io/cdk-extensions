@@ -1,16 +1,12 @@
-import { Names, ResourceProps } from 'aws-cdk-lib';
+import { ResourceProps } from 'aws-cdk-lib';
 import { ICluster } from 'aws-cdk-lib/aws-eks';
 import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { IParameter } from 'aws-cdk-lib/aws-ssm';
 import { Construct } from 'constructs';
 import { AwsSecretStore } from './aws-secret-store';
 import { ExternalSecret } from './external-secret';
+import { ExternalSecretOptions } from './external-secrets-operator';
 
-
-export interface SsmFieldMapping {
-  kubernetesKey: string;
-  parameterKey?: string;
-}
 
 /**
  * Configuration options for adding a new secret store resource.
@@ -43,15 +39,16 @@ export class SsmSecretStore extends AwsSecretStore {
     }));
   }
 
-  public addSecret(parameter: IParameter, fields?: SsmFieldMapping[]): ExternalSecret {
-    const id = Names.nodeUniqueId(parameter.node);
-    const output = new ExternalSecret(parameter, `secret-${id}`, {
+  public addSecret(id: string, parameter: IParameter, options?: ExternalSecretOptions): ExternalSecret {
+    const output = new ExternalSecret(parameter, `external-secret-${id}`, {
       cluster: this.cluster,
-      fields: fields?.map((x) => {
+      name: options?.name,
+      namespace: this.namespace,
+      fields: options?.fields === undefined ? undefined : Object.keys(options.fields).map((x) => {
         return {
-          kubernetesKey: x.kubernetesKey,
+          kubernetesKey: x,
           remoteRef: parameter.parameterArn,
-          remoteKey: x.parameterKey ?? x.kubernetesKey,
+          remoteKey: options.fields![x],
         };
       }),
       secretStore: this,

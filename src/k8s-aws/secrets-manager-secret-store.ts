@@ -1,10 +1,11 @@
-import { ArnFormat, Names, ResourceProps } from 'aws-cdk-lib';
+import { ArnFormat, ResourceProps } from 'aws-cdk-lib';
 import { ICluster } from 'aws-cdk-lib/aws-eks';
 import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { ISecret } from 'aws-cdk-lib/aws-secretsmanager';
 import { Construct } from 'constructs';
 import { AwsSecretStore } from './aws-secret-store';
 import { ExternalSecret } from './external-secret';
+import { ExternalSecretOptions } from './external-secrets-operator';
 
 
 export interface SecretsManagerFieldMapping {
@@ -47,15 +48,16 @@ export class SecretsManagerSecretStore extends AwsSecretStore {
     }));
   }
 
-  public addSecret(secret: ISecret, fields?: SecretsManagerFieldMapping[]): ExternalSecret {
-    const id = Names.nodeUniqueId(secret.node);
-    const output = new ExternalSecret(this, `secret-${id}`, {
+  public addSecret(id: string, secret: ISecret, options?: ExternalSecretOptions): ExternalSecret {
+    const output = new ExternalSecret(secret, `external-secret-${id}`, {
       cluster: this.cluster,
-      fields: fields?.map((x) => {
+      name: options?.name,
+      namespace: this.namespace,
+      fields: options?.fields === undefined ? undefined : Object.keys(options.fields).map((x) => {
         return {
-          kubernetesKey: x.kubernetesKey,
+          kubernetesKey: x,
           remoteRef: secret.secretArn,
-          remoteKey: x.secretsManagerKey ?? x.kubernetesKey,
+          remoteKey: options.fields![x],
         };
       }),
       secretStore: this,
