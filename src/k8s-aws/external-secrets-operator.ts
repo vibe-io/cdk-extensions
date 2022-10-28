@@ -5,7 +5,7 @@ import { IParameter } from 'aws-cdk-lib/aws-ssm';
 import { Construct } from 'constructs';
 import { ExternalSecret, SecretFieldReference } from './external-secret';
 import { SecretsManagerSecretStore } from './secrets-manager-secret-store';
-import { SsmParameterSecretStore } from './ssm-secret-store';
+import { SsmParameterSecretStore } from './ssm-parameter-secret-store';
 
 
 export interface ExternalSecretOptions {

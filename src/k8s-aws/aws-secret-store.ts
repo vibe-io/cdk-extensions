@@ -1,38 +1,114 @@
 import { Names, Resource, ResourceProps } from 'aws-cdk-lib';
 import { ICluster, KubernetesManifest, ServiceAccount } from 'aws-cdk-lib/aws-eks';
-import { Construct } from 'constructs';
-import { ISecretStore } from './external-secret';
+import { Construct, IDependable } from 'constructs';
 
+
+/**
+ * Represents a Kubernetes secret store resource.
+ */
+export interface ISecretStore extends IDependable {
+  /**
+   * The name of the secret store as it appears in Kubernetes.
+   */
+  readonly secretStoreName: string;
+}
 
 /**
  * Configuration options for adding a new secret store resource.
  */
 export interface AwsSecretStoreProps extends ResourceProps {
+  /**
+   * The EKS cluster where the secret store should be created.
+   */
   readonly cluster: ICluster;
+
+  /**
+   * A human friendly name for the secret store.
+   */
   readonly name?: string;
+
+  /**
+   * The Kubernetes namespace where the secret store should be created.
+   */
   readonly namespace?: string;
+
+  /**
+   * The name of the service provider backing the secret store.
+   */
   readonly service: string;
 }
 
+/**
+ * A generic class representing secret store that is backed by an AWS service.
+ */
 export class AwsSecretStore extends Resource implements ISecretStore {
-  // Static properties
+  /**
+   * The regex pattern used to validate secret store names.
+   */
   public static readonly NAME_VALIDATOR_REGEX=/^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$/;
 
-  // Input properties
+
+  /**
+   * The EKS cluster where the secret store should be created.
+   *
+   * @group Inputs
+   */
   public readonly cluster: ICluster;
+
+  /**
+   * A human friendly name for the secret store.
+   *
+   * @group Inputs
+   */
   public readonly name: string;
+
+  /**
+   * The Kubernetes namespace where the secret store should be created.
+   *
+   * @group Inputs
+   */
   public readonly namespace: string;
+
+  /**
+   * The name of the service provider backing the secret store.
+   *
+   * @group Inputs
+   */
   public readonly service: string;
 
-  // Resource properties
-  public readonly resource: KubernetesManifest;
+
+  /**
+   * The Kubernetes manifest that defines the secret store.
+   *
+   * @group Resources
+   */
+  public readonly manifest: KubernetesManifest;
+
+  /**
+   * A Kubernetes service account mapped to an IAM role that provides the
+   * necessary permissions to sychronize secrets from an AWS rpvoder.
+   *
+   * @group Resources
+   */
   public readonly serviceAccount: ServiceAccount;
 
-  // Standard properties
+
+  /**
+   * The name of the secret store as it appears in Kubernetes.
+   */
   public readonly secretStoreName: string;
 
 
-  constructor(scope: Construct, id: string, props: AwsSecretStoreProps) {
+  /**
+   * Creates a new instance of the AwsSecretStore class.
+   *
+   * @param scope A CDK Construct that will serve as this resource's parent
+   * in the construct tree.
+   * @param id A name to be associated with the resource and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param props Arguments related to the configuration of the resource.
+   */
+  public constructor(scope: Construct, id: string, props: AwsSecretStoreProps) {
     super(scope, id, {
       ...props,
     });
@@ -57,7 +133,7 @@ export class AwsSecretStore extends Resource implements ISecretStore {
       namespace: this.namespace,
     });
 
-    this.resource = new KubernetesManifest(this, 'Resource', {
+    this.manifest = new KubernetesManifest(this, 'Resource', {
       cluster: this.cluster,
       manifest: [
         {
@@ -85,7 +161,7 @@ export class AwsSecretStore extends Resource implements ISecretStore {
         },
       ],
     });
-    this.resource.node.addDependency(this.serviceAccount);
+    this.manifest.node.addDependency(this.serviceAccount);
 
     this.secretStoreName = this.name;
   }

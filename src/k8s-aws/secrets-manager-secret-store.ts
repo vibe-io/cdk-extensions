@@ -9,21 +9,40 @@ import { ExternalSecretOptions } from './external-secrets-operator';
 import { SecretsManagerReference } from './lib/secrets-manager-reference';
 
 
-export interface SecretsManagerFieldMapping {
-  kubernetesKey: string;
-  secretsManagerKey?: string;
-}
-
 /**
  * Configuration options for adding a new secret store resource.
  */
 export interface SecretsManagerSecretStoreProps extends ResourceProps {
+  /**
+   * The EKS cluster where the secret store should be created.
+   */
   readonly cluster: ICluster;
+
+  /**
+   * A human friendly name for the secret store.
+   */
   readonly name?: string;
+
+  /**
+   * The Kubernetes namespace where the secret store should be created.
+   */
   readonly namespace?: string;
 }
 
+/**
+ * A secret store that allows secrets from AWS Secrets Managers to be
+ * synchronized into Kubernetes as Kubernetes secrets.
+ */
 export class SecretsManagerSecretStore extends AwsSecretStore {
+  /**
+   * Creates a new instance of the SecretsManagerSecretStore class.
+   *
+   * @param scope A CDK Construct that will serve as this resource's parent
+   * in the construct tree.
+   * @param id A name to be associated with the resource and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param props Arguments related to the configuration of the resource.
+   */
   constructor(scope: Construct, id: string, props: SecretsManagerSecretStoreProps) {
     super(scope, id, {
       ...props,
@@ -49,6 +68,19 @@ export class SecretsManagerSecretStore extends AwsSecretStore {
     }));
   }
 
+  /**
+   * Registers a new Secrets Manager secret to be synchronized into Kubernetes.
+   *
+   * @param id The ID of the secret import configuration in the CDK construct
+   * tree.
+   *
+   * The configuration is placed under the Secrets Manager secret it
+   * synchronizes and so must be unique per secret.
+   * @param secret The Secrets Manager secret to synchronize into Kubernetes.
+   * @param options Configuration options for how the secret should be
+   * synchronized.
+   * @returns The external secret configuration that was added.
+   */
   public addSecret(id: string, secret: ISecret, options: ExternalSecretOptions = {}): ExternalSecret {
     const output = new ExternalSecret(secret, `external-secret-${id}`, {
       cluster: this.cluster,
@@ -63,7 +95,7 @@ export class SecretsManagerSecretStore extends AwsSecretStore {
     });
 
     if (this.stack === secret.stack) {
-      output.node.addDependency(this.resource);
+      output.node.addDependency(this.manifest);
     }
 
     return output;
