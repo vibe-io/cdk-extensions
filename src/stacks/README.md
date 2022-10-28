@@ -226,10 +226,6 @@ publish to an intermediate service, such as [Kinesis Firehose](https://docs.aws.
 
     constructor(scope: Construct, id: string, props: DemoProps) {
       super(scope, id, props);
-      // Wrap L1 logging bucket in L2 Construct
-      const waf_logs_bucket = s3.Bucket.fromCfnBucket(
-        props.aws_logging_stack.wafLogsBucket.resource
-      );
 
       /**************
       VPC FLOW LOGS
