@@ -45,7 +45,7 @@ export class AwsSecretStore extends Resource implements ISecretStore {
   /**
    * The regex pattern used to validate secret store names.
    */
-  public static readonly NAME_VALIDATOR_REGEX=/^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$/;
+  public static readonly NAME_VALIDATOR_REGEX='^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$';
 
 
   /**
@@ -118,7 +118,7 @@ export class AwsSecretStore extends Resource implements ISecretStore {
     this.namespace = props.namespace ?? 'default';
     this.service = props.service;
 
-    if (!AwsSecretStore.NAME_VALIDATOR_REGEX.test(this.name) || this.name.length > 63) {
+    if (!RegExp(AwsSecretStore.NAME_VALIDATOR_REGEX).test(this.name) || this.name.length > 63) {
       throw new Error([
         `Invalid external secret store name: '${this.name}'. Valid names`,
         'must be less than 64 characters long. They can only contain',
