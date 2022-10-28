@@ -38,7 +38,7 @@ export class ExternalSecretsOperator extends Resource {
   public readonly namespace: string;
 
   // Resource properties
-  public readonly resource: HelmChart;
+  public readonly helmChart: HelmChart;
 
   // Standard properties
   public readonly operatorName: string;
@@ -54,7 +54,7 @@ export class ExternalSecretsOperator extends Resource {
     this.name = props.name ?? `ss${Names.uniqueId(this).slice(-61)}`;
     this.namespace = props.namespace ?? ExternalSecretsOperator.DEFAULT_NAMESPACE;
 
-    this.resource = new HelmChart(this, 'helm-chart', {
+    this.helmChart = new HelmChart(this, 'helm-chart', {
       cluster: this.cluster,
       chart: 'external-secrets',
       createNamespace: this.createNamespace,
@@ -81,7 +81,7 @@ export class ExternalSecretsOperator extends Resource {
       cluster: this.cluster,
       namespace: options?.namespace,
     });
-    store.node.addDependency(this.resource);
+    store.node.addDependency(this.helmChart);
 
     return store.addSecret(id, secret, options);
   }
@@ -93,7 +93,7 @@ export class ExternalSecretsOperator extends Resource {
       cluster: this.cluster,
       namespace: options.namespace,
     });
-    store.node.addDependency(this.resource);
+    store.node.addDependency(this.helmChart);
 
     return store.addSecret(id, parameter, options);
   }

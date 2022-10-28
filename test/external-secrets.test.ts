@@ -23,7 +23,7 @@ test('the secret store should depend on the helm chart', () => {
 
   template.hasResource('Custom::AWSCDK-EKS-KubernetesResource', {
     DependsOn: Match.arrayWith([
-      stack.resolve(getHelmLogicalId(resources.provider.resource)),
+      stack.resolve(getHelmLogicalId(resources.provider.helmChart)),
     ]),
     Properties: {
       PruneLabel: `aws.cdk.eks/prune-${resources.store.manifest.node.addr}`,
