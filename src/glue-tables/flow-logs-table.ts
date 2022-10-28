@@ -20,7 +20,7 @@ export interface FlowLogsTableProps extends ResourceProps {
    */
   readonly bucket: IBucket;
   /**
-   * Boolean indicating whether to create Athena default Athena queries for the ALB Logs
+   * Boolean indicating whether to create default Athena queries for the Flow Logs
    * 
    * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
    */
@@ -52,7 +52,7 @@ export interface FlowLogsTableProps extends ResourceProps {
 export class FlowLogsTable extends Table {
   // Input properties
   /**
-   * Boolean indicating whether to create Athena default Athena queries for the ALB Logs
+   * Boolean indicating whether to create default Athena queries for the Flow Logs
    * 
    * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
    */

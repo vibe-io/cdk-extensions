@@ -16,7 +16,7 @@ export interface S3AccessLogsTableProps extends ResourceProps {
    */
    readonly bucket: IBucket;
    /**
-    * Boolean indicating whether to create Athena default Athena queries for the ALB Logs
+    * Boolean indicating whether to create default Athena queries for the S3 Access Logs
     * 
     * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
     */
@@ -44,7 +44,7 @@ export interface S3AccessLogsTableProps extends ResourceProps {
 export class S3AccessLogsTable extends Table {
   // Input properties
   /**
-   * Boolean indicating whether to create Athena default Athena queries for the ALB Logs
+   * Boolean indicating whether to create default Athena queries for the S3 Access Logs
    * 
    * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
    */

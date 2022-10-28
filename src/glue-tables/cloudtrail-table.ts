@@ -17,7 +17,7 @@ export interface CloudtrailTableProps extends ResourceProps {
    */
    readonly bucket: IBucket;
    /**
-    * Boolean indicating whether to create Athena default Athena queries for the ALB Logs
+    * Boolean indicating whether to create default Athena queries for the Cloudtrail Logs
     * 
     * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
     */
@@ -45,9 +45,9 @@ export interface CloudtrailTableProps extends ResourceProps {
 export class CloudtrailTable extends Table {
   // Input properties
   /**
-    * A cdk-extensions/glue Database object that the table should be created in.
+    * Boolean indicating whether to create default Athena queries for the Cloudtrail Logs
     * 
-    * @see [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
+    * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
     */
   public readonly createQueries: boolean;
   /**

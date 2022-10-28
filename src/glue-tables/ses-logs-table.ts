@@ -16,7 +16,7 @@ export interface SesLogsTableProps extends ResourceProps {
    */
    readonly bucket: IBucket;
    /**
-    * Boolean indicating whether to create Athena default Athena queries for the ALB Logs
+    * Boolean indicating whether to create default Athena queries for the Ses Logs
     * 
     * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
     */
@@ -44,7 +44,7 @@ export interface SesLogsTableProps extends ResourceProps {
 export class SesLogsTable extends Table {
   // Input properties
   /**
-   * Boolean indicating whether to create Athena default Athena queries for the ALB Logs
+   * Boolean indicating whether to create default Athena queries for the Ses Logs
    * 
    * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
    */
