@@ -5,28 +5,77 @@ import { Construct, IConstruct } from 'constructs';
 import { OutboundResolver } from './outbound-resolver';
 import { ResolverRuleAssociation } from './resolver-rule-association';
 
-
+/**
+ * @see [AWS::Route53Resolver::ResolverRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-ruletype)
+ */
 export enum ResolverRuleType {
+  /**
+   * When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD.
+   */
   FORWARD = 'FORWARD',
+  /**
+   * Currently, only the Resolver can create rules that have a value of RECURSIVE for RuleType.
+   */
   RECURSIVE = 'RECURSIVE',
+  /**
+   * When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+   */
   SYSTEM = 'SYSTEM'
 }
 
 export interface ResolverRuleTargetIp {
+  /**
+   * The IP address to target
+   * 
+   * @see [AWS::Route53Resolver::ResolverRule TargetAddress](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-ip)
+   */
   readonly address: string;
+  /**
+   * The port to target
+   * 
+   * @see [AWS::Route53Resolver::ResolverRule TargetAddress](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-port)
+   */
   readonly port?: number;
 }
 
 export interface VpcAssociationOptions {
+  /**
+   * Name to give the VPC Association
+   */
   readonly name?: string;
 }
 
 export interface IResolverRule {
+  /**
+   * The Amazon Resource Name (ARN) of the resolver rule.
+   */
   readonly resolverRuleArn: string;
+  /**
+   * DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps. 
+   * If a query matches multiple Resolver rules (example.com and www.example.com), the query is routed 
+   * using the Resolver rule that contains the most specific domain name (www.example.com).
+   * 
+   * @see [AWS::Route53Resolver::ResolverRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-domainname)
+   */
   readonly resolverRuleDomainName: string;
+  /**
+   * The ID of the endpoint that the rule is associated with.
+   * 
+   * @see [AWS::Route53Resolver::ResolverRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-resolverendpointid)
+   */
   readonly resolverRuleEndpointId: string;
+  /**
+   * The ID associated with the Resolver Rule
+   */
   readonly resolverRuleId: string;
+  /**
+   * The name for the Resolver rule.
+   */
   readonly resolverRuleName: string;
+  /**
+   * An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. 
+   * Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
+   */
   readonly resolverRuleTargetIps: IResolvable;
   associateVpc(vpc: IVpc, options?: VpcAssociationOptions): ResolverRuleAssociation;
 }

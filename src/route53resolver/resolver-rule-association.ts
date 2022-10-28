@@ -32,16 +32,16 @@ export interface ResolverRuleAssociationProps extends ResourceProps {
 export class ResolverRuleAssociation extends Resource {
   // Input properties
   /**
-	 * {@link S3TargetOptions.name}
-	 */
+   * {@link ResolverRuleAssociationProps.name}
+   */
 	public readonly name?: string;
   /**
-	 * {@link S3TargetOptions.resolverRule: IResolverRule;}
-	 */
+   * {@link ResolverRuleAssociationProps.resolverRule}
+   */
 	public readonly resolverRule: IResolverRule;
   /**
-	 * {@link S3TargetOptions.vpc: IVpc;}
-	 */
+   * {@link ResolverRuleAssociationProps.vpc}
+   */
 	public readonly vpc: IVpc;
 
   // Resource properties

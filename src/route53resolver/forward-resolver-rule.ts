@@ -8,9 +8,25 @@ import { ResolverRule, ResolverRuleTargetIp, ResolverRuleType } from './resolver
  * Generic configuration for a SystemResolverRule resource
  */
 export interface ForwardResolverRuleProps extends ResourceProps {
+  /**
+   * The domain name that the rule is applied to. 
+   */
   readonly domainName: string;
+  /**
+   * The OutboundResolver object to attach to the rule
+   * 
+   * {@link aws-route53resolver.OutboundResolver}
+   */
   readonly resolverEndpoint: OutboundResolver;
+  /**
+   * The name of the forward resolver rule.
+   */
   readonly ruleName?: string;
+  /**
+   * An array of ResolverRuleTargetIP objects to be attached to the rule. 
+   * 
+   * {@link aws-route53resolver.ResolverRuleTargetIp}
+   */
   readonly targetIps?: ResolverRuleTargetIp[];
 }
 
