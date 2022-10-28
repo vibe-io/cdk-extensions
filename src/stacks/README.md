@@ -84,7 +84,7 @@ aws_logging_stack = AwsLoggingStack(self, 'AwsLoggingStack')
 ```
 
 #### Enable Logging
-**AwsLoggingStack** manages bucket policy and permissions. All that is left is to
+**AwsLoggingStack** manages buckets, glue tables, and permissions. All that is left is to
 start delivering the logs.
 
 Remember that logging configuration for most **aws-cdk-lib** constructs will require
