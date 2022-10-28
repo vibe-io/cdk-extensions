@@ -12,76 +12,76 @@ test('there should be a helm chart for installing external secrets', () => {
   const template = Template.fromStack(stack);
 
   template.hasResourceProperties('Custom::AWSCDK-EKS-HelmChart', {
-      Chart: 'external-secrets',
+    Chart: 'external-secrets',
   });
 });
 
 test('the secret store should depend on the helm chart', () => {
-    const resources = getCommonResources();
-    const stack = resources.stack;
-    const template = Template.fromStack(stack);
-  
-    template.hasResource('Custom::AWSCDK-EKS-KubernetesResource', {
-      DependsOn: Match.arrayWith([
-          stack.resolve(getHelmLogicalId(resources.provider.resource))
-      ]),
-      Properties: {
-        PruneLabel: `aws.cdk.eks/prune-${resources.store.resource.node.addr}`,
-      }
-    });
+  const resources = getCommonResources();
+  const stack = resources.stack;
+  const template = Template.fromStack(stack);
+
+  template.hasResource('Custom::AWSCDK-EKS-KubernetesResource', {
+    DependsOn: Match.arrayWith([
+      stack.resolve(getHelmLogicalId(resources.provider.resource)),
+    ]),
+    Properties: {
+      PruneLabel: `aws.cdk.eks/prune-${resources.store.resource.node.addr}`,
+    },
+  });
 });
 
 test('the kubernetes external secret resource should depend on the secret store', () => {
-    const resources = getCommonResources();
-    const stack = resources.stack;
-    const template = Template.fromStack(stack);
-  
-    template.hasResource('Custom::AWSCDK-EKS-KubernetesResource', {
-      DependsOn: Match.arrayWith([
-          stack.resolve(getManifestLogicalId(resources.store.resource))
-      ]),
-      Properties: {
-        PruneLabel: `aws.cdk.eks/prune-${resources.eSecret.resource.node.addr}`,
-      }
-    });
+  const resources = getCommonResources();
+  const stack = resources.stack;
+  const template = Template.fromStack(stack);
+
+  template.hasResource('Custom::AWSCDK-EKS-KubernetesResource', {
+    DependsOn: Match.arrayWith([
+      stack.resolve(getManifestLogicalId(resources.store.resource)),
+    ]),
+    Properties: {
+      PruneLabel: `aws.cdk.eks/prune-${resources.eSecret.resource.node.addr}`,
+    },
+  });
 });
 
 function getCommonResources() {
-    const stack = new Stack(undefined, 'stack', {
-        env: {
-            account: '123456789012',
-            region: 'us-east-1',
-        }
-    });
-    const cluster = new FargateCluster(stack, 'cluster', {
-        version: KubernetesVersion.V1_21
-    });
-    const provider = new ExternalSecretsOperator(stack, 'provider', {
-        cluster: cluster
-    });
-    const smSecret = Secret.fromSecretCompleteArn(stack, 'sm-secret', stack.formatArn({
-        arnFormat: ArnFormat.COLON_RESOURCE_NAME,
-        resource: 'secret',
-        resourceName: 'test-secret',
-        service: 'secretsmanager',
-    }));
-    const eSecret = provider.registerSecretsManagerSecret('external-secret', smSecret);
-    const store = (provider.node.findChild('store::default::secrets-manager') as AwsSecretStore);
+  const stack = new Stack(undefined, 'stack', {
+    env: {
+      account: '123456789012',
+      region: 'us-east-1',
+    },
+  });
+  const cluster = new FargateCluster(stack, 'cluster', {
+    version: KubernetesVersion.V1_21,
+  });
+  const provider = new ExternalSecretsOperator(stack, 'provider', {
+    cluster: cluster,
+  });
+  const smSecret = Secret.fromSecretCompleteArn(stack, 'sm-secret', stack.formatArn({
+    arnFormat: ArnFormat.COLON_RESOURCE_NAME,
+    resource: 'secret',
+    resourceName: 'test-secret',
+    service: 'secretsmanager',
+  }));
+  const eSecret = provider.registerSecretsManagerSecret('external-secret', smSecret);
+  const store = (provider.node.findChild('store::default::secrets-manager') as AwsSecretStore);
 
-    return {
-        stack,
-        cluster,
-        provider,
-        smSecret,
-        eSecret,
-        store,
-    };
+  return {
+    stack,
+    cluster,
+    provider,
+    smSecret,
+    eSecret,
+    store,
+  };
 }
 
 function getHelmLogicalId(chart: HelmChart): string | undefined {
-    return (chart.node.defaultChild?.node.defaultChild as CfnResource)?.logicalId;
+  return (chart.node.defaultChild?.node.defaultChild as CfnResource)?.logicalId;
 }
 
 function getManifestLogicalId(manifest: KubernetesManifest): string | undefined {
-    return (manifest.node.defaultChild as CfnResource)?.logicalId;
+  return (manifest.node.defaultChild as CfnResource)?.logicalId;
 }
