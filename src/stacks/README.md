@@ -206,7 +206,10 @@ publish to an intermediate service, such as [Kinesis Firehose](https://docs.aws.
     aws_ec2 as ec2,
     aws_cloudfront as cloudfront,
     aws_cloudfront_origins as origins,
-    aws_cloudtrail as cloudtrail
+    aws_cloudtrail as cloudtrail,
+    aws_iam as iam,
+    aws_ses as ses,
+    aws_wafv2 as wafv2
   } from 'aws-cdk-lib';
   import { Construct } from 'constructs';
   import { AwsLoggingStack } from 'cdk-extensions/stacks';
