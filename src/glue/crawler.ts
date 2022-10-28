@@ -143,44 +143,44 @@ export class Crawler extends Resource {
 
   // Input properties
   /**
-		* {@link CrawlerProps.configuration}
-		*/
+    * {@link CrawlerProps.configuration}
+    */
 	public readonly configuration?: CrawlerConfiguration;
   /**
-		* {@link CrawlerProps.database}
-		*/
+    * {@link CrawlerProps.database}
+    */
 	public readonly database?: Database;
   /**
-		* {@link CrawlerProps.deleteBehavior}
-		*/
+    * {@link CrawlerProps.deleteBehavior}
+    */
 	public readonly deleteBehavior?: DeleteBehavior;
   /**
-		* {@link CrawlerProps.description}
-		*/
+    * {@link CrawlerProps.description}
+    */
 	public readonly description?: string;
   /**
-		* {@link CrawlerProps.name}
-		*/
+    * {@link CrawlerProps.name}
+    */
 	public readonly name?: string;
   /**
-		* {@link CrawlerProps.recrawlBehavior}
-		*/
+    * {@link CrawlerProps.recrawlBehavior}
+    */
 	public readonly recrawlBehavior?: RecrawlBehavior;
   /**
-		* {@link CrawlerProps.scheduleExpression}
-		*/
+    * {@link CrawlerProps.scheduleExpression}
+    */
 	public readonly scheduleExpression?: Schedule;
   /**
-		* {@link CrawlerProps.securityConfiguration}
-		*/
+    * {@link CrawlerProps.securityConfiguration}
+    */
 	public readonly securityConfiguration?: SecurityConfiguration;
   /**
-		* {@link CrawlerProps.tablePrefix}
-		*/
+    * {@link CrawlerProps.tablePrefix}
+    */
 	public readonly tablePrefix?: string;
   /**
-		* {@link CrawlerProps.updateBehavior}
-		*/
+    * {@link CrawlerProps.updateBehavior}
+    */
 	public readonly updateBehavior?: UpdateBehavior;
 
   // Resource properties

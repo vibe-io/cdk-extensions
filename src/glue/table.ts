@@ -139,60 +139,60 @@ export class Table extends Resource {
 
   // Input properties
   /**
-		* {@link TableProps.compressed}
-		*/
+    * {@link TableProps.compressed}
+    */
 	public readonly compressed?: boolean;
   /**
-		* {@link TableProps.dataFormat}
-		*/
+    * {@link TableProps.dataFormat}
+    */
 	public readonly dataFormat?: DataFormat;
   /**
-		* {@link TableProps.database:}
-		*/
+    * {@link TableProps.database:}
+    */
 	public readonly database: Database;
   /**
-		* {@link TableProps.description}
-		*/
+    * {@link TableProps.description}
+    */
 	public readonly description?: string;
   /**
-		* {@link TableProps.location}
-		*/
+    * {@link TableProps.location}
+    */
 	public readonly location?: string;
   /**
-		* {@link TableProps.name}
-		*/
+    * {@link TableProps.name}
+    */
 	public readonly name?: string;
   /**
-		* {@link TableProps.owner}
-		*/
+    * {@link TableProps.owner}
+    */
 	public readonly owner?: string;
   /**
-		* {@link TableProps.retention}
-		*/
+    * {@link TableProps.retention}
+    */
 	public readonly retention?: Duration;
   /**
-		* {@link TableProps.serdeName}
-		*/
+    * {@link TableProps.serdeName}
+    */
 	public readonly serdeName?: string;
   /**
-		* {@link TableProps.tableType}
-		*/
+    * {@link TableProps.tableType}
+    */
 	public readonly tableType?: TableType;
   /**
-		* {@link TableProps.targetTable}
-		*/
+    * {@link TableProps.targetTable}
+    */
 	public readonly targetTable?: Table;
   /**
-		* {@link TableProps.viewExpandedText}
-		*/
+    * {@link TableProps.viewExpandedText}
+    */
 	public readonly viewExpandedText?: string;
   /**
-		* {@link TableProps.viewOriginalText}
-		*/
+    * {@link TableProps.viewOriginalText}
+    */
 	public readonly viewOriginalText?: string;
   /**
-		* {@link TableProps.storedAsSubDirectories}
-		*/
+    * {@link TableProps.storedAsSubDirectories}
+    */
 	public readonly storedAsSubDirectories?: boolean;
 
   // Resource properties

@@ -31,16 +31,16 @@ export interface DatabaseProps extends ResourceProps {
 export class Database extends Resource {
   // Input properties
   /**
-		* {@link DatabaseProps.description}
-		*/
+    * {@link DatabaseProps.description}
+    */
 	public readonly description?: string;
   /**
-		* {@link DatabaseProps.locationUri}
-		*/
+    * {@link DatabaseProps.locationUri}
+    */
 	public readonly locationUri?: string;
   /**
-		* {@link DatabaseProps.name:}
-		*/
+    * {@link DatabaseProps.name:}
+    */
 	public readonly name: string;
 
   // Resource properties

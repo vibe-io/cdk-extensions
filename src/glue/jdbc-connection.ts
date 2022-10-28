@@ -66,16 +66,16 @@ export interface JdbcConnectionProps extends ResourceProps {
 export class JdbcConnection extends Connection {
   // Input properties
   /**
-		* {@link JdbcConnectionProps.password:}
-		*/
+    * {@link JdbcConnectionProps.password:}
+    */
 	public readonly password: SecretValue;
   /**
-		* {@link JdbcConnectionProps.url:}
-		*/
+    * {@link JdbcConnectionProps.url:}
+    */
 	public readonly url: string;
   /**
-		* {@link JdbcConnectionProps.username:}
-		*/
+    * {@link JdbcConnectionProps.username:}
+    */
 	public readonly username: string;
 
 /**

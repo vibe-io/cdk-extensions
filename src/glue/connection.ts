@@ -6,9 +6,21 @@ import { undefinedIfNoKeys } from '../utils/formatting';
 
 
 export enum ConnectionType {
+  /**
+   * JDBC - Designates a connection to a database through Java Database Connectivity (JDBC).
+   */
   JDBC = 'JDBC',
+  /**
+   * KAFKA - Designates a connection to an Apache Kafka streaming platform.
+   */
   KAFKA = 'KAFKA',
+  /**
+   * MONGODB - Designates a connection to a MongoDB document database.
+   */
   MONGODB = 'MONGODB',
+  /**
+   * NETWORK - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).
+   */
   NETWORK = 'NETWORK'
 }
 
@@ -17,11 +29,7 @@ export enum ConnectionType {
  */
 export interface ConnectionProps extends ResourceProps {
   /**
-   * The type of the connection. Currently, these types are supported:
-   *    JDBC - Designates a connection to a database through Java Database Connectivity (JDBC).
-   *    KAFKA - Designates a connection to an Apache Kafka streaming platform.
-   *    MONGODB - Designates a connection to a MongoDB document database.
-   *    NETWORK - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).
+   * The type of the connection. 
    * 
    * @see [AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype)
    */
@@ -38,9 +46,6 @@ export interface ConnectionProps extends ResourceProps {
   readonly name?: string;
   /**
    * List of Key/Value pairs defining the properties of the Connection 
-   * Available Properties:
-   *    CatalogId - The ID of the data catalog to create the catalog object in. Currently, this should be the AWS account ID.
-   *    ConnectionInput - The connection that you want to create.
    * 
    * @see [AWS::Glue::Connection Properties](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html#Properties)
    */
@@ -75,28 +80,28 @@ export class Connection extends Resource implements IConnectable {
 
   // Input properties
   /**
-		* {@link ConnectionProps.connectionType:}
-		*/
+    * {@link ConnectionProps.connectionType:}
+    */
 	public readonly connectionType: ConnectionType;
   /**
-		* {@link ConnectionProps.description}
-		*/
+    * {@link ConnectionProps.description}
+    */
 	public readonly description?: string;
   /**
-		* {@link ConnectionProps.name}
-		*/
+    * {@link ConnectionProps.name}
+    */
 	public readonly name?: string;
   /**
-		* {@link ConnectionProps.securityGroups:}
-		*/
+    * {@link ConnectionProps.securityGroups:}
+    */
 	public readonly securityGroups: ISecurityGroup[];
   /**
-		* {@link ConnectionProps.subnets}
-		*/
+    * {@link ConnectionProps.subnets}
+    */
 	public readonly subnets?: SubnetSelection;
   /**
-		* {@link ConnectionProps.vpc}
-		*/
+    * {@link ConnectionProps.vpc}
+    */
 	public readonly vpc?: IVpc;
 
   // Resource properties

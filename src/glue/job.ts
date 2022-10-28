@@ -165,60 +165,60 @@ export class Job extends Resource {
 
   // Input properties
   /**
-   * {@link JobProps.allocatedCapacity }
-   */
+    * {@link JobProps.allocatedCapacity }
+    */
   public readonly allocatedCapacity?: number;
   /**
-   * {@link JobProps.connections}
-   */
+    * {@link JobProps.connections}
+    */
   public readonly connections?: Connection[];
   /**
-		* {@link JobProps.continuousLogging}
-		*/
+    * {@link JobProps.continuousLogging}
+    */
 	public readonly continuousLogging?: ContinuousLoggingProps;
   /**
-		* {@link JobProps.description}
-		*/
+    * {@link JobProps.description}
+    */
 	public readonly description?: string;
   /**
-		* {@link JobProps.executable:}
-		*/
+    * {@link JobProps.executable:}
+    */
 	public readonly executable: JobExecutable;
   /**
-		* {@link JobProps.maxCapacity}
-		*/
+    * {@link JobProps.maxCapacity}
+    */
 	public readonly maxCapacity?: number;
   /**
-		* {@link JobProps.maxConcurrentRuns}
-		*/
+    * {@link JobProps.maxConcurrentRuns}
+    */
 	public readonly maxConcurrentRuns?: number;
   /**
-		* {@link JobProps.maxRetries}
-		*/
+    * {@link JobProps.maxRetries}
+    */
 	public readonly maxRetries?: number;
   /**
-		* {@link JobProps.name}
-		*/
+    * {@link JobProps.name}
+    */
 	public readonly name?: string;
   /**
-		* {@link JobProps.notifyDelayAfter}
-		*/
+    * {@link JobProps.notifyDelayAfter}
+    */
 	public readonly notifyDelayAfter?: Duration;
   /**
-		* {@link JobProps.securityConfiguration}
-		*/
+    * {@link JobProps.securityConfiguration}
+    */
 	public readonly securityConfiguration?: SecurityConfiguration;
   /**
-		* {@link JobProps.timeout}
-		*/
+    * {@link JobProps.timeout}
+    */
 	public readonly timeout?: Duration;
   /**
-		* {@link JobProps.workerCount}
-		*/
+    * {@link JobProps.workerCount}
+    */
 	public readonly workerCount?: number;
   /**
-		* {@link JobProps.workerType}
-		*/
+    * {@link JobProps.workerType}
+    */
 	public readonly workerType?: WorkerType;
 
   // Resource properties

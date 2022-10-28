@@ -84,32 +84,32 @@ export class Trigger extends Resource {
 
   // Input properties
   /**
-		* {@link TriggerProps.description}
-		*/
+    * {@link TriggerProps.description}
+    */
 	public readonly description?: string;
   /**
-		* {@link TriggerProps.name}
-		*/
+    * {@link TriggerProps.name}
+    */
 	public readonly name?: string;
   /**
-		* {@link TriggerProps.predicateOperator:}
-		*/
+    * {@link TriggerProps.predicateOperator:}
+    */
 	public readonly predicateOperator: PredicateOperator;
   /**
-		* {@link TriggerProps.schedule}
-		*/
+    * {@link TriggerProps.schedule}
+    */
 	public readonly schedule?: Schedule;
   /**
-		* {@link TriggerProps.startOnCreation}
-		*/
+    * {@link TriggerProps.startOnCreation}
+    */
 	public readonly startOnCreation?: boolean;
   /**
-		* {@link TriggerProps.type:}
-		*/
+    * {@link TriggerProps.type:}
+    */
 	public readonly type: TriggerType;
   /**
-		* {@link TriggerProps.workflow}
-		*/
+    * {@link TriggerProps.workflow}
+    */
 	public readonly workflow?: Workflow;
 
   // Resource properties

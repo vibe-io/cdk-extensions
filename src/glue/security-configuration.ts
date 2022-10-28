@@ -130,20 +130,20 @@ export interface SecurityConfigurationProps extends ResourceProps {
 export class SecurityConfiguration extends Resource {
   // Input properties
   /**
-		* {@link SecurityConfigurationProps.cloudWatchEncryption}
-		*/
+    * {@link SecurityConfigurationProps.cloudWatchEncryption}
+    */
 	public readonly cloudWatchEncryption?: CloudWatchEncryption;
   /**
-		* {@link SecurityConfigurationProps.jobBookmarksEncryption}
-		*/
+    * {@link SecurityConfigurationProps.jobBookmarksEncryption}
+    */
 	public readonly jobBookmarksEncryption?: JobBookmarksEncryption;
   /**
-		* {@link SecurityConfigurationProps.name}
-		*/
+    * {@link SecurityConfigurationProps.name}
+    */
 	public readonly name?: string;
   /**
-		* {@link SecurityConfigurationProps.s3Encryption}
-		*/
+    * {@link SecurityConfigurationProps.s3Encryption}
+    */
 	public readonly s3Encryption?: S3Encryption;
 
   // Resource properties

@@ -33,12 +33,12 @@ export interface WorkflowProps extends ResourceProps {
 export class Workflow extends Resource {
   // Input properties
   /**
-		* {@link WorkflowProps.description}
-		*/
+    * {@link WorkflowProps.description}
+    */
 	public readonly description?: string;
   /**
-		* {@link WorkflowProps.name}
-		*/
+    * {@link WorkflowProps.name}
+    */
 	public readonly name?: string;
 
   // Resource properties
