@@ -3,13 +3,13 @@ import { Cluster, HelmChart } from 'aws-cdk-lib/aws-eks';
 import { ISecret } from 'aws-cdk-lib/aws-secretsmanager';
 import { IParameter } from 'aws-cdk-lib/aws-ssm';
 import { Construct } from 'constructs';
-import { ExternalSecret } from './external-secret';
+import { ExternalSecret, SecretFieldReference } from './external-secret';
 import { SecretsManagerSecretStore } from './secrets-manager-secret-store';
-import { SsmSecretStore } from './ssm-secret-store';
+import { SsmParameterSecretStore } from './ssm-secret-store';
 
 
 export interface ExternalSecretOptions {
-  readonly fields?: {[k8sKey: string]: string};
+  readonly fields?: SecretFieldReference[];
   readonly name?: string;
 }
 
@@ -74,7 +74,7 @@ export class ExternalSecretsOperator extends Resource {
     this.operatorName = this.name;
   }
 
-  public registerSecretsManagerSecret(id: string, secret: ISecret, options?: NamespacedExternalSecretOptions): ExternalSecret {
+  public registerSecretsManagerSecret(id: string, secret: ISecret, options: NamespacedExternalSecretOptions = {}): ExternalSecret {
     const namespace = options?.namespace ?? 'default';
     const storeId = `store::${namespace}::secrets-manager`;
     const store = this.node.tryFindChild(storeId) as SecretsManagerSecretStore ?? new SecretsManagerSecretStore(this, storeId, {
@@ -86,12 +86,12 @@ export class ExternalSecretsOperator extends Resource {
     return store.addSecret(id, secret, options);
   }
 
-  public registerSsmParameterSecret(id: string, parameter: IParameter, options?: NamespacedExternalSecretOptions): ExternalSecret {
-    const namespace = options?.namespace ?? 'default';
+  public registerSsmParameterSecret(id: string, parameter: IParameter, options: NamespacedExternalSecretOptions = {}): ExternalSecret {
+    const namespace = options.namespace ?? 'default';
     const storeId = `store::${namespace}::ssm`;
-    const store = this.node.tryFindChild(storeId) as SsmSecretStore ?? new SsmSecretStore(this, storeId, {
+    const store = this.node.tryFindChild(storeId) as SsmParameterSecretStore ?? new SsmParameterSecretStore(this, storeId, {
       cluster: this.cluster,
-      namespace: options?.namespace,
+      namespace: options.namespace,
     });
     store.node.addDependency(this.resource);
 

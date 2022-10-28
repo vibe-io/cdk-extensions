@@ -6,6 +6,7 @@ import { Construct } from 'constructs';
 import { AwsSecretStore } from './aws-secret-store';
 import { ExternalSecret } from './external-secret';
 import { ExternalSecretOptions } from './external-secrets-operator';
+import { SecretsManagerReference } from './lib/secrets-manager-reference';
 
 
 export interface SecretsManagerFieldMapping {
@@ -48,18 +49,16 @@ export class SecretsManagerSecretStore extends AwsSecretStore {
     }));
   }
 
-  public addSecret(id: string, secret: ISecret, options?: ExternalSecretOptions): ExternalSecret {
+  public addSecret(id: string, secret: ISecret, options: ExternalSecretOptions = {}): ExternalSecret {
     const output = new ExternalSecret(secret, `external-secret-${id}`, {
       cluster: this.cluster,
-      name: options?.name,
+      name: options.name,
       namespace: this.namespace,
-      fields: options?.fields === undefined ? undefined : Object.keys(options.fields).map((x) => {
-        return {
-          kubernetesKey: x,
-          remoteRef: secret.secretArn,
-          remoteKey: options.fields![x],
-        };
-      }),
+      secrets: [
+        new SecretsManagerReference(secret, {
+          fields: options.fields,
+        }),
+      ],
       secretStore: this,
     });
 

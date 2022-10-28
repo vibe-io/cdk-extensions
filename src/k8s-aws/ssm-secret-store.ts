@@ -6,19 +6,20 @@ import { Construct } from 'constructs';
 import { AwsSecretStore } from './aws-secret-store';
 import { ExternalSecret } from './external-secret';
 import { ExternalSecretOptions } from './external-secrets-operator';
+import { SsmParameterReference } from './lib/ssm-parameter-reference';
 
 
 /**
  * Configuration options for adding a new secret store resource.
  */
-export interface SsmSecretStoreProps extends ResourceProps {
+export interface SsmParameterSecretStoreProps extends ResourceProps {
   readonly cluster: ICluster;
   readonly name?: string;
   readonly namespace?: string;
 }
 
-export class SsmSecretStore extends AwsSecretStore {
-  constructor(scope: Construct, id: string, props: SsmSecretStoreProps) {
+export class SsmParameterSecretStore extends AwsSecretStore {
+  constructor(scope: Construct, id: string, props: SsmParameterSecretStoreProps) {
     super(scope, id, {
       ...props,
       service: 'ParameterStore',
@@ -39,18 +40,16 @@ export class SsmSecretStore extends AwsSecretStore {
     }));
   }
 
-  public addSecret(id: string, parameter: IParameter, options?: ExternalSecretOptions): ExternalSecret {
+  public addSecret(id: string, parameter: IParameter, options: ExternalSecretOptions = {}): ExternalSecret {
     const output = new ExternalSecret(parameter, `external-secret-${id}`, {
       cluster: this.cluster,
-      name: options?.name,
+      name: options.name,
       namespace: this.namespace,
-      fields: options?.fields === undefined ? undefined : Object.keys(options.fields).map((x) => {
-        return {
-          kubernetesKey: x,
-          remoteRef: parameter.parameterArn,
-          remoteKey: options.fields![x],
-        };
-      }),
+      secrets: [
+        new SsmParameterReference(parameter, {
+          fields: options.fields,
+        }),
+      ],
       secretStore: this,
     });
 

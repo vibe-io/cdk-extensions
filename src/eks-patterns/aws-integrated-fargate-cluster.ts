@@ -125,7 +125,7 @@ export class AwsIntegratedFargateCluster extends Resource {
     }
   }
 
-  public registerSecretsManagerSecret(id: string, secret: ISecret, options: NamespacedExternalSecretOptions): ExternalSecret {
+  public registerSecretsManagerSecret(id: string, secret: ISecret, options: NamespacedExternalSecretOptions = {}): ExternalSecret {
     if (this.externalSecrets) {
       return this.externalSecrets.registerSecretsManagerSecret(id, secret, options);
     } else {
@@ -133,7 +133,7 @@ export class AwsIntegratedFargateCluster extends Resource {
     }
   }
 
-  public registerSsmParameterSecret(id: string, parameter: IParameter, options?: NamespacedExternalSecretOptions): ExternalSecret {
+  public registerSsmParameterSecret(id: string, parameter: IParameter, options: NamespacedExternalSecretOptions = {}): ExternalSecret {
     if (this.externalSecrets) {
       return this.externalSecrets.registerSsmParameterSecret(id, parameter, options);
     } else {

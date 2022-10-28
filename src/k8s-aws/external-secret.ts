@@ -1,6 +1,6 @@
 import { Duration, Lazy, Names, Resource, ResourceProps } from 'aws-cdk-lib';
 import { ICluster, KubernetesManifest } from 'aws-cdk-lib/aws-eks';
-import { Construct, IDependable } from 'constructs';
+import { Construct, IConstruct, IDependable } from 'constructs';
 
 
 export interface ISecretStore extends IDependable {
@@ -10,8 +10,16 @@ export interface ISecretStore extends IDependable {
 export interface SecretFieldReference {
   readonly kubernetesKey: string;
   readonly metadataPolicy?: string;
-  readonly remoteRef: string;
   readonly remoteKey?: string;
+}
+
+export interface SecretReferenceConfiguration {
+  readonly fields?: SecretFieldReference[];
+  readonly remoteRef: string;
+}
+
+export interface ISecretReference {
+  bind(scope: IConstruct): SecretReferenceConfiguration;
 }
 
 /**
@@ -19,21 +27,27 @@ export interface SecretFieldReference {
  */
 export interface ExternalSecretProps extends ResourceProps {
   readonly cluster: ICluster;
-  readonly fields?: SecretFieldReference[];
   readonly name?: string;
   readonly namespace?: string;
   readonly refreshInterval?: Duration;
+  readonly secrets?: ISecretReference[];
   readonly secretStore: ISecretStore;
 }
 
 export class ExternalSecret extends Resource {
+  // Internal properties
+  private readonly _secrets: ISecretReference[] = [];
+
   // Input properties
   public readonly cluster: ICluster;
-  public readonly fields: SecretFieldReference[];
   public readonly name: string;
   public readonly namespace?: string;
   public readonly refreshInterval?: Duration;
   public readonly secretStore: ISecretStore;
+
+  public get secrets(): ISecretReference[] {
+    return [...this._secrets];
+  }
 
   // Resource properties
   public readonly resource: KubernetesManifest;
@@ -48,7 +62,6 @@ export class ExternalSecret extends Resource {
     });
 
     this.cluster = props.cluster;
-    this.fields = props.fields ?? [];
     this.name = props.name ?? `es${Names.uniqueId(this).slice(-61).toLowerCase()}`;
     this.namespace = props.namespace;
     this.refreshInterval = props.refreshInterval ?? Duration.minutes(1);
@@ -77,16 +90,40 @@ export class ExternalSecret extends Resource {
             data: Lazy.uncachedAny(
               {
                 produce: () => {
-                  return this.fields.map((x) => {
-                    return {
-                      secretKey: x.kubernetesKey,
-                      remoteRef: {
-                        key: x.remoteRef,
-                        metadataPolicy: x.metadataPolicy,
-                        property: x.remoteKey,
-                      },
-                    };
-                  });
+                  return this._secrets.reduce((prev, cur) => {
+                    const config = cur.bind(this);
+                    config.fields?.forEach((x) => {
+                      prev.push({
+                        secretKey: x.kubernetesKey,
+                        remoteRef: {
+                          key: config.remoteRef,
+                          metadataPolicy: x.metadataPolicy,
+                          property: x.remoteKey,
+                        },
+                      });
+                    });
+                    return prev;
+                  }, [] as any[]);
+                },
+              },
+              {
+                omitEmptyArray: true,
+              },
+            ),
+            dataFrom: Lazy.uncachedAny(
+              {
+                produce: () => {
+                  return this._secrets.reduce((prev, cur) => {
+                    const config = cur.bind(this);
+                    if ((config.fields?.length ?? 0) === 0) {
+                      prev.push({
+                        extract: {
+                          key: config.remoteRef,
+                        },
+                      });
+                    }
+                    return prev;
+                  }, [] as any[]);
                 },
               },
               {
@@ -100,9 +137,14 @@ export class ExternalSecret extends Resource {
     this.resource.node.addDependency(this.secretStore);
 
     this.secretName = this.name;
+
+    props.secrets?.map((x) => {
+      this.addSecret(x);
+    });
   }
 
-  public addField(field: SecretFieldReference): void {
-    this.fields.push(field);
+  public addSecret(secret: ISecretReference): ExternalSecret {
+    this._secrets.push(secret);
+    return this;
   }
 }
