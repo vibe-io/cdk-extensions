@@ -54,6 +54,8 @@ is most frequently needed, handling everything from bucket to query for:
 - SES
 - WAF
 
+S3 Access logging is enabled for all the logging buckets, with logs delivered to the
+`S3AccessLogsBucket`.
 
 ### Usage
 All S3 buckets, Glue resources, and Athena queries are created using **cdk_extensions**
@@ -95,10 +97,6 @@ logging_stack = new AwsLoggingStack(this, 'LoggingStack')
 
 const l2_cloudtrail_bucket = s3.Bucket.fromCfnBucket(
   logging_stack.cloudtraillogsBucket.resource
-);
-// OR
-const l2_cloudtrail_bucket = s3.Bucket.fromBucketName(this, 'CloudtrailBucket',
-  logging_stack.cloudtrailLogsBucket.bucketName
 );
 
 const trail = new cloudtrail.Trail(this, 'myCloudTrail', {
@@ -212,6 +210,8 @@ import {
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { AwsLoggingStack } from 'cdk-extensions/stacks';
+import * as firehose from '@aws-cdk/aws-kinesisfirehose-alpha';
+import { S3Bucket } from '@aws-cdk/aws-kinesisfirehose-destinations-alpha';
 
 export interface DemoProps extends StackProps {
   readonly aws_logging_stack: AwsLoggingStack;
@@ -224,22 +224,21 @@ export class DemoStack extends Stack {
   constructor(scope: Construct, id: string, props: DemoProps) {
     super(scope, id, props);
     // Wrap L1 logging bucket in L2 Construct
-    const ses_logs_bucket = s3.Bucket.fromBucketName(this, 'SESLogsBucket',
-      props.aws_logging_stack.sesLogsBucket.bucketName
-    );
-    const waf_logs_bucket = s3.Bucket.fromBucketName(this, 'WAFLogsBucket',
-      props.aws_logging_stack.wafLogsBucket.bucketName
+    const waf_logs_bucket = s3.Bucket.fromCfnBucket(
+      props.aws_logging_stack.wafLogsBucket.resource
     );
 
     // Create the demo resources
 
     // Create a VPC
-    const vpc = new ec2.Vpc(this, 'VPC')
+    const vpc = new ec2.Vpc(this, 'VPC');
 
-    // FLOW LOGS
+    /*
+      FLOW LOGS
+    */
     // Wrap L1 logging bucket in L2 Construct
-    const flow_logs_bucket = s3.Bucket.fromBucketName(this, 'FlowLogsBucket',
-      props.aws_logging_stack.flowLogsBucket.bucketName
+    const flow_logs_bucket = s3.Bucket.fromCfnBucket(
+      props.aws_logging_stack.flowLogsBucket.resource
     );
     // Enable flow log output to the FlowLogs bucket for the new VPC
     new ec2.FlowLog(this, 'FlowLog', {
@@ -249,20 +248,24 @@ export class DemoStack extends Stack {
       )
     });
 
-    // S3 ACCESS LOGS
-    const s3_access_logs_bucket = s3.Bucket.fromBucketName(this, 'S3AccessLogsBucket',
-      props.aws_logging_stack.s3AccessLogsBucket.bucketName
+    /*
+      S3 ACCESS LOGS
+    */
+    const s3_access_logs_bucket = s3.Bucket.fromCfnBucket(
+      props.aws_logging_stack.s3AccessLogsBucket.resource
     );
     // Create a simple S3 bucket, with access logging sent to
     // the s3AccessLogsBucket
     const s3Bucket = new s3.Bucket(this, 'WebsiteBucket', {
       serverAccessLogsBucket: s3_access_logs_bucket
-    })
+    });
 
-    // CLOUDFRONT LOGS
+    /*
+      CLOUDFRONT LOGS
+    */
     // Wrap L1 logging bucket in L2 Construct
-    const cloudfront_logs_bucket = s3.Bucket.fromBucketName(this, 'CloudfrontLogsBucket',
-      props.aws_logging_stack.cloudfrontLogsBucket.bucketName
+    const cloudfront_logs_bucket = s3.Bucket.fromCfnBucket(
+      props.aws_logging_stack.cloudfrontLogsBucket.resource
     );
     // Create a CDN in front of the demo bucket, with logBucket configured
     // to the cloudfrontLogsBucket
@@ -271,32 +274,120 @@ export class DemoStack extends Stack {
         origin: new origins.S3Origin(s3Bucket)
       },
       logBucket: cloudfront_logs_bucket
-    })
+    });
 
-
-    // ALB ACCESS LOGS
+    /*
+      ALB ACCESS LOGS
+    */
     //  Wrap L1 bucket in L2 construct
-    const alb_logs_bucket = s3.Bucket.fromBucketName(this, 'AlbLogsBucket',
-      props.aws_logging_stack.albLogsBucket.bucketName
-    );
     // Create a simple Load Balancer
     const lb = new elbv2.ApplicationLoadBalancer(this, 'LB', {
           vpc
-    })
+    });
+
     // Send logs to the AlbLogsBucket
     lb.logAccessLogs(
-      alb_logs_bucket
-    )
-
-    // CLOUDTRAIL
-    // Wrap L1 logging bucket in L2 Construct
-    const cloudtrail_logs_bucket = s3.Bucket.fromBucketName(this, 'CloudtrailLogsBucket',
-      props.aws_logging_stack.cloudtrailLogsBucket.bucketName
+      s3.Bucket.fromCfnBucket(props.aws_logging_stack.albLogsBucket.resource )
     );
-    // Create a Cloudtrail trail that sends logs to the CloudtrailLogsBucket
+
+    /*
+      CLOUDTRAIL
+    */
+    // //  Wrap L1 logging bucket in L2 Construct
+    const cloudtrail_logs_bucket = s3.Bucket.fromCfnBucket(
+      props.aws_logging_stack.cloudtrailLogsBucket.resource
+    );
+    // // Create a Cloudtrail trail that sends logs to the CloudtrailLogsBucket
     const trail = new cloudtrail.Trail(this, 'myCloudTrail', {
-      bucket: cloudtrail_logs_bucket
-    });
-  }
+       bucket: cloudtrail_logs_bucket
+     });
+
+     /*
+       SES LOGS
+     */
+     // Wrap L1 logging bucket in L2 Construct
+     const ses_logs_bucket =  s3.Bucket.fromCfnBucket(
+       props.aws_logging_stack.sesLogsBucket.resource
+     );
+
+     // Creates IAM roles for firehose to assume
+     const destinationRole = new iam.Role(this, 'Destination Role', {
+       assumedBy: new iam.ServicePrincipal('firehose.amazonaws.com'),
+     });
+     const deliveryStreamRole = new iam.Role(this, 'Delivery Stream Role', {
+       assumedBy: new iam.ServicePrincipal('firehose.amazonaws.com'),
+     });
+     // Specify the roles created above when defining the destination and delivery stream.
+     const destination = new S3Bucket(ses_logs_bucket, {role: destinationRole});
+     const delivery_stream = new firehose.DeliveryStream(this, 'KinesisStream', {
+       destinations: [destination],
+       role: deliveryStreamRole
+     });
+
+     // Creates an SES ConfigurationSet with reputation metrics enabled
+     const config_set = new ses.ConfigurationSet(this, 'ConfigurationSet', {
+       reputationMetrics: true
+     });
+
+     // Set up permissions for SES to publish events to Kinesis Firehose
+     // Creates service principal we can use to restrict the IAM role to the ConfigurationSet
+     const service_principal = new iam.PrincipalWithConditions(new iam.ServicePrincipal('ses.amazonaws.com'), {
+         "StringEquals": {
+           "AWS:SourceAccount": [process.env.CDK_DEFAULT_ACCOUNT],
+           "AWS:SourceArn": [
+             `arn:aws:ses:${process.env.CDK_DEFAULT_REGION}:${process.env.CDK_DEFAULT_ACCOUNT}:configuration-set/${config_set.configurationSetName}`
+           ]
+         }
+       }
+     );
+     // Create the IAM Role
+     const sesRole = new iam.Role(this, 'SES Role', {
+       assumedBy: new iam.ServicePrincipal('ses.amazonaws.com'),
+       // It's important to add the firehose permissions as inline
+       // policies. If policies are added after role creation, CDK
+       // will not know to wait, and may fail to create the ConfigurationSet
+       // due to insufficient permissions
+       inlinePolicies: {
+         'root': new iam.PolicyDocument({
+           statements: [
+             new iam.PolicyStatement({
+               effect: iam.Effect.ALLOW,
+               actions: [
+                 'firehose:PutRecord',
+                 'firehose:PutRecordBatch'
+               ],
+               resources: [
+                 delivery_stream.deliveryStreamArn
+               ]
+             })
+           ]
+         })
+       }
+     });
+
+     // Creates a Configuraton Set Event Destination that will send all SES events
+     // to the Kinesis Firehose Stream.
+     const cfnConfigurationSetEventDestination = new ses.CfnConfigurationSetEventDestination(this, 'MyCfnConfigurationSetEventDestination', {
+       configurationSetName: config_set.configurationSetName,
+       eventDestination: {
+         matchingEventTypes: [
+           'send',
+           'reject',
+           'bounce',
+           'complaint',
+           'delivery',
+           'open',
+           'click',
+           'renderingFailure'
+         ],
+         enabled: true,
+         kinesisFirehoseDestination: {
+           deliveryStreamArn: delivery_stream.deliveryStreamArn,
+           iamRoleArn: sesRole.roleArn
+         }
+       }
+     });
+     // TODO: Manually configure any verified SES sending domains or emails for which
+     // event publishing is desired
+   }
 }
-```
