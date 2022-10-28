@@ -8,7 +8,17 @@ export interface ColumnProps {
 }
 
 export abstract class Column {
+  /**
+   * A free-form text comment.
+   * 
+   * @see [AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment)
+   */
   public readonly comment?: string;
+  /**
+   * The name of the Column.
+   * 
+   * @see [AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name)
+   */
   public readonly name?: string;
 
   public abstract readonly typeString: string;
