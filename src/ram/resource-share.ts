@@ -9,27 +9,102 @@ import { ISharedResource } from './lib/shared-resource';
  * Configuration for ResourceShare resource.
  */
 export interface ResourceShareProps extends ResourceProps {
+  /**
+   * Specifies whether principals outside your organization in AWS
+   * Organizations can be associated with a resource share. A value of `true`
+   * lets you share with individual AWS accounts that are not in your
+   * organization. A value of `false` only has meaning if your account is a
+   * member of an AWS Organization.
+   *
+   * @default true
+   *
+   * @see [ResourceShare.AllowExternalPrinicpals](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-allowexternalprincipals)
+   */
   readonly allowExternalPrincipals?: boolean;
+
+  /**
+   * Controls whether the resource share should attempt to search for AWS
+   * accounts that are part of the same CDK application. Any accounts is finds
+   * will be added to the resource automatically and will be able to use the
+   * shared resources.
+   */
   readonly autoDiscoverAccounts?: boolean;
+
+  /**
+   * Specifies the name of the resource share.
+   *
+   * @see [ResourceShare.Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-name)
+   */
   readonly name?: string;
+
+  /**
+   * Specifies a list of one or more principals to associate with the resource share.
+   *
+   * @see [ResourceShare.Prinicipals](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-principals)
+   */
   readonly principals?: ISharedPrincipal[];
+
+  /**
+   * Specifies a list of AWS resources to share with the configured principal
+   * accounts and organizations.
+   *
+   * @see [ResourceShare.ResourceArns](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-resourcearns)
+   */
   readonly resources?: ISharedResource[];
 }
 
+/**
+ * Creates a resource share that can used to share AWS resources with other AWS
+ * accounts, organizations, or organizational units (OU's).
+ *
+ * @see [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html)
+ */
 export class ResourceShare extends Resource {
   // Internal properties
   private _autoDiscovery: boolean = false;
   private readonly _principals: ISharedPrincipal[] = [];
   private readonly _resources: ISharedResource[] = [];
 
-  // Input properties
+  /**
+   * Specifies whether principals outside your organization in AWS
+   * Organizations can be associated with a resource share. A value of `true`
+   * lets you share with individual AWS accounts that are not in your
+   * organization. A value of `false` only has meaning if your account is a
+   * member of an AWS Organization.
+   *
+   * In order for an account to be auto discovered it must be part of the same
+   * CDK application. It must also be an explicitly defined environment and not
+   * environment agnostic.
+   *
+   * @group Inputs
+   *
+   * @see [ResourceShare.AllowExternalPrinicpals](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-allowexternalprincipals)
+   * @see [CDK Environments](https://docs.aws.amazon.com/cdk/v2/guide/environments.html)
+   */
   public readonly allowExternalPrincipals?: boolean;
+
+  /**
+   * Specifies the name of the resource share.
+   *
+   * @group Inputs
+   *
+   * @see [ResourceShare.Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-name)
+   */
   public readonly name: string;
 
-  // Resource properties
+
+  /**
+   * The underlying ResourceShare CloudFormation resource.
+   *
+   * @see [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html)
+   *
+   * @group Resources
+   */
   public readonly resource: CfnResourceShare;
 
-  // Standard accessors
+  /**
+   *
+   */
   public get autoDiscovery(): boolean {
     return this._autoDiscovery;
   }
