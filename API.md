@@ -1714,6 +1714,8 @@ new eks_patterns.AwsIntegratedFargateCluster(scope: Construct, id: string, props
 | --- | --- |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.registerSecretsManagerSecret">registerSecretsManagerSecret</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.registerSsmParameterSecret">registerSsmParameterSecret</a></code> | *No description.* |
 
 ---
 
@@ -1744,6 +1746,54 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `registerSecretsManagerSecret` <a name="registerSecretsManagerSecret" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.registerSecretsManagerSecret"></a>
+
+```typescript
+public registerSecretsManagerSecret(id: string, secret: ISecret, options?: NamespacedExternalSecretOptions): ExternalSecret
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.registerSecretsManagerSecret.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `secret`<sup>Required</sup> <a name="secret" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.registerSecretsManagerSecret.parameter.secret"></a>
+
+- *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.registerSecretsManagerSecret.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.NamespacedExternalSecretOptions
+
+---
+
+##### `registerSsmParameterSecret` <a name="registerSsmParameterSecret" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.registerSsmParameterSecret"></a>
+
+```typescript
+public registerSsmParameterSecret(id: string, parameter: IParameter, options?: NamespacedExternalSecretOptions): ExternalSecret
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.registerSsmParameterSecret.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `parameter`<sup>Required</sup> <a name="parameter" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.registerSsmParameterSecret.parameter.parameter"></a>
+
+- *Type:* aws-cdk-lib.aws_ssm.IParameter
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.registerSsmParameterSecret.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.NamespacedExternalSecretOptions
 
 ---
 
@@ -1817,6 +1867,7 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_eks.FargateCluster</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.cloudWatchMonitoring">cloudWatchMonitoring</a></code> | <code>cdk-extensions.k8s_aws.CloudWatchMonitoring</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.externalDns">externalDns</a></code> | <code>cdk-extensions.k8s_aws.ExternalDns</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.externalSecrets">externalSecrets</a></code> | <code>cdk-extensions.k8s_aws.ExternalSecretsOperator</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.fargateLogger">fargateLogger</a></code> | <code>cdk-extensions.k8s_aws.FargateLogger</code> | *No description.* |
 
 ---
@@ -1891,6 +1942,16 @@ public readonly externalDns: ExternalDns;
 ```
 
 - *Type:* cdk-extensions.k8s_aws.ExternalDns
+
+---
+
+##### `externalSecrets`<sup>Optional</sup> <a name="externalSecrets" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.externalSecrets"></a>
+
+```typescript
+public readonly externalSecrets: ExternalSecretsOperator;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalSecretsOperator
 
 ---
 
@@ -2864,6 +2925,317 @@ public readonly friendlyQueryNames: boolean;
 
 ---
 
+
+### AwsSecretStore <a name="AwsSecretStore" id="cdk-extensions.k8s_aws.AwsSecretStore"></a>
+
+- *Implements:* cdk-extensions.k8s_aws.ISecretStore
+
+A generic class representing secret store that is backed by an AWS service.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.AwsSecretStore.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.AwsSecretStore(scope: Construct, id: string, props: AwsSecretStoreProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the resource and used in resource naming. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_aws.AwsSecretStoreProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.AwsSecretStore.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.AwsSecretStore.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the resource and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.k8s_aws.AwsSecretStore.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.k8s_aws.AwsSecretStoreProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.k8s_aws.AwsSecretStore.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.k8s_aws.AwsSecretStore.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.k8s_aws.AwsSecretStore.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.k8s_aws.AwsSecretStore.isConstruct"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.AwsSecretStore.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.k8s_aws.AwsSecretStore.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.k8s_aws.AwsSecretStore.isOwnedResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.AwsSecretStore.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.AwsSecretStore.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.k8s_aws.AwsSecretStore.isResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.AwsSecretStore.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.AwsSecretStore.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS cluster where the secret store should be created. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.property.manifest">manifest</a></code> | <code>aws-cdk-lib.aws_eks.KubernetesManifest</code> | The Kubernetes manifest that defines the secret store. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.property.name">name</a></code> | <code>string</code> | A human friendly name for the secret store. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the secret store should be created. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.property.secretStoreName">secretStoreName</a></code> | <code>string</code> | The name of the secret store as it appears in Kubernetes. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.property.service">service</a></code> | <code>string</code> | The name of the service provider backing the secret store. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.property.serviceAccount">serviceAccount</a></code> | <code>aws-cdk-lib.aws_eks.ServiceAccount</code> | A Kubernetes service account mapped to an IAM role that provides the necessary permissions to sychronize secrets from an AWS rpvoder. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.k8s_aws.AwsSecretStore.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.k8s_aws.AwsSecretStore.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.k8s_aws.AwsSecretStore.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.AwsSecretStore.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The EKS cluster where the secret store should be created.
+
+---
+
+##### `manifest`<sup>Required</sup> <a name="manifest" id="cdk-extensions.k8s_aws.AwsSecretStore.property.manifest"></a>
+
+```typescript
+public readonly manifest: KubernetesManifest;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.KubernetesManifest
+
+The Kubernetes manifest that defines the secret store.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.AwsSecretStore.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+A human friendly name for the secret store.
+
+---
+
+##### `namespace`<sup>Required</sup> <a name="namespace" id="cdk-extensions.k8s_aws.AwsSecretStore.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where the secret store should be created.
+
+---
+
+##### `secretStoreName`<sup>Required</sup> <a name="secretStoreName" id="cdk-extensions.k8s_aws.AwsSecretStore.property.secretStoreName"></a>
+
+```typescript
+public readonly secretStoreName: string;
+```
+
+- *Type:* string
+
+The name of the secret store as it appears in Kubernetes.
+
+---
+
+##### `service`<sup>Required</sup> <a name="service" id="cdk-extensions.k8s_aws.AwsSecretStore.property.service"></a>
+
+```typescript
+public readonly service: string;
+```
+
+- *Type:* string
+
+The name of the service provider backing the secret store.
+
+---
+
+##### `serviceAccount`<sup>Required</sup> <a name="serviceAccount" id="cdk-extensions.k8s_aws.AwsSecretStore.property.serviceAccount"></a>
+
+```typescript
+public readonly serviceAccount: ServiceAccount;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ServiceAccount
+
+A Kubernetes service account mapped to an IAM role that provides the necessary permissions to sychronize secrets from an AWS rpvoder.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStore.property.NAME_VALIDATOR_REGEX">NAME_VALIDATOR_REGEX</a></code> | <code>string</code> | The regex pattern used to validate secret store names. |
+
+---
+
+##### `NAME_VALIDATOR_REGEX`<sup>Required</sup> <a name="NAME_VALIDATOR_REGEX" id="cdk-extensions.k8s_aws.AwsSecretStore.property.NAME_VALIDATOR_REGEX"></a>
+
+```typescript
+public readonly NAME_VALIDATOR_REGEX: string;
+```
+
+- *Type:* string
+
+The regex pattern used to validate secret store names.
+
+---
 
 ### CloudfrontLogsBucket <a name="CloudfrontLogsBucket" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket"></a>
 
@@ -7642,6 +8014,655 @@ public readonly serviceAccount: ServiceAccount;
 
 ---
 
+
+### ExternalSecret <a name="ExternalSecret" id="cdk-extensions.k8s_aws.ExternalSecret"></a>
+
+Represents a Kubernetes secret that is being synchronized from an external provider.
+
+On a technical level, provides the configuration for how the external
+secrets operator service should manage the synchronization of the Kubernetes
+secret.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.ExternalSecret.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.ExternalSecret(scope: Construct, id: string, props: ExternalSecretProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the resource and used in resource naming. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_aws.ExternalSecretProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.ExternalSecret.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.ExternalSecret.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the resource and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.k8s_aws.ExternalSecret.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.k8s_aws.ExternalSecretProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.addSecret">addSecret</a></code> | Adds a provider secret reference to the synchronized Kubernetes secret. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.k8s_aws.ExternalSecret.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.k8s_aws.ExternalSecret.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.k8s_aws.ExternalSecret.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addSecret` <a name="addSecret" id="cdk-extensions.k8s_aws.ExternalSecret.addSecret"></a>
+
+```typescript
+public addSecret(secret: ISecretReference): ExternalSecret
+```
+
+Adds a provider secret reference to the synchronized Kubernetes secret.
+
+For external secrets that reference multiple provider secrets the keys of
+all provider secrets will be merged into the single Kubernetes secret.
+
+###### `secret`<sup>Required</sup> <a name="secret" id="cdk-extensions.k8s_aws.ExternalSecret.addSecret.parameter.secret"></a>
+
+- *Type:* cdk-extensions.k8s_aws.ISecretReference
+
+The provider secret to reference.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.k8s_aws.ExternalSecret.isConstruct"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ExternalSecret.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.k8s_aws.ExternalSecret.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.k8s_aws.ExternalSecret.isOwnedResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ExternalSecret.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.ExternalSecret.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.k8s_aws.ExternalSecret.isResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ExternalSecret.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.ExternalSecret.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS cluster where the secret should be created. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.property.manifest">manifest</a></code> | <code>aws-cdk-lib.aws_eks.KubernetesManifest</code> | The Kubernetes manifest defining the configuration of how to synchronize the Kubernetes secret from the provider secrets. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.property.name">name</a></code> | <code>string</code> | The name to use for the Kubernetes secret resource when it is synchronized into the cluster. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.property.secretName">secretName</a></code> | <code>string</code> | The name of the Kubernetes secret. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.property.secrets">secrets</a></code> | <code>cdk-extensions.k8s_aws.ISecretReference[]</code> | The collection of referenced provider secrets that are referenced in the Kubernetes secret. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.property.secretStore">secretStore</a></code> | <code>cdk-extensions.k8s_aws.ISecretStore</code> | The Kubernetes secret store resource that provides details and permissions to use for importing secrets from the provider. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.property.namespace">namespace</a></code> | <code>string</code> | The name where the synchronized secret should be created. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecret.property.refreshInterval">refreshInterval</a></code> | <code>aws-cdk-lib.Duration</code> | The frequency at which synchronization should occur. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.k8s_aws.ExternalSecret.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.k8s_aws.ExternalSecret.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.k8s_aws.ExternalSecret.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.ExternalSecret.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The EKS cluster where the secret should be created.
+
+---
+
+##### `manifest`<sup>Required</sup> <a name="manifest" id="cdk-extensions.k8s_aws.ExternalSecret.property.manifest"></a>
+
+```typescript
+public readonly manifest: KubernetesManifest;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.KubernetesManifest
+
+The Kubernetes manifest defining the configuration of how to synchronize the Kubernetes secret from the provider secrets.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.ExternalSecret.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name to use for the Kubernetes secret resource when it is synchronized into the cluster.
+
+---
+
+##### `secretName`<sup>Required</sup> <a name="secretName" id="cdk-extensions.k8s_aws.ExternalSecret.property.secretName"></a>
+
+```typescript
+public readonly secretName: string;
+```
+
+- *Type:* string
+
+The name of the Kubernetes secret.
+
+---
+
+##### `secrets`<sup>Required</sup> <a name="secrets" id="cdk-extensions.k8s_aws.ExternalSecret.property.secrets"></a>
+
+```typescript
+public readonly secrets: ISecretReference[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.ISecretReference[]
+
+The collection of referenced provider secrets that are referenced in the Kubernetes secret.
+
+---
+
+##### `secretStore`<sup>Required</sup> <a name="secretStore" id="cdk-extensions.k8s_aws.ExternalSecret.property.secretStore"></a>
+
+```typescript
+public readonly secretStore: ISecretStore;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ISecretStore
+
+The Kubernetes secret store resource that provides details and permissions to use for importing secrets from the provider.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_aws.ExternalSecret.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The name where the synchronized secret should be created.
+
+---
+
+##### `refreshInterval`<sup>Optional</sup> <a name="refreshInterval" id="cdk-extensions.k8s_aws.ExternalSecret.property.refreshInterval"></a>
+
+```typescript
+public readonly refreshInterval: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+The frequency at which synchronization should occur.
+
+---
+
+
+### ExternalSecretsOperator <a name="ExternalSecretsOperator" id="cdk-extensions.k8s_aws.ExternalSecretsOperator"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.ExternalSecretsOperator(scope: Construct, id: string, props: ExternalSecretsOperatorProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_aws.ExternalSecretsOperatorProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.k8s_aws.ExternalSecretsOperatorProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSecretsManagerSecret">registerSecretsManagerSecret</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSsmParameterSecret">registerSsmParameterSecret</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `registerSecretsManagerSecret` <a name="registerSecretsManagerSecret" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSecretsManagerSecret"></a>
+
+```typescript
+public registerSecretsManagerSecret(id: string, secret: ISecret, options?: NamespacedExternalSecretOptions): ExternalSecret
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSecretsManagerSecret.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `secret`<sup>Required</sup> <a name="secret" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSecretsManagerSecret.parameter.secret"></a>
+
+- *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSecretsManagerSecret.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.NamespacedExternalSecretOptions
+
+---
+
+##### `registerSsmParameterSecret` <a name="registerSsmParameterSecret" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSsmParameterSecret"></a>
+
+```typescript
+public registerSsmParameterSecret(id: string, parameter: IParameter, options?: NamespacedExternalSecretOptions): ExternalSecret
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSsmParameterSecret.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `parameter`<sup>Required</sup> <a name="parameter" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSsmParameterSecret.parameter.parameter"></a>
+
+- *Type:* aws-cdk-lib.aws_ssm.IParameter
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSsmParameterSecret.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.NamespacedExternalSecretOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.isConstruct"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ExternalSecretsOperator.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.isOwnedResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ExternalSecretsOperator.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.isResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ExternalSecretsOperator.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.Cluster</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.helmChart">helmChart</a></code> | <code>aws-cdk-lib.aws_eks.HelmChart</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.namespace">namespace</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.operatorName">operatorName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.createNamespace">createNamespace</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.cluster"></a>
+
+```typescript
+public readonly cluster: Cluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.Cluster
+
+---
+
+##### `helmChart`<sup>Required</sup> <a name="helmChart" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.helmChart"></a>
+
+```typescript
+public readonly helmChart: HelmChart;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.HelmChart
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `namespace`<sup>Required</sup> <a name="namespace" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+---
+
+##### `operatorName`<sup>Required</sup> <a name="operatorName" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.operatorName"></a>
+
+```typescript
+public readonly operatorName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `createNamespace`<sup>Optional</sup> <a name="createNamespace" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.createNamespace"></a>
+
+```typescript
+public readonly createNamespace: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.DEFAULT_NAMESPACE">DEFAULT_NAMESPACE</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `DEFAULT_NAMESPACE`<sup>Required</sup> <a name="DEFAULT_NAMESPACE" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.DEFAULT_NAMESPACE"></a>
+
+```typescript
+public readonly DEFAULT_NAMESPACE: string;
+```
+
+- *Type:* string
+
+---
 
 ### FargateLogger <a name="FargateLogger" id="cdk-extensions.k8s_aws.FargateLogger"></a>
 
@@ -14565,6 +15586,351 @@ public readonly requestErrorsNamedQuery: NamedQuery;
 ---
 
 
+### SecretsManagerSecretStore <a name="SecretsManagerSecretStore" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore"></a>
+
+A secret store that allows secrets from AWS Secrets Managers to be synchronized into Kubernetes as Kubernetes secrets.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.SecretsManagerSecretStore(scope: Construct, id: string, props: SecretsManagerSecretStoreProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the resource and used in resource naming. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the resource and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.addSecret">addSecret</a></code> | Registers a new Secrets Manager secret to be synchronized into Kubernetes. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addSecret` <a name="addSecret" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.addSecret"></a>
+
+```typescript
+public addSecret(id: string, secret: ISecret, options?: ExternalSecretOptions): ExternalSecret
+```
+
+Registers a new Secrets Manager secret to be synchronized into Kubernetes.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.addSecret.parameter.id"></a>
+
+- *Type:* string
+
+The ID of the secret import configuration in the CDK construct tree.
+
+The configuration is placed under the Secrets Manager secret it
+synchronizes and so must be unique per secret.
+
+---
+
+###### `secret`<sup>Required</sup> <a name="secret" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.addSecret.parameter.secret"></a>
+
+- *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
+
+The Secrets Manager secret to synchronize into Kubernetes.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.addSecret.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.ExternalSecretOptions
+
+Configuration options for how the secret should be synchronized.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.isConstruct"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.SecretsManagerSecretStore.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.isOwnedResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.SecretsManagerSecretStore.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.isResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.SecretsManagerSecretStore.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS cluster where the secret store should be created. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.manifest">manifest</a></code> | <code>aws-cdk-lib.aws_eks.KubernetesManifest</code> | The Kubernetes manifest that defines the secret store. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.name">name</a></code> | <code>string</code> | A human friendly name for the secret store. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the secret store should be created. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.secretStoreName">secretStoreName</a></code> | <code>string</code> | The name of the secret store as it appears in Kubernetes. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.service">service</a></code> | <code>string</code> | The name of the service provider backing the secret store. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.serviceAccount">serviceAccount</a></code> | <code>aws-cdk-lib.aws_eks.ServiceAccount</code> | A Kubernetes service account mapped to an IAM role that provides the necessary permissions to sychronize secrets from an AWS rpvoder. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The EKS cluster where the secret store should be created.
+
+---
+
+##### `manifest`<sup>Required</sup> <a name="manifest" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.manifest"></a>
+
+```typescript
+public readonly manifest: KubernetesManifest;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.KubernetesManifest
+
+The Kubernetes manifest that defines the secret store.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+A human friendly name for the secret store.
+
+---
+
+##### `namespace`<sup>Required</sup> <a name="namespace" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where the secret store should be created.
+
+---
+
+##### `secretStoreName`<sup>Required</sup> <a name="secretStoreName" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.secretStoreName"></a>
+
+```typescript
+public readonly secretStoreName: string;
+```
+
+- *Type:* string
+
+The name of the secret store as it appears in Kubernetes.
+
+---
+
+##### `service`<sup>Required</sup> <a name="service" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.service"></a>
+
+```typescript
+public readonly service: string;
+```
+
+- *Type:* string
+
+The name of the service provider backing the secret store.
+
+---
+
+##### `serviceAccount`<sup>Required</sup> <a name="serviceAccount" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.serviceAccount"></a>
+
+```typescript
+public readonly serviceAccount: ServiceAccount;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ServiceAccount
+
+A Kubernetes service account mapped to an IAM role that provides the necessary permissions to sychronize secrets from an AWS rpvoder.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.NAME_VALIDATOR_REGEX">NAME_VALIDATOR_REGEX</a></code> | <code>string</code> | The regex pattern used to validate secret store names. |
+
+---
+
+##### `NAME_VALIDATOR_REGEX`<sup>Required</sup> <a name="NAME_VALIDATOR_REGEX" id="cdk-extensions.k8s_aws.SecretsManagerSecretStore.property.NAME_VALIDATOR_REGEX"></a>
+
+```typescript
+public readonly NAME_VALIDATOR_REGEX: string;
+```
+
+- *Type:* string
+
+The regex pattern used to validate secret store names.
+
+---
+
 ### SecurityConfiguration <a name="SecurityConfiguration" id="cdk-extensions.glue.SecurityConfiguration"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.SecurityConfiguration.Initializer"></a>
@@ -16229,6 +17595,351 @@ public readonly complaintsQuery: NamedQuery;
 
 ---
 
+
+### SsmParameterSecretStore <a name="SsmParameterSecretStore" id="cdk-extensions.k8s_aws.SsmParameterSecretStore"></a>
+
+A secret store that allows parameters from Systems Manager to be synchronized into Kubernetes as Kubernetes secrets.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.SsmParameterSecretStore(scope: Construct, id: string, props: SsmParameterSecretStoreProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the resource and used in resource naming. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_aws.SsmParameterSecretStoreProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the resource and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.k8s_aws.SsmParameterSecretStoreProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.addSecret">addSecret</a></code> | Registers a new SSSM parameter to be synchronized into Kubernetes. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addSecret` <a name="addSecret" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.addSecret"></a>
+
+```typescript
+public addSecret(id: string, parameter: IParameter, options?: ExternalSecretOptions): ExternalSecret
+```
+
+Registers a new SSSM parameter to be synchronized into Kubernetes.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.addSecret.parameter.id"></a>
+
+- *Type:* string
+
+The ID of the secret import configuration in the CDK construct tree.
+
+The configuration is placed under the SSM parameter it synchronizes and so
+must be unique per secret.
+
+---
+
+###### `parameter`<sup>Required</sup> <a name="parameter" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.addSecret.parameter.parameter"></a>
+
+- *Type:* aws-cdk-lib.aws_ssm.IParameter
+
+The SSM parameter to synchronize into Kubernetes.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.addSecret.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.ExternalSecretOptions
+
+Configuration options for how the secret should be synchronized.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.isConstruct"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.SsmParameterSecretStore.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.isOwnedResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.SsmParameterSecretStore.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.isResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.SsmParameterSecretStore.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS cluster where the secret store should be created. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.property.manifest">manifest</a></code> | <code>aws-cdk-lib.aws_eks.KubernetesManifest</code> | The Kubernetes manifest that defines the secret store. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.property.name">name</a></code> | <code>string</code> | A human friendly name for the secret store. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the secret store should be created. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.property.secretStoreName">secretStoreName</a></code> | <code>string</code> | The name of the secret store as it appears in Kubernetes. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.property.service">service</a></code> | <code>string</code> | The name of the service provider backing the secret store. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.property.serviceAccount">serviceAccount</a></code> | <code>aws-cdk-lib.aws_eks.ServiceAccount</code> | A Kubernetes service account mapped to an IAM role that provides the necessary permissions to sychronize secrets from an AWS rpvoder. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The EKS cluster where the secret store should be created.
+
+---
+
+##### `manifest`<sup>Required</sup> <a name="manifest" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.property.manifest"></a>
+
+```typescript
+public readonly manifest: KubernetesManifest;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.KubernetesManifest
+
+The Kubernetes manifest that defines the secret store.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+A human friendly name for the secret store.
+
+---
+
+##### `namespace`<sup>Required</sup> <a name="namespace" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where the secret store should be created.
+
+---
+
+##### `secretStoreName`<sup>Required</sup> <a name="secretStoreName" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.property.secretStoreName"></a>
+
+```typescript
+public readonly secretStoreName: string;
+```
+
+- *Type:* string
+
+The name of the secret store as it appears in Kubernetes.
+
+---
+
+##### `service`<sup>Required</sup> <a name="service" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.property.service"></a>
+
+```typescript
+public readonly service: string;
+```
+
+- *Type:* string
+
+The name of the service provider backing the secret store.
+
+---
+
+##### `serviceAccount`<sup>Required</sup> <a name="serviceAccount" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.property.serviceAccount"></a>
+
+```typescript
+public readonly serviceAccount: ServiceAccount;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ServiceAccount
+
+A Kubernetes service account mapped to an IAM role that provides the necessary permissions to sychronize secrets from an AWS rpvoder.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStore.property.NAME_VALIDATOR_REGEX">NAME_VALIDATOR_REGEX</a></code> | <code>string</code> | The regex pattern used to validate secret store names. |
+
+---
+
+##### `NAME_VALIDATOR_REGEX`<sup>Required</sup> <a name="NAME_VALIDATOR_REGEX" id="cdk-extensions.k8s_aws.SsmParameterSecretStore.property.NAME_VALIDATOR_REGEX"></a>
+
+```typescript
+public readonly NAME_VALIDATOR_REGEX: string;
+```
+
+- *Type:* string
+
+The regex pattern used to validate secret store names.
+
+---
 
 ### Table <a name="Table" id="cdk-extensions.glue.Table"></a>
 
@@ -19520,6 +21231,7 @@ const awsIntegratedFargateClusterProps: eks_patterns.AwsIntegratedFargateCluster
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.defaultProfile">defaultProfile</a></code> | <code>aws-cdk-lib.aws_eks.FargateProfileOptions</code> | Fargate Profile to create along with the cluster. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.cloudWatchMonitoringOptions">cloudWatchMonitoringOptions</a></code> | <code>cdk-extensions.eks_patterns.CloudWatchMonitoringOptions</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.externalDnsOptions">externalDnsOptions</a></code> | <code>cdk-extensions.eks_patterns.ExternalDnsOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.externalSecretsOptions">externalSecretsOptions</a></code> | <code>cdk-extensions.eks_patterns.ExternalSecretsOptions</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.loggingOptions">loggingOptions</a></code> | <code>cdk-extensions.eks_patterns.FargateLoggingOptions</code> | *No description.* |
 
 ---
@@ -19929,6 +21641,16 @@ public readonly externalDnsOptions: ExternalDnsOptions;
 
 ---
 
+##### `externalSecretsOptions`<sup>Optional</sup> <a name="externalSecretsOptions" id="cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.externalSecretsOptions"></a>
+
+```typescript
+public readonly externalSecretsOptions: ExternalSecretsOptions;
+```
+
+- *Type:* cdk-extensions.eks_patterns.ExternalSecretsOptions
+
+---
+
 ##### `loggingOptions`<sup>Optional</sup> <a name="loggingOptions" id="cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.loggingOptions"></a>
 
 ```typescript
@@ -20224,6 +21946,144 @@ public readonly wafLogsBucket: WafLogsBucket;
 ```
 
 - *Type:* cdk-extensions.s3_buckets.WafLogsBucket
+
+---
+
+### AwsSecretStoreProps <a name="AwsSecretStoreProps" id="cdk-extensions.k8s_aws.AwsSecretStoreProps"></a>
+
+Configuration options for adding a new secret store resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.AwsSecretStoreProps.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const awsSecretStoreProps: k8s_aws.AwsSecretStoreProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStoreProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStoreProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStoreProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStoreProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStoreProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS cluster where the secret store should be created. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStoreProps.property.service">service</a></code> | <code>string</code> | The name of the service provider backing the secret store. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStoreProps.property.name">name</a></code> | <code>string</code> | A human friendly name for the secret store. |
+| <code><a href="#cdk-extensions.k8s_aws.AwsSecretStoreProps.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the secret store should be created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.k8s_aws.AwsSecretStoreProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.k8s_aws.AwsSecretStoreProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.k8s_aws.AwsSecretStoreProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.AwsSecretStoreProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.AwsSecretStoreProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The EKS cluster where the secret store should be created.
+
+---
+
+##### `service`<sup>Required</sup> <a name="service" id="cdk-extensions.k8s_aws.AwsSecretStoreProps.property.service"></a>
+
+```typescript
+public readonly service: string;
+```
+
+- *Type:* string
+
+The name of the service provider backing the secret store.
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.k8s_aws.AwsSecretStoreProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+A human friendly name for the secret store.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_aws.AwsSecretStoreProps.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where the secret store should be created.
 
 ---
 
@@ -22920,6 +24780,341 @@ public readonly domainFilter: string[];
 
 ---
 
+### ExternalSecretOptions <a name="ExternalSecretOptions" id="cdk-extensions.k8s_aws.ExternalSecretOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.ExternalSecretOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const externalSecretOptions: k8s_aws.ExternalSecretOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretOptions.property.fields">fields</a></code> | <code>cdk-extensions.k8s_aws.SecretFieldReference[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretOptions.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `fields`<sup>Optional</sup> <a name="fields" id="cdk-extensions.k8s_aws.ExternalSecretOptions.property.fields"></a>
+
+```typescript
+public readonly fields: SecretFieldReference[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.SecretFieldReference[]
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.k8s_aws.ExternalSecretOptions.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+### ExternalSecretProps <a name="ExternalSecretProps" id="cdk-extensions.k8s_aws.ExternalSecretProps"></a>
+
+Configuration for the ExternalSecret resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.ExternalSecretProps.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const externalSecretProps: k8s_aws.ExternalSecretProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS cluster where the secret should be created. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretProps.property.secretStore">secretStore</a></code> | <code>cdk-extensions.k8s_aws.ISecretStore</code> | The Kubernetes secret store resource that provides details and permissions to use for importing secrets from the provider. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretProps.property.name">name</a></code> | <code>string</code> | The name to use for the Kubernetes secret resource when it is synchronized into the cluster. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretProps.property.namespace">namespace</a></code> | <code>string</code> | The name where the synchronized secret should be created. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretProps.property.refreshInterval">refreshInterval</a></code> | <code>aws-cdk-lib.Duration</code> | The frequency at which synchronization should occur. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretProps.property.secrets">secrets</a></code> | <code>cdk-extensions.k8s_aws.ISecretReference[]</code> | The secrets to synchronize into this Kubernetes secret. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.k8s_aws.ExternalSecretProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.k8s_aws.ExternalSecretProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.k8s_aws.ExternalSecretProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.ExternalSecretProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.ExternalSecretProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The EKS cluster where the secret should be created.
+
+---
+
+##### `secretStore`<sup>Required</sup> <a name="secretStore" id="cdk-extensions.k8s_aws.ExternalSecretProps.property.secretStore"></a>
+
+```typescript
+public readonly secretStore: ISecretStore;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ISecretStore
+
+The Kubernetes secret store resource that provides details and permissions to use for importing secrets from the provider.
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.k8s_aws.ExternalSecretProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name to use for the Kubernetes secret resource when it is synchronized into the cluster.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_aws.ExternalSecretProps.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The name where the synchronized secret should be created.
+
+---
+
+##### `refreshInterval`<sup>Optional</sup> <a name="refreshInterval" id="cdk-extensions.k8s_aws.ExternalSecretProps.property.refreshInterval"></a>
+
+```typescript
+public readonly refreshInterval: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+The frequency at which synchronization should occur.
+
+---
+
+##### `secrets`<sup>Optional</sup> <a name="secrets" id="cdk-extensions.k8s_aws.ExternalSecretProps.property.secrets"></a>
+
+```typescript
+public readonly secrets: ISecretReference[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.ISecretReference[]
+
+The secrets to synchronize into this Kubernetes secret.
+
+If multiple secrets are provided their fields will be merged.
+
+---
+
+### ExternalSecretsOperatorProps <a name="ExternalSecretsOperatorProps" id="cdk-extensions.k8s_aws.ExternalSecretsOperatorProps"></a>
+
+Configuration for the Inbound Resolver resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const externalSecretsOperatorProps: k8s_aws.ExternalSecretsOperatorProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.Cluster</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.createNamespace">createNamespace</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.namespace">namespace</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: Cluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.Cluster
+
+---
+
+##### `createNamespace`<sup>Optional</sup> <a name="createNamespace" id="cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.createNamespace"></a>
+
+```typescript
+public readonly createNamespace: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+---
+
 ### ExternalSecretsOptions <a name="ExternalSecretsOptions" id="cdk-extensions.eks_patterns.ExternalSecretsOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.eks_patterns.ExternalSecretsOptions.Initializer"></a>
@@ -25053,6 +27248,56 @@ The name of the query.
 
 ---
 
+### NamespacedExternalSecretOptions <a name="NamespacedExternalSecretOptions" id="cdk-extensions.k8s_aws.NamespacedExternalSecretOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.NamespacedExternalSecretOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const namespacedExternalSecretOptions: k8s_aws.NamespacedExternalSecretOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.NamespacedExternalSecretOptions.property.fields">fields</a></code> | <code>cdk-extensions.k8s_aws.SecretFieldReference[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.NamespacedExternalSecretOptions.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.NamespacedExternalSecretOptions.property.namespace">namespace</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `fields`<sup>Optional</sup> <a name="fields" id="cdk-extensions.k8s_aws.NamespacedExternalSecretOptions.property.fields"></a>
+
+```typescript
+public readonly fields: SecretFieldReference[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.SecretFieldReference[]
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.k8s_aws.NamespacedExternalSecretOptions.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_aws.NamespacedExternalSecretOptions.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+---
+
 ### OpenxJsonInputSerDeOptions <a name="OpenxJsonInputSerDeOptions" id="cdk-extensions.kinesis_firehose.OpenxJsonInputSerDeOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.OpenxJsonInputSerDeOptions.Initializer"></a>
@@ -27178,6 +29423,266 @@ Setting this value to true prioritizes the customer's extra JAR files in the cla
 
 ---
 
+### SecretFieldReference <a name="SecretFieldReference" id="cdk-extensions.k8s_aws.SecretFieldReference"></a>
+
+Options for how to synchronize a specific field in a secret being imported.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.SecretFieldReference.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const secretFieldReference: k8s_aws.SecretFieldReference = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SecretFieldReference.property.kubernetesKey">kubernetesKey</a></code> | <code>string</code> | The name of the data key to be used for the field in the imported Kubernetes secret. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretFieldReference.property.metadataPolicy">metadataPolicy</a></code> | <code>cdk-extensions.k8s_aws.MetadataPolicy</code> | Policy for fetching tags/labels from provider secrets. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretFieldReference.property.remoteKey">remoteKey</a></code> | <code>string</code> | The JSON key for the field in the secret being imported. |
+
+---
+
+##### `kubernetesKey`<sup>Required</sup> <a name="kubernetesKey" id="cdk-extensions.k8s_aws.SecretFieldReference.property.kubernetesKey"></a>
+
+```typescript
+public readonly kubernetesKey: string;
+```
+
+- *Type:* string
+
+The name of the data key to be used for the field in the imported Kubernetes secret.
+
+---
+
+##### `metadataPolicy`<sup>Optional</sup> <a name="metadataPolicy" id="cdk-extensions.k8s_aws.SecretFieldReference.property.metadataPolicy"></a>
+
+```typescript
+public readonly metadataPolicy: MetadataPolicy;
+```
+
+- *Type:* cdk-extensions.k8s_aws.MetadataPolicy
+
+Policy for fetching tags/labels from provider secrets.
+
+---
+
+##### `remoteKey`<sup>Optional</sup> <a name="remoteKey" id="cdk-extensions.k8s_aws.SecretFieldReference.property.remoteKey"></a>
+
+```typescript
+public readonly remoteKey: string;
+```
+
+- *Type:* string
+
+The JSON key for the field in the secret being imported.
+
+---
+
+### SecretReferenceConfiguration <a name="SecretReferenceConfiguration" id="cdk-extensions.k8s_aws.SecretReferenceConfiguration"></a>
+
+Configuration detailing how secrets are to be synchronized.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.SecretReferenceConfiguration.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const secretReferenceConfiguration: k8s_aws.SecretReferenceConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SecretReferenceConfiguration.property.remoteRef">remoteRef</a></code> | <code>string</code> | The ID of the secret to be imported from the provider. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretReferenceConfiguration.property.fields">fields</a></code> | <code>cdk-extensions.k8s_aws.SecretFieldReference[]</code> | A mapping of fields and per field options to use when synchronizing a secret from a provider. |
+
+---
+
+##### `remoteRef`<sup>Required</sup> <a name="remoteRef" id="cdk-extensions.k8s_aws.SecretReferenceConfiguration.property.remoteRef"></a>
+
+```typescript
+public readonly remoteRef: string;
+```
+
+- *Type:* string
+
+The ID of the secret to be imported from the provider.
+
+---
+
+##### `fields`<sup>Optional</sup> <a name="fields" id="cdk-extensions.k8s_aws.SecretReferenceConfiguration.property.fields"></a>
+
+```typescript
+public readonly fields: SecretFieldReference[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.SecretFieldReference[]
+
+A mapping of fields and per field options to use when synchronizing a secret from a provider.
+
+---
+
+### SecretsManagerReferenceOptions <a name="SecretsManagerReferenceOptions" id="cdk-extensions.k8s_aws.SecretsManagerReferenceOptions"></a>
+
+Configuration options for referencing a Secrets Manager secret as a Kubernetes secret.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.SecretsManagerReferenceOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const secretsManagerReferenceOptions: k8s_aws.SecretsManagerReferenceOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerReferenceOptions.property.fields">fields</a></code> | <code>cdk-extensions.k8s_aws.SecretFieldReference[]</code> | Defines a mapping of how JSON keys in the Secrets Manager secret should appear in the imported Kubernetes secret. |
+
+---
+
+##### `fields`<sup>Optional</sup> <a name="fields" id="cdk-extensions.k8s_aws.SecretsManagerReferenceOptions.property.fields"></a>
+
+```typescript
+public readonly fields: SecretFieldReference[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.SecretFieldReference[]
+
+Defines a mapping of how JSON keys in the Secrets Manager secret should appear in the imported Kubernetes secret.
+
+---
+
+### SecretsManagerSecretStoreProps <a name="SecretsManagerSecretStoreProps" id="cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps"></a>
+
+Configuration options for adding a new secret store resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const secretsManagerSecretStoreProps: k8s_aws.SecretsManagerSecretStoreProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS cluster where the secret store should be created. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.property.name">name</a></code> | <code>string</code> | A human friendly name for the secret store. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the secret store should be created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The EKS cluster where the secret store should be created.
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+A human friendly name for the secret store.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_aws.SecretsManagerSecretStoreProps.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where the secret store should be created.
+
+---
+
 ### SecurityConfigurationProps <a name="SecurityConfigurationProps" id="cdk-extensions.glue.SecurityConfigurationProps"></a>
 
 Configuration for the Glue SecurityConfiguration resource.
@@ -27598,6 +30103,163 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+---
+
+### SsmParameterReferenceOptions <a name="SsmParameterReferenceOptions" id="cdk-extensions.k8s_aws.SsmParameterReferenceOptions"></a>
+
+Configuration options for referencing an SSM parameter as a Kubernetes secret.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.SsmParameterReferenceOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const ssmParameterReferenceOptions: k8s_aws.SsmParameterReferenceOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterReferenceOptions.property.fields">fields</a></code> | <code>cdk-extensions.k8s_aws.SecretFieldReference[]</code> | Defines a mapping of how JSON keys in the SSM parameter should appear in the imported Kubernetes secret. |
+
+---
+
+##### `fields`<sup>Optional</sup> <a name="fields" id="cdk-extensions.k8s_aws.SsmParameterReferenceOptions.property.fields"></a>
+
+```typescript
+public readonly fields: SecretFieldReference[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.SecretFieldReference[]
+
+Defines a mapping of how JSON keys in the SSM parameter should appear in the imported Kubernetes secret.
+
+---
+
+### SsmParameterSecretStoreProps <a name="SsmParameterSecretStoreProps" id="cdk-extensions.k8s_aws.SsmParameterSecretStoreProps"></a>
+
+Configuration options for adding a new secret store resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const ssmParameterSecretStoreProps: k8s_aws.SsmParameterSecretStoreProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS cluster where the secret store should be created. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.property.name">name</a></code> | <code>string</code> | A human friendly name for the secret store. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the secret store should be created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The EKS cluster where the secret store should be created.
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+A human friendly name for the secret store.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_aws.SsmParameterSecretStoreProps.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where the secret store should be created.
 
 ---
 
@@ -35140,6 +37802,119 @@ public readonly sampleSize: string;
 ---
 
 
+### SecretsManagerReference <a name="SecretsManagerReference" id="cdk-extensions.k8s_aws.SecretsManagerReference"></a>
+
+- *Implements:* cdk-extensions.k8s_aws.ISecretReference
+
+Defines a reference for importing and synchronizing a Secrets Manager secret to a Kubernetes secret.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.SecretsManagerReference.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.SecretsManagerReference(secret: ISecret, options?: SecretsManagerReferenceOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerReference.Initializer.parameter.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | The secret being referenced to import into Kubernetes. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerReference.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.SecretsManagerReferenceOptions</code> | Configuration options for the Secrets Manager reference. |
+
+---
+
+##### `secret`<sup>Required</sup> <a name="secret" id="cdk-extensions.k8s_aws.SecretsManagerReference.Initializer.parameter.secret"></a>
+
+- *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
+
+The secret being referenced to import into Kubernetes.
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.SecretsManagerReference.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.SecretsManagerReferenceOptions
+
+Configuration options for the Secrets Manager reference.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerReference.addFieldMapping">addFieldMapping</a></code> | Adds a field mapping that specifies how a field from a Secrets Manager JSON secret should be mapped into the imported Kubernetes secret. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerReference.bind">bind</a></code> | Binds the reference to an object that is in charge of generating the manifest for the external secret. |
+
+---
+
+##### `addFieldMapping` <a name="addFieldMapping" id="cdk-extensions.k8s_aws.SecretsManagerReference.addFieldMapping"></a>
+
+```typescript
+public addFieldMapping(field: SecretFieldReference): SecretsManagerReference
+```
+
+Adds a field mapping that specifies how a field from a Secrets Manager JSON secret should be mapped into the imported Kubernetes secret.
+
+###### `field`<sup>Required</sup> <a name="field" id="cdk-extensions.k8s_aws.SecretsManagerReference.addFieldMapping.parameter.field"></a>
+
+- *Type:* cdk-extensions.k8s_aws.SecretFieldReference
+
+The configuration for how to map the field from Secrets Manager to the Kubernetes secret.
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.SecretsManagerReference.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): SecretReferenceConfiguration
+```
+
+Binds the reference to an object that is in charge of generating the manifest for the external secret.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.SecretsManagerReference.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct that will consume the generated configuration.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerReference.property.fields">fields</a></code> | <code>cdk-extensions.k8s_aws.SecretFieldReference[]</code> | An array of field mappings which will be applied to this secret reference when mapping keys from SecretsManager JSON objects to keys in the imported secret. |
+| <code><a href="#cdk-extensions.k8s_aws.SecretsManagerReference.property.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | The secret being referenced to import into Kubernetes. |
+
+---
+
+##### `fields`<sup>Required</sup> <a name="fields" id="cdk-extensions.k8s_aws.SecretsManagerReference.property.fields"></a>
+
+```typescript
+public readonly fields: SecretFieldReference[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.SecretFieldReference[]
+
+An array of field mappings which will be applied to this secret reference when mapping keys from SecretsManager JSON objects to keys in the imported secret.
+
+---
+
+##### `secret`<sup>Required</sup> <a name="secret" id="cdk-extensions.k8s_aws.SecretsManagerReference.property.secret"></a>
+
+```typescript
+public readonly secret: ISecret;
+```
+
+- *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
+
+The secret being referenced to import into Kubernetes.
+
+---
+
+
 ### SerializationLibrary <a name="SerializationLibrary" id="cdk-extensions.glue.SerializationLibrary"></a>
 
 Serialization library to use when serializing/deserializing (SerDe) table records.
@@ -35537,6 +38312,117 @@ ram.SharedResource.fromSubnet(subnet: ISubnet)
 
 ---
 
+
+
+### SsmParameterReference <a name="SsmParameterReference" id="cdk-extensions.k8s_aws.SsmParameterReference"></a>
+
+- *Implements:* cdk-extensions.k8s_aws.ISecretReference
+
+Defines a reference for importing and synchronizing an SSM parameter to a Kubernetes secret.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.SsmParameterReference.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.SsmParameterReference(parameter: IParameter, options: SsmParameterReferenceOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterReference.Initializer.parameter.parameter">parameter</a></code> | <code>aws-cdk-lib.aws_ssm.IParameter</code> | The SSM parameter being referenced to import into Kubernetes. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterReference.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.SsmParameterReferenceOptions</code> | *No description.* |
+
+---
+
+##### `parameter`<sup>Required</sup> <a name="parameter" id="cdk-extensions.k8s_aws.SsmParameterReference.Initializer.parameter.parameter"></a>
+
+- *Type:* aws-cdk-lib.aws_ssm.IParameter
+
+The SSM parameter being referenced to import into Kubernetes.
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.k8s_aws.SsmParameterReference.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.SsmParameterReferenceOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterReference.addFieldMapping">addFieldMapping</a></code> | Adds a field mapping that specifies how a field from an SSM JSON parameter should be mapped into the imported Kubernetes secret. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterReference.bind">bind</a></code> | Binds the reference to an object that is in charge of generating the manifest for the external secret. |
+
+---
+
+##### `addFieldMapping` <a name="addFieldMapping" id="cdk-extensions.k8s_aws.SsmParameterReference.addFieldMapping"></a>
+
+```typescript
+public addFieldMapping(field: SecretFieldReference): SsmParameterReference
+```
+
+Adds a field mapping that specifies how a field from an SSM JSON parameter should be mapped into the imported Kubernetes secret.
+
+###### `field`<sup>Required</sup> <a name="field" id="cdk-extensions.k8s_aws.SsmParameterReference.addFieldMapping.parameter.field"></a>
+
+- *Type:* cdk-extensions.k8s_aws.SecretFieldReference
+
+The configuration for how to map the field from the SSM parameter to the Kubernetes secret.
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.SsmParameterReference.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): SecretReferenceConfiguration
+```
+
+Binds the reference to an object that is in charge of generating the manifest for the external secret.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.SsmParameterReference.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct that will consume the generated configuration.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterReference.property.fields">fields</a></code> | <code>cdk-extensions.k8s_aws.SecretFieldReference[]</code> | An array of field mappings which will be applied to this secret reference when mapping keys from SSM parameter JSON objects to keys in the imported secret. |
+| <code><a href="#cdk-extensions.k8s_aws.SsmParameterReference.property.parameter">parameter</a></code> | <code>aws-cdk-lib.aws_ssm.IParameter</code> | The SSM parameter being referenced to import into Kubernetes. |
+
+---
+
+##### `fields`<sup>Required</sup> <a name="fields" id="cdk-extensions.k8s_aws.SsmParameterReference.property.fields"></a>
+
+```typescript
+public readonly fields: SecretFieldReference[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.SecretFieldReference[]
+
+An array of field mappings which will be applied to this secret reference when mapping keys from SSM parameter JSON objects to keys in the imported secret.
+
+---
+
+##### `parameter`<sup>Required</sup> <a name="parameter" id="cdk-extensions.k8s_aws.SsmParameterReference.property.parameter"></a>
+
+```typescript
+public readonly parameter: IParameter;
+```
+
+- *Type:* aws-cdk-lib.aws_ssm.IParameter
+
+The SSM parameter being referenced to import into Kubernetes.
+
+---
 
 
 ### StructColumn <a name="StructColumn" id="cdk-extensions.glue.StructColumn"></a>
@@ -36362,6 +39248,66 @@ public readonly permissionSetArn: string;
 
 ---
 
+### ISecretReference <a name="ISecretReference" id="cdk-extensions.k8s_aws.ISecretReference"></a>
+
+- *Implemented By:* cdk-extensions.k8s_aws.SecretsManagerReference, cdk-extensions.k8s_aws.SsmParameterReference, cdk-extensions.k8s_aws.ISecretReference
+
+Represents a resource the can be synchronized into a Kubernetes secret.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ISecretReference.bind">bind</a></code> | Gets the configuration details for the resource being sychronized in a form that can be universally used to create the synchronization configuration. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.ISecretReference.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): SecretReferenceConfiguration
+```
+
+Gets the configuration details for the resource being sychronized in a form that can be universally used to create the synchronization configuration.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.ISecretReference.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The scope of the construct that will be configuring the synchronization configuration.
+
+---
+
+
+### ISecretStore <a name="ISecretStore" id="cdk-extensions.k8s_aws.ISecretStore"></a>
+
+- *Extends:* constructs.IDependable
+
+- *Implemented By:* cdk-extensions.k8s_aws.AwsSecretStore, cdk-extensions.k8s_aws.SecretsManagerSecretStore, cdk-extensions.k8s_aws.SsmParameterSecretStore, cdk-extensions.k8s_aws.ISecretStore
+
+Represents a Kubernetes secret store resource.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ISecretStore.property.secretStoreName">secretStoreName</a></code> | <code>string</code> | The name of the secret store as it appears in Kubernetes. |
+
+---
+
+##### `secretStoreName`<sup>Required</sup> <a name="secretStoreName" id="cdk-extensions.k8s_aws.ISecretStore.property.secretStoreName"></a>
+
+```typescript
+public readonly secretStoreName: string;
+```
+
+- *Type:* string
+
+The name of the secret store as it appears in Kubernetes.
+
+---
+
 ### ISharedPrincipal <a name="ISharedPrincipal" id="cdk-extensions.ram.ISharedPrincipal"></a>
 
 - *Implemented By:* cdk-extensions.ram.SharedPrincipal, cdk-extensions.ram.ISharedPrincipal
@@ -36780,6 +39726,33 @@ Scala.
 ---
 
 ##### `JQ_1_6` <a name="JQ_1_6" id="cdk-extensions.kinesis_firehose.JsonParsingEngine.JQ_1_6"></a>
+
+---
+
+
+### MetadataPolicy <a name="MetadataPolicy" id="cdk-extensions.k8s_aws.MetadataPolicy"></a>
+
+Options for fetching tags/labels from provider secrets.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.MetadataPolicy.FETCH">FETCH</a></code> | Fetch tags/labels from provider secrets. |
+| <code><a href="#cdk-extensions.k8s_aws.MetadataPolicy.NONE">NONE</a></code> | Do not fetch tags/labels from provider secrets. |
+
+---
+
+##### `FETCH` <a name="FETCH" id="cdk-extensions.k8s_aws.MetadataPolicy.FETCH"></a>
+
+Fetch tags/labels from provider secrets.
+
+---
+
+
+##### `NONE` <a name="NONE" id="cdk-extensions.k8s_aws.MetadataPolicy.NONE"></a>
+
+Do not fetch tags/labels from provider secrets.
 
 ---
 
