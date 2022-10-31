@@ -2,6 +2,8 @@
  * @module services
  */
 
+export * as core from './core';
+
 export * as athena from './athena';
 export * as ec2 from './ec2';
 export * as eks_patterns from './eks-patterns';
