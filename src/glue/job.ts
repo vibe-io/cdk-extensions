@@ -54,72 +54,72 @@ export interface ContinuousLoggingProps {
 export interface JobProps extends ResourceProps {
   /**
    * The number of capacity units that are allocated to this job.
-   * 
+   *
    * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-allocatedcapacity)
    */
   readonly allocatedCapacity?: number;
   /**
    * List of Connections for use with this job.
-   * 
-   * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-connections) 
+   *
+   * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-connections)
    */
   readonly connections?: Connection[];
   /**
-   * Set of properties for configuration of Continuous Logging 
+   * Set of properties for configuration of Continuous Logging
    */
   readonly continuousLogging?: ContinuousLoggingProps;
   /**
-   * The default arguments for this job, specified as name-value pairs. 
-   * 
+   * The default arguments for this job, specified as name-value pairs.
+   *
    * You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
-   * 
-   * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-defaultarguments) 
+   *
+   * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-defaultarguments)
    */
   readonly defaultArguments?: {[key: string]: string};
   /**
-   * A description of the job. 
+   * A description of the job.
    */
   readonly description?: string;
   /**
-   * Boolean value for whether to enable Profiling Metrics 
+   * Boolean value for whether to enable Profiling Metrics
    */
   readonly enableProfilingMetrics?: boolean;
   /**
-   * Executable properties for the Job 
+   * Executable properties for the Job
    */
   readonly executable: JobExecutable;
   /**
-   * The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. 
-   * 
+   * The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+   *
    * Do not set Max Capacity if using WorkerType and NumberOfWorkers.
-   * 
+   *
    * The value that can be allocated for MaxCapacity depends on whether you are running a Python shell job or an Apache Spark ETL job:
-   * 
+   *
    *    - When you specify a Python shell job (JobCommand.Name="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
-   * 
+   *
    *    - When you specify an Apache Spark ETL job (JobCommand.Name="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
-   * 
+   *
    */
   readonly maxCapacity?: number;
   /**
-   * Maximum number of concurrent executions 
-   * 
+   * Maximum number of concurrent executions
+   *
    * @see [AWS::Glue::Job ExecutionProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html)
    */
   readonly maxConcurrentRuns?: number;
   /**
-   * The maximum number of times to retry this job after a JobRun fails. 
-   * 
+   * The maximum number of times to retry this job after a JobRun fails.
+   *
    * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-maxretries)
    */
   readonly maxRetries?: number;
   /**
-   * A name for the Job 
+   * A name for the Job
    */
   readonly name?: string;
   /**
    * After a job run starts, the number of minutes to wait before sending a job run delay notification.
-   * 
+   *
    * @see [AWS::Glue::Job NotificationProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html)
    */
   readonly notifyDelayAfter?: Duration;
@@ -128,30 +128,30 @@ export interface JobProps extends ResourceProps {
    */
   readonly role?: IRole;
   /**
-   * The Security Configuration object to be applied to the Job 
+   * The Security Configuration object to be applied to the Job
    */
   readonly securityConfiguration?: SecurityConfiguration;
   /**
    * The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours).
-   * 
+   *
    * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-timeout)
    */
   readonly timeout?: Duration;
   /**
-   * The number of worker available the Job 
+   * The number of worker available the Job
    */
   readonly workerCount?: number;
   /**
    * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
-   * 
+   *
    * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-workertype)
    */
   readonly workerType?: WorkerType;
 }
 
 /**
- * Creates a Glue Job 
- * 
+ * Creates a Glue Job
+ *
  * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html)
  */
 
@@ -172,51 +172,51 @@ export class Job extends Resource {
   /**
     * {@link JobProps.continuousLogging}
     */
-	public readonly continuousLogging?: ContinuousLoggingProps;
+  public readonly continuousLogging?: ContinuousLoggingProps;
   /**
     * {@link JobProps.description}
     */
-	public readonly description?: string;
+  public readonly description?: string;
   /**
     * {@link JobProps.executable:}
     */
-	public readonly executable: JobExecutable;
+  public readonly executable: JobExecutable;
   /**
     * {@link JobProps.maxCapacity}
     */
-	public readonly maxCapacity?: number;
+  public readonly maxCapacity?: number;
   /**
     * {@link JobProps.maxConcurrentRuns}
     */
-	public readonly maxConcurrentRuns?: number;
+  public readonly maxConcurrentRuns?: number;
   /**
     * {@link JobProps.maxRetries}
     */
-	public readonly maxRetries?: number;
+  public readonly maxRetries?: number;
   /**
     * {@link JobProps.name}
     */
-	public readonly name?: string;
+  public readonly name?: string;
   /**
     * {@link JobProps.notifyDelayAfter}
     */
-	public readonly notifyDelayAfter?: Duration;
+  public readonly notifyDelayAfter?: Duration;
   /**
     * {@link JobProps.securityConfiguration}
     */
-	public readonly securityConfiguration?: SecurityConfiguration;
+  public readonly securityConfiguration?: SecurityConfiguration;
   /**
     * {@link JobProps.timeout}
     */
-	public readonly timeout?: Duration;
+  public readonly timeout?: Duration;
   /**
     * {@link JobProps.workerCount}
     */
-	public readonly workerCount?: number;
+  public readonly workerCount?: number;
   /**
     * {@link JobProps.workerType}
     */
-	public readonly workerType?: WorkerType;
+  public readonly workerType?: WorkerType;
 
   // Resource properties
   public readonly logGroup?: ILogGroup;
@@ -227,9 +227,9 @@ export class Job extends Resource {
   public readonly jobArn: string;
   public readonly jobName: string;
 
-/**
+  /**
  * Creates a new instance of the Job class
- * 
+ *
  * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
      * @param id A name to be associated with the stack and used in resource naming. Must be unique
      * within the context of 'scope'.

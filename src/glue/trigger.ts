@@ -31,7 +31,7 @@ export interface ITriggerPredicate {
 export interface TriggerProps extends ResourceProps {
   /**
    * A list of actions initiated by this trigger.
-   * 
+   *
    * @see [AWS::Glue::Trigger Action](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html)
    */
   readonly actions?: ITriggerAction[];
@@ -45,7 +45,7 @@ export interface TriggerProps extends ResourceProps {
   readonly name?: string;
   /**
    * A list of conditions predicating the trigger, determining when it will fire
-   * 
+   *
    * @see [AWS::Glue::Trigger Predicate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html)
    */
   readonly predicateConditions?: ITriggerPredicate[];
@@ -54,20 +54,20 @@ export interface TriggerProps extends ResourceProps {
    */
   readonly predicateOperator?: PredicateOperator;
   /**
-   * A cron expression used to specify the schedule. 
-   * 
+   * A cron expression used to specify the schedule.
+   *
    * @see [AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-schedule)
    */
   readonly schedule?: Schedule;
   /**
    * Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
-   * 
+   *
    * @see [AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation)
    */
   readonly startOnCreation?: boolean;
   /**
    * The type of trigger that this is.
-   * 
+   *
    * @see [AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type)
    */
   readonly type: TriggerType;
@@ -86,31 +86,31 @@ export class Trigger extends Resource {
   /**
     * {@link TriggerProps.description}
     */
-	public readonly description?: string;
+  public readonly description?: string;
   /**
     * {@link TriggerProps.name}
     */
-	public readonly name?: string;
+  public readonly name?: string;
   /**
     * {@link TriggerProps.predicateOperator:}
     */
-	public readonly predicateOperator: PredicateOperator;
+  public readonly predicateOperator: PredicateOperator;
   /**
     * {@link TriggerProps.schedule}
     */
-	public readonly schedule?: Schedule;
+  public readonly schedule?: Schedule;
   /**
     * {@link TriggerProps.startOnCreation}
     */
-	public readonly startOnCreation?: boolean;
+  public readonly startOnCreation?: boolean;
   /**
     * {@link TriggerProps.type:}
     */
-	public readonly type: TriggerType;
+  public readonly type: TriggerType;
   /**
     * {@link TriggerProps.workflow}
     */
-	public readonly workflow?: Workflow;
+  public readonly workflow?: Workflow;
 
   // Resource properties
   public readonly resource: CfnTrigger;

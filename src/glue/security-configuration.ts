@@ -105,13 +105,13 @@ export interface S3Encryption {
 export interface SecurityConfigurationProps extends ResourceProps {
   /**
    * Cloudwatch Encryption Settings
-   * 
+   *
    * @see [AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-cloudwatchencryption)
    */
   readonly cloudWatchEncryption?: CloudWatchEncryption;
   /**
    * The encryption configuration for job bookmarks.
-   * 
+   *
    * @see [AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-jobbookmarksencryption)
    */
   readonly jobBookmarksEncryption?: JobBookmarksEncryption;
@@ -121,7 +121,7 @@ export interface SecurityConfigurationProps extends ResourceProps {
   readonly name?: string;
   /**
    * The encyption configuration for Amazon Simple Storage Service (Amazon S3) data.
-   * 
+   *
    * @see [AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-s3encryptions)
    */
   readonly s3Encryption?: S3Encryption;
@@ -132,19 +132,19 @@ export class SecurityConfiguration extends Resource {
   /**
     * {@link SecurityConfigurationProps.cloudWatchEncryption}
     */
-	public readonly cloudWatchEncryption?: CloudWatchEncryption;
+  public readonly cloudWatchEncryption?: CloudWatchEncryption;
   /**
     * {@link SecurityConfigurationProps.jobBookmarksEncryption}
     */
-	public readonly jobBookmarksEncryption?: JobBookmarksEncryption;
+  public readonly jobBookmarksEncryption?: JobBookmarksEncryption;
   /**
     * {@link SecurityConfigurationProps.name}
     */
-	public readonly name?: string;
+  public readonly name?: string;
   /**
     * {@link SecurityConfigurationProps.s3Encryption}
     */
-	public readonly s3Encryption?: S3Encryption;
+  public readonly s3Encryption?: S3Encryption;
 
   // Resource properties
   public readonly key: Key;

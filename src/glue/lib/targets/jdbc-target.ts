@@ -9,13 +9,13 @@ import { Crawler, CrawlerTargetCollection, ICrawlerTarget } from '../../crawler'
 export interface JdbcTargetOptions {
   /**
    * A list of glob patterns used to exclude from the crawl. For more information
-   * 
+   *
    * @see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
    */
   readonly exclusions?: string[];
   /**
    * The path of the JDBC target.
-   * 
+   *
    * @see [AWS::Glue::Crawler JdbcTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-path)
    */
   readonly paths?: string[];

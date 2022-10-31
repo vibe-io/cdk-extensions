@@ -1123,23 +1123,23 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.status5xxNamedQuery">status5xxNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
@@ -1198,6 +1198,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue_tables.AlbLogsTable.property.resource"></a>
@@ -1238,6 +1240,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue_tables.AlbLogsTable.property.dataFormat"></a>
@@ -1247,6 +1251,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -1258,6 +1264,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue_tables.AlbLogsTable.property.location"></a>
@@ -1267,6 +1275,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -1278,6 +1288,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue_tables.AlbLogsTable.property.owner"></a>
@@ -1287,6 +1299,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -1298,6 +1312,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue_tables.AlbLogsTable.property.serdeName"></a>
@@ -1307,6 +1323,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -1318,6 +1336,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue_tables.AlbLogsTable.property.tableType"></a>
@@ -1327,6 +1347,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -1338,6 +1360,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue_tables.AlbLogsTable.property.viewExpandedText"></a>
@@ -1348,6 +1372,8 @@ public readonly viewExpandedText: string;
 
 - *Type:* string
 
+{@link TableProps.viewExpandedText}.
+
 ---
 
 ##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue_tables.AlbLogsTable.property.viewOriginalText"></a>
@@ -1357,6 +1383,8 @@ public readonly viewOriginalText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewOriginalText}.
 
 ---
 
@@ -4358,23 +4386,23 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.distributionStatisticsNamedQuery">distributionStatisticsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
@@ -4435,6 +4463,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.resource"></a>
@@ -4475,6 +4505,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.dataFormat"></a>
@@ -4484,6 +4516,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -4495,6 +4529,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.location"></a>
@@ -4504,6 +4540,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -4515,6 +4553,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.owner"></a>
@@ -4524,6 +4564,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -4535,6 +4577,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.serdeName"></a>
@@ -4544,6 +4588,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -4555,6 +4601,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.tableType"></a>
@@ -4564,6 +4612,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -4575,6 +4625,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.viewExpandedText"></a>
@@ -4585,6 +4637,8 @@ public readonly viewExpandedText: string;
 
 - *Type:* string
 
+{@link TableProps.viewExpandedText}.
+
 ---
 
 ##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.viewOriginalText"></a>
@@ -4594,6 +4648,8 @@ public readonly viewOriginalText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewOriginalText}.
 
 ---
 
@@ -5779,23 +5835,23 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.unauthorizedNamedQuery">unauthorizedNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
@@ -5854,6 +5910,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue_tables.CloudtrailTable.property.resource"></a>
@@ -5894,6 +5952,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue_tables.CloudtrailTable.property.dataFormat"></a>
@@ -5903,6 +5963,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -5914,6 +5976,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue_tables.CloudtrailTable.property.location"></a>
@@ -5923,6 +5987,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -5934,6 +6000,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue_tables.CloudtrailTable.property.owner"></a>
@@ -5943,6 +6011,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -5954,6 +6024,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue_tables.CloudtrailTable.property.serdeName"></a>
@@ -5963,6 +6035,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -5974,6 +6048,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue_tables.CloudtrailTable.property.tableType"></a>
@@ -5983,6 +6059,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -5994,6 +6072,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue_tables.CloudtrailTable.property.viewExpandedText"></a>
@@ -6004,6 +6084,8 @@ public readonly viewExpandedText: string;
 
 - *Type:* string
 
+{@link TableProps.viewExpandedText}.
+
 ---
 
 ##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue_tables.CloudtrailTable.property.viewOriginalText"></a>
@@ -6013,6 +6095,8 @@ public readonly viewOriginalText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewOriginalText}.
 
 ---
 
@@ -6283,6 +6367,10 @@ public readonly serviceAccount: ServiceAccount;
 
 - *Implements:* aws-cdk-lib.aws_ec2.IConnectable
 
+Creates a resource specifying a Glue Connection to a data source.
+
+> [[AWS::Glue::Connection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html)]([AWS::Glue::Connection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html))
+
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.Connection.Initializer"></a>
 
 ```typescript
@@ -6293,9 +6381,9 @@ new glue.Connection(scope: Construct, id: string, props: ConnectionProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.Connection.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Connection.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Connection.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.ConnectionProps</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Connection.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.Connection.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.Connection.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.ConnectionProps</code> | Arguments related to the configuration of the resource. |
 
 ---
 
@@ -6303,17 +6391,26 @@ new glue.Connection(scope: Construct, id: string, props: ConnectionProps)
 
 - *Type:* constructs.Construct
 
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Connection.Initializer.parameter.id"></a>
 
 - *Type:* string
 
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
 ---
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.Connection.Initializer.parameter.props"></a>
 
 - *Type:* cdk-extensions.glue.ConnectionProps
+
+Arguments related to the configuration of the resource.
 
 ---
 
@@ -6458,14 +6555,14 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Connection.property.connectionArn">connectionArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Connection.property.connectionName">connectionName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Connection.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The network connections associated with this resource. |
-| <code><a href="#cdk-extensions.glue.Connection.property.connectionType">connectionType</a></code> | <code>cdk-extensions.glue.ConnectionType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Connection.property.connectionType">connectionType</a></code> | <code>cdk-extensions.glue.ConnectionType</code> | {@link ConnectionProps.connectionType:}. |
 | <code><a href="#cdk-extensions.glue.Connection.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnConnection</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Connection.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Connection.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Connection.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Connection.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | {@link ConnectionProps.securityGroups:}. |
+| <code><a href="#cdk-extensions.glue.Connection.property.description">description</a></code> | <code>string</code> | {@link ConnectionProps.description}. |
+| <code><a href="#cdk-extensions.glue.Connection.property.name">name</a></code> | <code>string</code> | {@link ConnectionProps.name}. |
 | <code><a href="#cdk-extensions.glue.Connection.property.securityGroup">securityGroup</a></code> | <code>aws-cdk-lib.aws_ec2.SecurityGroup</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Connection.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Connection.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Connection.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | {@link ConnectionProps.subnets}. |
+| <code><a href="#cdk-extensions.glue.Connection.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | {@link ConnectionProps.vpc}. |
 
 ---
 
@@ -6552,6 +6649,8 @@ public readonly connectionType: ConnectionType;
 
 - *Type:* cdk-extensions.glue.ConnectionType
 
+{@link ConnectionProps.connectionType:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.Connection.property.resource"></a>
@@ -6572,6 +6671,8 @@ public readonly securityGroups: ISecurityGroup[];
 
 - *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
 
+{@link ConnectionProps.securityGroups:}.
+
 ---
 
 ##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.Connection.property.description"></a>
@@ -6582,6 +6683,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link ConnectionProps.description}.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.Connection.property.name"></a>
@@ -6591,6 +6694,8 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+{@link ConnectionProps.name}.
 
 ---
 
@@ -6612,6 +6717,8 @@ public readonly subnets: SubnetSelection;
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
 
+{@link ConnectionProps.subnets}.
+
 ---
 
 ##### `vpc`<sup>Optional</sup> <a name="vpc" id="cdk-extensions.glue.Connection.property.vpc"></a>
@@ -6622,10 +6729,16 @@ public readonly vpc: IVpc;
 
 - *Type:* aws-cdk-lib.aws_ec2.IVpc
 
+{@link ConnectionProps.vpc}.
+
 ---
 
 
 ### Crawler <a name="Crawler" id="cdk-extensions.glue.Crawler"></a>
+
+Create a Crawler resource to pull information from the provided resource.
+
+> [[AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html)]([AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html))
 
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.Crawler.Initializer"></a>
 
@@ -6806,16 +6919,16 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Crawler.property.crawlerName">crawlerName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Crawler.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnCrawler</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Crawler.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.Role</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.configuration">configuration</a></code> | <code>cdk-extensions.glue.CrawlerConfiguration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.deleteBehavior">deleteBehavior</a></code> | <code>cdk-extensions.glue.DeleteBehavior</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.recrawlBehavior">recrawlBehavior</a></code> | <code>cdk-extensions.glue.RecrawlBehavior</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.scheduleExpression">scheduleExpression</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.tablePrefix">tablePrefix</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.updateBehavior">updateBehavior</a></code> | <code>cdk-extensions.glue.UpdateBehavior</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Crawler.property.configuration">configuration</a></code> | <code>cdk-extensions.glue.CrawlerConfiguration</code> | {@link CrawlerProps.configuration}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link CrawlerProps.database}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.deleteBehavior">deleteBehavior</a></code> | <code>cdk-extensions.glue.DeleteBehavior</code> | {@link CrawlerProps.deleteBehavior}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.description">description</a></code> | <code>string</code> | {@link CrawlerProps.description}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.name">name</a></code> | <code>string</code> | {@link CrawlerProps.name}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.recrawlBehavior">recrawlBehavior</a></code> | <code>cdk-extensions.glue.RecrawlBehavior</code> | {@link CrawlerProps.recrawlBehavior}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.scheduleExpression">scheduleExpression</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | {@link CrawlerProps.scheduleExpression}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | {@link CrawlerProps.securityConfiguration}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.tablePrefix">tablePrefix</a></code> | <code>string</code> | {@link CrawlerProps.tablePrefix}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.updateBehavior">updateBehavior</a></code> | <code>cdk-extensions.glue.UpdateBehavior</code> | {@link CrawlerProps.updateBehavior}. |
 
 ---
 
@@ -6910,6 +7023,8 @@ public readonly configuration: CrawlerConfiguration;
 
 - *Type:* cdk-extensions.glue.CrawlerConfiguration
 
+{@link CrawlerProps.configuration}.
+
 ---
 
 ##### `database`<sup>Optional</sup> <a name="database" id="cdk-extensions.glue.Crawler.property.database"></a>
@@ -6919,6 +7034,8 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+{@link CrawlerProps.database}.
 
 ---
 
@@ -6930,6 +7047,8 @@ public readonly deleteBehavior: DeleteBehavior;
 
 - *Type:* cdk-extensions.glue.DeleteBehavior
 
+{@link CrawlerProps.deleteBehavior}.
+
 ---
 
 ##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.Crawler.property.description"></a>
@@ -6939,6 +7058,8 @@ public readonly description: string;
 ```
 
 - *Type:* string
+
+{@link CrawlerProps.description}.
 
 ---
 
@@ -6950,6 +7071,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link CrawlerProps.name}.
+
 ---
 
 ##### `recrawlBehavior`<sup>Optional</sup> <a name="recrawlBehavior" id="cdk-extensions.glue.Crawler.property.recrawlBehavior"></a>
@@ -6959,6 +7082,8 @@ public readonly recrawlBehavior: RecrawlBehavior;
 ```
 
 - *Type:* cdk-extensions.glue.RecrawlBehavior
+
+{@link CrawlerProps.recrawlBehavior}.
 
 ---
 
@@ -6970,6 +7095,8 @@ public readonly scheduleExpression: Schedule;
 
 - *Type:* aws-cdk-lib.aws_events.Schedule
 
+{@link CrawlerProps.scheduleExpression}.
+
 ---
 
 ##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.Crawler.property.securityConfiguration"></a>
@@ -6979,6 +7106,8 @@ public readonly securityConfiguration: SecurityConfiguration;
 ```
 
 - *Type:* cdk-extensions.glue.SecurityConfiguration
+
+{@link CrawlerProps.securityConfiguration}.
 
 ---
 
@@ -6990,6 +7119,8 @@ public readonly tablePrefix: string;
 
 - *Type:* string
 
+{@link CrawlerProps.tablePrefix}.
+
 ---
 
 ##### `updateBehavior`<sup>Optional</sup> <a name="updateBehavior" id="cdk-extensions.glue.Crawler.property.updateBehavior"></a>
@@ -7000,10 +7131,16 @@ public readonly updateBehavior: UpdateBehavior;
 
 - *Type:* cdk-extensions.glue.UpdateBehavior
 
+{@link CrawlerProps.updateBehavior}.
+
 ---
 
 
 ### Database <a name="Database" id="cdk-extensions.glue.Database"></a>
+
+Creates a Glue Database resource to contain a collection of metadata Tables.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
 
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.Database.Initializer"></a>
 
@@ -7158,10 +7295,10 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Database.property.catalogId">catalogId</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Database.property.databaseArn">databaseArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Database.property.databaseName">databaseName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Database.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Database.property.name">name</a></code> | <code>string</code> | {@link DatabaseProps.name:}. |
 | <code><a href="#cdk-extensions.glue.Database.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnDatabase</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Database.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Database.property.locationUri">locationUri</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Database.property.description">description</a></code> | <code>string</code> | {@link DatabaseProps.description}. |
+| <code><a href="#cdk-extensions.glue.Database.property.locationUri">locationUri</a></code> | <code>string</code> | {@link DatabaseProps.locationUri}. |
 
 ---
 
@@ -7256,6 +7393,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link DatabaseProps.name:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.Database.property.resource"></a>
@@ -7276,6 +7415,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link DatabaseProps.description}.
+
 ---
 
 ##### `locationUri`<sup>Optional</sup> <a name="locationUri" id="cdk-extensions.glue.Database.property.locationUri"></a>
@@ -7285,6 +7426,8 @@ public readonly locationUri: string;
 ```
 
 - *Type:* string
+
+{@link DatabaseProps.locationUri}.
 
 ---
 
@@ -10393,23 +10536,23 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
@@ -10468,6 +10611,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue_tables.FlowLogsTable.property.resource"></a>
@@ -10508,6 +10653,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue_tables.FlowLogsTable.property.dataFormat"></a>
@@ -10517,6 +10664,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -10528,6 +10677,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue_tables.FlowLogsTable.property.location"></a>
@@ -10537,6 +10688,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -10548,6 +10701,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue_tables.FlowLogsTable.property.owner"></a>
@@ -10557,6 +10712,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -10568,6 +10725,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue_tables.FlowLogsTable.property.serdeName"></a>
@@ -10577,6 +10736,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -10588,6 +10749,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue_tables.FlowLogsTable.property.tableType"></a>
@@ -10597,6 +10760,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -10608,6 +10773,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue_tables.FlowLogsTable.property.viewExpandedText"></a>
@@ -10618,6 +10785,8 @@ public readonly viewExpandedText: string;
 
 - *Type:* string
 
+{@link TableProps.viewExpandedText}.
+
 ---
 
 ##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue_tables.FlowLogsTable.property.viewOriginalText"></a>
@@ -10627,6 +10796,8 @@ public readonly viewOriginalText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewOriginalText}.
 
 ---
 
@@ -11390,6 +11561,10 @@ public readonly instanceId: string;
 
 ### Job <a name="Job" id="cdk-extensions.glue.Job"></a>
 
+Creates a Glue Job.
+
+> [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html))
+
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.Job.Initializer"></a>
 
 ```typescript
@@ -11400,9 +11575,9 @@ new glue.Job(scope: Construct, id: string, props: JobProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.Job.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.JobProps</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Job.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.Job.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.Job.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.JobProps</code> | Arguments related to the configuration of the resource. |
 
 ---
 
@@ -11410,17 +11585,26 @@ new glue.Job(scope: Construct, id: string, props: JobProps)
 
 - *Type:* constructs.Construct
 
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Job.Initializer.parameter.id"></a>
 
 - *Type:* string
 
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
 ---
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.Job.Initializer.parameter.props"></a>
 
 - *Type:* cdk-extensions.glue.JobProps
+
+Arguments related to the configuration of the resource.
 
 ---
 
@@ -11562,25 +11746,25 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Job.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue.Job.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue.Job.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue.Job.property.executable">executable</a></code> | <code>cdk-extensions.glue.JobExecutable</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Job.property.executable">executable</a></code> | <code>cdk-extensions.glue.JobExecutable</code> | {@link JobProps.executable:}. |
 | <code><a href="#cdk-extensions.glue.Job.property.jobArn">jobArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Job.property.jobName">jobName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Job.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnJob</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Job.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.allocatedCapacity">allocatedCapacity</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.connections">connections</a></code> | <code>cdk-extensions.glue.Connection[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.continuousLogging">continuousLogging</a></code> | <code>cdk-extensions.glue.ContinuousLoggingProps</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Job.property.allocatedCapacity">allocatedCapacity</a></code> | <code>number</code> | {@link JobProps.allocatedCapacity }. |
+| <code><a href="#cdk-extensions.glue.Job.property.connections">connections</a></code> | <code>cdk-extensions.glue.Connection[]</code> | {@link JobProps.connections}. |
+| <code><a href="#cdk-extensions.glue.Job.property.continuousLogging">continuousLogging</a></code> | <code>cdk-extensions.glue.ContinuousLoggingProps</code> | {@link JobProps.continuousLogging}. |
+| <code><a href="#cdk-extensions.glue.Job.property.description">description</a></code> | <code>string</code> | {@link JobProps.description}. |
 | <code><a href="#cdk-extensions.glue.Job.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.maxCapacity">maxCapacity</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.maxConcurrentRuns">maxConcurrentRuns</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.maxRetries">maxRetries</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.workerCount">workerCount</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.workerType">workerType</a></code> | <code>cdk-extensions.glue.WorkerType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Job.property.maxCapacity">maxCapacity</a></code> | <code>number</code> | {@link JobProps.maxCapacity}. |
+| <code><a href="#cdk-extensions.glue.Job.property.maxConcurrentRuns">maxConcurrentRuns</a></code> | <code>number</code> | {@link JobProps.maxConcurrentRuns}. |
+| <code><a href="#cdk-extensions.glue.Job.property.maxRetries">maxRetries</a></code> | <code>number</code> | {@link JobProps.maxRetries}. |
+| <code><a href="#cdk-extensions.glue.Job.property.name">name</a></code> | <code>string</code> | {@link JobProps.name}. |
+| <code><a href="#cdk-extensions.glue.Job.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | {@link JobProps.notifyDelayAfter}. |
+| <code><a href="#cdk-extensions.glue.Job.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | {@link JobProps.securityConfiguration}. |
+| <code><a href="#cdk-extensions.glue.Job.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | {@link JobProps.timeout}. |
+| <code><a href="#cdk-extensions.glue.Job.property.workerCount">workerCount</a></code> | <code>number</code> | {@link JobProps.workerCount}. |
+| <code><a href="#cdk-extensions.glue.Job.property.workerType">workerType</a></code> | <code>cdk-extensions.glue.WorkerType</code> | {@link JobProps.workerType}. |
 
 ---
 
@@ -11635,6 +11819,8 @@ public readonly executable: JobExecutable;
 
 - *Type:* cdk-extensions.glue.JobExecutable
 
+{@link JobProps.executable:}.
+
 ---
 
 ##### `jobArn`<sup>Required</sup> <a name="jobArn" id="cdk-extensions.glue.Job.property.jobArn"></a>
@@ -11685,6 +11871,8 @@ public readonly allocatedCapacity: number;
 
 - *Type:* number
 
+{@link JobProps.allocatedCapacity }.
+
 ---
 
 ##### `connections`<sup>Optional</sup> <a name="connections" id="cdk-extensions.glue.Job.property.connections"></a>
@@ -11694,6 +11882,8 @@ public readonly connections: Connection[];
 ```
 
 - *Type:* cdk-extensions.glue.Connection[]
+
+{@link JobProps.connections}.
 
 ---
 
@@ -11705,6 +11895,8 @@ public readonly continuousLogging: ContinuousLoggingProps;
 
 - *Type:* cdk-extensions.glue.ContinuousLoggingProps
 
+{@link JobProps.continuousLogging}.
+
 ---
 
 ##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.Job.property.description"></a>
@@ -11714,6 +11906,8 @@ public readonly description: string;
 ```
 
 - *Type:* string
+
+{@link JobProps.description}.
 
 ---
 
@@ -11735,6 +11929,8 @@ public readonly maxCapacity: number;
 
 - *Type:* number
 
+{@link JobProps.maxCapacity}.
+
 ---
 
 ##### `maxConcurrentRuns`<sup>Optional</sup> <a name="maxConcurrentRuns" id="cdk-extensions.glue.Job.property.maxConcurrentRuns"></a>
@@ -11744,6 +11940,8 @@ public readonly maxConcurrentRuns: number;
 ```
 
 - *Type:* number
+
+{@link JobProps.maxConcurrentRuns}.
 
 ---
 
@@ -11755,6 +11953,8 @@ public readonly maxRetries: number;
 
 - *Type:* number
 
+{@link JobProps.maxRetries}.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.Job.property.name"></a>
@@ -11764,6 +11964,8 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+{@link JobProps.name}.
 
 ---
 
@@ -11775,6 +11977,8 @@ public readonly notifyDelayAfter: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link JobProps.notifyDelayAfter}.
+
 ---
 
 ##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.Job.property.securityConfiguration"></a>
@@ -11784,6 +11988,8 @@ public readonly securityConfiguration: SecurityConfiguration;
 ```
 
 - *Type:* cdk-extensions.glue.SecurityConfiguration
+
+{@link JobProps.securityConfiguration}.
 
 ---
 
@@ -11795,6 +12001,8 @@ public readonly timeout: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link JobProps.timeout}.
+
 ---
 
 ##### `workerCount`<sup>Optional</sup> <a name="workerCount" id="cdk-extensions.glue.Job.property.workerCount"></a>
@@ -11805,6 +12013,8 @@ public readonly workerCount: number;
 
 - *Type:* number
 
+{@link JobProps.workerCount}.
+
 ---
 
 ##### `workerType`<sup>Optional</sup> <a name="workerType" id="cdk-extensions.glue.Job.property.workerType"></a>
@@ -11814,6 +12024,8 @@ public readonly workerType: WorkerType;
 ```
 
 - *Type:* cdk-extensions.glue.WorkerType
+
+{@link JobProps.workerType}.
 
 ---
 
@@ -15319,23 +15531,23 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.requestErrorsNamedQuery">requestErrorsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
@@ -15393,6 +15605,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.resource"></a>
@@ -15433,6 +15647,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.dataFormat"></a>
@@ -15442,6 +15658,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -15453,6 +15671,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.location"></a>
@@ -15462,6 +15682,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -15473,6 +15695,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.owner"></a>
@@ -15482,6 +15706,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -15493,6 +15719,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.serdeName"></a>
@@ -15502,6 +15730,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -15513,6 +15743,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.tableType"></a>
@@ -15522,6 +15754,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -15533,6 +15767,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.viewExpandedText"></a>
@@ -15543,6 +15779,8 @@ public readonly viewExpandedText: string;
 
 - *Type:* string
 
+{@link TableProps.viewExpandedText}.
+
 ---
 
 ##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.viewOriginalText"></a>
@@ -15552,6 +15790,8 @@ public readonly viewOriginalText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewOriginalText}.
 
 ---
 
@@ -16076,10 +16316,10 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.key">key</a></code> | <code>aws-cdk-lib.aws_kms.Key</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnSecurityConfiguration</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.securityConfigurationName">securityConfigurationName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.cloudWatchEncryption">cloudWatchEncryption</a></code> | <code>cdk-extensions.glue.CloudWatchEncryption</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.jobBookmarksEncryption">jobBookmarksEncryption</a></code> | <code>cdk-extensions.glue.JobBookmarksEncryption</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.s3Encryption">s3Encryption</a></code> | <code>cdk-extensions.glue.S3Encryption</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.cloudWatchEncryption">cloudWatchEncryption</a></code> | <code>cdk-extensions.glue.CloudWatchEncryption</code> | {@link SecurityConfigurationProps.cloudWatchEncryption}. |
+| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.jobBookmarksEncryption">jobBookmarksEncryption</a></code> | <code>cdk-extensions.glue.JobBookmarksEncryption</code> | {@link SecurityConfigurationProps.jobBookmarksEncryption}. |
+| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.name">name</a></code> | <code>string</code> | {@link SecurityConfigurationProps.name}. |
+| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.s3Encryption">s3Encryption</a></code> | <code>cdk-extensions.glue.S3Encryption</code> | {@link SecurityConfigurationProps.s3Encryption}. |
 
 ---
 
@@ -16164,6 +16404,8 @@ public readonly cloudWatchEncryption: CloudWatchEncryption;
 
 - *Type:* cdk-extensions.glue.CloudWatchEncryption
 
+{@link SecurityConfigurationProps.cloudWatchEncryption}.
+
 ---
 
 ##### `jobBookmarksEncryption`<sup>Optional</sup> <a name="jobBookmarksEncryption" id="cdk-extensions.glue.SecurityConfiguration.property.jobBookmarksEncryption"></a>
@@ -16173,6 +16415,8 @@ public readonly jobBookmarksEncryption: JobBookmarksEncryption;
 ```
 
 - *Type:* cdk-extensions.glue.JobBookmarksEncryption
+
+{@link SecurityConfigurationProps.jobBookmarksEncryption}.
 
 ---
 
@@ -16184,6 +16428,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link SecurityConfigurationProps.name}.
+
 ---
 
 ##### `s3Encryption`<sup>Optional</sup> <a name="s3Encryption" id="cdk-extensions.glue.SecurityConfiguration.property.s3Encryption"></a>
@@ -16193,6 +16439,8 @@ public readonly s3Encryption: S3Encryption;
 ```
 
 - *Type:* cdk-extensions.glue.S3Encryption
+
+{@link SecurityConfigurationProps.s3Encryption}.
 
 ---
 
@@ -17318,23 +17566,23 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.bouncesQuery">bouncesQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
@@ -17393,6 +17641,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue_tables.SesLogsTable.property.resource"></a>
@@ -17433,6 +17683,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue_tables.SesLogsTable.property.dataFormat"></a>
@@ -17442,6 +17694,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -17453,6 +17707,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue_tables.SesLogsTable.property.location"></a>
@@ -17462,6 +17718,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -17473,6 +17731,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue_tables.SesLogsTable.property.owner"></a>
@@ -17482,6 +17742,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -17493,6 +17755,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue_tables.SesLogsTable.property.serdeName"></a>
@@ -17502,6 +17766,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -17513,6 +17779,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue_tables.SesLogsTable.property.tableType"></a>
@@ -17522,6 +17790,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -17533,6 +17803,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue_tables.SesLogsTable.property.viewExpandedText"></a>
@@ -17543,6 +17815,8 @@ public readonly viewExpandedText: string;
 
 - *Type:* string
 
+{@link TableProps.viewExpandedText}.
+
 ---
 
 ##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue_tables.SesLogsTable.property.viewOriginalText"></a>
@@ -17552,6 +17826,8 @@ public readonly viewOriginalText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewOriginalText}.
 
 ---
 
@@ -17943,6 +18219,10 @@ The regex pattern used to validate secret store names.
 
 ### Table <a name="Table" id="cdk-extensions.glue.Table"></a>
 
+Creates a Table resource specifying tabular data in the Glue Database.
+
+> [[AWS::Glue::Table](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html)]([AWS::Glue::Table](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html))
+
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.Table.Initializer"></a>
 
 ```typescript
@@ -18175,23 +18455,23 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Table.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue.Table.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue.Table.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue.Table.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Table.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue.Table.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Table.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Table.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Table.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue.Table.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue.Table.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue.Table.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue.Table.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue.Table.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue.Table.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue.Table.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue.Table.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue.Table.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue.Table.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue.Table.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue.Table.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
 
 ---
 
@@ -18246,6 +18526,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.Table.property.resource"></a>
@@ -18286,6 +18568,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue.Table.property.dataFormat"></a>
@@ -18295,6 +18579,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -18306,6 +18592,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue.Table.property.location"></a>
@@ -18315,6 +18603,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -18326,6 +18616,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue.Table.property.owner"></a>
@@ -18335,6 +18627,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -18346,6 +18640,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue.Table.property.serdeName"></a>
@@ -18355,6 +18651,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -18366,6 +18664,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue.Table.property.tableType"></a>
@@ -18375,6 +18675,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -18386,6 +18688,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue.Table.property.viewExpandedText"></a>
@@ -18396,6 +18700,8 @@ public readonly viewExpandedText: string;
 
 - *Type:* string
 
+{@link TableProps.viewExpandedText}.
+
 ---
 
 ##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue.Table.property.viewOriginalText"></a>
@@ -18405,6 +18711,8 @@ public readonly viewOriginalText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewOriginalText}.
 
 ---
 
@@ -18421,9 +18729,9 @@ new glue.Trigger(scope: Construct, id: string, props: TriggerProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.TriggerProps</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.TriggerProps</code> | Arguments related to the configuration of the resource. |
 
 ---
 
@@ -18431,17 +18739,26 @@ new glue.Trigger(scope: Construct, id: string, props: TriggerProps)
 
 - *Type:* constructs.Construct
 
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Trigger.Initializer.parameter.id"></a>
 
 - *Type:* string
 
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
 ---
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.Trigger.Initializer.parameter.props"></a>
 
 - *Type:* cdk-extensions.glue.TriggerProps
+
+Arguments related to the configuration of the resource.
 
 ---
 
@@ -18577,16 +18894,16 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Trigger.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue.Trigger.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue.Trigger.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue.Trigger.property.predicateOperator">predicateOperator</a></code> | <code>cdk-extensions.glue.PredicateOperator</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Trigger.property.predicateOperator">predicateOperator</a></code> | <code>cdk-extensions.glue.PredicateOperator</code> | {@link TriggerProps.predicateOperator:}. |
 | <code><a href="#cdk-extensions.glue.Trigger.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTrigger</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.type">type</a></code> | <code>cdk-extensions.glue.TriggerType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Trigger.property.type">type</a></code> | <code>cdk-extensions.glue.TriggerType</code> | {@link TriggerProps.type:}. |
 | <code><a href="#cdk-extensions.glue.Trigger.property.workflowArn">workflowArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Trigger.property.workflowName">workflowName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.schedule">schedule</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.startOnCreation">startOnCreation</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.workflow">workflow</a></code> | <code>cdk-extensions.glue.Workflow</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Trigger.property.description">description</a></code> | <code>string</code> | {@link TriggerProps.description}. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.name">name</a></code> | <code>string</code> | {@link TriggerProps.name}. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.schedule">schedule</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | {@link TriggerProps.schedule}. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.startOnCreation">startOnCreation</a></code> | <code>boolean</code> | {@link TriggerProps.startOnCreation}. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.workflow">workflow</a></code> | <code>cdk-extensions.glue.Workflow</code> | {@link TriggerProps.workflow}. |
 
 ---
 
@@ -18641,6 +18958,8 @@ public readonly predicateOperator: PredicateOperator;
 
 - *Type:* cdk-extensions.glue.PredicateOperator
 
+{@link TriggerProps.predicateOperator:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.Trigger.property.resource"></a>
@@ -18660,6 +18979,8 @@ public readonly type: TriggerType;
 ```
 
 - *Type:* cdk-extensions.glue.TriggerType
+
+{@link TriggerProps.type:}.
 
 ---
 
@@ -18691,6 +19012,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TriggerProps.description}.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.Trigger.property.name"></a>
@@ -18700,6 +19023,8 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+{@link TriggerProps.name}.
 
 ---
 
@@ -18711,6 +19036,8 @@ public readonly schedule: Schedule;
 
 - *Type:* aws-cdk-lib.aws_events.Schedule
 
+{@link TriggerProps.schedule}.
+
 ---
 
 ##### `startOnCreation`<sup>Optional</sup> <a name="startOnCreation" id="cdk-extensions.glue.Trigger.property.startOnCreation"></a>
@@ -18721,6 +19048,8 @@ public readonly startOnCreation: boolean;
 
 - *Type:* boolean
 
+{@link TriggerProps.startOnCreation}.
+
 ---
 
 ##### `workflow`<sup>Optional</sup> <a name="workflow" id="cdk-extensions.glue.Trigger.property.workflow"></a>
@@ -18730,6 +19059,8 @@ public readonly workflow: Workflow;
 ```
 
 - *Type:* cdk-extensions.glue.Workflow
+
+{@link TriggerProps.workflow}.
 
 ---
 
@@ -20083,23 +20414,23 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.status5xxNamedQuery">status5xxNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
@@ -20158,6 +20489,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue_tables.WafLogsTable.property.resource"></a>
@@ -20198,6 +20531,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue_tables.WafLogsTable.property.dataFormat"></a>
@@ -20207,6 +20542,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -20218,6 +20555,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue_tables.WafLogsTable.property.location"></a>
@@ -20227,6 +20566,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -20238,6 +20579,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue_tables.WafLogsTable.property.owner"></a>
@@ -20247,6 +20590,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -20258,6 +20603,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue_tables.WafLogsTable.property.serdeName"></a>
@@ -20267,6 +20614,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -20278,6 +20627,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue_tables.WafLogsTable.property.tableType"></a>
@@ -20287,6 +20638,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -20298,6 +20651,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue_tables.WafLogsTable.property.viewExpandedText"></a>
@@ -20308,6 +20663,8 @@ public readonly viewExpandedText: string;
 
 - *Type:* string
 
+{@link TableProps.viewExpandedText}.
+
 ---
 
 ##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue_tables.WafLogsTable.property.viewOriginalText"></a>
@@ -20317,6 +20674,8 @@ public readonly viewOriginalText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewOriginalText}.
 
 ---
 
@@ -20373,9 +20732,9 @@ new glue.Workflow(scope: Construct, id: string, props: WorkflowProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.Workflow.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Workflow.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Workflow.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.WorkflowProps</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Workflow.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.Workflow.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.Workflow.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.WorkflowProps</code> | Arguments related to the configuration of the resource. |
 
 ---
 
@@ -20383,17 +20742,26 @@ new glue.Workflow(scope: Construct, id: string, props: WorkflowProps)
 
 - *Type:* constructs.Construct
 
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Workflow.Initializer.parameter.id"></a>
 
 - *Type:* string
 
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
 ---
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.Workflow.Initializer.parameter.props"></a>
 
 - *Type:* cdk-extensions.glue.WorkflowProps
+
+Arguments related to the configuration of the resource.
 
 ---
 
@@ -20525,8 +20893,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Workflow.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnWorkflow</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Workflow.property.workflowArn">workflowArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Workflow.property.workflowName">workflowName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Workflow.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Workflow.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Workflow.property.description">description</a></code> | <code>string</code> | {@link WorkflowProps.description}. |
+| <code><a href="#cdk-extensions.glue.Workflow.property.name">name</a></code> | <code>string</code> | {@link WorkflowProps.name}. |
 
 ---
 
@@ -20611,6 +20979,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link WorkflowProps.description}.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.Workflow.property.name"></a>
@@ -20620,6 +20990,8 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+{@link WorkflowProps.name}.
 
 ---
 
@@ -23189,13 +23561,13 @@ const connectionProps: glue.ConnectionProps = { ... }
 | <code><a href="#cdk-extensions.glue.ConnectionProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.ConnectionProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.ConnectionProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.ConnectionProps.property.connectionType">connectionType</a></code> | <code>cdk-extensions.glue.ConnectionType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionProps.property.properties">properties</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionProps.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionProps.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.ConnectionProps.property.connectionType">connectionType</a></code> | <code>cdk-extensions.glue.ConnectionType</code> | The type of the connection. |
+| <code><a href="#cdk-extensions.glue.ConnectionProps.property.description">description</a></code> | <code>string</code> | A description for the Connection. |
+| <code><a href="#cdk-extensions.glue.ConnectionProps.property.name">name</a></code> | <code>string</code> | The name of the connection. |
+| <code><a href="#cdk-extensions.glue.ConnectionProps.property.properties">properties</a></code> | <code>{[ key: string ]: string}</code> | List of Key/Value pairs defining the properties of the Connection. |
+| <code><a href="#cdk-extensions.glue.ConnectionProps.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | Existing Security Group to assign to the Connection. |
+| <code><a href="#cdk-extensions.glue.ConnectionProps.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | Options for selection of subnets from the VPC to attach to the Connection. |
+| <code><a href="#cdk-extensions.glue.ConnectionProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | VPC to attach to the Connection. |
 
 ---
 
@@ -23270,6 +23642,10 @@ public readonly connectionType: ConnectionType;
 
 - *Type:* cdk-extensions.glue.ConnectionType
 
+The type of the connection.
+
+> [[AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype)]([AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype))
+
 ---
 
 ##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.ConnectionProps.property.description"></a>
@@ -23279,6 +23655,8 @@ public readonly description: string;
 ```
 
 - *Type:* string
+
+A description for the Connection.
 
 ---
 
@@ -23290,6 +23668,12 @@ public readonly name: string;
 
 - *Type:* string
 
+The name of the connection.
+
+Connection will not function as expected without a name.
+
+> [[AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name)]([AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name))
+
 ---
 
 ##### `properties`<sup>Optional</sup> <a name="properties" id="cdk-extensions.glue.ConnectionProps.property.properties"></a>
@@ -23299,6 +23683,10 @@ public readonly properties: {[ key: string ]: string};
 ```
 
 - *Type:* {[ key: string ]: string}
+
+List of Key/Value pairs defining the properties of the Connection.
+
+> [[AWS::Glue::Connection Properties](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html#Properties)]([AWS::Glue::Connection Properties](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html#Properties))
 
 ---
 
@@ -23310,6 +23698,10 @@ public readonly securityGroups: ISecurityGroup[];
 
 - *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
 
+Existing Security Group to assign to the Connection.
+
+If none is provided a new Security Group will be created.
+
 ---
 
 ##### `subnets`<sup>Optional</sup> <a name="subnets" id="cdk-extensions.glue.ConnectionProps.property.subnets"></a>
@@ -23320,6 +23712,10 @@ public readonly subnets: SubnetSelection;
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
 
+Options for selection of subnets from the VPC to attach to the Connection.
+
+> [[CDK SubnetSelection](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.SubnetSelection.html)]([CDK SubnetSelection](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.SubnetSelection.html))
+
 ---
 
 ##### `vpc`<sup>Optional</sup> <a name="vpc" id="cdk-extensions.glue.ConnectionProps.property.vpc"></a>
@@ -23329,6 +23725,10 @@ public readonly vpc: IVpc;
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+VPC to attach to the Connection.
+
+> [[IVpc Interface](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.IVpc.html)]([IVpc Interface](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.IVpc.html))
 
 ---
 
@@ -23494,7 +23894,7 @@ public readonly version: ConfigurationVersion;
 
 ### CrawlerProps <a name="CrawlerProps" id="cdk-extensions.glue.CrawlerProps"></a>
 
-Configuration for Crawlner.
+Configuration for Crawler.
 
 #### Initializer <a name="Initializer" id="cdk-extensions.glue.CrawlerProps.Initializer"></a>
 
@@ -23512,18 +23912,18 @@ const crawlerProps: glue.CrawlerProps = { ... }
 | <code><a href="#cdk-extensions.glue.CrawlerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.CrawlerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.CrawlerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.classifiers">classifiers</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.configuration">configuration</a></code> | <code>cdk-extensions.glue.CrawlerConfiguration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.deleteBehavior">deleteBehavior</a></code> | <code>cdk-extensions.glue.DeleteBehavior</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.recrawlBehavior">recrawlBehavior</a></code> | <code>cdk-extensions.glue.RecrawlBehavior</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.scheduleExpression">scheduleExpression</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.tablePrefix">tablePrefix</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.targets">targets</a></code> | <code>cdk-extensions.glue.ICrawlerTarget[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.updateBehavior">updateBehavior</a></code> | <code>cdk-extensions.glue.UpdateBehavior</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.classifiers">classifiers</a></code> | <code>string[]</code> | A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.configuration">configuration</a></code> | <code>cdk-extensions.glue.CrawlerConfiguration</code> | Crawler configuration information. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | The {@link aws-glue.Database \| Database } object in which the crawler's output is stored. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.deleteBehavior">deleteBehavior</a></code> | <code>cdk-extensions.glue.DeleteBehavior</code> | The deletion behavior when the crawler finds a deleted object. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.description">description</a></code> | <code>string</code> | Description of the Crawler. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.name">name</a></code> | <code>string</code> | Name of the Crawler. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.recrawlBehavior">recrawlBehavior</a></code> | <code>cdk-extensions.glue.RecrawlBehavior</code> | When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.scheduleExpression">scheduleExpression</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | For scheduled crawlers, the schedule when the crawler runs. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | A {@link aws-glue.SecurityConfiguration \| SecurityConfiguration } object to apply to the Crawler. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.tablePrefix">tablePrefix</a></code> | <code>string</code> | The prefix added to the names of tables that are created. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.targets">targets</a></code> | <code>cdk-extensions.glue.ICrawlerTarget[]</code> | A collection of targets to crawl. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.updateBehavior">updateBehavior</a></code> | <code>cdk-extensions.glue.UpdateBehavior</code> | The update behavior when the crawler finds a changed schema. |
 
 ---
 
@@ -23598,6 +23998,10 @@ public readonly classifiers: string[];
 
 - *Type:* string[]
 
+A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
+
+> [[AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-classifiers)]([AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-classifiers))
+
 ---
 
 ##### `configuration`<sup>Optional</sup> <a name="configuration" id="cdk-extensions.glue.CrawlerProps.property.configuration"></a>
@@ -23607,6 +24011,12 @@ public readonly configuration: CrawlerConfiguration;
 ```
 
 - *Type:* cdk-extensions.glue.CrawlerConfiguration
+
+Crawler configuration information.
+
+This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see Configuring a Crawler.
+
+> [[AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-configuration)]([AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-configuration))
 
 ---
 
@@ -23618,6 +24028,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+The {@link aws-glue.Database | Database } object in which the crawler's output is stored.
+
 ---
 
 ##### `deleteBehavior`<sup>Optional</sup> <a name="deleteBehavior" id="cdk-extensions.glue.CrawlerProps.property.deleteBehavior"></a>
@@ -23627,6 +24039,10 @@ public readonly deleteBehavior: DeleteBehavior;
 ```
 
 - *Type:* cdk-extensions.glue.DeleteBehavior
+
+The deletion behavior when the crawler finds a deleted object.
+
+> [[AWS::Glue::Crawler SchemaChangePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior)]([AWS::Glue::Crawler SchemaChangePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior))
 
 ---
 
@@ -23638,6 +24054,8 @@ public readonly description: string;
 
 - *Type:* string
 
+Description of the Crawler.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.CrawlerProps.property.name"></a>
@@ -23647,6 +24065,8 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+Name of the Crawler.
 
 ---
 
@@ -23658,6 +24078,10 @@ public readonly recrawlBehavior: RecrawlBehavior;
 
 - *Type:* cdk-extensions.glue.RecrawlBehavior
 
+When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
+
+> [[AWS::Glue::Crawler RecrawlPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html)]([AWS::Glue::Crawler RecrawlPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html))
+
 ---
 
 ##### `scheduleExpression`<sup>Optional</sup> <a name="scheduleExpression" id="cdk-extensions.glue.CrawlerProps.property.scheduleExpression"></a>
@@ -23667,6 +24091,10 @@ public readonly scheduleExpression: Schedule;
 ```
 
 - *Type:* aws-cdk-lib.aws_events.Schedule
+
+For scheduled crawlers, the schedule when the crawler runs.
+
+> [[AWS::Glue::Crawler Schedule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html)]([AWS::Glue::Crawler Schedule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html))
 
 ---
 
@@ -23678,6 +24106,8 @@ public readonly securityConfiguration: SecurityConfiguration;
 
 - *Type:* cdk-extensions.glue.SecurityConfiguration
 
+A {@link aws-glue.SecurityConfiguration | SecurityConfiguration } object to apply to the Crawler.
+
 ---
 
 ##### `tablePrefix`<sup>Optional</sup> <a name="tablePrefix" id="cdk-extensions.glue.CrawlerProps.property.tablePrefix"></a>
@@ -23687,6 +24117,10 @@ public readonly tablePrefix: string;
 ```
 
 - *Type:* string
+
+The prefix added to the names of tables that are created.
+
+> [[AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-tableprefix)]([AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-tableprefix))
 
 ---
 
@@ -23698,6 +24132,10 @@ public readonly targets: ICrawlerTarget[];
 
 - *Type:* cdk-extensions.glue.ICrawlerTarget[]
 
+A collection of targets to crawl.
+
+> [[AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-targets)]([AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-targets))
+
 ---
 
 ##### `updateBehavior`<sup>Optional</sup> <a name="updateBehavior" id="cdk-extensions.glue.CrawlerProps.property.updateBehavior"></a>
@@ -23707,6 +24145,10 @@ public readonly updateBehavior: UpdateBehavior;
 ```
 
 - *Type:* cdk-extensions.glue.UpdateBehavior
+
+The update behavior when the crawler finds a changed schema.
+
+> [[AWS::Glue::Crawler SchemaChangePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-updatebehavior)]([AWS::Glue::Crawler SchemaChangePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-updatebehavior))
 
 ---
 
@@ -23830,9 +24272,9 @@ const databaseProps: glue.DatabaseProps = { ... }
 | <code><a href="#cdk-extensions.glue.DatabaseProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.DatabaseProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.DatabaseProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.DatabaseProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.DatabaseProps.property.locationUri">locationUri</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.DatabaseProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.DatabaseProps.property.description">description</a></code> | <code>string</code> | A description of the database. |
+| <code><a href="#cdk-extensions.glue.DatabaseProps.property.locationUri">locationUri</a></code> | <code>string</code> | The location of the database (for example, an HDFS path). |
+| <code><a href="#cdk-extensions.glue.DatabaseProps.property.name">name</a></code> | <code>string</code> | The name of the database. |
 
 ---
 
@@ -23907,6 +24349,8 @@ public readonly description: string;
 
 - *Type:* string
 
+A description of the database.
+
 ---
 
 ##### `locationUri`<sup>Optional</sup> <a name="locationUri" id="cdk-extensions.glue.DatabaseProps.property.locationUri"></a>
@@ -23917,6 +24361,10 @@ public readonly locationUri: string;
 
 - *Type:* string
 
+The location of the database (for example, an HDFS path).
+
+> [[AWS::Glue::Database DatabaseInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri)]([AWS::Glue::Database DatabaseInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri))
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.DatabaseProps.property.name"></a>
@@ -23926,6 +24374,10 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+The name of the database.
+
+For Hive compatibility, this is folded to lowercase when it is stored.
 
 ---
 
@@ -26370,8 +26822,8 @@ const jdbcTargetOptions: glue.JdbcTargetOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.JdbcTargetOptions.property.exclusions">exclusions</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JdbcTargetOptions.property.paths">paths</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcTargetOptions.property.exclusions">exclusions</a></code> | <code>string[]</code> | A list of glob patterns used to exclude from the crawl. |
+| <code><a href="#cdk-extensions.glue.JdbcTargetOptions.property.paths">paths</a></code> | <code>string[]</code> | The path of the JDBC target. |
 
 ---
 
@@ -26383,6 +26835,12 @@ public readonly exclusions: string[];
 
 - *Type:* string[]
 
+A list of glob patterns used to exclude from the crawl.
+
+For more information
+
+> [[Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)]([Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html))
+
 ---
 
 ##### `paths`<sup>Optional</sup> <a name="paths" id="cdk-extensions.glue.JdbcTargetOptions.property.paths"></a>
@@ -26392,6 +26850,10 @@ public readonly paths: string[];
 ```
 
 - *Type:* string[]
+
+The path of the JDBC target.
+
+> [[AWS::Glue::Crawler JdbcTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-path)]([AWS::Glue::Crawler JdbcTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-path))
 
 ---
 
@@ -26632,23 +27094,23 @@ const jobProps: glue.JobProps = { ... }
 | <code><a href="#cdk-extensions.glue.JobProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.JobProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.JobProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.JobProps.property.executable">executable</a></code> | <code>cdk-extensions.glue.JobExecutable</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.allocatedCapacity">allocatedCapacity</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.connections">connections</a></code> | <code>cdk-extensions.glue.Connection[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.continuousLogging">continuousLogging</a></code> | <code>cdk-extensions.glue.ContinuousLoggingProps</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.defaultArguments">defaultArguments</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.enableProfilingMetrics">enableProfilingMetrics</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.maxCapacity">maxCapacity</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.maxConcurrentRuns">maxConcurrentRuns</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.maxRetries">maxRetries</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.workerCount">workerCount</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.workerType">workerType</a></code> | <code>cdk-extensions.glue.WorkerType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JobProps.property.executable">executable</a></code> | <code>cdk-extensions.glue.JobExecutable</code> | Executable properties for the Job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.allocatedCapacity">allocatedCapacity</a></code> | <code>number</code> | The number of capacity units that are allocated to this job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.connections">connections</a></code> | <code>cdk-extensions.glue.Connection[]</code> | List of Connections for use with this job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.continuousLogging">continuousLogging</a></code> | <code>cdk-extensions.glue.ContinuousLoggingProps</code> | Set of properties for configuration of Continuous Logging. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.defaultArguments">defaultArguments</a></code> | <code>{[ key: string ]: string}</code> | The default arguments for this job, specified as name-value pairs. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.description">description</a></code> | <code>string</code> | A description of the job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.enableProfilingMetrics">enableProfilingMetrics</a></code> | <code>boolean</code> | Boolean value for whether to enable Profiling Metrics. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.maxCapacity">maxCapacity</a></code> | <code>number</code> | The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.maxConcurrentRuns">maxConcurrentRuns</a></code> | <code>number</code> | Maximum number of concurrent executions. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.maxRetries">maxRetries</a></code> | <code>number</code> | The maximum number of times to retry this job after a JobRun fails. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.name">name</a></code> | <code>string</code> | A name for the Job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | After a job run starts, the number of minutes to wait before sending a job run delay notification. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The name or Amazon Resource Name (ARN) of the IAM role associated with this job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | The Security Configuration object to be applied to the Job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The job timeout in minutes. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.workerCount">workerCount</a></code> | <code>number</code> | The number of worker available the Job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.workerType">workerType</a></code> | <code>cdk-extensions.glue.WorkerType</code> | The type of predefined worker that is allocated when a job runs. |
 
 ---
 
@@ -26723,6 +27185,8 @@ public readonly executable: JobExecutable;
 
 - *Type:* cdk-extensions.glue.JobExecutable
 
+Executable properties for the Job.
+
 ---
 
 ##### `allocatedCapacity`<sup>Optional</sup> <a name="allocatedCapacity" id="cdk-extensions.glue.JobProps.property.allocatedCapacity"></a>
@@ -26732,6 +27196,10 @@ public readonly allocatedCapacity: number;
 ```
 
 - *Type:* number
+
+The number of capacity units that are allocated to this job.
+
+> [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-allocatedcapacity)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-allocatedcapacity))
 
 ---
 
@@ -26743,6 +27211,10 @@ public readonly connections: Connection[];
 
 - *Type:* cdk-extensions.glue.Connection[]
 
+List of Connections for use with this job.
+
+> [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-connections)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-connections))
+
 ---
 
 ##### `continuousLogging`<sup>Optional</sup> <a name="continuousLogging" id="cdk-extensions.glue.JobProps.property.continuousLogging"></a>
@@ -26752,6 +27224,8 @@ public readonly continuousLogging: ContinuousLoggingProps;
 ```
 
 - *Type:* cdk-extensions.glue.ContinuousLoggingProps
+
+Set of properties for configuration of Continuous Logging.
 
 ---
 
@@ -26763,6 +27237,12 @@ public readonly defaultArguments: {[ key: string ]: string};
 
 - *Type:* {[ key: string ]: string}
 
+The default arguments for this job, specified as name-value pairs.
+
+You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
+
+> [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-defaultarguments)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-defaultarguments))
+
 ---
 
 ##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.JobProps.property.description"></a>
@@ -26772,6 +27252,8 @@ public readonly description: string;
 ```
 
 - *Type:* string
+
+A description of the job.
 
 ---
 
@@ -26783,6 +27265,8 @@ public readonly enableProfilingMetrics: boolean;
 
 - *Type:* boolean
 
+Boolean value for whether to enable Profiling Metrics.
+
 ---
 
 ##### `maxCapacity`<sup>Optional</sup> <a name="maxCapacity" id="cdk-extensions.glue.JobProps.property.maxCapacity"></a>
@@ -26792,6 +27276,18 @@ public readonly maxCapacity: number;
 ```
 
 - *Type:* number
+
+The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+
+A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. 
+
+Do not set Max Capacity if using WorkerType and NumberOfWorkers.
+
+The value that can be allocated for MaxCapacity depends on whether you are running a Python shell job or an Apache Spark ETL job:
+
+    - When you specify a Python shell job (JobCommand.Name="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
+
+    - When you specify an Apache Spark ETL job (JobCommand.Name="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
 
 ---
 
@@ -26803,6 +27299,10 @@ public readonly maxConcurrentRuns: number;
 
 - *Type:* number
 
+Maximum number of concurrent executions.
+
+> [[AWS::Glue::Job ExecutionProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html)]([AWS::Glue::Job ExecutionProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html))
+
 ---
 
 ##### `maxRetries`<sup>Optional</sup> <a name="maxRetries" id="cdk-extensions.glue.JobProps.property.maxRetries"></a>
@@ -26812,6 +27312,10 @@ public readonly maxRetries: number;
 ```
 
 - *Type:* number
+
+The maximum number of times to retry this job after a JobRun fails.
+
+> [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-maxretries)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-maxretries))
 
 ---
 
@@ -26823,6 +27327,8 @@ public readonly name: string;
 
 - *Type:* string
 
+A name for the Job.
+
 ---
 
 ##### `notifyDelayAfter`<sup>Optional</sup> <a name="notifyDelayAfter" id="cdk-extensions.glue.JobProps.property.notifyDelayAfter"></a>
@@ -26832,6 +27338,10 @@ public readonly notifyDelayAfter: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+After a job run starts, the number of minutes to wait before sending a job run delay notification.
+
+> [[AWS::Glue::Job NotificationProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html)]([AWS::Glue::Job NotificationProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html))
 
 ---
 
@@ -26843,6 +27353,8 @@ public readonly role: IRole;
 
 - *Type:* aws-cdk-lib.aws_iam.IRole
 
+The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
+
 ---
 
 ##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.JobProps.property.securityConfiguration"></a>
@@ -26852,6 +27364,8 @@ public readonly securityConfiguration: SecurityConfiguration;
 ```
 
 - *Type:* cdk-extensions.glue.SecurityConfiguration
+
+The Security Configuration object to be applied to the Job.
 
 ---
 
@@ -26863,6 +27377,12 @@ public readonly timeout: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+The job timeout in minutes.
+
+This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours).
+
+> [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-timeout)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-timeout))
+
 ---
 
 ##### `workerCount`<sup>Optional</sup> <a name="workerCount" id="cdk-extensions.glue.JobProps.property.workerCount"></a>
@@ -26873,6 +27393,8 @@ public readonly workerCount: number;
 
 - *Type:* number
 
+The number of worker available the Job.
+
 ---
 
 ##### `workerType`<sup>Optional</sup> <a name="workerType" id="cdk-extensions.glue.JobProps.property.workerType"></a>
@@ -26882,6 +27404,12 @@ public readonly workerType: WorkerType;
 ```
 
 - *Type:* cdk-extensions.glue.WorkerType
+
+The type of predefined worker that is allocated when a job runs.
+
+Accepts a value of Standard, G.1X, or G.2X.
+
+> [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-workertype)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-workertype))
 
 ---
 
@@ -29264,10 +29792,10 @@ const s3TargetOptions: glue.S3TargetOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.connection">connection</a></code> | <code>cdk-extensions.glue.Connection</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.exclusions">exclusions</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.keyPrefix">keyPrefix</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.sampleSize">sampleSize</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.connection">connection</a></code> | <code>cdk-extensions.glue.Connection</code> | A {@link aws-glue.Connection \| "Connection" } object to connect to the target with. |
+| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.exclusions">exclusions</a></code> | <code>string[]</code> | A list of glob patterns used to exclude from the crawl. |
+| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.keyPrefix">keyPrefix</a></code> | <code>string</code> | A Prefix Key for identification and organization of objects in the bucket. |
+| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.sampleSize">sampleSize</a></code> | <code>string</code> | Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. |
 
 ---
 
@@ -29279,6 +29807,8 @@ public readonly connection: Connection;
 
 - *Type:* cdk-extensions.glue.Connection
 
+A {@link aws-glue.Connection | "Connection" } object to connect to the target with.
+
 ---
 
 ##### `exclusions`<sup>Optional</sup> <a name="exclusions" id="cdk-extensions.glue.S3TargetOptions.property.exclusions"></a>
@@ -29288,6 +29818,10 @@ public readonly exclusions: string[];
 ```
 
 - *Type:* string[]
+
+A list of glob patterns used to exclude from the crawl.
+
+> [[For More Information](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)]([For More Information](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html))
 
 ---
 
@@ -29299,6 +29833,8 @@ public readonly keyPrefix: string;
 
 - *Type:* string
 
+A Prefix Key for identification and organization of objects in the bucket.
+
 ---
 
 ##### `sampleSize`<sup>Optional</sup> <a name="sampleSize" id="cdk-extensions.glue.S3TargetOptions.property.sampleSize"></a>
@@ -29308,6 +29844,12 @@ public readonly sampleSize: string;
 ```
 
 - *Type:* string
+
+Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset.
+
+If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+
+> [[AWS::Glue::Crawler S3Target](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-samplesize)]([AWS::Glue::Crawler S3Target](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-samplesize))
 
 ---
 
@@ -29703,10 +30245,10 @@ const securityConfigurationProps: glue.SecurityConfigurationProps = { ... }
 | <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.cloudWatchEncryption">cloudWatchEncryption</a></code> | <code>cdk-extensions.glue.CloudWatchEncryption</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.jobBookmarksEncryption">jobBookmarksEncryption</a></code> | <code>cdk-extensions.glue.JobBookmarksEncryption</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.s3Encryption">s3Encryption</a></code> | <code>cdk-extensions.glue.S3Encryption</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.cloudWatchEncryption">cloudWatchEncryption</a></code> | <code>cdk-extensions.glue.CloudWatchEncryption</code> | Cloudwatch Encryption Settings. |
+| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.jobBookmarksEncryption">jobBookmarksEncryption</a></code> | <code>cdk-extensions.glue.JobBookmarksEncryption</code> | The encryption configuration for job bookmarks. |
+| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.name">name</a></code> | <code>string</code> | Name for the Security Configuration. |
+| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.s3Encryption">s3Encryption</a></code> | <code>cdk-extensions.glue.S3Encryption</code> | The encyption configuration for Amazon Simple Storage Service (Amazon S3) data. |
 
 ---
 
@@ -29781,6 +30323,10 @@ public readonly cloudWatchEncryption: CloudWatchEncryption;
 
 - *Type:* cdk-extensions.glue.CloudWatchEncryption
 
+Cloudwatch Encryption Settings.
+
+> [[AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-cloudwatchencryption)]([AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-cloudwatchencryption))
+
 ---
 
 ##### `jobBookmarksEncryption`<sup>Optional</sup> <a name="jobBookmarksEncryption" id="cdk-extensions.glue.SecurityConfigurationProps.property.jobBookmarksEncryption"></a>
@@ -29790,6 +30336,10 @@ public readonly jobBookmarksEncryption: JobBookmarksEncryption;
 ```
 
 - *Type:* cdk-extensions.glue.JobBookmarksEncryption
+
+The encryption configuration for job bookmarks.
+
+> [[AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-jobbookmarksencryption)]([AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-jobbookmarksencryption))
 
 ---
 
@@ -29801,6 +30351,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for the Security Configuration.
+
 ---
 
 ##### `s3Encryption`<sup>Optional</sup> <a name="s3Encryption" id="cdk-extensions.glue.SecurityConfigurationProps.property.s3Encryption"></a>
@@ -29810,6 +30362,10 @@ public readonly s3Encryption: S3Encryption;
 ```
 
 - *Type:* cdk-extensions.glue.S3Encryption
+
+The encyption configuration for Amazon Simple Storage Service (Amazon S3) data.
+
+> [[AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-s3encryptions)]([AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-s3encryptions))
 
 ---
 
@@ -30333,25 +30889,25 @@ const tableProps: glue.TableProps = { ... }
 | <code><a href="#cdk-extensions.glue.TableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.TableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.TableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.TableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.columns">columns</a></code> | <code>cdk-extensions.glue.Column[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.parameters">parameters</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.partitionKeys">partitionKeys</a></code> | <code>cdk-extensions.glue.Column[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.serdeParameters">serdeParameters</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.storageParameters">storageParameters</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.TableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | Database object to add Table to. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.columns">columns</a></code> | <code>cdk-extensions.glue.Column[]</code> | A list of the Columns in the table. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.compressed">compressed</a></code> | <code>boolean</code> | True if the data in the table is compressed, or False if not. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | DataFormat object indicating the expected input/output format. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.description">description</a></code> | <code>string</code> | A description for the Table. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.location">location</a></code> | <code>string</code> | The physical location of the table. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.name">name</a></code> | <code>string</code> | A name for the Table. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.owner">owner</a></code> | <code>string</code> | The table owner. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.parameters">parameters</a></code> | <code>{[ key: string ]: string}</code> | These key-value pairs define properties associated with the table. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.partitionKeys">partitionKeys</a></code> | <code>cdk-extensions.glue.Column[]</code> | A list of columns by which the table is partitioned. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | The retention time for this table. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.serdeName">serdeName</a></code> | <code>string</code> | Name of the SerDe. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.serdeParameters">serdeParameters</a></code> | <code>{[ key: string ]: string}</code> | These key-value pairs define initialization parameters for the SerDe. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.storageParameters">storageParameters</a></code> | <code>{[ key: string ]: string}</code> | The user-supplied properties in key-value form. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | True if the table data is stored in subdirectories, or False if not. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | The type of this table. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | A TableIdentifier structure that describes a target table for resource linking. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | Included for Apache Hive compatibility. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | Included for Apache Hive compatibility. |
 
 ---
 
@@ -30426,6 +30982,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+Database object to add Table to.
+
 ---
 
 ##### `columns`<sup>Optional</sup> <a name="columns" id="cdk-extensions.glue.TableProps.property.columns"></a>
@@ -30435,6 +30993,10 @@ public readonly columns: Column[];
 ```
 
 - *Type:* cdk-extensions.glue.Column[]
+
+A list of the Columns in the table.
+
+> [[AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-columns)]([AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-columns))
 
 ---
 
@@ -30446,6 +31008,10 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+True if the data in the table is compressed, or False if not.
+
+> [[AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-compressed)]([AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-compressed))
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue.TableProps.property.dataFormat"></a>
@@ -30455,6 +31021,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+DataFormat object indicating the expected input/output format.
 
 ---
 
@@ -30466,6 +31034,8 @@ public readonly description: string;
 
 - *Type:* string
 
+A description for the Table.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue.TableProps.property.location"></a>
@@ -30475,6 +31045,12 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+The physical location of the table.
+
+By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+
+> [[AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-location)]([AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-location))
 
 ---
 
@@ -30486,6 +31062,8 @@ public readonly name: string;
 
 - *Type:* string
 
+A name for the Table.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue.TableProps.property.owner"></a>
@@ -30495,6 +31073,12 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+The table owner.
+
+Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-owner)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-owner))
 
 ---
 
@@ -30506,6 +31090,10 @@ public readonly parameters: {[ key: string ]: string};
 
 - *Type:* {[ key: string ]: string}
 
+These key-value pairs define properties associated with the table.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters))
+
 ---
 
 ##### `partitionKeys`<sup>Optional</sup> <a name="partitionKeys" id="cdk-extensions.glue.TableProps.property.partitionKeys"></a>
@@ -30515,6 +31103,12 @@ public readonly partitionKeys: Column[];
 ```
 
 - *Type:* cdk-extensions.glue.Column[]
+
+A list of columns by which the table is partitioned.
+
+Only primitive types are supported as partition keys.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameterskeys)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameterskeys))
 
 ---
 
@@ -30526,6 +31120,10 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+The retention time for this table.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-retention)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-retention))
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue.TableProps.property.serdeName"></a>
@@ -30535,6 +31133,10 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+Name of the SerDe.
+
+> [[AWS::Glue::Table SerdeInfo](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-name)]([AWS::Glue::Table SerdeInfo](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-name))
 
 ---
 
@@ -30546,6 +31148,10 @@ public readonly serdeParameters: {[ key: string ]: string};
 
 - *Type:* {[ key: string ]: string}
 
+These key-value pairs define initialization parameters for the SerDe.
+
+> [[AWS::Glue::Table SerdeInfo](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-parameters)]([AWS::Glue::Table SerdeInfo](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-parameters))
+
 ---
 
 ##### `storageParameters`<sup>Optional</sup> <a name="storageParameters" id="cdk-extensions.glue.TableProps.property.storageParameters"></a>
@@ -30555,6 +31161,10 @@ public readonly storageParameters: {[ key: string ]: string};
 ```
 
 - *Type:* {[ key: string ]: string}
+
+The user-supplied properties in key-value form.
+
+> [[AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-parameters)]([AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-parameters))
 
 ---
 
@@ -30566,6 +31176,10 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+True if the table data is stored in subdirectories, or False if not.
+
+> [[AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-storedassubdirectories)]([AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-storedassubdirectories))
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue.TableProps.property.tableType"></a>
@@ -30575,6 +31189,12 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+The type of this table.
+
+AWS Glue will create tables with the EXTERNAL_TABLE type. Other services, such as Athena, may create tables with additional table types.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype))
 
 ---
 
@@ -30586,6 +31206,10 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+A TableIdentifier structure that describes a target table for resource linking.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable))
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue.TableProps.property.viewExpandedText"></a>
@@ -30596,6 +31220,12 @@ public readonly viewExpandedText: string;
 
 - *Type:* string
 
+Included for Apache Hive compatibility.
+
+Not used in the normal course of AWS Glue operations.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext))
+
 ---
 
 ##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue.TableProps.property.viewOriginalText"></a>
@@ -30605,6 +31235,12 @@ public readonly viewOriginalText: string;
 ```
 
 - *Type:* string
+
+Included for Apache Hive compatibility.
+
+Not used in the normal course of AWS Glue operations. If the table is a VIRTUAL_VIEW, certain Athena configuration encoded in base64.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext))
 
 ---
 
@@ -30800,15 +31436,15 @@ const triggerProps: glue.TriggerProps = { ... }
 | <code><a href="#cdk-extensions.glue.TriggerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.TriggerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.TriggerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.type">type</a></code> | <code>cdk-extensions.glue.TriggerType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.actions">actions</a></code> | <code>cdk-extensions.glue.ITriggerAction[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.predicateConditions">predicateConditions</a></code> | <code>cdk-extensions.glue.ITriggerPredicate[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.predicateOperator">predicateOperator</a></code> | <code>cdk-extensions.glue.PredicateOperator</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.schedule">schedule</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.startOnCreation">startOnCreation</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.workflow">workflow</a></code> | <code>cdk-extensions.glue.Workflow</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.type">type</a></code> | <code>cdk-extensions.glue.TriggerType</code> | The type of trigger that this is. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.actions">actions</a></code> | <code>cdk-extensions.glue.ITriggerAction[]</code> | A list of actions initiated by this trigger. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.description">description</a></code> | <code>string</code> | A description for the Trigger. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.name">name</a></code> | <code>string</code> | A name for the Trigger. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.predicateConditions">predicateConditions</a></code> | <code>cdk-extensions.glue.ITriggerPredicate[]</code> | A list of conditions predicating the trigger, determining when it will fire. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.predicateOperator">predicateOperator</a></code> | <code>cdk-extensions.glue.PredicateOperator</code> | Operator for chaining predicate conditions (AND/OR). |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.schedule">schedule</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | A cron expression used to specify the schedule. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.startOnCreation">startOnCreation</a></code> | <code>boolean</code> | Set to true to start SCHEDULED and CONDITIONAL triggers when created. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.workflow">workflow</a></code> | <code>cdk-extensions.glue.Workflow</code> | Workflow object the Trigger should be attached to. |
 
 ---
 
@@ -30883,6 +31519,10 @@ public readonly type: TriggerType;
 
 - *Type:* cdk-extensions.glue.TriggerType
 
+The type of trigger that this is.
+
+> [[AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type)]([AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type))
+
 ---
 
 ##### `actions`<sup>Optional</sup> <a name="actions" id="cdk-extensions.glue.TriggerProps.property.actions"></a>
@@ -30892,6 +31532,10 @@ public readonly actions: ITriggerAction[];
 ```
 
 - *Type:* cdk-extensions.glue.ITriggerAction[]
+
+A list of actions initiated by this trigger.
+
+> [[AWS::Glue::Trigger Action](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html)]([AWS::Glue::Trigger Action](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html))
 
 ---
 
@@ -30903,6 +31547,8 @@ public readonly description: string;
 
 - *Type:* string
 
+A description for the Trigger.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.TriggerProps.property.name"></a>
@@ -30912,6 +31558,8 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+A name for the Trigger.
 
 ---
 
@@ -30923,6 +31571,10 @@ public readonly predicateConditions: ITriggerPredicate[];
 
 - *Type:* cdk-extensions.glue.ITriggerPredicate[]
 
+A list of conditions predicating the trigger, determining when it will fire.
+
+> [[AWS::Glue::Trigger Predicate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html)]([AWS::Glue::Trigger Predicate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html))
+
 ---
 
 ##### `predicateOperator`<sup>Optional</sup> <a name="predicateOperator" id="cdk-extensions.glue.TriggerProps.property.predicateOperator"></a>
@@ -30932,6 +31584,8 @@ public readonly predicateOperator: PredicateOperator;
 ```
 
 - *Type:* cdk-extensions.glue.PredicateOperator
+
+Operator for chaining predicate conditions (AND/OR).
 
 ---
 
@@ -30943,6 +31597,10 @@ public readonly schedule: Schedule;
 
 - *Type:* aws-cdk-lib.aws_events.Schedule
 
+A cron expression used to specify the schedule.
+
+> [[AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-schedule)]([AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-schedule))
+
 ---
 
 ##### `startOnCreation`<sup>Optional</sup> <a name="startOnCreation" id="cdk-extensions.glue.TriggerProps.property.startOnCreation"></a>
@@ -30953,6 +31611,12 @@ public readonly startOnCreation: boolean;
 
 - *Type:* boolean
 
+Set to true to start SCHEDULED and CONDITIONAL triggers when created.
+
+True is not supported for ON_DEMAND triggers.
+
+> [[AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation)]([AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation))
+
 ---
 
 ##### `workflow`<sup>Optional</sup> <a name="workflow" id="cdk-extensions.glue.TriggerProps.property.workflow"></a>
@@ -30962,6 +31626,8 @@ public readonly workflow: Workflow;
 ```
 
 - *Type:* cdk-extensions.glue.Workflow
+
+Workflow object the Trigger should be attached to.
 
 ---
 
@@ -31278,8 +31944,8 @@ const workflowProps: glue.WorkflowProps = { ... }
 | <code><a href="#cdk-extensions.glue.WorkflowProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.WorkflowProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.WorkflowProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.WorkflowProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowProps.property.description">description</a></code> | <code>string</code> | A description of the Workflow. |
+| <code><a href="#cdk-extensions.glue.WorkflowProps.property.name">name</a></code> | <code>string</code> | A name of the Workflow. |
 
 ---
 
@@ -31354,6 +32020,8 @@ public readonly description: string;
 
 - *Type:* string
 
+A description of the Workflow.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.WorkflowProps.property.name"></a>
@@ -31363,6 +32031,8 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+A name of the Workflow.
 
 ---
 
@@ -31606,8 +32276,8 @@ public bind(scope: IConstruct): ColumnProperty
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.glue.ArrayColumn.property.typeString">typeString</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ArrayColumn.property.comment">comment</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ArrayColumn.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.ArrayColumn.property.comment">comment</a></code> | <code>string</code> | A free-form text comment. |
+| <code><a href="#cdk-extensions.glue.ArrayColumn.property.name">name</a></code> | <code>string</code> | The name of the Column. |
 
 ---
 
@@ -31629,6 +32299,10 @@ public readonly comment: string;
 
 - *Type:* string
 
+A free-form text comment.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment))
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.ArrayColumn.property.name"></a>
@@ -31638,6 +32312,10 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+The name of the Column.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name))
 
 ---
 
@@ -32057,8 +32735,8 @@ public bind(scope: IConstruct): ColumnProperty
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.glue.BasicColumn.property.typeString">typeString</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.BasicColumn.property.comment">comment</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.BasicColumn.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.BasicColumn.property.comment">comment</a></code> | <code>string</code> | A free-form text comment. |
+| <code><a href="#cdk-extensions.glue.BasicColumn.property.name">name</a></code> | <code>string</code> | The name of the Column. |
 
 ---
 
@@ -32080,6 +32758,10 @@ public readonly comment: string;
 
 - *Type:* string
 
+A free-form text comment.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment))
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.BasicColumn.property.name"></a>
@@ -32089,6 +32771,10 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+The name of the Column.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name))
 
 ---
 
@@ -32535,8 +33221,8 @@ public bind(scope: IConstruct): ColumnProperty
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.glue.Column.property.typeString">typeString</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Column.property.comment">comment</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Column.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Column.property.comment">comment</a></code> | <code>string</code> | A free-form text comment. |
+| <code><a href="#cdk-extensions.glue.Column.property.name">name</a></code> | <code>string</code> | The name of the Column. |
 
 ---
 
@@ -32558,6 +33244,10 @@ public readonly comment: string;
 
 - *Type:* string
 
+A free-form text comment.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment))
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.Column.property.name"></a>
@@ -32567,6 +33257,10 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+The name of the Column.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name))
 
 ---
 
@@ -37743,11 +38437,11 @@ public bind(crawler: Crawler): CrawlerTargetCollection
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.S3Target.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.S3Target.property.connection">connection</a></code> | <code>cdk-extensions.glue.Connection</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.S3Target.property.exclusions">exclusions</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.S3Target.property.keyPrefix">keyPrefix</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.S3Target.property.sampleSize">sampleSize</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3Target.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | Bucket to use as the Target. |
+| <code><a href="#cdk-extensions.glue.S3Target.property.connection">connection</a></code> | <code>cdk-extensions.glue.Connection</code> | {@link S3TargetOptions.connection}. |
+| <code><a href="#cdk-extensions.glue.S3Target.property.exclusions">exclusions</a></code> | <code>string[]</code> | {@link S3TargetOptions.exclusions}. |
+| <code><a href="#cdk-extensions.glue.S3Target.property.keyPrefix">keyPrefix</a></code> | <code>string</code> | {@link S3TargetOptions.keyPrefix}. |
+| <code><a href="#cdk-extensions.glue.S3Target.property.sampleSize">sampleSize</a></code> | <code>string</code> | {@link S3TargetOptions.sampleSize}. |
 
 ---
 
@@ -37759,6 +38453,8 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+Bucket to use as the Target.
+
 ---
 
 ##### `connection`<sup>Optional</sup> <a name="connection" id="cdk-extensions.glue.S3Target.property.connection"></a>
@@ -37768,6 +38464,8 @@ public readonly connection: Connection;
 ```
 
 - *Type:* cdk-extensions.glue.Connection
+
+{@link S3TargetOptions.connection}.
 
 ---
 
@@ -37779,6 +38477,8 @@ public readonly exclusions: string[];
 
 - *Type:* string[]
 
+{@link S3TargetOptions.exclusions}.
+
 ---
 
 ##### `keyPrefix`<sup>Optional</sup> <a name="keyPrefix" id="cdk-extensions.glue.S3Target.property.keyPrefix"></a>
@@ -37789,6 +38489,8 @@ public readonly keyPrefix: string;
 
 - *Type:* string
 
+{@link S3TargetOptions.keyPrefix}.
+
 ---
 
 ##### `sampleSize`<sup>Optional</sup> <a name="sampleSize" id="cdk-extensions.glue.S3Target.property.sampleSize"></a>
@@ -37798,6 +38500,8 @@ public readonly sampleSize: string;
 ```
 
 - *Type:* string
+
+{@link S3TargetOptions.sampleSize}.
 
 ---
 
@@ -38486,8 +39190,8 @@ public addColumn(column: Column): void
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.glue.StructColumn.property.typeString">typeString</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.StructColumn.property.comment">comment</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.StructColumn.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.StructColumn.property.comment">comment</a></code> | <code>string</code> | A free-form text comment. |
+| <code><a href="#cdk-extensions.glue.StructColumn.property.name">name</a></code> | <code>string</code> | The name of the Column. |
 
 ---
 
@@ -38509,6 +39213,10 @@ public readonly comment: string;
 
 - *Type:* string
 
+A free-form text comment.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment))
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.StructColumn.property.name"></a>
@@ -38518,6 +39226,10 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+The name of the Column.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name))
 
 ---
 
@@ -39477,29 +40189,37 @@ Server-side encryption (SSE) with an AWS KMS key managed by the account owner.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.glue.ConnectionType.JDBC">JDBC</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionType.KAFKA">KAFKA</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionType.MONGODB">MONGODB</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionType.NETWORK">NETWORK</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.ConnectionType.JDBC">JDBC</a></code> | JDBC - Designates a connection to a database through Java Database Connectivity (JDBC). |
+| <code><a href="#cdk-extensions.glue.ConnectionType.KAFKA">KAFKA</a></code> | KAFKA - Designates a connection to an Apache Kafka streaming platform. |
+| <code><a href="#cdk-extensions.glue.ConnectionType.MONGODB">MONGODB</a></code> | MONGODB - Designates a connection to a MongoDB document database. |
+| <code><a href="#cdk-extensions.glue.ConnectionType.NETWORK">NETWORK</a></code> | NETWORK - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC). |
 
 ---
 
 ##### `JDBC` <a name="JDBC" id="cdk-extensions.glue.ConnectionType.JDBC"></a>
+
+JDBC - Designates a connection to a database through Java Database Connectivity (JDBC).
 
 ---
 
 
 ##### `KAFKA` <a name="KAFKA" id="cdk-extensions.glue.ConnectionType.KAFKA"></a>
 
+KAFKA - Designates a connection to an Apache Kafka streaming platform.
+
 ---
 
 
 ##### `MONGODB` <a name="MONGODB" id="cdk-extensions.glue.ConnectionType.MONGODB"></a>
 
+MONGODB - Designates a connection to a MongoDB document database.
+
 ---
 
 
 ##### `NETWORK` <a name="NETWORK" id="cdk-extensions.glue.ConnectionType.NETWORK"></a>
+
+NETWORK - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).
 
 ---
 
