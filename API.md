@@ -1140,8 +1140,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the ALB Logs. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.status5xxNamedQuery">status5xxNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.topIpsNamedQuery">topIpsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 
@@ -1368,6 +1368,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the ALB Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.AlbLogsTable.property.friendlyQueryNames"></a>
@@ -1377,6 +1381,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -4375,8 +4381,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Cloudfront Logs. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.distributionStatisticsNamedQuery">distributionStatisticsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.requestErrorsNamedQuery">requestErrorsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.topIpsNamedQuery">topIpsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
@@ -4605,6 +4611,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Cloudfront Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.friendlyQueryNames"></a>
@@ -4614,6 +4624,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -5796,8 +5808,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Cloudtrail Logs. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.unauthorizedNamedQuery">unauthorizedNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.userLoginsNamedQuery">userLoginsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 
@@ -6024,6 +6036,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Cloudtrail Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.CloudtrailTable.property.friendlyQueryNames"></a>
@@ -6033,6 +6049,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -10410,9 +10428,9 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Flow Logs. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.internalRejectedNamedQuery">internalRejectedNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 
 ---
@@ -10638,6 +10656,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Flow Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `format`<sup>Required</sup> <a name="format" id="cdk-extensions.glue_tables.FlowLogsTable.property.format"></a>
@@ -10648,6 +10670,8 @@ public readonly format: FlowLogFormat;
 
 - *Type:* cdk-extensions.ec2.FlowLogFormat
 
+A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs.
+
 ---
 
 ##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.FlowLogsTable.property.friendlyQueryNames"></a>
@@ -10657,6 +10681,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -15336,8 +15362,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the S3 Access Logs. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.requestErrorsNamedQuery">requestErrorsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 
 ---
@@ -15563,6 +15589,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the S3 Access Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.friendlyQueryNames"></a>
@@ -15572,6 +15602,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -17335,8 +17367,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Ses Logs. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.bouncesQuery">bouncesQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.complaintsQuery">complaintsQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 
@@ -17563,6 +17595,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Ses Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.SesLogsTable.property.friendlyQueryNames"></a>
@@ -17572,6 +17608,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -20100,8 +20138,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the WAF Logs. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.status5xxNamedQuery">status5xxNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.topIpsNamedQuery">topIpsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 
@@ -20328,6 +20366,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the WAF Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.WafLogsTable.property.friendlyQueryNames"></a>
@@ -20337,6 +20379,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -20835,12 +20879,12 @@ const albLogsTableProps: glue_tables.AlbLogsTableProps = { ... }
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | A bucket where logs will be stored. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the ALB Logs. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.name">name</a></code> | <code>string</code> | Name for Alb Logs Table. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | Set a custom prefix for the S3 Bucket. |
 
 ---
 
@@ -20915,6 +20959,10 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+A bucket where logs will be stored.
+
+> [[AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)]([AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html))
+
 ---
 
 ##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue_tables.AlbLogsTableProps.property.database"></a>
@@ -20924,6 +20972,10 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html))
 
 ---
 
@@ -20935,6 +20987,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the ALB Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.AlbLogsTableProps.property.friendlyQueryNames"></a>
@@ -20944,6 +21000,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -20955,6 +21013,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for Alb Logs Table.
+
 ---
 
 ##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue_tables.AlbLogsTableProps.property.s3Prefix"></a>
@@ -20964,6 +21024,8 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+Set a custom prefix for the S3 Bucket.
 
 ---
 
@@ -22415,12 +22477,12 @@ const cloudfrontLogsTableProps: glue_tables.CloudfrontLogsTableProps = { ... }
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | The bucket where logs will be contained. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Cloudfront Logs. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.name">name</a></code> | <code>string</code> | Name for Cloudfront Logs Table. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | Set a custom prefix for the S3 Bucket. |
 
 ---
 
@@ -22495,6 +22557,10 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+The bucket where logs will be contained.
+
+> [[AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)]([AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html))
+
 ---
 
 ##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.database"></a>
@@ -22504,6 +22570,10 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html))
 
 ---
 
@@ -22515,6 +22585,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Cloudfront Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.friendlyQueryNames"></a>
@@ -22524,6 +22598,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -22535,6 +22611,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for Cloudfront Logs Table.
+
 ---
 
 ##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.s3Prefix"></a>
@@ -22544,6 +22622,8 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+Set a custom prefix for the S3 Bucket.
 
 ---
 
@@ -22708,12 +22788,12 @@ const cloudtrailTableProps: glue_tables.CloudtrailTableProps = { ... }
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | A bucket where logs will be stored. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Cloudtrail Logs. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.name">name</a></code> | <code>string</code> | Name for Cloudtrail Logs Table. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | Set a custom prefix for the S3 Bucket. |
 
 ---
 
@@ -22788,6 +22868,10 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+A bucket where logs will be stored.
+
+> [[AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)]([AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html))
+
 ---
 
 ##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue_tables.CloudtrailTableProps.property.database"></a>
@@ -22797,6 +22881,10 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html))
 
 ---
 
@@ -22808,6 +22896,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Cloudtrail Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.CloudtrailTableProps.property.friendlyQueryNames"></a>
@@ -22817,6 +22909,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -22828,6 +22922,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for Cloudtrail Logs Table.
+
 ---
 
 ##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue_tables.CloudtrailTableProps.property.s3Prefix"></a>
@@ -22837,6 +22933,8 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+Set a custom prefix for the S3 Bucket.
 
 ---
 
@@ -25955,13 +26053,13 @@ const flowLogsTableProps: glue_tables.FlowLogsTableProps = { ... }
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | A bucket where logs will be stored. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Flow Logs. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.name">name</a></code> | <code>string</code> | Name for Flow Logs Table. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | Set a custom prefix for the S3 Bucket. |
 
 ---
 
@@ -26036,6 +26134,10 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+A bucket where logs will be stored.
+
+> [[AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)]([AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html))
+
 ---
 
 ##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue_tables.FlowLogsTableProps.property.database"></a>
@@ -26045,6 +26147,10 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html))
 
 ---
 
@@ -26056,6 +26162,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Flow Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `format`<sup>Optional</sup> <a name="format" id="cdk-extensions.glue_tables.FlowLogsTableProps.property.format"></a>
@@ -26065,6 +26175,8 @@ public readonly format: FlowLogFormat;
 ```
 
 - *Type:* cdk-extensions.ec2.FlowLogFormat
+
+A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs.
 
 ---
 
@@ -26076,6 +26188,8 @@ public readonly friendlyQueryNames: boolean;
 
 - *Type:* boolean
 
+Boolean for adding "friendly names" for the created Athena queries.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue_tables.FlowLogsTableProps.property.name"></a>
@@ -26086,6 +26200,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for Flow Logs Table.
+
 ---
 
 ##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue_tables.FlowLogsTableProps.property.s3Prefix"></a>
@@ -26095,6 +26211,8 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+Set a custom prefix for the S3 Bucket.
 
 ---
 
@@ -28965,12 +29083,12 @@ const s3AccessLogsTableProps: glue_tables.S3AccessLogsTableProps = { ... }
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | A bucket where logs will be stored. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the S3 Access Logs. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.name">name</a></code> | <code>string</code> | Name for S3 Access Logs Table. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | Set a custom prefix for the S3 Bucket. |
 
 ---
 
@@ -29045,6 +29163,10 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+A bucket where logs will be stored.
+
+> [[AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)]([AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html))
+
 ---
 
 ##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue_tables.S3AccessLogsTableProps.property.database"></a>
@@ -29054,6 +29176,10 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html))
 
 ---
 
@@ -29065,6 +29191,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the S3 Access Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.S3AccessLogsTableProps.property.friendlyQueryNames"></a>
@@ -29074,6 +29204,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -29085,6 +29217,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for S3 Access Logs Table.
+
 ---
 
 ##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue_tables.S3AccessLogsTableProps.property.s3Prefix"></a>
@@ -29094,6 +29228,8 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+Set a custom prefix for the S3 Bucket.
 
 ---
 
@@ -29974,12 +30110,12 @@ const sesLogsTableProps: glue_tables.SesLogsTableProps = { ... }
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | A bucket where logs will be stored. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Ses Logs. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.name">name</a></code> | <code>string</code> | Name for SES Logs Table. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | Set a custom prefix for the S3 Bucket. |
 
 ---
 
@@ -30054,6 +30190,10 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+A bucket where logs will be stored.
+
+> [[AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)]([AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html))
+
 ---
 
 ##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue_tables.SesLogsTableProps.property.database"></a>
@@ -30063,6 +30203,10 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html))
 
 ---
 
@@ -30074,6 +30218,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Ses Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.SesLogsTableProps.property.friendlyQueryNames"></a>
@@ -30083,6 +30231,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -30094,6 +30244,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for SES Logs Table.
+
 ---
 
 ##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue_tables.SesLogsTableProps.property.s3Prefix"></a>
@@ -30103,6 +30255,8 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+Set a custom prefix for the S3 Bucket.
 
 ---
 
@@ -31126,12 +31280,12 @@ const wafLogsTableProps: glue_tables.WafLogsTableProps = { ... }
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | A bucket where logs will be stored. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the WAF Logs. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.name">name</a></code> | <code>string</code> | Name for WAF Logs Table. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | Set a custom prefix for the S3 Bucket. |
 
 ---
 
@@ -31206,6 +31360,10 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+A bucket where logs will be stored.
+
+> [[AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)]([AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html))
+
 ---
 
 ##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue_tables.WafLogsTableProps.property.database"></a>
@@ -31215,6 +31373,10 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html))
 
 ---
 
@@ -31226,6 +31388,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the WAF Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.WafLogsTableProps.property.friendlyQueryNames"></a>
@@ -31235,6 +31401,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -31246,6 +31414,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for WAF Logs Table.
+
 ---
 
 ##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue_tables.WafLogsTableProps.property.s3Prefix"></a>
@@ -31255,6 +31425,8 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+Set a custom prefix for the S3 Bucket.
 
 ---
 
