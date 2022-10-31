@@ -11,17 +11,49 @@ import { InputFormat, OutputFormat, SerializationLibrary } from '../glue/lib/dat
  * Configuration for AlbLogsTable
  */
 export interface AlbLogsTableProps extends ResourceProps {
+  /**
+   * A bucket where logs will be stored
+   *
+   * @see [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
+   */
   readonly bucket: IBucket;
+  /**
+   * Boolean indicating whether to create default Athena queries for the ALB Logs
+   *
+   * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
+   */
   readonly createQueries?: boolean;
+  /**
+   * A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+   *
+   * @see [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
+   */
   readonly database: Database;
+  /**
+   * Boolean for adding "friendly names" for the created Athena queries.
+   */
   readonly friendlyQueryNames?: boolean;
+  /**
+   * Name for Alb Logs Table
+   */
   readonly name?: string;
+  /**
+   * Set a custom prefix for the S3 Bucket
+   */
   readonly s3Prefix?: string;
 }
 
 export class AlbLogsTable extends Table {
   // Input properties
+  /**
+   * Boolean indicating whether to create default Athena queries for the ALB Logs
+   *
+   * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
+   */
   public readonly createQueries: boolean;
+  /**
+   * Boolean for adding "friendly names" for the created Athena queries.
+   */
   public readonly friendlyQueryNames: boolean;
 
   // Resource properties
