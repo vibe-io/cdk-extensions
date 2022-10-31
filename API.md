@@ -27279,7 +27279,7 @@ public readonly maxCapacity: number;
 
 The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
 
-A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. 
+A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
 
 Do not set Max Capacity if using WorkerType and NumberOfWorkers.
 
