@@ -26,13 +26,13 @@ export enum ResolverRuleType {
 export interface ResolverRuleTargetIp {
   /**
    * The IP address to target
-   * 
+   *
    * @see [AWS::Route53Resolver::ResolverRule TargetAddress](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-ip)
    */
   readonly address: string;
   /**
    * The port to target
-   * 
+   *
    * @see [AWS::Route53Resolver::ResolverRule TargetAddress](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-port)
    */
   readonly port?: number;
@@ -51,16 +51,16 @@ export interface IResolverRule {
    */
   readonly resolverRuleArn: string;
   /**
-   * DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps. 
-   * If a query matches multiple Resolver rules (example.com and www.example.com), the query is routed 
+   * DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps.
+   * If a query matches multiple Resolver rules (example.com and www.example.com), the query is routed
    * using the Resolver rule that contains the most specific domain name (www.example.com).
-   * 
+   *
    * @see [AWS::Route53Resolver::ResolverRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-domainname)
    */
   readonly resolverRuleDomainName: string;
   /**
    * The ID of the endpoint that the rule is associated with.
-   * 
+   *
    * @see [AWS::Route53Resolver::ResolverRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-resolverendpointid)
    */
   readonly resolverRuleEndpointId: string;
@@ -73,7 +73,7 @@ export interface IResolverRule {
    */
   readonly resolverRuleName: string;
   /**
-   * An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. 
+   * An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to.
    * Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
    */
   readonly resolverRuleTargetIps: IResolvable;

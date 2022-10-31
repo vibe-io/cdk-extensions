@@ -11,19 +11,19 @@ import { IResolverRule } from './resolver-rule';
 export interface ResolverRuleAssociationProps extends ResourceProps {
   /**
    * The name of an association between a Resolver rule and a VPC.
-   * 
+   *
    * @see [AWS::Route53Resolver::ResolverRuleAssociation](AWS::Route53Resolver::ResolverRuleAssociation)
    */
   readonly name?: string;
   /**
    * A IResolverRule object
-   * 
+   *
    * {@link aws-route53resolver.IResolverRule}
    */
   readonly resolverRule: IResolverRule;
   /**
    * The VPC interface to associate the rule with
-   * 
+   *
    * @see [interface IVpc](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.IVpc.html)
    */
   readonly vpc: IVpc;
@@ -34,15 +34,15 @@ export class ResolverRuleAssociation extends Resource {
   /**
    * {@link ResolverRuleAssociationProps.name}
    */
-	public readonly name?: string;
+  public readonly name?: string;
   /**
    * {@link ResolverRuleAssociationProps.resolverRule}
    */
-	public readonly resolverRule: IResolverRule;
+  public readonly resolverRule: IResolverRule;
   /**
    * {@link ResolverRuleAssociationProps.vpc}
    */
-	public readonly vpc: IVpc;
+  public readonly vpc: IVpc;
 
   // Resource properties
   public readonly resource: CfnResolverRuleAssociation;
