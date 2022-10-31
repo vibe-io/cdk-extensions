@@ -11,31 +11,31 @@ import { BasicColumn, Database, InputFormat, OutputFormat, SerializationLibrary,
 export interface S3AccessLogsTableProps extends ResourceProps {
   /**
    * A bucket where logs will be stored
-   * 
+   *
    * @see [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
    */
-   readonly bucket: IBucket;
-   /**
+  readonly bucket: IBucket;
+  /**
     * Boolean indicating whether to create default Athena queries for the S3 Access Logs
-    * 
+    *
     * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
     */
-   readonly createQueries?: boolean;
-   /**
+  readonly createQueries?: boolean;
+  /**
    * A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
-   * 
+   *
    * @see [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
    */
-   readonly database: Database;
-   /**
+  readonly database: Database;
+  /**
     * Boolean for adding "friendly names" for the created Athena queries.
     */
-   readonly friendlyQueryNames?: boolean;
-   /**
+  readonly friendlyQueryNames?: boolean;
+  /**
     * Name for S3 Access Logs Table
     */
-   readonly name?: string;
-   /**
+  readonly name?: string;
+  /**
     * Set a custom prefix for the S3 Bucket
     */
   readonly s3Prefix?: string;
@@ -45,7 +45,7 @@ export class S3AccessLogsTable extends Table {
   // Input properties
   /**
    * Boolean indicating whether to create default Athena queries for the S3 Access Logs
-   * 
+   *
    * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
    */
   public readonly createQueries: boolean;
