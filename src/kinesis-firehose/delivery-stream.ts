@@ -7,15 +7,31 @@ import { RegionInfo } from 'aws-cdk-lib/region-info';
 import { Construct } from 'constructs';
 import { DeliveryStreamDestination } from './lib/destinations/delivery-stream-destination';
 
-
+/**
+ * Delivery stream type for Kinesis Delivery Stream.
+ * @see https://docs.aws.amazon.com/firehose/latest/APIReference/API_CreateDeliveryStream.html#Firehose-CreateDeliveryStream-request-DeliveryStreamType
+ */
 export enum DeliveryStreamType {
   DIRECT_PUT = 'DirectPut',
   KINESIS_STREAM_AS_SOURCE = 'KinesisStreamAsSource'
 }
 
+/**
+ * Configuration for Kinesis Delivery Stream.
+ */
 export interface IDeliveryStream extends IResource, IGrantable, IConnectable {
+  /**
+     * The Kinesis Delivery Stream ARN
+     */
   readonly deliveryStreamArn: string;
+
+  /**
+     * The Kinesis Delivery Stream Name.
+     *
+     * @see [DeliveryStreamName String](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname)
+     */
   readonly deliveryStreamName: string;
+
   grant(grantee: IGrantable, ...actions: string[]): Grant;
   grantPutRecords(grantee: IGrantable): Grant;
   metric(metricName: string, props?: MetricOptions): Metric;
@@ -27,10 +43,24 @@ export interface IDeliveryStream extends IResource, IGrantable, IConnectable {
 }
 
 abstract class DeliveryStreamBase extends Resource implements IDeliveryStream {
+  /**
+     * The Name of the Kinesis Delivery Stream.
+     */
   public abstract readonly deliveryStreamName: string;
+
+  /**
+     * The Amazon Resource Name (ARN) of the Kinesis Delivery Stream.
+     */
   public abstract readonly deliveryStreamArn: string;
+
+  /**
+     * The IAM principal to grant permissions to.
+     */
   public abstract readonly grantPrincipal: IPrincipal;
 
+  /**
+     * The network connections associated with this resource.
+     */
   public readonly connections: Connections;
 
   public constructor(scope: Construct, id: string, props: ResourceProps = {}) {
@@ -54,6 +84,13 @@ abstract class DeliveryStreamBase extends Resource implements IDeliveryStream {
     });
   }
 
+  /**
+     * Adds IAM actions to the ARN of the Kinesis Delivery Stream for the
+     * given principal.
+     *
+     * @param grantee The principal to grant to.
+     * @param actions A list of IAM actions to grant to the given principal.
+     */
   public grant(grantee: IGrantable, ...actions: string[]): Grant {
     return Grant.addToPrincipal({
       resourceArns: [
@@ -64,6 +101,13 @@ abstract class DeliveryStreamBase extends Resource implements IDeliveryStream {
     });
   }
 
+  /**
+     * Adds IAM actions 'firehose:PutRecord' and 'firehose:PutRecordBatch'
+     * to the ARN of the Kinesis Delivery Stream for the
+     * given principal.
+     *
+     * @param grantee The principal to grant to.
+     */
   public grantPutRecords(grantee: IGrantable): Grant {
     return this.grant(grantee, ...[
       'firehose:PutRecord',
@@ -71,6 +115,14 @@ abstract class DeliveryStreamBase extends Resource implements IDeliveryStream {
     ]);
   }
 
+  /**
+     * Adds a custom CloudWatch metric for this Kinesis Delivery Stream.
+     *
+     * @param metricName The name of the CloudWatch metric.
+     * @param props Optional properties for the CloudWatch metric.
+     * @returns A dynamically generated CloudWatch custom metric
+     * for this Kinesis Delivery Stream.
+     */
   public metric(metricName: string, props?: MetricOptions): Metric {
     return new Metric({
       dimensionsMap: {
@@ -82,6 +134,15 @@ abstract class DeliveryStreamBase extends Resource implements IDeliveryStream {
     }).attachTo(this);
   }
 
+  /**
+     * Adds a custom CloudWatch metric for the sum of bytes backed up
+     * to Amazon S3 for this Kinesis Delivery Stream.
+     *
+     * @param props Optional properties for the CloudWatch metric.
+     * @returns A dynamically generated CloudWatch custom metric
+     * representing the sum of bytes backed up to Amazon S3 for
+     * this Kinesis Delivery Stream.
+     */
   public metricBackupToS3Bytes(props?: MetricOptions): Metric {
     return this.metric('BackupToS3.Bytes', {
       statistic: 'Sum',
@@ -89,6 +150,15 @@ abstract class DeliveryStreamBase extends Resource implements IDeliveryStream {
     });
   }
 
+  /**
+     * Adds a custom CloudWatch metric for the average age of
+     * records in Amazon S3 for backup.
+     *
+     * @param props Optional properties for the CloudWatch metric.
+     * @returns A dynamically generated CloudWatch custom metric
+     * representing the average age of data in Amazon S3 for this
+     * this Kinesis Delivery Stream.
+     */
   public metricBackupToS3DataFreshness(props?: MetricOptions): Metric {
     return this.metric('BackupToS3.DataFreshness', {
       statistic: 'Average',
@@ -96,6 +166,15 @@ abstract class DeliveryStreamBase extends Resource implements IDeliveryStream {
     });
   }
 
+  /**
+     * Adds a custom CloudWatch metric for the sum of records
+     * that are backed up to Amazon S3
+     *
+     * @param props Optional properties for the CloudWatch metric.
+     * @returns A dynamically generated CloudWatch custom metric
+     * representing the sum of records that are backed up to
+     * Amazon S3.
+     */
   public metricBackupToS3Records(props?: MetricOptions): Metric {
     return this.metric('BackupToS3.Records', {
       statistic: 'Sum',
@@ -103,6 +182,15 @@ abstract class DeliveryStreamBase extends Resource implements IDeliveryStream {
     });
   }
 
+  /**
+     * Adds a custom CloudWatch metric for the sum of incomming
+     * bytes for this Kinesis Delivery Stream.
+     *
+     * @param props Optional properties for the CloudWatch metric.
+     * @returns A dynamically generated CloudWatch custom metric
+     * representing the sum of incomming bytes for this Kinesis
+     * Delivery Stream.
+     */
   public metricIncomingBytes(props?: MetricOptions): Metric {
     return this.metric('IncomingBytes', {
       statistic: 'Sum',
@@ -110,6 +198,15 @@ abstract class DeliveryStreamBase extends Resource implements IDeliveryStream {
     });
   }
 
+  /**
+     * Adds a custom CloudWatch metric for the sum of incomming
+     * records for this Kinesis Delivery Stream.
+     *
+     * @param props Optional properties for the CloudWatch metric.
+     * @returns A dynamically generated CloudWatch custom metric
+     * representing the sum of incomming records for this Kinesis
+     * Delivery Stream.
+     */
   public metricIncomingRecords(props?: MetricOptions): Metric {
     return this.metric('IncomingRecords', {
       statistic: 'Sum',
@@ -118,18 +215,27 @@ abstract class DeliveryStreamBase extends Resource implements IDeliveryStream {
   }
 }
 
+/**
+ * Represents the attributes of a Kinesis Delivery Stream
+ */
 export interface DeliveryStreamAttributes {
   readonly deliveryStreamArn?: string;
   readonly deliveryStreamName?: string;
   readonly role?: IRole;
 }
 
+/**
+ * Represents the properties of a Kinesis Delivery Stream
+ */
 export interface DeliveryStreamProps extends ResourceProps {
   readonly destination: DeliveryStreamDestination;
   readonly name?: string;
   readonly streamType?: DeliveryStreamType;
 }
 
+/**
+ * Represents a Kinesis Delivery Stream resource.
+ */
 export class DeliveryStream extends DeliveryStreamBase {
   public static fromDeliveryStreamArn(scope: Construct, id: string, deliveryStreamArn: string): IDeliveryStream {
     return DeliveryStream.fromDeliveryStreamAttributes(scope, id, {
