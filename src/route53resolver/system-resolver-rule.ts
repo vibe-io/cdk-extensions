@@ -7,7 +7,13 @@ import { ResolverRule, ResolverRuleType } from './resolver-rule';
  * Generic configuration for a SystemResolverRule resource
  */
 export interface SystemResolverRuleProps extends ResourceProps {
+  /**
+   * The domain name that the rule is applied to.
+   */
   readonly domainName: string;
+  /**
+   * The name of the system resolver rule
+   */
   readonly ruleName?: string;
 }
 
@@ -22,8 +28,17 @@ export class SystemResolverRule extends ResolverRule {
      */
   constructor(scope: Construct, id: string, props: SystemResolverRuleProps) {
     super(scope, id, {
+      /**
+       * {@link SystemResolverRuleProps.domainName}
+       */
       domainName: props.domainName,
+      /**
+       * {@link SystemResolverRuleProps.ruleName}
+       */
       ruleName: props.ruleName,
+      /**
+       * {@link aws-route53resolver.ResolverRuleType.SYSTEM}
+       */
       ruleType: ResolverRuleType.SYSTEM,
     });
   }

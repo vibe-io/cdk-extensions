@@ -30,6 +30,9 @@ export interface InboundResolverProps extends ResourceProps {
 
 export class InboundResolver extends ResolverEndpointBase {
   // Static properties
+  /**
+   * By default allows outbound to all RFC1918 ranges.
+   */
   public static readonly DEFAULT_INBOUND_CIDRS: string[] = [
     '10.0.0.0/8',
     '172.16.0.0/12',

@@ -13,19 +13,57 @@ import { includesAll } from '../utils/formatting';
  * Configuration for FlowLogsTable
  */
 export interface FlowLogsTableProps extends ResourceProps {
+  /**
+   * A bucket where logs will be stored
+   *
+   * @see [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
+   */
   readonly bucket: IBucket;
+  /**
+   * Boolean indicating whether to create default Athena queries for the Flow Logs
+   *
+   * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
+   */
   readonly createQueries?: boolean;
+  /**
+   * A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+   *
+   * @see [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
+   */
   readonly database: Database;
+  /**
+   * A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs
+   */
   readonly format?: FlowLogFormat;
+  /**
+   * Boolean for adding "friendly names" for the created Athena queries.
+   */
   readonly friendlyQueryNames?: boolean;
+  /**
+   * Name for Flow Logs Table
+   */
   readonly name?: string;
+  /**
+   * Set a custom prefix for the S3 Bucket
+   */
   readonly s3Prefix?: string;
 }
 
 export class FlowLogsTable extends Table {
   // Input properties
+  /**
+   * Boolean indicating whether to create default Athena queries for the Flow Logs
+   *
+   * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
+   */
   public readonly createQueries: boolean;
+  /**
+   * A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs
+   */
   public readonly format: FlowLogFormat;
+  /**
+   * Boolean for adding "friendly names" for the created Athena queries.
+   */
   public readonly friendlyQueryNames: boolean;
 
   // Resource properties
