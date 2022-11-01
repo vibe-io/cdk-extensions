@@ -318,8 +318,12 @@ publish to an intermediate service, such as [Kinesis Firehose](https://docs.aws.
       const deliveryStreamRole = new iam.Role(this, 'Delivery Stream Role', {
         assumedBy: new iam.ServicePrincipal('firehose.amazonaws.com'),
       });
+      
       // Specify the roles created above when defining the destination and delivery stream.
+      // Connects Kinesis Firehose to the SES Logs Bucket
       const destination = new S3Bucket(ses_logs_bucket, {role: destinationRole});
+      
+      // Create the Kinesis DeliveryStream for the SES log destination
       const delivery_stream = new firehose.DeliveryStream(this, 'KinesisStream', {
         destinations: [destination],
         role: deliveryStreamRole
@@ -388,8 +392,8 @@ publish to an intermediate service, such as [Kinesis Firehose](https://docs.aws.
           }
         }
       });
-      // TODO: Manually configure any verified SES sending domains or emails for which
-      // event publishing is desired
+      // TODO: Manually configure any verified SES sending domains, or emails, for which
+      // event publishing is desired to use the above configuration set
 
 
       /*****
