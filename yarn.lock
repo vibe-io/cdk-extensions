@@ -3829,7 +3829,7 @@ js-tokens@^4.0.0:
 
 js-yaml@3.14.0:
   version "3.14.0"
-  resolved "https://registry.npmjs.org/js-yaml/-/js-yaml-3.14.0.tgz"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.0.tgz#a7a34170f26a21bb162424d8adacb4113a69e482"
   integrity sha512-/4IbIeHcD9VMHFqDR/gQ7EdZdLimOvW2DdcxFjdyyZ9NsbS+ccrXqVWDtab/lRl5AlUqmpBx8EhPaWR+OtY17A==
   dependencies:
     argparse "^1.0.7"
@@ -5032,10 +5032,10 @@ progress@^2.0.3:
   resolved "https://registry.npmjs.org/progress/-/progress-2.0.3.tgz"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.63.17:
-  version "0.63.25"
-  resolved "https://registry.npmjs.org/projen/-/projen-0.63.25.tgz"
-  integrity sha512-RZFMricoIDAWMsMFg4IW5b4YokrdjE0ibnd32WIIrQh3m3HUwsEbnNk/ZSV/d740dP7AzlfhV2mj5zHecYS+mw==
+projen@^0.63.34:
+  version "0.63.34"
+  resolved "https://registry.npmjs.org/projen/-/projen-0.63.34.tgz"
+  integrity sha512-kaJRLS+xiMH8CD6Gh+Wczgpm3Z6zgc2kfdARPJudRQur/MWgvw4YXxffLmDejrkQhZ3B7jbJ4CVa3aLMfBLD8A==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"

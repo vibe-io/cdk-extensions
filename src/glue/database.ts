@@ -7,15 +7,40 @@ import { Construct } from 'constructs';
  * Configuration for Database
  */
 export interface DatabaseProps extends ResourceProps {
+  /**
+   * A description of the database.
+   */
   readonly description?: string;
+  /**
+   * The location of the database (for example, an HDFS path).
+   *
+   * @see [AWS::Glue::Database DatabaseInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri)
+   */
   readonly locationUri?: string;
+  /**
+   * The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
+   */
   readonly name?: string;
 }
 
+/**
+ * Creates a Glue Database resource to contain a collection of metadata Tables
+ *
+ * @see [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html
+ */
 export class Database extends Resource {
   // Input properties
+  /**
+    * {@link DatabaseProps.description}
+    */
   public readonly description?: string;
+  /**
+    * {@link DatabaseProps.locationUri}
+    */
   public readonly locationUri?: string;
+  /**
+    * {@link DatabaseProps.name:}
+    */
   public readonly name: string;
 
   // Resource properties

@@ -6,9 +6,21 @@ import { undefinedIfNoKeys } from '../utils/formatting';
 
 
 export enum ConnectionType {
+  /**
+   * JDBC - Designates a connection to a database through Java Database Connectivity (JDBC).
+   */
   JDBC = 'JDBC',
+  /**
+   * KAFKA - Designates a connection to an Apache Kafka streaming platform.
+   */
   KAFKA = 'KAFKA',
+  /**
+   * MONGODB - Designates a connection to a MongoDB document database.
+   */
   MONGODB = 'MONGODB',
+  /**
+   * NETWORK - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).
+   */
   NETWORK = 'NETWORK'
 }
 
@@ -16,26 +28,80 @@ export enum ConnectionType {
  * Configuration for the Glue Workflow resource.
  */
 export interface ConnectionProps extends ResourceProps {
+  /**
+   * The type of the connection.
+   *
+   * @see [AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype)
+   */
   readonly connectionType: ConnectionType;
+  /**
+   * A description for the Connection.
+   */
   readonly description?: string;
+  /**
+   * The name of the connection. Connection will not function as expected without a name.
+   *
+   * @see [AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name)
+   */
   readonly name?: string;
+  /**
+   * List of Key/Value pairs defining the properties of the Connection
+   *
+   * @see [AWS::Glue::Connection Properties](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html#Properties)
+   */
   readonly properties?: {[key: string]: string};
+  /**
+   * Existing Security Group to assign to the Connection. If none is provided a new Security Group will be created.
+   */
   readonly securityGroups?: ISecurityGroup[];
+  /**
+   * Options for selection of subnets from the VPC to attach to the Connection
+   *
+   * @see [CDK SubnetSelection](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.SubnetSelection.html)
+   */
   readonly subnets?: SubnetSelection;
+  /**
+   * VPC to attach to the Connection
+   *
+   * @see [IVpc Interface](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.IVpc.html)
+   */
   readonly vpc?: IVpc;
 }
 
+/**
+ * Creates a resource specifying a Glue Connection to a data source.
+ *
+ * @see [AWS::Glue::Connection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html)
+ */
 export class Connection extends Resource implements IConnectable {
   // Internal properties
   private readonly _matchCriteria: string[] = [];
   private readonly _properties: {[key: string]: string} = {};
 
   // Input properties
+  /**
+    * {@link ConnectionProps.connectionType:}
+    */
   public readonly connectionType: ConnectionType;
+  /**
+    * {@link ConnectionProps.description}
+    */
   public readonly description?: string;
+  /**
+    * {@link ConnectionProps.name}
+    */
   public readonly name?: string;
+  /**
+    * {@link ConnectionProps.securityGroups:}
+    */
   public readonly securityGroups: ISecurityGroup[];
+  /**
+    * {@link ConnectionProps.subnets}
+    */
   public readonly subnets?: SubnetSelection;
+  /**
+    * {@link ConnectionProps.vpc}
+    */
   public readonly vpc?: IVpc;
 
   // Resource properties
@@ -49,7 +115,14 @@ export class Connection extends Resource implements IConnectable {
   // IConnectable properties
   public readonly connections: Connections;
 
-
+  /**
+ * Creates a new instance of the Connection class
+ *
+ * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
+     * @param id A name to be associated with the stack and used in resource naming. Must be unique
+     * within the context of 'scope'.
+     * @param props Arguments related to the configuration of the resource.
+ */
   constructor(scope: Construct, id: string, props: ConnectionProps) {
     super(scope, id, props);
 
