@@ -57,8 +57,17 @@ export interface ResolverEndpointBaseProps extends ResourceProps {
 
 export class ResolverEndpointBase extends Resource {
   // Input properties
+  /**
+   * {@link ResolverEndpointBaseProps.direction}
+   */
   public readonly direction: string;
+  /**
+   * {@link ResolverEndpointBaseProps.subnetOffset}
+   */
   private readonly subnetOffset?: number;
+  /**
+   * {@link ResolverEndpointBaseProps.vpc}
+   */
   public readonly vpc: IVpc;
 
   // Resource properties
