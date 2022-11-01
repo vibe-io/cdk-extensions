@@ -1,5 +1,5 @@
 import { IConstruct } from 'constructs';
-import { IParserPlugin } from '../parsers/parser-plugin';
+import { IFluentBitParserPlugin } from '../parsers/parser-plugin';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
 import { FluentBitFilterPlugin, FluentBitFilterPluginCommonOptions } from './filter-plugin';
 
@@ -18,7 +18,7 @@ export interface FluentBitParserFilterOptions extends FluentBitFilterPluginCommo
   /**
      * The parsers to use to interpret the field.
      */
-  readonly parsers?: IParserPlugin[];
+  readonly parsers?: IFluentBitParserPlugin[];
 
   /**
      * Keep original `keyName` field in the parsed result.
@@ -47,13 +47,13 @@ export class ParserFilter extends FluentBitFilterPlugin {
      * Internal collection of the parsers that should be used to evaluate the
      * filter.
      */
-  private readonly _parsers: IParserPlugin[];
+  private readonly _parsers: IFluentBitParserPlugin[];
 
 
   /**
      * Collection of the parsers that should be used to evaluate the filter.
      */
-  public get parsers(): IParserPlugin[] {
+  public get parsers(): IFluentBitParserPlugin[] {
     return [...this._parsers];
   }
 
@@ -87,7 +87,7 @@ export class ParserFilter extends FluentBitFilterPlugin {
      * @param parser The parser to use for matched log entries.
      * @returns The parser filter that the parser plugin was registered with.
      */
-  public addParser(parser: IParserPlugin): ParserFilter {
+  public addParser(parser: IFluentBitParserPlugin): ParserFilter {
     this._parsers.push(parser);
     this.addField('Parser', parser.name);
     return this;
@@ -109,6 +109,9 @@ export class ParserFilter extends FluentBitFilterPlugin {
       ].join(' '));
     }
 
-    return super.bind(scope);
+    return {
+      ...super.bind(scope),
+      parsers: this.parsers,
+    };
   }
 }

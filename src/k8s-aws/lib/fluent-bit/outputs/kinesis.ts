@@ -1,5 +1,5 @@
 import { Stack } from 'aws-cdk-lib';
-import { IRole } from 'aws-cdk-lib/aws-iam';
+import { Effect, IRole, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { IStream, Stream } from 'aws-cdk-lib/aws-kinesis';
 import { IConstruct } from 'constructs';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
@@ -119,8 +119,8 @@ export class FluentBitKinesisOutput extends FluentBitOutputPlugin {
      * configuring logging.
      */
   public bind(scope: IConstruct): ResolvedFluentBitConfiguration {
+    const stream = this.getStream(scope);
     if (this.fields.stream === undefined) {
-      const stream = this.getStream(scope);
       this.addField('stream', stream.streamName);
     }
 
@@ -128,7 +128,20 @@ export class FluentBitKinesisOutput extends FluentBitOutputPlugin {
       this.addField('region', Stack.of(scope).region);
     }
 
-    return super.bind(scope);
+    return {
+      ...super.bind(scope),
+      permissions: [
+        new PolicyStatement({
+          actions: [
+            'kinesis:PutRecords',
+          ],
+          effect: Effect.ALLOW,
+          resources: [
+            stream.streamArn,
+          ],
+        }),
+      ],
+    };
   }
 
   /**

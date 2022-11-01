@@ -1,3 +1,6 @@
+import { PolicyStatement } from 'aws-cdk-lib/aws-iam';
+import { IFluentBitParserPlugin } from '.';
+
 export interface ResolvedFluentBitConfigurationFieldValue {
   toString(): string;
 }
@@ -17,4 +20,14 @@ export interface ResolvedFluentBitConfiguration {
      * The configuration options that were set.
      */
   readonly fields: {[key: string]: string[]};
+
+  /**
+   * A list of parsers referenced by this plugin.
+   */
+  readonly parsers?: IFluentBitParserPlugin[];
+
+  /**
+   * IAM permissions required by resources that will be using this plugin.
+   */
+  readonly permissions?: PolicyStatement[];
 }

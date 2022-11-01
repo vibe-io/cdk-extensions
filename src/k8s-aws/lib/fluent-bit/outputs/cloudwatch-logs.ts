@@ -1,5 +1,5 @@
-import { Names, Stack } from 'aws-cdk-lib';
-import { IRole } from 'aws-cdk-lib/aws-iam';
+import { ArnFormat, Names, Stack } from 'aws-cdk-lib';
+import { Effect, IRole, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { ILogGroup, ILogStream, LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { IConstruct } from 'constructs';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
@@ -138,6 +138,13 @@ export interface FluentBitCloudWatchLogsOutputOptions extends FluentBitOutputPlu
 }
 
 export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPlugin {
+  private _logGroup?: ILogGroup;
+
+  public get logGroup(): ILogGroup | undefined {
+    return this._logGroup;
+  }
+
+
   public constructor(options: FluentBitCloudWatchLogsOutputOptions = {}) {
     super('cloudwatch_logs', options);
 
@@ -215,8 +222,8 @@ export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPlugin {
      * configuring logging.
      */
   public bind(scope: IConstruct): ResolvedFluentBitConfiguration {
+    const logGroup = this.getLogGroup(scope);
     if (this.fields.log_group_name === undefined) {
-      const logGroup = this.getLogGroup(scope);
       this.addField('log_group_name', logGroup.logGroupName);
     }
 
@@ -224,7 +231,36 @@ export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPlugin {
       this.addField('region', Stack.of(scope).region);
     }
 
-    return super.bind(scope);
+    return {
+      ...super.bind(scope),
+      permissions: [
+        new PolicyStatement({
+          actions: [
+            ...(this.fields.auto_create_group[0] === 'true' ? ['logs:CreateLogGroup'] : []),
+            'logs:CreateLogStream',
+            'logs:DescribeLogStreams',
+          ],
+          effect: Effect.ALLOW,
+          resources: [
+            Stack.of(scope).formatArn({
+              arnFormat: ArnFormat.COLON_RESOURCE_NAME,
+              resource: 'log-group',
+              resourceName: logGroup.logGroupName,
+              service: 'log-group',
+            }),
+          ],
+        }),
+        new PolicyStatement({
+          actions: [
+            'logs:PutLogEvents',
+          ],
+          effect: Effect.ALLOW,
+          resources: [
+            logGroup.logGroupArn,
+          ],
+        }),
+      ],
+    };
   }
 
   /**
@@ -236,16 +272,21 @@ export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPlugin {
      */
   private getLogGroup(scope: IConstruct): ILogGroup {
     const logGroupId = 'fluent-bit-output-log-group';
-    const logGroup = scope.node.tryFindChild(logGroupId) as ILogGroup;
+    const inheritedLogGroup = scope.node.tryFindChild(logGroupId) as ILogGroup;
 
-    if (logGroup) {
-      return logGroup;
+    if (this.logGroup) {
+      return this.logGroup;
+    } else if (inheritedLogGroup) {
+      this._logGroup = inheritedLogGroup;
+      return inheritedLogGroup;
     } else if (this.fields.auto_create_group) {
-      return LogGroup.fromLogGroupName(scope, logGroupId, Names.uniqueId(scope));
+      this._logGroup = LogGroup.fromLogGroupName(scope, logGroupId, Names.uniqueId(scope));
+      return this._logGroup;
     } else {
-      return new LogGroup(scope, logGroupId, {
+      this._logGroup = new LogGroup(scope, logGroupId, {
         retention: RetentionDays.TWO_WEEKS,
       });
+      return this._logGroup;
     }
   }
 }

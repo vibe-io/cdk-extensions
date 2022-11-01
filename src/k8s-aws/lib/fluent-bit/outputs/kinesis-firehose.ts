@@ -1,5 +1,5 @@
 import { Duration, Stack } from 'aws-cdk-lib';
-import { IRole } from 'aws-cdk-lib/aws-iam';
+import { Effect, IRole, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { Bucket, BucketEncryption, IBucket, StorageClass } from 'aws-cdk-lib/aws-s3';
 import { IConstruct } from 'constructs';
 import { DeliveryStream, ExtendedS3Destination, IDeliveryStream } from '../../../../kinesis-firehose';
@@ -144,8 +144,8 @@ export class FluentBitKinesisFirehoseOutput extends FluentBitOutputPlugin {
      * configuring logging.
      */
   public bind(scope: IConstruct): ResolvedFluentBitConfiguration {
+    const deliveryStream = this.getDeliveryStream(scope);
     if (this.fields.delivery_stream === undefined) {
-      const deliveryStream = this.getDeliveryStream(scope);
       this.addField('delivery_stream', deliveryStream.deliveryStreamName);
     }
 
@@ -153,7 +153,20 @@ export class FluentBitKinesisFirehoseOutput extends FluentBitOutputPlugin {
       this.addField('region', Stack.of(scope).region);
     }
 
-    return super.bind(scope);
+    return {
+      ...super.bind(scope),
+      permissions: [
+        new PolicyStatement({
+          actions: [
+            'firehose:PutRecordBatch',
+          ],
+          effect: Effect.ALLOW,
+          resources: [
+            deliveryStream.deliveryStreamArn,
+          ],
+        }),
+      ],
+    };
   }
 
   /**

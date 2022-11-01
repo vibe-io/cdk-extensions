@@ -78,13 +78,13 @@ export class ParserPluginDataType {
   }
 }
 
-export interface IParserPlugin extends IFluentBitPlugin {
+export interface IFluentBitParserPlugin extends IFluentBitPlugin {
   readonly format: string;
 }
 
 export interface FluentBitParserPluginCommonOptions {}
 
-export abstract class FluentBitParserPlugin extends FluentBitPlugin implements IParserPlugin {
+export abstract class FluentBitParserPlugin extends FluentBitPlugin implements IFluentBitParserPlugin {
   public readonly format: string;
 
 
