@@ -4,6 +4,9 @@ import { FlowLogFormat } from '../ec2';
 import { Database } from '../glue';
 import { AlbLogsBucket, CloudfrontLogsBucket, CloudtrailBucket, FlowLogsBucket, S3AccessLogsBucket, SesLogsBucket, WafLogsBucket } from '../s3-buckets';
 
+/**
+* Configuration for AwsLoggingStack.
+*/
 export interface AwsLoggingStackProps extends StackProps {
   /**
    * A cdk-extensions/s3-buckets {@link aws-s3-buckets!AlbLogsBucket} object.
