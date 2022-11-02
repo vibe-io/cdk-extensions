@@ -40,11 +40,6 @@ export * from './fargate-logger';
 /**
  * @category Constructs
  */
-export * from './netcat-service';
-
-/**
- * @category Constructs
- */
 export * from './secrets-manager-secret-store';
 
 /**
