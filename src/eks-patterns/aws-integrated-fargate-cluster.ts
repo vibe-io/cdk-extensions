@@ -108,13 +108,15 @@ export class AwsIntegratedFargateCluster extends Resource {
     }
 
     if (props.externalSecretsOptions?.enabled ?? true) {
-      this.resource.addFargateProfile('external-secrets', {
+      const fargateProfile = this.resource.addFargateProfile('external-secrets', {
         selectors: [
           {
             namespace: props.externalSecretsOptions?.namespace ?? ExternalSecretsOperator.DEFAULT_NAMESPACE,
           },
         ],
       });
+
+      this.fargateLogger?.addFargateProfile(fargateProfile);
 
       this.externalSecrets = new ExternalSecretsOperator(this, 'external-secrets', {
         ...(props.externalSecretsOptions ?? {}),

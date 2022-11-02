@@ -227,6 +227,10 @@ export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPlugin {
       this.addField('log_group_name', logGroup.logGroupName);
     }
 
+    if (this.fields.log_stream_prefix === undefined && this.fields.log_stream_name === undefined) {
+      this.addField('log_stream_prefix', 'eks-');
+    }
+
     if (this.fields.region === undefined) {
       this.addField('region', Stack.of(scope).region);
     }
@@ -237,7 +241,6 @@ export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPlugin {
         new PolicyStatement({
           actions: [
             ...(this.fields.auto_create_group?.find(() => true) === 'true' ? ['logs:CreateLogGroup'] : []),
-            'logs:CreateLogStream',
             'logs:DescribeLogStreams',
           ],
           effect: Effect.ALLOW,
@@ -252,6 +255,7 @@ export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPlugin {
         }),
         new PolicyStatement({
           actions: [
+            'logs:CreateLogStream',
             'logs:PutLogEvents',
           ],
           effect: Effect.ALLOW,

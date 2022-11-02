@@ -154,8 +154,8 @@ export class Echoserver extends Resource implements IConnectable {
       vpc: this.cluster.vpc,
     });
 
-    serviceSecurityGroup.connections.allowFrom(this.connections, Port.tcp(this.port), 'Allow connections from ALB.');
-    serviceSecurityGroup.connections.allowFrom(this.connections, Port.tcp(8080), 'Allow connections from ALB.');
+    serviceSecurityGroup.connections.allowFrom(this.cluster.clusterSecurityGroup, Port.allTraffic(), 'Internal Kubernetes communication.');
+    serviceSecurityGroup.connections.allowFrom(this.connections, Port.tcp(8080), 'ALB inbound traffic.');
 
     this.manifest = new KubernetesManifest(this, 'Resource', {
       cluster: this.cluster,
