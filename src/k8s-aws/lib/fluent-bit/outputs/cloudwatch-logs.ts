@@ -236,7 +236,7 @@ export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPlugin {
       permissions: [
         new PolicyStatement({
           actions: [
-            ...(this.fields.auto_create_group[0] === 'true' ? ['logs:CreateLogGroup'] : []),
+            ...(this.fields.auto_create_group?.find(() => true) === 'true' ? ['logs:CreateLogGroup'] : []),
             'logs:CreateLogStream',
             'logs:DescribeLogStreams',
           ],

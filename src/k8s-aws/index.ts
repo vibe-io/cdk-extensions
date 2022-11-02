@@ -15,6 +15,11 @@ export * from './cloudwatch-monitoring';
 /**
  * @category Constructs
  */
+export * from './echoserver';
+
+/**
+ * @category Constructs
+ */
 export * from './external-dns';
 
 /**
@@ -31,6 +36,11 @@ export * from './external-secret';
  * @category Constructs
  */
 export * from './fargate-logger';
+
+/**
+ * @category Constructs
+ */
+export * from './netcat-service';
 
 /**
  * @category Constructs

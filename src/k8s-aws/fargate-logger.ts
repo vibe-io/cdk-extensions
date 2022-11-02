@@ -239,6 +239,18 @@ export class FargateLogger extends Resource {
     props.fargateProfiles?.forEach((x) => {
       this.addFargateProfile(x);
     });
+
+    props.filters?.forEach((x) => {
+      this.addFilter(x);
+    });
+
+    props.outputs?.forEach((x) => {
+      this.addOutput(x);
+    });
+
+    props.parsers?.forEach((x) => {
+      this.addParser(x);
+    });
   }
 
   public addFargateProfile(profile: FargateProfile): FargateLogger {
