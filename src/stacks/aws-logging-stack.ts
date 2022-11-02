@@ -53,7 +53,7 @@ export interface AwsLoggingStackProps extends StackProps {
 
 /**
  * Creates a Stack that deploys a logging strategy for several AWS services.
- * Stack creates a Glue Database using the cdk-extensions constructs, deploys
+ * Stack creates a Glue Database using cdk-extensions Database, deploys
  * cdk-extensions/s3-buckets patterns for each service, and utilizes methods exposed
  * by cdk-extensions/s3-buckets S3AccessLogsBucket to enable logging for each created
  * bucket.
