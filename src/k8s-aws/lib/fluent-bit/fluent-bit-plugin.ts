@@ -76,26 +76,26 @@ export abstract class FluentBitPlugin implements IFluentBitPlugin {
      */
   readonly pluginType: string;
 
-  /**
-     * Builds a configuration for this plugin and returns the details for
-     * consumtion by a resource that is configuring logging.
-     *
-     * @param _scope The construct configuring logging using Fluent Bit.
-     * @returns A configuration for the plugin that con be used by the resource
-     * configuring logging.
-     */
-  public abstract bind(scope: IConstruct): ResolvedFluentBitConfiguration;
-
 
   /**
-     * Creates a new instance of the FluentBitPlugin class.
-     *
-     * @param options Configuration options for the plugin.
-     */
+   * Creates a new instance of the FluentBitPlugin class.
+   *
+   * @param options Configuration options for the plugin.
+   */
   public constructor(options: FluentBitPluginCommonOptions) {
     this.name = options.name;
     this.pluginType = options.pluginType;
   }
+
+  /**
+   * Builds a configuration for this plugin and returns the details for
+   * consumtion by a resource that is configuring logging.
+   *
+   * @param _scope The construct configuring logging using Fluent Bit.
+   * @returns A configuration for the plugin that con be used by the resource
+   * configuring logging.
+   */
+  public abstract bind(scope: IConstruct): ResolvedFluentBitConfiguration;
 
   /**
    *
