@@ -53,19 +53,18 @@ export class FluentBitFilter {
      *
      * @param match A pattern filtering to which records the filter should be
      * applied.
-     * @param pattern The pattern to match against incoming records.
      * @param exclude Determines whether records that match the records should
      * be kept or excluded. If this is true, all records that match the pattern
      * will not be logged. If this is false, only records that match the
      * pattern will be logged.
+     * @param pattern The pattern to match against incoming records.
      * @returns A filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static grep(match: string, pattern: FluentBitGrepRegex, exclude?: boolean): IFluentBitFilterPlugin {
+  public static grep(match: string, pattern: FluentBitGrepRegex): IFluentBitFilterPlugin {
     return new FluentBitGrepFilter({
-      exclude: (exclude ?? false) ? pattern : undefined,
       match: match,
-      regex: (exclude ?? false) ? undefined : pattern,
+      pattern: pattern,
     });
   }
 

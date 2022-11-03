@@ -8,6 +8,20 @@ import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from '.
  */
 export interface FluentBitGrepRegex {
   /**
+   * Whether the matched expression should exclude or include records from
+   * being output.
+   *
+   * When this is true, only records that match the given expression will be
+   * output.
+   *
+   * When this is false, only records that do not match the given expression
+   * will be output.
+   *
+   * @default false
+   */
+  readonly exclude?: boolean;
+
+  /**
    * The key of the fields which you want to filter using the regex.
    */
   readonly key: string;
@@ -25,15 +39,9 @@ export interface FluentBitGrepRegex {
  */
 export interface FluentBitGrepFilterOptions extends FluentBitFilterPluginCommonOptions {
   /**
-     * Exclude records in which the content of KEY matches the regular
-     * expression.
+     * The pattern to use for filtering records processed by the plugin.
      */
-  readonly exclude?: FluentBitGrepRegex;
-
-  /**
-     * Keep records in which the content of KEY matches the regular expression.
-     */
-  readonly regex?: FluentBitGrepRegex;
+  readonly pattern: FluentBitGrepRegex;
 }
 
 /**
@@ -42,15 +50,11 @@ export interface FluentBitGrepFilterOptions extends FluentBitFilterPluginCommonO
  */
 export class FluentBitGrepFilter extends FluentBitFilterPluginBase {
   /**
-     * Exclude records in which the content of KEY matches the regular
-     * expression.
+     * The pattern to use for filtering records processed by the plugin.
+     *
+     * @group Inputs
      */
-  readonly exclude?: FluentBitGrepRegex;
-
-  /**
-      * Keep records in which the content of KEY matches the regular expression.
-      */
-  readonly regex?: FluentBitGrepRegex;
+  public readonly pattern: FluentBitGrepRegex;
 
 
   /**
@@ -58,11 +62,10 @@ export class FluentBitGrepFilter extends FluentBitFilterPluginBase {
    *
    * @param options Options for configuring the filter.
    */
-  public constructor(options: FluentBitGrepFilterOptions = {}) {
+  public constructor(options: FluentBitGrepFilterOptions) {
     super('grep', options);
 
-    this.exclude = options.exclude;
-    this.regex = options.regex;
+    this.pattern = options.pattern;
   }
 
   /**
@@ -74,17 +77,11 @@ export class FluentBitGrepFilter extends FluentBitFilterPluginBase {
      * configuring logging.
      */
   public bind(_scope: IConstruct): ResolvedFluentBitConfiguration {
-    if (this.regex === undefined && this.exclude === undefined) {
-      throw new Error([
-        'When using the Fluent Bit grep plugin at least one of',
-        "'exclude' or 'regex' must be specified.",
-      ].join(' '));
-    }
+    const key = (this.pattern.exclude ?? false) ? 'Exclude' : 'Regex';
 
     return {
       configFile: super.renderConfigFile({
-        Exclude: this.exclude ? `${this.exclude.key} ${this.exclude.regex}` : undefined,
-        Regex: this.regex ? `${this.regex.key} ${this.regex.regex}` : undefined,
+        [key]: `${this.pattern.key} ${this.pattern.regex}`,
       }),
     };
   }
