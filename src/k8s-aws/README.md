@@ -44,7 +44,7 @@ const logger = new k8s_aws.FargateLogger(this, 'logger', {
         cluster.defaultProfile
     ],
     outputs: [
-        k8s_aws.FluentBitOutput.kinesisFirehose('*', deliveryStream);
+        k8s_aws.FluentBitOutput.kinesisFirehose(k8s_aws.FluentBitMatch.ALL, deliveryStream);
     ]
 });
 ```
@@ -61,7 +61,7 @@ const logger = new k8s_aws.FargateLogger(this, 'logger', {
         cluster.defaultProfile
     ],
     outputs: [
-        k8s_aws.FluentBitOutput.kinesis('*', stream);
+        k8s_aws.FluentBitOutput.kinesis(k8s_aws.FluentBitMatch.ALL, stream);
     ]
 });
 ```
@@ -78,7 +78,7 @@ const logger = new k8s_aws.FargateLogger(this, 'logger', {
         cluster.defaultProfile
     ],
     outputs: [
-        k8s_aws.FluentBitOutput.opensearch('*', domain);
+        k8s_aws.FluentBitOutput.opensearch(k8s_aws.FluentBitMatch.ALL, domain);
     ]
 });
 ```
@@ -88,7 +88,7 @@ Filter out log messages matching the AWS load balancer health check user agent:
 ```
 declare const logger: k8s_aws.FargateLogger;
 
-logger.addFilter(k8s_aws.FluentBitFilter.grep('*', {
+logger.addFilter(k8s_aws.FluentBitFilter.grep(k8s_aws.FluentBitMatch.ALL, {
     exclude: true,
     key: 'log',
     regex: 'ELB-HealthChecker'
