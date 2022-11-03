@@ -41047,3 +41047,4 @@ Server side encryption (SSE) with an Amazon S3-managed key.
 ##### `LOG` <a name="LOG" id="cdk-extensions.glue.UpdateBehavior.LOG"></a>
 
 ---
+
