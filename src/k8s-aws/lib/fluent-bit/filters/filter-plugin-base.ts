@@ -1,5 +1,6 @@
 import { IFluentBitPlugin } from '..';
 import { FluentBitPlugin, FluentBitPluginType } from '../fluent-bit-plugin';
+import { FluentBitMatch } from '../match';
 
 
 /**
@@ -9,7 +10,7 @@ export interface FluentBitFilterPluginCommonOptions {
   /**
    * The pattern to match for records that this output should apply to.
    */
-  readonly match?: string;
+  readonly match?: FluentBitMatch;
 }
 
 /**
@@ -23,7 +24,7 @@ export abstract class FluentBitFilterPluginBase extends FluentBitPlugin implemen
    *
    * @group Inputs
    */
-  public readonly match: string;
+  public readonly match: FluentBitMatch;
 
 
   /**
@@ -39,7 +40,7 @@ export abstract class FluentBitFilterPluginBase extends FluentBitPlugin implemen
       pluginType: FluentBitPluginType.FILTER,
     });
 
-    this.match = options.match ?? '*';
+    this.match = options.match ?? FluentBitMatch.ALL;
   }
 
   /**
@@ -51,7 +52,7 @@ export abstract class FluentBitFilterPluginBase extends FluentBitPlugin implemen
    */
   protected renderConfigFile(config: { [key: string]: any }): string {
     return super.renderConfigFile({
-      Match: this.match,
+      ...this.match.toObject(),
       ...config,
     });
   }

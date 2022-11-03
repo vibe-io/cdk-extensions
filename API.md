@@ -26718,7 +26718,7 @@ const fluentBitCloudWatchLogsOutputOptions: k8s_aws.FluentBitCloudWatchLogsOutpu
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.autoCreateGroup">autoCreateGroup</a></code> | <code>boolean</code> | Automatically create the log group. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.autoRetryRequests">autoRetryRequests</a></code> | <code>boolean</code> | Immediately retry failed requests to AWS services once. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.endpoint">endpoint</a></code> | <code>string</code> | Specify a custom endpoint for the CloudWatch Logs API. |
@@ -26740,10 +26740,10 @@ const fluentBitCloudWatchLogsOutputOptions: k8s_aws.FluentBitCloudWatchLogsOutpu
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -26986,7 +26986,7 @@ const fluentBitElasticsearchOutputOptions: k8s_aws.FluentBitElasticsearchOutputO
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.host">host</a></code> | <code>string</code> | IP address or hostname of the target Elasticsearch instance. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.awsAuth">awsAuth</a></code> | <code>boolean</code> | Enable AWS Sigv4 Authentication for Amazon Elasticsearch Service. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.awsExternalId">awsExternalId</a></code> | <code>string</code> | External ID for the AWS IAM Role specified with `awsRole`. |
@@ -27028,10 +27028,10 @@ const fluentBitElasticsearchOutputOptions: k8s_aws.FluentBitElasticsearchOutputO
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -27522,17 +27522,17 @@ const fluentBitFilterPluginCommonOptions: k8s_aws.FluentBitFilterPluginCommonOpt
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilterPluginCommonOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilterPluginCommonOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 
 ---
 
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilterPluginCommonOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -27556,45 +27556,32 @@ const fluentBitGrepFilterOptions: k8s_aws.FluentBitGrepFilterOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.exclude">exclude</a></code> | <code>cdk-extensions.k8s_aws.FluentBitGrepRegex</code> | Exclude records in which the content of KEY matches the regular expression. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.regex">regex</a></code> | <code>cdk-extensions.k8s_aws.FluentBitGrepRegex</code> | Keep records in which the content of KEY matches the regular expression. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.pattern">pattern</a></code> | <code>cdk-extensions.k8s_aws.FluentBitGrepRegex</code> | The pattern to use for filtering records processed by the plugin. |
 
 ---
 
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
 ---
 
-##### `exclude`<sup>Optional</sup> <a name="exclude" id="cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.exclude"></a>
+##### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.pattern"></a>
 
 ```typescript
-public readonly exclude: FluentBitGrepRegex;
+public readonly pattern: FluentBitGrepRegex;
 ```
 
 - *Type:* cdk-extensions.k8s_aws.FluentBitGrepRegex
 
-Exclude records in which the content of KEY matches the regular expression.
-
----
-
-##### `regex`<sup>Optional</sup> <a name="regex" id="cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.regex"></a>
-
-```typescript
-public readonly regex: FluentBitGrepRegex;
-```
-
-- *Type:* cdk-extensions.k8s_aws.FluentBitGrepRegex
-
-Keep records in which the content of KEY matches the regular expression.
+The pattern to use for filtering records processed by the plugin.
 
 ---
 
@@ -27616,6 +27603,7 @@ const fluentBitGrepRegex: k8s_aws.FluentBitGrepRegex = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepRegex.property.key">key</a></code> | <code>string</code> | The key of the fields which you want to filter using the regex. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepRegex.property.regex">regex</a></code> | <code>string</code> | The regular expression to apply to the specified field. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepRegex.property.exclude">exclude</a></code> | <code>boolean</code> | Whether the matched expression should exclude or include records from being output. |
 
 ---
 
@@ -27640,6 +27628,25 @@ public readonly regex: string;
 - *Type:* string
 
 The regular expression to apply to the specified field.
+
+---
+
+##### `exclude`<sup>Optional</sup> <a name="exclude" id="cdk-extensions.k8s_aws.FluentBitGrepRegex.property.exclude"></a>
+
+```typescript
+public readonly exclude: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether the matched expression should exclude or include records from being output.
+
+When this is true, only records that match the given expression will be
+output.
+
+When this is false, only records that do not match the given expression
+will be output.
 
 ---
 
@@ -27710,7 +27717,7 @@ const fluentBitKinesisFirehoseOutputOptions: k8s_aws.FluentBitKinesisFirehoseOut
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.autoRetryRequests">autoRetryRequests</a></code> | <code>boolean</code> | Immediately retry failed requests to AWS services once. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.compression">compression</a></code> | <code>cdk-extensions.k8s_aws.KinesisFirehoseCompressionFormat</code> | Compression type for Firehose records. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.deliveryStream">deliveryStream</a></code> | <code>cdk-extensions.kinesis_firehose.IDeliveryStream</code> | The Kinesis Firehose Delivery stream that you want log records sent to. |
@@ -27727,10 +27734,10 @@ const fluentBitKinesisFirehoseOutputOptions: k8s_aws.FluentBitKinesisFirehoseOut
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -27889,7 +27896,7 @@ const fluentBitKinesisOutputOptions: k8s_aws.FluentBitKinesisOutputOptions = { .
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.autoRetryRequests">autoRetryRequests</a></code> | <code>boolean</code> | Immediately retry failed requests to AWS services once. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.endpoint">endpoint</a></code> | <code>string</code> | Specify a custom endpoint for the Firehose API. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.logKey">logKey</a></code> | <code>string</code> | By default, the whole log record will be sent to Firehose. |
@@ -27905,10 +27912,10 @@ const fluentBitKinesisOutputOptions: k8s_aws.FluentBitKinesisOutputOptions = { .
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -28052,7 +28059,7 @@ const fluentBitKubernetesFilterOptions: k8s_aws.FluentBitKubernetesFilterOptions
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.annotations">annotations</a></code> | <code>boolean</code> | Include Kubernetes resource annotations in the extra metadata. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.bufferSize">bufferSize</a></code> | <code>cdk-extensions.core.DataSize</code> | Set the buffer size for HTTP client when reading responses from Kubernetes API server. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.cacheUseDockerId">cacheUseDockerId</a></code> | <code>boolean</code> | When enabled, metadata will be fetched from K8s when docker_id is changed. |
@@ -28089,10 +28096,10 @@ const fluentBitKubernetesFilterOptions: k8s_aws.FluentBitKubernetesFilterOptions
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -28661,7 +28668,7 @@ const fluentBitModifyFilterOptions: k8s_aws.FluentBitModifyFilterOptions = { ...
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilterOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilterOptions.property.conditions">conditions</a></code> | <code>cdk-extensions.k8s_aws.ModifyCondition[]</code> | *No description.* |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilterOptions.property.operations">operations</a></code> | <code>cdk-extensions.k8s_aws.ModifyOperation[]</code> | *No description.* |
 
@@ -28670,10 +28677,10 @@ const fluentBitModifyFilterOptions: k8s_aws.FluentBitModifyFilterOptions = { ...
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitModifyFilterOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -28717,7 +28724,7 @@ const fluentBitNestFilterOptions: k8s_aws.FluentBitNestFilterOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilterOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilterOptions.property.operation">operation</a></code> | <code>cdk-extensions.k8s_aws.NestFilterOperation</code> | The operation the filter will perform. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilterOptions.property.addPrefix">addPrefix</a></code> | <code>string</code> | Prefix affected keys with this string. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilterOptions.property.removePrefix">removePrefix</a></code> | <code>string</code> | Remove prefix from affected keys if it matches this string. |
@@ -28727,10 +28734,10 @@ const fluentBitNestFilterOptions: k8s_aws.FluentBitNestFilterOptions = { ... }
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitNestFilterOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -28790,7 +28797,7 @@ const fluentBitOpenSearchOutputOptions: k8s_aws.FluentBitOpenSearchOutputOptions
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.domain">domain</a></code> | <code>aws-cdk-lib.aws_opensearchservice.IDomain</code> | The Opensearch domain to which logs should be shipped. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.awsAuth">awsAuth</a></code> | <code>boolean</code> | Enable AWS Sigv4 Authentication for Amazon OpenSearch Service. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.awsExternalId">awsExternalId</a></code> | <code>string</code> | External ID for the AWS IAM Role specified with `awsRole`. |
@@ -28830,10 +28837,10 @@ const fluentBitOpenSearchOutputOptions: k8s_aws.FluentBitOpenSearchOutputOptions
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -29300,17 +29307,17 @@ const fluentBitOutputPluginCommonOptions: k8s_aws.FluentBitOutputPluginCommonOpt
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutputPluginCommonOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutputPluginCommonOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 
 ---
 
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOutputPluginCommonOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -29334,7 +29341,7 @@ const fluentBitParserFilterOptions: k8s_aws.FluentBitParserFilterOptions = { ...
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.keyName">keyName</a></code> | <code>string</code> | Specify field name in record to parse. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.parsers">parsers</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitParserPlugin[]</code> | The parsers to use to interpret the field. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.preserveKey">preserveKey</a></code> | <code>boolean</code> | Keep original `keyName` field in the parsed result. |
@@ -29345,10 +29352,10 @@ const fluentBitParserFilterOptions: k8s_aws.FluentBitParserFilterOptions = { ...
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -29484,7 +29491,7 @@ const fluentBitRecordModifierFilterOptions: k8s_aws.FluentBitRecordModifierFilte
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.property.allow">allow</a></code> | <code>string[]</code> | If a tag is not match, that field is removed. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.property.records">records</a></code> | <code>cdk-extensions.k8s_aws.AppendedRecord[]</code> | Add fields to the output. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.property.remove">remove</a></code> | <code>string[]</code> | If a tag is match, that field is removed. |
@@ -29494,10 +29501,10 @@ const fluentBitRecordModifierFilterOptions: k8s_aws.FluentBitRecordModifierFilte
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -29647,7 +29654,7 @@ const fluentBitRewriteTagFilterOptions: k8s_aws.FluentBitRewriteTagFilterOptions
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.emitterMemBufLimit">emitterMemBufLimit</a></code> | <code>cdk-extensions.core.DataSize</code> | Set a limit on the amount of memory the tag rewrite emitter can consume if the outputs provide backpressure. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.emitterName">emitterName</a></code> | <code>string</code> | When the filter emits a record under the new Tag, there is an internal emitter plugin that takes care of the job. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.emitterStorageType">emitterStorageType</a></code> | <code>cdk-extensions.k8s_aws.EmitterStorageType</code> | Define a buffering mechanism for the new records created. |
@@ -29658,10 +29665,10 @@ const fluentBitRewriteTagFilterOptions: k8s_aws.FluentBitRewriteTagFilterOptions
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -29740,7 +29747,7 @@ const fluentBitThrottleFilterOptions: k8s_aws.FluentBitThrottleFilterOptions = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.interval">interval</a></code> | <code>aws-cdk-lib.Duration</code> | Time interval. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.printStatus">printStatus</a></code> | <code>boolean</code> | Whether to print status messages with current rate and the limits to information logs. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.rate">rate</a></code> | <code>number</code> | Amount of messages for the time. |
@@ -29751,10 +29758,10 @@ const fluentBitThrottleFilterOptions: k8s_aws.FluentBitThrottleFilterOptions = {
 ##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -38907,13 +38914,13 @@ The construct configuring logging using Fluent Bit.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logGroup">logGroup</a></code> | <code>cdk-extensions.k8s_aws.FluentBitLogGroupOutput</code> | The CloudWatch Log Group configuration for output records. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logStream">logStream</a></code> | <code>cdk-extensions.k8s_aws.FluentBitLogStreamOutput</code> | The CloudWatch LogStream configuration for outbound records. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.autoCreateGroup">autoCreateGroup</a></code> | <code>boolean</code> | Automatically create the log group. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.autoRetryRequests">autoRetryRequests</a></code> | <code>boolean</code> | Immediately retry failed requests to AWS services once. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.endpoint">endpoint</a></code> | <code>string</code> | Specify a custom endpoint for the CloudWatch Logs API. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logFormat">logFormat</a></code> | <code>string</code> | An optional parameter that can be used to tell CloudWatch the format of the data. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logGroup">logGroup</a></code> | <code>cdk-extensions.k8s_aws.FluentBitLogGroupOutput</code> | The CloudWatch Log Group configuration for output records. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logGroupTemplate">logGroupTemplate</a></code> | <code>string</code> | Template for Log Group name using Fluent Bit record_accessor syntax. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logKey">logKey</a></code> | <code>string</code> | By default, the whole log record will be sent to CloudWatch. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logRetention">logRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | If set to a number greater than zero, and newly create log group's retention policy is set to this many days. |
@@ -38953,12 +38960,24 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
+
+---
+
+##### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: FluentBitLogGroupOutput;
+```
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitLogGroupOutput
+
+The CloudWatch Log Group configuration for output records.
 
 ---
 
@@ -39030,18 +39049,6 @@ A value of json/emf enables CloudWatch to extract custom
 metrics embedded in a JSON payload.
 
 > [[Embedded Metric Format](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html)]([Embedded Metric Format](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html))
-
----
-
-##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logGroup"></a>
-
-```typescript
-public readonly logGroup: FluentBitLogGroupOutput;
-```
-
-- *Type:* cdk-extensions.k8s_aws.FluentBitLogGroupOutput
-
-The CloudWatch Log Group configuration for output records.
 
 ---
 
@@ -39235,7 +39242,7 @@ The construct configuring logging using Fluent Bit.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.host">host</a></code> | <code>string</code> | IP address or hostname of the target Elasticsearch instance. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.awsAuth">awsAuth</a></code> | <code>boolean</code> | Enable AWS Sigv4 Authentication for Amazon Elasticsearch Service. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.awsExternalId">awsExternalId</a></code> | <code>string</code> | External ID for the AWS IAM Role specified with `awsRole`. |
@@ -39301,10 +39308,10 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -39806,14 +39813,14 @@ new k8s_aws.FluentBitFilter()
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitFilter.appendFields(match: string, records: AppendedRecord)
+k8s_aws.FluentBitFilter.appendFields(match: FluentBitMatch, records: AppendedRecord)
 ```
 
 Creates a filter that adds fields to a record that matches the given pattern.
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.appendFields.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the filter should be applied.
 
@@ -39832,14 +39839,14 @@ The fields to be added to matched records.
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitFilter.blacklistFields(match: string, fields: string)
+k8s_aws.FluentBitFilter.blacklistFields(match: FluentBitMatch, fields: string)
 ```
 
 Creates a filter that removes a set of fields from any records that match a given pattern.
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.blacklistFields.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the filter should be applied.
 
@@ -39858,7 +39865,7 @@ The fields which should be removed from the record if they are present.
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitFilter.grep(match: string, pattern: FluentBitGrepRegex, exclude?: boolean)
+k8s_aws.FluentBitFilter.grep(match: FluentBitMatch, pattern: FluentBitGrepRegex)
 ```
 
 Filters log entries based on a pattern.
@@ -39869,7 +39876,7 @@ pattern.
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.grep.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the filter should be applied.
 
@@ -39883,31 +39890,19 @@ The pattern to match against incoming records.
 
 ---
 
-###### `exclude`<sup>Optional</sup> <a name="exclude" id="cdk-extensions.k8s_aws.FluentBitFilter.grep.parameter.exclude"></a>
-
-- *Type:* boolean
-
-Determines whether records that match the records should be kept or excluded.
-
-If this is true, all records that match the pattern
-will not be logged. If this is false, only records that match the
-pattern will be logged.
-
----
-
 ##### `kubernetes` <a name="kubernetes" id="cdk-extensions.k8s_aws.FluentBitFilter.kubernetes"></a>
 
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitFilter.kubernetes(match: string)
+k8s_aws.FluentBitFilter.kubernetes(match: FluentBitMatch)
 ```
 
 Adds Kubernetes metadata to output records including pod information, labels, etc..
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.kubernetes.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the filter should be applied.
 
@@ -39918,14 +39913,14 @@ A pattern filtering to which records the filter should be applied.
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitFilter.lift(match: string, nestedUnder: string)
+k8s_aws.FluentBitFilter.lift(match: FluentBitMatch, nestedUnder: string)
 ```
 
 Lifts nested fields in a record up to their parent object.
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.lift.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the filter should be applied.
 
@@ -39944,14 +39939,14 @@ The record object under which you want to lift fields.
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitFilter.modify(match: string, operations: ModifyOperation)
+k8s_aws.FluentBitFilter.modify(match: FluentBitMatch, operations: ModifyOperation)
 ```
 
 Applies various transformations to matched records including adding, removing, copying, and renaming fields.
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.modify.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the filter should be applied.
 
@@ -39970,14 +39965,14 @@ The operations to apply to the matched records.
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitFilter.nest(match: string, nestUnder: string, fields: string)
+k8s_aws.FluentBitFilter.nest(match: FluentBitMatch, nestUnder: string, fields: string)
 ```
 
 Nests a set of fields in a record under into a specified object.
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.nest.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the filter should be applied.
 
@@ -40004,7 +39999,7 @@ The fields to nest under the specified object.
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitFilter.parser(match: string, parsers: IFluentBitParserPlugin)
+k8s_aws.FluentBitFilter.parser(match: FluentBitMatch, parsers: IFluentBitParserPlugin)
 ```
 
 Applies a set of parsers to matched records.
@@ -40014,7 +40009,7 @@ the output.
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.parser.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the filter should be applied.
 
@@ -40033,14 +40028,14 @@ The parser plugins to use to read matched records.
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitFilter.rewriteTag(match: string, rules: RewriteTagRule)
+k8s_aws.FluentBitFilter.rewriteTag(match: FluentBitMatch, rules: RewriteTagRule)
 ```
 
 Allows modification of tags set by the input configuration to affect the routing of when records are output.
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.rewriteTag.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the filter should be applied.
 
@@ -40059,7 +40054,7 @@ The rules that define the matching criteria of format of the tag for the matchin
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitFilter.throttle(match: string, interval: Duration, rate: number, window: number)
+k8s_aws.FluentBitFilter.throttle(match: FluentBitMatch, interval: Duration, rate: number, window: number)
 ```
 
 Sets an average rate of messages that are allowed to be output over a configured period of time.
@@ -40069,7 +40064,7 @@ be dropped.
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.throttle.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the filter should be applied.
 
@@ -40104,14 +40099,14 @@ Amount of intervals to calculate average over.
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitFilter.whitelistFields(match: string, fields: string)
+k8s_aws.FluentBitFilter.whitelistFields(match: FluentBitMatch, fields: string)
 ```
 
 Creates a filter that removes all fields in a record that are not approved.
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.whitelistFields.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the filter should be applied.
 
@@ -40193,7 +40188,7 @@ The construct configuring logging using Fluent Bit.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitFilterPluginBase.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitFilterPluginBase.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilterPluginBase.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilterPluginBase.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 
 ---
 
@@ -40224,10 +40219,10 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilterPluginBase.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -40243,7 +40238,7 @@ A Fluent Bit filter that allows log records to be kept or discarded based on whe
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-new k8s_aws.FluentBitGrepFilter(options?: FluentBitGrepFilterOptions)
+new k8s_aws.FluentBitGrepFilter(options: FluentBitGrepFilterOptions)
 ```
 
 | **Name** | **Type** | **Description** |
@@ -40252,7 +40247,7 @@ new k8s_aws.FluentBitGrepFilter(options?: FluentBitGrepFilterOptions)
 
 ---
 
-##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.Initializer.parameter.options"></a>
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.Initializer.parameter.options"></a>
 
 - *Type:* cdk-extensions.k8s_aws.FluentBitGrepFilterOptions
 
@@ -40291,9 +40286,8 @@ The construct configuring logging using Fluent Bit.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilter.property.exclude">exclude</a></code> | <code>cdk-extensions.k8s_aws.FluentBitGrepRegex</code> | Exclude records in which the content of KEY matches the regular expression. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilter.property.regex">regex</a></code> | <code>cdk-extensions.k8s_aws.FluentBitGrepRegex</code> | Keep records in which the content of KEY matches the regular expression. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilter.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilter.property.pattern">pattern</a></code> | <code>cdk-extensions.k8s_aws.FluentBitGrepRegex</code> | The pattern to use for filtering records processed by the plugin. |
 
 ---
 
@@ -40324,36 +40318,24 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
 ---
 
-##### `exclude`<sup>Optional</sup> <a name="exclude" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.property.exclude"></a>
+##### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.property.pattern"></a>
 
 ```typescript
-public readonly exclude: FluentBitGrepRegex;
+public readonly pattern: FluentBitGrepRegex;
 ```
 
 - *Type:* cdk-extensions.k8s_aws.FluentBitGrepRegex
 
-Exclude records in which the content of KEY matches the regular expression.
-
----
-
-##### `regex`<sup>Optional</sup> <a name="regex" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.property.regex"></a>
-
-```typescript
-public readonly regex: FluentBitGrepRegex;
-```
-
-- *Type:* cdk-extensions.k8s_aws.FluentBitGrepRegex
-
-Keep records in which the content of KEY matches the regular expression.
+The pattern to use for filtering records processed by the plugin.
 
 ---
 
@@ -40548,7 +40530,7 @@ The construct configuring logging using Fluent Bit.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.autoRetryRequests">autoRetryRequests</a></code> | <code>boolean</code> | Immediately retry failed requests to AWS services once. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.compression">compression</a></code> | <code>cdk-extensions.k8s_aws.KinesisFirehoseCompressionFormat</code> | Compression type for Firehose records. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.deliveryStream">deliveryStream</a></code> | <code>cdk-extensions.kinesis_firehose.IDeliveryStream</code> | The Kinesis Firehose Delivery stream that you want log records sent to. |
@@ -40589,10 +40571,10 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -40789,7 +40771,7 @@ The construct configuring logging using Fluent Bit.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.autoRetryRequests">autoRetryRequests</a></code> | <code>boolean</code> | Immediately retry failed requests to AWS services once. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.endpoint">endpoint</a></code> | <code>string</code> | Specify a custom endpoint for the Firehose API. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.logKey">logKey</a></code> | <code>string</code> | By default, the whole log record will be sent to Firehose. |
@@ -40829,10 +40811,10 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -41014,7 +40996,7 @@ The construct configuring logging using Fluent Bit.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.annotations">annotations</a></code> | <code>boolean</code> | Include Kubernetes resource annotations in the extra metadata. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.bufferSize">bufferSize</a></code> | <code>cdk-extensions.core.DataSize</code> | Set the buffer size for HTTP client when reading responses from Kubernetes API server. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.cacheUseDockerId">cacheUseDockerId</a></code> | <code>boolean</code> | When enabled, metadata will be fetched from K8s when docker_id is changed. |
@@ -41075,10 +41057,10 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -42006,6 +41988,136 @@ Maps group names matched by the regex to the data types they should be interpret
 ---
 
 
+### FluentBitMatch <a name="FluentBitMatch" id="cdk-extensions.k8s_aws.FluentBitMatch"></a>
+
+Represents a filter that can be applied to Filter and Output plugins that scopes down what records the given filter should apply to.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitMatch.toObject">toObject</a></code> | Creates a record object that can be used to represent the match in Fluent Bit configuration files. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitMatch.toString">toString</a></code> | Creates a string representation of this match object that reflects how it will appear in a Fluent Bit configuration file. |
+
+---
+
+##### `toObject` <a name="toObject" id="cdk-extensions.k8s_aws.FluentBitMatch.toObject"></a>
+
+```typescript
+public toObject(): {[ key: string ]: string}
+```
+
+Creates a record object that can be used to represent the match in Fluent Bit configuration files.
+
+##### `toString` <a name="toString" id="cdk-extensions.k8s_aws.FluentBitMatch.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Creates a string representation of this match object that reflects how it will appear in a Fluent Bit configuration file.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitMatch.glob">glob</a></code> | Creates a match pattern that supports basic wildcard matching using the star character (`*`). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitMatch.regex">regex</a></code> | Creates a match pattern that supports full regex matching. |
+
+---
+
+##### `glob` <a name="glob" id="cdk-extensions.k8s_aws.FluentBitMatch.glob"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitMatch.glob(pattern: string)
+```
+
+Creates a match pattern that supports basic wildcard matching using the star character (`*`).
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.k8s_aws.FluentBitMatch.glob.parameter.pattern"></a>
+
+- *Type:* string
+
+The pattern to use to match against the tags of an incoming record.
+
+It's case sensitive and support the star (`*`)
+character as a wildcard.
+
+---
+
+##### `regex` <a name="regex" id="cdk-extensions.k8s_aws.FluentBitMatch.regex"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitMatch.regex(pattern: string)
+```
+
+Creates a match pattern that supports full regex matching.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.k8s_aws.FluentBitMatch.regex.parameter.pattern"></a>
+
+- *Type:* string
+
+A regular expression to match against the tags of incoming records.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitMatch.property.evaluator">evaluator</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatchEvaluator</code> | The pattern matching syntax to use when evaluating incoming tags. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitMatch.property.pattern">pattern</a></code> | <code>string</code> | The pattern to compare against the tags of incoming records. |
+
+---
+
+##### `evaluator`<sup>Required</sup> <a name="evaluator" id="cdk-extensions.k8s_aws.FluentBitMatch.property.evaluator"></a>
+
+```typescript
+public readonly evaluator: FluentBitMatchEvaluator;
+```
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatchEvaluator
+
+The pattern matching syntax to use when evaluating incoming tags.
+
+---
+
+##### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.k8s_aws.FluentBitMatch.property.pattern"></a>
+
+```typescript
+public readonly pattern: string;
+```
+
+- *Type:* string
+
+The pattern to compare against the tags of incoming records.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitMatch.property.ALL">ALL</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | Represents a pattern that will match all log entries. |
+
+---
+
+##### `ALL`<sup>Required</sup> <a name="ALL" id="cdk-extensions.k8s_aws.FluentBitMatch.property.ALL"></a>
+
+```typescript
+public readonly ALL: FluentBitMatch;
+```
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
+
+Represents a pattern that will match all log entries.
+
+---
+
 ### FluentBitModifyFilter <a name="FluentBitModifyFilter" id="cdk-extensions.k8s_aws.FluentBitModifyFilter"></a>
 
 A Fluent Bit filter that allows changing records using rules and conditions.
@@ -42103,7 +42215,7 @@ The operation to add to the filter.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.property.conditions">conditions</a></code> | <code>cdk-extensions.k8s_aws.ModifyCondition[]</code> | Collection of conditions to apply for the filter. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.property.operations">operations</a></code> | <code>cdk-extensions.k8s_aws.ModifyOperation[]</code> | Collection of operations to apply for the filter. |
 
@@ -42136,10 +42248,10 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitModifyFilter.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -42227,7 +42339,7 @@ The construct configuring logging using Fluent Bit.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.property.operation">operation</a></code> | <code>cdk-extensions.k8s_aws.NestFilterOperation</code> | Operation specific details for the plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.property.addPrefix">addPrefix</a></code> | <code>string</code> | Prefix affected keys with this string. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.property.removePrefix">removePrefix</a></code> | <code>string</code> | Remove prefix from affected keys if it matches this string. |
@@ -42261,10 +42373,10 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitNestFilter.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -42362,7 +42474,7 @@ The construct configuring logging using Fluent Bit.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.domain">domain</a></code> | <code>aws-cdk-lib.aws_opensearchservice.IDomain</code> | The Opensearch domain to which logs should be shipped. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.port">port</a></code> | <code>number</code> | TCP port of the target OpenSearch instance. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.awsAuth">awsAuth</a></code> | <code>boolean</code> | Enable AWS Sigv4 Authentication for Amazon OpenSearch Service. |
@@ -42425,10 +42537,10 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -42884,14 +42996,14 @@ new k8s_aws.FluentBitOutput()
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitOutput.cloudwatchLogs(match: string, logGroup: ILogGroup)
+k8s_aws.FluentBitOutput.cloudwatchLogs(match: FluentBitMatch, logGroup: ILogGroup)
 ```
 
 Sends matched records to a CloudWatch Logs log group.
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOutput.cloudwatchLogs.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the output should be applied.
 
@@ -42910,14 +43022,14 @@ The log group where matched records should be sent.
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitOutput.kinesis(match: string, stream: IStream)
+k8s_aws.FluentBitOutput.kinesis(match: FluentBitMatch, stream: IStream)
 ```
 
 Sends matched records to a Kinesis data stream.
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOutput.kinesis.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the output should be applied.
 
@@ -42936,14 +43048,14 @@ The Kinesis stream where matched records should be sent.
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitOutput.kinesisFirehose(match: string, deliveryStream: IDeliveryStream)
+k8s_aws.FluentBitOutput.kinesisFirehose(match: FluentBitMatch, deliveryStream: IDeliveryStream)
 ```
 
 Sends matched records to a Kinesis Firehose delivery stream.
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOutput.kinesisFirehose.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the output should be applied.
 
@@ -42962,14 +43074,14 @@ The Firehose delivery stream where matched records should be sent.
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitOutput.opensearch(match: string, domain: IDomain)
+k8s_aws.FluentBitOutput.opensearch(match: FluentBitMatch, domain: IDomain)
 ```
 
 Sends matched records to an OpenSearch domain.
 
 ###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOutput.opensearch.parameter.match"></a>
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the output should be applied.
 
@@ -43053,7 +43165,7 @@ The construct configuring logging using Fluent Bit.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitOutputPluginBase.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitOutputPluginBase.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutputPluginBase.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutputPluginBase.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 
 ---
 
@@ -43084,10 +43196,10 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOutputPluginBase.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -43288,7 +43400,7 @@ The parser to use for matched log entries.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.parsers">parsers</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitParserPlugin[]</code> | Collection of the parsers that should be used to evaluate the filter. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.keyName">keyName</a></code> | <code>string</code> | Specify field name in record to parse. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.preserveKey">preserveKey</a></code> | <code>boolean</code> | Keep original `keyName` field in the parsed result. |
@@ -43323,10 +43435,10 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitParserFilter.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -43702,7 +43814,7 @@ The tag to add to the allow list.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.allow">allow</a></code> | <code>string[]</code> | Collection of tags that are allowed on a matched input record. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.records">records</a></code> | <code>cdk-extensions.k8s_aws.AppendedRecord[]</code> | Collection of the records to be appending to matched input. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.remove">remove</a></code> | <code>string[]</code> | Collection of tags to exclude from a matched input record. |
@@ -43736,10 +43848,10 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -44034,7 +44146,7 @@ The rule to apply for matched log entries.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.rules">rules</a></code> | <code>cdk-extensions.k8s_aws.RewriteTagRule[]</code> | Collection of rules defining matching criteria and the format of the tag for the matching record. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterMemBufLimit">emitterMemBufLimit</a></code> | <code>cdk-extensions.core.DataSize</code> | Set a limit on the amount of memory the tag rewrite emitter can consume if the outputs provide backpressure. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterName">emitterName</a></code> | <code>string</code> | When the filter emits a record under the new Tag, there is an internal emitter plugin that takes care of the job. |
@@ -44069,10 +44181,10 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -44193,7 +44305,7 @@ The construct configuring logging using Fluent Bit.
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.interval">interval</a></code> | <code>aws-cdk-lib.Duration</code> | Time interval. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.rate">rate</a></code> | <code>number</code> | Amount of messages for the time. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.window">window</a></code> | <code>number</code> | Amount of intervals to calculate average over. |
@@ -44228,10 +44340,10 @@ The type of fluent bit plugin.
 ##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.match"></a>
 
 ```typescript
-public readonly match: string;
+public readonly match: FluentBitMatch;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 The pattern to match for records that this output should apply to.
 
@@ -50827,6 +50939,33 @@ storage space than plain text with Gzip compression.
 Plain text.
 
 This is the default format.
+
+---
+
+
+### FluentBitMatchEvaluator <a name="FluentBitMatchEvaluator" id="cdk-extensions.k8s_aws.FluentBitMatchEvaluator"></a>
+
+Matching patterns supported by Fluent Bit plugins for scoping down incoming records.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitMatchEvaluator.GLOB">GLOB</a></code> | A basic pattern match supporting the star (`*`) character as a wildcard. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitMatchEvaluator.REGEX">REGEX</a></code> | Full pattern matching using regular expressions. |
+
+---
+
+##### `GLOB` <a name="GLOB" id="cdk-extensions.k8s_aws.FluentBitMatchEvaluator.GLOB"></a>
+
+A basic pattern match supporting the star (`*`) character as a wildcard.
+
+---
+
+
+##### `REGEX` <a name="REGEX" id="cdk-extensions.k8s_aws.FluentBitMatchEvaluator.REGEX"></a>
+
+Full pattern matching using regular expressions.
 
 ---
 

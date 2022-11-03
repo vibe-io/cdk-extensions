@@ -368,7 +368,7 @@ export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPluginBase {
   /**
      * The CloudWatch Log Group configuration for output records.
      */
-  public readonly logGroup?: FluentBitLogGroupOutput;
+  public readonly logGroup: FluentBitLogGroupOutput;
 
   /**
       * Template for Log Group name using Fluent Bit record_accessor syntax.
@@ -466,7 +466,7 @@ export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPluginBase {
     this.autoRetryRequests = options.autoRetryRequests;
     this.endpoint = options.endpoint;
     this.logFormat = options.logFormat;
-    this.logGroup = options.logGroup;
+    this.logGroup = options.logGroup ?? FluentBitLogGroupOutput.create();
     this.logGroupTemplate = options.logGroupTemplate;
     this.logKey = options.logKey;
     this.logRetention = options.logRetention;
@@ -547,22 +547,22 @@ export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPluginBase {
      * @returns The log group where output logs should be sent.
      */
   private getLogGroup(scope: IConstruct): ILogGroup {
-    const logGroupSuffix = this.logGroup?.logGroupName ? `-${this.logGroup.logGroupName}` : '::default';
-    const stubSuffix = this.logGroup?.autoCreate ? '' : '::stub';
+    const logGroupSuffix = this.logGroup.logGroupName ? `-${this.logGroup.logGroupName}` : '::default';
+    const stubSuffix = this.logGroup.autoCreate ? '' : '::stub';
     const logGroupId = `fluent-bit-output-log-group${logGroupSuffix}${stubSuffix}`;
     const inheritedLogGroup = scope.node.tryFindChild(logGroupId) as ILogGroup;
 
-    if (this.logGroup?.logGroup) {
+    if (this.logGroup.logGroup) {
       return this.logGroup.logGroup;
     } else if (inheritedLogGroup) {
       return inheritedLogGroup;
-    } else if (this.logGroup?.autoCreate) {
+    } else if (this.logGroup.autoCreate) {
       return new LogGroup(scope, logGroupId, {
         logGroupName: this.logGroup.logGroupName,
         retention: this.logRetention ?? RetentionDays.TWO_WEEKS,
       });
     } else {
-      return LogGroup.fromLogGroupName(scope, logGroupId, this.logGroup?.logGroupName ?? Names.uniqueId(scope));
+      return LogGroup.fromLogGroupName(scope, logGroupId, this.logGroup.logGroupName ?? Names.uniqueId(scope));
     }
   }
 }

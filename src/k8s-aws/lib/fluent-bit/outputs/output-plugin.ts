@@ -2,6 +2,7 @@ import { IStream } from 'aws-cdk-lib/aws-kinesis';
 import { ILogGroup } from 'aws-cdk-lib/aws-logs';
 import { IDomain } from 'aws-cdk-lib/aws-opensearchservice';
 import { FluentBitCloudWatchLogsOutput, FluentBitKinesisFirehoseOutput, FluentBitKinesisOutput, FluentBitLogGroupOutput, FluentBitOpenSearchOutput, IFluentBitOutputPlugin } from '.';
+import { FluentBitMatch } from '..';
 import { IDeliveryStream } from '../../../../kinesis-firehose';
 
 
@@ -19,7 +20,7 @@ export class FluentBitOutput {
      * @returns An output filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static cloudwatchLogs(match: string, logGroup: ILogGroup): IFluentBitOutputPlugin {
+  public static cloudwatchLogs(match: FluentBitMatch, logGroup: ILogGroup): IFluentBitOutputPlugin {
     return new FluentBitCloudWatchLogsOutput({
       logGroup: FluentBitLogGroupOutput.fromLogGroup(logGroup),
       match: match,
@@ -35,7 +36,7 @@ export class FluentBitOutput {
      * @returns An output filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static kinesis(match: string, stream: IStream): IFluentBitOutputPlugin {
+  public static kinesis(match: FluentBitMatch, stream: IStream): IFluentBitOutputPlugin {
     return new FluentBitKinesisOutput({
       match: match,
       stream: stream,
@@ -52,7 +53,7 @@ export class FluentBitOutput {
      * @returns An output filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static kinesisFirehose(match: string, deliveryStream: IDeliveryStream): IFluentBitOutputPlugin {
+  public static kinesisFirehose(match: FluentBitMatch, deliveryStream: IDeliveryStream): IFluentBitOutputPlugin {
     return new FluentBitKinesisFirehoseOutput({
       deliveryStream: deliveryStream,
       match: match,
@@ -69,7 +70,7 @@ export class FluentBitOutput {
      * @returns An output filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static opensearch(match: string, domain: IDomain): IFluentBitOutputPlugin {
+  public static opensearch(match: FluentBitMatch, domain: IDomain): IFluentBitOutputPlugin {
     return new FluentBitOpenSearchOutput({
       domain: domain,
       match: match,

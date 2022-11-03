@@ -88,7 +88,11 @@ Filter out log messages matching the AWS load balancer health check user agent:
 ```
 declare const logger: k8s_aws.FargateLogger;
 
-logger.addFilter(k8s_aws.FluentBitOutput.grep('*', '', true));
+logger.addFilter(k8s_aws.FluentBitFilter.grep('*', {
+    exclude: true,
+    key: 'log',
+    regex: 'ELB-HealthChecker'
+}));
 ```
 
 ## Secrets Manager

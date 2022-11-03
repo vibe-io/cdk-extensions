@@ -1,6 +1,6 @@
 import { Duration } from 'aws-cdk-lib';
 import { AppendedRecord, FluentBitGrepFilter, FluentBitGrepRegex, FluentBitKubernetesFilter, FluentBitModifyFilter, FluentBitNestFilter, FluentBitParserFilter, FluentBitRecordModifierFilter, FluentBitRewriteTagFilter, FluentBitThrottleFilter, IFluentBitFilterPlugin, ModifyOperation, NestFilterOperation, RewriteTagRule } from '.';
-import { IFluentBitParserPlugin } from '..';
+import { FluentBitMatch, IFluentBitParserPlugin } from '..';
 
 
 /**
@@ -21,7 +21,7 @@ export class FluentBitFilter {
      * @returns A filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static appendFields(match: string, ...records: AppendedRecord[]): IFluentBitFilterPlugin {
+  public static appendFields(match: FluentBitMatch, ...records: AppendedRecord[]): IFluentBitFilterPlugin {
     return new FluentBitRecordModifierFilter({
       match: match,
       records: records,
@@ -39,7 +39,7 @@ export class FluentBitFilter {
      * @returns A filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static blacklistFields(match: string, ...fields: string[]): IFluentBitFilterPlugin {
+  public static blacklistFields(match: FluentBitMatch, ...fields: string[]): IFluentBitFilterPlugin {
     return new FluentBitRecordModifierFilter({
       match: match,
       remove: fields,
@@ -53,15 +53,11 @@ export class FluentBitFilter {
      *
      * @param match A pattern filtering to which records the filter should be
      * applied.
-     * @param exclude Determines whether records that match the records should
-     * be kept or excluded. If this is true, all records that match the pattern
-     * will not be logged. If this is false, only records that match the
-     * pattern will be logged.
      * @param pattern The pattern to match against incoming records.
      * @returns A filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static grep(match: string, pattern: FluentBitGrepRegex): IFluentBitFilterPlugin {
+  public static grep(match: FluentBitMatch, pattern: FluentBitGrepRegex): IFluentBitFilterPlugin {
     return new FluentBitGrepFilter({
       match: match,
       pattern: pattern,
@@ -77,7 +73,7 @@ export class FluentBitFilter {
      * @returns A filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static kubernetes(match: string): IFluentBitFilterPlugin {
+  public static kubernetes(match: FluentBitMatch): IFluentBitFilterPlugin {
     return new FluentBitKubernetesFilter({
       match: match,
     });
@@ -93,7 +89,7 @@ export class FluentBitFilter {
      * @returns A filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static modify(match: string, ...operations: ModifyOperation[]): IFluentBitFilterPlugin {
+  public static modify(match: FluentBitMatch, ...operations: ModifyOperation[]): IFluentBitFilterPlugin {
     return new FluentBitModifyFilter({
       match: match,
       operations: operations,
@@ -110,7 +106,7 @@ export class FluentBitFilter {
      * @returns A filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static lift(match: string, nestedUnder: string): IFluentBitFilterPlugin {
+  public static lift(match: FluentBitMatch, nestedUnder: string): IFluentBitFilterPlugin {
     return new FluentBitNestFilter({
       match: match,
       operation: NestFilterOperation.lift({
@@ -130,7 +126,7 @@ export class FluentBitFilter {
      * @returns A filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static nest(match: string, nestUnder: string, ...fields: string[]): IFluentBitFilterPlugin {
+  public static nest(match: FluentBitMatch, nestUnder: string, ...fields: string[]): IFluentBitFilterPlugin {
     return new FluentBitNestFilter({
       match: match,
       operation: NestFilterOperation.nest({
@@ -152,7 +148,7 @@ export class FluentBitFilter {
      * @returns A filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static parser(match: string, ...parsers: IFluentBitParserPlugin[]): IFluentBitFilterPlugin {
+  public static parser(match: FluentBitMatch, ...parsers: IFluentBitParserPlugin[]): IFluentBitFilterPlugin {
     return new FluentBitParserFilter({
       match: match,
       parsers: parsers,
@@ -170,7 +166,7 @@ export class FluentBitFilter {
      * @returns A filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static rewriteTag(match: string, ...rules: RewriteTagRule[]): IFluentBitFilterPlugin {
+  public static rewriteTag(match: FluentBitMatch, ...rules: RewriteTagRule[]): IFluentBitFilterPlugin {
     return new FluentBitRewriteTagFilter({
       match: match,
       rules: rules,
@@ -193,7 +189,7 @@ export class FluentBitFilter {
      * @returns A filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static throttle(match: string, interval: Duration, rate: number, window: number): IFluentBitFilterPlugin {
+  public static throttle(match: FluentBitMatch, interval: Duration, rate: number, window: number): IFluentBitFilterPlugin {
     return new FluentBitThrottleFilter({
       interval: interval,
       match: match,
@@ -213,7 +209,7 @@ export class FluentBitFilter {
      * @returns A filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static whitelistFields(match: string, ...fields: string[]): IFluentBitFilterPlugin {
+  public static whitelistFields(match: FluentBitMatch, ...fields: string[]): IFluentBitFilterPlugin {
     return new FluentBitRecordModifierFilter({
       allow: fields,
       match: match,
