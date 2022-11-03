@@ -8,7 +8,7 @@ export class ModifyCondition {
      * Condition that returns true if any key matches a specified regular
      * expression.
      *
-     * @param key The regular expression to evaluate against field keys.
+     * @param regex The regular expression to evaluate against field keys.
      * @returns A ModifyCondition object representing the condition.
      */
   public static aKeyMatches(regex: string): ModifyCondition {
@@ -135,7 +135,7 @@ export class ModifyCondition {
      * Condition that returns true if no key matches a specified regular
      * expression.
      *
-     * @param key The regular expression to evaluate against field keys.
+     * @param regex The regular expression to evaluate against field keys.
      * @returns A ModifyCondition object representing the condition.
      */
   public static noKeyMatches(regex: string): ModifyCondition {
@@ -300,7 +300,7 @@ export class ModifyOperation {
   /**
      * Removes all fields in the output matching the regular expression.
      *
-     * @param key The regular expression specifying which fields to remove.
+     * @param regex The regular expression specifying which fields to remove.
      * @returns A ModifyOperation object representing the remove operation.
      */
   public static removeRegex(regex: string): ModifyOperation {
@@ -497,7 +497,7 @@ export class FluentBitModifyFilter extends FluentBitFilterPluginBase {
      * Builds a configuration for this plugin and returns the details for
      * consumtion by a resource that is configuring logging.
      *
-     * @param scope The construct configuring logging using Fluent Bit.
+     * @param _scope The construct configuring logging using Fluent Bit.
      * @returns A configuration for the plugin that con be used by the resource
      * configuring logging.
      */

@@ -14,7 +14,7 @@ export class DataSize {
   /**
      * Create a `DataSize` representing an amount of gibibytes.
      *
-     * @param bytes The number of gibibytes this `DataSize` will represent.
+     * @param gibibytes The number of gibibytes this `DataSize` will represent.
      * @returns A `DataSize` representing the specified number of gibibytes.
      */
   public static gibibytes(gibibytes: number): DataSize {
@@ -24,7 +24,7 @@ export class DataSize {
   /**
      * Create a `DataSize` representing an amount of gigabytes.
      *
-     * @param bytes The number of gigabytes this `DataSize` will represent.
+     * @param gigabytes The number of gigabytes this `DataSize` will represent.
      * @returns A `DataSize` representing the specified number of gigabytes.
      */
   public static gigabytes(gigabytes: number): DataSize {
@@ -34,7 +34,7 @@ export class DataSize {
   /**
      * Create a `DataSize` representing an amount of kibibytes.
      *
-     * @param bytes The number of kibibytes this `DataSize` will represent.
+     * @param kibibytes The number of kibibytes this `DataSize` will represent.
      * @returns A `DataSize` representing the specified number of kibibytes.
      */
   public static kibibytes(kibibytes: number): DataSize {
@@ -44,7 +44,7 @@ export class DataSize {
   /**
      * Create a `DataSize` representing an amount of kilobytes.
      *
-     * @param bytes The number of kilobytes this `DataSize` will represent.
+     * @param kilobytes The number of kilobytes this `DataSize` will represent.
      * @returns A `DataSize` representing the specified number of kilobytes.
      */
   public static kilobytes(kilobytes: number): DataSize {
@@ -54,7 +54,7 @@ export class DataSize {
   /**
      * Create a `DataSize` representing an amount of mebibytes.
      *
-     * @param bytes The number of mebibytes this `DataSize` will represent.
+     * @param mebibytes The number of mebibytes this `DataSize` will represent.
      * @returns A `DataSize` representing the specified number of mebibytes.
      */
   public static mebibytes(mebibytes: number): DataSize {
@@ -64,7 +64,7 @@ export class DataSize {
   /**
      * Create a `DataSize` representing an amount of megabytes.
      *
-     * @param bytes The number of megabytes this `DataSize` will represent.
+     * @param megabytes The number of megabytes this `DataSize` will represent.
      * @returns A `DataSize` representing the specified number of megabytes.
      */
   public static megabytes(megabytes: number): DataSize {
@@ -74,7 +74,7 @@ export class DataSize {
   /**
      * Create a `DataSize` representing an amount of pebibytes.
      *
-     * @param bytes The number of pebibytes this `DataSize` will represent.
+     * @param pebibytes The number of pebibytes this `DataSize` will represent.
      * @returns A `DataSize` representing the specified number of pebibytes.
      */
   public static pebibytes(pebibytes: number): DataSize {
@@ -84,7 +84,7 @@ export class DataSize {
   /**
      * Create a `DataSize` representing an amount of petabytes.
      *
-     * @param bytes The number of petabytes this `DataSize` will represent.
+     * @param petabytes The number of petabytes this `DataSize` will represent.
      * @returns A `DataSize` representing the specified number of petabytes.
      */
   public static petabytes(petabytes: number): DataSize {
@@ -94,7 +94,7 @@ export class DataSize {
   /**
      * Create a `DataSize` representing an amount of tebibytes.
      *
-     * @param bytes The number of tebibytes this `DataSize` will represent.
+     * @param tebibytes The number of tebibytes this `DataSize` will represent.
      * @returns A `DataSize` representing the specified number of tebibytes.
      */
   public static tebibytes(tebibytes: number): DataSize {
@@ -104,7 +104,7 @@ export class DataSize {
   /**
      * Create a `DataSize` representing an amount of terabytes.
      *
-     * @param bytes The number of terabytes this `DataSize` will represent.
+     * @param terabytes The number of terabytes this `DataSize` will represent.
      * @returns A `DataSize` representing the specified number of terabytes.
      */
   public static terabytes(terabytes: number): DataSize {

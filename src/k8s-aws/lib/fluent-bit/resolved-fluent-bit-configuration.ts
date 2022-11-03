@@ -1,9 +1,6 @@
 import { PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { IFluentBitParserPlugin } from '.';
 
-export interface ResolvedFluentBitConfigurationFieldValue {
-  toString(): string;
-}
 
 /**
  * The output of a Fluent Bit configuration object for consumption be the

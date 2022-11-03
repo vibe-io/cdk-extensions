@@ -62,7 +62,7 @@ export class FluentBitLogStreamOutput {
    * Log streams will be created on a per-pod basis with the name oof the log
    * streams starting with the provided prefix.
    *
-   * @param name The prefix for log streams which will be created.
+   * @param prefix The prefix for log streams which will be created.
    * @returns A FluentBitLogStreamOutput object representing the configured
    * log stream destination.
    */
@@ -172,7 +172,7 @@ export class FluentBitLogGroupOutput {
    * Flag that determines whether or not a log group should be automatically
    * created.
    */
-  public readonly create?: boolean;
+  public readonly autoCreate?: boolean;
 
   /**
    * A log group resource object to use as the destination.
@@ -190,7 +190,7 @@ export class FluentBitLogGroupOutput {
    * @param options  Options for configuring log stream output.
    */
   private constructor(options: FluentBitLogGroupOutputOptions) {
-    this.create = options.create;
+    this.autoCreate = options.create;
     this.logGroup = options.logGroup;
     this.logGroupName = options.logGroupName;
   }
@@ -548,7 +548,7 @@ export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPluginBase {
      */
   private getLogGroup(scope: IConstruct): ILogGroup {
     const logGroupSuffix = this.logGroup?.logGroupName ? `-${this.logGroup.logGroupName}` : '::default';
-    const stubSuffix = this.logGroup?.create ? '' : '::stub';
+    const stubSuffix = this.logGroup?.autoCreate ? '' : '::stub';
     const logGroupId = `fluent-bit-output-log-group${logGroupSuffix}${stubSuffix}`;
     const inheritedLogGroup = scope.node.tryFindChild(logGroupId) as ILogGroup;
 
@@ -556,7 +556,7 @@ export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPluginBase {
       return this.logGroup.logGroup;
     } else if (inheritedLogGroup) {
       return inheritedLogGroup;
-    } else if (this.logGroup?.create) {
+    } else if (this.logGroup?.autoCreate) {
       return new LogGroup(scope, logGroupId, {
         logGroupName: this.logGroup.logGroupName,
         retention: this.logRetention ?? RetentionDays.TWO_WEEKS,

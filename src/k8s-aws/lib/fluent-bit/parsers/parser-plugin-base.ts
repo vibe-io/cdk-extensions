@@ -9,22 +9,22 @@ export class ParserPluginDataType {
   /**
      * Object that is true or false.
      */
-  public static BOOL: ParserPluginDataType = ParserPluginDataType.of('bool');
+  public static readonly BOOL: ParserPluginDataType = ParserPluginDataType.of('bool');
 
   /**
      * Floating point number values.
      */
-  public static FLOAT: ParserPluginDataType = ParserPluginDataType.of('float');
+  public static readonly FLOAT: ParserPluginDataType = ParserPluginDataType.of('float');
 
   /**
      * Hexidecimal number values.
      */
-  public static HEX: ParserPluginDataType = ParserPluginDataType.of('hex');
+  public static readonly HEX: ParserPluginDataType = ParserPluginDataType.of('hex');
 
   /**
      * While number values.
      */
-  public static INTEGER: ParserPluginDataType = ParserPluginDataType.of('integer');
+  public static readonly INTEGER: ParserPluginDataType = ParserPluginDataType.of('integer');
 
   /**
      * Logfmt formatted data.
@@ -32,24 +32,24 @@ export class ParserPluginDataType {
      * @see [Logfmt overview](https://brandur.org/logfmt)
      * @see [Golang logfmt documentation](https://pkg.go.dev/github.com/kr/logfmt)
      */
-  public static LOGFMT: ParserPluginDataType = ParserPluginDataType.of('logfmt');
+  public static readonly LOGFMT: ParserPluginDataType = ParserPluginDataType.of('logfmt');
 
   /**
      * Labeled tab-separated values.
      *
      * @see [LTSV](http://ltsv.org/)
      */
-  public static LTSV: ParserPluginDataType = ParserPluginDataType.of('ltsv');
+  public static readonly LTSV: ParserPluginDataType = ParserPluginDataType.of('ltsv');
 
   /**
      * Regular expression.
      */
-  public static REGEX: ParserPluginDataType = ParserPluginDataType.of('regex');
+  public static readonly REGEX: ParserPluginDataType = ParserPluginDataType.of('regex');
 
   /**
      * Text data.
      */
-  public static STRING: ParserPluginDataType = ParserPluginDataType.of('string');
+  public static readonly STRING: ParserPluginDataType = ParserPluginDataType.of('string');
 
   /**
      * An escape hatch method that allow specifying arbitrary custom data

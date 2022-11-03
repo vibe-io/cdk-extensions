@@ -15,7 +15,7 @@ export class OpenSearchOutputBufferSize {
   /**
      * Set the output buffer size to unlimited.
      */
-  public static UNLIMITED: OpenSearchOutputBufferSize = OpenSearchOutputBufferSize.of('False');
+  public static readonly UNLIMITED: OpenSearchOutputBufferSize = OpenSearchOutputBufferSize.of('False');
 
   /**
      * Set the output buffer to a specified data size.
@@ -598,7 +598,7 @@ export class FluentBitOpenSearchOutput extends FluentBitOutputPluginBase {
      * Builds a configuration for this plugin and returns the details for
      * consumtion by a resource that is configuring logging.
      *
-     * @param _scope The construct configuring logging using Fluent Bit.
+     * @param scope The construct configuring logging using Fluent Bit.
      * @returns A configuration for the plugin that con be used by the resource
      * configuring logging.
      */

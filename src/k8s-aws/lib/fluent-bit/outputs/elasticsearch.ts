@@ -21,7 +21,7 @@ export class ElasticsearchOutputBufferSize {
   /**
      * Set the output buffer size to unlimited.
      */
-  public static UNLIMITED: ElasticsearchOutputBufferSize = ElasticsearchOutputBufferSize.of('False');
+  public static readonly UNLIMITED: ElasticsearchOutputBufferSize = ElasticsearchOutputBufferSize.of('False');
 
   /**
      * Set the output buffer to a specified data size.

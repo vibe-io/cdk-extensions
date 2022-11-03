@@ -7769,6 +7769,311 @@ public readonly streamType: DeliveryStreamType;
 ---
 
 
+### Echoserver <a name="Echoserver" id="cdk-extensions.k8s_aws.Echoserver"></a>
+
+- *Implements:* aws-cdk-lib.aws_ec2.IConnectable
+
+Creates a ConfigMap that configures logging for containers running in EKS on Fargate.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.Echoserver.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.Echoserver(scope: Construct, id: string, props: EchoserverProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the resource and used in resource naming. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_aws.EchoserverProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.Echoserver.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.Echoserver.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the resource and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.k8s_aws.Echoserver.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.k8s_aws.EchoserverProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.k8s_aws.Echoserver.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.k8s_aws.Echoserver.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.k8s_aws.Echoserver.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.k8s_aws.Echoserver.isConstruct"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.Echoserver.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.k8s_aws.Echoserver.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.k8s_aws.Echoserver.isOwnedResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.Echoserver.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.Echoserver.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.k8s_aws.Echoserver.isResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.Echoserver.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.Echoserver.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS Cluster where the service should be deployed. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | Access for network connections. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.loadBalancerSubnets">loadBalancerSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The subnets where the load balancer should be created.. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.manifest">manifest</a></code> | <code>aws-cdk-lib.aws_eks.KubernetesManifest</code> | The Kubernetes manifest that creates the ConfigMap that Fargate uses to configure logging. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.name">name</a></code> | <code>string</code> | The name of the Kubernetes service to be created. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.port">port</a></code> | <code>number</code> | The port which netcat should listen on. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.replicas">replicas</a></code> | <code>number</code> | The number of replicas that should exist. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.serviceSubnets">serviceSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The subnets where the service pods should run. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.k8s_aws.Echoserver.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.k8s_aws.Echoserver.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.k8s_aws.Echoserver.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.Echoserver.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The EKS Cluster where the service should be deployed.
+
+---
+
+##### `connections`<sup>Required</sup> <a name="connections" id="cdk-extensions.k8s_aws.Echoserver.property.connections"></a>
+
+```typescript
+public readonly connections: Connections;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.Connections
+
+Access for network connections.
+
+---
+
+##### `loadBalancerSubnets`<sup>Required</sup> <a name="loadBalancerSubnets" id="cdk-extensions.k8s_aws.Echoserver.property.loadBalancerSubnets"></a>
+
+```typescript
+public readonly loadBalancerSubnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+The subnets where the load balancer should be created..
+
+---
+
+##### `manifest`<sup>Required</sup> <a name="manifest" id="cdk-extensions.k8s_aws.Echoserver.property.manifest"></a>
+
+```typescript
+public readonly manifest: KubernetesManifest;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.KubernetesManifest
+
+The Kubernetes manifest that creates the ConfigMap that Fargate uses to configure logging.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.Echoserver.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the Kubernetes service to be created.
+
+---
+
+##### `port`<sup>Required</sup> <a name="port" id="cdk-extensions.k8s_aws.Echoserver.property.port"></a>
+
+```typescript
+public readonly port: number;
+```
+
+- *Type:* number
+
+The port which netcat should listen on.
+
+---
+
+##### `replicas`<sup>Required</sup> <a name="replicas" id="cdk-extensions.k8s_aws.Echoserver.property.replicas"></a>
+
+```typescript
+public readonly replicas: number;
+```
+
+- *Type:* number
+
+The number of replicas that should exist.
+
+---
+
+##### `serviceSubnets`<sup>Required</sup> <a name="serviceSubnets" id="cdk-extensions.k8s_aws.Echoserver.property.serviceSubnets"></a>
+
+```typescript
+public readonly serviceSubnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+The subnets where the service pods should run.
+
+---
+
+
 ### ExternalDns <a name="ExternalDns" id="cdk-extensions.k8s_aws.ExternalDns"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.ExternalDns.Initializer"></a>
@@ -8666,6 +8971,8 @@ public readonly DEFAULT_NAMESPACE: string;
 
 ### FargateLogger <a name="FargateLogger" id="cdk-extensions.k8s_aws.FargateLogger"></a>
 
+Creates a ConfigMap that configures logging for containers running in EKS on Fargate.
+
 #### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FargateLogger.Initializer"></a>
 
 ```typescript
@@ -8676,9 +8983,9 @@ new k8s_aws.FargateLogger(scope: Construct, id: string, props: FargateLoggerProp
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_aws.FargateLoggerProps</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the resource and used in resource naming. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_aws.FargateLoggerProps</code> | Arguments related to the configuration of the resource. |
 
 ---
 
@@ -8686,17 +8993,25 @@ new k8s_aws.FargateLogger(scope: Construct, id: string, props: FargateLoggerProp
 
 - *Type:* constructs.Construct
 
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.FargateLogger.Initializer.parameter.id"></a>
 
 - *Type:* string
 
+A name to be associated with the resource and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
 ---
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.k8s_aws.FargateLogger.Initializer.parameter.props"></a>
 
 - *Type:* cdk-extensions.k8s_aws.FargateLoggerProps
+
+Arguments related to the configuration of the resource.
 
 ---
 
@@ -8707,6 +9022,9 @@ new k8s_aws.FargateLogger(scope: Construct, id: string, props: FargateLoggerProp
 | <code><a href="#cdk-extensions.k8s_aws.FargateLogger.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.k8s_aws.FargateLogger.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.k8s_aws.FargateLogger.addFargateProfile">addFargateProfile</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.addFilter">addFilter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.addOutput">addOutput</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.addParser">addParser</a></code> | *No description.* |
 
 ---
 
@@ -8749,6 +9067,42 @@ public addFargateProfile(profile: FargateProfile): FargateLogger
 ###### `profile`<sup>Required</sup> <a name="profile" id="cdk-extensions.k8s_aws.FargateLogger.addFargateProfile.parameter.profile"></a>
 
 - *Type:* aws-cdk-lib.aws_eks.FargateProfile
+
+---
+
+##### `addFilter` <a name="addFilter" id="cdk-extensions.k8s_aws.FargateLogger.addFilter"></a>
+
+```typescript
+public addFilter(filter: IFluentBitFilterPlugin): FargateLogger
+```
+
+###### `filter`<sup>Required</sup> <a name="filter" id="cdk-extensions.k8s_aws.FargateLogger.addFilter.parameter.filter"></a>
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitFilterPlugin
+
+---
+
+##### `addOutput` <a name="addOutput" id="cdk-extensions.k8s_aws.FargateLogger.addOutput"></a>
+
+```typescript
+public addOutput(output: IFluentBitOutputPlugin): FargateLogger
+```
+
+###### `output`<sup>Required</sup> <a name="output" id="cdk-extensions.k8s_aws.FargateLogger.addOutput.parameter.output"></a>
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitOutputPlugin
+
+---
+
+##### `addParser` <a name="addParser" id="cdk-extensions.k8s_aws.FargateLogger.addParser"></a>
+
+```typescript
+public addParser(parser: IFluentBitParserPlugin): FargateLogger
+```
+
+###### `parser`<sup>Required</sup> <a name="parser" id="cdk-extensions.k8s_aws.FargateLogger.addParser.parameter.parser"></a>
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitParserPlugin
 
 ---
 
@@ -8819,11 +9173,11 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.logStreamPrefix">logStreamPrefix</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_eks.KubernetesManifest</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.retention">retention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS cluster where Fargate logging is being configured. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.filters">filters</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitFilterPlugin[]</code> | Collection of Fluent Bit filter plugins being configured for logging. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.manifest">manifest</a></code> | <code>aws-cdk-lib.aws_eks.KubernetesManifest</code> | The Kubernetes manifest that creates the ConfigMap that Fargate uses to configure logging. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.outputs">outputs</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]</code> | Collection of Fluent Bit output plugins being configured for logging. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.parsers">parsers</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]</code> | Collection of Fluent Bit parser plugins being configured for logging. |
 
 ---
 
@@ -8878,45 +9232,55 @@ public readonly cluster: ICluster;
 
 - *Type:* aws-cdk-lib.aws_eks.ICluster
 
+The EKS cluster where Fargate logging is being configured.
+
 ---
 
-##### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-extensions.k8s_aws.FargateLogger.property.logGroup"></a>
+##### `filters`<sup>Required</sup> <a name="filters" id="cdk-extensions.k8s_aws.FargateLogger.property.filters"></a>
 
 ```typescript
-public readonly logGroup: ILogGroup;
+public readonly filters: IFluentBitFilterPlugin[];
 ```
 
-- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+- *Type:* cdk-extensions.k8s_aws.IFluentBitFilterPlugin[]
+
+Collection of Fluent Bit filter plugins being configured for logging.
 
 ---
 
-##### `logStreamPrefix`<sup>Required</sup> <a name="logStreamPrefix" id="cdk-extensions.k8s_aws.FargateLogger.property.logStreamPrefix"></a>
+##### `manifest`<sup>Required</sup> <a name="manifest" id="cdk-extensions.k8s_aws.FargateLogger.property.manifest"></a>
 
 ```typescript
-public readonly logStreamPrefix: string;
-```
-
-- *Type:* string
-
----
-
-##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.k8s_aws.FargateLogger.property.resource"></a>
-
-```typescript
-public readonly resource: KubernetesManifest;
+public readonly manifest: KubernetesManifest;
 ```
 
 - *Type:* aws-cdk-lib.aws_eks.KubernetesManifest
 
+The Kubernetes manifest that creates the ConfigMap that Fargate uses to configure logging.
+
 ---
 
-##### `retention`<sup>Required</sup> <a name="retention" id="cdk-extensions.k8s_aws.FargateLogger.property.retention"></a>
+##### `outputs`<sup>Required</sup> <a name="outputs" id="cdk-extensions.k8s_aws.FargateLogger.property.outputs"></a>
 
 ```typescript
-public readonly retention: RetentionDays;
+public readonly outputs: IFluentBitOutputPlugin[];
 ```
 
-- *Type:* aws-cdk-lib.aws_logs.RetentionDays
+- *Type:* cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]
+
+Collection of Fluent Bit output plugins being configured for logging.
+
+---
+
+##### `parsers`<sup>Required</sup> <a name="parsers" id="cdk-extensions.k8s_aws.FargateLogger.property.parsers"></a>
+
+```typescript
+public readonly parsers: IFluentBitOutputPlugin[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]
+
+Collection of Fluent Bit parser plugins being configured for logging.
 
 ---
 
@@ -20995,6 +21359,51 @@ public readonly delimiter: string;
 
 ---
 
+### AppendedRecord <a name="AppendedRecord" id="cdk-extensions.k8s_aws.AppendedRecord"></a>
+
+Represents a record field to be added by the record modifier Fluent Bit filter plugin.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.AppendedRecord.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const appendedRecord: k8s_aws.AppendedRecord = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AppendedRecord.property.fieldName">fieldName</a></code> | <code>string</code> | The name of the field to be added. |
+| <code><a href="#cdk-extensions.k8s_aws.AppendedRecord.property.value">value</a></code> | <code>string</code> | The value that the added field should be set to. |
+
+---
+
+##### `fieldName`<sup>Required</sup> <a name="fieldName" id="cdk-extensions.k8s_aws.AppendedRecord.property.fieldName"></a>
+
+```typescript
+public readonly fieldName: string;
+```
+
+- *Type:* string
+
+The name of the field to be added.
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.k8s_aws.AppendedRecord.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
+
+The value that the added field should be set to.
+
+---
+
 ### ArrayColumnProps <a name="ArrayColumnProps" id="cdk-extensions.glue.ArrayColumnProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.glue.ArrayColumnProps.Initializer"></a>
@@ -24484,6 +24893,186 @@ public readonly processors: DeliveryStreamProcessor[];
 
 ---
 
+### EchoserverProps <a name="EchoserverProps" id="cdk-extensions.k8s_aws.EchoserverProps"></a>
+
+Configuration for the Echoserver resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.EchoserverProps.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const echoserverProps: k8s_aws.EchoserverProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS Cluster where the service should be deployed. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.loadBalancerSubnets">loadBalancerSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The subnets where the load balancer should be created.. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.name">name</a></code> | <code>string</code> | The name of the Kubernetes service to be created. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.port">port</a></code> | <code>number</code> | The port which netcat should listen on. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.replicas">replicas</a></code> | <code>number</code> | The number of replicas that should exist. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | The Security groups which should be applied to the service. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.serviceSubnets">serviceSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The subnets where the service pods should run. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.k8s_aws.EchoserverProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.k8s_aws.EchoserverProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.k8s_aws.EchoserverProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.EchoserverProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.EchoserverProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The EKS Cluster where the service should be deployed.
+
+---
+
+##### `loadBalancerSubnets`<sup>Optional</sup> <a name="loadBalancerSubnets" id="cdk-extensions.k8s_aws.EchoserverProps.property.loadBalancerSubnets"></a>
+
+```typescript
+public readonly loadBalancerSubnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+The subnets where the load balancer should be created..
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.k8s_aws.EchoserverProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+- *Default:* 'netcat'
+
+The name of the Kubernetes service to be created.
+
+---
+
+##### `port`<sup>Optional</sup> <a name="port" id="cdk-extensions.k8s_aws.EchoserverProps.property.port"></a>
+
+```typescript
+public readonly port: number;
+```
+
+- *Type:* number
+- *Default:* 3838
+
+The port which netcat should listen on.
+
+---
+
+##### `replicas`<sup>Optional</sup> <a name="replicas" id="cdk-extensions.k8s_aws.EchoserverProps.property.replicas"></a>
+
+```typescript
+public readonly replicas: number;
+```
+
+- *Type:* number
+- *Default:* 1
+
+The number of replicas that should exist.
+
+---
+
+##### `securityGroups`<sup>Optional</sup> <a name="securityGroups" id="cdk-extensions.k8s_aws.EchoserverProps.property.securityGroups"></a>
+
+```typescript
+public readonly securityGroups: ISecurityGroup[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
+
+The Security groups which should be applied to the service.
+
+---
+
+##### `serviceSubnets`<sup>Optional</sup> <a name="serviceSubnets" id="cdk-extensions.k8s_aws.EchoserverProps.property.serviceSubnets"></a>
+
+```typescript
+public readonly serviceSubnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+The subnets where the service pods should run.
+
+---
+
 ### ExtendedS3DestinationOptions <a name="ExtendedS3DestinationOptions" id="cdk-extensions.kinesis_firehose.ExtendedS3DestinationOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.ExtendedS3DestinationOptions.Initializer"></a>
@@ -25198,9 +25787,10 @@ const fargateLoggerProps: k8s_aws.FargateLoggerProps = { ... }
 | <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
 | <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS Cluster to configure Fargate logging for. |
 | <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.fargateProfiles">fargateProfiles</a></code> | <code>aws-cdk-lib.aws_eks.FargateProfile[]</code> | A default list of Fargate profiles that should have permissions configured. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.filters">filters</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitFilterPlugin[]</code> | The filters that should be applied to logs being processed. |
 | <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The CloudWatch log group where Farget container logs will be sent. |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.logStreamPrefix">logStreamPrefix</a></code> | <code>string</code> | The prefix to add to the start of log streams created by the Fargate logger. |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.retention">retention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | The number of days logs sent to CloudWatch from Fluent Bit should be retained before they are automatically removed. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.outputs">outputs</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]</code> | The output destinations where logs should be written. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.parsers">parsers</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitParserPlugin[]</code> | The parsers to be used when reading log files. |
 
 ---
 
@@ -25294,6 +25884,18 @@ Alternatively profiles can be added at any time by calling
 
 ---
 
+##### `filters`<sup>Optional</sup> <a name="filters" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.filters"></a>
+
+```typescript
+public readonly filters: IFluentBitFilterPlugin[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitFilterPlugin[]
+
+The filters that should be applied to logs being processed.
+
+---
+
 ##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.logGroup"></a>
 
 ```typescript
@@ -25306,27 +25908,27 @@ The CloudWatch log group where Farget container logs will be sent.
 
 ---
 
-##### `logStreamPrefix`<sup>Optional</sup> <a name="logStreamPrefix" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.logStreamPrefix"></a>
+##### `outputs`<sup>Optional</sup> <a name="outputs" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.outputs"></a>
 
 ```typescript
-public readonly logStreamPrefix: string;
+public readonly outputs: IFluentBitOutputPlugin[];
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]
 
-The prefix to add to the start of log streams created by the Fargate logger.
+The output destinations where logs should be written.
 
 ---
 
-##### `retention`<sup>Optional</sup> <a name="retention" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.retention"></a>
+##### `parsers`<sup>Optional</sup> <a name="parsers" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.parsers"></a>
 
 ```typescript
-public readonly retention: RetentionDays;
+public readonly parsers: IFluentBitParserPlugin[];
 ```
 
-- *Type:* aws-cdk-lib.aws_logs.RetentionDays
+- *Type:* cdk-extensions.k8s_aws.IFluentBitParserPlugin[]
 
-The number of days logs sent to CloudWatch from Fluent Bit should be retained before they are automatically removed.
+The parsers to be used when reading log files.
 
 ---
 
@@ -26095,6 +26697,3115 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+---
+
+### FluentBitCloudWatchLogsOutputOptions <a name="FluentBitCloudWatchLogsOutputOptions" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions"></a>
+
+Options for configuring the CloudWatch Logs Fluent Bit output plugin.
+
+> [[CloudWatch Logs Plugin Documention](https://docs.fluentbit.io/manual/pipeline/outputs/cloudwatch)]([CloudWatch Logs Plugin Documention](https://docs.fluentbit.io/manual/pipeline/outputs/cloudwatch))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitCloudWatchLogsOutputOptions: k8s_aws.FluentBitCloudWatchLogsOutputOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.autoCreateGroup">autoCreateGroup</a></code> | <code>boolean</code> | Automatically create the log group. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.autoRetryRequests">autoRetryRequests</a></code> | <code>boolean</code> | Immediately retry failed requests to AWS services once. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.endpoint">endpoint</a></code> | <code>string</code> | Specify a custom endpoint for the CloudWatch Logs API. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.logFormat">logFormat</a></code> | <code>string</code> | An optional parameter that can be used to tell CloudWatch the format of the data. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.logGroup">logGroup</a></code> | <code>cdk-extensions.k8s_aws.FluentBitLogGroupOutput</code> | The CloudWatch Log Group configuration for output records. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.logGroupTemplate">logGroupTemplate</a></code> | <code>string</code> | Template for Log Group name using Fluent Bit record_accessor syntax. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.logKey">logKey</a></code> | <code>string</code> | By default, the whole log record will be sent to CloudWatch. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.logRetention">logRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | If set to a number greater than zero, and newly create log group's retention policy is set to this many days. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.logStream">logStream</a></code> | <code>cdk-extensions.k8s_aws.FluentBitLogStreamOutput</code> | The CloudWatch LogStream configuration for outbound records. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.logStreamTemplate">logStreamTemplate</a></code> | <code>string</code> | Template for Log Stream name using Fluent Bit record accessor syntax. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.metricDimensions">metricDimensions</a></code> | <code>string[]</code> | A list of lists containing the dimension keys that will be applied to all metrics. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.metricNamespace">metricNamespace</a></code> | <code>string</code> | An optional string representing the CloudWatch namespace for the metrics. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.region">region</a></code> | <code>string</code> | The AWS region. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | ARN of an IAM role to assume (for cross account access). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.stsEndpoint">stsEndpoint</a></code> | <code>string</code> | Specify a custom STS endpoint for the AWS STS API. |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `autoCreateGroup`<sup>Optional</sup> <a name="autoCreateGroup" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.autoCreateGroup"></a>
+
+```typescript
+public readonly autoCreateGroup: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Automatically create the log group.
+
+---
+
+##### `autoRetryRequests`<sup>Optional</sup> <a name="autoRetryRequests" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.autoRetryRequests"></a>
+
+```typescript
+public readonly autoRetryRequests: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Immediately retry failed requests to AWS services once.
+
+This option does
+not affect the normal Fluent Bit retry mechanism with backoff. Instead,
+it enables an immediate retry with no delay for networking errors, which
+may help improve throughput when there are transient/random networking
+issues.
+
+---
+
+##### `endpoint`<sup>Optional</sup> <a name="endpoint" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.endpoint"></a>
+
+```typescript
+public readonly endpoint: string;
+```
+
+- *Type:* string
+
+Specify a custom endpoint for the CloudWatch Logs API.
+
+---
+
+##### `logFormat`<sup>Optional</sup> <a name="logFormat" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.logFormat"></a>
+
+```typescript
+public readonly logFormat: string;
+```
+
+- *Type:* string
+
+An optional parameter that can be used to tell CloudWatch the format of the data.
+
+A value of json/emf enables CloudWatch to extract custom
+metrics embedded in a JSON payload.
+
+> [[Embedded Metric Format](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html)]([Embedded Metric Format](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html))
+
+---
+
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: FluentBitLogGroupOutput;
+```
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitLogGroupOutput
+
+The CloudWatch Log Group configuration for output records.
+
+---
+
+##### `logGroupTemplate`<sup>Optional</sup> <a name="logGroupTemplate" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.logGroupTemplate"></a>
+
+```typescript
+public readonly logGroupTemplate: string;
+```
+
+- *Type:* string
+
+Template for Log Group name using Fluent Bit record_accessor syntax.
+
+This field is optional and if configured it overrides the configured Log
+Group.
+
+If the template translation fails, an error is logged and the provided
+Log Group (which is still required) is used instead.
+
+> [[Fluent Bit record accessor snytax](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/record-accessor)]([Fluent Bit record accessor snytax](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/record-accessor))
+
+---
+
+##### `logKey`<sup>Optional</sup> <a name="logKey" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.logKey"></a>
+
+```typescript
+public readonly logKey: string;
+```
+
+- *Type:* string
+
+By default, the whole log record will be sent to CloudWatch.
+
+If you
+specify a key name with this option, then only the value of that key
+will be sent to CloudWatch.
+
+---
+
+##### `logRetention`<sup>Optional</sup> <a name="logRetention" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.logRetention"></a>
+
+```typescript
+public readonly logRetention: RetentionDays;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.RetentionDays
+
+If set to a number greater than zero, and newly create log group's retention policy is set to this many days.
+
+---
+
+##### `logStream`<sup>Optional</sup> <a name="logStream" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.logStream"></a>
+
+```typescript
+public readonly logStream: FluentBitLogStreamOutput;
+```
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitLogStreamOutput
+
+The CloudWatch LogStream configuration for outbound records.
+
+---
+
+##### `logStreamTemplate`<sup>Optional</sup> <a name="logStreamTemplate" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.logStreamTemplate"></a>
+
+```typescript
+public readonly logStreamTemplate: string;
+```
+
+- *Type:* string
+
+Template for Log Stream name using Fluent Bit record accessor syntax.
+
+This field is optional and if configured it overrides the other log
+stream options. If the template translation fails, an error is logged
+and the logStream or logStreamPrefix are used instead (and thus one of
+those fields is still required to be configured).
+
+> [[Fluent Bit record accessor snytax](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/record-accessor)]([Fluent Bit record accessor snytax](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/record-accessor))
+
+---
+
+##### `metricDimensions`<sup>Optional</sup> <a name="metricDimensions" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.metricDimensions"></a>
+
+```typescript
+public readonly metricDimensions: string[];
+```
+
+- *Type:* string[]
+
+A list of lists containing the dimension keys that will be applied to all metrics.
+
+The values within a dimension set MUST also be members on
+the root-node.
+
+> [[Dimensions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension)]([Dimensions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension))
+
+---
+
+##### `metricNamespace`<sup>Optional</sup> <a name="metricNamespace" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.metricNamespace"></a>
+
+```typescript
+public readonly metricNamespace: string;
+```
+
+- *Type:* string
+
+An optional string representing the CloudWatch namespace for the metrics.
+
+> [[Metric Tutorial](https://docs.fluentbit.io/manual/pipeline/outputs/cloudwatch#metrics-tutorial)]([Metric Tutorial](https://docs.fluentbit.io/manual/pipeline/outputs/cloudwatch#metrics-tutorial))
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+
+The AWS region.
+
+---
+
+##### `role`<sup>Optional</sup> <a name="role" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+ARN of an IAM role to assume (for cross account access).
+
+---
+
+##### `stsEndpoint`<sup>Optional</sup> <a name="stsEndpoint" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions.property.stsEndpoint"></a>
+
+```typescript
+public readonly stsEndpoint: string;
+```
+
+- *Type:* string
+
+Specify a custom STS endpoint for the AWS STS API.
+
+---
+
+### FluentBitElasticsearchOutputOptions <a name="FluentBitElasticsearchOutputOptions" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions"></a>
+
+Options for configuring the Elasticsearch Fluent Bit output plugin.
+
+> [[Opensearch Plugin Documention](https://docs.fluentbit.io/manual/pipeline/outputs/elasticsearch)]([Opensearch Plugin Documention](https://docs.fluentbit.io/manual/pipeline/outputs/elasticsearch))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitElasticsearchOutputOptions: k8s_aws.FluentBitElasticsearchOutputOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.host">host</a></code> | <code>string</code> | IP address or hostname of the target Elasticsearch instance. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.awsAuth">awsAuth</a></code> | <code>boolean</code> | Enable AWS Sigv4 Authentication for Amazon Elasticsearch Service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.awsExternalId">awsExternalId</a></code> | <code>string</code> | External ID for the AWS IAM Role specified with `awsRole`. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.awsRegion">awsRegion</a></code> | <code>string</code> | Specify the AWS region for Elasticsearch Service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.awsRole">awsRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | AWS IAM Role to assume to put records to your Amazon cluster. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.awsStsEndpoint">awsStsEndpoint</a></code> | <code>string</code> | Specify the custom sts endpoint to be used with STS API for Amazon Elasticsearch Service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.bufferSize">bufferSize</a></code> | <code>cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize</code> | Specify the buffer size used to read the response from the Elasticsearch HTTP service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.cloudAuth">cloudAuth</a></code> | <code>string</code> | Specify the credentials to use to connect to Elastic's Elasticsearch Service running on Elastic Cloud. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.cloudId">cloudId</a></code> | <code>string</code> | If you are using Elastic's Elasticsearch Service you can specify the cloud_id of the cluster running. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.compress">compress</a></code> | <code>cdk-extensions.k8s_aws.ElasticsearchCompressionFormat</code> | Set payload compression mechanism. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.currentTimeIndex">currentTimeIndex</a></code> | <code>boolean</code> | Use current time for index generation instead of message record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.generateId">generateId</a></code> | <code>boolean</code> | When enabled, generate `_id` for outgoing records. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.httpPasswd">httpPasswd</a></code> | <code>string</code> | Password for user defined in `httpUser`. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.httpUser">httpUser</a></code> | <code>string</code> | Optional username credential for access. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.idKey">idKey</a></code> | <code>string</code> | If set, `_id` will be the value of the key from incoming record and `generateId` option is ignored. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.includeTagKey">includeTagKey</a></code> | <code>boolean</code> | When enabled, it append the Tag name to the record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.index">index</a></code> | <code>string</code> | Index name. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.logstashDateFormat">logstashDateFormat</a></code> | <code>string</code> | Time format (based on strftime) to generate the second part of the Index name. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.logstashFormat">logstashFormat</a></code> | <code>boolean</code> | Enable Logstash format compatibility. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.logstashPrefix">logstashPrefix</a></code> | <code>string</code> | When `logstashFormat` is enabled, the Index name is composed using a prefix and the date, e.g: If `logstashPrefix` is equals to 'mydata' your index will become 'mydata-YYYY.MM.DD'. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.logstashPrefixKey">logstashPrefixKey</a></code> | <code>string</code> | When included: the value in the record that belongs to the key will be looked up and over-write the `logstashPrefix` for index generation. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.path">path</a></code> | <code>string</code> | Elasticsearch accepts new data on HTTP query path "/_bulk". |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.pipeline">pipeline</a></code> | <code>string</code> | Elasticsearch allows to setup filters called pipelines. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.port">port</a></code> | <code>number</code> | TCP port of the target Elasticsearch instance. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.replaceDots">replaceDots</a></code> | <code>boolean</code> | When enabled, replace field name dots with underscore. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.suppressTypeName">suppressTypeName</a></code> | <code>boolean</code> | When enabled, mapping types is removed and `type` option is ignored. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.tagKey">tagKey</a></code> | <code>string</code> | When `includeTagKey` is enabled, this property defines the key name for the tag. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.timeKey">timeKey</a></code> | <code>string</code> | When `logstashFormat` is enabled, each record will get a new timestamp field. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.timeKeyFormat">timeKeyFormat</a></code> | <code>string</code> | When `logstashFormat` is enabled, this property defines the format of the timestamp. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.timeKeyNanos">timeKeyNanos</a></code> | <code>boolean</code> | When `logstashFormat` is enabled, enabling this property sends nanosecond precision timestamps. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.traceError">traceError</a></code> | <code>boolean</code> | When enabled print the Elasticsearch API calls to stdout when Elasticsearch returns an error (for diag only). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.traceOutput">traceOutput</a></code> | <code>boolean</code> | When enabled print the Elasticsearch API calls to stdout (for diag only). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.type">type</a></code> | <code>string</code> | Type name. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.workers">workers</a></code> | <code>number</code> | Enables dedicated thread(s) for this output. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.writeOperation">writeOperation</a></code> | <code>string</code> | Operation to use to write in bulk requests. |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `host`<sup>Required</sup> <a name="host" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.host"></a>
+
+```typescript
+public readonly host: string;
+```
+
+- *Type:* string
+
+IP address or hostname of the target Elasticsearch instance.
+
+---
+
+##### `awsAuth`<sup>Optional</sup> <a name="awsAuth" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.awsAuth"></a>
+
+```typescript
+public readonly awsAuth: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Enable AWS Sigv4 Authentication for Amazon Elasticsearch Service.
+
+---
+
+##### `awsExternalId`<sup>Optional</sup> <a name="awsExternalId" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.awsExternalId"></a>
+
+```typescript
+public readonly awsExternalId: string;
+```
+
+- *Type:* string
+
+External ID for the AWS IAM Role specified with `awsRole`.
+
+---
+
+##### `awsRegion`<sup>Optional</sup> <a name="awsRegion" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.awsRegion"></a>
+
+```typescript
+public readonly awsRegion: string;
+```
+
+- *Type:* string
+
+Specify the AWS region for Elasticsearch Service.
+
+---
+
+##### `awsRole`<sup>Optional</sup> <a name="awsRole" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.awsRole"></a>
+
+```typescript
+public readonly awsRole: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+AWS IAM Role to assume to put records to your Amazon cluster.
+
+---
+
+##### `awsStsEndpoint`<sup>Optional</sup> <a name="awsStsEndpoint" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.awsStsEndpoint"></a>
+
+```typescript
+public readonly awsStsEndpoint: string;
+```
+
+- *Type:* string
+
+Specify the custom sts endpoint to be used with STS API for Amazon Elasticsearch Service.
+
+---
+
+##### `bufferSize`<sup>Optional</sup> <a name="bufferSize" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.bufferSize"></a>
+
+```typescript
+public readonly bufferSize: ElasticsearchOutputBufferSize;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize
+
+Specify the buffer size used to read the response from the Elasticsearch HTTP service.
+
+This option is useful for debugging purposes where is
+required to read full responses, note that response size grows depending
+of the number of records inserted.
+
+---
+
+##### `cloudAuth`<sup>Optional</sup> <a name="cloudAuth" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.cloudAuth"></a>
+
+```typescript
+public readonly cloudAuth: string;
+```
+
+- *Type:* string
+
+Specify the credentials to use to connect to Elastic's Elasticsearch Service running on Elastic Cloud.
+
+---
+
+##### `cloudId`<sup>Optional</sup> <a name="cloudId" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.cloudId"></a>
+
+```typescript
+public readonly cloudId: string;
+```
+
+- *Type:* string
+
+If you are using Elastic's Elasticsearch Service you can specify the cloud_id of the cluster running.
+
+---
+
+##### `compress`<sup>Optional</sup> <a name="compress" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.compress"></a>
+
+```typescript
+public readonly compress: ElasticsearchCompressionFormat;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ElasticsearchCompressionFormat
+
+Set payload compression mechanism.
+
+---
+
+##### `currentTimeIndex`<sup>Optional</sup> <a name="currentTimeIndex" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.currentTimeIndex"></a>
+
+```typescript
+public readonly currentTimeIndex: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use current time for index generation instead of message record.
+
+---
+
+##### `generateId`<sup>Optional</sup> <a name="generateId" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.generateId"></a>
+
+```typescript
+public readonly generateId: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, generate `_id` for outgoing records.
+
+This prevents duplicate
+records when retrying.
+
+---
+
+##### `httpPasswd`<sup>Optional</sup> <a name="httpPasswd" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.httpPasswd"></a>
+
+```typescript
+public readonly httpPasswd: string;
+```
+
+- *Type:* string
+
+Password for user defined in `httpUser`.
+
+---
+
+##### `httpUser`<sup>Optional</sup> <a name="httpUser" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.httpUser"></a>
+
+```typescript
+public readonly httpUser: string;
+```
+
+- *Type:* string
+
+Optional username credential for access.
+
+---
+
+##### `idKey`<sup>Optional</sup> <a name="idKey" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.idKey"></a>
+
+```typescript
+public readonly idKey: string;
+```
+
+- *Type:* string
+
+If set, `_id` will be the value of the key from incoming record and `generateId` option is ignored.
+
+---
+
+##### `includeTagKey`<sup>Optional</sup> <a name="includeTagKey" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.includeTagKey"></a>
+
+```typescript
+public readonly includeTagKey: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, it append the Tag name to the record.
+
+---
+
+##### `index`<sup>Optional</sup> <a name="index" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.index"></a>
+
+```typescript
+public readonly index: string;
+```
+
+- *Type:* string
+- *Default:* 'fluent-bit
+
+Index name.
+
+---
+
+##### `logstashDateFormat`<sup>Optional</sup> <a name="logstashDateFormat" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.logstashDateFormat"></a>
+
+```typescript
+public readonly logstashDateFormat: string;
+```
+
+- *Type:* string
+- *Default:* '%Y.%m.%d'
+
+Time format (based on strftime) to generate the second part of the Index name.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `logstashFormat`<sup>Optional</sup> <a name="logstashFormat" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.logstashFormat"></a>
+
+```typescript
+public readonly logstashFormat: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Enable Logstash format compatibility.
+
+---
+
+##### `logstashPrefix`<sup>Optional</sup> <a name="logstashPrefix" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.logstashPrefix"></a>
+
+```typescript
+public readonly logstashPrefix: string;
+```
+
+- *Type:* string
+- *Default:* 'logstash'
+
+When `logstashFormat` is enabled, the Index name is composed using a prefix and the date, e.g: If `logstashPrefix` is equals to 'mydata' your index will become 'mydata-YYYY.MM.DD'.
+
+The last string appended belongs to the date when the data is being
+generated.
+
+---
+
+##### `logstashPrefixKey`<sup>Optional</sup> <a name="logstashPrefixKey" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.logstashPrefixKey"></a>
+
+```typescript
+public readonly logstashPrefixKey: string;
+```
+
+- *Type:* string
+
+When included: the value in the record that belongs to the key will be looked up and over-write the `logstashPrefix` for index generation.
+
+If
+the key/value is not found in the record then the `logstashPrefix` option
+will act as a fallback.
+
+Nested keys are not supported (if desired, you can use the nest filter
+plugin to remove nesting)
+
+---
+
+##### `path`<sup>Optional</sup> <a name="path" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.path"></a>
+
+```typescript
+public readonly path: string;
+```
+
+- *Type:* string
+
+Elasticsearch accepts new data on HTTP query path "/_bulk".
+
+But it is
+also possible to serve Elasticsearch behind a reverse proxy on a
+subpath. This option defines such path on the fluent-bit side. It
+simply adds a path prefix in the indexing HTTP POST URI..
+
+---
+
+##### `pipeline`<sup>Optional</sup> <a name="pipeline" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.pipeline"></a>
+
+```typescript
+public readonly pipeline: string;
+```
+
+- *Type:* string
+
+Elasticsearch allows to setup filters called pipelines.
+
+This option
+allows to define which pipeline the database should use.
+
+---
+
+##### `port`<sup>Optional</sup> <a name="port" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.port"></a>
+
+```typescript
+public readonly port: number;
+```
+
+- *Type:* number
+- *Default:* 9200
+
+TCP port of the target Elasticsearch instance.
+
+---
+
+##### `replaceDots`<sup>Optional</sup> <a name="replaceDots" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.replaceDots"></a>
+
+```typescript
+public readonly replaceDots: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When enabled, replace field name dots with underscore.
+
+---
+
+##### `suppressTypeName`<sup>Optional</sup> <a name="suppressTypeName" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.suppressTypeName"></a>
+
+```typescript
+public readonly suppressTypeName: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When enabled, mapping types is removed and `type` option is ignored.
+
+---
+
+##### `tagKey`<sup>Optional</sup> <a name="tagKey" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.tagKey"></a>
+
+```typescript
+public readonly tagKey: string;
+```
+
+- *Type:* string
+- *Default:* '_flb-key'
+
+When `includeTagKey` is enabled, this property defines the key name for the tag.
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+- *Default:* '
+
+When `logstashFormat` is enabled, each record will get a new timestamp field.
+
+The`timeKey` property defines the name of that field.
+
+---
+
+##### `timeKeyFormat`<sup>Optional</sup> <a name="timeKeyFormat" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.timeKeyFormat"></a>
+
+```typescript
+public readonly timeKeyFormat: string;
+```
+
+- *Type:* string
+- *Default:* '%Y-%m-%dT%H:%M:%S'
+
+When `logstashFormat` is enabled, this property defines the format of the timestamp.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `timeKeyNanos`<sup>Optional</sup> <a name="timeKeyNanos" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.timeKeyNanos"></a>
+
+```typescript
+public readonly timeKeyNanos: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When `logstashFormat` is enabled, enabling this property sends nanosecond precision timestamps.
+
+---
+
+##### `traceError`<sup>Optional</sup> <a name="traceError" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.traceError"></a>
+
+```typescript
+public readonly traceError: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When enabled print the Elasticsearch API calls to stdout when Elasticsearch returns an error (for diag only).
+
+---
+
+##### `traceOutput`<sup>Optional</sup> <a name="traceOutput" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.traceOutput"></a>
+
+```typescript
+public readonly traceOutput: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When enabled print the Elasticsearch API calls to stdout (for diag only).
+
+---
+
+##### `type`<sup>Optional</sup> <a name="type" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.type"></a>
+
+```typescript
+public readonly type: string;
+```
+
+- *Type:* string
+- *Default:* '_doc'
+
+Type name.
+
+---
+
+##### `workers`<sup>Optional</sup> <a name="workers" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.workers"></a>
+
+```typescript
+public readonly workers: number;
+```
+
+- *Type:* number
+- *Default:* 2
+
+Enables dedicated thread(s) for this output.
+
+---
+
+##### `writeOperation`<sup>Optional</sup> <a name="writeOperation" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions.property.writeOperation"></a>
+
+```typescript
+public readonly writeOperation: string;
+```
+
+- *Type:* string
+- *Default:* 'create'
+
+Operation to use to write in bulk requests.
+
+---
+
+### FluentBitFilterPluginCommonOptions <a name="FluentBitFilterPluginCommonOptions" id="cdk-extensions.k8s_aws.FluentBitFilterPluginCommonOptions"></a>
+
+Configuration options that apply to all Fluent Bit output plugins.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitFilterPluginCommonOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitFilterPluginCommonOptions: k8s_aws.FluentBitFilterPluginCommonOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilterPluginCommonOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilterPluginCommonOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+### FluentBitGrepFilterOptions <a name="FluentBitGrepFilterOptions" id="cdk-extensions.k8s_aws.FluentBitGrepFilterOptions"></a>
+
+Options for configuring the Grep Fluent Bit filter plugin.
+
+> [[Grep Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/grep)]([Grep Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/grep))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitGrepFilterOptions: k8s_aws.FluentBitGrepFilterOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.exclude">exclude</a></code> | <code>cdk-extensions.k8s_aws.FluentBitGrepRegex</code> | Exclude records in which the content of KEY matches the regular expression. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.regex">regex</a></code> | <code>cdk-extensions.k8s_aws.FluentBitGrepRegex</code> | Keep records in which the content of KEY matches the regular expression. |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `exclude`<sup>Optional</sup> <a name="exclude" id="cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.exclude"></a>
+
+```typescript
+public readonly exclude: FluentBitGrepRegex;
+```
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitGrepRegex
+
+Exclude records in which the content of KEY matches the regular expression.
+
+---
+
+##### `regex`<sup>Optional</sup> <a name="regex" id="cdk-extensions.k8s_aws.FluentBitGrepFilterOptions.property.regex"></a>
+
+```typescript
+public readonly regex: FluentBitGrepRegex;
+```
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitGrepRegex
+
+Keep records in which the content of KEY matches the regular expression.
+
+---
+
+### FluentBitGrepRegex <a name="FluentBitGrepRegex" id="cdk-extensions.k8s_aws.FluentBitGrepRegex"></a>
+
+Configures a pattern to match against a Fluent Bit record.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitGrepRegex.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitGrepRegex: k8s_aws.FluentBitGrepRegex = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepRegex.property.key">key</a></code> | <code>string</code> | The key of the fields which you want to filter using the regex. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepRegex.property.regex">regex</a></code> | <code>string</code> | The regular expression to apply to the specified field. |
+
+---
+
+##### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.FluentBitGrepRegex.property.key"></a>
+
+```typescript
+public readonly key: string;
+```
+
+- *Type:* string
+
+The key of the fields which you want to filter using the regex.
+
+---
+
+##### `regex`<sup>Required</sup> <a name="regex" id="cdk-extensions.k8s_aws.FluentBitGrepRegex.property.regex"></a>
+
+```typescript
+public readonly regex: string;
+```
+
+- *Type:* string
+
+The regular expression to apply to the specified field.
+
+---
+
+### FluentBitJsonParserOptions <a name="FluentBitJsonParserOptions" id="cdk-extensions.k8s_aws.FluentBitJsonParserOptions"></a>
+
+Options for configuring the JSON Fluent Bit parser plugin.
+
+> [[JSON Plugin Documention](https://docs.fluentbit.io/manual/pipeline/parsers/json)]([JSON Plugin Documention](https://docs.fluentbit.io/manual/pipeline/parsers/json))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitJsonParserOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitJsonParserOptions: k8s_aws.FluentBitJsonParserOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitJsonParserOptions.property.timeFormat">timeFormat</a></code> | <code>string</code> | Defines the format of the timestamp on the inbound record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitJsonParserOptions.property.timeKey">timeKey</a></code> | <code>string</code> | The key under which timestamp information for the inbound record is given. |
+
+---
+
+##### `timeFormat`<sup>Optional</sup> <a name="timeFormat" id="cdk-extensions.k8s_aws.FluentBitJsonParserOptions.property.timeFormat"></a>
+
+```typescript
+public readonly timeFormat: string;
+```
+
+- *Type:* string
+
+Defines the format of the timestamp on the inbound record.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitJsonParserOptions.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+
+The key under which timestamp information for the inbound record is given.
+
+---
+
+### FluentBitKinesisFirehoseOutputOptions <a name="FluentBitKinesisFirehoseOutputOptions" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions"></a>
+
+Options for configuring the Kinesis Firehose Fluent Bit output plugin.
+
+> [[Kinesis Firehose Plugin Documention](https://docs.fluentbit.io/manual/pipeline/outputs/firehose)]([Kinesis Firehose Plugin Documention](https://docs.fluentbit.io/manual/pipeline/outputs/firehose))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitKinesisFirehoseOutputOptions: k8s_aws.FluentBitKinesisFirehoseOutputOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.autoRetryRequests">autoRetryRequests</a></code> | <code>boolean</code> | Immediately retry failed requests to AWS services once. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.compression">compression</a></code> | <code>cdk-extensions.k8s_aws.KinesisFirehoseCompressionFormat</code> | Compression type for Firehose records. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.deliveryStream">deliveryStream</a></code> | <code>cdk-extensions.kinesis_firehose.IDeliveryStream</code> | The Kinesis Firehose Delivery stream that you want log records sent to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.endpoint">endpoint</a></code> | <code>string</code> | Specify a custom endpoint for the Firehose API. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.logKey">logKey</a></code> | <code>string</code> | By default, the whole log record will be sent to Firehose. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.region">region</a></code> | <code>string</code> | The AWS region. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | ARN of an IAM role to assume (for cross account access). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.stsEndpoint">stsEndpoint</a></code> | <code>string</code> | Specify a custom STS endpoint for the AWS STS API. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.timeKey">timeKey</a></code> | <code>string</code> | Add the timestamp to the record under this key. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.timeKeyFormat">timeKeyFormat</a></code> | <code>string</code> | A strftime compliant format string for the timestamp. |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `autoRetryRequests`<sup>Optional</sup> <a name="autoRetryRequests" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.autoRetryRequests"></a>
+
+```typescript
+public readonly autoRetryRequests: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Immediately retry failed requests to AWS services once.
+
+This option does
+not affect the normal Fluent Bit retry mechanism with backoff. Instead,
+it enables an immediate retry with no delay for networking errors, which
+may help improve throughput when there are transient/random networking
+issues.
+
+---
+
+##### `compression`<sup>Optional</sup> <a name="compression" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.compression"></a>
+
+```typescript
+public readonly compression: KinesisFirehoseCompressionFormat;
+```
+
+- *Type:* cdk-extensions.k8s_aws.KinesisFirehoseCompressionFormat
+
+Compression type for Firehose records.
+
+Each log record is individually
+compressed and sent to Firehose.
+
+---
+
+##### `deliveryStream`<sup>Optional</sup> <a name="deliveryStream" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.deliveryStream"></a>
+
+```typescript
+public readonly deliveryStream: IDeliveryStream;
+```
+
+- *Type:* cdk-extensions.kinesis_firehose.IDeliveryStream
+
+The Kinesis Firehose Delivery stream that you want log records sent to.
+
+---
+
+##### `endpoint`<sup>Optional</sup> <a name="endpoint" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.endpoint"></a>
+
+```typescript
+public readonly endpoint: string;
+```
+
+- *Type:* string
+
+Specify a custom endpoint for the Firehose API.
+
+---
+
+##### `logKey`<sup>Optional</sup> <a name="logKey" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.logKey"></a>
+
+```typescript
+public readonly logKey: string;
+```
+
+- *Type:* string
+
+By default, the whole log record will be sent to Firehose.
+
+If you
+specify a key name with this option, then only the value of that key
+will be sent to Firehose.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+
+The AWS region.
+
+---
+
+##### `role`<sup>Optional</sup> <a name="role" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+ARN of an IAM role to assume (for cross account access).
+
+---
+
+##### `stsEndpoint`<sup>Optional</sup> <a name="stsEndpoint" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.stsEndpoint"></a>
+
+```typescript
+public readonly stsEndpoint: string;
+```
+
+- *Type:* string
+
+Specify a custom STS endpoint for the AWS STS API.
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+
+Add the timestamp to the record under this key.
+
+---
+
+##### `timeKeyFormat`<sup>Optional</sup> <a name="timeKeyFormat" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions.property.timeKeyFormat"></a>
+
+```typescript
+public readonly timeKeyFormat: string;
+```
+
+- *Type:* string
+- *Default:* '%Y-%m-%dT%H:%M:%S'
+
+A strftime compliant format string for the timestamp.
+
+---
+
+### FluentBitKinesisOutputOptions <a name="FluentBitKinesisOutputOptions" id="cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions"></a>
+
+Options for configuring the Kinesis Data Streams Fluent Bit output plugin.
+
+> [[Kinesis Streams Plugin Documention](https://docs.fluentbit.io/manual/pipeline/outputs/kinesis)]([Kinesis Streams Plugin Documention](https://docs.fluentbit.io/manual/pipeline/outputs/kinesis))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitKinesisOutputOptions: k8s_aws.FluentBitKinesisOutputOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.autoRetryRequests">autoRetryRequests</a></code> | <code>boolean</code> | Immediately retry failed requests to AWS services once. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.endpoint">endpoint</a></code> | <code>string</code> | Specify a custom endpoint for the Firehose API. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.logKey">logKey</a></code> | <code>string</code> | By default, the whole log record will be sent to Firehose. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.region">region</a></code> | <code>string</code> | The AWS region. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | ARN of an IAM role to assume (for cross account access). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.stream">stream</a></code> | <code>aws-cdk-lib.aws_kinesis.IStream</code> | The name of the Kinesis Streams Delivery stream that you want log records sent to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.stsEndpoint">stsEndpoint</a></code> | <code>string</code> | Specify a custom STS endpoint for the AWS STS API. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.timeKey">timeKey</a></code> | <code>string</code> | Add the timestamp to the record under this key. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.timeKeyFormat">timeKeyFormat</a></code> | <code>string</code> | A strftime compliant format string for the timestamp. |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `autoRetryRequests`<sup>Optional</sup> <a name="autoRetryRequests" id="cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.autoRetryRequests"></a>
+
+```typescript
+public readonly autoRetryRequests: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Immediately retry failed requests to AWS services once.
+
+This option does
+not affect the normal Fluent Bit retry mechanism with backoff. Instead,
+it enables an immediate retry with no delay for networking errors, which
+may help improve throughput when there are transient/random networking
+issues.
+
+---
+
+##### `endpoint`<sup>Optional</sup> <a name="endpoint" id="cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.endpoint"></a>
+
+```typescript
+public readonly endpoint: string;
+```
+
+- *Type:* string
+
+Specify a custom endpoint for the Firehose API.
+
+---
+
+##### `logKey`<sup>Optional</sup> <a name="logKey" id="cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.logKey"></a>
+
+```typescript
+public readonly logKey: string;
+```
+
+- *Type:* string
+
+By default, the whole log record will be sent to Firehose.
+
+If you
+specify a key name with this option, then only the value of that key
+will be sent to Firehose.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+
+The AWS region.
+
+---
+
+##### `role`<sup>Optional</sup> <a name="role" id="cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+ARN of an IAM role to assume (for cross account access).
+
+---
+
+##### `stream`<sup>Optional</sup> <a name="stream" id="cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.stream"></a>
+
+```typescript
+public readonly stream: IStream;
+```
+
+- *Type:* aws-cdk-lib.aws_kinesis.IStream
+
+The name of the Kinesis Streams Delivery stream that you want log records sent to.
+
+---
+
+##### `stsEndpoint`<sup>Optional</sup> <a name="stsEndpoint" id="cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.stsEndpoint"></a>
+
+```typescript
+public readonly stsEndpoint: string;
+```
+
+- *Type:* string
+
+Specify a custom STS endpoint for the AWS STS API.
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+
+Add the timestamp to the record under this key.
+
+---
+
+##### `timeKeyFormat`<sup>Optional</sup> <a name="timeKeyFormat" id="cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions.property.timeKeyFormat"></a>
+
+```typescript
+public readonly timeKeyFormat: string;
+```
+
+- *Type:* string
+- *Default:* '%Y-%m-%dT%H:%M:%S'
+
+A strftime compliant format string for the timestamp.
+
+---
+
+### FluentBitKubernetesFilterOptions <a name="FluentBitKubernetesFilterOptions" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions"></a>
+
+Options for configuring the Kubernetes Fluent Bit filter plugin.
+
+> [[Kubernetes Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/kubernetes)]([Kubernetes Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/kubernetes))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitKubernetesFilterOptions: k8s_aws.FluentBitKubernetesFilterOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.annotations">annotations</a></code> | <code>boolean</code> | Include Kubernetes resource annotations in the extra metadata. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.bufferSize">bufferSize</a></code> | <code>cdk-extensions.core.DataSize</code> | Set the buffer size for HTTP client when reading responses from Kubernetes API server. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.cacheUseDockerId">cacheUseDockerId</a></code> | <code>boolean</code> | When enabled, metadata will be fetched from K8s when docker_id is changed. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.dnsRetries">dnsRetries</a></code> | <code>number</code> | DNS lookup retries N times until the network starts working. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.dnsWaitTime">dnsWaitTime</a></code> | <code>aws-cdk-lib.Duration</code> | DNS lookup interval between network status checks. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.dummyMeta">dummyMeta</a></code> | <code>boolean</code> | If set, use dummy-meta data (for test/dev purposes). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.k8sLoggingExclude">k8sLoggingExclude</a></code> | <code>boolean</code> | Allow Kubernetes Pods to exclude their logs from the log processor. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.k8sLoggingParser">k8sLoggingParser</a></code> | <code>boolean</code> | Allow Kubernetes Pods to suggest a pre-defined Parser. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.keepLog">keepLog</a></code> | <code>boolean</code> | When `keepLog` is disabled, the log field is removed from the incoming message once it has been successfully merged (`mergeLog` must be enabled as well). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeCaFile">kubeCaFile</a></code> | <code>string</code> | CA certificate file. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeCaPath">kubeCaPath</a></code> | <code>string</code> | Absolute path to scan for certificate files. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeletHost">kubeletHost</a></code> | <code>string</code> | Kubelet host using for HTTP request, this only works when `useKubelet` is enabled. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeletPort">kubeletPort</a></code> | <code>number</code> | Kubelet port using for HTTP request, this only works when `useKubelet` is enabled. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeMetaCacheTtl">kubeMetaCacheTtl</a></code> | <code>aws-cdk-lib.Duration</code> | Configurable TTL for K8s cached metadata. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeMetaPreloadCacheDir">kubeMetaPreloadCacheDir</a></code> | <code>string</code> | If set, Kubernetes meta-data can be cached/pre-loaded from files in JSON format in this directory, named as namespace-pod.meta. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeTagPrefix">kubeTagPrefix</a></code> | <code>string</code> | When the source records comes from Tail input plugin, this option allows to specify what's the prefix used in Tail configuration. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeTokenCommand">kubeTokenCommand</a></code> | <code>string</code> | Command to get Kubernetes authorization token. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeTokenFile">kubeTokenFile</a></code> | <code>string</code> | Token file. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeTokenTtl">kubeTokenTtl</a></code> | <code>aws-cdk-lib.Duration</code> | Configurable 'time to live' for the K8s token. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeUrl">kubeUrl</a></code> | <code>string</code> | API Server end-point. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.labels">labels</a></code> | <code>boolean</code> | Include Kubernetes resource labels in the extra metadata. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.mergeLog">mergeLog</a></code> | <code>boolean</code> | When enabled, it checks if the `log` field content is a JSON string map, if so, it append the map fields as part of the log structure. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.mergeLogKey">mergeLogKey</a></code> | <code>string</code> | When `mergeLog` is enabled, the filter tries to assume the `log` field from the incoming message is a JSON string message and make a structured representation of it at the same level of the `log` field in the map. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.mergeLogTrim">mergeLogTrim</a></code> | <code>boolean</code> | When Merge_Log is enabled, trim (remove possible \n or \r) field values. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.mergeParser">mergeParser</a></code> | <code>string</code> | Optional parser name to specify how to parse the data contained in the log key. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.regexParser">regexParser</a></code> | <code>string</code> | Set an alternative Parser to process record Tag and extract pod_name, namespace_name, container_name and docker_id. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.tlsDebug">tlsDebug</a></code> | <code>number</code> | Debug level between 0 (nothing) and 4 (every detail). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.tlsVerify">tlsVerify</a></code> | <code>boolean</code> | When enabled, turns on certificate validation when connecting to the Kubernetes API server. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.useJournal">useJournal</a></code> | <code>boolean</code> | When enabled, the filter reads logs coming in Journald format. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.useKubelet">useKubelet</a></code> | <code>boolean</code> | This is an optional feature flag to get metadata information from kubelet instead of calling Kube Server API to enhance the log. |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `annotations`<sup>Optional</sup> <a name="annotations" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.annotations"></a>
+
+```typescript
+public readonly annotations: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Include Kubernetes resource annotations in the extra metadata.
+
+---
+
+##### `bufferSize`<sup>Optional</sup> <a name="bufferSize" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.bufferSize"></a>
+
+```typescript
+public readonly bufferSize: DataSize;
+```
+
+- *Type:* cdk-extensions.core.DataSize
+- *Default:* 32k
+
+Set the buffer size for HTTP client when reading responses from Kubernetes API server.
+
+A value of 0 results in no limit, and the buffer will expand as-needed.
+
+Note that if pod specifications exceed the buffer limit, the API
+response will be discarded when retrieving metadata, and some kubernetes
+metadata will fail to be injected to the logs.
+
+---
+
+##### `cacheUseDockerId`<sup>Optional</sup> <a name="cacheUseDockerId" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.cacheUseDockerId"></a>
+
+```typescript
+public readonly cacheUseDockerId: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When enabled, metadata will be fetched from K8s when docker_id is changed.
+
+---
+
+##### `dnsRetries`<sup>Optional</sup> <a name="dnsRetries" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.dnsRetries"></a>
+
+```typescript
+public readonly dnsRetries: number;
+```
+
+- *Type:* number
+- *Default:* 6
+
+DNS lookup retries N times until the network starts working.
+
+---
+
+##### `dnsWaitTime`<sup>Optional</sup> <a name="dnsWaitTime" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.dnsWaitTime"></a>
+
+```typescript
+public readonly dnsWaitTime: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* 30 seconds
+
+DNS lookup interval between network status checks.
+
+---
+
+##### `dummyMeta`<sup>Optional</sup> <a name="dummyMeta" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.dummyMeta"></a>
+
+```typescript
+public readonly dummyMeta: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+If set, use dummy-meta data (for test/dev purposes).
+
+---
+
+##### `k8sLoggingExclude`<sup>Optional</sup> <a name="k8sLoggingExclude" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.k8sLoggingExclude"></a>
+
+```typescript
+public readonly k8sLoggingExclude: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Allow Kubernetes Pods to exclude their logs from the log processor.
+
+---
+
+##### `k8sLoggingParser`<sup>Optional</sup> <a name="k8sLoggingParser" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.k8sLoggingParser"></a>
+
+```typescript
+public readonly k8sLoggingParser: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Allow Kubernetes Pods to suggest a pre-defined Parser.
+
+---
+
+##### `keepLog`<sup>Optional</sup> <a name="keepLog" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.keepLog"></a>
+
+```typescript
+public readonly keepLog: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+When `keepLog` is disabled, the log field is removed from the incoming message once it has been successfully merged (`mergeLog` must be enabled as well).
+
+---
+
+##### `kubeCaFile`<sup>Optional</sup> <a name="kubeCaFile" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeCaFile"></a>
+
+```typescript
+public readonly kubeCaFile: string;
+```
+
+- *Type:* string
+- *Default:* '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt'
+
+CA certificate file.
+
+---
+
+##### `kubeCaPath`<sup>Optional</sup> <a name="kubeCaPath" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeCaPath"></a>
+
+```typescript
+public readonly kubeCaPath: string;
+```
+
+- *Type:* string
+
+Absolute path to scan for certificate files.
+
+---
+
+##### `kubeletHost`<sup>Optional</sup> <a name="kubeletHost" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeletHost"></a>
+
+```typescript
+public readonly kubeletHost: string;
+```
+
+- *Type:* string
+
+Kubelet host using for HTTP request, this only works when `useKubelet` is enabled.
+
+---
+
+##### `kubeletPort`<sup>Optional</sup> <a name="kubeletPort" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeletPort"></a>
+
+```typescript
+public readonly kubeletPort: number;
+```
+
+- *Type:* number
+- *Default:* 10250
+
+Kubelet port using for HTTP request, this only works when `useKubelet` is enabled.
+
+---
+
+##### `kubeMetaCacheTtl`<sup>Optional</sup> <a name="kubeMetaCacheTtl" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeMetaCacheTtl"></a>
+
+```typescript
+public readonly kubeMetaCacheTtl: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* 0
+
+Configurable TTL for K8s cached metadata.
+
+By default, it is set to 0 which means TTL for cache entries is disabled
+and cache entries are evicted at random when capacity is reached.
+
+In order to enable this option, you should set the number to a time
+interval.
+
+---
+
+##### `kubeMetaPreloadCacheDir`<sup>Optional</sup> <a name="kubeMetaPreloadCacheDir" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeMetaPreloadCacheDir"></a>
+
+```typescript
+public readonly kubeMetaPreloadCacheDir: string;
+```
+
+- *Type:* string
+
+If set, Kubernetes meta-data can be cached/pre-loaded from files in JSON format in this directory, named as namespace-pod.meta.
+
+---
+
+##### `kubeTagPrefix`<sup>Optional</sup> <a name="kubeTagPrefix" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeTagPrefix"></a>
+
+```typescript
+public readonly kubeTagPrefix: string;
+```
+
+- *Type:* string
+- *Default:* 'kube.var.log.containers.'
+
+When the source records comes from Tail input plugin, this option allows to specify what's the prefix used in Tail configuration.
+
+---
+
+##### `kubeTokenCommand`<sup>Optional</sup> <a name="kubeTokenCommand" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeTokenCommand"></a>
+
+```typescript
+public readonly kubeTokenCommand: string;
+```
+
+- *Type:* string
+
+Command to get Kubernetes authorization token.
+
+If you want to manually choose a command to get it, you can set the
+command here.
+
+For example, run running the following to get the token using aws-cli:
+
+```
+aws-iam-authenticator -i your-cluster-name token --token-only
+```
+
+This option is currently Linux-only.
+
+---
+
+##### `kubeTokenFile`<sup>Optional</sup> <a name="kubeTokenFile" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeTokenFile"></a>
+
+```typescript
+public readonly kubeTokenFile: string;
+```
+
+- *Type:* string
+- *Default:* '/var/run/secrets/kubernetes.io/serviceaccount/token'
+
+Token file.
+
+---
+
+##### `kubeTokenTtl`<sup>Optional</sup> <a name="kubeTokenTtl" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeTokenTtl"></a>
+
+```typescript
+public readonly kubeTokenTtl: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+- *Default:* 10 minutes
+
+Configurable 'time to live' for the K8s token.
+
+After this time, the token is reloaded from `kubeTokenFile` or the
+`kubeTokenCommand`.
+
+---
+
+##### `kubeUrl`<sup>Optional</sup> <a name="kubeUrl" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.kubeUrl"></a>
+
+```typescript
+public readonly kubeUrl: string;
+```
+
+- *Type:* string
+- *Default:* 'https://kubernetes.default.svc/'
+
+API Server end-point.
+
+---
+
+##### `labels`<sup>Optional</sup> <a name="labels" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.labels"></a>
+
+```typescript
+public readonly labels: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Include Kubernetes resource labels in the extra metadata.
+
+---
+
+##### `mergeLog`<sup>Optional</sup> <a name="mergeLog" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.mergeLog"></a>
+
+```typescript
+public readonly mergeLog: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When enabled, it checks if the `log` field content is a JSON string map, if so, it append the map fields as part of the log structure.
+
+---
+
+##### `mergeLogKey`<sup>Optional</sup> <a name="mergeLogKey" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.mergeLogKey"></a>
+
+```typescript
+public readonly mergeLogKey: string;
+```
+
+- *Type:* string
+
+When `mergeLog` is enabled, the filter tries to assume the `log` field from the incoming message is a JSON string message and make a structured representation of it at the same level of the `log` field in the map.
+
+Now if `mergeLogKey` is set (a string name), all the new structured
+fields taken from the original `log` content are inserted under the new
+key.
+
+---
+
+##### `mergeLogTrim`<sup>Optional</sup> <a name="mergeLogTrim" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.mergeLogTrim"></a>
+
+```typescript
+public readonly mergeLogTrim: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+When Merge_Log is enabled, trim (remove possible \n or \r) field values.
+
+---
+
+##### `mergeParser`<sup>Optional</sup> <a name="mergeParser" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.mergeParser"></a>
+
+```typescript
+public readonly mergeParser: string;
+```
+
+- *Type:* string
+
+Optional parser name to specify how to parse the data contained in the log key.
+
+Recommended use is for developers or testing only.
+
+---
+
+##### `regexParser`<sup>Optional</sup> <a name="regexParser" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.regexParser"></a>
+
+```typescript
+public readonly regexParser: string;
+```
+
+- *Type:* string
+
+Set an alternative Parser to process record Tag and extract pod_name, namespace_name, container_name and docker_id.
+
+The parser must be registered in a parsers file.
+
+> [[Parsers File](https://github.com/fluent/fluent-bit/blob/master/conf/parsers.conf)]([Parsers File](https://github.com/fluent/fluent-bit/blob/master/conf/parsers.conf))
+
+---
+
+##### `tlsDebug`<sup>Optional</sup> <a name="tlsDebug" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.tlsDebug"></a>
+
+```typescript
+public readonly tlsDebug: number;
+```
+
+- *Type:* number
+- *Default:* 1
+
+Debug level between 0 (nothing) and 4 (every detail).
+
+---
+
+##### `tlsVerify`<sup>Optional</sup> <a name="tlsVerify" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.tlsVerify"></a>
+
+```typescript
+public readonly tlsVerify: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+When enabled, turns on certificate validation when connecting to the Kubernetes API server.
+
+---
+
+##### `useJournal`<sup>Optional</sup> <a name="useJournal" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.useJournal"></a>
+
+```typescript
+public readonly useJournal: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When enabled, the filter reads logs coming in Journald format.
+
+---
+
+##### `useKubelet`<sup>Optional</sup> <a name="useKubelet" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions.property.useKubelet"></a>
+
+```typescript
+public readonly useKubelet: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+This is an optional feature flag to get metadata information from kubelet instead of calling Kube Server API to enhance the log.
+
+> [[Kube API heavy traffic issue for large cluster](https://docs.fluentbit.io/manual/pipeline/filters/kubernetes#optional-feature-using-kubelet-to-get-metadata)]([Kube API heavy traffic issue for large cluster](https://docs.fluentbit.io/manual/pipeline/filters/kubernetes#optional-feature-using-kubelet-to-get-metadata))
+
+---
+
+### FluentBitLogfmtParserOptions <a name="FluentBitLogfmtParserOptions" id="cdk-extensions.k8s_aws.FluentBitLogfmtParserOptions"></a>
+
+Options for configuring the logfmt Fluent Bit parser plugin.
+
+> [[Logfmt Plugin Documention](https://docs.fluentbit.io/manual/pipeline/parsers/logfmt)]([Logfmt Plugin Documention](https://docs.fluentbit.io/manual/pipeline/parsers/logfmt))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitLogfmtParserOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitLogfmtParserOptions: k8s_aws.FluentBitLogfmtParserOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogfmtParserOptions.property.timeFormat">timeFormat</a></code> | <code>string</code> | Defines the format of the timestamp on the inbound record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogfmtParserOptions.property.timeKey">timeKey</a></code> | <code>string</code> | The key under which timestamp information for the inbound record is given. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogfmtParserOptions.property.types">types</a></code> | <code>{[ key: string ]: cdk-extensions.k8s_aws.ParserPluginDataType}</code> | Maps group names matched by the regex to the data types they should be interpreted as. |
+
+---
+
+##### `timeFormat`<sup>Optional</sup> <a name="timeFormat" id="cdk-extensions.k8s_aws.FluentBitLogfmtParserOptions.property.timeFormat"></a>
+
+```typescript
+public readonly timeFormat: string;
+```
+
+- *Type:* string
+
+Defines the format of the timestamp on the inbound record.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitLogfmtParserOptions.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+
+The key under which timestamp information for the inbound record is given.
+
+---
+
+##### `types`<sup>Optional</sup> <a name="types" id="cdk-extensions.k8s_aws.FluentBitLogfmtParserOptions.property.types"></a>
+
+```typescript
+public readonly types: {[ key: string ]: ParserPluginDataType};
+```
+
+- *Type:* {[ key: string ]: cdk-extensions.k8s_aws.ParserPluginDataType}
+
+Maps group names matched by the regex to the data types they should be interpreted as.
+
+---
+
+### FluentBitLtsvParserOptions <a name="FluentBitLtsvParserOptions" id="cdk-extensions.k8s_aws.FluentBitLtsvParserOptions"></a>
+
+Options for configuring the LTSV Fluent Bit parser plugin.
+
+> [[LTSV Plugin Documention](https://docs.fluentbit.io/manual/pipeline/parsers/ltsv)]([LTSV Plugin Documention](https://docs.fluentbit.io/manual/pipeline/parsers/ltsv))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitLtsvParserOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitLtsvParserOptions: k8s_aws.FluentBitLtsvParserOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLtsvParserOptions.property.timeFormat">timeFormat</a></code> | <code>string</code> | Defines the format of the timestamp on the inbound record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLtsvParserOptions.property.timeKey">timeKey</a></code> | <code>string</code> | The key under which timestamp information for the inbound record is given. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLtsvParserOptions.property.types">types</a></code> | <code>{[ key: string ]: cdk-extensions.k8s_aws.ParserPluginDataType}</code> | Maps group names matched by the regex to the data types they should be interpreted as. |
+
+---
+
+##### `timeFormat`<sup>Optional</sup> <a name="timeFormat" id="cdk-extensions.k8s_aws.FluentBitLtsvParserOptions.property.timeFormat"></a>
+
+```typescript
+public readonly timeFormat: string;
+```
+
+- *Type:* string
+
+Defines the format of the timestamp on the inbound record.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitLtsvParserOptions.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+
+The key under which timestamp information for the inbound record is given.
+
+---
+
+##### `types`<sup>Optional</sup> <a name="types" id="cdk-extensions.k8s_aws.FluentBitLtsvParserOptions.property.types"></a>
+
+```typescript
+public readonly types: {[ key: string ]: ParserPluginDataType};
+```
+
+- *Type:* {[ key: string ]: cdk-extensions.k8s_aws.ParserPluginDataType}
+
+Maps group names matched by the regex to the data types they should be interpreted as.
+
+---
+
+### FluentBitModifyFilterOptions <a name="FluentBitModifyFilterOptions" id="cdk-extensions.k8s_aws.FluentBitModifyFilterOptions"></a>
+
+Options for configuring the Modify Fluent Bit filter plugin.
+
+> [[Modify Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/modify)]([Modify Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/modify))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitModifyFilterOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitModifyFilterOptions: k8s_aws.FluentBitModifyFilterOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilterOptions.property.conditions">conditions</a></code> | <code>cdk-extensions.k8s_aws.ModifyCondition[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilterOptions.property.operations">operations</a></code> | <code>cdk-extensions.k8s_aws.ModifyOperation[]</code> | *No description.* |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitModifyFilterOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `conditions`<sup>Optional</sup> <a name="conditions" id="cdk-extensions.k8s_aws.FluentBitModifyFilterOptions.property.conditions"></a>
+
+```typescript
+public readonly conditions: ModifyCondition[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.ModifyCondition[]
+
+---
+
+##### `operations`<sup>Optional</sup> <a name="operations" id="cdk-extensions.k8s_aws.FluentBitModifyFilterOptions.property.operations"></a>
+
+```typescript
+public readonly operations: ModifyOperation[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.ModifyOperation[]
+
+---
+
+### FluentBitNestFilterOptions <a name="FluentBitNestFilterOptions" id="cdk-extensions.k8s_aws.FluentBitNestFilterOptions"></a>
+
+Options for configuring the Nest Fluent Bit filter plugin.
+
+> [[Nest Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/nest)]([Nest Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/nest))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitNestFilterOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitNestFilterOptions: k8s_aws.FluentBitNestFilterOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilterOptions.property.operation">operation</a></code> | <code>cdk-extensions.k8s_aws.NestFilterOperation</code> | The operation the filter will perform. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilterOptions.property.addPrefix">addPrefix</a></code> | <code>string</code> | Prefix affected keys with this string. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilterOptions.property.removePrefix">removePrefix</a></code> | <code>string</code> | Remove prefix from affected keys if it matches this string. |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitNestFilterOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `operation`<sup>Required</sup> <a name="operation" id="cdk-extensions.k8s_aws.FluentBitNestFilterOptions.property.operation"></a>
+
+```typescript
+public readonly operation: NestFilterOperation;
+```
+
+- *Type:* cdk-extensions.k8s_aws.NestFilterOperation
+
+The operation the filter will perform.
+
+---
+
+##### `addPrefix`<sup>Optional</sup> <a name="addPrefix" id="cdk-extensions.k8s_aws.FluentBitNestFilterOptions.property.addPrefix"></a>
+
+```typescript
+public readonly addPrefix: string;
+```
+
+- *Type:* string
+
+Prefix affected keys with this string.
+
+---
+
+##### `removePrefix`<sup>Optional</sup> <a name="removePrefix" id="cdk-extensions.k8s_aws.FluentBitNestFilterOptions.property.removePrefix"></a>
+
+```typescript
+public readonly removePrefix: string;
+```
+
+- *Type:* string
+
+Remove prefix from affected keys if it matches this string.
+
+---
+
+### FluentBitOpenSearchOutputOptions <a name="FluentBitOpenSearchOutputOptions" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions"></a>
+
+Options for configuring the OpenSearch Fluent Bit output plugin.
+
+> [[OpenSearch Plugin Documention](https://docs.fluentbit.io/manual/pipeline/outputs/opensearch)]([OpenSearch Plugin Documention](https://docs.fluentbit.io/manual/pipeline/outputs/opensearch))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitOpenSearchOutputOptions: k8s_aws.FluentBitOpenSearchOutputOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.domain">domain</a></code> | <code>aws-cdk-lib.aws_opensearchservice.IDomain</code> | The Opensearch domain to which logs should be shipped. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.awsAuth">awsAuth</a></code> | <code>boolean</code> | Enable AWS Sigv4 Authentication for Amazon OpenSearch Service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.awsExternalId">awsExternalId</a></code> | <code>string</code> | External ID for the AWS IAM Role specified with `awsRole`. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.awsRegion">awsRegion</a></code> | <code>string</code> | Specify the AWS region for Amazon OpenSearch Service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.awsRole">awsRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | AWS IAM Role to assume to put records to your Amazon cluster. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.awsStsEndpoint">awsStsEndpoint</a></code> | <code>string</code> | Specify the custom sts endpoint to be used with STS API for Amazon OpenSearch Service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.bufferSize">bufferSize</a></code> | <code>cdk-extensions.k8s_aws.OpenSearchOutputBufferSize</code> | Specify the buffer size used to read the response from the OpenSearch HTTP service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.currentTimeIndex">currentTimeIndex</a></code> | <code>boolean</code> | Use current time for index generation instead of message record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.generateId">generateId</a></code> | <code>boolean</code> | When enabled, generate `_id` for outgoing records. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.host">host</a></code> | <code>string</code> | IP address or hostname of the target OpenSearch instance. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.httpPasswd">httpPasswd</a></code> | <code>string</code> | Password for user defined in `httpUser`. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.httpUser">httpUser</a></code> | <code>string</code> | Optional username credential for access. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.idKey">idKey</a></code> | <code>string</code> | If set, `_id` will be the value of the key from incoming record and `generateId` option is ignored. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.includeTagKey">includeTagKey</a></code> | <code>boolean</code> | When enabled, it append the Tag name to the record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.index">index</a></code> | <code>string</code> | Index name. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.logstashDateFormat">logstashDateFormat</a></code> | <code>string</code> | Time format (based on strftime) to generate the second part of the Index name. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.logstashFormat">logstashFormat</a></code> | <code>boolean</code> | Enable Logstash format compatibility. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.logstashPrefix">logstashPrefix</a></code> | <code>string</code> | When `logstashFormat` is enabled, the Index name is composed using a prefix and the date, e.g: If `logstashPrefix` is equals to 'mydata' your index will become 'mydata-YYYY.MM.DD'. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.logstashPrefixKey">logstashPrefixKey</a></code> | <code>string</code> | When included: the value in the record that belongs to the key will be looked up and over-write the `logstashPrefix` for index generation. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.path">path</a></code> | <code>string</code> | OpenSearch accepts new data on HTTP query path "/_bulk". |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.pipeline">pipeline</a></code> | <code>string</code> | OpenSearch allows to setup filters called pipelines. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.port">port</a></code> | <code>number</code> | TCP port of the target OpenSearch instance. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.replaceDots">replaceDots</a></code> | <code>boolean</code> | When enabled, replace field name dots with underscore. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.suppressTypeName">suppressTypeName</a></code> | <code>boolean</code> | When enabled, mapping types is removed and `type` option is ignored. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.tagKey">tagKey</a></code> | <code>string</code> | When `includeTagKey` is enabled, this property defines the key name for the tag. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.timeKey">timeKey</a></code> | <code>string</code> | When `logstashFormat` is enabled, each record will get a new timestamp field. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.timeKeyFormat">timeKeyFormat</a></code> | <code>string</code> | When `logstashFormat` is enabled, this property defines the format of the timestamp. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.timeKeyNanos">timeKeyNanos</a></code> | <code>boolean</code> | When `logstashFormat` is enabled, enabling this property sends nanosecond precision timestamps. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.traceError">traceError</a></code> | <code>boolean</code> | When enabled print the OpenSearch API calls to stdout when OpenSearch returns an error (for diag only). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.traceOutput">traceOutput</a></code> | <code>boolean</code> | When enabled print the OpenSearch API calls to stdout (for diag only). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.type">type</a></code> | <code>string</code> | Type name. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.workers">workers</a></code> | <code>number</code> | Enables dedicated thread(s) for this output. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.writeOperation">writeOperation</a></code> | <code>string</code> | Operation to use to write in bulk requests. |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `domain`<sup>Required</sup> <a name="domain" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.domain"></a>
+
+```typescript
+public readonly domain: IDomain;
+```
+
+- *Type:* aws-cdk-lib.aws_opensearchservice.IDomain
+
+The Opensearch domain to which logs should be shipped.
+
+---
+
+##### `awsAuth`<sup>Optional</sup> <a name="awsAuth" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.awsAuth"></a>
+
+```typescript
+public readonly awsAuth: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Enable AWS Sigv4 Authentication for Amazon OpenSearch Service.
+
+---
+
+##### `awsExternalId`<sup>Optional</sup> <a name="awsExternalId" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.awsExternalId"></a>
+
+```typescript
+public readonly awsExternalId: string;
+```
+
+- *Type:* string
+
+External ID for the AWS IAM Role specified with `awsRole`.
+
+---
+
+##### `awsRegion`<sup>Optional</sup> <a name="awsRegion" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.awsRegion"></a>
+
+```typescript
+public readonly awsRegion: string;
+```
+
+- *Type:* string
+
+Specify the AWS region for Amazon OpenSearch Service.
+
+---
+
+##### `awsRole`<sup>Optional</sup> <a name="awsRole" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.awsRole"></a>
+
+```typescript
+public readonly awsRole: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+AWS IAM Role to assume to put records to your Amazon cluster.
+
+---
+
+##### `awsStsEndpoint`<sup>Optional</sup> <a name="awsStsEndpoint" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.awsStsEndpoint"></a>
+
+```typescript
+public readonly awsStsEndpoint: string;
+```
+
+- *Type:* string
+
+Specify the custom sts endpoint to be used with STS API for Amazon OpenSearch Service.
+
+---
+
+##### `bufferSize`<sup>Optional</sup> <a name="bufferSize" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.bufferSize"></a>
+
+```typescript
+public readonly bufferSize: OpenSearchOutputBufferSize;
+```
+
+- *Type:* cdk-extensions.k8s_aws.OpenSearchOutputBufferSize
+
+Specify the buffer size used to read the response from the OpenSearch HTTP service.
+
+This option is useful for debugging purposes where is
+required to read full responses, note that response size grows depending
+of the number of records inserted.
+
+---
+
+##### `currentTimeIndex`<sup>Optional</sup> <a name="currentTimeIndex" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.currentTimeIndex"></a>
+
+```typescript
+public readonly currentTimeIndex: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use current time for index generation instead of message record.
+
+---
+
+##### `generateId`<sup>Optional</sup> <a name="generateId" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.generateId"></a>
+
+```typescript
+public readonly generateId: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, generate `_id` for outgoing records.
+
+This prevents duplicate
+records when retrying.
+
+---
+
+##### `host`<sup>Optional</sup> <a name="host" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.host"></a>
+
+```typescript
+public readonly host: string;
+```
+
+- *Type:* string
+
+IP address or hostname of the target OpenSearch instance.
+
+---
+
+##### `httpPasswd`<sup>Optional</sup> <a name="httpPasswd" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.httpPasswd"></a>
+
+```typescript
+public readonly httpPasswd: string;
+```
+
+- *Type:* string
+
+Password for user defined in `httpUser`.
+
+---
+
+##### `httpUser`<sup>Optional</sup> <a name="httpUser" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.httpUser"></a>
+
+```typescript
+public readonly httpUser: string;
+```
+
+- *Type:* string
+
+Optional username credential for access.
+
+---
+
+##### `idKey`<sup>Optional</sup> <a name="idKey" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.idKey"></a>
+
+```typescript
+public readonly idKey: string;
+```
+
+- *Type:* string
+
+If set, `_id` will be the value of the key from incoming record and `generateId` option is ignored.
+
+---
+
+##### `includeTagKey`<sup>Optional</sup> <a name="includeTagKey" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.includeTagKey"></a>
+
+```typescript
+public readonly includeTagKey: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, it append the Tag name to the record.
+
+---
+
+##### `index`<sup>Optional</sup> <a name="index" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.index"></a>
+
+```typescript
+public readonly index: string;
+```
+
+- *Type:* string
+- *Default:* 'fluent-bit
+
+Index name.
+
+---
+
+##### `logstashDateFormat`<sup>Optional</sup> <a name="logstashDateFormat" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.logstashDateFormat"></a>
+
+```typescript
+public readonly logstashDateFormat: string;
+```
+
+- *Type:* string
+- *Default:* '%Y.%m.%d'
+
+Time format (based on strftime) to generate the second part of the Index name.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `logstashFormat`<sup>Optional</sup> <a name="logstashFormat" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.logstashFormat"></a>
+
+```typescript
+public readonly logstashFormat: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Enable Logstash format compatibility.
+
+---
+
+##### `logstashPrefix`<sup>Optional</sup> <a name="logstashPrefix" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.logstashPrefix"></a>
+
+```typescript
+public readonly logstashPrefix: string;
+```
+
+- *Type:* string
+- *Default:* 'logstash'
+
+When `logstashFormat` is enabled, the Index name is composed using a prefix and the date, e.g: If `logstashPrefix` is equals to 'mydata' your index will become 'mydata-YYYY.MM.DD'.
+
+The last string appended belongs to the date when the data is being
+generated.
+
+---
+
+##### `logstashPrefixKey`<sup>Optional</sup> <a name="logstashPrefixKey" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.logstashPrefixKey"></a>
+
+```typescript
+public readonly logstashPrefixKey: string;
+```
+
+- *Type:* string
+
+When included: the value in the record that belongs to the key will be looked up and over-write the `logstashPrefix` for index generation.
+
+If
+the key/value is not found in the record then the `logstashPrefix` option
+will act as a fallback.
+
+Nested keys are not supported (if desired, you can use the nest filter
+plugin to remove nesting)
+
+---
+
+##### `path`<sup>Optional</sup> <a name="path" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.path"></a>
+
+```typescript
+public readonly path: string;
+```
+
+- *Type:* string
+
+OpenSearch accepts new data on HTTP query path "/_bulk".
+
+But it is also
+possible to serve OpenSearch behind a reverse proxy on a subpath. This
+option defines such path on the fluent-bit side. It simply adds a path
+prefix in the indexing HTTP POST URI..
+
+---
+
+##### `pipeline`<sup>Optional</sup> <a name="pipeline" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.pipeline"></a>
+
+```typescript
+public readonly pipeline: string;
+```
+
+- *Type:* string
+
+OpenSearch allows to setup filters called pipelines.
+
+This option allows
+to define which pipeline the database should use.
+
+---
+
+##### `port`<sup>Optional</sup> <a name="port" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.port"></a>
+
+```typescript
+public readonly port: number;
+```
+
+- *Type:* number
+- *Default:* 9200
+
+TCP port of the target OpenSearch instance.
+
+---
+
+##### `replaceDots`<sup>Optional</sup> <a name="replaceDots" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.replaceDots"></a>
+
+```typescript
+public readonly replaceDots: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When enabled, replace field name dots with underscore.
+
+---
+
+##### `suppressTypeName`<sup>Optional</sup> <a name="suppressTypeName" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.suppressTypeName"></a>
+
+```typescript
+public readonly suppressTypeName: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When enabled, mapping types is removed and `type` option is ignored.
+
+---
+
+##### `tagKey`<sup>Optional</sup> <a name="tagKey" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.tagKey"></a>
+
+```typescript
+public readonly tagKey: string;
+```
+
+- *Type:* string
+- *Default:* '_flb-key'
+
+When `includeTagKey` is enabled, this property defines the key name for the tag.
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+- *Default:* '
+
+When `logstashFormat` is enabled, each record will get a new timestamp field.
+
+The`timeKey` property defines the name of that field.
+
+---
+
+##### `timeKeyFormat`<sup>Optional</sup> <a name="timeKeyFormat" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.timeKeyFormat"></a>
+
+```typescript
+public readonly timeKeyFormat: string;
+```
+
+- *Type:* string
+- *Default:* '%Y-%m-%dT%H:%M:%S'
+
+When `logstashFormat` is enabled, this property defines the format of the timestamp.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `timeKeyNanos`<sup>Optional</sup> <a name="timeKeyNanos" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.timeKeyNanos"></a>
+
+```typescript
+public readonly timeKeyNanos: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When `logstashFormat` is enabled, enabling this property sends nanosecond precision timestamps.
+
+---
+
+##### `traceError`<sup>Optional</sup> <a name="traceError" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.traceError"></a>
+
+```typescript
+public readonly traceError: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When enabled print the OpenSearch API calls to stdout when OpenSearch returns an error (for diag only).
+
+---
+
+##### `traceOutput`<sup>Optional</sup> <a name="traceOutput" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.traceOutput"></a>
+
+```typescript
+public readonly traceOutput: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When enabled print the OpenSearch API calls to stdout (for diag only).
+
+---
+
+##### `type`<sup>Optional</sup> <a name="type" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.type"></a>
+
+```typescript
+public readonly type: string;
+```
+
+- *Type:* string
+- *Default:* '_doc'
+
+Type name.
+
+---
+
+##### `workers`<sup>Optional</sup> <a name="workers" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.workers"></a>
+
+```typescript
+public readonly workers: number;
+```
+
+- *Type:* number
+- *Default:* 2
+
+Enables dedicated thread(s) for this output.
+
+---
+
+##### `writeOperation`<sup>Optional</sup> <a name="writeOperation" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions.property.writeOperation"></a>
+
+```typescript
+public readonly writeOperation: string;
+```
+
+- *Type:* string
+- *Default:* 'create'
+
+Operation to use to write in bulk requests.
+
+---
+
+### FluentBitOutputPluginCommonOptions <a name="FluentBitOutputPluginCommonOptions" id="cdk-extensions.k8s_aws.FluentBitOutputPluginCommonOptions"></a>
+
+Configuration options that apply to all Fluent Bit output plugins.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitOutputPluginCommonOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitOutputPluginCommonOptions: k8s_aws.FluentBitOutputPluginCommonOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutputPluginCommonOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOutputPluginCommonOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+### FluentBitParserFilterOptions <a name="FluentBitParserFilterOptions" id="cdk-extensions.k8s_aws.FluentBitParserFilterOptions"></a>
+
+Options for configuring the Parser Fluent Bit filter plugin.
+
+> [[Parser Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/parser)]([Parser Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/parser))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitParserFilterOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitParserFilterOptions: k8s_aws.FluentBitParserFilterOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.keyName">keyName</a></code> | <code>string</code> | Specify field name in record to parse. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.parsers">parsers</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitParserPlugin[]</code> | The parsers to use to interpret the field. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.preserveKey">preserveKey</a></code> | <code>boolean</code> | Keep original `keyName` field in the parsed result. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.reserveData">reserveData</a></code> | <code>boolean</code> | Keep all other original fields in the parsed result. |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `keyName`<sup>Optional</sup> <a name="keyName" id="cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.keyName"></a>
+
+```typescript
+public readonly keyName: string;
+```
+
+- *Type:* string
+
+Specify field name in record to parse.
+
+---
+
+##### `parsers`<sup>Optional</sup> <a name="parsers" id="cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.parsers"></a>
+
+```typescript
+public readonly parsers: IFluentBitParserPlugin[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitParserPlugin[]
+
+The parsers to use to interpret the field.
+
+---
+
+##### `preserveKey`<sup>Optional</sup> <a name="preserveKey" id="cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.preserveKey"></a>
+
+```typescript
+public readonly preserveKey: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Keep original `keyName` field in the parsed result.
+
+If `false`, the field will be removed.
+
+---
+
+##### `reserveData`<sup>Optional</sup> <a name="reserveData" id="cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.reserveData"></a>
+
+```typescript
+public readonly reserveData: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Keep all other original fields in the parsed result.
+
+If `false`, all other original fields will be removed.
+
+---
+
+### FluentBitParserPluginCommonOptions <a name="FluentBitParserPluginCommonOptions" id="cdk-extensions.k8s_aws.FluentBitParserPluginCommonOptions"></a>
+
+Configuration options that apply to all Fluent Bit parser plugins.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitParserPluginCommonOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitParserPluginCommonOptions: k8s_aws.FluentBitParserPluginCommonOptions = { ... }
+```
+
+
+### FluentBitPluginCommonOptions <a name="FluentBitPluginCommonOptions" id="cdk-extensions.k8s_aws.FluentBitPluginCommonOptions"></a>
+
+Options that are applicable to all Fluent Bit Plugins regardless of type.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitPluginCommonOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitPluginCommonOptions: k8s_aws.FluentBitPluginCommonOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitPluginCommonOptions.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitPluginCommonOptions.property.pluginType">pluginType</a></code> | <code>cdk-extensions.k8s_aws.FluentBitPluginType</code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitPluginCommonOptions.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitPluginCommonOptions.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: FluentBitPluginType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitPluginType
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+---
+
+### FluentBitRecordModifierFilterOptions <a name="FluentBitRecordModifierFilterOptions" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions"></a>
+
+Options for configuring the Record Modifier Fluent Bit filter plugin.
+
+> [[Record Modifier Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/record-modifier)]([Record Modifier Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/record-modifier))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitRecordModifierFilterOptions: k8s_aws.FluentBitRecordModifierFilterOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.property.allow">allow</a></code> | <code>string[]</code> | If a tag is not match, that field is removed. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.property.records">records</a></code> | <code>cdk-extensions.k8s_aws.AppendedRecord[]</code> | Add fields to the output. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.property.remove">remove</a></code> | <code>string[]</code> | If a tag is match, that field is removed. |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `allow`<sup>Optional</sup> <a name="allow" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.property.allow"></a>
+
+```typescript
+public readonly allow: string[];
+```
+
+- *Type:* string[]
+
+If a tag is not match, that field is removed.
+
+---
+
+##### `records`<sup>Optional</sup> <a name="records" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.property.records"></a>
+
+```typescript
+public readonly records: AppendedRecord[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.AppendedRecord[]
+
+Add fields to the output.
+
+---
+
+##### `remove`<sup>Optional</sup> <a name="remove" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions.property.remove"></a>
+
+```typescript
+public readonly remove: string[];
+```
+
+- *Type:* string[]
+
+If a tag is match, that field is removed.
+
+---
+
+### FluentBitRegexParserOptions <a name="FluentBitRegexParserOptions" id="cdk-extensions.k8s_aws.FluentBitRegexParserOptions"></a>
+
+Options for configuring the Regex Fluent Bit parser plugin.
+
+> [[Regex Plugin Documention](https://docs.fluentbit.io/manual/pipeline/parsers/regular-expression)]([Regex Plugin Documention](https://docs.fluentbit.io/manual/pipeline/parsers/regular-expression))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitRegexParserOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitRegexParserOptions: k8s_aws.FluentBitRegexParserOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParserOptions.property.regex">regex</a></code> | <code>string</code> | The regular expression to use to parse the incoming records. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParserOptions.property.skipEmptyValues">skipEmptyValues</a></code> | <code>boolean</code> | If enabled, the parser ignores empty value of the record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParserOptions.property.timeFormat">timeFormat</a></code> | <code>string</code> | Defines the format of the timestamp on the inbound record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParserOptions.property.timeKey">timeKey</a></code> | <code>string</code> | The key under which timestamp information for the inbound record is given. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParserOptions.property.types">types</a></code> | <code>{[ key: string ]: cdk-extensions.k8s_aws.ParserPluginDataType}</code> | Maps group names matched by the regex to the data types they should be interpreted as. |
+
+---
+
+##### `regex`<sup>Required</sup> <a name="regex" id="cdk-extensions.k8s_aws.FluentBitRegexParserOptions.property.regex"></a>
+
+```typescript
+public readonly regex: string;
+```
+
+- *Type:* string
+
+The regular expression to use to parse the incoming records.
+
+Use regex group names to define the name of fields being captured.
+
+---
+
+##### `skipEmptyValues`<sup>Optional</sup> <a name="skipEmptyValues" id="cdk-extensions.k8s_aws.FluentBitRegexParserOptions.property.skipEmptyValues"></a>
+
+```typescript
+public readonly skipEmptyValues: boolean;
+```
+
+- *Type:* boolean
+
+If enabled, the parser ignores empty value of the record.
+
+---
+
+##### `timeFormat`<sup>Optional</sup> <a name="timeFormat" id="cdk-extensions.k8s_aws.FluentBitRegexParserOptions.property.timeFormat"></a>
+
+```typescript
+public readonly timeFormat: string;
+```
+
+- *Type:* string
+
+Defines the format of the timestamp on the inbound record.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitRegexParserOptions.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+
+The key under which timestamp information for the inbound record is given.
+
+---
+
+##### `types`<sup>Optional</sup> <a name="types" id="cdk-extensions.k8s_aws.FluentBitRegexParserOptions.property.types"></a>
+
+```typescript
+public readonly types: {[ key: string ]: ParserPluginDataType};
+```
+
+- *Type:* {[ key: string ]: cdk-extensions.k8s_aws.ParserPluginDataType}
+
+Maps group names matched by the regex to the data types they should be interpreted as.
+
+---
+
+### FluentBitRewriteTagFilterOptions <a name="FluentBitRewriteTagFilterOptions" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions"></a>
+
+Options for configuring the Parser Fluent Bit filter plugin.
+
+> [[Parser Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/parser)]([Parser Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/parser))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitRewriteTagFilterOptions: k8s_aws.FluentBitRewriteTagFilterOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.emitterMemBufLimit">emitterMemBufLimit</a></code> | <code>cdk-extensions.core.DataSize</code> | Set a limit on the amount of memory the tag rewrite emitter can consume if the outputs provide backpressure. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.emitterName">emitterName</a></code> | <code>string</code> | When the filter emits a record under the new Tag, there is an internal emitter plugin that takes care of the job. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.emitterStorageType">emitterStorageType</a></code> | <code>cdk-extensions.k8s_aws.EmitterStorageType</code> | Define a buffering mechanism for the new records created. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.rules">rules</a></code> | <code>cdk-extensions.k8s_aws.RewriteTagRule[]</code> | Defines the matching criteria and the format of the Tag for the matching record. |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `emitterMemBufLimit`<sup>Optional</sup> <a name="emitterMemBufLimit" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.emitterMemBufLimit"></a>
+
+```typescript
+public readonly emitterMemBufLimit: DataSize;
+```
+
+- *Type:* cdk-extensions.core.DataSize
+- *Default:* 10M
+
+Set a limit on the amount of memory the tag rewrite emitter can consume if the outputs provide backpressure.
+
+---
+
+##### `emitterName`<sup>Optional</sup> <a name="emitterName" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.emitterName"></a>
+
+```typescript
+public readonly emitterName: string;
+```
+
+- *Type:* string
+
+When the filter emits a record under the new Tag, there is an internal emitter plugin that takes care of the job.
+
+Since this emitter expose
+metrics as any other component of the pipeline, you can use this
+property to configure an optional name for it.
+
+---
+
+##### `emitterStorageType`<sup>Optional</sup> <a name="emitterStorageType" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.emitterStorageType"></a>
+
+```typescript
+public readonly emitterStorageType: EmitterStorageType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.EmitterStorageType
+
+Define a buffering mechanism for the new records created.
+
+Note these records are part of the emitter plugin.
+
+---
+
+##### `rules`<sup>Optional</sup> <a name="rules" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions.property.rules"></a>
+
+```typescript
+public readonly rules: RewriteTagRule[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.RewriteTagRule[]
+
+Defines the matching criteria and the format of the Tag for the matching record.
+
+---
+
+### FluentBitThrottleFilterOptions <a name="FluentBitThrottleFilterOptions" id="cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions"></a>
+
+Options for configuring the Throttle Fluent Bit filter plugin.
+
+> [[Throttle Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/throttle)]([Throttle Plugin Documention](https://docs.fluentbit.io/manual/pipeline/filters/throttle))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fluentBitThrottleFilterOptions: k8s_aws.FluentBitThrottleFilterOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.interval">interval</a></code> | <code>aws-cdk-lib.Duration</code> | Time interval. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.printStatus">printStatus</a></code> | <code>boolean</code> | Whether to print status messages with current rate and the limits to information logs. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.rate">rate</a></code> | <code>number</code> | Amount of messages for the time. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.window">window</a></code> | <code>number</code> | Amount of intervals to calculate average over. |
+
+---
+
+##### `match`<sup>Optional</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `interval`<sup>Optional</sup> <a name="interval" id="cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.interval"></a>
+
+```typescript
+public readonly interval: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+Time interval.
+
+---
+
+##### `printStatus`<sup>Optional</sup> <a name="printStatus" id="cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.printStatus"></a>
+
+```typescript
+public readonly printStatus: boolean;
+```
+
+- *Type:* boolean
+
+Whether to print status messages with current rate and the limits to information logs.
+
+---
+
+##### `rate`<sup>Optional</sup> <a name="rate" id="cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.rate"></a>
+
+```typescript
+public readonly rate: number;
+```
+
+- *Type:* number
+
+Amount of messages for the time.
+
+---
+
+##### `window`<sup>Optional</sup> <a name="window" id="cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions.property.window"></a>
+
+```typescript
+public readonly window: number;
+```
+
+- *Type:* number
+- *Default:* 5
+
+Amount of intervals to calculate average over.
 
 ---
 
@@ -27013,6 +30724,36 @@ public readonly lambdaFunction: IFunction;
 
 ---
 
+### LiftOptions <a name="LiftOptions" id="cdk-extensions.k8s_aws.LiftOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.LiftOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const liftOptions: k8s_aws.LiftOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.LiftOptions.property.nestedUnder">nestedUnder</a></code> | <code>string</code> | Lift records nested under the this key. |
+
+---
+
+##### `nestedUnder`<sup>Required</sup> <a name="nestedUnder" id="cdk-extensions.k8s_aws.LiftOptions.property.nestedUnder"></a>
+
+```typescript
+public readonly nestedUnder: string;
+```
+
+- *Type:* string
+
+Lift records nested under the this key.
+
+---
+
 ### LoggingAspectOptions <a name="LoggingAspectOptions" id="cdk-extensions.s3_buckets.LoggingAspectOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.s3_buckets.LoggingAspectOptions.Initializer"></a>
@@ -27295,6 +31036,49 @@ public readonly namespace: string;
 ```
 
 - *Type:* string
+
+---
+
+### NestOptions <a name="NestOptions" id="cdk-extensions.k8s_aws.NestOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.NestOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const nestOptions: k8s_aws.NestOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.NestOptions.property.nestUnder">nestUnder</a></code> | <code>string</code> | Nest records matching `wildcard` under this key. |
+| <code><a href="#cdk-extensions.k8s_aws.NestOptions.property.wildcards">wildcards</a></code> | <code>string[]</code> | Nest records which field matches this wildcard,. |
+
+---
+
+##### `nestUnder`<sup>Required</sup> <a name="nestUnder" id="cdk-extensions.k8s_aws.NestOptions.property.nestUnder"></a>
+
+```typescript
+public readonly nestUnder: string;
+```
+
+- *Type:* string
+
+Nest records matching `wildcard` under this key.
+
+---
+
+##### `wildcards`<sup>Required</sup> <a name="wildcards" id="cdk-extensions.k8s_aws.NestOptions.property.wildcards"></a>
+
+```typescript
+public readonly wildcards: string[];
+```
+
+- *Type:* string[]
+
+Nest records which field matches this wildcard,.
 
 ---
 
@@ -28635,6 +32419,64 @@ punctuation characters, digits, and upper and lowercased letters.
 
 ---
 
+### ResolvedFluentBitConfiguration <a name="ResolvedFluentBitConfiguration" id="cdk-extensions.k8s_aws.ResolvedFluentBitConfiguration"></a>
+
+The output of a Fluent Bit configuration object for consumption be the resource configuring Fluent Bit.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.ResolvedFluentBitConfiguration.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const resolvedFluentBitConfiguration: k8s_aws.ResolvedFluentBitConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ResolvedFluentBitConfiguration.property.configFile">configFile</a></code> | <code>string</code> | The configuration rended as a configuration file that can be read by the Fluent Bit service. |
+| <code><a href="#cdk-extensions.k8s_aws.ResolvedFluentBitConfiguration.property.parsers">parsers</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitParserPlugin[]</code> | A list of parsers referenced by this plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.ResolvedFluentBitConfiguration.property.permissions">permissions</a></code> | <code>aws-cdk-lib.aws_iam.PolicyStatement[]</code> | IAM permissions required by resources that will be using this plugin. |
+
+---
+
+##### `configFile`<sup>Required</sup> <a name="configFile" id="cdk-extensions.k8s_aws.ResolvedFluentBitConfiguration.property.configFile"></a>
+
+```typescript
+public readonly configFile: string;
+```
+
+- *Type:* string
+
+The configuration rended as a configuration file that can be read by the Fluent Bit service.
+
+---
+
+##### `parsers`<sup>Optional</sup> <a name="parsers" id="cdk-extensions.k8s_aws.ResolvedFluentBitConfiguration.property.parsers"></a>
+
+```typescript
+public readonly parsers: IFluentBitParserPlugin[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitParserPlugin[]
+
+A list of parsers referenced by this plugin.
+
+---
+
+##### `permissions`<sup>Optional</sup> <a name="permissions" id="cdk-extensions.k8s_aws.ResolvedFluentBitConfiguration.property.permissions"></a>
+
+```typescript
+public readonly permissions: PolicyStatement[];
+```
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement[]
+
+IAM permissions required by resources that will be using this plugin.
+
+---
+
 ### ResourceShareProps <a name="ResourceShareProps" id="cdk-extensions.ram.ResourceShareProps"></a>
 
 Configuration for ResourceShare resource.
@@ -28801,6 +32643,96 @@ public readonly resources: ISharedResource[];
 Specifies a list of AWS resources to share with the configured principal accounts and organizations.
 
 > [[ResourceShare.ResourceArns](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-resourcearns)]([ResourceShare.ResourceArns](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-resourcearns))
+
+---
+
+### RewriteTagRule <a name="RewriteTagRule" id="cdk-extensions.k8s_aws.RewriteTagRule"></a>
+
+Defines the matching criteria and the format of the Tag for the rewrite tag Fluent Bit filter plugin.
+
+> [[Rules](https://docs.fluentbit.io/manual/pipeline/filters/rewrite-tag#rules)]([Rules](https://docs.fluentbit.io/manual/pipeline/filters/rewrite-tag#rules))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.RewriteTagRule.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const rewriteTagRule: k8s_aws.RewriteTagRule = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.RewriteTagRule.property.keep">keep</a></code> | <code>boolean</code> | If a rule matches a rule the filter will emit a copy of the record with the new defined Tag. |
+| <code><a href="#cdk-extensions.k8s_aws.RewriteTagRule.property.key">key</a></code> | <code>string</code> | The key represents the name of the record key that holds the value that we want to use to match our regular expression. |
+| <code><a href="#cdk-extensions.k8s_aws.RewriteTagRule.property.newTag">newTag</a></code> | <code>string</code> | If a regular expression has matched the value of the defined key in the rule, we are ready to compose a new Tag for that specific record. |
+| <code><a href="#cdk-extensions.k8s_aws.RewriteTagRule.property.regex">regex</a></code> | <code>string</code> | Using a simple regular expression we can specify a matching pattern to use against the value of the key specified, also we can take advantage of group capturing to create custom placeholder values. |
+
+---
+
+##### `keep`<sup>Required</sup> <a name="keep" id="cdk-extensions.k8s_aws.RewriteTagRule.property.keep"></a>
+
+```typescript
+public readonly keep: boolean;
+```
+
+- *Type:* boolean
+
+If a rule matches a rule the filter will emit a copy of the record with the new defined Tag.
+
+The property keep takes a boolean value to define if the original
+record with the old Tag must be preserved and continue in the pipeline
+or just be discarded.
+
+> [[Keep](https://docs.fluentbit.io/manual/pipeline/filters/rewrite-tag#keep)]([Keep](https://docs.fluentbit.io/manual/pipeline/filters/rewrite-tag#keep))
+
+---
+
+##### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.RewriteTagRule.property.key"></a>
+
+```typescript
+public readonly key: string;
+```
+
+- *Type:* string
+
+The key represents the name of the record key that holds the value that we want to use to match our regular expression.
+
+A key name is specified and prefixed with a `$`.
+
+> [[Key](https://docs.fluentbit.io/manual/pipeline/filters/rewrite-tag#key)]([Key](https://docs.fluentbit.io/manual/pipeline/filters/rewrite-tag#key))
+
+---
+
+##### `newTag`<sup>Required</sup> <a name="newTag" id="cdk-extensions.k8s_aws.RewriteTagRule.property.newTag"></a>
+
+```typescript
+public readonly newTag: string;
+```
+
+- *Type:* string
+
+If a regular expression has matched the value of the defined key in the rule, we are ready to compose a new Tag for that specific record.
+
+The tag is a concatenated string that can contain any of the following
+characters: `a-z,A-Z,0-9` and `.-,`.
+
+> [[New Tag](https://docs.fluentbit.io/manual/pipeline/filters/rewrite-tag#new-tag)]([New Tag](https://docs.fluentbit.io/manual/pipeline/filters/rewrite-tag#new-tag))
+
+---
+
+##### `regex`<sup>Required</sup> <a name="regex" id="cdk-extensions.k8s_aws.RewriteTagRule.property.regex"></a>
+
+```typescript
+public readonly regex: string;
+```
+
+- *Type:* string
+
+Using a simple regular expression we can specify a matching pattern to use against the value of the key specified, also we can take advantage of group capturing to create custom placeholder values.
+
+> [[Rubular regex tester](https://rubular.com/)]([Rubular regex tester](https://rubular.com/))
 
 ---
 
@@ -33033,6 +36965,362 @@ public readonly version: TableVersion;
 ---
 
 
+### DataSize <a name="DataSize" id="cdk-extensions.core.DataSize"></a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.core.DataSize.toBytes">toBytes</a></code> | Convert the DataSize object to the byte representation. |
+| <code><a href="#cdk-extensions.core.DataSize.toGibibytes">toGibibytes</a></code> | Convert the DataSize object to its gibibyte representation. |
+| <code><a href="#cdk-extensions.core.DataSize.toGigabytes">toGigabytes</a></code> | Convert the DataSize object to its gigabyte representation. |
+| <code><a href="#cdk-extensions.core.DataSize.toKibibytes">toKibibytes</a></code> | Convert the DataSize object to its kibibyte representation. |
+| <code><a href="#cdk-extensions.core.DataSize.toKilobytes">toKilobytes</a></code> | Convert the DataSize object to its kilobyte representation. |
+| <code><a href="#cdk-extensions.core.DataSize.toMebibytes">toMebibytes</a></code> | Convert the DataSize object to its mebibyte representation. |
+| <code><a href="#cdk-extensions.core.DataSize.toMegabytes">toMegabytes</a></code> | Convert the DataSize object to its megabyte representation. |
+| <code><a href="#cdk-extensions.core.DataSize.toPebibytes">toPebibytes</a></code> | Convert the DataSize object to its pebibyte representation. |
+| <code><a href="#cdk-extensions.core.DataSize.toPetabytes">toPetabytes</a></code> | Convert the DataSize object to its petabyte representation. |
+| <code><a href="#cdk-extensions.core.DataSize.toTebibytes">toTebibytes</a></code> | Convert the DataSize object to its tebibyte representation. |
+| <code><a href="#cdk-extensions.core.DataSize.toTerabytes">toTerabytes</a></code> | Convert the DataSize object to its terabyte representation. |
+
+---
+
+##### `toBytes` <a name="toBytes" id="cdk-extensions.core.DataSize.toBytes"></a>
+
+```typescript
+public toBytes(): number
+```
+
+Convert the DataSize object to the byte representation.
+
+##### `toGibibytes` <a name="toGibibytes" id="cdk-extensions.core.DataSize.toGibibytes"></a>
+
+```typescript
+public toGibibytes(): number
+```
+
+Convert the DataSize object to its gibibyte representation.
+
+If the data size doesn't fit evently into gibibytes it will be rounded
+up to the closest gibibyte which will be required to hold all the data.
+
+##### `toGigabytes` <a name="toGigabytes" id="cdk-extensions.core.DataSize.toGigabytes"></a>
+
+```typescript
+public toGigabytes(): number
+```
+
+Convert the DataSize object to its gigabyte representation.
+
+If the data size doesn't fit evently into gigabytes it will be rounded
+up to the closest gigabyte which will be required to hold all the data.
+
+##### `toKibibytes` <a name="toKibibytes" id="cdk-extensions.core.DataSize.toKibibytes"></a>
+
+```typescript
+public toKibibytes(): number
+```
+
+Convert the DataSize object to its kibibyte representation.
+
+If the data size doesn't fit evently into kibibytes it will be rounded
+up to the closest kibibyte which will be required to hold all the data.
+
+##### `toKilobytes` <a name="toKilobytes" id="cdk-extensions.core.DataSize.toKilobytes"></a>
+
+```typescript
+public toKilobytes(): number
+```
+
+Convert the DataSize object to its kilobyte representation.
+
+If the data size doesn't fit evently into kilobytes it will be rounded
+up to the closest kilobyte which will be required to hold all the data.
+
+##### `toMebibytes` <a name="toMebibytes" id="cdk-extensions.core.DataSize.toMebibytes"></a>
+
+```typescript
+public toMebibytes(): number
+```
+
+Convert the DataSize object to its mebibyte representation.
+
+If the data size doesn't fit evently into mebibytes it will be rounded
+up to the closest mebibyte which will be required to hold all the data.
+
+##### `toMegabytes` <a name="toMegabytes" id="cdk-extensions.core.DataSize.toMegabytes"></a>
+
+```typescript
+public toMegabytes(): number
+```
+
+Convert the DataSize object to its megabyte representation.
+
+If the data size doesn't fit evently into megabytes it will be rounded
+up to the closest megabyte which will be required to hold all the data.
+
+##### `toPebibytes` <a name="toPebibytes" id="cdk-extensions.core.DataSize.toPebibytes"></a>
+
+```typescript
+public toPebibytes(): number
+```
+
+Convert the DataSize object to its pebibyte representation.
+
+If the data size doesn't fit evently into pebibytes it will be rounded
+up to the closest pebibyte which will be required to hold all the data.
+
+##### `toPetabytes` <a name="toPetabytes" id="cdk-extensions.core.DataSize.toPetabytes"></a>
+
+```typescript
+public toPetabytes(): number
+```
+
+Convert the DataSize object to its petabyte representation.
+
+If the data size doesn't fit evently into petabytes it will be rounded
+up to the closest petabyte which will be required to hold all the data.
+
+##### `toTebibytes` <a name="toTebibytes" id="cdk-extensions.core.DataSize.toTebibytes"></a>
+
+```typescript
+public toTebibytes(): number
+```
+
+Convert the DataSize object to its tebibyte representation.
+
+If the data size doesn't fit evently into tebibytes it will be rounded
+up to the closest tebibyte which will be required to hold all the data.
+
+##### `toTerabytes` <a name="toTerabytes" id="cdk-extensions.core.DataSize.toTerabytes"></a>
+
+```typescript
+public toTerabytes(): number
+```
+
+Convert the DataSize object to its terabyte representation.
+
+If the data size doesn't fit evently into terabytes it will be rounded
+up to the closest terabyte which will be required to hold all the data.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.core.DataSize.bytes">bytes</a></code> | Create a `DataSize` representing an amount of bytes. |
+| <code><a href="#cdk-extensions.core.DataSize.gibibytes">gibibytes</a></code> | Create a `DataSize` representing an amount of gibibytes. |
+| <code><a href="#cdk-extensions.core.DataSize.gigabytes">gigabytes</a></code> | Create a `DataSize` representing an amount of gigabytes. |
+| <code><a href="#cdk-extensions.core.DataSize.kibibytes">kibibytes</a></code> | Create a `DataSize` representing an amount of kibibytes. |
+| <code><a href="#cdk-extensions.core.DataSize.kilobytes">kilobytes</a></code> | Create a `DataSize` representing an amount of kilobytes. |
+| <code><a href="#cdk-extensions.core.DataSize.mebibytes">mebibytes</a></code> | Create a `DataSize` representing an amount of mebibytes. |
+| <code><a href="#cdk-extensions.core.DataSize.megabytes">megabytes</a></code> | Create a `DataSize` representing an amount of megabytes. |
+| <code><a href="#cdk-extensions.core.DataSize.pebibytes">pebibytes</a></code> | Create a `DataSize` representing an amount of pebibytes. |
+| <code><a href="#cdk-extensions.core.DataSize.petabytes">petabytes</a></code> | Create a `DataSize` representing an amount of petabytes. |
+| <code><a href="#cdk-extensions.core.DataSize.tebibytes">tebibytes</a></code> | Create a `DataSize` representing an amount of tebibytes. |
+| <code><a href="#cdk-extensions.core.DataSize.terabytes">terabytes</a></code> | Create a `DataSize` representing an amount of terabytes. |
+
+---
+
+##### `bytes` <a name="bytes" id="cdk-extensions.core.DataSize.bytes"></a>
+
+```typescript
+import { core } from 'cdk-extensions'
+
+core.DataSize.bytes(bytes: number)
+```
+
+Create a `DataSize` representing an amount of bytes.
+
+###### `bytes`<sup>Required</sup> <a name="bytes" id="cdk-extensions.core.DataSize.bytes.parameter.bytes"></a>
+
+- *Type:* number
+
+The number of bytes this `DataSize` will represent.
+
+---
+
+##### `gibibytes` <a name="gibibytes" id="cdk-extensions.core.DataSize.gibibytes"></a>
+
+```typescript
+import { core } from 'cdk-extensions'
+
+core.DataSize.gibibytes(gibibytes: number)
+```
+
+Create a `DataSize` representing an amount of gibibytes.
+
+###### `gibibytes`<sup>Required</sup> <a name="gibibytes" id="cdk-extensions.core.DataSize.gibibytes.parameter.gibibytes"></a>
+
+- *Type:* number
+
+The number of gibibytes this `DataSize` will represent.
+
+---
+
+##### `gigabytes` <a name="gigabytes" id="cdk-extensions.core.DataSize.gigabytes"></a>
+
+```typescript
+import { core } from 'cdk-extensions'
+
+core.DataSize.gigabytes(gigabytes: number)
+```
+
+Create a `DataSize` representing an amount of gigabytes.
+
+###### `gigabytes`<sup>Required</sup> <a name="gigabytes" id="cdk-extensions.core.DataSize.gigabytes.parameter.gigabytes"></a>
+
+- *Type:* number
+
+The number of gigabytes this `DataSize` will represent.
+
+---
+
+##### `kibibytes` <a name="kibibytes" id="cdk-extensions.core.DataSize.kibibytes"></a>
+
+```typescript
+import { core } from 'cdk-extensions'
+
+core.DataSize.kibibytes(kibibytes: number)
+```
+
+Create a `DataSize` representing an amount of kibibytes.
+
+###### `kibibytes`<sup>Required</sup> <a name="kibibytes" id="cdk-extensions.core.DataSize.kibibytes.parameter.kibibytes"></a>
+
+- *Type:* number
+
+The number of kibibytes this `DataSize` will represent.
+
+---
+
+##### `kilobytes` <a name="kilobytes" id="cdk-extensions.core.DataSize.kilobytes"></a>
+
+```typescript
+import { core } from 'cdk-extensions'
+
+core.DataSize.kilobytes(kilobytes: number)
+```
+
+Create a `DataSize` representing an amount of kilobytes.
+
+###### `kilobytes`<sup>Required</sup> <a name="kilobytes" id="cdk-extensions.core.DataSize.kilobytes.parameter.kilobytes"></a>
+
+- *Type:* number
+
+The number of kilobytes this `DataSize` will represent.
+
+---
+
+##### `mebibytes` <a name="mebibytes" id="cdk-extensions.core.DataSize.mebibytes"></a>
+
+```typescript
+import { core } from 'cdk-extensions'
+
+core.DataSize.mebibytes(mebibytes: number)
+```
+
+Create a `DataSize` representing an amount of mebibytes.
+
+###### `mebibytes`<sup>Required</sup> <a name="mebibytes" id="cdk-extensions.core.DataSize.mebibytes.parameter.mebibytes"></a>
+
+- *Type:* number
+
+The number of mebibytes this `DataSize` will represent.
+
+---
+
+##### `megabytes` <a name="megabytes" id="cdk-extensions.core.DataSize.megabytes"></a>
+
+```typescript
+import { core } from 'cdk-extensions'
+
+core.DataSize.megabytes(megabytes: number)
+```
+
+Create a `DataSize` representing an amount of megabytes.
+
+###### `megabytes`<sup>Required</sup> <a name="megabytes" id="cdk-extensions.core.DataSize.megabytes.parameter.megabytes"></a>
+
+- *Type:* number
+
+The number of megabytes this `DataSize` will represent.
+
+---
+
+##### `pebibytes` <a name="pebibytes" id="cdk-extensions.core.DataSize.pebibytes"></a>
+
+```typescript
+import { core } from 'cdk-extensions'
+
+core.DataSize.pebibytes(pebibytes: number)
+```
+
+Create a `DataSize` representing an amount of pebibytes.
+
+###### `pebibytes`<sup>Required</sup> <a name="pebibytes" id="cdk-extensions.core.DataSize.pebibytes.parameter.pebibytes"></a>
+
+- *Type:* number
+
+The number of pebibytes this `DataSize` will represent.
+
+---
+
+##### `petabytes` <a name="petabytes" id="cdk-extensions.core.DataSize.petabytes"></a>
+
+```typescript
+import { core } from 'cdk-extensions'
+
+core.DataSize.petabytes(petabytes: number)
+```
+
+Create a `DataSize` representing an amount of petabytes.
+
+###### `petabytes`<sup>Required</sup> <a name="petabytes" id="cdk-extensions.core.DataSize.petabytes.parameter.petabytes"></a>
+
+- *Type:* number
+
+The number of petabytes this `DataSize` will represent.
+
+---
+
+##### `tebibytes` <a name="tebibytes" id="cdk-extensions.core.DataSize.tebibytes"></a>
+
+```typescript
+import { core } from 'cdk-extensions'
+
+core.DataSize.tebibytes(tebibytes: number)
+```
+
+Create a `DataSize` representing an amount of tebibytes.
+
+###### `tebibytes`<sup>Required</sup> <a name="tebibytes" id="cdk-extensions.core.DataSize.tebibytes.parameter.tebibytes"></a>
+
+- *Type:* number
+
+The number of tebibytes this `DataSize` will represent.
+
+---
+
+##### `terabytes` <a name="terabytes" id="cdk-extensions.core.DataSize.terabytes"></a>
+
+```typescript
+import { core } from 'cdk-extensions'
+
+core.DataSize.terabytes(terabytes: number)
+```
+
+Create a `DataSize` representing an amount of terabytes.
+
+###### `terabytes`<sup>Required</sup> <a name="terabytes" id="cdk-extensions.core.DataSize.terabytes.parameter.terabytes"></a>
+
+- *Type:* number
+
+The number of terabytes this `DataSize` will represent.
+
+---
+
+
+
 ### DeliveryStreamDestination <a name="DeliveryStreamDestination" id="cdk-extensions.kinesis_firehose.DeliveryStreamDestination"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.DeliveryStreamDestination.Initializer"></a>
@@ -33258,6 +37546,185 @@ public readonly retryInterval: Duration;
 
 ---
 
+
+### ElasticsearchOutputBufferSize <a name="ElasticsearchOutputBufferSize" id="cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize"></a>
+
+Represents the size of the Elasticsearch output buffer to be used by Fluent Bit.
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize.bytes">bytes</a></code> | Set the output buffer to a specified data size. |
+| <code><a href="#cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize.of">of</a></code> | An escape hatch that allows an arbitrary value to be set for the Elasticsearch buffer output property. |
+
+---
+
+##### `bytes` <a name="bytes" id="cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize.bytes"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ElasticsearchOutputBufferSize.bytes(size: DataSize)
+```
+
+Set the output buffer to a specified data size.
+
+###### `size`<sup>Required</sup> <a name="size" id="cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize.bytes.parameter.size"></a>
+
+- *Type:* cdk-extensions.core.DataSize
+
+The size of the output buffer.
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize.of"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ElasticsearchOutputBufferSize.of(value: string)
+```
+
+An escape hatch that allows an arbitrary value to be set for the Elasticsearch buffer output property.
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize.of.parameter.value"></a>
+
+- *Type:* string
+
+The value to use for the Elasticsearch buffer output property.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize.property.value">value</a></code> | <code>string</code> | The value to use for the Elasticsearch buffer output property. |
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
+
+The value to use for the Elasticsearch buffer output property.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize.property.UNLIMITED">UNLIMITED</a></code> | <code>cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize</code> | Set the output buffer size to unlimited. |
+
+---
+
+##### `UNLIMITED`<sup>Required</sup> <a name="UNLIMITED" id="cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize.property.UNLIMITED"></a>
+
+```typescript
+public readonly UNLIMITED: ElasticsearchOutputBufferSize;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize
+
+Set the output buffer size to unlimited.
+
+---
+
+### EmitterStorageType <a name="EmitterStorageType" id="cdk-extensions.k8s_aws.EmitterStorageType"></a>
+
+Define a buffering mechanism for the new records created by the rewrite tag Fluent Bit filter plugin.
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.EmitterStorageType.of">of</a></code> | An escape hatch that allows for specifying a custom value for the rewrite tag plugin's `Emitter_Storage.type` field. |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.k8s_aws.EmitterStorageType.of"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.EmitterStorageType.of(name: string)
+```
+
+An escape hatch that allows for specifying a custom value for the rewrite tag plugin's `Emitter_Storage.type` field.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.EmitterStorageType.of.parameter.name"></a>
+
+- *Type:* string
+
+The name of the buffering type to use.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.EmitterStorageType.property.name">name</a></code> | <code>string</code> | The name of the emitter storage type as it should appear in the plugin configuration file. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.EmitterStorageType.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the emitter storage type as it should appear in the plugin configuration file.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.EmitterStorageType.property.FILESYSTEM">FILESYSTEM</a></code> | <code>cdk-extensions.k8s_aws.EmitterStorageType</code> | Buffer records on the filesystem. |
+| <code><a href="#cdk-extensions.k8s_aws.EmitterStorageType.property.MEMORY">MEMORY</a></code> | <code>cdk-extensions.k8s_aws.EmitterStorageType</code> | Buffer records in memory. |
+
+---
+
+##### `FILESYSTEM`<sup>Required</sup> <a name="FILESYSTEM" id="cdk-extensions.k8s_aws.EmitterStorageType.property.FILESYSTEM"></a>
+
+```typescript
+public readonly FILESYSTEM: EmitterStorageType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.EmitterStorageType
+
+Buffer records on the filesystem.
+
+This is recommended if the destination for new records generated might
+face backpressure due to latency or slow network speeds.
+
+---
+
+##### `MEMORY`<sup>Required</sup> <a name="MEMORY" id="cdk-extensions.k8s_aws.EmitterStorageType.property.MEMORY"></a>
+
+```typescript
+public readonly MEMORY: EmitterStorageType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.EmitterStorageType
+
+Buffer records in memory.
+
+This is the default behavior.
+
+---
 
 ### ExtendedS3Destination <a name="ExtendedS3Destination" id="cdk-extensions.kinesis_firehose.ExtendedS3Destination"></a>
 
@@ -34382,6 +38849,5442 @@ Adds fields to help identify
 related AWS services and improve visibility into packet routing.
 
 ---
+
+### FluentBitCloudWatchLogsOutput <a name="FluentBitCloudWatchLogsOutput" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput"></a>
+
+Represents configuration for outputing logs from Fluent Bit to CloudWatch Logs.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitCloudWatchLogsOutput(options?: FluentBitCloudWatchLogsOutputOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions</code> | Options for configuring the output. |
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutputOptions
+
+Options for configuring the output.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logStream">logStream</a></code> | <code>cdk-extensions.k8s_aws.FluentBitLogStreamOutput</code> | The CloudWatch LogStream configuration for outbound records. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.autoCreateGroup">autoCreateGroup</a></code> | <code>boolean</code> | Automatically create the log group. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.autoRetryRequests">autoRetryRequests</a></code> | <code>boolean</code> | Immediately retry failed requests to AWS services once. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.endpoint">endpoint</a></code> | <code>string</code> | Specify a custom endpoint for the CloudWatch Logs API. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logFormat">logFormat</a></code> | <code>string</code> | An optional parameter that can be used to tell CloudWatch the format of the data. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logGroup">logGroup</a></code> | <code>cdk-extensions.k8s_aws.FluentBitLogGroupOutput</code> | The CloudWatch Log Group configuration for output records. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logGroupTemplate">logGroupTemplate</a></code> | <code>string</code> | Template for Log Group name using Fluent Bit record_accessor syntax. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logKey">logKey</a></code> | <code>string</code> | By default, the whole log record will be sent to CloudWatch. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logRetention">logRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | If set to a number greater than zero, and newly create log group's retention policy is set to this many days. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logStreamTemplate">logStreamTemplate</a></code> | <code>string</code> | Template for Log Stream name using Fluent Bit record accessor syntax. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.metricDimensions">metricDimensions</a></code> | <code>string[]</code> | A list of lists containing the dimension keys that will be applied to all metrics. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.metricNamespace">metricNamespace</a></code> | <code>string</code> | An optional string representing the CloudWatch namespace for the metrics. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.region">region</a></code> | <code>string</code> | The AWS region. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | ARN of an IAM role to assume (for cross account access). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.stsEndpoint">stsEndpoint</a></code> | <code>string</code> | Specify a custom STS endpoint for the AWS STS API. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `logStream`<sup>Required</sup> <a name="logStream" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logStream"></a>
+
+```typescript
+public readonly logStream: FluentBitLogStreamOutput;
+```
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitLogStreamOutput
+
+The CloudWatch LogStream configuration for outbound records.
+
+---
+
+##### `autoCreateGroup`<sup>Optional</sup> <a name="autoCreateGroup" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.autoCreateGroup"></a>
+
+```typescript
+public readonly autoCreateGroup: boolean;
+```
+
+- *Type:* boolean
+
+Automatically create the log group.
+
+---
+
+##### `autoRetryRequests`<sup>Optional</sup> <a name="autoRetryRequests" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.autoRetryRequests"></a>
+
+```typescript
+public readonly autoRetryRequests: boolean;
+```
+
+- *Type:* boolean
+
+Immediately retry failed requests to AWS services once.
+
+This option does
+not affect the normal Fluent Bit retry mechanism with backoff. Instead,
+it enables an immediate retry with no delay for networking errors, which
+may help improve throughput when there are transient/random networking
+issues.
+
+---
+
+##### `endpoint`<sup>Optional</sup> <a name="endpoint" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.endpoint"></a>
+
+```typescript
+public readonly endpoint: string;
+```
+
+- *Type:* string
+
+Specify a custom endpoint for the CloudWatch Logs API.
+
+---
+
+##### `logFormat`<sup>Optional</sup> <a name="logFormat" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logFormat"></a>
+
+```typescript
+public readonly logFormat: string;
+```
+
+- *Type:* string
+
+An optional parameter that can be used to tell CloudWatch the format of the data.
+
+A value of json/emf enables CloudWatch to extract custom
+metrics embedded in a JSON payload.
+
+> [[Embedded Metric Format](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html)]([Embedded Metric Format](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html))
+
+---
+
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: FluentBitLogGroupOutput;
+```
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitLogGroupOutput
+
+The CloudWatch Log Group configuration for output records.
+
+---
+
+##### `logGroupTemplate`<sup>Optional</sup> <a name="logGroupTemplate" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logGroupTemplate"></a>
+
+```typescript
+public readonly logGroupTemplate: string;
+```
+
+- *Type:* string
+
+Template for Log Group name using Fluent Bit record_accessor syntax.
+
+This field is optional and if configured it overrides the configured Log
+Group.
+
+If the template translation fails, an error is logged and the provided
+Log Group (which is still required) is used instead.
+
+> [[Fluent Bit record accessor snytax](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/record-accessor)]([Fluent Bit record accessor snytax](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/record-accessor))
+
+---
+
+##### `logKey`<sup>Optional</sup> <a name="logKey" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logKey"></a>
+
+```typescript
+public readonly logKey: string;
+```
+
+- *Type:* string
+
+By default, the whole log record will be sent to CloudWatch.
+
+If you
+specify a key name with this option, then only the value of that key
+will be sent to CloudWatch.
+
+---
+
+##### `logRetention`<sup>Optional</sup> <a name="logRetention" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logRetention"></a>
+
+```typescript
+public readonly logRetention: RetentionDays;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.RetentionDays
+
+If set to a number greater than zero, and newly create log group's retention policy is set to this many days.
+
+---
+
+##### `logStreamTemplate`<sup>Optional</sup> <a name="logStreamTemplate" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.logStreamTemplate"></a>
+
+```typescript
+public readonly logStreamTemplate: string;
+```
+
+- *Type:* string
+
+Template for Log Stream name using Fluent Bit record accessor syntax.
+
+This field is optional and if configured it overrides the other log
+stream options. If the template translation fails, an error is logged
+and the logStream or logStreamPrefix are used instead (and thus one of
+those fields is still required to be configured).
+
+> [[Fluent Bit record accessor snytax](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/record-accessor)]([Fluent Bit record accessor snytax](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/record-accessor))
+
+---
+
+##### `metricDimensions`<sup>Optional</sup> <a name="metricDimensions" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.metricDimensions"></a>
+
+```typescript
+public readonly metricDimensions: string[];
+```
+
+- *Type:* string[]
+
+A list of lists containing the dimension keys that will be applied to all metrics.
+
+The values within a dimension set MUST also be members on
+the root-node.
+
+> [[Dimensions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension)]([Dimensions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension))
+
+---
+
+##### `metricNamespace`<sup>Optional</sup> <a name="metricNamespace" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.metricNamespace"></a>
+
+```typescript
+public readonly metricNamespace: string;
+```
+
+- *Type:* string
+
+An optional string representing the CloudWatch namespace for the metrics.
+
+> [[Metric Tutorial](https://docs.fluentbit.io/manual/pipeline/outputs/cloudwatch#metrics-tutorial)]([Metric Tutorial](https://docs.fluentbit.io/manual/pipeline/outputs/cloudwatch#metrics-tutorial))
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+
+The AWS region.
+
+---
+
+##### `role`<sup>Optional</sup> <a name="role" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+ARN of an IAM role to assume (for cross account access).
+
+---
+
+##### `stsEndpoint`<sup>Optional</sup> <a name="stsEndpoint" id="cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput.property.stsEndpoint"></a>
+
+```typescript
+public readonly stsEndpoint: string;
+```
+
+- *Type:* string
+
+Specify a custom STS endpoint for the AWS STS API.
+
+---
+
+
+### FluentBitElasticsearchOutput <a name="FluentBitElasticsearchOutput" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitElasticsearchOutput(options: FluentBitElasticsearchOutputOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions</code> | Options for configuring the output. |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitElasticsearchOutputOptions
+
+Options for configuring the output.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.host">host</a></code> | <code>string</code> | IP address or hostname of the target Elasticsearch instance. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.awsAuth">awsAuth</a></code> | <code>boolean</code> | Enable AWS Sigv4 Authentication for Amazon Elasticsearch Service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.awsExternalId">awsExternalId</a></code> | <code>string</code> | External ID for the AWS IAM Role specified with `awsRole`. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.awsRegion">awsRegion</a></code> | <code>string</code> | Specify the AWS region for Elasticsearch Service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.awsRole">awsRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | AWS IAM Role to assume to put records to your Amazon cluster. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.awsStsEndpoint">awsStsEndpoint</a></code> | <code>string</code> | Specify the custom sts endpoint to be used with STS API for Amazon Elasticsearch Service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.bufferSize">bufferSize</a></code> | <code>cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize</code> | Specify the buffer size used to read the response from the Elasticsearch HTTP service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.cloudAuth">cloudAuth</a></code> | <code>string</code> | Specify the credentials to use to connect to Elastic's Elasticsearch Service running on Elastic Cloud. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.cloudId">cloudId</a></code> | <code>string</code> | If you are using Elastic's Elasticsearch Service you can specify the cloud_id of the cluster running. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.compress">compress</a></code> | <code>cdk-extensions.k8s_aws.ElasticsearchCompressionFormat</code> | Set payload compression mechanism. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.currentTimeIndex">currentTimeIndex</a></code> | <code>boolean</code> | Use current time for index generation instead of message record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.generateId">generateId</a></code> | <code>boolean</code> | When enabled, generate `_id` for outgoing records. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.httpPasswd">httpPasswd</a></code> | <code>string</code> | Password for user defined in `httpUser`. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.httpUser">httpUser</a></code> | <code>string</code> | Optional username credential for access. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.idKey">idKey</a></code> | <code>string</code> | If set, `_id` will be the value of the key from incoming record and `generateId` option is ignored. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.includeTagKey">includeTagKey</a></code> | <code>boolean</code> | When enabled, it append the Tag name to the record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.index">index</a></code> | <code>string</code> | Index name. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.logstashDateFormat">logstashDateFormat</a></code> | <code>string</code> | Time format (based on strftime) to generate the second part of the Index name. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.logstashFormat">logstashFormat</a></code> | <code>boolean</code> | Enable Logstash format compatibility. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.logstashPrefix">logstashPrefix</a></code> | <code>string</code> | When `logstashFormat` is enabled, the Index name is composed using a prefix and the date, e.g: If `logstashPrefix` is equals to 'mydata' your index will become 'mydata-YYYY.MM.DD'. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.logstashPrefixKey">logstashPrefixKey</a></code> | <code>string</code> | When included: the value in the record that belongs to the key will be looked up and over-write the `logstashPrefix` for index generation. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.path">path</a></code> | <code>string</code> | Elasticsearch accepts new data on HTTP query path "/_bulk". |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.pipeline">pipeline</a></code> | <code>string</code> | Elasticsearch allows to setup filters called pipelines. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.port">port</a></code> | <code>number</code> | TCP port of the target Elasticsearch instance. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.replaceDots">replaceDots</a></code> | <code>boolean</code> | When enabled, replace field name dots with underscore. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.suppressTypeName">suppressTypeName</a></code> | <code>boolean</code> | When enabled, mapping types is removed and `type` option is ignored. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.tagKey">tagKey</a></code> | <code>string</code> | When `includeTagKey` is enabled, this property defines the key name for the tag. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.timeKey">timeKey</a></code> | <code>string</code> | When `logstashFormat` is enabled, each record will get a new timestamp field. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.timeKeyFormat">timeKeyFormat</a></code> | <code>string</code> | When `logstashFormat` is enabled, this property defines the format of the timestamp. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.timeKeyNanos">timeKeyNanos</a></code> | <code>boolean</code> | When `logstashFormat` is enabled, enabling this property sends nanosecond precision timestamps. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.traceError">traceError</a></code> | <code>boolean</code> | When enabled print the Elasticsearch API calls to stdout when Elasticsearch returns an error (for diag only). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.traceOutput">traceOutput</a></code> | <code>boolean</code> | When enabled print the Elasticsearch API calls to stdout (for diag only). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.type">type</a></code> | <code>string</code> | Type name. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.workers">workers</a></code> | <code>number</code> | Enables dedicated thread(s) for this output. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.writeOperation">writeOperation</a></code> | <code>string</code> | Operation to use to write in bulk requests. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `host`<sup>Required</sup> <a name="host" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.host"></a>
+
+```typescript
+public readonly host: string;
+```
+
+- *Type:* string
+
+IP address or hostname of the target Elasticsearch instance.
+
+---
+
+##### `awsAuth`<sup>Optional</sup> <a name="awsAuth" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.awsAuth"></a>
+
+```typescript
+public readonly awsAuth: boolean;
+```
+
+- *Type:* boolean
+
+Enable AWS Sigv4 Authentication for Amazon Elasticsearch Service.
+
+---
+
+##### `awsExternalId`<sup>Optional</sup> <a name="awsExternalId" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.awsExternalId"></a>
+
+```typescript
+public readonly awsExternalId: string;
+```
+
+- *Type:* string
+
+External ID for the AWS IAM Role specified with `awsRole`.
+
+---
+
+##### `awsRegion`<sup>Optional</sup> <a name="awsRegion" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.awsRegion"></a>
+
+```typescript
+public readonly awsRegion: string;
+```
+
+- *Type:* string
+
+Specify the AWS region for Elasticsearch Service.
+
+---
+
+##### `awsRole`<sup>Optional</sup> <a name="awsRole" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.awsRole"></a>
+
+```typescript
+public readonly awsRole: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+AWS IAM Role to assume to put records to your Amazon cluster.
+
+---
+
+##### `awsStsEndpoint`<sup>Optional</sup> <a name="awsStsEndpoint" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.awsStsEndpoint"></a>
+
+```typescript
+public readonly awsStsEndpoint: string;
+```
+
+- *Type:* string
+
+Specify the custom sts endpoint to be used with STS API for Amazon Elasticsearch Service.
+
+---
+
+##### `bufferSize`<sup>Optional</sup> <a name="bufferSize" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.bufferSize"></a>
+
+```typescript
+public readonly bufferSize: ElasticsearchOutputBufferSize;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize
+
+Specify the buffer size used to read the response from the Elasticsearch HTTP service.
+
+This option is useful for debugging purposes where is
+required to read full responses, note that response size grows depending
+of the number of records inserted.
+
+---
+
+##### `cloudAuth`<sup>Optional</sup> <a name="cloudAuth" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.cloudAuth"></a>
+
+```typescript
+public readonly cloudAuth: string;
+```
+
+- *Type:* string
+
+Specify the credentials to use to connect to Elastic's Elasticsearch Service running on Elastic Cloud.
+
+---
+
+##### `cloudId`<sup>Optional</sup> <a name="cloudId" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.cloudId"></a>
+
+```typescript
+public readonly cloudId: string;
+```
+
+- *Type:* string
+
+If you are using Elastic's Elasticsearch Service you can specify the cloud_id of the cluster running.
+
+---
+
+##### `compress`<sup>Optional</sup> <a name="compress" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.compress"></a>
+
+```typescript
+public readonly compress: ElasticsearchCompressionFormat;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ElasticsearchCompressionFormat
+
+Set payload compression mechanism.
+
+---
+
+##### `currentTimeIndex`<sup>Optional</sup> <a name="currentTimeIndex" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.currentTimeIndex"></a>
+
+```typescript
+public readonly currentTimeIndex: boolean;
+```
+
+- *Type:* boolean
+
+Use current time for index generation instead of message record.
+
+---
+
+##### `generateId`<sup>Optional</sup> <a name="generateId" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.generateId"></a>
+
+```typescript
+public readonly generateId: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, generate `_id` for outgoing records.
+
+This prevents duplicate
+records when retrying.
+
+---
+
+##### `httpPasswd`<sup>Optional</sup> <a name="httpPasswd" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.httpPasswd"></a>
+
+```typescript
+public readonly httpPasswd: string;
+```
+
+- *Type:* string
+
+Password for user defined in `httpUser`.
+
+---
+
+##### `httpUser`<sup>Optional</sup> <a name="httpUser" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.httpUser"></a>
+
+```typescript
+public readonly httpUser: string;
+```
+
+- *Type:* string
+
+Optional username credential for access.
+
+---
+
+##### `idKey`<sup>Optional</sup> <a name="idKey" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.idKey"></a>
+
+```typescript
+public readonly idKey: string;
+```
+
+- *Type:* string
+
+If set, `_id` will be the value of the key from incoming record and `generateId` option is ignored.
+
+---
+
+##### `includeTagKey`<sup>Optional</sup> <a name="includeTagKey" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.includeTagKey"></a>
+
+```typescript
+public readonly includeTagKey: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, it append the Tag name to the record.
+
+---
+
+##### `index`<sup>Optional</sup> <a name="index" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.index"></a>
+
+```typescript
+public readonly index: string;
+```
+
+- *Type:* string
+
+Index name.
+
+---
+
+##### `logstashDateFormat`<sup>Optional</sup> <a name="logstashDateFormat" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.logstashDateFormat"></a>
+
+```typescript
+public readonly logstashDateFormat: string;
+```
+
+- *Type:* string
+
+Time format (based on strftime) to generate the second part of the Index name.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `logstashFormat`<sup>Optional</sup> <a name="logstashFormat" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.logstashFormat"></a>
+
+```typescript
+public readonly logstashFormat: boolean;
+```
+
+- *Type:* boolean
+
+Enable Logstash format compatibility.
+
+---
+
+##### `logstashPrefix`<sup>Optional</sup> <a name="logstashPrefix" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.logstashPrefix"></a>
+
+```typescript
+public readonly logstashPrefix: string;
+```
+
+- *Type:* string
+
+When `logstashFormat` is enabled, the Index name is composed using a prefix and the date, e.g: If `logstashPrefix` is equals to 'mydata' your index will become 'mydata-YYYY.MM.DD'.
+
+The last string appended belongs to the date when the data is being
+generated.
+
+---
+
+##### `logstashPrefixKey`<sup>Optional</sup> <a name="logstashPrefixKey" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.logstashPrefixKey"></a>
+
+```typescript
+public readonly logstashPrefixKey: string;
+```
+
+- *Type:* string
+
+When included: the value in the record that belongs to the key will be looked up and over-write the `logstashPrefix` for index generation.
+
+If
+the key/value is not found in the record then the `logstashPrefix` option
+will act as a fallback.
+
+Nested keys are not supported (if desired, you can use the nest filter
+plugin to remove nesting).
+
+---
+
+##### `path`<sup>Optional</sup> <a name="path" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.path"></a>
+
+```typescript
+public readonly path: string;
+```
+
+- *Type:* string
+
+Elasticsearch accepts new data on HTTP query path "/_bulk".
+
+But it is
+also possible to serve Elasticsearch behind a reverse proxy on a
+subpath. This option defines such path on the fluent-bit side. It
+simply adds a path prefix in the indexing HTTP POST URI.
+
+---
+
+##### `pipeline`<sup>Optional</sup> <a name="pipeline" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.pipeline"></a>
+
+```typescript
+public readonly pipeline: string;
+```
+
+- *Type:* string
+
+Elasticsearch allows to setup filters called pipelines.
+
+This option
+allows to define which pipeline the database should use.
+
+---
+
+##### `port`<sup>Optional</sup> <a name="port" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.port"></a>
+
+```typescript
+public readonly port: number;
+```
+
+- *Type:* number
+
+TCP port of the target Elasticsearch instance.
+
+---
+
+##### `replaceDots`<sup>Optional</sup> <a name="replaceDots" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.replaceDots"></a>
+
+```typescript
+public readonly replaceDots: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, replace field name dots with underscore.
+
+---
+
+##### `suppressTypeName`<sup>Optional</sup> <a name="suppressTypeName" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.suppressTypeName"></a>
+
+```typescript
+public readonly suppressTypeName: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, mapping types is removed and `type` option is ignored.
+
+---
+
+##### `tagKey`<sup>Optional</sup> <a name="tagKey" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.tagKey"></a>
+
+```typescript
+public readonly tagKey: string;
+```
+
+- *Type:* string
+
+When `includeTagKey` is enabled, this property defines the key name for the tag.
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+
+When `logstashFormat` is enabled, each record will get a new timestamp field.
+
+The`timeKey` property defines the name of that field.
+
+---
+
+##### `timeKeyFormat`<sup>Optional</sup> <a name="timeKeyFormat" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.timeKeyFormat"></a>
+
+```typescript
+public readonly timeKeyFormat: string;
+```
+
+- *Type:* string
+
+When `logstashFormat` is enabled, this property defines the format of the timestamp.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `timeKeyNanos`<sup>Optional</sup> <a name="timeKeyNanos" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.timeKeyNanos"></a>
+
+```typescript
+public readonly timeKeyNanos: boolean;
+```
+
+- *Type:* boolean
+
+When `logstashFormat` is enabled, enabling this property sends nanosecond precision timestamps.
+
+---
+
+##### `traceError`<sup>Optional</sup> <a name="traceError" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.traceError"></a>
+
+```typescript
+public readonly traceError: boolean;
+```
+
+- *Type:* boolean
+
+When enabled print the Elasticsearch API calls to stdout when Elasticsearch returns an error (for diag only).
+
+---
+
+##### `traceOutput`<sup>Optional</sup> <a name="traceOutput" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.traceOutput"></a>
+
+```typescript
+public readonly traceOutput: boolean;
+```
+
+- *Type:* boolean
+
+When enabled print the Elasticsearch API calls to stdout (for diag only).
+
+---
+
+##### `type`<sup>Optional</sup> <a name="type" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.type"></a>
+
+```typescript
+public readonly type: string;
+```
+
+- *Type:* string
+
+Type name.
+
+---
+
+##### `workers`<sup>Optional</sup> <a name="workers" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.workers"></a>
+
+```typescript
+public readonly workers: number;
+```
+
+- *Type:* number
+
+Enables dedicated thread(s) for this output.
+
+---
+
+##### `writeOperation`<sup>Optional</sup> <a name="writeOperation" id="cdk-extensions.k8s_aws.FluentBitElasticsearchOutput.property.writeOperation"></a>
+
+```typescript
+public readonly writeOperation: string;
+```
+
+- *Type:* string
+
+Operation to use to write in bulk requests.
+
+---
+
+
+### FluentBitFilter <a name="FluentBitFilter" id="cdk-extensions.k8s_aws.FluentBitFilter"></a>
+
+Standard filter options which can be applied to Fluent Bit to control the output and formatting of logs.
+
+Filters change the structure of log records by doing things like adding
+metadata to a record, restructuring a record, or adding and removing fields.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitFilter.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitFilter()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilter.appendFields">appendFields</a></code> | Creates a filter that adds fields to a record that matches the given pattern. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilter.blacklistFields">blacklistFields</a></code> | Creates a filter that removes a set of fields from any records that match a given pattern. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilter.grep">grep</a></code> | Filters log entries based on a pattern. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilter.kubernetes">kubernetes</a></code> | Adds Kubernetes metadata to output records including pod information, labels, etc.. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilter.lift">lift</a></code> | Lifts nested fields in a record up to their parent object. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilter.modify">modify</a></code> | Applies various transformations to matched records including adding, removing, copying, and renaming fields. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilter.nest">nest</a></code> | Nests a set of fields in a record under into a specified object. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilter.parser">parser</a></code> | Applies a set of parsers to matched records. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilter.rewriteTag">rewriteTag</a></code> | Allows modification of tags set by the input configuration to affect the routing of when records are output. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilter.throttle">throttle</a></code> | Sets an average rate of messages that are allowed to be output over a configured period of time. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilter.whitelistFields">whitelistFields</a></code> | Creates a filter that removes all fields in a record that are not approved. |
+
+---
+
+##### `appendFields` <a name="appendFields" id="cdk-extensions.k8s_aws.FluentBitFilter.appendFields"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitFilter.appendFields(match: string, records: AppendedRecord)
+```
+
+Creates a filter that adds fields to a record that matches the given pattern.
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.appendFields.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the filter should be applied.
+
+---
+
+###### `records`<sup>Required</sup> <a name="records" id="cdk-extensions.k8s_aws.FluentBitFilter.appendFields.parameter.records"></a>
+
+- *Type:* cdk-extensions.k8s_aws.AppendedRecord
+
+The fields to be added to matched records.
+
+---
+
+##### `blacklistFields` <a name="blacklistFields" id="cdk-extensions.k8s_aws.FluentBitFilter.blacklistFields"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitFilter.blacklistFields(match: string, fields: string)
+```
+
+Creates a filter that removes a set of fields from any records that match a given pattern.
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.blacklistFields.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the filter should be applied.
+
+---
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdk-extensions.k8s_aws.FluentBitFilter.blacklistFields.parameter.fields"></a>
+
+- *Type:* string
+
+The fields which should be removed from the record if they are present.
+
+---
+
+##### `grep` <a name="grep" id="cdk-extensions.k8s_aws.FluentBitFilter.grep"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitFilter.grep(match: string, pattern: FluentBitGrepRegex, exclude?: boolean)
+```
+
+Filters log entries based on a pattern.
+
+Log entries can be removed and
+not forwarded based on whether they match or do not match the given
+pattern.
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.grep.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the filter should be applied.
+
+---
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.k8s_aws.FluentBitFilter.grep.parameter.pattern"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitGrepRegex
+
+The pattern to match against incoming records.
+
+---
+
+###### `exclude`<sup>Optional</sup> <a name="exclude" id="cdk-extensions.k8s_aws.FluentBitFilter.grep.parameter.exclude"></a>
+
+- *Type:* boolean
+
+Determines whether records that match the records should be kept or excluded.
+
+If this is true, all records that match the pattern
+will not be logged. If this is false, only records that match the
+pattern will be logged.
+
+---
+
+##### `kubernetes` <a name="kubernetes" id="cdk-extensions.k8s_aws.FluentBitFilter.kubernetes"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitFilter.kubernetes(match: string)
+```
+
+Adds Kubernetes metadata to output records including pod information, labels, etc..
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.kubernetes.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the filter should be applied.
+
+---
+
+##### `lift` <a name="lift" id="cdk-extensions.k8s_aws.FluentBitFilter.lift"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitFilter.lift(match: string, nestedUnder: string)
+```
+
+Lifts nested fields in a record up to their parent object.
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.lift.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the filter should be applied.
+
+---
+
+###### `nestedUnder`<sup>Required</sup> <a name="nestedUnder" id="cdk-extensions.k8s_aws.FluentBitFilter.lift.parameter.nestedUnder"></a>
+
+- *Type:* string
+
+The record object under which you want to lift fields.
+
+---
+
+##### `modify` <a name="modify" id="cdk-extensions.k8s_aws.FluentBitFilter.modify"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitFilter.modify(match: string, operations: ModifyOperation)
+```
+
+Applies various transformations to matched records including adding, removing, copying, and renaming fields.
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.modify.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the filter should be applied.
+
+---
+
+###### `operations`<sup>Required</sup> <a name="operations" id="cdk-extensions.k8s_aws.FluentBitFilter.modify.parameter.operations"></a>
+
+- *Type:* cdk-extensions.k8s_aws.ModifyOperation
+
+The operations to apply to the matched records.
+
+---
+
+##### `nest` <a name="nest" id="cdk-extensions.k8s_aws.FluentBitFilter.nest"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitFilter.nest(match: string, nestUnder: string, fields: string)
+```
+
+Nests a set of fields in a record under into a specified object.
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.nest.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the filter should be applied.
+
+---
+
+###### `nestUnder`<sup>Required</sup> <a name="nestUnder" id="cdk-extensions.k8s_aws.FluentBitFilter.nest.parameter.nestUnder"></a>
+
+- *Type:* string
+
+The record object under which you want to nest matched fields.
+
+---
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdk-extensions.k8s_aws.FluentBitFilter.nest.parameter.fields"></a>
+
+- *Type:* string
+
+The fields to nest under the specified object.
+
+---
+
+##### `parser` <a name="parser" id="cdk-extensions.k8s_aws.FluentBitFilter.parser"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitFilter.parser(match: string, parsers: IFluentBitParserPlugin)
+```
+
+Applies a set of parsers to matched records.
+
+The parser is used to read the input record and set structured fields in
+the output.
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.parser.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the filter should be applied.
+
+---
+
+###### `parsers`<sup>Required</sup> <a name="parsers" id="cdk-extensions.k8s_aws.FluentBitFilter.parser.parameter.parsers"></a>
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitParserPlugin
+
+The parser plugins to use to read matched records.
+
+---
+
+##### `rewriteTag` <a name="rewriteTag" id="cdk-extensions.k8s_aws.FluentBitFilter.rewriteTag"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitFilter.rewriteTag(match: string, rules: RewriteTagRule)
+```
+
+Allows modification of tags set by the input configuration to affect the routing of when records are output.
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.rewriteTag.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the filter should be applied.
+
+---
+
+###### `rules`<sup>Required</sup> <a name="rules" id="cdk-extensions.k8s_aws.FluentBitFilter.rewriteTag.parameter.rules"></a>
+
+- *Type:* cdk-extensions.k8s_aws.RewriteTagRule
+
+The rules that define the matching criteria of format of the tag for the matching record.
+
+---
+
+##### `throttle` <a name="throttle" id="cdk-extensions.k8s_aws.FluentBitFilter.throttle"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitFilter.throttle(match: string, interval: Duration, rate: number, window: number)
+```
+
+Sets an average rate of messages that are allowed to be output over a configured period of time.
+
+When the rate of messages surpasses the configured limits messages will
+be dropped.
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.throttle.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the filter should be applied.
+
+---
+
+###### `interval`<sup>Required</sup> <a name="interval" id="cdk-extensions.k8s_aws.FluentBitFilter.throttle.parameter.interval"></a>
+
+- *Type:* aws-cdk-lib.Duration
+
+The interval of time over rate should be sampled to calculate an average.
+
+---
+
+###### `rate`<sup>Required</sup> <a name="rate" id="cdk-extensions.k8s_aws.FluentBitFilter.throttle.parameter.rate"></a>
+
+- *Type:* number
+
+The average amount of messages over a given period.
+
+---
+
+###### `window`<sup>Required</sup> <a name="window" id="cdk-extensions.k8s_aws.FluentBitFilter.throttle.parameter.window"></a>
+
+- *Type:* number
+
+Amount of intervals to calculate average over.
+
+---
+
+##### `whitelistFields` <a name="whitelistFields" id="cdk-extensions.k8s_aws.FluentBitFilter.whitelistFields"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitFilter.whitelistFields(match: string, fields: string)
+```
+
+Creates a filter that removes all fields in a record that are not approved.
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilter.whitelistFields.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the filter should be applied.
+
+---
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdk-extensions.k8s_aws.FluentBitFilter.whitelistFields.parameter.fields"></a>
+
+- *Type:* string
+
+The fields which are allowed to appear in the output record.
+
+---
+
+
+
+### FluentBitFilterPluginBase <a name="FluentBitFilterPluginBase" id="cdk-extensions.k8s_aws.FluentBitFilterPluginBase"></a>
+
+- *Implements:* cdk-extensions.k8s_aws.IFluentBitFilterPlugin
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitFilterPluginBase.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitFilterPluginBase(name: string, options?: FluentBitFilterPluginCommonOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilterPluginBase.Initializer.parameter.name">name</a></code> | <code>string</code> | The name of the output plugin to configure. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilterPluginBase.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitFilterPluginCommonOptions</code> | Configuration options that apply to all Fluent Bit output plugin. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitFilterPluginBase.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+The name of the output plugin to configure.
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitFilterPluginBase.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitFilterPluginCommonOptions
+
+Configuration options that apply to all Fluent Bit output plugin.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilterPluginBase.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitFilterPluginBase.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.FluentBitFilterPluginBase.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilterPluginBase.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilterPluginBase.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitFilterPluginBase.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitFilterPluginBase.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitFilterPluginBase.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitFilterPluginBase.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+
+### FluentBitGrepFilter <a name="FluentBitGrepFilter" id="cdk-extensions.k8s_aws.FluentBitGrepFilter"></a>
+
+A Fluent Bit filter that allows log records to be kept or discarded based on whether they match a given regular expression or not.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitGrepFilter(options?: FluentBitGrepFilterOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilter.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitGrepFilterOptions</code> | Options for configuring the filter. |
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitGrepFilterOptions
+
+Options for configuring the filter.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilter.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilter.property.exclude">exclude</a></code> | <code>cdk-extensions.k8s_aws.FluentBitGrepRegex</code> | Exclude records in which the content of KEY matches the regular expression. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitGrepFilter.property.regex">regex</a></code> | <code>cdk-extensions.k8s_aws.FluentBitGrepRegex</code> | Keep records in which the content of KEY matches the regular expression. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `exclude`<sup>Optional</sup> <a name="exclude" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.property.exclude"></a>
+
+```typescript
+public readonly exclude: FluentBitGrepRegex;
+```
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitGrepRegex
+
+Exclude records in which the content of KEY matches the regular expression.
+
+---
+
+##### `regex`<sup>Optional</sup> <a name="regex" id="cdk-extensions.k8s_aws.FluentBitGrepFilter.property.regex"></a>
+
+```typescript
+public readonly regex: FluentBitGrepRegex;
+```
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitGrepRegex
+
+Keep records in which the content of KEY matches the regular expression.
+
+---
+
+
+### FluentBitJsonParser <a name="FluentBitJsonParser" id="cdk-extensions.k8s_aws.FluentBitJsonParser"></a>
+
+A Fluent Bit filter that parsed inbound messages in JSON format.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitJsonParser.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitJsonParser(name: string, options?: FluentBitJsonParserOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitJsonParser.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitJsonParser.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitJsonParserOptions</code> | Options for configuring the parser. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitJsonParser.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitJsonParser.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitJsonParserOptions
+
+Options for configuring the parser.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitJsonParser.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitJsonParser.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.FluentBitJsonParser.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitJsonParser.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitJsonParser.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitJsonParser.property.format">format</a></code> | <code>string</code> | The data format that the parser extracts records from. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitJsonParser.property.timeFormat">timeFormat</a></code> | <code>string</code> | Defines the format of the timestamp on the inbound record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitJsonParser.property.timeKey">timeKey</a></code> | <code>string</code> | The key under which timestamp information for the inbound record is given. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitJsonParser.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitJsonParser.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `format`<sup>Required</sup> <a name="format" id="cdk-extensions.k8s_aws.FluentBitJsonParser.property.format"></a>
+
+```typescript
+public readonly format: string;
+```
+
+- *Type:* string
+
+The data format that the parser extracts records from.
+
+---
+
+##### `timeFormat`<sup>Optional</sup> <a name="timeFormat" id="cdk-extensions.k8s_aws.FluentBitJsonParser.property.timeFormat"></a>
+
+```typescript
+public readonly timeFormat: string;
+```
+
+- *Type:* string
+
+Defines the format of the timestamp on the inbound record.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitJsonParser.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+
+The key under which timestamp information for the inbound record is given.
+
+---
+
+
+### FluentBitKinesisFirehoseOutput <a name="FluentBitKinesisFirehoseOutput" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput"></a>
+
+Represents configuration for outputing logs from Fluent Bit to Kinesis Firehose.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitKinesisFirehoseOutput(options?: FluentBitKinesisFirehoseOutputOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions</code> | Options for configuring the output. |
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutputOptions
+
+Options for configuring the output.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.autoRetryRequests">autoRetryRequests</a></code> | <code>boolean</code> | Immediately retry failed requests to AWS services once. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.compression">compression</a></code> | <code>cdk-extensions.k8s_aws.KinesisFirehoseCompressionFormat</code> | Compression type for Firehose records. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.deliveryStream">deliveryStream</a></code> | <code>cdk-extensions.kinesis_firehose.IDeliveryStream</code> | The Kinesis Firehose Delivery stream that you want log records sent to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.endpoint">endpoint</a></code> | <code>string</code> | Specify a custom endpoint for the Firehose API. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.logKey">logKey</a></code> | <code>string</code> | By default, the whole log record will be sent to Firehose. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.region">region</a></code> | <code>string</code> | The AWS region. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | ARN of an IAM role to assume (for cross account access). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.stsEndpoint">stsEndpoint</a></code> | <code>string</code> | Specify a custom STS endpoint for the AWS STS API. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.timeKey">timeKey</a></code> | <code>string</code> | Add the timestamp to the record under this key. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.timeKeyFormat">timeKeyFormat</a></code> | <code>string</code> | A strftime compliant format string for the timestamp. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `autoRetryRequests`<sup>Optional</sup> <a name="autoRetryRequests" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.autoRetryRequests"></a>
+
+```typescript
+public readonly autoRetryRequests: boolean;
+```
+
+- *Type:* boolean
+
+Immediately retry failed requests to AWS services once.
+
+This option does
+not affect the normal Fluent Bit retry mechanism with backoff. Instead,
+it enables an immediate retry with no delay for networking errors, which
+may help improve throughput when there are transient/random networking
+issues.
+
+---
+
+##### `compression`<sup>Optional</sup> <a name="compression" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.compression"></a>
+
+```typescript
+public readonly compression: KinesisFirehoseCompressionFormat;
+```
+
+- *Type:* cdk-extensions.k8s_aws.KinesisFirehoseCompressionFormat
+
+Compression type for Firehose records.
+
+Each log record is individually
+compressed and sent to Firehose.
+
+---
+
+##### `deliveryStream`<sup>Optional</sup> <a name="deliveryStream" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.deliveryStream"></a>
+
+```typescript
+public readonly deliveryStream: IDeliveryStream;
+```
+
+- *Type:* cdk-extensions.kinesis_firehose.IDeliveryStream
+
+The Kinesis Firehose Delivery stream that you want log records sent to.
+
+---
+
+##### `endpoint`<sup>Optional</sup> <a name="endpoint" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.endpoint"></a>
+
+```typescript
+public readonly endpoint: string;
+```
+
+- *Type:* string
+
+Specify a custom endpoint for the Firehose API.
+
+---
+
+##### `logKey`<sup>Optional</sup> <a name="logKey" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.logKey"></a>
+
+```typescript
+public readonly logKey: string;
+```
+
+- *Type:* string
+
+By default, the whole log record will be sent to Firehose.
+
+If you
+specify a key name with this option, then only the value of that key
+will be sent to Firehose.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+
+The AWS region.
+
+---
+
+##### `role`<sup>Optional</sup> <a name="role" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+ARN of an IAM role to assume (for cross account access).
+
+---
+
+##### `stsEndpoint`<sup>Optional</sup> <a name="stsEndpoint" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.stsEndpoint"></a>
+
+```typescript
+public readonly stsEndpoint: string;
+```
+
+- *Type:* string
+
+Specify a custom STS endpoint for the AWS STS API.
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+
+Add the timestamp to the record under this key.
+
+---
+
+##### `timeKeyFormat`<sup>Optional</sup> <a name="timeKeyFormat" id="cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput.property.timeKeyFormat"></a>
+
+```typescript
+public readonly timeKeyFormat: string;
+```
+
+- *Type:* string
+
+A strftime compliant format string for the timestamp.
+
+---
+
+
+### FluentBitKinesisOutput <a name="FluentBitKinesisOutput" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput"></a>
+
+Represents configuration for outputing logs from Fluent Bit to Kinesis Data Streams.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitKinesisOutput(options?: FluentBitKinesisOutputOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions</code> | Options for configuring the output/. |
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitKinesisOutputOptions
+
+Options for configuring the output/.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.autoRetryRequests">autoRetryRequests</a></code> | <code>boolean</code> | Immediately retry failed requests to AWS services once. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.endpoint">endpoint</a></code> | <code>string</code> | Specify a custom endpoint for the Firehose API. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.logKey">logKey</a></code> | <code>string</code> | By default, the whole log record will be sent to Firehose. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.region">region</a></code> | <code>string</code> | The AWS region. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | ARN of an IAM role to assume (for cross account access). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.stream">stream</a></code> | <code>aws-cdk-lib.aws_kinesis.IStream</code> | The name of the Kinesis Streams Delivery stream that you want log records sent to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.stsEndpoint">stsEndpoint</a></code> | <code>string</code> | Specify a custom STS endpoint for the AWS STS API. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.timeKey">timeKey</a></code> | <code>string</code> | Add the timestamp to the record under this key. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.timeKeyFormat">timeKeyFormat</a></code> | <code>string</code> | A strftime compliant format string for the timestamp. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `autoRetryRequests`<sup>Optional</sup> <a name="autoRetryRequests" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.autoRetryRequests"></a>
+
+```typescript
+public readonly autoRetryRequests: boolean;
+```
+
+- *Type:* boolean
+
+Immediately retry failed requests to AWS services once.
+
+This option does
+not affect the normal Fluent Bit retry mechanism with backoff. Instead,
+it enables an immediate retry with no delay for networking errors, which
+may help improve throughput when there are transient/random networking
+issues.
+
+---
+
+##### `endpoint`<sup>Optional</sup> <a name="endpoint" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.endpoint"></a>
+
+```typescript
+public readonly endpoint: string;
+```
+
+- *Type:* string
+
+Specify a custom endpoint for the Firehose API.
+
+---
+
+##### `logKey`<sup>Optional</sup> <a name="logKey" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.logKey"></a>
+
+```typescript
+public readonly logKey: string;
+```
+
+- *Type:* string
+
+By default, the whole log record will be sent to Firehose.
+
+If you
+specify a key name with this option, then only the value of that key
+will be sent to Firehose.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+
+The AWS region.
+
+---
+
+##### `role`<sup>Optional</sup> <a name="role" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.role"></a>
+
+```typescript
+public readonly role: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+ARN of an IAM role to assume (for cross account access).
+
+---
+
+##### `stream`<sup>Optional</sup> <a name="stream" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.stream"></a>
+
+```typescript
+public readonly stream: IStream;
+```
+
+- *Type:* aws-cdk-lib.aws_kinesis.IStream
+
+The name of the Kinesis Streams Delivery stream that you want log records sent to.
+
+---
+
+##### `stsEndpoint`<sup>Optional</sup> <a name="stsEndpoint" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.stsEndpoint"></a>
+
+```typescript
+public readonly stsEndpoint: string;
+```
+
+- *Type:* string
+
+Specify a custom STS endpoint for the AWS STS API.
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+
+Add the timestamp to the record under this key.
+
+---
+
+##### `timeKeyFormat`<sup>Optional</sup> <a name="timeKeyFormat" id="cdk-extensions.k8s_aws.FluentBitKinesisOutput.property.timeKeyFormat"></a>
+
+```typescript
+public readonly timeKeyFormat: string;
+```
+
+- *Type:* string
+
+A strftime compliant format string for the timestamp.
+
+---
+
+
+### FluentBitKubernetesFilter <a name="FluentBitKubernetesFilter" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter"></a>
+
+A Fluent Bit filter that allows log records to be annotated with Kubernetes metadata based on the containers that generated them.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitKubernetesFilter(options?: FluentBitKubernetesFilterOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions</code> | Options for configuring the filter. |
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitKubernetesFilterOptions
+
+Options for configuring the filter.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.annotations">annotations</a></code> | <code>boolean</code> | Include Kubernetes resource annotations in the extra metadata. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.bufferSize">bufferSize</a></code> | <code>cdk-extensions.core.DataSize</code> | Set the buffer size for HTTP client when reading responses from Kubernetes API server. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.cacheUseDockerId">cacheUseDockerId</a></code> | <code>boolean</code> | When enabled, metadata will be fetched from K8s when docker_id is changed. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.dnsRetries">dnsRetries</a></code> | <code>number</code> | DNS lookup retries N times until the network starts working. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.dnsWaitTime">dnsWaitTime</a></code> | <code>aws-cdk-lib.Duration</code> | DNS lookup interval between network status checks. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.dummyMeta">dummyMeta</a></code> | <code>boolean</code> | If set, use dummy-meta data (for test/dev purposes). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.k8sLoggingExclude">k8sLoggingExclude</a></code> | <code>boolean</code> | Allow Kubernetes Pods to exclude their logs from the log processor. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.k8sLoggingParser">k8sLoggingParser</a></code> | <code>boolean</code> | Allow Kubernetes Pods to suggest a pre-defined Parser. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.keepLog">keepLog</a></code> | <code>boolean</code> | When `keepLog` is disabled, the log field is removed from the incoming message once it has been successfully merged (`mergeLog` must be enabled as well). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeCaFile">kubeCaFile</a></code> | <code>string</code> | CA certificate file. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeCaPath">kubeCaPath</a></code> | <code>string</code> | Absolute path to scan for certificate files. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeletHost">kubeletHost</a></code> | <code>string</code> | Kubelet host using for HTTP request, this only works when `useKubelet` is enabled. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeletPort">kubeletPort</a></code> | <code>number</code> | Kubelet port using for HTTP request, this only works when `useKubelet` is enabled. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeMetaCacheTtl">kubeMetaCacheTtl</a></code> | <code>aws-cdk-lib.Duration</code> | Configurable TTL for K8s cached metadata. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeMetaPreloadCacheDir">kubeMetaPreloadCacheDir</a></code> | <code>string</code> | If set, Kubernetes meta-data can be cached/pre-loaded from files in JSON format in this directory, named as namespace-pod.meta. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeTagPrefix">kubeTagPrefix</a></code> | <code>string</code> | When the source records comes from Tail input plugin, this option allows to specify what's the prefix used in Tail configuration. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeTokenCommand">kubeTokenCommand</a></code> | <code>string</code> | Command to get Kubernetes authorization token. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeTokenFile">kubeTokenFile</a></code> | <code>string</code> | Token file. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeTokenTtl">kubeTokenTtl</a></code> | <code>aws-cdk-lib.Duration</code> | Configurable 'time to live' for the K8s token. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeUrl">kubeUrl</a></code> | <code>string</code> | API Server end-point. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.labels">labels</a></code> | <code>boolean</code> | Include Kubernetes resource labels in the extra metadata. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.mergeLog">mergeLog</a></code> | <code>boolean</code> | When enabled, it checks if the `log` field content is a JSON string map, if so, it append the map fields as part of the log structure. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.mergeLogKey">mergeLogKey</a></code> | <code>string</code> | When `mergeLog` is enabled, the filter tries to assume the `log` field from the incoming message is a JSON string message and make a structured representation of it at the same level of the `log` field in the map. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.mergeLogTrim">mergeLogTrim</a></code> | <code>boolean</code> | When Merge_Log is enabled, trim (remove possible \n or \r) field values. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.mergeParser">mergeParser</a></code> | <code>string</code> | Optional parser name to specify how to parse the data contained in the log key. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.regexParser">regexParser</a></code> | <code>string</code> | Set an alternative Parser to process record Tag and extract pod_name, namespace_name, container_name and docker_id. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.tlsDebug">tlsDebug</a></code> | <code>number</code> | Debug level between 0 (nothing) and 4 (every detail). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.tlsVerify">tlsVerify</a></code> | <code>boolean</code> | When enabled, turns on certificate validation when connecting to the Kubernetes API server. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.useJournal">useJournal</a></code> | <code>boolean</code> | When enabled, the filter reads logs coming in Journald format. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.useKubelet">useKubelet</a></code> | <code>boolean</code> | This is an optional feature flag to get metadata information from kubelet instead of calling Kube Server API to enhance the log. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `annotations`<sup>Optional</sup> <a name="annotations" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.annotations"></a>
+
+```typescript
+public readonly annotations: boolean;
+```
+
+- *Type:* boolean
+
+Include Kubernetes resource annotations in the extra metadata.
+
+---
+
+##### `bufferSize`<sup>Optional</sup> <a name="bufferSize" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.bufferSize"></a>
+
+```typescript
+public readonly bufferSize: DataSize;
+```
+
+- *Type:* cdk-extensions.core.DataSize
+
+Set the buffer size for HTTP client when reading responses from Kubernetes API server.
+
+A value of 0 results in no limit, and the buffer will expand as-needed.
+
+Note that if pod specifications exceed the buffer limit, the API
+response will be discarded when retrieving metadata, and some kubernetes
+metadata will fail to be injected to the logs.
+
+---
+
+##### `cacheUseDockerId`<sup>Optional</sup> <a name="cacheUseDockerId" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.cacheUseDockerId"></a>
+
+```typescript
+public readonly cacheUseDockerId: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, metadata will be fetched from K8s when docker_id is changed.
+
+---
+
+##### `dnsRetries`<sup>Optional</sup> <a name="dnsRetries" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.dnsRetries"></a>
+
+```typescript
+public readonly dnsRetries: number;
+```
+
+- *Type:* number
+
+DNS lookup retries N times until the network starts working.
+
+---
+
+##### `dnsWaitTime`<sup>Optional</sup> <a name="dnsWaitTime" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.dnsWaitTime"></a>
+
+```typescript
+public readonly dnsWaitTime: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+DNS lookup interval between network status checks.
+
+---
+
+##### `dummyMeta`<sup>Optional</sup> <a name="dummyMeta" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.dummyMeta"></a>
+
+```typescript
+public readonly dummyMeta: boolean;
+```
+
+- *Type:* boolean
+
+If set, use dummy-meta data (for test/dev purposes).
+
+---
+
+##### `k8sLoggingExclude`<sup>Optional</sup> <a name="k8sLoggingExclude" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.k8sLoggingExclude"></a>
+
+```typescript
+public readonly k8sLoggingExclude: boolean;
+```
+
+- *Type:* boolean
+
+Allow Kubernetes Pods to exclude their logs from the log processor.
+
+---
+
+##### `k8sLoggingParser`<sup>Optional</sup> <a name="k8sLoggingParser" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.k8sLoggingParser"></a>
+
+```typescript
+public readonly k8sLoggingParser: boolean;
+```
+
+- *Type:* boolean
+
+Allow Kubernetes Pods to suggest a pre-defined Parser.
+
+---
+
+##### `keepLog`<sup>Optional</sup> <a name="keepLog" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.keepLog"></a>
+
+```typescript
+public readonly keepLog: boolean;
+```
+
+- *Type:* boolean
+
+When `keepLog` is disabled, the log field is removed from the incoming message once it has been successfully merged (`mergeLog` must be enabled as well).
+
+---
+
+##### `kubeCaFile`<sup>Optional</sup> <a name="kubeCaFile" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeCaFile"></a>
+
+```typescript
+public readonly kubeCaFile: string;
+```
+
+- *Type:* string
+
+CA certificate file.
+
+---
+
+##### `kubeCaPath`<sup>Optional</sup> <a name="kubeCaPath" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeCaPath"></a>
+
+```typescript
+public readonly kubeCaPath: string;
+```
+
+- *Type:* string
+
+Absolute path to scan for certificate files.
+
+---
+
+##### `kubeletHost`<sup>Optional</sup> <a name="kubeletHost" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeletHost"></a>
+
+```typescript
+public readonly kubeletHost: string;
+```
+
+- *Type:* string
+
+Kubelet host using for HTTP request, this only works when `useKubelet` is enabled.
+
+---
+
+##### `kubeletPort`<sup>Optional</sup> <a name="kubeletPort" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeletPort"></a>
+
+```typescript
+public readonly kubeletPort: number;
+```
+
+- *Type:* number
+
+Kubelet port using for HTTP request, this only works when `useKubelet` is enabled.
+
+---
+
+##### `kubeMetaCacheTtl`<sup>Optional</sup> <a name="kubeMetaCacheTtl" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeMetaCacheTtl"></a>
+
+```typescript
+public readonly kubeMetaCacheTtl: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+Configurable TTL for K8s cached metadata.
+
+By default, it is set to 0 which means TTL for cache entries is disabled
+and cache entries are evicted at random when capacity is reached.
+
+In order to enable this option, you should set the number to a time
+interval.
+
+---
+
+##### `kubeMetaPreloadCacheDir`<sup>Optional</sup> <a name="kubeMetaPreloadCacheDir" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeMetaPreloadCacheDir"></a>
+
+```typescript
+public readonly kubeMetaPreloadCacheDir: string;
+```
+
+- *Type:* string
+
+If set, Kubernetes meta-data can be cached/pre-loaded from files in JSON format in this directory, named as namespace-pod.meta.
+
+---
+
+##### `kubeTagPrefix`<sup>Optional</sup> <a name="kubeTagPrefix" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeTagPrefix"></a>
+
+```typescript
+public readonly kubeTagPrefix: string;
+```
+
+- *Type:* string
+
+When the source records comes from Tail input plugin, this option allows to specify what's the prefix used in Tail configuration.
+
+---
+
+##### `kubeTokenCommand`<sup>Optional</sup> <a name="kubeTokenCommand" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeTokenCommand"></a>
+
+```typescript
+public readonly kubeTokenCommand: string;
+```
+
+- *Type:* string
+
+Command to get Kubernetes authorization token.
+
+If you want to manually choose a command to get it, you can set the
+command here.
+
+For example, run running the following to get the token using aws-cli:
+
+```
+aws-iam-authenticator -i your-cluster-name token --token-only
+```
+
+This option is currently Linux-only.
+
+---
+
+##### `kubeTokenFile`<sup>Optional</sup> <a name="kubeTokenFile" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeTokenFile"></a>
+
+```typescript
+public readonly kubeTokenFile: string;
+```
+
+- *Type:* string
+
+Token file.
+
+---
+
+##### `kubeTokenTtl`<sup>Optional</sup> <a name="kubeTokenTtl" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeTokenTtl"></a>
+
+```typescript
+public readonly kubeTokenTtl: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+Configurable 'time to live' for the K8s token.
+
+After this time, the token is reloaded from `kubeTokenFile` or the
+`kubeTokenCommand`.
+
+---
+
+##### `kubeUrl`<sup>Optional</sup> <a name="kubeUrl" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.kubeUrl"></a>
+
+```typescript
+public readonly kubeUrl: string;
+```
+
+- *Type:* string
+
+API Server end-point.
+
+---
+
+##### `labels`<sup>Optional</sup> <a name="labels" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.labels"></a>
+
+```typescript
+public readonly labels: boolean;
+```
+
+- *Type:* boolean
+
+Include Kubernetes resource labels in the extra metadata.
+
+---
+
+##### `mergeLog`<sup>Optional</sup> <a name="mergeLog" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.mergeLog"></a>
+
+```typescript
+public readonly mergeLog: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, it checks if the `log` field content is a JSON string map, if so, it append the map fields as part of the log structure.
+
+---
+
+##### `mergeLogKey`<sup>Optional</sup> <a name="mergeLogKey" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.mergeLogKey"></a>
+
+```typescript
+public readonly mergeLogKey: string;
+```
+
+- *Type:* string
+
+When `mergeLog` is enabled, the filter tries to assume the `log` field from the incoming message is a JSON string message and make a structured representation of it at the same level of the `log` field in the map.
+
+Now if `mergeLogKey` is set (a string name), all the new structured
+fields taken from the original `log` content are inserted under the new
+key.
+
+---
+
+##### `mergeLogTrim`<sup>Optional</sup> <a name="mergeLogTrim" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.mergeLogTrim"></a>
+
+```typescript
+public readonly mergeLogTrim: boolean;
+```
+
+- *Type:* boolean
+
+When Merge_Log is enabled, trim (remove possible \n or \r) field values.
+
+---
+
+##### `mergeParser`<sup>Optional</sup> <a name="mergeParser" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.mergeParser"></a>
+
+```typescript
+public readonly mergeParser: string;
+```
+
+- *Type:* string
+
+Optional parser name to specify how to parse the data contained in the log key.
+
+Recommended use is for developers or testing only.
+
+---
+
+##### `regexParser`<sup>Optional</sup> <a name="regexParser" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.regexParser"></a>
+
+```typescript
+public readonly regexParser: string;
+```
+
+- *Type:* string
+
+Set an alternative Parser to process record Tag and extract pod_name, namespace_name, container_name and docker_id.
+
+The parser must be registered in a parsers file.
+
+> [[Parsers File](https://github.com/fluent/fluent-bit/blob/master/conf/parsers.conf)]([Parsers File](https://github.com/fluent/fluent-bit/blob/master/conf/parsers.conf))
+
+---
+
+##### `tlsDebug`<sup>Optional</sup> <a name="tlsDebug" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.tlsDebug"></a>
+
+```typescript
+public readonly tlsDebug: number;
+```
+
+- *Type:* number
+
+Debug level between 0 (nothing) and 4 (every detail).
+
+---
+
+##### `tlsVerify`<sup>Optional</sup> <a name="tlsVerify" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.tlsVerify"></a>
+
+```typescript
+public readonly tlsVerify: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, turns on certificate validation when connecting to the Kubernetes API server.
+
+---
+
+##### `useJournal`<sup>Optional</sup> <a name="useJournal" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.useJournal"></a>
+
+```typescript
+public readonly useJournal: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, the filter reads logs coming in Journald format.
+
+---
+
+##### `useKubelet`<sup>Optional</sup> <a name="useKubelet" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.useKubelet"></a>
+
+```typescript
+public readonly useKubelet: boolean;
+```
+
+- *Type:* boolean
+
+This is an optional feature flag to get metadata information from kubelet instead of calling Kube Server API to enhance the log.
+
+> [[Kube API heavy traffic issue for large cluster](https://docs.fluentbit.io/manual/pipeline/filters/kubernetes#optional-feature-using-kubelet-to-get-metadata)]([Kube API heavy traffic issue for large cluster](https://docs.fluentbit.io/manual/pipeline/filters/kubernetes#optional-feature-using-kubelet-to-get-metadata))
+
+---
+
+
+### FluentBitLogfmtParser <a name="FluentBitLogfmtParser" id="cdk-extensions.k8s_aws.FluentBitLogfmtParser"></a>
+
+A Fluent Bit filter that parsed inbound messages in LTSV format.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitLogfmtParser.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitLogfmtParser(name: string, options?: FluentBitLogfmtParserOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogfmtParser.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogfmtParser.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitLogfmtParserOptions</code> | Options for configuring the parser. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitLogfmtParser.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitLogfmtParser.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitLogfmtParserOptions
+
+Options for configuring the parser.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogfmtParser.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitLogfmtParser.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.FluentBitLogfmtParser.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogfmtParser.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogfmtParser.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogfmtParser.property.format">format</a></code> | <code>string</code> | The data format that the parser extracts records from. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogfmtParser.property.timeFormat">timeFormat</a></code> | <code>string</code> | Defines the format of the timestamp on the inbound record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogfmtParser.property.timeKey">timeKey</a></code> | <code>string</code> | The key under which timestamp information for the inbound record is given. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogfmtParser.property.types">types</a></code> | <code>{[ key: string ]: cdk-extensions.k8s_aws.ParserPluginDataType}</code> | Maps group names matched by the regex to the data types they should be interpreted as. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitLogfmtParser.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitLogfmtParser.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `format`<sup>Required</sup> <a name="format" id="cdk-extensions.k8s_aws.FluentBitLogfmtParser.property.format"></a>
+
+```typescript
+public readonly format: string;
+```
+
+- *Type:* string
+
+The data format that the parser extracts records from.
+
+---
+
+##### `timeFormat`<sup>Optional</sup> <a name="timeFormat" id="cdk-extensions.k8s_aws.FluentBitLogfmtParser.property.timeFormat"></a>
+
+```typescript
+public readonly timeFormat: string;
+```
+
+- *Type:* string
+
+Defines the format of the timestamp on the inbound record.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitLogfmtParser.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+
+The key under which timestamp information for the inbound record is given.
+
+---
+
+##### `types`<sup>Optional</sup> <a name="types" id="cdk-extensions.k8s_aws.FluentBitLogfmtParser.property.types"></a>
+
+```typescript
+public readonly types: {[ key: string ]: ParserPluginDataType};
+```
+
+- *Type:* {[ key: string ]: cdk-extensions.k8s_aws.ParserPluginDataType}
+
+Maps group names matched by the regex to the data types they should be interpreted as.
+
+---
+
+
+### FluentBitLogGroupOutput <a name="FluentBitLogGroupOutput" id="cdk-extensions.k8s_aws.FluentBitLogGroupOutput"></a>
+
+Represents valid log group output configuration options to be used by Fluent Bit when writing to CloudWatch Logs.
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogGroupOutput.create">create</a></code> | Sets a flag saying that a log group should be created automatically. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogGroupOutput.fromLogGroup">fromLogGroup</a></code> | Sets the destination log group to a LogGroup CDK resource. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogGroupOutput.fromName">fromName</a></code> | Sets the destination for logs to the named log group. |
+
+---
+
+##### `create` <a name="create" id="cdk-extensions.k8s_aws.FluentBitLogGroupOutput.create"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitLogGroupOutput.create()
+```
+
+Sets a flag saying that a log group should be created automatically.
+
+Depending on the configuration of the plugin, this flag will either cause
+permissions to be granted for Fluent Bit to create the log group itself or
+the plugin CDK resource will create a Log Group and use that as the
+destination.
+
+##### `fromLogGroup` <a name="fromLogGroup" id="cdk-extensions.k8s_aws.FluentBitLogGroupOutput.fromLogGroup"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitLogGroupOutput.fromLogGroup(logGroup: ILogGroup)
+```
+
+Sets the destination log group to a LogGroup CDK resource.
+
+###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-extensions.k8s_aws.FluentBitLogGroupOutput.fromLogGroup.parameter.logGroup"></a>
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+The log group where output records should be written.
+
+---
+
+##### `fromName` <a name="fromName" id="cdk-extensions.k8s_aws.FluentBitLogGroupOutput.fromName"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitLogGroupOutput.fromName(name: string, create?: boolean)
+```
+
+Sets the destination for logs to the named log group.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitLogGroupOutput.fromName.parameter.name"></a>
+
+- *Type:* string
+
+The name of the log group where output records should be written.
+
+---
+
+###### `create`<sup>Optional</sup> <a name="create" id="cdk-extensions.k8s_aws.FluentBitLogGroupOutput.fromName.parameter.create"></a>
+
+- *Type:* boolean
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogGroupOutput.property.autoCreate">autoCreate</a></code> | <code>boolean</code> | Flag that determines whether or not a log group should be automatically created. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogGroupOutput.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | A log group resource object to use as the destination. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogGroupOutput.property.logGroupName">logGroupName</a></code> | <code>string</code> | The name for the log group that should be used for output records. |
+
+---
+
+##### `autoCreate`<sup>Optional</sup> <a name="autoCreate" id="cdk-extensions.k8s_aws.FluentBitLogGroupOutput.property.autoCreate"></a>
+
+```typescript
+public readonly autoCreate: boolean;
+```
+
+- *Type:* boolean
+
+Flag that determines whether or not a log group should be automatically created.
+
+---
+
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.k8s_aws.FluentBitLogGroupOutput.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+A log group resource object to use as the destination.
+
+---
+
+##### `logGroupName`<sup>Optional</sup> <a name="logGroupName" id="cdk-extensions.k8s_aws.FluentBitLogGroupOutput.property.logGroupName"></a>
+
+```typescript
+public readonly logGroupName: string;
+```
+
+- *Type:* string
+
+The name for the log group that should be used for output records.
+
+---
+
+
+### FluentBitLogStreamOutput <a name="FluentBitLogStreamOutput" id="cdk-extensions.k8s_aws.FluentBitLogStreamOutput"></a>
+
+Represents valid log stream output configuration options to be used by Fluent Bit when writing to CloudWatch Logs.
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogStreamOutput.fromLogStream">fromLogStream</a></code> | Sets output to be a log stream resource object. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogStreamOutput.fromName">fromName</a></code> | Sets output to a named log stream. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogStreamOutput.fromPrefix">fromPrefix</a></code> | Sets output to a prefixed log stream. |
+
+---
+
+##### `fromLogStream` <a name="fromLogStream" id="cdk-extensions.k8s_aws.FluentBitLogStreamOutput.fromLogStream"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitLogStreamOutput.fromLogStream(logStream: ILogStream)
+```
+
+Sets output to be a log stream resource object.
+
+###### `logStream`<sup>Required</sup> <a name="logStream" id="cdk-extensions.k8s_aws.FluentBitLogStreamOutput.fromLogStream.parameter.logStream"></a>
+
+- *Type:* aws-cdk-lib.aws_logs.ILogStream
+
+The log stream where records should be written.
+
+---
+
+##### `fromName` <a name="fromName" id="cdk-extensions.k8s_aws.FluentBitLogStreamOutput.fromName"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitLogStreamOutput.fromName(name: string)
+```
+
+Sets output to a named log stream.
+
+If a log stream with the given name doesn't exist in the configured log
+group a log stream with the given name will be created.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitLogStreamOutput.fromName.parameter.name"></a>
+
+- *Type:* string
+
+The name of the log stream where records should be written.
+
+---
+
+##### `fromPrefix` <a name="fromPrefix" id="cdk-extensions.k8s_aws.FluentBitLogStreamOutput.fromPrefix"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitLogStreamOutput.fromPrefix(prefix: string)
+```
+
+Sets output to a prefixed log stream.
+
+Log streams will be created on a per-pod basis with the name oof the log
+streams starting with the provided prefix.
+
+###### `prefix`<sup>Required</sup> <a name="prefix" id="cdk-extensions.k8s_aws.FluentBitLogStreamOutput.fromPrefix.parameter.prefix"></a>
+
+- *Type:* string
+
+The prefix for log streams which will be created.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogStreamOutput.property.logStreamName">logStreamName</a></code> | <code>string</code> | The name of the log stream where records should be created. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLogStreamOutput.property.logStreamPrefix">logStreamPrefix</a></code> | <code>string</code> | The prefix for log streams that will be created on a per-pod basis. |
+
+---
+
+##### `logStreamName`<sup>Optional</sup> <a name="logStreamName" id="cdk-extensions.k8s_aws.FluentBitLogStreamOutput.property.logStreamName"></a>
+
+```typescript
+public readonly logStreamName: string;
+```
+
+- *Type:* string
+
+The name of the log stream where records should be created.
+
+---
+
+##### `logStreamPrefix`<sup>Optional</sup> <a name="logStreamPrefix" id="cdk-extensions.k8s_aws.FluentBitLogStreamOutput.property.logStreamPrefix"></a>
+
+```typescript
+public readonly logStreamPrefix: string;
+```
+
+- *Type:* string
+
+The prefix for log streams that will be created on a per-pod basis.
+
+---
+
+
+### FluentBitLtsvParser <a name="FluentBitLtsvParser" id="cdk-extensions.k8s_aws.FluentBitLtsvParser"></a>
+
+A Fluent Bit filter that parsed inbound messages in LTSV format.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitLtsvParser.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitLtsvParser(name: string, options?: FluentBitLtsvParserOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLtsvParser.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLtsvParser.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitLtsvParserOptions</code> | Options for configuring the parser. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitLtsvParser.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitLtsvParser.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitLtsvParserOptions
+
+Options for configuring the parser.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLtsvParser.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitLtsvParser.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.FluentBitLtsvParser.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLtsvParser.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLtsvParser.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLtsvParser.property.format">format</a></code> | <code>string</code> | The data format that the parser extracts records from. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLtsvParser.property.timeFormat">timeFormat</a></code> | <code>string</code> | Defines the format of the timestamp on the inbound record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLtsvParser.property.timeKey">timeKey</a></code> | <code>string</code> | The key under which timestamp information for the inbound record is given. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitLtsvParser.property.types">types</a></code> | <code>{[ key: string ]: cdk-extensions.k8s_aws.ParserPluginDataType}</code> | Maps group names matched by the regex to the data types they should be interpreted as. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitLtsvParser.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitLtsvParser.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `format`<sup>Required</sup> <a name="format" id="cdk-extensions.k8s_aws.FluentBitLtsvParser.property.format"></a>
+
+```typescript
+public readonly format: string;
+```
+
+- *Type:* string
+
+The data format that the parser extracts records from.
+
+---
+
+##### `timeFormat`<sup>Optional</sup> <a name="timeFormat" id="cdk-extensions.k8s_aws.FluentBitLtsvParser.property.timeFormat"></a>
+
+```typescript
+public readonly timeFormat: string;
+```
+
+- *Type:* string
+- *Default:* Inputs
+
+Defines the format of the timestamp on the inbound record.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitLtsvParser.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+- *Default:* Inputs
+
+The key under which timestamp information for the inbound record is given.
+
+---
+
+##### `types`<sup>Optional</sup> <a name="types" id="cdk-extensions.k8s_aws.FluentBitLtsvParser.property.types"></a>
+
+```typescript
+public readonly types: {[ key: string ]: ParserPluginDataType};
+```
+
+- *Type:* {[ key: string ]: cdk-extensions.k8s_aws.ParserPluginDataType}
+- *Default:* Inputs
+
+Maps group names matched by the regex to the data types they should be interpreted as.
+
+---
+
+
+### FluentBitModifyFilter <a name="FluentBitModifyFilter" id="cdk-extensions.k8s_aws.FluentBitModifyFilter"></a>
+
+A Fluent Bit filter that allows changing records using rules and conditions.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitModifyFilter.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitModifyFilter(options?: FluentBitModifyFilterOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitModifyFilterOptions</code> | The configuration options to use for filter. |
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitModifyFilter.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitModifyFilterOptions
+
+The configuration options to use for filter.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.addCondition">addCondition</a></code> | Adds a new condition to the modify filter. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.addOperation">addOperation</a></code> | Adds a new operation to the modify filter. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitModifyFilter.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.FluentBitModifyFilter.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+##### `addCondition` <a name="addCondition" id="cdk-extensions.k8s_aws.FluentBitModifyFilter.addCondition"></a>
+
+```typescript
+public addCondition(condition: ModifyCondition): FluentBitModifyFilter
+```
+
+Adds a new condition to the modify filter.
+
+All conditions must evaluate to `true` in order for operations are
+performed.
+
+If one or more conditions do not evaluate to true, no conditions are
+performed.
+
+###### `condition`<sup>Required</sup> <a name="condition" id="cdk-extensions.k8s_aws.FluentBitModifyFilter.addCondition.parameter.condition"></a>
+
+- *Type:* cdk-extensions.k8s_aws.ModifyCondition
+
+The condition to add to the filter.
+
+---
+
+##### `addOperation` <a name="addOperation" id="cdk-extensions.k8s_aws.FluentBitModifyFilter.addOperation"></a>
+
+```typescript
+public addOperation(operation: ModifyOperation): FluentBitModifyFilter
+```
+
+Adds a new operation to the modify filter.
+
+###### `operation`<sup>Required</sup> <a name="operation" id="cdk-extensions.k8s_aws.FluentBitModifyFilter.addOperation.parameter.operation"></a>
+
+- *Type:* cdk-extensions.k8s_aws.ModifyOperation
+
+The operation to add to the filter.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.property.conditions">conditions</a></code> | <code>cdk-extensions.k8s_aws.ModifyCondition[]</code> | Collection of conditions to apply for the filter. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitModifyFilter.property.operations">operations</a></code> | <code>cdk-extensions.k8s_aws.ModifyOperation[]</code> | Collection of operations to apply for the filter. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitModifyFilter.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitModifyFilter.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitModifyFilter.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `conditions`<sup>Required</sup> <a name="conditions" id="cdk-extensions.k8s_aws.FluentBitModifyFilter.property.conditions"></a>
+
+```typescript
+public readonly conditions: ModifyCondition[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.ModifyCondition[]
+
+Collection of conditions to apply for the filter.
+
+---
+
+##### `operations`<sup>Required</sup> <a name="operations" id="cdk-extensions.k8s_aws.FluentBitModifyFilter.property.operations"></a>
+
+```typescript
+public readonly operations: ModifyOperation[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.ModifyOperation[]
+
+Collection of operations to apply for the filter.
+
+---
+
+
+### FluentBitNestFilter <a name="FluentBitNestFilter" id="cdk-extensions.k8s_aws.FluentBitNestFilter"></a>
+
+A Fluent Bit filter that allows operating on or with nested data.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitNestFilter.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitNestFilter(options: FluentBitNestFilterOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitNestFilterOptions</code> | The configuration options for the plugin. |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitNestFilter.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitNestFilterOptions
+
+The configuration options for the plugin.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitNestFilter.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.FluentBitNestFilter.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.property.operation">operation</a></code> | <code>cdk-extensions.k8s_aws.NestFilterOperation</code> | Operation specific details for the plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.property.addPrefix">addPrefix</a></code> | <code>string</code> | Prefix affected keys with this string. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitNestFilter.property.removePrefix">removePrefix</a></code> | <code>string</code> | Remove prefix from affected keys if it matches this string. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitNestFilter.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitNestFilter.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitNestFilter.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `operation`<sup>Required</sup> <a name="operation" id="cdk-extensions.k8s_aws.FluentBitNestFilter.property.operation"></a>
+
+```typescript
+public readonly operation: NestFilterOperation;
+```
+
+- *Type:* cdk-extensions.k8s_aws.NestFilterOperation
+
+Operation specific details for the plugin.
+
+---
+
+##### `addPrefix`<sup>Optional</sup> <a name="addPrefix" id="cdk-extensions.k8s_aws.FluentBitNestFilter.property.addPrefix"></a>
+
+```typescript
+public readonly addPrefix: string;
+```
+
+- *Type:* string
+
+Prefix affected keys with this string.
+
+---
+
+##### `removePrefix`<sup>Optional</sup> <a name="removePrefix" id="cdk-extensions.k8s_aws.FluentBitNestFilter.property.removePrefix"></a>
+
+```typescript
+public readonly removePrefix: string;
+```
+
+- *Type:* string
+
+Remove prefix from affected keys if it matches this string.
+
+---
+
+
+### FluentBitOpenSearchOutput <a name="FluentBitOpenSearchOutput" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitOpenSearchOutput(options: FluentBitOpenSearchOutputOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions</code> | Options for configuring the output. |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitOpenSearchOutputOptions
+
+Options for configuring the output.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.domain">domain</a></code> | <code>aws-cdk-lib.aws_opensearchservice.IDomain</code> | The Opensearch domain to which logs should be shipped. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.port">port</a></code> | <code>number</code> | TCP port of the target OpenSearch instance. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.awsAuth">awsAuth</a></code> | <code>boolean</code> | Enable AWS Sigv4 Authentication for Amazon OpenSearch Service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.awsExternalId">awsExternalId</a></code> | <code>string</code> | External ID for the AWS IAM Role specified with `awsRole`. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.awsRegion">awsRegion</a></code> | <code>string</code> | Specify the AWS region for Amazon OpenSearch Service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.awsRole">awsRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | AWS IAM Role to assume to put records to your Amazon cluster. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.awsStsEndpoint">awsStsEndpoint</a></code> | <code>string</code> | Specify the custom sts endpoint to be used with STS API for Amazon OpenSearch Service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.bufferSize">bufferSize</a></code> | <code>cdk-extensions.k8s_aws.OpenSearchOutputBufferSize</code> | Specify the buffer size used to read the response from the OpenSearch HTTP service. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.currentTimeIndex">currentTimeIndex</a></code> | <code>boolean</code> | Use current time for index generation instead of message record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.generateId">generateId</a></code> | <code>boolean</code> | When enabled, generate `_id` for outgoing records. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.httpPasswd">httpPasswd</a></code> | <code>string</code> | Password for user defined in `httpUser`. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.httpUser">httpUser</a></code> | <code>string</code> | Optional username credential for access. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.idKey">idKey</a></code> | <code>string</code> | If set, `_id` will be the value of the key from incoming record and `generateId` option is ignored. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.includeTagKey">includeTagKey</a></code> | <code>boolean</code> | When enabled, it append the Tag name to the record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.index">index</a></code> | <code>string</code> | Index name. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.logstashDateFormat">logstashDateFormat</a></code> | <code>string</code> | Time format (based on strftime) to generate the second part of the Index name. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.logstashFormat">logstashFormat</a></code> | <code>boolean</code> | Enable Logstash format compatibility. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.logstashPrefix">logstashPrefix</a></code> | <code>string</code> | When `logstashFormat` is enabled, the Index name is composed using a prefix and the date, e.g: If `logstashPrefix` is equals to 'mydata' your index will become 'mydata-YYYY.MM.DD'. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.logstashPrefixKey">logstashPrefixKey</a></code> | <code>string</code> | When included: the value in the record that belongs to the key will be looked up and over-write the `logstashPrefix` for index generation. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.path">path</a></code> | <code>string</code> | OpenSearch accepts new data on HTTP query path "/_bulk". |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.pipeline">pipeline</a></code> | <code>string</code> | OpenSearch allows to setup filters called pipelines. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.replaceDots">replaceDots</a></code> | <code>boolean</code> | When enabled, replace field name dots with underscore. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.suppressTypeName">suppressTypeName</a></code> | <code>boolean</code> | When enabled, mapping types is removed and `type` option is ignored. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.tagKey">tagKey</a></code> | <code>string</code> | When `includeTagKey` is enabled, this property defines the key name for the tag. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.timeKey">timeKey</a></code> | <code>string</code> | When `logstashFormat` is enabled, each record will get a new timestamp field. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.timeKeyFormat">timeKeyFormat</a></code> | <code>string</code> | When `logstashFormat` is enabled, this property defines the format of the timestamp. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.timeKeyNanos">timeKeyNanos</a></code> | <code>boolean</code> | When `logstashFormat` is enabled, enabling this property sends nanosecond precision timestamps. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.traceError">traceError</a></code> | <code>boolean</code> | When enabled print the OpenSearch API calls to stdout when OpenSearch returns an error (for diag only). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.traceOutput">traceOutput</a></code> | <code>boolean</code> | When enabled print the OpenSearch API calls to stdout (for diag only). |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.type">type</a></code> | <code>string</code> | Type name. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.workers">workers</a></code> | <code>number</code> | Enables dedicated thread(s) for this output. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.writeOperation">writeOperation</a></code> | <code>string</code> | Operation to use to write in bulk requests. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `domain`<sup>Required</sup> <a name="domain" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.domain"></a>
+
+```typescript
+public readonly domain: IDomain;
+```
+
+- *Type:* aws-cdk-lib.aws_opensearchservice.IDomain
+
+The Opensearch domain to which logs should be shipped.
+
+---
+
+##### `port`<sup>Required</sup> <a name="port" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.port"></a>
+
+```typescript
+public readonly port: number;
+```
+
+- *Type:* number
+
+TCP port of the target OpenSearch instance.
+
+---
+
+##### `awsAuth`<sup>Optional</sup> <a name="awsAuth" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.awsAuth"></a>
+
+```typescript
+public readonly awsAuth: boolean;
+```
+
+- *Type:* boolean
+
+Enable AWS Sigv4 Authentication for Amazon OpenSearch Service.
+
+---
+
+##### `awsExternalId`<sup>Optional</sup> <a name="awsExternalId" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.awsExternalId"></a>
+
+```typescript
+public readonly awsExternalId: string;
+```
+
+- *Type:* string
+
+External ID for the AWS IAM Role specified with `awsRole`.
+
+---
+
+##### `awsRegion`<sup>Optional</sup> <a name="awsRegion" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.awsRegion"></a>
+
+```typescript
+public readonly awsRegion: string;
+```
+
+- *Type:* string
+
+Specify the AWS region for Amazon OpenSearch Service.
+
+---
+
+##### `awsRole`<sup>Optional</sup> <a name="awsRole" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.awsRole"></a>
+
+```typescript
+public readonly awsRole: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+AWS IAM Role to assume to put records to your Amazon cluster.
+
+---
+
+##### `awsStsEndpoint`<sup>Optional</sup> <a name="awsStsEndpoint" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.awsStsEndpoint"></a>
+
+```typescript
+public readonly awsStsEndpoint: string;
+```
+
+- *Type:* string
+
+Specify the custom sts endpoint to be used with STS API for Amazon OpenSearch Service.
+
+---
+
+##### `bufferSize`<sup>Optional</sup> <a name="bufferSize" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.bufferSize"></a>
+
+```typescript
+public readonly bufferSize: OpenSearchOutputBufferSize;
+```
+
+- *Type:* cdk-extensions.k8s_aws.OpenSearchOutputBufferSize
+
+Specify the buffer size used to read the response from the OpenSearch HTTP service.
+
+This option is useful for debugging purposes where is
+required to read full responses, note that response size grows depending
+of the number of records inserted.
+
+---
+
+##### `currentTimeIndex`<sup>Optional</sup> <a name="currentTimeIndex" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.currentTimeIndex"></a>
+
+```typescript
+public readonly currentTimeIndex: boolean;
+```
+
+- *Type:* boolean
+
+Use current time for index generation instead of message record.
+
+---
+
+##### `generateId`<sup>Optional</sup> <a name="generateId" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.generateId"></a>
+
+```typescript
+public readonly generateId: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, generate `_id` for outgoing records.
+
+This prevents duplicate
+records when retrying.
+
+---
+
+##### `httpPasswd`<sup>Optional</sup> <a name="httpPasswd" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.httpPasswd"></a>
+
+```typescript
+public readonly httpPasswd: string;
+```
+
+- *Type:* string
+
+Password for user defined in `httpUser`.
+
+---
+
+##### `httpUser`<sup>Optional</sup> <a name="httpUser" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.httpUser"></a>
+
+```typescript
+public readonly httpUser: string;
+```
+
+- *Type:* string
+
+Optional username credential for access.
+
+---
+
+##### `idKey`<sup>Optional</sup> <a name="idKey" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.idKey"></a>
+
+```typescript
+public readonly idKey: string;
+```
+
+- *Type:* string
+
+If set, `_id` will be the value of the key from incoming record and `generateId` option is ignored.
+
+---
+
+##### `includeTagKey`<sup>Optional</sup> <a name="includeTagKey" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.includeTagKey"></a>
+
+```typescript
+public readonly includeTagKey: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, it append the Tag name to the record.
+
+---
+
+##### `index`<sup>Optional</sup> <a name="index" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.index"></a>
+
+```typescript
+public readonly index: string;
+```
+
+- *Type:* string
+
+Index name.
+
+---
+
+##### `logstashDateFormat`<sup>Optional</sup> <a name="logstashDateFormat" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.logstashDateFormat"></a>
+
+```typescript
+public readonly logstashDateFormat: string;
+```
+
+- *Type:* string
+
+Time format (based on strftime) to generate the second part of the Index name.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `logstashFormat`<sup>Optional</sup> <a name="logstashFormat" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.logstashFormat"></a>
+
+```typescript
+public readonly logstashFormat: boolean;
+```
+
+- *Type:* boolean
+
+Enable Logstash format compatibility.
+
+---
+
+##### `logstashPrefix`<sup>Optional</sup> <a name="logstashPrefix" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.logstashPrefix"></a>
+
+```typescript
+public readonly logstashPrefix: string;
+```
+
+- *Type:* string
+
+When `logstashFormat` is enabled, the Index name is composed using a prefix and the date, e.g: If `logstashPrefix` is equals to 'mydata' your index will become 'mydata-YYYY.MM.DD'.
+
+The last string appended belongs to the date when the data is being
+generated.
+
+---
+
+##### `logstashPrefixKey`<sup>Optional</sup> <a name="logstashPrefixKey" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.logstashPrefixKey"></a>
+
+```typescript
+public readonly logstashPrefixKey: string;
+```
+
+- *Type:* string
+
+When included: the value in the record that belongs to the key will be looked up and over-write the `logstashPrefix` for index generation.
+
+If
+the key/value is not found in the record then the `logstashPrefix` option
+will act as a fallback.
+
+Nested keys are not supported (if desired, you can use the nest filter
+plugin to remove nesting).
+
+---
+
+##### `path`<sup>Optional</sup> <a name="path" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.path"></a>
+
+```typescript
+public readonly path: string;
+```
+
+- *Type:* string
+
+OpenSearch accepts new data on HTTP query path "/_bulk".
+
+But it is also
+possible to serve OpenSearch behind a reverse proxy on a subpath. This
+option defines such path on the fluent-bit side. It simply adds a path
+prefix in the indexing HTTP POST URI.
+
+---
+
+##### `pipeline`<sup>Optional</sup> <a name="pipeline" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.pipeline"></a>
+
+```typescript
+public readonly pipeline: string;
+```
+
+- *Type:* string
+
+OpenSearch allows to setup filters called pipelines.
+
+This option allows
+to define which pipeline the database should use.
+
+---
+
+##### `replaceDots`<sup>Optional</sup> <a name="replaceDots" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.replaceDots"></a>
+
+```typescript
+public readonly replaceDots: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, replace field name dots with underscore.
+
+---
+
+##### `suppressTypeName`<sup>Optional</sup> <a name="suppressTypeName" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.suppressTypeName"></a>
+
+```typescript
+public readonly suppressTypeName: boolean;
+```
+
+- *Type:* boolean
+
+When enabled, mapping types is removed and `type` option is ignored.
+
+---
+
+##### `tagKey`<sup>Optional</sup> <a name="tagKey" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.tagKey"></a>
+
+```typescript
+public readonly tagKey: string;
+```
+
+- *Type:* string
+
+When `includeTagKey` is enabled, this property defines the key name for the tag.
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+
+When `logstashFormat` is enabled, each record will get a new timestamp field.
+
+The`timeKey` property defines the name of that field.
+
+---
+
+##### `timeKeyFormat`<sup>Optional</sup> <a name="timeKeyFormat" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.timeKeyFormat"></a>
+
+```typescript
+public readonly timeKeyFormat: string;
+```
+
+- *Type:* string
+
+When `logstashFormat` is enabled, this property defines the format of the timestamp.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `timeKeyNanos`<sup>Optional</sup> <a name="timeKeyNanos" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.timeKeyNanos"></a>
+
+```typescript
+public readonly timeKeyNanos: boolean;
+```
+
+- *Type:* boolean
+
+When `logstashFormat` is enabled, enabling this property sends nanosecond precision timestamps.
+
+---
+
+##### `traceError`<sup>Optional</sup> <a name="traceError" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.traceError"></a>
+
+```typescript
+public readonly traceError: boolean;
+```
+
+- *Type:* boolean
+
+When enabled print the OpenSearch API calls to stdout when OpenSearch returns an error (for diag only).
+
+---
+
+##### `traceOutput`<sup>Optional</sup> <a name="traceOutput" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.traceOutput"></a>
+
+```typescript
+public readonly traceOutput: boolean;
+```
+
+- *Type:* boolean
+
+When enabled print the OpenSearch API calls to stdout (for diag only).
+
+---
+
+##### `type`<sup>Optional</sup> <a name="type" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.type"></a>
+
+```typescript
+public readonly type: string;
+```
+
+- *Type:* string
+
+Type name.
+
+---
+
+##### `workers`<sup>Optional</sup> <a name="workers" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.workers"></a>
+
+```typescript
+public readonly workers: number;
+```
+
+- *Type:* number
+
+Enables dedicated thread(s) for this output.
+
+---
+
+##### `writeOperation`<sup>Optional</sup> <a name="writeOperation" id="cdk-extensions.k8s_aws.FluentBitOpenSearchOutput.property.writeOperation"></a>
+
+```typescript
+public readonly writeOperation: string;
+```
+
+- *Type:* string
+
+Operation to use to write in bulk requests.
+
+---
+
+
+### FluentBitOutput <a name="FluentBitOutput" id="cdk-extensions.k8s_aws.FluentBitOutput"></a>
+
+Common options that allow configuration of destinations where Fluent Bit should send records after processing.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitOutput.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitOutput()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutput.cloudwatchLogs">cloudwatchLogs</a></code> | Sends matched records to a CloudWatch Logs log group. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutput.kinesis">kinesis</a></code> | Sends matched records to a Kinesis data stream. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutput.kinesisFirehose">kinesisFirehose</a></code> | Sends matched records to a Kinesis Firehose delivery stream. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutput.opensearch">opensearch</a></code> | Sends matched records to an OpenSearch domain. |
+
+---
+
+##### `cloudwatchLogs` <a name="cloudwatchLogs" id="cdk-extensions.k8s_aws.FluentBitOutput.cloudwatchLogs"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitOutput.cloudwatchLogs(match: string, logGroup: ILogGroup)
+```
+
+Sends matched records to a CloudWatch Logs log group.
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOutput.cloudwatchLogs.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the output should be applied.
+
+---
+
+###### `logGroup`<sup>Required</sup> <a name="logGroup" id="cdk-extensions.k8s_aws.FluentBitOutput.cloudwatchLogs.parameter.logGroup"></a>
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+The log group where matched records should be sent.
+
+---
+
+##### `kinesis` <a name="kinesis" id="cdk-extensions.k8s_aws.FluentBitOutput.kinesis"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitOutput.kinesis(match: string, stream: IStream)
+```
+
+Sends matched records to a Kinesis data stream.
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOutput.kinesis.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the output should be applied.
+
+---
+
+###### `stream`<sup>Required</sup> <a name="stream" id="cdk-extensions.k8s_aws.FluentBitOutput.kinesis.parameter.stream"></a>
+
+- *Type:* aws-cdk-lib.aws_kinesis.IStream
+
+The Kinesis stream where matched records should be sent.
+
+---
+
+##### `kinesisFirehose` <a name="kinesisFirehose" id="cdk-extensions.k8s_aws.FluentBitOutput.kinesisFirehose"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitOutput.kinesisFirehose(match: string, deliveryStream: IDeliveryStream)
+```
+
+Sends matched records to a Kinesis Firehose delivery stream.
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOutput.kinesisFirehose.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the output should be applied.
+
+---
+
+###### `deliveryStream`<sup>Required</sup> <a name="deliveryStream" id="cdk-extensions.k8s_aws.FluentBitOutput.kinesisFirehose.parameter.deliveryStream"></a>
+
+- *Type:* cdk-extensions.kinesis_firehose.IDeliveryStream
+
+The Firehose delivery stream where matched records should be sent.
+
+---
+
+##### `opensearch` <a name="opensearch" id="cdk-extensions.k8s_aws.FluentBitOutput.opensearch"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitOutput.opensearch(match: string, domain: IDomain)
+```
+
+Sends matched records to an OpenSearch domain.
+
+###### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOutput.opensearch.parameter.match"></a>
+
+- *Type:* string
+
+A pattern filtering to which records the output should be applied.
+
+---
+
+###### `domain`<sup>Required</sup> <a name="domain" id="cdk-extensions.k8s_aws.FluentBitOutput.opensearch.parameter.domain"></a>
+
+- *Type:* aws-cdk-lib.aws_opensearchservice.IDomain
+
+The OpenSearch domain where matched records should be sent.
+
+---
+
+
+
+### FluentBitOutputPluginBase <a name="FluentBitOutputPluginBase" id="cdk-extensions.k8s_aws.FluentBitOutputPluginBase"></a>
+
+- *Implements:* cdk-extensions.k8s_aws.IFluentBitOutputPlugin
+
+Represents a Fluent Bit plugin that controls log output to a given destination.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitOutputPluginBase.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitOutputPluginBase(name: string, options?: FluentBitOutputPluginCommonOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutputPluginBase.Initializer.parameter.name">name</a></code> | <code>string</code> | The name of the output plugin to configure. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutputPluginBase.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitOutputPluginCommonOptions</code> | Configuration options that apply to all Fluent Bit output plugin. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitOutputPluginBase.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+The name of the output plugin to configure.
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitOutputPluginBase.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitOutputPluginCommonOptions
+
+Configuration options that apply to all Fluent Bit output plugin.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutputPluginBase.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitOutputPluginBase.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.FluentBitOutputPluginBase.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutputPluginBase.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutputPluginBase.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitOutputPluginBase.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitOutputPluginBase.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitOutputPluginBase.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitOutputPluginBase.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+
+### FluentBitParser <a name="FluentBitParser" id="cdk-extensions.k8s_aws.FluentBitParser"></a>
+
+Standard parse comfigurations which can be applied to Fluent Bit to allow for parsing data from incoming records.
+
+The records to which parsers are applied is controlled using the parser
+filter.
+
+> [{@link FluentBitParserFilter}]({@link FluentBitParserFilter})
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitParser.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitParser()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParser.json">json</a></code> | Creates a parser that processes records that are formatted in JSON. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParser.logfmt">logfmt</a></code> | Creates a parser that processes records that are formatted using the `logfmt` standard. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParser.ltsv">ltsv</a></code> | Creates a parser that processes records that are formatted using the `ltsv` standard. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParser.regex">regex</a></code> | Creates a parser that uses regular expressions to parse incoming records. |
+
+---
+
+##### `json` <a name="json" id="cdk-extensions.k8s_aws.FluentBitParser.json"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitParser.json(name: string)
+```
+
+Creates a parser that processes records that are formatted in JSON.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitParser.json.parameter.name"></a>
+
+- *Type:* string
+
+The name of the parser which will be used for referencing it in other configurations.
+
+---
+
+##### `logfmt` <a name="logfmt" id="cdk-extensions.k8s_aws.FluentBitParser.logfmt"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitParser.logfmt(name: string)
+```
+
+Creates a parser that processes records that are formatted using the `logfmt` standard.
+
+> [[Golang logfmt documentation](https://pkg.go.dev/github.com/kr/logfmt)]([Golang logfmt documentation](https://pkg.go.dev/github.com/kr/logfmt))
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitParser.logfmt.parameter.name"></a>
+
+- *Type:* string
+
+The name of the parser which will be used for referencing it in other configurations.
+
+---
+
+##### `ltsv` <a name="ltsv" id="cdk-extensions.k8s_aws.FluentBitParser.ltsv"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitParser.ltsv(name: string)
+```
+
+Creates a parser that processes records that are formatted using the `ltsv` standard.
+
+> [[LTSV](http://ltsv.org/)]([LTSV](http://ltsv.org/))
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitParser.ltsv.parameter.name"></a>
+
+- *Type:* string
+
+The name of the parser which will be used for referencing it in other configurations.
+
+---
+
+##### `regex` <a name="regex" id="cdk-extensions.k8s_aws.FluentBitParser.regex"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.FluentBitParser.regex(name: string, regex: string)
+```
+
+Creates a parser that uses regular expressions to parse incoming records.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitParser.regex.parameter.name"></a>
+
+- *Type:* string
+
+The name of the parser which will be used for referencing it in other configurations.
+
+---
+
+###### `regex`<sup>Required</sup> <a name="regex" id="cdk-extensions.k8s_aws.FluentBitParser.regex.parameter.regex"></a>
+
+- *Type:* string
+
+The regular expression to use to parse records.
+
+---
+
+
+
+### FluentBitParserFilter <a name="FluentBitParserFilter" id="cdk-extensions.k8s_aws.FluentBitParserFilter"></a>
+
+A Fluent Bit filter that allows parsing of fields in event records.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitParserFilter.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitParserFilter(options?: FluentBitParserFilterOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitParserFilterOptions</code> | The configuration options to use for filter. |
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitParserFilter.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitParserFilterOptions
+
+The configuration options to use for filter.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.addParser">addParser</a></code> | Adds a new parser to apply to matched log entries. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitParserFilter.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.FluentBitParserFilter.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+##### `addParser` <a name="addParser" id="cdk-extensions.k8s_aws.FluentBitParserFilter.addParser"></a>
+
+```typescript
+public addParser(parser: IFluentBitParserPlugin): FluentBitParserFilter
+```
+
+Adds a new parser to apply to matched log entries.
+
+###### `parser`<sup>Required</sup> <a name="parser" id="cdk-extensions.k8s_aws.FluentBitParserFilter.addParser.parameter.parser"></a>
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitParserPlugin
+
+The parser to use for matched log entries.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.parsers">parsers</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitParserPlugin[]</code> | Collection of the parsers that should be used to evaluate the filter. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.keyName">keyName</a></code> | <code>string</code> | Specify field name in record to parse. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.preserveKey">preserveKey</a></code> | <code>boolean</code> | Keep original `keyName` field in the parsed result. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.reserveData">reserveData</a></code> | <code>boolean</code> | Keep all other original fields in the parsed result. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitParserFilter.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitParserFilter.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitParserFilter.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `parsers`<sup>Required</sup> <a name="parsers" id="cdk-extensions.k8s_aws.FluentBitParserFilter.property.parsers"></a>
+
+```typescript
+public readonly parsers: IFluentBitParserPlugin[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitParserPlugin[]
+
+Collection of the parsers that should be used to evaluate the filter.
+
+---
+
+##### `keyName`<sup>Optional</sup> <a name="keyName" id="cdk-extensions.k8s_aws.FluentBitParserFilter.property.keyName"></a>
+
+```typescript
+public readonly keyName: string;
+```
+
+- *Type:* string
+
+Specify field name in record to parse.
+
+---
+
+##### `preserveKey`<sup>Optional</sup> <a name="preserveKey" id="cdk-extensions.k8s_aws.FluentBitParserFilter.property.preserveKey"></a>
+
+```typescript
+public readonly preserveKey: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Keep original `keyName` field in the parsed result.
+
+If `false`, the field will be removed.
+
+---
+
+##### `reserveData`<sup>Optional</sup> <a name="reserveData" id="cdk-extensions.k8s_aws.FluentBitParserFilter.property.reserveData"></a>
+
+```typescript
+public readonly reserveData: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Keep all other original fields in the parsed result.
+
+If `false`, all other original fields will be removed.
+
+---
+
+
+### FluentBitParserPluginBase <a name="FluentBitParserPluginBase" id="cdk-extensions.k8s_aws.FluentBitParserPluginBase"></a>
+
+- *Implements:* cdk-extensions.k8s_aws.IFluentBitParserPlugin
+
+Represents a Fluent Bit plugin that parses inbound records to populate fields.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitParserPluginBase.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitParserPluginBase(name: string, format: string, _options?: FluentBitParserPluginCommonOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserPluginBase.Initializer.parameter.name">name</a></code> | <code>string</code> | The name of the output plugin to configure. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserPluginBase.Initializer.parameter.format">format</a></code> | <code>string</code> | The data format that the parser extracts records from. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserPluginBase.Initializer.parameter._options">_options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitParserPluginCommonOptions</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitParserPluginBase.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+The name of the output plugin to configure.
+
+---
+
+##### `format`<sup>Required</sup> <a name="format" id="cdk-extensions.k8s_aws.FluentBitParserPluginBase.Initializer.parameter.format"></a>
+
+- *Type:* string
+
+The data format that the parser extracts records from.
+
+---
+
+##### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.k8s_aws.FluentBitParserPluginBase.Initializer.parameter._options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitParserPluginCommonOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserPluginBase.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitParserPluginBase.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.FluentBitParserPluginBase.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserPluginBase.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserPluginBase.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserPluginBase.property.format">format</a></code> | <code>string</code> | The data format that the parser extracts records from. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitParserPluginBase.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitParserPluginBase.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `format`<sup>Required</sup> <a name="format" id="cdk-extensions.k8s_aws.FluentBitParserPluginBase.property.format"></a>
+
+```typescript
+public readonly format: string;
+```
+
+- *Type:* string
+
+The data format that the parser extracts records from.
+
+---
+
+
+### FluentBitPlugin <a name="FluentBitPlugin" id="cdk-extensions.k8s_aws.FluentBitPlugin"></a>
+
+- *Implements:* cdk-extensions.k8s_aws.IFluentBitPlugin
+
+A Fluent Bit plugin that allows for configuration of options and can be used to configure logging from containers.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitPlugin.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitPlugin(options: FluentBitPluginCommonOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitPlugin.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitPluginCommonOptions</code> | Configuration options for the plugin. |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitPlugin.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitPluginCommonOptions
+
+Configuration options for the plugin.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitPlugin.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitPlugin.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.FluentBitPlugin.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitPlugin.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitPlugin.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitPlugin.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitPlugin.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+
+### FluentBitRecordModifierFilter <a name="FluentBitRecordModifierFilter" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter"></a>
+
+A Fluent Bit filter that allows appending fields or excluding specific fields.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitRecordModifierFilter(options?: FluentBitRecordModifierFilterOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions</code> | The configuration options to use for filter. |
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitRecordModifierFilterOptions
+
+The configuration options to use for filter.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.addAllow">addAllow</a></code> | Adds a tag to be allowed on a matched input record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.addRecord">addRecord</a></code> | Add a record to be appended to matched events. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.addRemove">addRemove</a></code> | Adds a tag to be removed on a matched input record. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+##### `addAllow` <a name="addAllow" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.addAllow"></a>
+
+```typescript
+public addAllow(tag: string): FluentBitRecordModifierFilter
+```
+
+Adds a tag to be allowed on a matched input record.
+
+If a tag is not matched it is removed.
+
+###### `tag`<sup>Required</sup> <a name="tag" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.addAllow.parameter.tag"></a>
+
+- *Type:* string
+
+The tag to add to the allow list.
+
+---
+
+##### `addRecord` <a name="addRecord" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.addRecord"></a>
+
+```typescript
+public addRecord(record: AppendedRecord): FluentBitRecordModifierFilter
+```
+
+Add a record to be appended to matched events.
+
+###### `record`<sup>Required</sup> <a name="record" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.addRecord.parameter.record"></a>
+
+- *Type:* cdk-extensions.k8s_aws.AppendedRecord
+
+The record to be appended to matched input.
+
+---
+
+##### `addRemove` <a name="addRemove" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.addRemove"></a>
+
+```typescript
+public addRemove(tag: string): FluentBitRecordModifierFilter
+```
+
+Adds a tag to be removed on a matched input record.
+
+If a tag is matched it is removed.
+
+###### `tag`<sup>Required</sup> <a name="tag" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.addRemove.parameter.tag"></a>
+
+- *Type:* string
+
+The tag to add to the allow list.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.allow">allow</a></code> | <code>string[]</code> | Collection of tags that are allowed on a matched input record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.records">records</a></code> | <code>cdk-extensions.k8s_aws.AppendedRecord[]</code> | Collection of the records to be appending to matched input. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.remove">remove</a></code> | <code>string[]</code> | Collection of tags to exclude from a matched input record. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `allow`<sup>Required</sup> <a name="allow" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.allow"></a>
+
+```typescript
+public readonly allow: string[];
+```
+
+- *Type:* string[]
+
+Collection of tags that are allowed on a matched input record.
+
+If a tag is not matched it is removed.
+
+---
+
+##### `records`<sup>Required</sup> <a name="records" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.records"></a>
+
+```typescript
+public readonly records: AppendedRecord[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.AppendedRecord[]
+
+Collection of the records to be appending to matched input.
+
+---
+
+##### `remove`<sup>Required</sup> <a name="remove" id="cdk-extensions.k8s_aws.FluentBitRecordModifierFilter.property.remove"></a>
+
+```typescript
+public readonly remove: string[];
+```
+
+- *Type:* string[]
+
+Collection of tags to exclude from a matched input record.
+
+If a tag is matched it is removed.
+
+---
+
+
+### FluentBitRegexParser <a name="FluentBitRegexParser" id="cdk-extensions.k8s_aws.FluentBitRegexParser"></a>
+
+A Fluent Bit filter that parsed inbound messages using regular expressions.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitRegexParser.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitRegexParser(name: string, options: FluentBitRegexParserOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParser.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParser.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitRegexParserOptions</code> | Options for configuring the parser. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitRegexParser.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitRegexParser.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitRegexParserOptions
+
+Options for configuring the parser.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParser.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitRegexParser.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.FluentBitRegexParser.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParser.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParser.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParser.property.format">format</a></code> | <code>string</code> | The data format that the parser extracts records from. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParser.property.regex">regex</a></code> | <code>string</code> | The regular expression to use to parse the incoming records. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParser.property.skipEmptyValues">skipEmptyValues</a></code> | <code>boolean</code> | If enabled, the parser ignores empty value of the record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParser.property.timeFormat">timeFormat</a></code> | <code>string</code> | Defines the format of the timestamp on the inbound record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParser.property.timeKey">timeKey</a></code> | <code>string</code> | The key under which timestamp information for the inbound record is given. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRegexParser.property.types">types</a></code> | <code>{[ key: string ]: cdk-extensions.k8s_aws.ParserPluginDataType}</code> | Maps group names matched by the regex to the data types they should be interpreted as. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitRegexParser.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitRegexParser.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `format`<sup>Required</sup> <a name="format" id="cdk-extensions.k8s_aws.FluentBitRegexParser.property.format"></a>
+
+```typescript
+public readonly format: string;
+```
+
+- *Type:* string
+
+The data format that the parser extracts records from.
+
+---
+
+##### `regex`<sup>Required</sup> <a name="regex" id="cdk-extensions.k8s_aws.FluentBitRegexParser.property.regex"></a>
+
+```typescript
+public readonly regex: string;
+```
+
+- *Type:* string
+
+The regular expression to use to parse the incoming records.
+
+Use regex group names to define the name of fields being captured.
+
+---
+
+##### `skipEmptyValues`<sup>Optional</sup> <a name="skipEmptyValues" id="cdk-extensions.k8s_aws.FluentBitRegexParser.property.skipEmptyValues"></a>
+
+```typescript
+public readonly skipEmptyValues: boolean;
+```
+
+- *Type:* boolean
+
+If enabled, the parser ignores empty value of the record.
+
+---
+
+##### `timeFormat`<sup>Optional</sup> <a name="timeFormat" id="cdk-extensions.k8s_aws.FluentBitRegexParser.property.timeFormat"></a>
+
+```typescript
+public readonly timeFormat: string;
+```
+
+- *Type:* string
+
+Defines the format of the timestamp on the inbound record.
+
+> [[strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)]([strftime](http://man7.org/linux/man-pages/man3/strftime.3.html))
+
+---
+
+##### `timeKey`<sup>Optional</sup> <a name="timeKey" id="cdk-extensions.k8s_aws.FluentBitRegexParser.property.timeKey"></a>
+
+```typescript
+public readonly timeKey: string;
+```
+
+- *Type:* string
+
+The key under which timestamp information for the inbound record is given.
+
+---
+
+##### `types`<sup>Optional</sup> <a name="types" id="cdk-extensions.k8s_aws.FluentBitRegexParser.property.types"></a>
+
+```typescript
+public readonly types: {[ key: string ]: ParserPluginDataType};
+```
+
+- *Type:* {[ key: string ]: cdk-extensions.k8s_aws.ParserPluginDataType}
+
+Maps group names matched by the regex to the data types they should be interpreted as.
+
+---
+
+
+### FluentBitRewriteTagFilter <a name="FluentBitRewriteTagFilter" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter"></a>
+
+A Fluent Bit filter that allows parsing of fields in event records.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitRewriteTagFilter(options?: FluentBitRewriteTagFilterOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions</code> | The configuration options to use for filter. |
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitRewriteTagFilterOptions
+
+The configuration options to use for filter.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.addRule">addRule</a></code> | Adds a new rule to apply to matched log entries. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+##### `addRule` <a name="addRule" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.addRule"></a>
+
+```typescript
+public addRule(rule: RewriteTagRule): FluentBitRewriteTagFilter
+```
+
+Adds a new rule to apply to matched log entries.
+
+###### `rule`<sup>Required</sup> <a name="rule" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.addRule.parameter.rule"></a>
+
+- *Type:* cdk-extensions.k8s_aws.RewriteTagRule
+
+The rule to apply for matched log entries.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.rules">rules</a></code> | <code>cdk-extensions.k8s_aws.RewriteTagRule[]</code> | Collection of rules defining matching criteria and the format of the tag for the matching record. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterMemBufLimit">emitterMemBufLimit</a></code> | <code>cdk-extensions.core.DataSize</code> | Set a limit on the amount of memory the tag rewrite emitter can consume if the outputs provide backpressure. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterName">emitterName</a></code> | <code>string</code> | When the filter emits a record under the new Tag, there is an internal emitter plugin that takes care of the job. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterStorageType">emitterStorageType</a></code> | <code>cdk-extensions.k8s_aws.EmitterStorageType</code> | Define a buffering mechanism for the new records created. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `rules`<sup>Required</sup> <a name="rules" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.rules"></a>
+
+```typescript
+public readonly rules: RewriteTagRule[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.RewriteTagRule[]
+
+Collection of rules defining matching criteria and the format of the tag for the matching record.
+
+---
+
+##### `emitterMemBufLimit`<sup>Optional</sup> <a name="emitterMemBufLimit" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterMemBufLimit"></a>
+
+```typescript
+public readonly emitterMemBufLimit: DataSize;
+```
+
+- *Type:* cdk-extensions.core.DataSize
+
+Set a limit on the amount of memory the tag rewrite emitter can consume if the outputs provide backpressure.
+
+---
+
+##### `emitterName`<sup>Optional</sup> <a name="emitterName" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterName"></a>
+
+```typescript
+public readonly emitterName: string;
+```
+
+- *Type:* string
+
+When the filter emits a record under the new Tag, there is an internal emitter plugin that takes care of the job.
+
+Since this emitter expose
+metrics as any other component of the pipeline, you can use this
+property to configure an optional name for it.
+
+---
+
+##### `emitterStorageType`<sup>Optional</sup> <a name="emitterStorageType" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterStorageType"></a>
+
+```typescript
+public readonly emitterStorageType: EmitterStorageType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.EmitterStorageType
+
+Define a buffering mechanism for the new records created.
+
+Note these records are part of the emitter plugin.
+
+---
+
+
+### FluentBitThrottleFilter <a name="FluentBitThrottleFilter" id="cdk-extensions.k8s_aws.FluentBitThrottleFilter"></a>
+
+A Fluent Bit filter that sets the average *Rate* of messages per *Interval*, based on leaky bucket and sliding window algorithm.
+
+In case of overflood,
+it will leak within certain rate.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitThrottleFilter.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.FluentBitThrottleFilter(options?: FluentBitThrottleFilterOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions</code> | Options for configuring the filter. |
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitThrottleFilter.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.FluentBitThrottleFilterOptions
+
+Options for configuring the filter.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.FluentBitThrottleFilter.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.FluentBitThrottleFilter.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring logging using Fluent Bit.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.match">match</a></code> | <code>string</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.interval">interval</a></code> | <code>aws-cdk-lib.Duration</code> | Time interval. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.rate">rate</a></code> | <code>number</code> | Amount of messages for the time. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.window">window</a></code> | <code>number</code> | Amount of intervals to calculate average over. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.printStatus">printStatus</a></code> | <code>boolean</code> | Whether to print status messages with current rate and the limits to information logs. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `match`<sup>Required</sup> <a name="match" id="cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.match"></a>
+
+```typescript
+public readonly match: string;
+```
+
+- *Type:* string
+
+The pattern to match for records that this output should apply to.
+
+---
+
+##### `interval`<sup>Required</sup> <a name="interval" id="cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.interval"></a>
+
+```typescript
+public readonly interval: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+Time interval.
+
+---
+
+##### `rate`<sup>Required</sup> <a name="rate" id="cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.rate"></a>
+
+```typescript
+public readonly rate: number;
+```
+
+- *Type:* number
+
+Amount of messages for the time.
+
+---
+
+##### `window`<sup>Required</sup> <a name="window" id="cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.window"></a>
+
+```typescript
+public readonly window: number;
+```
+
+- *Type:* number
+
+Amount of intervals to calculate average over.
+
+---
+
+##### `printStatus`<sup>Optional</sup> <a name="printStatus" id="cdk-extensions.k8s_aws.FluentBitThrottleFilter.property.printStatus"></a>
+
+```typescript
+public readonly printStatus: boolean;
+```
+
+- *Type:* boolean
+
+Whether to print status messages with current rate and the limits to information logs.
+
+---
+
 
 ### GlueVersion <a name="GlueVersion" id="cdk-extensions.glue.GlueVersion"></a>
 
@@ -36245,6 +46148,850 @@ kinesis_firehose.MetaDataExtractionQuery.of(query: string)
 
 
 
+### ModifyCondition <a name="ModifyCondition" id="cdk-extensions.k8s_aws.ModifyCondition"></a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyCondition.toString">toString</a></code> | Gets a string representation of the arguments of this condition for use in a Fluent Bit plugin field. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.k8s_aws.ModifyCondition.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Gets a string representation of the arguments of this condition for use in a Fluent Bit plugin field.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyCondition.aKeyMatches">aKeyMatches</a></code> | Condition that returns true if any key matches a specified regular expression. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyCondition.keyDoesNotExists">keyDoesNotExists</a></code> | Condition that returns true if a specified key does not exist. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyCondition.keyExists">keyExists</a></code> | Condition that returns true if a specified key exists. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyCondition.keyValueDoesNotEqual">keyValueDoesNotEqual</a></code> | Condition that returns true if a specified key exists and its value does not match the specified value. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyCondition.keyValueDoesNotMatch">keyValueDoesNotMatch</a></code> | Condition that returns true if a specified key exists and its value does not match the specified regular expression. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyCondition.keyValueEquals">keyValueEquals</a></code> | Condition that returns true if a specified key exists and its value matches the specified value. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyCondition.keyValueMatches">keyValueMatches</a></code> | Condition that returns true if a specified key exists and its value matches the specified regular expression. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyCondition.matchingKeysDoNotHaveMatchingValues">matchingKeysDoNotHaveMatchingValues</a></code> | Condition that returns true if all keys matching a specified regular expression have values that do not match another regular expression. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyCondition.matchingKeysHaveMatchingValues">matchingKeysHaveMatchingValues</a></code> | Condition that returns true if all keys matching a specified regular expression have values that match another regular expression. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyCondition.noKeyMatches">noKeyMatches</a></code> | Condition that returns true if no key matches a specified regular expression. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyCondition.of">of</a></code> | An escape hatch method that allows fo defining custom conditions to be evaluated by the modify Fluent Bit filter plugin. |
+
+---
+
+##### `aKeyMatches` <a name="aKeyMatches" id="cdk-extensions.k8s_aws.ModifyCondition.aKeyMatches"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyCondition.aKeyMatches(regex: string)
+```
+
+Condition that returns true if any key matches a specified regular expression.
+
+###### `regex`<sup>Required</sup> <a name="regex" id="cdk-extensions.k8s_aws.ModifyCondition.aKeyMatches.parameter.regex"></a>
+
+- *Type:* string
+
+The regular expression to evaluate against field keys.
+
+---
+
+##### `keyDoesNotExists` <a name="keyDoesNotExists" id="cdk-extensions.k8s_aws.ModifyCondition.keyDoesNotExists"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyCondition.keyDoesNotExists(key: string)
+```
+
+Condition that returns true if a specified key does not exist.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ModifyCondition.keyDoesNotExists.parameter.key"></a>
+
+- *Type:* string
+
+The key to check for existence.
+
+---
+
+##### `keyExists` <a name="keyExists" id="cdk-extensions.k8s_aws.ModifyCondition.keyExists"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyCondition.keyExists(key: string)
+```
+
+Condition that returns true if a specified key exists.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ModifyCondition.keyExists.parameter.key"></a>
+
+- *Type:* string
+
+The key to check for existence.
+
+---
+
+##### `keyValueDoesNotEqual` <a name="keyValueDoesNotEqual" id="cdk-extensions.k8s_aws.ModifyCondition.keyValueDoesNotEqual"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyCondition.keyValueDoesNotEqual(key: string, value: string)
+```
+
+Condition that returns true if a specified key exists and its value does not match the specified value.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ModifyCondition.keyValueDoesNotEqual.parameter.key"></a>
+
+- *Type:* string
+
+The key to check for existence.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.k8s_aws.ModifyCondition.keyValueDoesNotEqual.parameter.value"></a>
+
+- *Type:* string
+
+The value to check for the given key.
+
+---
+
+##### `keyValueDoesNotMatch` <a name="keyValueDoesNotMatch" id="cdk-extensions.k8s_aws.ModifyCondition.keyValueDoesNotMatch"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyCondition.keyValueDoesNotMatch(key: string, value: string)
+```
+
+Condition that returns true if a specified key exists and its value does not match the specified regular expression.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ModifyCondition.keyValueDoesNotMatch.parameter.key"></a>
+
+- *Type:* string
+
+The key to check for existence.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.k8s_aws.ModifyCondition.keyValueDoesNotMatch.parameter.value"></a>
+
+- *Type:* string
+
+The regular expression to check for the given key.
+
+---
+
+##### `keyValueEquals` <a name="keyValueEquals" id="cdk-extensions.k8s_aws.ModifyCondition.keyValueEquals"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyCondition.keyValueEquals(key: string, value: string)
+```
+
+Condition that returns true if a specified key exists and its value matches the specified value.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ModifyCondition.keyValueEquals.parameter.key"></a>
+
+- *Type:* string
+
+The key to check for existence.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.k8s_aws.ModifyCondition.keyValueEquals.parameter.value"></a>
+
+- *Type:* string
+
+The value to match for the given key.
+
+---
+
+##### `keyValueMatches` <a name="keyValueMatches" id="cdk-extensions.k8s_aws.ModifyCondition.keyValueMatches"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyCondition.keyValueMatches(key: string, value: string)
+```
+
+Condition that returns true if a specified key exists and its value matches the specified regular expression.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ModifyCondition.keyValueMatches.parameter.key"></a>
+
+- *Type:* string
+
+The key to check for existence.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.k8s_aws.ModifyCondition.keyValueMatches.parameter.value"></a>
+
+- *Type:* string
+
+The regular expression to match for the given key.
+
+---
+
+##### `matchingKeysDoNotHaveMatchingValues` <a name="matchingKeysDoNotHaveMatchingValues" id="cdk-extensions.k8s_aws.ModifyCondition.matchingKeysDoNotHaveMatchingValues"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyCondition.matchingKeysDoNotHaveMatchingValues(key: string, value: string)
+```
+
+Condition that returns true if all keys matching a specified regular expression have values that do not match another regular expression.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ModifyCondition.matchingKeysDoNotHaveMatchingValues.parameter.key"></a>
+
+- *Type:* string
+
+The regular expression to use to filter keys.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.k8s_aws.ModifyCondition.matchingKeysDoNotHaveMatchingValues.parameter.value"></a>
+
+- *Type:* string
+
+The regular expression to check the value of fields.
+
+---
+
+##### `matchingKeysHaveMatchingValues` <a name="matchingKeysHaveMatchingValues" id="cdk-extensions.k8s_aws.ModifyCondition.matchingKeysHaveMatchingValues"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyCondition.matchingKeysHaveMatchingValues(key: string, value: string)
+```
+
+Condition that returns true if all keys matching a specified regular expression have values that match another regular expression.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ModifyCondition.matchingKeysHaveMatchingValues.parameter.key"></a>
+
+- *Type:* string
+
+The regular expression to use to filter keys.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.k8s_aws.ModifyCondition.matchingKeysHaveMatchingValues.parameter.value"></a>
+
+- *Type:* string
+
+The regular expression to check the value of fields.
+
+---
+
+##### `noKeyMatches` <a name="noKeyMatches" id="cdk-extensions.k8s_aws.ModifyCondition.noKeyMatches"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyCondition.noKeyMatches(regex: string)
+```
+
+Condition that returns true if no key matches a specified regular expression.
+
+###### `regex`<sup>Required</sup> <a name="regex" id="cdk-extensions.k8s_aws.ModifyCondition.noKeyMatches.parameter.regex"></a>
+
+- *Type:* string
+
+The regular expression to evaluate against field keys.
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.k8s_aws.ModifyCondition.of"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyCondition.of(condition: string, args: string[])
+```
+
+An escape hatch method that allows fo defining custom conditions to be evaluated by the modify Fluent Bit filter plugin.
+
+###### `condition`<sup>Required</sup> <a name="condition" id="cdk-extensions.k8s_aws.ModifyCondition.of.parameter.condition"></a>
+
+- *Type:* string
+
+The name of the condition to be evaluated.
+
+---
+
+###### `args`<sup>Required</sup> <a name="args" id="cdk-extensions.k8s_aws.ModifyCondition.of.parameter.args"></a>
+
+- *Type:* string[]
+
+The arguments to the operation.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyCondition.property.args">args</a></code> | <code>string[]</code> | Collection of arguments that apply to the condition. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyCondition.property.condition">condition</a></code> | <code>string</code> | The name of the condition being evaluated. |
+
+---
+
+##### `args`<sup>Required</sup> <a name="args" id="cdk-extensions.k8s_aws.ModifyCondition.property.args"></a>
+
+```typescript
+public readonly args: string[];
+```
+
+- *Type:* string[]
+
+Collection of arguments that apply to the condition.
+
+---
+
+##### `condition`<sup>Required</sup> <a name="condition" id="cdk-extensions.k8s_aws.ModifyCondition.property.condition"></a>
+
+```typescript
+public readonly condition: string;
+```
+
+- *Type:* string
+
+The name of the condition being evaluated.
+
+---
+
+
+### ModifyOperation <a name="ModifyOperation" id="cdk-extensions.k8s_aws.ModifyOperation"></a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.toString">toString</a></code> | Gets a string representation of the arguments of this operation for use in a Fluent Bit plugin field. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.k8s_aws.ModifyOperation.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Gets a string representation of the arguments of this operation for use in a Fluent Bit plugin field.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.add">add</a></code> | Sets a field in the output to a specific value. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.copy">copy</a></code> | Copies a field from the input to a field with a new name if the field exists and a field with the new name does not exist. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.hardCopy">hardCopy</a></code> | Copies a field from the input to a field with a new name if the field exists and a field with the new name does not exist. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.hardRename">hardRename</a></code> | Renames a field from the input if the field exists. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.moveToEnd">moveToEnd</a></code> | Moves fiels matching the given wildcard key to the end of the message. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.moveToStart">moveToStart</a></code> | Moves fiels matching the given wildcard key to the start of the message. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.of">of</a></code> | An escape hatch method that allows fo defining custom operations to be performed by the modify Fluent Bit filter plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.remove">remove</a></code> | Removes a field in the output with a specific key. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.removeRegex">removeRegex</a></code> | Removes all fields in the output matching the regular expression. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.removeWildcard">removeWildcard</a></code> | Removes all fields in the output matching the wildcard key. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.rename">rename</a></code> | Renames a field from the input if the field exists and a field with the new name does not exist. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.set">set</a></code> | Sets a field in the output to a specific value. |
+
+---
+
+##### `add` <a name="add" id="cdk-extensions.k8s_aws.ModifyOperation.add"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyOperation.add(key: string, value: string)
+```
+
+Sets a field in the output to a specific value.
+
+If a field with the same name already exists it will be kept as is.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ModifyOperation.add.parameter.key"></a>
+
+- *Type:* string
+
+The key name of the field to set.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.k8s_aws.ModifyOperation.add.parameter.value"></a>
+
+- *Type:* string
+
+The value to set for the specified field.
+
+---
+
+##### `copy` <a name="copy" id="cdk-extensions.k8s_aws.ModifyOperation.copy"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyOperation.copy(originalKey: string, newKey: string)
+```
+
+Copies a field from the input to a field with a new name if the field exists and a field with the new name does not exist.
+
+If a field with the new name already exists it is overwritten.
+
+###### `originalKey`<sup>Required</sup> <a name="originalKey" id="cdk-extensions.k8s_aws.ModifyOperation.copy.parameter.originalKey"></a>
+
+- *Type:* string
+
+The key in the input to be copied.
+
+---
+
+###### `newKey`<sup>Required</sup> <a name="newKey" id="cdk-extensions.k8s_aws.ModifyOperation.copy.parameter.newKey"></a>
+
+- *Type:* string
+
+The new name of the field to be copied to.
+
+---
+
+##### `hardCopy` <a name="hardCopy" id="cdk-extensions.k8s_aws.ModifyOperation.hardCopy"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyOperation.hardCopy(originalKey: string, newKey: string)
+```
+
+Copies a field from the input to a field with a new name if the field exists and a field with the new name does not exist.
+
+###### `originalKey`<sup>Required</sup> <a name="originalKey" id="cdk-extensions.k8s_aws.ModifyOperation.hardCopy.parameter.originalKey"></a>
+
+- *Type:* string
+
+The key in the input to be copied.
+
+---
+
+###### `newKey`<sup>Required</sup> <a name="newKey" id="cdk-extensions.k8s_aws.ModifyOperation.hardCopy.parameter.newKey"></a>
+
+- *Type:* string
+
+The new name of the field to be copied to.
+
+---
+
+##### `hardRename` <a name="hardRename" id="cdk-extensions.k8s_aws.ModifyOperation.hardRename"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyOperation.hardRename(originalKey: string, renamedKey: string)
+```
+
+Renames a field from the input if the field exists.
+
+If a field with the desired name already exists it is overwritten.
+
+###### `originalKey`<sup>Required</sup> <a name="originalKey" id="cdk-extensions.k8s_aws.ModifyOperation.hardRename.parameter.originalKey"></a>
+
+- *Type:* string
+
+The key in the input to be renamed.
+
+---
+
+###### `renamedKey`<sup>Required</sup> <a name="renamedKey" id="cdk-extensions.k8s_aws.ModifyOperation.hardRename.parameter.renamedKey"></a>
+
+- *Type:* string
+
+The new name of the key in the output.
+
+---
+
+##### `moveToEnd` <a name="moveToEnd" id="cdk-extensions.k8s_aws.ModifyOperation.moveToEnd"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyOperation.moveToEnd(key: string)
+```
+
+Moves fiels matching the given wildcard key to the end of the message.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ModifyOperation.moveToEnd.parameter.key"></a>
+
+- *Type:* string
+
+The wildcard to to match.
+
+---
+
+##### `moveToStart` <a name="moveToStart" id="cdk-extensions.k8s_aws.ModifyOperation.moveToStart"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyOperation.moveToStart(key: string)
+```
+
+Moves fiels matching the given wildcard key to the start of the message.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ModifyOperation.moveToStart.parameter.key"></a>
+
+- *Type:* string
+
+The wildcard to to match.
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.k8s_aws.ModifyOperation.of"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyOperation.of(operation: string, args: string[])
+```
+
+An escape hatch method that allows fo defining custom operations to be performed by the modify Fluent Bit filter plugin.
+
+###### `operation`<sup>Required</sup> <a name="operation" id="cdk-extensions.k8s_aws.ModifyOperation.of.parameter.operation"></a>
+
+- *Type:* string
+
+The name of the operation to be performed.
+
+---
+
+###### `args`<sup>Required</sup> <a name="args" id="cdk-extensions.k8s_aws.ModifyOperation.of.parameter.args"></a>
+
+- *Type:* string[]
+
+The arguments to the operation.
+
+---
+
+##### `remove` <a name="remove" id="cdk-extensions.k8s_aws.ModifyOperation.remove"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyOperation.remove(key: string)
+```
+
+Removes a field in the output with a specific key.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ModifyOperation.remove.parameter.key"></a>
+
+- *Type:* string
+
+The key name of the field to remove.
+
+---
+
+##### `removeRegex` <a name="removeRegex" id="cdk-extensions.k8s_aws.ModifyOperation.removeRegex"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyOperation.removeRegex(regex: string)
+```
+
+Removes all fields in the output matching the regular expression.
+
+###### `regex`<sup>Required</sup> <a name="regex" id="cdk-extensions.k8s_aws.ModifyOperation.removeRegex.parameter.regex"></a>
+
+- *Type:* string
+
+The regular expression specifying which fields to remove.
+
+---
+
+##### `removeWildcard` <a name="removeWildcard" id="cdk-extensions.k8s_aws.ModifyOperation.removeWildcard"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyOperation.removeWildcard(key: string)
+```
+
+Removes all fields in the output matching the wildcard key.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ModifyOperation.removeWildcard.parameter.key"></a>
+
+- *Type:* string
+
+The wildcard expression specifying which fields to remove.
+
+---
+
+##### `rename` <a name="rename" id="cdk-extensions.k8s_aws.ModifyOperation.rename"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyOperation.rename(originalKey: string, renamedKey: string)
+```
+
+Renames a field from the input if the field exists and a field with the new name does not exist.
+
+###### `originalKey`<sup>Required</sup> <a name="originalKey" id="cdk-extensions.k8s_aws.ModifyOperation.rename.parameter.originalKey"></a>
+
+- *Type:* string
+
+The key in the input to be renamed.
+
+---
+
+###### `renamedKey`<sup>Required</sup> <a name="renamedKey" id="cdk-extensions.k8s_aws.ModifyOperation.rename.parameter.renamedKey"></a>
+
+- *Type:* string
+
+The new name of the key in the output.
+
+---
+
+##### `set` <a name="set" id="cdk-extensions.k8s_aws.ModifyOperation.set"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ModifyOperation.set(key: string, value: string)
+```
+
+Sets a field in the output to a specific value.
+
+If a field with the same name already exists it will be overridden with
+the specified value.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ModifyOperation.set.parameter.key"></a>
+
+- *Type:* string
+
+The key name of the field to set.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.k8s_aws.ModifyOperation.set.parameter.value"></a>
+
+- *Type:* string
+
+The value to set for the specified field.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.property.args">args</a></code> | <code>string[]</code> | Collection of arguments that apply to the operation. |
+| <code><a href="#cdk-extensions.k8s_aws.ModifyOperation.property.operation">operation</a></code> | <code>string</code> | The name of the operation being performed. |
+
+---
+
+##### `args`<sup>Required</sup> <a name="args" id="cdk-extensions.k8s_aws.ModifyOperation.property.args"></a>
+
+```typescript
+public readonly args: string[];
+```
+
+- *Type:* string[]
+
+Collection of arguments that apply to the operation.
+
+---
+
+##### `operation`<sup>Required</sup> <a name="operation" id="cdk-extensions.k8s_aws.ModifyOperation.property.operation"></a>
+
+```typescript
+public readonly operation: string;
+```
+
+- *Type:* string
+
+The name of the operation being performed.
+
+---
+
+
+### NestFilterOperation <a name="NestFilterOperation" id="cdk-extensions.k8s_aws.NestFilterOperation"></a>
+
+- *Implements:* cdk-extensions.k8s_aws.INestFilterOperation
+
+Operations with exclusive options that can be performed by the Fluent Bit Nest filter plugin.
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.NestFilterOperation.lift">lift</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.NestFilterOperation.nest">nest</a></code> | *No description.* |
+
+---
+
+##### `lift` <a name="lift" id="cdk-extensions.k8s_aws.NestFilterOperation.lift"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.NestFilterOperation.lift(options: LiftOptions)
+```
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.k8s_aws.NestFilterOperation.lift.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.LiftOptions
+
+---
+
+##### `nest` <a name="nest" id="cdk-extensions.k8s_aws.NestFilterOperation.nest"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.NestFilterOperation.nest(options: NestOptions)
+```
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.k8s_aws.NestFilterOperation.nest.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.NestOptions
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.NestFilterOperation.property.fields">fields</a></code> | <code>{[ key: string ]: string[]}</code> | The fields representing configuration options for the operation. |
+| <code><a href="#cdk-extensions.k8s_aws.NestFilterOperation.property.operation">operation</a></code> | <code>cdk-extensions.k8s_aws.NestFilterOperationType</code> | The type of operation to be performed. |
+
+---
+
+##### `fields`<sup>Required</sup> <a name="fields" id="cdk-extensions.k8s_aws.NestFilterOperation.property.fields"></a>
+
+```typescript
+public readonly fields: {[ key: string ]: string[]};
+```
+
+- *Type:* {[ key: string ]: string[]}
+
+The fields representing configuration options for the operation.
+
+---
+
+##### `operation`<sup>Required</sup> <a name="operation" id="cdk-extensions.k8s_aws.NestFilterOperation.property.operation"></a>
+
+```typescript
+public readonly operation: NestFilterOperationType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.NestFilterOperationType
+
+The type of operation to be performed.
+
+---
+
+
+### OpenSearchOutputBufferSize <a name="OpenSearchOutputBufferSize" id="cdk-extensions.k8s_aws.OpenSearchOutputBufferSize"></a>
+
+Represents the size of the OpenSeach output buffer to be used by Fluent Bit.
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.OpenSearchOutputBufferSize.bytes">bytes</a></code> | Set the output buffer to a specified data size. |
+| <code><a href="#cdk-extensions.k8s_aws.OpenSearchOutputBufferSize.of">of</a></code> | An escape hatch that allows an arbitrary value to be set for the OpenSearch buffer output property. |
+
+---
+
+##### `bytes` <a name="bytes" id="cdk-extensions.k8s_aws.OpenSearchOutputBufferSize.bytes"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.OpenSearchOutputBufferSize.bytes(size: DataSize)
+```
+
+Set the output buffer to a specified data size.
+
+###### `size`<sup>Required</sup> <a name="size" id="cdk-extensions.k8s_aws.OpenSearchOutputBufferSize.bytes.parameter.size"></a>
+
+- *Type:* cdk-extensions.core.DataSize
+
+The size of the output buffer.
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.k8s_aws.OpenSearchOutputBufferSize.of"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.OpenSearchOutputBufferSize.of(value: string)
+```
+
+An escape hatch that allows an arbitrary value to be set for the OpenSearch buffer output property.
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.k8s_aws.OpenSearchOutputBufferSize.of.parameter.value"></a>
+
+- *Type:* string
+
+The value to use for the OpenSearch buffer output property.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.OpenSearchOutputBufferSize.property.value">value</a></code> | <code>string</code> | The value to use for the OpenSearch buffer output property. |
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.k8s_aws.OpenSearchOutputBufferSize.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
+
+The value to use for the OpenSearch buffer output property.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.OpenSearchOutputBufferSize.property.UNLIMITED">UNLIMITED</a></code> | <code>cdk-extensions.k8s_aws.OpenSearchOutputBufferSize</code> | Set the output buffer size to unlimited. |
+
+---
+
+##### `UNLIMITED`<sup>Required</sup> <a name="UNLIMITED" id="cdk-extensions.k8s_aws.OpenSearchOutputBufferSize.property.UNLIMITED"></a>
+
+```typescript
+public readonly UNLIMITED: OpenSearchOutputBufferSize;
+```
+
+- *Type:* cdk-extensions.k8s_aws.OpenSearchOutputBufferSize
+
+Set the output buffer size to unlimited.
+
+---
+
 ### OpenxJsonInputSerDe <a name="OpenxJsonInputSerDe" id="cdk-extensions.kinesis_firehose.OpenxJsonInputSerDe"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.OpenxJsonInputSerDe.Initializer"></a>
@@ -36920,6 +47667,172 @@ public readonly writerVersion: ParquetWriterVersion;
 
 ---
 
+
+### ParserPluginDataType <a name="ParserPluginDataType" id="cdk-extensions.k8s_aws.ParserPluginDataType"></a>
+
+Represents the various types of data that can be mapped in Fluent Bit using a parser plugin.
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ParserPluginDataType.of">of</a></code> | An escape hatch method that allow specifying arbitrary custom data types. |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.k8s_aws.ParserPluginDataType.of"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ParserPluginDataType.of(name: string)
+```
+
+An escape hatch method that allow specifying arbitrary custom data types.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.ParserPluginDataType.of.parameter.name"></a>
+
+- *Type:* string
+
+The name of the data type.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ParserPluginDataType.property.name">name</a></code> | <code>string</code> | The name of the data type. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.ParserPluginDataType.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the data type.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ParserPluginDataType.property.BOOL">BOOL</a></code> | <code>cdk-extensions.k8s_aws.ParserPluginDataType</code> | Object that is true or false. |
+| <code><a href="#cdk-extensions.k8s_aws.ParserPluginDataType.property.FLOAT">FLOAT</a></code> | <code>cdk-extensions.k8s_aws.ParserPluginDataType</code> | Floating point number values. |
+| <code><a href="#cdk-extensions.k8s_aws.ParserPluginDataType.property.HEX">HEX</a></code> | <code>cdk-extensions.k8s_aws.ParserPluginDataType</code> | Hexidecimal number values. |
+| <code><a href="#cdk-extensions.k8s_aws.ParserPluginDataType.property.INTEGER">INTEGER</a></code> | <code>cdk-extensions.k8s_aws.ParserPluginDataType</code> | While number values. |
+| <code><a href="#cdk-extensions.k8s_aws.ParserPluginDataType.property.LOGFMT">LOGFMT</a></code> | <code>cdk-extensions.k8s_aws.ParserPluginDataType</code> | Logfmt formatted data. |
+| <code><a href="#cdk-extensions.k8s_aws.ParserPluginDataType.property.LTSV">LTSV</a></code> | <code>cdk-extensions.k8s_aws.ParserPluginDataType</code> | Labeled tab-separated values. |
+| <code><a href="#cdk-extensions.k8s_aws.ParserPluginDataType.property.REGEX">REGEX</a></code> | <code>cdk-extensions.k8s_aws.ParserPluginDataType</code> | Regular expression. |
+| <code><a href="#cdk-extensions.k8s_aws.ParserPluginDataType.property.STRING">STRING</a></code> | <code>cdk-extensions.k8s_aws.ParserPluginDataType</code> | Text data. |
+
+---
+
+##### `BOOL`<sup>Required</sup> <a name="BOOL" id="cdk-extensions.k8s_aws.ParserPluginDataType.property.BOOL"></a>
+
+```typescript
+public readonly BOOL: ParserPluginDataType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ParserPluginDataType
+
+Object that is true or false.
+
+---
+
+##### `FLOAT`<sup>Required</sup> <a name="FLOAT" id="cdk-extensions.k8s_aws.ParserPluginDataType.property.FLOAT"></a>
+
+```typescript
+public readonly FLOAT: ParserPluginDataType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ParserPluginDataType
+
+Floating point number values.
+
+---
+
+##### `HEX`<sup>Required</sup> <a name="HEX" id="cdk-extensions.k8s_aws.ParserPluginDataType.property.HEX"></a>
+
+```typescript
+public readonly HEX: ParserPluginDataType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ParserPluginDataType
+
+Hexidecimal number values.
+
+---
+
+##### `INTEGER`<sup>Required</sup> <a name="INTEGER" id="cdk-extensions.k8s_aws.ParserPluginDataType.property.INTEGER"></a>
+
+```typescript
+public readonly INTEGER: ParserPluginDataType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ParserPluginDataType
+
+While number values.
+
+---
+
+##### `LOGFMT`<sup>Required</sup> <a name="LOGFMT" id="cdk-extensions.k8s_aws.ParserPluginDataType.property.LOGFMT"></a>
+
+```typescript
+public readonly LOGFMT: ParserPluginDataType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ParserPluginDataType
+
+Logfmt formatted data.
+
+> [[Golang logfmt documentation](https://pkg.go.dev/github.com/kr/logfmt)]([Golang logfmt documentation](https://pkg.go.dev/github.com/kr/logfmt))
+
+---
+
+##### `LTSV`<sup>Required</sup> <a name="LTSV" id="cdk-extensions.k8s_aws.ParserPluginDataType.property.LTSV"></a>
+
+```typescript
+public readonly LTSV: ParserPluginDataType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ParserPluginDataType
+
+Labeled tab-separated values.
+
+> [[LTSV](http://ltsv.org/)]([LTSV](http://ltsv.org/))
+
+---
+
+##### `REGEX`<sup>Required</sup> <a name="REGEX" id="cdk-extensions.k8s_aws.ParserPluginDataType.property.REGEX"></a>
+
+```typescript
+public readonly REGEX: ParserPluginDataType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ParserPluginDataType
+
+Regular expression.
+
+---
+
+##### `STRING`<sup>Required</sup> <a name="STRING" id="cdk-extensions.k8s_aws.ParserPluginDataType.property.STRING"></a>
+
+```typescript
+public readonly STRING: ParserPluginDataType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ParserPluginDataType
+
+Text data.
+
+---
 
 ### PermissionsBoundary <a name="PermissionsBoundary" id="cdk-extensions.sso.PermissionsBoundary"></a>
 
@@ -39099,6 +50012,204 @@ public renderBackupConfiguration(scope: IConstruct, enabled?: boolean): BackupCo
 ---
 
 
+### IFluentBitFilterPlugin <a name="IFluentBitFilterPlugin" id="cdk-extensions.k8s_aws.IFluentBitFilterPlugin"></a>
+
+- *Extends:* cdk-extensions.k8s_aws.IFluentBitPlugin
+
+- *Implemented By:* cdk-extensions.k8s_aws.FluentBitFilterPluginBase, cdk-extensions.k8s_aws.FluentBitGrepFilter, cdk-extensions.k8s_aws.FluentBitKubernetesFilter, cdk-extensions.k8s_aws.FluentBitModifyFilter, cdk-extensions.k8s_aws.FluentBitNestFilter, cdk-extensions.k8s_aws.FluentBitParserFilter, cdk-extensions.k8s_aws.FluentBitRecordModifierFilter, cdk-extensions.k8s_aws.FluentBitRewriteTagFilter, cdk-extensions.k8s_aws.FluentBitThrottleFilter, cdk-extensions.k8s_aws.IFluentBitFilterPlugin
+
+Represents a Fluent Bit plugin that controls log filtering and metadata.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.IFluentBitFilterPlugin.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.IFluentBitFilterPlugin.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.IFluentBitFilterPlugin.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.IFluentBitFilterPlugin.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+### IFluentBitOutputPlugin <a name="IFluentBitOutputPlugin" id="cdk-extensions.k8s_aws.IFluentBitOutputPlugin"></a>
+
+- *Extends:* cdk-extensions.k8s_aws.IFluentBitPlugin
+
+- *Implemented By:* cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput, cdk-extensions.k8s_aws.FluentBitElasticsearchOutput, cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput, cdk-extensions.k8s_aws.FluentBitKinesisOutput, cdk-extensions.k8s_aws.FluentBitOpenSearchOutput, cdk-extensions.k8s_aws.FluentBitOutputPluginBase, cdk-extensions.k8s_aws.IFluentBitOutputPlugin
+
+Represents a Fluent Bit plugin that controls log output to a given destination.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.IFluentBitOutputPlugin.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.IFluentBitOutputPlugin.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.IFluentBitOutputPlugin.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.IFluentBitOutputPlugin.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+### IFluentBitParserPlugin <a name="IFluentBitParserPlugin" id="cdk-extensions.k8s_aws.IFluentBitParserPlugin"></a>
+
+- *Extends:* cdk-extensions.k8s_aws.IFluentBitPlugin
+
+- *Implemented By:* cdk-extensions.k8s_aws.FluentBitJsonParser, cdk-extensions.k8s_aws.FluentBitLogfmtParser, cdk-extensions.k8s_aws.FluentBitLtsvParser, cdk-extensions.k8s_aws.FluentBitParserPluginBase, cdk-extensions.k8s_aws.FluentBitRegexParser, cdk-extensions.k8s_aws.IFluentBitParserPlugin
+
+Represents a Fluent Bit plugin that parses inbound records to populate fields.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.IFluentBitParserPlugin.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.IFluentBitParserPlugin.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.IFluentBitParserPlugin.property.format">format</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.IFluentBitParserPlugin.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.IFluentBitParserPlugin.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
+##### `format`<sup>Required</sup> <a name="format" id="cdk-extensions.k8s_aws.IFluentBitParserPlugin.property.format"></a>
+
+```typescript
+public readonly format: string;
+```
+
+- *Type:* string
+
+---
+
+### IFluentBitPlugin <a name="IFluentBitPlugin" id="cdk-extensions.k8s_aws.IFluentBitPlugin"></a>
+
+- *Implemented By:* cdk-extensions.k8s_aws.FluentBitCloudWatchLogsOutput, cdk-extensions.k8s_aws.FluentBitElasticsearchOutput, cdk-extensions.k8s_aws.FluentBitFilterPluginBase, cdk-extensions.k8s_aws.FluentBitGrepFilter, cdk-extensions.k8s_aws.FluentBitJsonParser, cdk-extensions.k8s_aws.FluentBitKinesisFirehoseOutput, cdk-extensions.k8s_aws.FluentBitKinesisOutput, cdk-extensions.k8s_aws.FluentBitKubernetesFilter, cdk-extensions.k8s_aws.FluentBitLogfmtParser, cdk-extensions.k8s_aws.FluentBitLtsvParser, cdk-extensions.k8s_aws.FluentBitModifyFilter, cdk-extensions.k8s_aws.FluentBitNestFilter, cdk-extensions.k8s_aws.FluentBitOpenSearchOutput, cdk-extensions.k8s_aws.FluentBitOutputPluginBase, cdk-extensions.k8s_aws.FluentBitParserFilter, cdk-extensions.k8s_aws.FluentBitParserPluginBase, cdk-extensions.k8s_aws.FluentBitPlugin, cdk-extensions.k8s_aws.FluentBitRecordModifierFilter, cdk-extensions.k8s_aws.FluentBitRegexParser, cdk-extensions.k8s_aws.FluentBitRewriteTagFilter, cdk-extensions.k8s_aws.FluentBitThrottleFilter, cdk-extensions.k8s_aws.IFluentBitFilterPlugin, cdk-extensions.k8s_aws.IFluentBitOutputPlugin, cdk-extensions.k8s_aws.IFluentBitParserPlugin, cdk-extensions.k8s_aws.IFluentBitPlugin
+
+Represents a Fluent Bit plugin that allows for configuration of options and can be used to configure logging from containers.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.IFluentBitPlugin.bind">bind</a></code> | Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.IFluentBitPlugin.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ResolvedFluentBitConfiguration
+```
+
+Builds a configuration for this plugin and returns the details for consumtion by a resource that is configuring logging.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.IFluentBitPlugin.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.IFluentBitPlugin.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
+| <code><a href="#cdk-extensions.k8s_aws.IFluentBitPlugin.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.IFluentBitPlugin.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the fluent bit plugin.
+
+---
+
+##### `pluginType`<sup>Required</sup> <a name="pluginType" id="cdk-extensions.k8s_aws.IFluentBitPlugin.property.pluginType"></a>
+
+```typescript
+public readonly pluginType: string;
+```
+
+- *Type:* string
+
+The type of fluent bit plugin.
+
+---
+
 ### IGroup <a name="IGroup" id="cdk-extensions.sso.IGroup"></a>
 
 - *Implemented By:* cdk-extensions.sso.GroupBase, cdk-extensions.sso.IGroup
@@ -39222,6 +50333,42 @@ public bind(scope: IConstruct): FlowLogDestinationConfig
 
 ---
 
+
+### INestFilterOperation <a name="INestFilterOperation" id="cdk-extensions.k8s_aws.INestFilterOperation"></a>
+
+- *Implemented By:* cdk-extensions.k8s_aws.NestFilterOperation, cdk-extensions.k8s_aws.INestFilterOperation
+
+Represents an operation with excludive options that can be performed by the Fluent Bit Nest filter plugin.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.INestFilterOperation.property.fields">fields</a></code> | <code>{[ key: string ]: string[]}</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.INestFilterOperation.property.operation">operation</a></code> | <code>cdk-extensions.k8s_aws.NestFilterOperationType</code> | *No description.* |
+
+---
+
+##### `fields`<sup>Required</sup> <a name="fields" id="cdk-extensions.k8s_aws.INestFilterOperation.property.fields"></a>
+
+```typescript
+public readonly fields: {[ key: string ]: string[]};
+```
+
+- *Type:* {[ key: string ]: string[]}
+
+---
+
+##### `operation`<sup>Required</sup> <a name="operation" id="cdk-extensions.k8s_aws.INestFilterOperation.property.operation"></a>
+
+```typescript
+public readonly operation: NestFilterOperationType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.NestFilterOperationType
+
+---
 
 ### IPermissionSet <a name="IPermissionSet" id="cdk-extensions.sso.IPermissionSet"></a>
 
@@ -39573,6 +50720,23 @@ Server-side encryption (SSE) with an AWS KMS key managed by the account owner.
 ---
 
 
+### ElasticsearchCompressionFormat <a name="ElasticsearchCompressionFormat" id="cdk-extensions.k8s_aws.ElasticsearchCompressionFormat"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ElasticsearchCompressionFormat.GZIP">GZIP</a></code> | Gzip compression format. |
+
+---
+
+##### `GZIP` <a name="GZIP" id="cdk-extensions.k8s_aws.ElasticsearchCompressionFormat.GZIP"></a>
+
+Gzip compression format.
+
+---
+
+
 ### FlowLogAggregationInterval <a name="FlowLogAggregationInterval" id="cdk-extensions.ec2.FlowLogAggregationInterval"></a>
 
 #### Members <a name="Members" id="Members"></a>
@@ -39667,6 +50831,41 @@ This is the default format.
 ---
 
 
+### FluentBitPluginType <a name="FluentBitPluginType" id="cdk-extensions.k8s_aws.FluentBitPluginType"></a>
+
+The types of Fluent Bit plugins that can be configured.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitPluginType.FILTER">FILTER</a></code> | A plugin that transforms or filters records. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitPluginType.OUTPUT">OUTPUT</a></code> | A plugin that configures where output should be sent. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitPluginType.PARSER">PARSER</a></code> | A plugin that read data from input objects into structured objects. |
+
+---
+
+##### `FILTER` <a name="FILTER" id="cdk-extensions.k8s_aws.FluentBitPluginType.FILTER"></a>
+
+A plugin that transforms or filters records.
+
+---
+
+
+##### `OUTPUT` <a name="OUTPUT" id="cdk-extensions.k8s_aws.FluentBitPluginType.OUTPUT"></a>
+
+A plugin that configures where output should be sent.
+
+---
+
+
+##### `PARSER` <a name="PARSER" id="cdk-extensions.k8s_aws.FluentBitPluginType.PARSER"></a>
+
+A plugin that read data from input objects into structured objects.
+
+---
+
+
 ### JobBookmarksEncryptionMode <a name="JobBookmarksEncryptionMode" id="cdk-extensions.glue.JobBookmarksEncryptionMode"></a>
 
 Encryption mode for Job Bookmarks.
@@ -39730,6 +50929,34 @@ Scala.
 ---
 
 
+### KinesisFirehoseCompressionFormat <a name="KinesisFirehoseCompressionFormat" id="cdk-extensions.k8s_aws.KinesisFirehoseCompressionFormat"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.KinesisFirehoseCompressionFormat.ARROW">ARROW</a></code> | The Apache Arrow compression format. |
+| <code><a href="#cdk-extensions.k8s_aws.KinesisFirehoseCompressionFormat.GZIP">GZIP</a></code> | Gzip compression format. |
+
+---
+
+##### `ARROW` <a name="ARROW" id="cdk-extensions.k8s_aws.KinesisFirehoseCompressionFormat.ARROW"></a>
+
+The Apache Arrow compression format.
+
+Only available if the Fluent Fit service being used to send logs to
+Firehose had Apache Arrow enabled at compile time.
+
+---
+
+
+##### `GZIP` <a name="GZIP" id="cdk-extensions.k8s_aws.KinesisFirehoseCompressionFormat.GZIP"></a>
+
+Gzip compression format.
+
+---
+
+
 ### MetadataPolicy <a name="MetadataPolicy" id="cdk-extensions.k8s_aws.MetadataPolicy"></a>
 
 Options for fetching tags/labels from provider secrets.
@@ -39753,6 +50980,33 @@ Fetch tags/labels from provider secrets.
 ##### `NONE` <a name="NONE" id="cdk-extensions.k8s_aws.MetadataPolicy.NONE"></a>
 
 Do not fetch tags/labels from provider secrets.
+
+---
+
+
+### NestFilterOperationType <a name="NestFilterOperationType" id="cdk-extensions.k8s_aws.NestFilterOperationType"></a>
+
+The modes that the Fluent Bit Nest filter plugin can work in.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.NestFilterOperationType.LIFT">LIFT</a></code> | Lift data from a nested object. |
+| <code><a href="#cdk-extensions.k8s_aws.NestFilterOperationType.NEST">NEST</a></code> | Nest data into a specified object. |
+
+---
+
+##### `LIFT` <a name="LIFT" id="cdk-extensions.k8s_aws.NestFilterOperationType.LIFT"></a>
+
+Lift data from a nested object.
+
+---
+
+
+##### `NEST` <a name="NEST" id="cdk-extensions.k8s_aws.NestFilterOperationType.NEST"></a>
+
+Nest data into a specified object.
 
 ---
 

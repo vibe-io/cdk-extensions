@@ -212,7 +212,7 @@ export class FluentBitRewriteTagFilter extends FluentBitFilterPluginBase {
   /**
      * Adds a new rule to apply to matched log entries.
      *
-     * @param parser The parser to use for matched log entries.
+     * @param rule The rule to apply for matched log entries.
      * @returns The parser filter that the parser plugin was registered with.
      */
   public addRule(rule: RewriteTagRule): FluentBitRewriteTagFilter {

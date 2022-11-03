@@ -91,7 +91,7 @@ export abstract class FluentBitPlugin implements IFluentBitPlugin {
    * Builds a configuration for this plugin and returns the details for
    * consumtion by a resource that is configuring logging.
    *
-   * @param _scope The construct configuring logging using Fluent Bit.
+   * @param scope The construct configuring logging using Fluent Bit.
    * @returns A configuration for the plugin that con be used by the resource
    * configuring logging.
    */
