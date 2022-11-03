@@ -1,4 +1,5 @@
 import { IConstruct } from 'constructs';
+import { isArray } from '../../../utils/types';
 import { ResolvedFluentBitConfiguration } from './resolved-fluent-bit-configuration';
 
 
@@ -66,11 +67,6 @@ export interface FluentBitPluginCommonOptions {
  */
 export abstract class FluentBitPlugin implements IFluentBitPlugin {
   /**
-     * Internal collection keeping track of Fluent Bit configuration fields.
-     */
-  private readonly _fields: {[key: string]: any[]};
-
-  /**
      * The name of the fluent bit plugin.
      */
   public readonly name: string;
@@ -81,18 +77,14 @@ export abstract class FluentBitPlugin implements IFluentBitPlugin {
   readonly pluginType: string;
 
   /**
-     * Collection of all the fields to be added to the Fluent Bit
-     * configuration.
+     * Builds a configuration for this plugin and returns the details for
+     * consumtion by a resource that is configuring logging.
+     *
+     * @param _scope The construct configuring logging using Fluent Bit.
+     * @returns A configuration for the plugin that con be used by the resource
+     * configuring logging.
      */
-  public get fields(): {[key: string]: string[]} {
-    return Object.keys(this._fields).reduce((prev, cur) => {
-      prev[cur] = this._fields[cur].map((x) => {
-        return String(x);
-      });
-
-      return prev;
-    }, {} as {[key: string]: string[]});
-  }
+  public abstract bind(scope: IConstruct): ResolvedFluentBitConfiguration;
 
 
   /**
@@ -101,52 +93,30 @@ export abstract class FluentBitPlugin implements IFluentBitPlugin {
      * @param options Configuration options for the plugin.
      */
   public constructor(options: FluentBitPluginCommonOptions) {
-    this._fields = {};
-
     this.name = options.name;
     this.pluginType = options.pluginType;
-
-    this.addField('Name', this.name);
   }
 
   /**
-      * Adds a new field to the Fluent Bit service configuration.
-      *
-      * @param key The name of the property being set.
-      * @param value The value of the property being set.
-      * @returns The Fluent Bit plugin configuration where the property was
-      * added.
-      */
-  public addField(key: string, value: any): FluentBitPlugin {
-    if (key in this._fields) {
-      this._fields[key].push(value);
-    } else {
-      this._fields[key] = [
-        value,
-      ];
-    }
-
-    return this;
-  }
-
-  /**
-     * Builds a configuration for this plugin and returns the details for
-     * consumtion by a resource that is configuring logging.
-     *
-     * @param _scope The construct configuring logging using Fluent Bit.
-     * @returns A configuration for the plugin that con be used by the resource
-     * configuring logging.
-     */
-  public bind(_scope: IConstruct): ResolvedFluentBitConfiguration {
-    return {
-      configFile: Object.keys(this._fields).reduce((prev, cur) => {
-        this._fields[cur].forEach((x) => {
-          prev.push(`    ${cur} ${x}`);
-        });
-
-        return prev;
-      }, [`[${this.pluginType}]`]).join('\n'),
-      fields: this.fields,
+   *
+   * @param config The configuration properties to render into a Fluent Bit
+   * configuration file.
+   * @returns A fluent bit config file representation of the passed properties.
+   */
+  protected renderConfigFile(config: {[key: string]: any}): string {
+    const fullConfig: {[key: string]: any} = {
+      Name: this.name,
+      ...config,
     };
+
+    return Object.keys(fullConfig).reduce((prev, cur) => {
+      const val = fullConfig[cur];
+      const arr = isArray(val) ? val : [val];
+      arr.forEach((x: any) => {
+        prev.push(`    ${cur} ${x}`);
+      });
+
+      return prev;
+    }, [`[${this.pluginType}]`]).join('\n');
   }
 }

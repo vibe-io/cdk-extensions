@@ -17,11 +17,6 @@ export interface ResolvedFluentBitConfiguration {
   readonly configFile: string;
 
   /**
-     * The configuration options that were set.
-     */
-  readonly fields: {[key: string]: string[]};
-
-  /**
    * A list of parsers referenced by this plugin.
    */
   readonly parsers?: IFluentBitParserPlugin[];

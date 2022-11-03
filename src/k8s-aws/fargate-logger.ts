@@ -2,7 +2,7 @@ import { Lazy, Resource, ResourceProps } from 'aws-cdk-lib';
 import { FargateProfile, ICluster, KubernetesManifest } from 'aws-cdk-lib/aws-eks';
 import { ILogGroup } from 'aws-cdk-lib/aws-logs';
 import { Construct } from 'constructs';
-import { FluentBitCloudWatchLogsOutput, IFluentBitFilterPlugin, IFluentBitOutputPlugin, IFluentBitParserPlugin, KubernetesFilter } from '.';
+import { FluentBitCloudWatchLogsOutput, IFluentBitFilterPlugin, IFluentBitOutputPlugin, IFluentBitParserPlugin, FluentBitKubernetesFilter } from '.';
 
 
 /**
@@ -167,7 +167,7 @@ export class FargateLogger extends Resource {
             'filters.conf': Lazy.string({
               produce: () => {
                 if (!this._filters.length) {
-                  this.addFilter(new KubernetesFilter());
+                  this.addFilter(new FluentBitKubernetesFilter());
                 }
 
                 const result = this._filters.map((filter) => {

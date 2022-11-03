@@ -25,17 +25,29 @@ export interface FluentBitGrepFilterOptions extends FluentBitFilterPluginCommonO
  * A Fluent Bit filter that allows log records to be kept or discarded based
  * on whether they match a given regular expression or not.
  */
-export class GrepFilter extends FluentBitFilterPlugin {
+export class FluentBitGrepFilter extends FluentBitFilterPlugin {
+  /**
+     * Exclude records in which the content of KEY matches the regular
+     * expression.
+     */
+  readonly exclude?: string;
+
+  /**
+      * Keep records in which the content of KEY matches the regular expression.
+      */
+  readonly regex?: string;
+
+
+  /**
+   * Creates a new instance of the FluentBitKinesisFirehoseOutput class.
+   *
+   * @param options Options for configuring the filter.
+   */
   public constructor(options: FluentBitGrepFilterOptions = {}) {
     super('grep', options);
 
-    if (options.exclude !== undefined) {
-      this.addField('Exclude', options.exclude);
-    }
-
-    if (options.regex !== undefined) {
-      this.addField('Regex', options.regex);
-    }
+    this.exclude = options.exclude;
+    this.regex = options.regex;
   }
 
   /**
@@ -46,14 +58,19 @@ export class GrepFilter extends FluentBitFilterPlugin {
      * @returns A configuration for the plugin that con be used by the resource
      * configuring logging.
      */
-  public bind(scope: IConstruct): ResolvedFluentBitConfiguration {
-    if (this.fields.Regex === undefined && this.fields.Exclude === undefined) {
+  public bind(_scope: IConstruct): ResolvedFluentBitConfiguration {
+    if (this.regex === undefined && this.exclude === undefined) {
       throw new Error([
         'When using the Fluent Bit grep plugin at least one of',
         "'exclude' or 'regex' must be specified.",
       ].join(' '));
     }
 
-    return super.bind(scope);
+    return {
+      configFile: super.renderConfigFile({
+        Exclude: this.exclude,
+        Regex: this.regex,
+      }),
+    };
   }
 }

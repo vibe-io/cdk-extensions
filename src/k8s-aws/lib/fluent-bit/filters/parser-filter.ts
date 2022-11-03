@@ -42,13 +42,35 @@ export interface FluentBitParserFilterOptions extends FluentBitFilterPluginCommo
 /**
  * A Fluent Bit filter that allows parsing of fields in event records.
  */
-export class ParserFilter extends FluentBitFilterPlugin {
+export class FluentBitParserFilter extends FluentBitFilterPlugin {
   /**
      * Internal collection of the parsers that should be used to evaluate the
      * filter.
      */
   private readonly _parsers: IFluentBitParserPlugin[];
 
+  /**
+     * Specify field name in record to parse.
+     */
+  public readonly keyName?: string;
+
+  /**
+      * Keep original `keyName` field in the parsed result.
+      *
+      * If `false`, the field will be removed.
+      *
+      * @default false
+      */
+  public readonly preserveKey?: boolean;
+
+  /**
+      * Keep all other original fields in the parsed result.
+      *
+      * If `false`, all other original fields will be removed.
+      *
+      * @default false
+      */
+  public readonly reserveData?: boolean;
 
   /**
      * Collection of the parsers that should be used to evaluate the filter.
@@ -59,7 +81,7 @@ export class ParserFilter extends FluentBitFilterPlugin {
 
 
   /**
-     * Creates a new instance of the ParserFilter class.
+     * Creates a new instance of the FluentBitParserFilter class.
      *
      * @param options The configuration options to use for filter.
      */
@@ -68,17 +90,13 @@ export class ParserFilter extends FluentBitFilterPlugin {
 
     this._parsers = [];
 
-    if (options.keyName !== undefined) {
-      this.addField('Key_Name', options.keyName);
-    }
+    this.keyName = options.keyName;
+    this.preserveKey = options.preserveKey;
+    this.reserveData = options.reserveData;
 
-    if (options.preserveKey !== undefined) {
-      this.addField('Preserve_Key', String(options.preserveKey));
-    }
-
-    if (options.reserveData !== undefined) {
-      this.addField('Reserve_Data', String(options.reserveData));
-    }
+    options.parsers?.forEach((x) => {
+      this.addParser(x);
+    });
   }
 
   /**
@@ -87,9 +105,8 @@ export class ParserFilter extends FluentBitFilterPlugin {
      * @param parser The parser to use for matched log entries.
      * @returns The parser filter that the parser plugin was registered with.
      */
-  public addParser(parser: IFluentBitParserPlugin): ParserFilter {
+  public addParser(parser: IFluentBitParserPlugin): FluentBitParserFilter {
     this._parsers.push(parser);
-    this.addField('Parser', parser.name);
     return this;
   }
 
@@ -101,7 +118,7 @@ export class ParserFilter extends FluentBitFilterPlugin {
      * @returns A configuration for the plugin that con be used by the resource
      * configuring logging.
      */
-  public bind(scope: IConstruct): ResolvedFluentBitConfiguration {
+  public bind(_scope: IConstruct): ResolvedFluentBitConfiguration {
     if (this._parsers.length === 0) {
       throw new Error([
         'At least on parser must be specified when creating a Fluent',
@@ -110,7 +127,11 @@ export class ParserFilter extends FluentBitFilterPlugin {
     }
 
     return {
-      ...super.bind(scope),
+      configFile: this.renderConfigFile({
+        Parser: this._parsers.map((x) => {
+          return x.name;
+        }),
+      }),
       parsers: this.parsers,
     };
   }

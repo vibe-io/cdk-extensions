@@ -418,7 +418,7 @@ export interface FluentBitModifyFilterOptions extends FluentBitFilterPluginCommo
 /**
  * A Fluent Bit filter that allows changing records using rules and conditions.
  */
-export class ModifyFilter extends FluentBitFilterPlugin {
+export class FluentBitModifyFilter extends FluentBitFilterPlugin {
   /**
      * Internal collection of conditions to apply for the filter.
      */
@@ -446,7 +446,7 @@ export class ModifyFilter extends FluentBitFilterPlugin {
 
 
   /**
-     * Creates a new instance of the ModifyFilter class.
+     * Creates a new instance of the FluentBitModifyFilter class.
      *
      * @param options The configuration options to use for filter.
      */
@@ -455,6 +455,14 @@ export class ModifyFilter extends FluentBitFilterPlugin {
 
     this._conditions = [];
     this._operations = [];
+
+    options.conditions?.forEach((x) => {
+      this.addCondition(x);
+    });
+
+    options.operations?.forEach((x) => {
+      this.addOperation(x);
+    });
   }
 
   /**
@@ -469,9 +477,8 @@ export class ModifyFilter extends FluentBitFilterPlugin {
      * @param condition The condition to add to the filter.
      * @returns The modify filter to which the condition was added.
      */
-  public addCondition(condition: ModifyCondition): ModifyFilter {
+  public addCondition(condition: ModifyCondition): FluentBitModifyFilter {
     this._conditions.push(condition);
-    this.addField(condition.condition, condition);
     return this;
   }
 
@@ -481,9 +488,8 @@ export class ModifyFilter extends FluentBitFilterPlugin {
      * @param operation The operation to add to the filter.
      * @returns The modify filter to which the operation was added.
      */
-  public addOperation(operation: ModifyOperation): ModifyFilter {
+  public addOperation(operation: ModifyOperation): FluentBitModifyFilter {
     this._operations.push(operation);
-    this.addField(operation.operation, operation);
     return this;
   }
 
@@ -495,14 +501,41 @@ export class ModifyFilter extends FluentBitFilterPlugin {
      * @returns A configuration for the plugin that con be used by the resource
      * configuring logging.
      */
-  public bind(scope: IConstruct): ResolvedFluentBitConfiguration {
+  public bind(_scope: IConstruct): ResolvedFluentBitConfiguration {
     if (this._operations.length === 0) {
       throw new Error([
-        'At least one allow, remove, or record rule must be specified',
-        'when creating a Fluent Bit record modifier filter.',
+        'At least one operation must be specified when creating a Fluent Bit',
+        'record modifier filter.',
       ].join(' '));
     }
 
-    return super.bind(scope);
+    return {
+      configFile: this.renderConfigFile({
+        ...(this.conditions.reduce((prev, cur) => {
+          const args = cur.args.join(' ');
+          if (cur.condition in prev) {
+            prev[cur.condition].push(args);
+          } else {
+            prev[cur.condition] = [
+              args,
+            ];
+          }
+
+          return prev;
+        }, {} as {[key: string]: string[]})),
+        ...(this.operations.reduce((prev, cur) => {
+          const args = cur.args.join(' ');
+          if (cur.operation in prev) {
+            prev[cur.operation].push(args);
+          } else {
+            prev[cur.operation] = [
+              args,
+            ];
+          }
+
+          return prev;
+        }, {} as {[key: string]: string[]})),
+      }),
+    };
   }
 }

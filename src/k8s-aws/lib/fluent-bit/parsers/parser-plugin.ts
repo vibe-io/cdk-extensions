@@ -78,16 +78,40 @@ export class ParserPluginDataType {
   }
 }
 
+/**
+ * Configuration options that apply to all Fluent Bit parser plugins.
+ */
+export interface FluentBitParserPluginCommonOptions {}
+
+/**
+ * Represents a Fluent Bit plugin that parses inbound records to populate
+ * fields.
+ */
 export interface IFluentBitParserPlugin extends IFluentBitPlugin {
   readonly format: string;
 }
 
-export interface FluentBitParserPluginCommonOptions {}
-
+/**
+ * Represents a Fluent Bit plugin that parses inbound records to populate
+ * fields.
+ */
 export abstract class FluentBitParserPlugin extends FluentBitPlugin implements IFluentBitParserPlugin {
+  /**
+   * The data format that the parser extracts records from.
+   *
+   * @group Inputs
+   */
   public readonly format: string;
 
 
+  /**
+   * Creates a new instance of the FluentBitParserPlugin class.
+   *
+   * @param name The name of the output plugin to configure.
+   * @param format The data format that the parser extracts records from.
+   * @param options Configuration options that apply to all Fluent Bit output
+   * plugin.
+   */
   public constructor(name: string, format: string, _options: FluentBitParserPluginCommonOptions = {}) {
     super({
       name: name,
@@ -95,7 +119,19 @@ export abstract class FluentBitParserPlugin extends FluentBitPlugin implements I
     });
 
     this.format = format;
+  }
 
-    this.addField('Format', format);
+  /**
+   * Renders a Fluent Bit configuration file for the plugin.
+   *
+   * @param config The configuration options to render into a configuration
+   * file.
+   * @returns A rendered plugin configuration file.
+   */
+  protected renderConfigFile(config: { [key: string]: any }): string {
+    return super.renderConfigFile({
+      Format: this.format,
+      ...config,
+    });
   }
 }

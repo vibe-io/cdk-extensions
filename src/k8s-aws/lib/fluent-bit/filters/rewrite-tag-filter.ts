@@ -143,17 +143,47 @@ export interface FluentBitRewriteTagFilterOptions extends FluentBitFilterPluginC
 /**
  * A Fluent Bit filter that allows parsing of fields in event records.
  */
-export class RewriteTagFilter extends FluentBitFilterPlugin {
+export class FluentBitRewriteTagFilter extends FluentBitFilterPlugin {
   /**
      * Internal collection of rules defining matching criteria and the format
      * of the tag for the matching record.
+     *
+     * @group Internal
      */
   private readonly _rules: RewriteTagRule[];
 
+  /**
+     * When the filter emits a record under the new Tag, there is an internal
+     * emitter plugin that takes care of the job. Since this emitter expose
+     * metrics as any other component of the pipeline, you can use this
+     * property to configure an optional name for it.
+     *
+     * @group Inputs
+     */
+  readonly emitterName?: string;
+
+  /**
+      * Define a buffering mechanism for the new records created.
+      *
+      * Note these records are part of the emitter plugin.
+      *
+      * @group Inputs
+      */
+  readonly emitterStorageType?: EmitterStorageType;
+
+  /**
+      * Set a limit on the amount of memory the tag rewrite emitter can consume
+      * if the outputs provide backpressure.
+      *
+      * @group Inputs
+      */
+  readonly emitterMemBufLimit?: DataSize;
 
   /**
      * Collection of rules defining matching criteria and the format of the tag
      * for the matching record.
+     *
+     * @group Inputs
      */
   public get rules(): RewriteTagRule[] {
     return [...this._rules];
@@ -161,7 +191,7 @@ export class RewriteTagFilter extends FluentBitFilterPlugin {
 
 
   /**
-     * Creates a new instance of the RewriteTagFilter class.
+     * Creates a new instance of the FluentBitRewriteTagFilter class.
      *
      * @param options The configuration options to use for filter.
      */
@@ -170,17 +200,13 @@ export class RewriteTagFilter extends FluentBitFilterPlugin {
 
     this._rules = [];
 
-    if (options.emitterMemBufLimit !== undefined) {
-      this.addField('Emitter_Mem_Buf_Limit', `${options.emitterMemBufLimit.toMebibytes()}M`);
-    }
+    this.emitterMemBufLimit = options.emitterMemBufLimit;
+    this.emitterName = options.emitterName;
+    this.emitterStorageType = options.emitterStorageType;
 
-    if (options.emitterName !== undefined) {
-      this.addField('Emitter_Name', options.emitterName);
-    }
-
-    if (options.emitterStorageType !== undefined) {
-      this.addField('Emitter_Storage.type', options.emitterStorageType.name);
-    }
+    options.rules?.forEach((x) => {
+      this.addRule(x);
+    });
   }
 
   /**
@@ -189,14 +215,8 @@ export class RewriteTagFilter extends FluentBitFilterPlugin {
      * @param parser The parser to use for matched log entries.
      * @returns The parser filter that the parser plugin was registered with.
      */
-  public addRule(rule: RewriteTagRule): RewriteTagFilter {
+  public addRule(rule: RewriteTagRule): FluentBitRewriteTagFilter {
     this._rules.push(rule);
-    this.addField('Rule', {
-      ...rule,
-      toString: () => {
-        return `${rule.key} ${rule.regex} ${rule.newTag}, ${rule.keep}`;
-      },
-    });
     return this;
   }
 
@@ -208,7 +228,7 @@ export class RewriteTagFilter extends FluentBitFilterPlugin {
      * @returns A configuration for the plugin that con be used by the resource
      * configuring logging.
      */
-  public bind(scope: IConstruct): ResolvedFluentBitConfiguration {
+  public bind(_scope: IConstruct): ResolvedFluentBitConfiguration {
     if (this._rules.length === 0) {
       throw new Error([
         'At least one rule must be specified when creating a Fluent',
@@ -216,6 +236,15 @@ export class RewriteTagFilter extends FluentBitFilterPlugin {
       ].join(' '));
     }
 
-    return super.bind(scope);
+    return {
+      configFile: this.renderConfigFile({
+        'Emitter_Mem_Buf_Limit': this.emitterMemBufLimit ? `${this.emitterMemBufLimit?.toMebibytes()}M` : undefined,
+        'Emitter_Name': this.emitterName,
+        'Emitter_Storage.type': this.emitterStorageType,
+        'Rule': this.rules.map((x) => {
+          return `${x.key} ${x.regex} ${x.newTag}, ${x.keep}`;
+        }),
+      }),
+    };
   }
 }

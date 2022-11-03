@@ -69,45 +69,99 @@ export interface FluentBitKinesisOutputOptions extends FluentBitOutputPluginComm
   readonly timeKeyFormat?: string;
 }
 
+/**
+ * Represents configuration for outputing logs from Fluent Bit to Kinesis Data
+ * Streams.
+ */
 export class FluentBitKinesisOutput extends FluentBitOutputPlugin {
+  /**
+     * Immediately retry failed requests to AWS services once. This option does
+     * not affect the normal Fluent Bit retry mechanism with backoff. Instead,
+     * it enables an immediate retry with no delay for networking errors, which
+     * may help improve throughput when there are transient/random networking
+     * issues.
+     *
+     * @group Inputs
+     */
+  readonly autoRetryRequests?: boolean;
+
+  /**
+     * Specify a custom endpoint for the Firehose API.
+     *
+     * @group Inputs
+     */
+  readonly endpoint?: string;
+
+  /**
+     * By default, the whole log record will be sent to Firehose. If you
+     * specify a key name with this option, then only the value of that key
+     * will be sent to Firehose.
+     *
+     * @group Inputs
+     */
+  readonly logKey?: string;
+
+  /**
+     * The AWS region.
+     *
+     * @group Inputs
+     */
+  readonly region?: string;
+
+  /**
+     * ARN of an IAM role to assume (for cross account access).
+     *
+     * @group Inputs
+     */
+  readonly role?: IRole;
+
+  /**
+     * The name of the Kinesis Streams Delivery stream that you want log
+     * records sent to.
+     *
+     * @group Inputs
+     */
+  readonly stream?: IStream;
+
+  /**
+     * Specify a custom STS endpoint for the AWS STS API.
+     *
+     * @group Inputs
+     */
+  readonly stsEndpoint?: string;
+
+  /**
+     * Add the timestamp to the record under this key.
+     *
+     * @group Inputs
+     */
+  readonly timeKey?: string;
+
+  /**
+     * A strftime compliant format string for the timestamp.
+     *
+     * @group Inputs
+     */
+  readonly timeKeyFormat?: string;
+
+
+  /**
+    * Creates a new instance of the FluentBitKinesisOutput class.
+    *
+    * @param options Options for configuring the output/
+    */
   public constructor(options: FluentBitKinesisOutputOptions = {}) {
-    super('kinesis_firehose', options);
+    super('kinesis', options);
 
-    if (options.autoRetryRequests !== undefined) {
-      this.addField('auto_create_group', String(options.autoRetryRequests));
-    }
-
-    if (options.endpoint !== undefined) {
-      this.addField('endpoint', options.endpoint);
-    }
-
-    if (options.logKey !== undefined) {
-      this.addField('log_key', options.logKey);
-    }
-
-    if (options.region !== undefined) {
-      this.addField('region', options.region);
-    }
-
-    if (options.role !== undefined) {
-      this.addField('role_arn', options.role.roleArn);
-    }
-
-    if (options.stream !== undefined) {
-      this.addField('stream', options.stream.streamName);
-    }
-
-    if (options.stsEndpoint !== undefined) {
-      this.addField('sts_endpoint', options.stsEndpoint);
-    }
-
-    if (options.timeKey !== undefined) {
-      this.addField('time_key', options.timeKey);
-    }
-
-    if (options.timeKeyFormat !== undefined) {
-      this.addField('time_key_format', options.timeKeyFormat);
-    }
+    this.autoRetryRequests = options.autoRetryRequests;
+    this.endpoint = options.endpoint;
+    this.logKey = options.logKey;
+    this.region = options.region;
+    this.role = options.role;
+    this.stream = options.stream;
+    this.stsEndpoint = options.stsEndpoint;
+    this.timeKey = options.timeKey;
+    this.timeKeyFormat = options.timeKeyFormat;
   }
 
   /**
@@ -120,16 +174,19 @@ export class FluentBitKinesisOutput extends FluentBitOutputPlugin {
      */
   public bind(scope: IConstruct): ResolvedFluentBitConfiguration {
     const stream = this.getStream(scope);
-    if (this.fields.stream === undefined) {
-      this.addField('stream', stream.streamName);
-    }
-
-    if (this.fields.region === undefined) {
-      this.addField('region', Stack.of(scope).region);
-    }
 
     return {
-      ...super.bind(scope),
+      configFile: super.renderConfigFile({
+        auto_retry_requests: this.autoRetryRequests,
+        endpoint: this.endpoint,
+        log_key: this.logKey,
+        region: this.region ?? Stack.of(scope).region,
+        role_arn: this.role?.roleArn,
+        stream: stream.streamName,
+        sts_endpoint: this.stsEndpoint,
+        time_key: this.timeKey,
+        time_key_format: this.timeKeyFormat,
+      }),
       permissions: [
         new PolicyStatement({
           actions: [
@@ -153,7 +210,14 @@ export class FluentBitKinesisOutput extends FluentBitOutputPlugin {
      */
   private getStream(scope: IConstruct): IStream {
     const streamId = 'fluent-bit-output-stream';
-    const stream = scope.node.tryFindChild(streamId) as IStream;
-    return stream ?? new Stream(scope, streamId);
+    const inheritedStream = scope.node.tryFindChild(streamId) as IStream;
+
+    if (this.stream) {
+      return this.stream;
+    } else if (inheritedStream) {
+      return inheritedStream;
+    } else {
+      return new Stream(scope, streamId);
+    }
   }
 }

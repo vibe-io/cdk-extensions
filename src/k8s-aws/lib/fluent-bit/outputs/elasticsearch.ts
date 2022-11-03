@@ -2,6 +2,7 @@ import { IRole } from 'aws-cdk-lib/aws-iam';
 import { IConstruct } from 'constructs';
 import { DataSize } from '../../../../core';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
+import { convertBool } from '../utils';
 import { FluentBitOutputPlugin, FluentBitOutputPluginCommonOptions } from './output-plugin';
 
 
@@ -137,7 +138,7 @@ export interface FluentBitElasticsearchOutputOptions extends FluentBitOutputPlug
   /**
      * IP address or hostname of the target Elasticsearch instance.
      */
-  readonly host?: string;
+  readonly host: string;
 
   /**
      * Password for user defined in `httpUser`.
@@ -315,148 +316,329 @@ export interface FluentBitElasticsearchOutputOptions extends FluentBitOutputPlug
 }
 
 export class FluentBitElasticsearchOutput extends FluentBitOutputPlugin {
-  public constructor(options: FluentBitElasticsearchOutputOptions = {}) {
+  /**
+     * Enable AWS Sigv4 Authentication for Amazon Elasticsearch Service.
+     *
+     * @group Inputs
+     */
+  public readonly awsAuth?: boolean;
+
+  /**
+     * External ID for the AWS IAM Role specified with `awsRole`.
+     *
+     * @group Inputs
+     */
+  public readonly awsExternalId?: string;
+
+  /**
+     * Specify the AWS region for Elasticsearch Service.
+     *
+     * @group Inputs
+     */
+  public readonly awsRegion?: string;
+
+  /**
+     * AWS IAM Role to assume to put records to your Amazon cluster.
+     *
+     * @group Inputs
+     */
+  public readonly awsRole?: IRole;
+
+  /**
+     * Specify the custom sts endpoint to be used with STS API for Amazon
+     * Elasticsearch Service.
+     *
+     * @group Inputs
+     */
+  public readonly awsStsEndpoint?: string;
+
+  /**
+     * Specify the buffer size used to read the response from the Elasticsearch
+     * HTTP service. This option is useful for debugging purposes where is
+     * required to read full responses, note that response size grows depending
+     * of the number of records inserted.
+     *
+     * @group Inputs
+     */
+  public readonly bufferSize?: ElasticsearchOutputBufferSize;
+
+  /**
+     * Specify the credentials to use to connect to Elastic's Elasticsearch
+     * Service running on Elastic Cloud.
+     *
+     * @group Inputs
+     */
+  public readonly cloudAuth?: string;
+
+  /**
+     * If you are using Elastic's Elasticsearch Service you can specify the
+     * cloud_id of the cluster running.
+     *
+     * @group Inputs
+     */
+  public readonly cloudId?: string;
+
+  /**
+     * Set payload compression mechanism.
+     *
+     * @group Inputs
+     */
+  public readonly compress?: ElasticsearchCompressionFormat;
+
+  /**
+     * Use current time for index generation instead of message record.
+     *
+     * @group Inputs
+     */
+  public readonly currentTimeIndex?: boolean;
+
+  /**
+     * When enabled, generate `_id` for outgoing records. This prevents duplicate
+     * records when retrying.
+     *
+     * @group Inputs
+     */
+  public readonly generateId?: boolean;
+
+  /**
+     * IP address or hostname of the target Elasticsearch instance.
+     *
+     * @group Inputs
+     */
+  public readonly host: string;
+
+  /**
+     * Password for user defined in `httpUser`.
+     *
+     * @group Inputs
+     */
+  public readonly httpPasswd?: string;
+
+  /**
+     * Optional username credential for access.
+     *
+     * @group Inputs
+     */
+  public readonly httpUser?: string;
+
+  /**
+     * If set, `_id` will be the value of the key from incoming record and
+     * `generateId` option is ignored.
+     *
+     * @group Inputs
+     */
+  public readonly idKey?: string;
+
+  /**
+     * When enabled, it append the Tag name to the record.
+     *
+     * @group Inputs
+     */
+  public readonly includeTagKey?: boolean;
+
+  /**
+     * Index name.
+     *
+     * @group Inputs
+     */
+  public readonly index?: string;
+
+  /**
+     * Time format (based on strftime) to generate the second part of the Index
+     * name.
+     *
+     * @group Inputs
+     *
+     * @see [strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)
+     */
+  public readonly logstashDateFormat?: string;
+
+  /**
+     * Enable Logstash format compatibility.
+     *
+     * @group Inputs
+     */
+  public readonly logstashFormat?: boolean;
+
+  /**
+     * When `logstashFormat` is enabled, the Index name is composed using a
+     * prefix and the date, e.g: If `logstashPrefix` is equals to 'mydata' your
+     * index will become 'mydata-YYYY.MM.DD'.
+     *
+     * The last string appended belongs to the date when the data is being
+     * generated.
+     *
+     * @group Inputs
+     */
+  public readonly logstashPrefix?: string;
+
+  /**
+     * When included: the value in the record that belongs to the key will be
+     * looked up and over-write the `logstashPrefix` for index generation. If
+     * the key/value is not found in the record then the `logstashPrefix` option
+     * will act as a fallback.
+     *
+     * Nested keys are not supported (if desired, you can use the nest filter
+     * plugin to remove nesting).
+     *
+     * @group Inputs
+     */
+  public readonly logstashPrefixKey?: string;
+
+  /**
+      * Elasticsearch accepts new data on HTTP query path "/_bulk". But it is
+      * also possible to serve Elasticsearch behind a reverse proxy on a
+      * subpath. This option defines such path on the fluent-bit side. It
+      * simply adds a path prefix in the indexing HTTP POST URI.
+     *
+     * @group Inputs
+      */
+  public readonly path?: string;
+
+  /**
+     * Elasticsearch allows to setup filters called pipelines. This option
+     * allows to define which pipeline the database should use.
+     *
+     * @group Inputs
+     */
+  public readonly pipeline?: string;
+
+  /**
+      * TCP port of the target Elasticsearch instance.
+     *
+     * @group Inputs
+      */
+  public readonly port?: number;
+
+  /**
+     * When enabled, replace field name dots with underscore.
+     *
+     * @group Inputs
+     */
+  public readonly replaceDots?: boolean;
+
+  /**
+     * When enabled, mapping types is removed and `type` option is ignored.
+     *
+     * @group Inputs
+     */
+  public readonly suppressTypeName?: boolean;
+
+  /**
+     * When `includeTagKey` is enabled, this property defines the key name for
+     * the tag.
+     *
+     * @group Inputs
+     */
+  public readonly tagKey?: string;
+
+  /**
+     * When `logstashFormat` is enabled, each record will get a new timestamp
+     * field. The`timeKey` property defines the name of that field.
+     *
+     * @group Inputs
+     */
+  public readonly timeKey?: string;
+
+  /**
+     * When `logstashFormat` is enabled, this property defines the format of the
+     * timestamp.
+     *
+     * @group Inputs
+     *
+     * @see [strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)
+     */
+  public readonly timeKeyFormat?: string;
+
+  /**
+     * When `logstashFormat` is enabled, enabling this property sends nanosecond
+     * precision timestamps.
+     *
+     * @group Inputs
+     */
+  public readonly timeKeyNanos?: boolean;
+
+  /**
+     * When enabled print the Elasticsearch API calls to stdout when
+     * Elasticsearch returns an error (for diag only).
+     *
+     * @group Inputs
+     */
+  public readonly traceError?: boolean;
+
+  /**
+     * When enabled print the Elasticsearch API calls to stdout (for diag
+     * only).
+     *
+     * @group Inputs
+     */
+  public readonly traceOutput?: boolean;
+
+  /**
+     * Type name.
+     *
+     * @group Inputs
+     */
+  public readonly type?: string;
+
+  /**
+     * Enables dedicated thread(s) for this output.
+     *
+     * @group Inputs
+     */
+  public readonly workers?: number;
+
+  /**
+     * Operation to use to write in bulk requests.
+     *
+     * @group Inputs
+     */
+  public readonly writeOperation?: string;
+
+
+  /**
+    * Creates a new instance of the FluentBitKinesisFirehoseOutput class.
+    *
+    * @param options Options for configuring the output.
+    */
+  public constructor(options: FluentBitElasticsearchOutputOptions) {
     super('es', options);
 
-    if (options.awsAuth !== undefined) {
-      this.addField('AWS_Auth', options.awsAuth ? 'On' : 'Off');
-    }
-
-    if (options.awsExternalId !== undefined) {
-      this.addField('AWS_External_ID', options.awsExternalId);
-    }
-
-    if (options.awsRegion !== undefined) {
-      this.addField('AWS_Region', options.awsRegion);
-    }
-
-    if (options.awsRole !== undefined) {
-      this.addField('AWS_Role_ARN', options.awsRole.roleArn);
-    }
-
-    if (options.awsStsEndpoint !== undefined) {
-      this.addField('AWS_STS_Endpoint', options.awsStsEndpoint);
-    }
-
-    if (options.bufferSize !== undefined) {
-      this.addField('Buffer_Size', options.bufferSize.value);
-    }
-
-    if (options.compress !== undefined) {
-      this.addField('compress', options.compress);
-    }
-
-    if (options.cloudAuth !== undefined) {
-      this.addField('Cloud_Auth', options.cloudAuth);
-    }
-
-    if (options.cloudId !== undefined) {
-      this.addField('Cloud_ID', options.cloudId);
-    }
-
-    if (options.currentTimeIndex !== undefined) {
-      this.addField('Current_Time_Index', options.currentTimeIndex ? 'On' : 'Off');
-    }
-
-    if (options.generateId !== undefined) {
-      this.addField('Generate_ID', options.generateId ? 'On' : 'Off');
-    }
-
-    if (options.host !== undefined) {
-      this.addField('Host', options.host);
-    }
-
-    if (options.httpPasswd !== undefined) {
-      this.addField('HTTP_Passwd', options.httpPasswd);
-    }
-
-    if (options.httpUser !== undefined) {
-      this.addField('HTTP_User', options.httpUser);
-    }
-
-    if (options.idKey !== undefined) {
-      this.addField('Id_Key', options.idKey);
-    }
-
-    if (options.includeTagKey !== undefined) {
-      this.addField('Include_Tag_Key', options.includeTagKey ? 'On' : 'Off');
-    }
-
-    if (options.index !== undefined) {
-      this.addField('Index', options.index);
-    }
-
-    if (options.logstashDateFormat !== undefined) {
-      this.addField('Logstash_DateFormat', options.logstashDateFormat);
-    }
-
-    if (options.logstashFormat !== undefined) {
-      this.addField('Logstash_Format', options.logstashDateFormat ? 'On' : 'Off');
-    }
-
-    if (options.logstashPrefix !== undefined) {
-      this.addField('Logstash_Prefix', options.logstashPrefix);
-    }
-
-    if (options.logstashPrefixKey !== undefined) {
-      this.addField('Logstash_Prefix_Key', options.logstashPrefixKey);
-    }
-
-    if (options.path !== undefined) {
-      this.addField('Path', options.path);
-    }
-
-    if (options.pipeline !== undefined) {
-      this.addField('Pipeline', options.pipeline);
-    }
-
-    if (options.port !== undefined) {
-      this.addField('Port', options.port.toString());
-    }
-
-    if (options.replaceDots !== undefined) {
-      this.addField('Replace_Dots', options.replaceDots ? 'On' : 'Off');
-    }
-
-    if (options.suppressTypeName !== undefined) {
-      this.addField('Suppress_Type_Name', options.suppressTypeName ? 'On' : 'Off');
-    }
-
-    if (options.tagKey !== undefined) {
-      this.addField('Tag_Key', options.tagKey);
-    }
-
-    if (options.timeKey !== undefined) {
-      this.addField('Time_Key', options.timeKey);
-    }
-
-    if (options.timeKeyFormat !== undefined) {
-      this.addField('Time_Key_Format', options.timeKeyFormat);
-    }
-
-    if (options.timeKeyNanos !== undefined) {
-      this.addField('Time_Key_Nanos', options.timeKeyNanos ? 'On':'Off');
-    }
-
-    if (options.traceError !== undefined) {
-      this.addField('Trace_Error', options.traceError ? 'On':'Off');
-    }
-
-    if (options.traceOutput !== undefined) {
-      this.addField('Trace_Output', options.traceOutput ? 'On':'Off');
-    }
-
-    if (options.type !== undefined) {
-      this.addField('Type', options.type);
-    }
-
-    if (options.workers !== undefined) {
-      this.addField('Workers', options.workers.toString());
-    }
-
-    if (options.writeOperation !== undefined) {
-      this.addField('Write_Operation', options.writeOperation);
-    }
+    this.awsAuth = options.awsAuth;
+    this.awsExternalId = options.awsExternalId;
+    this.awsRegion = options.awsRegion;
+    this.awsRole = options.awsRole;
+    this.awsStsEndpoint = options.awsStsEndpoint;
+    this.bufferSize = options.bufferSize;
+    this.cloudAuth = options.cloudAuth;
+    this.cloudId = options.cloudId;
+    this.compress = options.compress;
+    this.currentTimeIndex = options.currentTimeIndex;
+    this.generateId = options.generateId;
+    this.host = options.host;
+    this.httpPasswd = options.httpPasswd;
+    this.httpUser = options.httpUser;
+    this.idKey = options.idKey;
+    this.includeTagKey = options.includeTagKey;
+    this.index = options.index;
+    this.logstashDateFormat = options.logstashDateFormat;
+    this.logstashFormat = options.logstashFormat;
+    this.logstashPrefix = options.logstashPrefix;
+    this.logstashPrefixKey = options.logstashPrefixKey;
+    this.path = options.path;
+    this.pipeline = options.pipeline;
+    this.port = options.port ?? 9200;
+    this.replaceDots = options.replaceDots;
+    this.suppressTypeName = options.suppressTypeName;
+    this.tagKey = options.tagKey;
+    this.timeKey = options.timeKey;
+    this.timeKeyFormat = options.timeKeyFormat;
+    this.timeKeyNanos = options.timeKeyNanos;
+    this.traceError = options.traceError;
+    this.traceOutput = options.traceOutput;
+    this.type = options.type;
+    this.workers = options.workers;
+    this.writeOperation = options.writeOperation;
   }
 
   /**
@@ -467,16 +649,45 @@ export class FluentBitElasticsearchOutput extends FluentBitOutputPlugin {
      * @returns A configuration for the plugin that con be used by the resource
      * configuring logging.
      */
-  public bind(scope: IConstruct): ResolvedFluentBitConfiguration {
-    if (this.fields.Host === undefined) {
-      throw new Error([
-        "Fluent Bit Elasticsearch output plugin is missing the 'Host'",
-        'property. Please pass a host endpoint either using the',
-        '`host` property when creating the output or by adding the',
-        "'Host' property using `addField`.",
-      ].join(' '));
-    }
-
-    return super.bind(scope);
+  public bind(_scope: IConstruct): ResolvedFluentBitConfiguration {
+    return {
+      configFile: super.renderConfigFile({
+        AWS_Auth: convertBool(this.awsAuth),
+        AWS_External_ID: this.awsExternalId,
+        AWS_Region: this.awsRegion,
+        AWS_Role_ARN: this.awsRole?.roleArn,
+        AWS_STS_Endpoint: this.awsStsEndpoint,
+        Buffer_Size: this.bufferSize?.value,
+        compress: this.compress,
+        Cloud_Auth: this.cloudAuth,
+        Cloud_ID: this.cloudId,
+        Current_Time_Index: convertBool(this.currentTimeIndex),
+        Generate_ID: this.generateId,
+        Host: this.host,
+        HTTP_Passwd: this.httpPasswd,
+        HTTP_User: this.httpUser,
+        Id_Key: this.idKey,
+        Include_Tag_Key: convertBool(this.includeTagKey),
+        Index: this.index,
+        Logstash_DateFormat: this.logstashDateFormat,
+        Logstash_Format: convertBool( this.logstashFormat),
+        Logstash_Prefix: this.logstashPrefix,
+        Logstash_Prefix_Key: this.logstashPrefixKey,
+        Path: this.path,
+        Pipeline: this.pipeline,
+        Port: this.port,
+        Replace_Dots: convertBool(this.replaceDots),
+        Suppress_Type_Name: convertBool(this.suppressTypeName),
+        Tag_Key: this.tagKey,
+        Time_Key: this.timeKey,
+        Time_Key_Format: this.timeKeyFormat,
+        Time_Key_Nanos: convertBool(this.timeKeyNanos),
+        Trace_Error: convertBool(this.traceOutput),
+        Trace_Output: convertBool(this.traceOutput),
+        Type: this.type,
+        Workers: this.workers,
+        Write_Operation: this.writeOperation,
+      }),
+    };
   }
 }

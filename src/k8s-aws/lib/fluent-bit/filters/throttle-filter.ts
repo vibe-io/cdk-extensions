@@ -27,7 +27,9 @@ export interface FluentBitThrottleFilterOptions extends FluentBitFilterPluginCom
   readonly rate?: number;
 
   /**
-     * Amount of intervals to calculate average over. Default 5.
+     * Amount of intervals to calculate average over.
+     *
+     * @default 5
      */
   readonly window?: number;
 }
@@ -37,25 +39,49 @@ export interface FluentBitThrottleFilterOptions extends FluentBitFilterPluginCom
  * based on leaky bucket and sliding window algorithm. In case of overflood,
  * it will leak within certain rate.
  */
-export class ThrottleFilter extends FluentBitFilterPlugin {
+export class FluentBitThrottleFilter extends FluentBitFilterPlugin {
+  /**
+   * Time interval
+   *
+   * @group Inputs
+   */
+  readonly interval: Duration;
+
+  /**
+    * Whether to print status messages with current rate and the limits to
+    * information logs
+    *
+    * @group Inputs
+    */
+  readonly printStatus?: boolean;
+
+  /**
+    * Amount of messages for the time.
+    *
+    * @group Inputs
+    */
+  readonly rate: number;
+
+  /**
+    * Amount of intervals to calculate average over.
+    *
+    * @group Inputs
+    */
+  readonly window: number;
+
+
+  /**
+   * Creates a new instance of the FluentBitThrottleFilter class.
+   *
+   * @param options Options for configuring the filter.
+   */
   public constructor(options: FluentBitThrottleFilterOptions = {}) {
     super('throttle', options);
 
-    if (options.interval !== undefined) {
-      this.addField('Interval', `${options.interval.toSeconds()}s`);
-    }
-
-    if (options.printStatus !== undefined) {
-      this.addField('Print_Status', String(options.printStatus));
-    }
-
-    if (options.rate !== undefined) {
-      this.addField('Rate', options.rate.toString());
-    }
-
-    if (options.window !== undefined) {
-      this.addField('Window', options.window.toString());
-    }
+    this.interval = options.interval ?? Duration.seconds(1);
+    this.printStatus = options.printStatus;
+    this.rate = options.rate ?? 5;
+    this.window = options.window ?? 5;
   }
 
   /**
@@ -66,14 +92,14 @@ export class ThrottleFilter extends FluentBitFilterPlugin {
      * @returns A configuration for the plugin that con be used by the resource
      * configuring logging.
      */
-  public bind(scope: IConstruct): ResolvedFluentBitConfiguration {
-    if (this.fields.Interval === undefined || this.fields.Rate === undefined || this.fields.Window === undefined) {
-      throw new Error([
-        'When using the Fluent Bit throttle plugin the fields',
-        "'Interval', 'Rate', and 'Window' are required.",
-      ].join(' '));
-    }
-
-    return super.bind(scope);
+  public bind(_scope: IConstruct): ResolvedFluentBitConfiguration {
+    return {
+      configFile: this.renderConfigFile({
+        Interval: `${this.interval.toSeconds()}s`,
+        Print_Status: this.printStatus,
+        Rate: this.rate,
+        Window: this.window,
+      }),
+    };
   }
 }

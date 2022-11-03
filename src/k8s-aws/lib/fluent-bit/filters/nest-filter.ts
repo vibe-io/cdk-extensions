@@ -118,37 +118,34 @@ export interface FluentBitNestFilterOptions extends FluentBitFilterPluginCommonO
 /**
  * A Fluent Bit filter that allows operating on or with nested data.
  */
-export class NestFilter extends FluentBitFilterPlugin {
+export class FluentBitNestFilter extends FluentBitFilterPlugin {
+  /**
+     * Prefix affected keys with this string.
+     */
+  readonly addPrefix?: string;
+
   /**
      * Operation specific details for the plugin.
      */
   readonly operation: NestFilterOperation;
 
   /**
-     * Creates a new instance of the NestFilter class.
+     * Remove prefix from affected keys if it matches this string.
+     */
+  readonly removePrefix?: string;
+
+
+  /**
+     * Creates a new instance of the FluentBitNestFilter class.
      *
      * @param options The configuration options for the plugin.
      */
   public constructor(options: FluentBitNestFilterOptions) {
     super('nest', options);
 
+    this.addPrefix = options.addPrefix;
     this.operation = options.operation;
-
-    this.addField('Operation', options.operation.operation);
-
-    Object.keys(options.operation.fields).forEach((field) => {
-      options.operation.fields[field].forEach((value) => {
-        this.addField(field, value);
-      });
-    });
-
-    if (options.addPrefix !== undefined) {
-      this.addField('Add_prefix', options.addPrefix);
-    }
-
-    if (options.removePrefix !== undefined) {
-      this.addField('Remove_prefix', options.removePrefix);
-    }
+    this.removePrefix = options.removePrefix;
   }
 
   /**
@@ -159,7 +156,14 @@ export class NestFilter extends FluentBitFilterPlugin {
      * @returns A configuration for the plugin that con be used by the resource
      * configuring logging.
      */
-  public bind(scope: IConstruct): ResolvedFluentBitConfiguration {
-    return super.bind(scope);
+  public bind(_scope: IConstruct): ResolvedFluentBitConfiguration {
+    return {
+      configFile: this.renderConfigFile({
+        Add_prefix: this.addPrefix,
+        Operation: this.operation.operation,
+        Remove_prefix: this.removePrefix,
+        ...this.operation.fields,
+      }),
+    };
   }
 }

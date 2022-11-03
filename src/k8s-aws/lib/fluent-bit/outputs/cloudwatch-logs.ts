@@ -7,17 +7,202 @@ import { FluentBitOutputPlugin, FluentBitOutputPluginCommonOptions } from './out
 
 
 /**
+ * Configuration options for configuring Fluent Bit output to CloudWatch
+ * LogStreams.
+ */
+interface FluentBitLogStreamOutputOptions {
+  /**
+   * The name of the log stream where records should be created.
+   */
+  readonly logStreamName?: string;
+
+  /**
+   * The prefix for log streams that will be created on a per-pod basis.
+   */
+  readonly logStreamPrefix?: string;
+}
+
+/**
+ * Represents valid log stream output configuration options to be used by
+ * Fluent Bit when writing to CloudWatch Logs.
+ */
+export class FluentBitLogStreamOutput {
+  /**
+   * Sets output to be a log stream resource object.
+   *
+   * @param logStream The log stream where records should be written.
+   * @returns A FluentBitLogStreamOutput object representing the configured
+   * log stream destination.
+   */
+  public static fromLogStream(logStream: ILogStream): FluentBitLogStreamOutput {
+    return new FluentBitLogStreamOutput({
+      logStreamName: logStream.logStreamName,
+    });
+  }
+
+  /**
+   * Sets output to a named log stream.
+   *
+   * If a log stream with the given name doesn't exist in the configured log
+   * group a log stream with the given name will be created.
+   *
+   * @param name The name of the log stream where records should be written.
+   * @returns A FluentBitLogStreamOutput object representing the configured
+   * log stream destination.
+   */
+  public static fromName(name: string): FluentBitLogStreamOutput {
+    return new FluentBitLogStreamOutput({
+      logStreamName: name,
+    });
+  }
+
+  /**
+   * Sets output to a prefixed log stream.
+   *
+   * Log streams will be created on a per-pod basis with the name oof the log
+   * streams starting with the provided prefix.
+   *
+   * @param name The prefix for log streams which will be created.
+   * @returns A FluentBitLogStreamOutput object representing the configured
+   * log stream destination.
+   */
+  public static fromPrefix(prefix: string): FluentBitLogStreamOutput {
+    return new FluentBitLogStreamOutput({
+      logStreamPrefix: prefix,
+    });
+  }
+
+
+  /**
+   * The name of the log stream where records should be created.
+   */
+  public readonly logStreamName?: string;
+
+  /**
+   * The prefix for log streams that will be created on a per-pod basis.
+   */
+  public readonly logStreamPrefix?: string;
+
+  /**
+   * Creates a new instance of the FluentBitLogStreamOutput class.
+   *
+   * @param options  Options for configuring log stream output.
+   */
+  private constructor(options: FluentBitLogStreamOutputOptions) {
+    this.logStreamName = options.logStreamName;
+    this.logStreamPrefix = options.logStreamPrefix;
+  }
+}
+
+
+/**
+ * Configuration options for configuring Fluent Bit output to CloudWatch
+ * LogGroups.
+ */
+interface FluentBitLogGroupOutputOptions {
+  /**
+   * Determines whether or not a Log Group should be created automatically by
+   * the plugin CDK resource.
+   */
+  readonly create?: boolean;
+
+  /**
+   * A log group resource object to use as the destination.
+   */
+  readonly logGroup?: ILogGroup;
+
+  /**
+   * The name of the log group where records should be sent.
+   */
+  readonly logGroupName?: string;
+}
+
+
+/**
+ * Represents valid log group output configuration options to be used by
+ * Fluent Bit when writing to CloudWatch Logs.
+ */
+export class FluentBitLogGroupOutput {
+  /**
+   * Sets a flag saying that a log group should be created automatically.
+   *
+   * Depending on the configuration of the plugin, this flag will either cause
+   * permissions to be granted for Fluent Bit to create the log group itself or
+   * the plugin CDK resource will create a Log Group and use that as the
+   * destination.
+   *
+   * @returns A FluentBitLogGroupOutput object representing the configured log
+   * group destination.
+   */
+  public static create(): FluentBitLogGroupOutput {
+    return new FluentBitLogGroupOutput({
+      create: true,
+    });
+  }
+
+  /**
+   * Sets the destination log group to a LogGroup CDK resource.
+   *
+   * @param logGroup The log group where output records should be written.
+   * @returns A FluentBitLogGroupOutput object representing the configured log
+   * group destination.
+   */
+  public static fromLogGroup(logGroup: ILogGroup): FluentBitLogGroupOutput {
+    return new FluentBitLogGroupOutput({
+      logGroup: logGroup,
+    });
+  }
+
+  /**
+   * Sets the destination for logs to the named log group.
+   *
+   * @param name The name of the log group where output records should be written.
+   * @returns A FluentBitLogGroupOutput object representing the configured log
+   * group destination.
+   */
+  public static fromName(name: string, create?: boolean): FluentBitLogGroupOutput {
+    return new FluentBitLogGroupOutput({
+      create: create,
+      logGroupName: name,
+    });
+  }
+
+
+  /**
+   * Flag that determines whether or not a log group should be automatically
+   * created.
+   */
+  public readonly create?: boolean;
+
+  /**
+   * A log group resource object to use as the destination.
+   */
+  public readonly logGroup?: ILogGroup;
+
+  /**
+   * The name for the log group that should be used for output records.
+   */
+  public readonly logGroupName?: string;
+
+  /**
+   * Creates a new instance of the FluentBitLogStreamOutput class.
+   *
+   * @param options  Options for configuring log stream output.
+   */
+  private constructor(options: FluentBitLogGroupOutputOptions) {
+    this.create = options.create;
+    this.logGroup = options.logGroup;
+    this.logGroupName = options.logGroupName;
+  }
+}
+
+
+/**
  * Options for configuring the CloudWatch Logs Fluent Bit output plugin.
  *
  * @see [CloudWatch Logs Plugin Documention](https://docs.fluentbit.io/manual/pipeline/outputs/cloudwatch)
  */
 export interface FluentBitCloudWatchLogsOutputOptions extends FluentBitOutputPluginCommonOptions {
-  /**
-     * Escape hatch to allow additional configuration fields to be passed to
-     * the plugin.
-     */
-  readonly additionalFields?: {[key: string]: string};
-
   /**
      * Automatically create the log group.
      *
@@ -58,9 +243,9 @@ export interface FluentBitCloudWatchLogsOutputOptions extends FluentBitOutputPlu
   readonly logFormat?: string;
 
   /**
-     * The CloudWatch Log Group that you want log records sent to.
+     * The CloudWatch Log Group configuration for output records.
      */
-  readonly logGroup?: ILogGroup;
+  readonly logGroup?: FluentBitLogGroupOutput;
 
   /**
      * Template for Log Group name using Fluent Bit record_accessor syntax.
@@ -82,16 +267,9 @@ export interface FluentBitCloudWatchLogsOutputOptions extends FluentBitOutputPlu
   readonly logRetention?: RetentionDays;
 
   /**
-     * The CloudWatch Log Stream that you want log records sent to.
+     * The CloudWatch LogStream configuration for outbound records.
      */
-  readonly logStream?: ILogStream;
-
-  /**
-     * Prefix for the Log Stream name. The tag is appended to the prefix to
-     * construct the full log stream name. Not compatible with the `logStream`
-     * option.
-     */
-  readonly logStreamPrefix?: string;
+  readonly logStream?: FluentBitLogStreamOutput;
 
   /**
      * Template for Log Stream name using Fluent Bit record accessor syntax.
@@ -137,110 +315,204 @@ export interface FluentBitCloudWatchLogsOutputOptions extends FluentBitOutputPlu
   readonly stsEndpoint?: string;
 }
 
+/**
+ * Represents configuration for outputing logs from Fluent Bit to CloudWatch
+ * Logs.
+ */
 export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPlugin {
-  private _logGroup?: ILogGroup;
+  /**
+     * Automatically create the log group.
+      *
+      * @group Inputs
+     */
+  public readonly autoCreateGroup?: boolean;
 
-  public get logGroup(): ILogGroup | undefined {
-    return this._logGroup;
-  }
+  /**
+      * Immediately retry failed requests to AWS services once. This option does
+      * not affect the normal Fluent Bit retry mechanism with backoff. Instead,
+      * it enables an immediate retry with no delay for networking errors, which
+      * may help improve throughput when there are transient/random networking
+      * issues.
+      *
+      * @group Inputs
+      */
+  public readonly autoRetryRequests?: boolean;
+
+  /**
+      * Specify a custom endpoint for the CloudWatch Logs API.
+      *
+      * @group Inputs
+      */
+  public readonly endpoint?: string;
+
+  /**
+      * By default, the whole log record will be sent to CloudWatch. If you
+      * specify a key name with this option, then only the value of that key
+      * will be sent to CloudWatch.
+      *
+      * @group Inputs
+      */
+  public readonly logKey?: string;
+
+  /**
+      * An optional parameter that can be used to tell CloudWatch the format of
+      * the data. A value of json/emf enables CloudWatch to extract custom
+      * metrics embedded in a JSON payload.
+      *
+      * @see [Embedded Metric Format](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html)
+      *
+      * @group Inputs
+      */
+  public readonly logFormat?: string;
+
+  /**
+     * The CloudWatch Log Group configuration for output records.
+     */
+  public readonly logGroup?: FluentBitLogGroupOutput;
+
+  /**
+      * Template for Log Group name using Fluent Bit record_accessor syntax.
+      *
+      * This field is optional and if configured it overrides the configured Log
+      * Group.
+      *
+      * If the template translation fails, an error is logged and the provided
+      * Log Group (which is still required) is used instead.
+      *
+      * @see [Fluent Bit record accessor snytax](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/record-accessor)
+      *
+      * @group Inputs
+      */
+  public readonly logGroupTemplate?: string;
+
+  /**
+      * If set to a number greater than zero, and newly create log group's
+      * retention policy is set to this many days.
+      *
+      * @group Inputs
+      */
+  public readonly logRetention?: RetentionDays;
+
+  /**
+     * The CloudWatch LogStream configuration for outbound records.
+     */
+  public readonly logStream: FluentBitLogStreamOutput;
+
+  /**
+      * Template for Log Stream name using Fluent Bit record accessor syntax.
+      * This field is optional and if configured it overrides the other log
+      * stream options. If the template translation fails, an error is logged
+      * and the logStream or logStreamPrefix are used instead (and thus one of
+      * those fields is still required to be configured).
+      *
+      * @see [Fluent Bit record accessor snytax](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/record-accessor)
+      *
+      * @group Inputs
+      */
+  public readonly logStreamTemplate?: string;
+
+  /**
+      * A list of lists containing the dimension keys that will be applied to
+      * all metrics. The values within a dimension set MUST also be members on
+      * the root-node.
+      *
+      * @see [Dimensions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension)
+      *
+      * @group Inputs
+      */
+  public readonly metricDimensions?: string[];
+
+  /**
+      * An optional string representing the CloudWatch namespace for the
+      * metrics.
+      *
+      * @see [Metric Tutorial](https://docs.fluentbit.io/manual/pipeline/outputs/cloudwatch#metrics-tutorial)
+      *
+      * @group Inputs
+      */
+  public readonly metricNamespace?: string;
+
+  /**
+      * The AWS region.
+      *
+      * @group Inputs
+      */
+  public readonly region?: string;
+
+  /**
+      * ARN of an IAM role to assume (for cross account access).
+      *
+      * @group Inputs
+      */
+  public readonly role?: IRole;
+
+  /**
+      * Specify a custom STS endpoint for the AWS STS API.
+      *
+      * @group Inputs
+      */
+  public readonly stsEndpoint?: string;
 
 
+  /**
+    * Creates a new instance of the FluentBitCloudWatchLogsOutput class.
+    *
+    * @param options Options for configuring the output.
+    */
   public constructor(options: FluentBitCloudWatchLogsOutputOptions = {}) {
     super('cloudwatch_logs', options);
 
-    if (options.autoCreateGroup !== undefined) {
-      this.addField('auto_create_group', String(options.autoCreateGroup));
-    }
-
-    if (options.autoRetryRequests !== undefined) {
-      this.addField('auto_retry_requests', String(options.autoRetryRequests));
-    }
-
-    if (options.endpoint !== undefined) {
-      this.addField('endpoint', options.endpoint);
-    }
-
-    if (options.logFormat !== undefined) {
-      this.addField('log_format', options.logFormat);
-    }
-
-    if (options.logGroup !== undefined) {
-      this.addField('log_group_name', options.logGroup.logGroupName);
-    }
-
-    if (options.logGroupTemplate !== undefined) {
-      this.addField('log_group_template', options.logGroupTemplate);
-    }
-
-    if (options.logKey !== undefined) {
-      this.addField('log_key', options.logKey);
-    }
-
-    if (options.logRetention !== undefined) {
-      this.addField('log_retention_days', options.logRetention.toString());
-    }
-
-    if (options.logStream !== undefined) {
-      this.addField('log_stream_name', options.logStream.logStreamName);
-    }
-
-    if (options.logStreamPrefix !== undefined) {
-      this.addField('log_stream_prefix', options.logStreamPrefix);
-    }
-
-    if (options.logStreamTemplate !== undefined) {
-      this.addField('log_stream_template', options.logStreamTemplate);
-    }
-
-    if (options.metricDimensions !== undefined) {
-      this.addField('metric_dimensions', options.metricDimensions.join(','));
-    }
-
-    if (options.metricNamespace !== undefined) {
-      this.addField('metric_namespace', options.metricNamespace);
-    }
-
-    if (options.region !== undefined) {
-      this.addField('region', options.region);
-    }
-
-    if (options.role !== undefined) {
-      this.addField('role_arn', options.role.roleArn);
-    }
-
-    if (options.stsEndpoint !== undefined) {
-      this.addField('sts_endpoint', options.stsEndpoint);
-    }
+    this.autoCreateGroup = options.autoCreateGroup;
+    this.autoRetryRequests = options.autoRetryRequests;
+    this.endpoint = options.endpoint;
+    this.logFormat = options.logFormat;
+    this.logGroup = options.logGroup;
+    this.logGroupTemplate = options.logGroupTemplate;
+    this.logKey = options.logKey;
+    this.logRetention = options.logRetention;
+    this.logStream = options.logStream ?? FluentBitLogStreamOutput.fromPrefix('eks');
+    this.logStreamTemplate = options.logStreamTemplate;
+    this.metricDimensions = options.metricDimensions;
+    this.metricNamespace = options.metricNamespace;
+    this.region = options.region;
+    this.role = options.role;
+    this.stsEndpoint = options.stsEndpoint;
   }
 
   /**
      * Builds a configuration for this plugin and returns the details for
      * consumtion by a resource that is configuring logging.
      *
-     * @param _scope The construct configuring logging using Fluent Bit.
+     * @param scope The construct configuring logging using Fluent Bit.
      * @returns A configuration for the plugin that con be used by the resource
      * configuring logging.
      */
   public bind(scope: IConstruct): ResolvedFluentBitConfiguration {
     const logGroup = this.getLogGroup(scope);
-    if (this.fields.log_group_name === undefined) {
-      this.addField('log_group_name', logGroup.logGroupName);
-    }
-
-    if (this.fields.log_stream_prefix === undefined && this.fields.log_stream_name === undefined) {
-      this.addField('log_stream_prefix', 'eks-');
-    }
-
-    if (this.fields.region === undefined) {
-      this.addField('region', Stack.of(scope).region);
-    }
 
     return {
-      ...super.bind(scope),
+      configFile: super.renderConfigFile({
+        auto_create_group: this.autoCreateGroup,
+        auto_retry_requests: this.autoRetryRequests,
+        endpoint: this.endpoint,
+        log_format: this.logFormat,
+        log_group_name: logGroup.logGroupName,
+        log_group_template: this.logGroupTemplate,
+        log_key: this.logKey,
+        log_retention_days: this.logRetention?.toString(),
+        log_stream_name: this.logStream.logStreamName,
+        log_stream_prefix: this.logStream.logStreamPrefix,
+        log_stream_template: this.logStreamTemplate,
+        metric_dimensions: this.metricDimensions?.join(','),
+        metric_namespace: this.metricNamespace,
+        region: this.region ?? Stack.of(scope).region,
+        role_arn: this.role?.roleArn,
+        sts_endpoint: this.stsEndpoint,
+      }),
       permissions: [
         new PolicyStatement({
           actions: [
-            ...(this.fields.auto_create_group?.find(() => true) === 'true' ? ['logs:CreateLogGroup'] : []),
+            ...(this.autoCreateGroup ? ['logs:CreateLogGroup'] : []),
             'logs:DescribeLogStreams',
           ],
           effect: Effect.ALLOW,
@@ -275,22 +547,22 @@ export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPlugin {
      * @returns The log group where output logs should be sent.
      */
   private getLogGroup(scope: IConstruct): ILogGroup {
-    const logGroupId = 'fluent-bit-output-log-group';
+    const logGroupSuffix = this.logGroup?.logGroupName ? `-${this.logGroup.logGroupName}` : '::default';
+    const stubSuffix = this.logGroup?.create ? '' : '::stub';
+    const logGroupId = `fluent-bit-output-log-group${logGroupSuffix}${stubSuffix}`;
     const inheritedLogGroup = scope.node.tryFindChild(logGroupId) as ILogGroup;
 
-    if (this.logGroup) {
-      return this.logGroup;
+    if (this.logGroup?.logGroup) {
+      return this.logGroup.logGroup;
     } else if (inheritedLogGroup) {
-      this._logGroup = inheritedLogGroup;
       return inheritedLogGroup;
-    } else if (this.fields.auto_create_group) {
-      this._logGroup = LogGroup.fromLogGroupName(scope, logGroupId, Names.uniqueId(scope));
-      return this._logGroup;
-    } else {
-      this._logGroup = new LogGroup(scope, logGroupId, {
-        retention: RetentionDays.TWO_WEEKS,
+    } else if (this.logGroup?.create) {
+      return new LogGroup(scope, logGroupId, {
+        logGroupName: this.logGroup.logGroupName,
+        retention: this.logRetention ?? RetentionDays.TWO_WEEKS,
       });
-      return this._logGroup;
+    } else {
+      return LogGroup.fromLogGroupName(scope, logGroupId, this.logGroup?.logGroupName ?? Names.uniqueId(scope));
     }
   }
 }

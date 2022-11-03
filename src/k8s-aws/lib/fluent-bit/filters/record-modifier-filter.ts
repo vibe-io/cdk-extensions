@@ -45,7 +45,7 @@ export interface FluentBitRecordModifierFilterOptions extends FluentBitFilterPlu
  * A Fluent Bit filter that allows appending fields or excluding specific
  * fields.
  */
-export class RecordModifierFilter extends FluentBitFilterPlugin {
+export class FluentBitRecordModifierFilter extends FluentBitFilterPlugin {
   /**
      * Internal collection of tags that are allowed on a matched input record.
      *
@@ -93,7 +93,7 @@ export class RecordModifierFilter extends FluentBitFilterPlugin {
 
 
   /**
-     * Creates a new instance of the ParserFilter class.
+     * Creates a new instance of the FluentBitRecordModifierFilter class.
      *
      * @param options The configuration options to use for filter.
      */
@@ -126,9 +126,8 @@ export class RecordModifierFilter extends FluentBitFilterPlugin {
      * @returns The record modifier filter that the tag plugin was registered
      * with.
      */
-  public addAllow(tag: string): RecordModifierFilter {
+  public addAllow(tag: string): FluentBitRecordModifierFilter {
     this._allow.push(tag);
-    this.addField('Allowlist_key', tag);
     return this;
   }
 
@@ -139,14 +138,8 @@ export class RecordModifierFilter extends FluentBitFilterPlugin {
      * @returns The record modifier filter that the tag plugin was registered
      * with.
      */
-  public addRecord(record: AppendedRecord): RecordModifierFilter {
+  public addRecord(record: AppendedRecord): FluentBitRecordModifierFilter {
     this._records.push(record);
-    this.addField('Record', {
-      ...record,
-      toString: () => {
-        return `${record.fieldName} ${record.value}`;
-      },
-    });
     return this;
   }
 
@@ -159,9 +152,8 @@ export class RecordModifierFilter extends FluentBitFilterPlugin {
      * @returns The record modifier filter that the tag plugin was registered
      * with.
      */
-  public addRemove(tag: string): RecordModifierFilter {
+  public addRemove(tag: string): FluentBitRecordModifierFilter {
     this._remove.push(tag);
-    this.addField('Remove_key', tag);
     return this;
   }
 
@@ -173,7 +165,7 @@ export class RecordModifierFilter extends FluentBitFilterPlugin {
      * @returns A configuration for the plugin that con be used by the resource
      * configuring logging.
      */
-  public bind(scope: IConstruct): ResolvedFluentBitConfiguration {
+  public bind(_scope: IConstruct): ResolvedFluentBitConfiguration {
     if (this._allow.length === 0 && this._records.length === 0 && this._remove.length === 0) {
       throw new Error([
         'At least one allow, remove, or record rule must be specified',
@@ -181,6 +173,14 @@ export class RecordModifierFilter extends FluentBitFilterPlugin {
       ].join(' '));
     }
 
-    return super.bind(scope);
+    return {
+      configFile: this.renderConfigFile({
+        Allowlist_key: this.allow,
+        Record: this.records.map((x) => {
+          return `${x.fieldName} ${x.value}`;
+        }),
+        Remove_key: this.remove,
+      }),
+    };
   }
 }
