@@ -13,7 +13,7 @@ import { ReferencedManagedPolicy, ReferenceOptions } from './lib/referenced-mana
 export interface PermissionSetProps extends ResourceProps {
   /**
      * A user friendly description providing details about the permission set.
-     * 
+     *
      * @see [AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description)
      */
   readonly description?: string;
@@ -21,7 +21,7 @@ export interface PermissionSetProps extends ResourceProps {
   /**
      * Adds inline policy documents that will be embedded in the permission
      * set.
-     * 
+     *
      * @see [AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy)
      */
   readonly inlinePolicies?: {[key: string]: PolicyDocument};
@@ -37,14 +37,14 @@ export interface PermissionSetProps extends ResourceProps {
      * permission set. Managed policies specified here must be AWS managed.
      * To reference custom managed policies use the {@link PermissionSet.addCustomerManagedPolicy}
      * method.
-     * 
+     *
      * @see [AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies)
      */
   readonly managedPolicies?: IManagedPolicy[];
 
   /**
      * The name of the permission set.
-     * 
+     *
      * @see [AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name)
      */
   readonly name?: string;
@@ -58,7 +58,7 @@ export interface PermissionSetProps extends ResourceProps {
      * any policy can grant your role. For more information, see [Permissions
      * boundaries](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) for IAM entities in the AWS Identity and Access Management
      * User Guide.
-     * 
+     *
      * @see [AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-permissionsboundary)
      */
   readonly permissionsBoundary?: PermissionsBoundary;
@@ -68,14 +68,14 @@ export interface PermissionSetProps extends ResourceProps {
      * authentication process. For example, you can redirect users to a
      * specific page that is most applicable to their job after singing in to
      * an AWS account.
-     * 
+     *
      * @see [AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype)
      */
   readonly relayState?: string;
 
   /**
      * The length of time that the application user sessions are valid for.
-     * 
+     *
      * @see [AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration)
      */
   readonly sessionDuration?: Duration;

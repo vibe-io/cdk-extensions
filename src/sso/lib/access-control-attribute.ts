@@ -17,6 +17,8 @@ export interface AccessControlAttributeOptions {
   /**
      * A list of identity sources to use when mapping a specified attribute to
      * IAM Identity Center.
+     *
+     * @see [AWS::SSO::InstanceAccessControlAttributeConfiguration AccessControlAttributeValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source)
      */
   readonly sources?: string[];
 }

@@ -4,6 +4,9 @@ import { IdentityCenterPrincipalType, IIdentityCenterPrincipal } from './lib/ide
 
 
 export interface IGroup {
+  /**
+   * A GUID identifier for a group object in IAM Identity Center are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6).
+   */
   readonly groupId: string;
 }
 
