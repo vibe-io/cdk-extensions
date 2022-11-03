@@ -2002,12 +2002,14 @@ public readonly fargateLogger: FargateLogger;
 
 ### AwsLoggingStack <a name="AwsLoggingStack" id="cdk-extensions.stacks.AwsLoggingStack"></a>
 
-Creates a demo web service running in Fargate that is accessible through an application load balancer.
+Creates a Stack that deploys a logging strategy for several AWS services.
 
-The demo service serves a generic "Welcome to nginx" page.
+Stack creates a Glue Database using cdk-extensions Database, deploys
+cdk-extensions/s3-buckets patterns for each service, and utilizes methods exposed
+by cdk-extensions/s3-buckets S3AccessLogsBucket to enable logging for each created
+bucket.
 
-The service can be accessed remotely using ECS Exec. For details see the documentation at:
-https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html#ecs-exec-running-commands
+> [{@link aws-s3-buckets!WafLogsBucket | cdk-extensions/s3-buckets WafLogsBucket}]({@link aws-s3-buckets!WafLogsBucket | cdk-extensions/s3-buckets WafLogsBucket})
 
 #### Initializers <a name="Initializers" id="cdk-extensions.stacks.AwsLoggingStack.Initializer"></a>
 
@@ -2019,9 +2021,9 @@ new stacks.AwsLoggingStack(scope: Construct, id: string, props?: AwsLoggingStack
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.stacks.AwsLoggingStackProps</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.stacks.AwsLoggingStackProps</code> | Arguments related to the configuration of the resource. |
 
 ---
 
@@ -2029,17 +2031,26 @@ new stacks.AwsLoggingStack(scope: Construct, id: string, props?: AwsLoggingStack
 
 - *Type:* constructs.Construct
 
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.id"></a>
 
 - *Type:* string
 
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
 ---
 
 ##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.props"></a>
 
 - *Type:* cdk-extensions.stacks.AwsLoggingStackProps
+
+Arguments related to the configuration of the resource.
 
 ---
 
@@ -2498,14 +2509,14 @@ The construct to start the search from.
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.cloudfrontLogsBucket">cloudfrontLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.CloudfrontLogsBucket</code> | *No description.* |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.cloudtrailLogsBucket">cloudtrailLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.CloudtrailBucket</code> | *No description.* |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.databaseName">databaseName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.databaseName">databaseName</a></code> | <code>string</code> | Name for the AWS Logs Glue Database. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.flowLogsBucket">flowLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.FlowLogsBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.flowLogsFormat">flowLogsFormat</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.flowLogsFormat">flowLogsFormat</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.s3AccessLogsBucket">s3AccessLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.S3AccessLogsBucket</code> | *No description.* |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.sesLogsBucket">sesLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.SesLogsBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.standardizeNames">standardizeNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.standardizeNames">standardizeNames</a></code> | <code>boolean</code> | Boolean for using standardized names (i.e. "aws-${service}-logs-${account} -${region}") for the created S3 Buckets. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.wafLogsBucket">wafLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.WafLogsBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 
 ---
 
@@ -2887,6 +2898,8 @@ public readonly databaseName: string;
 
 - *Type:* string
 
+Name for the AWS Logs Glue Database.
+
 ---
 
 ##### `flowLogsBucket`<sup>Required</sup> <a name="flowLogsBucket" id="cdk-extensions.stacks.AwsLoggingStack.property.flowLogsBucket"></a>
@@ -2906,6 +2919,8 @@ public readonly flowLogsFormat: FlowLogFormat;
 ```
 
 - *Type:* cdk-extensions.ec2.FlowLogFormat
+
+A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs.
 
 ---
 
@@ -2937,6 +2952,8 @@ public readonly standardizeNames: boolean;
 
 - *Type:* boolean
 
+Boolean for using standardized names (i.e. "aws-${service}-logs-${account} -${region}") for the created S3 Buckets.
+
 ---
 
 ##### `wafLogsBucket`<sup>Required</sup> <a name="wafLogsBucket" id="cdk-extensions.stacks.AwsLoggingStack.property.wafLogsBucket"></a>
@@ -2956,6 +2973,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -22097,7 +22116,7 @@ public readonly loggingOptions: FargateLoggingOptions;
 
 ### AwsLoggingStackProps <a name="AwsLoggingStackProps" id="cdk-extensions.stacks.AwsLoggingStackProps"></a>
 
-Configuration for the demo service stack.
+Configuration for AwsLoggingStack.
 
 #### Initializer <a name="Initializer" id="cdk-extensions.stacks.AwsLoggingStackProps.Initializer"></a>
 
@@ -22118,16 +22137,16 @@ const awsLoggingStackProps: stacks.AwsLoggingStackProps = { ... }
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.synthesizer">synthesizer</a></code> | <code>aws-cdk-lib.IStackSynthesizer</code> | Synthesis method to use while deploying this stack. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.tags">tags</a></code> | <code>{[ key: string ]: string}</code> | Stack tags that will be applied to all the taggable resources and the stack itself. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.terminationProtection">terminationProtection</a></code> | <code>boolean</code> | Whether to enable termination protection for this stack. |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.albLogsBucket">albLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.AlbLogsBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.cloudfrontLogsBucket">cloudfrontLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.CloudfrontLogsBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.cloudtrailLogsBucket">cloudtrailLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.CloudtrailBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.databaseName">databaseName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.flowLogsBucket">flowLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.FlowLogsBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.flowLogsFormat">flowLogsFormat</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.sesLogsBucket">sesLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.SesLogsBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.standardizeNames">standardizeNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.wafLogsBucket">wafLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.WafLogsBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.albLogsBucket">albLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.AlbLogsBucket</code> | A cdk-extensions/s3-buckets {@link aws-s3-buckets!AlbLogsBucket} object. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.cloudfrontLogsBucket">cloudfrontLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.CloudfrontLogsBucket</code> | A cdk-extensions/s3-buckets {@link aws-s3-buckets!CloudfrontLogsBucket} object. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.cloudtrailLogsBucket">cloudtrailLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.CloudtrailBucket</code> | A cdk-extensions/s3-buckets {@link aws-s3-buckets!CloudtrailBucket} object. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.databaseName">databaseName</a></code> | <code>string</code> | Name used for the Glue Database that will be created. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.flowLogsBucket">flowLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.FlowLogsBucket</code> | A cdk-extensions/s3-buckets {@link aws-s3-buckets!FlowLogsBucket} object. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.flowLogsFormat">flowLogsFormat</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.sesLogsBucket">sesLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.SesLogsBucket</code> | A cdk-extensions/s3-buckets {@link aws-s3-buckets!SesLogsBucket} object. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.standardizeNames">standardizeNames</a></code> | <code>boolean</code> | Boolean for using "standardized" naming (i.e. "aws-${service}-logs-${account} -${region}") for the created S3 Buckets. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.wafLogsBucket">wafLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.WafLogsBucket</code> | A cdk-extensions/s3-buckets {@link aws-s3-buckets!WafLogsBucket} object. |
 
 ---
 
@@ -22291,6 +22310,8 @@ public readonly albLogsBucket: AlbLogsBucket;
 
 - *Type:* cdk-extensions.s3_buckets.AlbLogsBucket
 
+A cdk-extensions/s3-buckets {@link aws-s3-buckets!AlbLogsBucket} object.
+
 ---
 
 ##### `cloudfrontLogsBucket`<sup>Optional</sup> <a name="cloudfrontLogsBucket" id="cdk-extensions.stacks.AwsLoggingStackProps.property.cloudfrontLogsBucket"></a>
@@ -22300,6 +22321,8 @@ public readonly cloudfrontLogsBucket: CloudfrontLogsBucket;
 ```
 
 - *Type:* cdk-extensions.s3_buckets.CloudfrontLogsBucket
+
+A cdk-extensions/s3-buckets {@link aws-s3-buckets!CloudfrontLogsBucket} object.
 
 ---
 
@@ -22311,6 +22334,8 @@ public readonly cloudtrailLogsBucket: CloudtrailBucket;
 
 - *Type:* cdk-extensions.s3_buckets.CloudtrailBucket
 
+A cdk-extensions/s3-buckets {@link aws-s3-buckets!CloudtrailBucket} object.
+
 ---
 
 ##### `databaseName`<sup>Optional</sup> <a name="databaseName" id="cdk-extensions.stacks.AwsLoggingStackProps.property.databaseName"></a>
@@ -22320,6 +22345,8 @@ public readonly databaseName: string;
 ```
 
 - *Type:* string
+
+Name used for the Glue Database that will be created.
 
 ---
 
@@ -22331,6 +22358,8 @@ public readonly flowLogsBucket: FlowLogsBucket;
 
 - *Type:* cdk-extensions.s3_buckets.FlowLogsBucket
 
+A cdk-extensions/s3-buckets {@link aws-s3-buckets!FlowLogsBucket} object.
+
 ---
 
 ##### `flowLogsFormat`<sup>Optional</sup> <a name="flowLogsFormat" id="cdk-extensions.stacks.AwsLoggingStackProps.property.flowLogsFormat"></a>
@@ -22340,6 +22369,8 @@ public readonly flowLogsFormat: FlowLogFormat;
 ```
 
 - *Type:* cdk-extensions.ec2.FlowLogFormat
+
+A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs.
 
 ---
 
@@ -22351,6 +22382,8 @@ public readonly friendlyQueryNames: boolean;
 
 - *Type:* boolean
 
+Boolean for adding "friendly names" for the created Athena queries.
+
 ---
 
 ##### `sesLogsBucket`<sup>Optional</sup> <a name="sesLogsBucket" id="cdk-extensions.stacks.AwsLoggingStackProps.property.sesLogsBucket"></a>
@@ -22360,6 +22393,8 @@ public readonly sesLogsBucket: SesLogsBucket;
 ```
 
 - *Type:* cdk-extensions.s3_buckets.SesLogsBucket
+
+A cdk-extensions/s3-buckets {@link aws-s3-buckets!SesLogsBucket} object.
 
 ---
 
@@ -22371,6 +22406,8 @@ public readonly standardizeNames: boolean;
 
 - *Type:* boolean
 
+Boolean for using "standardized" naming (i.e. "aws-${service}-logs-${account} -${region}") for the created S3 Buckets.
+
 ---
 
 ##### `wafLogsBucket`<sup>Optional</sup> <a name="wafLogsBucket" id="cdk-extensions.stacks.AwsLoggingStackProps.property.wafLogsBucket"></a>
@@ -22380,6 +22417,8 @@ public readonly wafLogsBucket: WafLogsBucket;
 ```
 
 - *Type:* cdk-extensions.s3_buckets.WafLogsBucket
+
+A cdk-extensions/s3-buckets {@link aws-s3-buckets!WafLogsBucket} object.
 
 ---
 
