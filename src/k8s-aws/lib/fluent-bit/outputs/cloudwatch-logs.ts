@@ -3,7 +3,7 @@ import { Effect, IRole, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { ILogGroup, ILogStream, LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { IConstruct } from 'constructs';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
-import { FluentBitOutputPlugin, FluentBitOutputPluginCommonOptions } from './output-plugin';
+import { FluentBitOutputPluginBase, FluentBitOutputPluginCommonOptions } from './output-plugin-base';
 
 
 /**
@@ -319,7 +319,7 @@ export interface FluentBitCloudWatchLogsOutputOptions extends FluentBitOutputPlu
  * Represents configuration for outputing logs from Fluent Bit to CloudWatch
  * Logs.
  */
-export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPlugin {
+export class FluentBitCloudWatchLogsOutput extends FluentBitOutputPluginBase {
   /**
      * Automatically create the log group.
       *

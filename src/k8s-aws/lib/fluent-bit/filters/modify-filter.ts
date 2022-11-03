@@ -1,6 +1,6 @@
 import { IConstruct } from 'constructs';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
-import { FluentBitFilterPlugin, FluentBitFilterPluginCommonOptions } from './filter-plugin';
+import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from './filter-plugin-base';
 
 
 export class ModifyCondition {
@@ -418,7 +418,7 @@ export interface FluentBitModifyFilterOptions extends FluentBitFilterPluginCommo
 /**
  * A Fluent Bit filter that allows changing records using rules and conditions.
  */
-export class FluentBitModifyFilter extends FluentBitFilterPlugin {
+export class FluentBitModifyFilter extends FluentBitFilterPluginBase {
   /**
      * Internal collection of conditions to apply for the filter.
      */

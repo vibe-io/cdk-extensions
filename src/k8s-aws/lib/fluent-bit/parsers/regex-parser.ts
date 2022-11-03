@@ -1,6 +1,6 @@
 import { IConstruct } from 'constructs';
 import { ResolvedFluentBitConfiguration } from '..';
-import { FluentBitParserPlugin, FluentBitParserPluginCommonOptions, ParserPluginDataType } from './parser-plugin';
+import { FluentBitParserPluginBase, FluentBitParserPluginCommonOptions, ParserPluginDataType } from './parser-plugin-base';
 
 
 /**
@@ -44,7 +44,7 @@ export interface FluentBitRegexParserOptions extends FluentBitParserPluginCommon
 /**
  * A Fluent Bit filter that parsed inbound messages using regular expressions.
  */
-export class RegexParser extends FluentBitParserPlugin {
+export class FluentBitRegexParser extends FluentBitParserPluginBase {
   /**
    * The regular expression to use to parse the incoming records.
    *
@@ -87,6 +87,11 @@ export class RegexParser extends FluentBitParserPlugin {
   public readonly types?: {[key: string]: ParserPluginDataType};
 
 
+  /**
+   * Creates a new instance of the FluentBitLtsvParser class.
+   *
+   * @param options Options for configuring the parser.
+   */
   public constructor(name: string, options: FluentBitRegexParserOptions) {
     super(name, 'regex', options);
 

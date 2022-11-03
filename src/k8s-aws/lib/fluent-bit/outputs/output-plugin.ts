@@ -1,63 +1,78 @@
-import { IFluentBitPlugin } from '../../..';
-import { FluentBitPlugin, FluentBitPluginType } from '../fluent-bit-plugin';
+import { IStream } from 'aws-cdk-lib/aws-kinesis';
+import { ILogGroup } from 'aws-cdk-lib/aws-logs';
+import { IDomain } from 'aws-cdk-lib/aws-opensearchservice';
+import { FluentBitCloudWatchLogsOutput, FluentBitKinesisFirehoseOutput, FluentBitKinesisOutput, FluentBitLogGroupOutput, FluentBitOpenSearchOutput, IFluentBitOutputPlugin } from '.';
+import { IDeliveryStream } from '../../../../kinesis-firehose';
 
 
 /**
- * Configuration options that apply to all Fluent Bit output plugins.
+ * Common options that allow configuration of destinations where Fluent Bit
+ * should send records after processing.
  */
-export interface FluentBitOutputPluginCommonOptions {
+export class FluentBitOutput {
   /**
-   * The pattern to match for records that this output should apply to.
-   */
-  readonly match?: string;
-}
-
-/**
- * Represents a Fluent Bit plugin that controls log output to a given
- * destination.
- */
-export interface IFluentBitOutputPlugin extends IFluentBitPlugin {}
-
-/**
- * Represents a Fluent Bit plugin that controls log output to a given
- * destination.
- */
-export abstract class FluentBitOutputPlugin extends FluentBitPlugin implements IFluentBitOutputPlugin {
-  /**
-   * The pattern to match for records that this output should apply to.
-   *
-   * @group Inputs
-   */
-  public readonly match: string;
-
-
-  /**
-   * Creates a new instance of the FluentBitOutputPlugin class.
-   *
-   * @param name The name of the output plugin to configure.
-   * @param options Configuration options that apply to all Fluent Bit output
-   * plugin.
-   */
-  public constructor(name: string, options: FluentBitOutputPluginCommonOptions = {}) {
-    super({
-      name: name,
-      pluginType: FluentBitPluginType.OUTPUT,
+     * Sends matched records to a CloudWatch Logs log group.
+     *
+     * @param match A pattern filtering to which records the output should be
+     * applied.
+     * @param logGroup The log group where matched records should be sent.
+     * @returns An output filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static cloudwatchLogs(match: string, logGroup: ILogGroup): IFluentBitOutputPlugin {
+    return new FluentBitCloudWatchLogsOutput({
+      logGroup: FluentBitLogGroupOutput.fromLogGroup(logGroup),
+      match: match,
     });
-
-    this.match = options.match ?? '*';
   }
 
   /**
-   * Renders a Fluent Bit configuration file for the plugin.
-   *
-   * @param config The configuration options to render into a configuration
-   * file.
-   * @returns A rendered plugin configuration file.
-   */
-  protected renderConfigFile(config: { [key: string]: any }): string {
-    return super.renderConfigFile({
-      Match: this.match,
-      ...config,
+     * Sends matched records to a Kinesis data stream.
+     *
+     * @param match A pattern filtering to which records the output should be
+     * applied.
+     * @param stream The Kinesis stream where matched records should be sent.
+     * @returns An output filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static kinesis(match: string, stream: IStream): IFluentBitOutputPlugin {
+    return new FluentBitKinesisOutput({
+      match: match,
+      stream: stream,
+    });
+  }
+
+  /**
+     * Sends matched records to a Kinesis Firehose delivery stream.
+     *
+     * @param match A pattern filtering to which records the output should be
+     * applied.
+     * @param deliveryStream The Firehose delivery stream where matched
+     * records should be sent.
+     * @returns An output filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static kinesisFirehose(match: string, deliveryStream: IDeliveryStream): IFluentBitOutputPlugin {
+    return new FluentBitKinesisFirehoseOutput({
+      deliveryStream: deliveryStream,
+      match: match,
+    });
+  }
+
+  /**
+     * Sends matched records to an OpenSearch domain.
+     *
+     * @param match A pattern filtering to which records the output should be
+     * applied.
+     * @param domain The OpenSearch domain where matched records should be
+     * sent.
+     * @returns An output filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static opensearch(match: string, domain: IDomain): IFluentBitOutputPlugin {
+    return new FluentBitOpenSearchOutput({
+      domain: domain,
+      match: match,
     });
   }
 }

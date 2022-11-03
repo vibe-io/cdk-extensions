@@ -1,137 +1,72 @@
-import { FluentBitPlugin, FluentBitPluginType, IFluentBitPlugin } from '../fluent-bit-plugin';
+import { FluentBitJsonParser, FluentBitLogfmtParser, FluentBitLtsvParser, FluentBitRegexParser, IFluentBitParserPlugin } from '.';
 
 
 /**
- * Represents the various types of data that can be mapped in Fluent Bit using
- * a parser plugin.
+ * Standard parse comfigurations which can be applied to Fluent Bit to allow
+ * for parsing data from incoming records.
+ *
+ * The records to which parsers are applied is controlled using the parser
+ * filter.
+ *
+ * @see {@link FluentBitParserFilter}
  */
-export class ParserPluginDataType {
+export class FluentBitParser {
   /**
-     * Object that is true or false.
+     * Creates a parser that processes records that are formatted in JSON.
+     *
+     * @param name The name of the parser which will be used for referencing it
+     * in other configurations.
+     * @returns A parser object that can be applied to the Fluent Bit
+     * configuration.
      */
-  public static BOOL: ParserPluginDataType = ParserPluginDataType.of('bool');
+  public static json(name: string): IFluentBitParserPlugin {
+    return new FluentBitJsonParser(name);
+  }
 
   /**
-     * Floating point number values.
-     */
-  public static FLOAT: ParserPluginDataType = ParserPluginDataType.of('float');
-
-  /**
-     * Hexidecimal number values.
-     */
-  public static HEX: ParserPluginDataType = ParserPluginDataType.of('hex');
-
-  /**
-     * While number values.
-     */
-  public static INTEGER: ParserPluginDataType = ParserPluginDataType.of('integer');
-
-  /**
-     * Logfmt formatted data.
+     * Creates a parser that processes records that are formatted using the
+     * `logfmt` standard.
      *
      * @see [Logfmt overview](https://brandur.org/logfmt)
      * @see [Golang logfmt documentation](https://pkg.go.dev/github.com/kr/logfmt)
-     */
-  public static LOGFMT: ParserPluginDataType = ParserPluginDataType.of('logfmt');
-
-  /**
-     * Labeled tab-separated values.
      *
-     * @see [LTSV](http://ltsv.org/).
+     * @param name The name of the parser which will be used for referencing it
+     * in other configurations.
+     * @returns A parser object that can be applied to the Fluent Bit
+     * configuration.
      */
-  public static LTSV: ParserPluginDataType = ParserPluginDataType.of('ltsv');
-
-  /**
-     * Regular expression.
-     */
-  public static REGEX: ParserPluginDataType = ParserPluginDataType.of('regex');
-
-  /**
-     * Text data.
-     */
-  public static STRING: ParserPluginDataType = ParserPluginDataType.of('string');
-
-  /**
-     * An escape hatch method that allow specifying arbitrary custom data
-     * types.
-     *
-     * @param name The name of the data type.
-     * @returns An object representing the data type.
-     */
-  public static of(name: string): ParserPluginDataType {
-    return new ParserPluginDataType(name);
-  }
-
-
-  /**
-     * The name of the data type.
-     */
-  public readonly name: string;
-
-  /**
-     * Cretaes a new instance of the ParserPluginDataType class.
-     *
-     * @param name The name of the data type.
-     */
-  private constructor(name: string) {
-    this.name = name;
-  }
-}
-
-/**
- * Configuration options that apply to all Fluent Bit parser plugins.
- */
-export interface FluentBitParserPluginCommonOptions {}
-
-/**
- * Represents a Fluent Bit plugin that parses inbound records to populate
- * fields.
- */
-export interface IFluentBitParserPlugin extends IFluentBitPlugin {
-  readonly format: string;
-}
-
-/**
- * Represents a Fluent Bit plugin that parses inbound records to populate
- * fields.
- */
-export abstract class FluentBitParserPlugin extends FluentBitPlugin implements IFluentBitParserPlugin {
-  /**
-   * The data format that the parser extracts records from.
-   *
-   * @group Inputs
-   */
-  public readonly format: string;
-
-
-  /**
-   * Creates a new instance of the FluentBitParserPlugin class.
-   *
-   * @param name The name of the output plugin to configure.
-   * @param format The data format that the parser extracts records from.
-   * @param options Configuration options that apply to all Fluent Bit output
-   * plugin.
-   */
-  public constructor(name: string, format: string, _options: FluentBitParserPluginCommonOptions = {}) {
-    super({
-      name: name,
-      pluginType: FluentBitPluginType.PARSER,
-    });
-
-    this.format = format;
+  public static logfmt(name: string): IFluentBitParserPlugin {
+    return new FluentBitLogfmtParser(name);
   }
 
   /**
-   * Renders a Fluent Bit configuration file for the plugin.
-   *
-   * @param config The configuration options to render into a configuration
-   * file.
-   * @returns A rendered plugin configuration file.
-   */
-  protected renderConfigFile(config: { [key: string]: any }): string {
-    return super.renderConfigFile({
-      Format: this.format,
-      ...config,
+     * Creates a parser that processes records that are formatted using the
+     * `ltsv` standard.
+     *
+     * @see [LTSV](http://ltsv.org/)
+     *
+     * @param name The name of the parser which will be used for referencing it
+     * in other configurations.
+     * @returns A parser object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static ltsv(name: string): IFluentBitParserPlugin {
+    return new FluentBitLtsvParser(name);
+  }
+
+  /**
+     * Creates a parser that uses regular expressions to parse incoming
+     * records.
+     *
+     * @param name The name of the parser which will be used for referencing it
+     * in other configurations.
+     * @param regex The regular expression to use to parse records.
+     * @returns A parser object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static regex(name: string, regex: string): IFluentBitParserPlugin {
+    return new FluentBitRegexParser(name, {
+      regex: regex,
     });
   }
 }

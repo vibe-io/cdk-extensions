@@ -1,7 +1,7 @@
 import { IConstruct } from 'constructs';
 import { DataSize } from '../../../../core';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
-import { FluentBitFilterPlugin, FluentBitFilterPluginCommonOptions } from './filter-plugin';
+import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from './filter-plugin-base';
 
 
 /**
@@ -143,7 +143,7 @@ export interface FluentBitRewriteTagFilterOptions extends FluentBitFilterPluginC
 /**
  * A Fluent Bit filter that allows parsing of fields in event records.
  */
-export class FluentBitRewriteTagFilter extends FluentBitFilterPlugin {
+export class FluentBitRewriteTagFilter extends FluentBitFilterPluginBase {
   /**
      * Internal collection of rules defining matching criteria and the format
      * of the tag for the matching record.

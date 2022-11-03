@@ -112,7 +112,9 @@ export abstract class FluentBitPlugin implements IFluentBitPlugin {
     return Object.keys(fullConfig).reduce((prev, cur) => {
       const val = fullConfig[cur];
       const arr = isArray(val) ? val : [val];
-      arr.forEach((x: any) => {
+      arr.filter((x) => {
+        return x !== undefined;
+      }).forEach((x: any) => {
         prev.push(`    ${cur} ${x}`);
       });
 

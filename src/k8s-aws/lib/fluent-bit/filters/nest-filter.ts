@@ -1,6 +1,6 @@
 import { IConstruct } from 'constructs';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
-import { FluentBitFilterPlugin, FluentBitFilterPluginCommonOptions } from './filter-plugin';
+import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from './filter-plugin-base';
 
 
 export interface LiftOptions {
@@ -118,7 +118,7 @@ export interface FluentBitNestFilterOptions extends FluentBitFilterPluginCommonO
 /**
  * A Fluent Bit filter that allows operating on or with nested data.
  */
-export class FluentBitNestFilter extends FluentBitFilterPlugin {
+export class FluentBitNestFilter extends FluentBitFilterPluginBase {
   /**
      * Prefix affected keys with this string.
      */

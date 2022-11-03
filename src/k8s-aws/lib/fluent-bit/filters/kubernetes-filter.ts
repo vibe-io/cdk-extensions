@@ -3,7 +3,7 @@ import { IConstruct } from 'constructs';
 import { ResolvedFluentBitConfiguration } from '..';
 import { DataSize } from '../../../../core';
 import { convertBool } from '../utils';
-import { FluentBitFilterPlugin, FluentBitFilterPluginCommonOptions } from './filter-plugin';
+import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from './filter-plugin-base';
 
 
 /**
@@ -264,7 +264,7 @@ export interface FluentBitKubernetesFilterOptions extends FluentBitFilterPluginC
  * A Fluent Bit filter that allows log records to be annotated with Kubernetes
  * metadata based on the containers that generated them.
  */
-export class FluentBitKubernetesFilter extends FluentBitFilterPlugin {
+export class FluentBitKubernetesFilter extends FluentBitFilterPluginBase {
   /**
      * Include Kubernetes resource annotations in the extra metadata.
      *

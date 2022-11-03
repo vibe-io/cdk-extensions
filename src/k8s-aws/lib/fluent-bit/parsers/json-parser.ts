@@ -1,6 +1,6 @@
 import { IConstruct } from 'constructs';
 import { ResolvedFluentBitConfiguration } from '..';
-import { FluentBitParserPlugin, FluentBitParserPluginCommonOptions } from './parser-plugin';
+import { FluentBitParserPluginBase, FluentBitParserPluginCommonOptions } from './parser-plugin-base';
 
 
 /**
@@ -26,7 +26,7 @@ export interface FluentBitJsonParserOptions extends FluentBitParserPluginCommonO
 /**
  * A Fluent Bit filter that parsed inbound messages in JSON format.
  */
-export class FluentBitJsonParser extends FluentBitParserPlugin {
+export class FluentBitJsonParser extends FluentBitParserPluginBase {
   /**
    * Defines the format of the timestamp on the inbound record.
    *

@@ -1,7 +1,22 @@
 import { IConstruct } from 'constructs';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
-import { FluentBitFilterPlugin, FluentBitFilterPluginCommonOptions } from './filter-plugin';
+import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from './filter-plugin-base';
 
+
+/**
+ * Configures a pattern to match against a Fluent Bit record.
+ */
+export interface FluentBitGrepRegex {
+  /**
+   * The key of the fields which you want to filter using the regex.
+   */
+  readonly key: string;
+
+  /**
+   * The regular expression to apply to the specified field.
+   */
+  readonly regex: string;
+}
 
 /**
  * Options for configuring the Grep Fluent Bit filter plugin.
@@ -13,29 +28,29 @@ export interface FluentBitGrepFilterOptions extends FluentBitFilterPluginCommonO
      * Exclude records in which the content of KEY matches the regular
      * expression.
      */
-  readonly exclude?: string;
+  readonly exclude?: FluentBitGrepRegex;
 
   /**
      * Keep records in which the content of KEY matches the regular expression.
      */
-  readonly regex?: string;
+  readonly regex?: FluentBitGrepRegex;
 }
 
 /**
  * A Fluent Bit filter that allows log records to be kept or discarded based
  * on whether they match a given regular expression or not.
  */
-export class FluentBitGrepFilter extends FluentBitFilterPlugin {
+export class FluentBitGrepFilter extends FluentBitFilterPluginBase {
   /**
      * Exclude records in which the content of KEY matches the regular
      * expression.
      */
-  readonly exclude?: string;
+  readonly exclude?: FluentBitGrepRegex;
 
   /**
       * Keep records in which the content of KEY matches the regular expression.
       */
-  readonly regex?: string;
+  readonly regex?: FluentBitGrepRegex;
 
 
   /**
@@ -68,8 +83,8 @@ export class FluentBitGrepFilter extends FluentBitFilterPlugin {
 
     return {
       configFile: super.renderConfigFile({
-        Exclude: this.exclude,
-        Regex: this.regex,
+        Exclude: this.exclude ? `${this.exclude.key} ${this.exclude.regex}` : undefined,
+        Regex: this.regex ? `${this.regex.key} ${this.regex.regex}` : undefined,
       }),
     };
   }

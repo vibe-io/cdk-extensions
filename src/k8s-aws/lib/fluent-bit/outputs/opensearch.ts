@@ -5,7 +5,7 @@ import { IConstruct } from 'constructs';
 import { DataSize } from '../../../../core';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
 import { convertBool } from '../utils';
-import { FluentBitOutputPlugin, FluentBitOutputPluginCommonOptions } from './output-plugin';
+import { FluentBitOutputPluginBase, FluentBitOutputPluginCommonOptions } from './output-plugin-base';
 
 
 /**
@@ -295,7 +295,7 @@ export interface FluentBitOpenSearchOutputOptions extends FluentBitOutputPluginC
   readonly writeOperation?: string;
 }
 
-export class FluentBitOpenSearchOutput extends FluentBitOutputPlugin {
+export class FluentBitOpenSearchOutput extends FluentBitOutputPluginBase {
   /**
      * Enable AWS Sigv4 Authentication for Amazon OpenSearch Service.
      *

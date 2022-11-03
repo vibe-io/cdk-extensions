@@ -1,5 +1,5 @@
 import { IConstruct } from 'constructs';
-import { FluentBitFilterPlugin, FluentBitFilterPluginCommonOptions } from '.';
+import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from '.';
 import { ResolvedFluentBitConfiguration } from '..';
 
 
@@ -22,7 +22,7 @@ export interface FluentBitCustomFilterPluginOptions extends FluentBitFilterPlugi
  * A Fluent Bit plugin that allows for configuration of options and can be
  * used to configure logging from containers.
  */
-export class FluentBitCustomFilterPlugin extends FluentBitFilterPlugin {
+export class FluentBitCustomFilterPlugin extends FluentBitFilterPluginBase {
   /**
      * Internal collection keeping track of Fluent Bit configuration fields.
      */

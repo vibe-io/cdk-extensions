@@ -1,58 +1,223 @@
-import { IFluentBitPlugin } from '..';
-import { FluentBitPlugin, FluentBitPluginType } from '../fluent-bit-plugin';
+import { Duration } from 'aws-cdk-lib';
+import { AppendedRecord, FluentBitGrepFilter, FluentBitGrepRegex, FluentBitKubernetesFilter, FluentBitModifyFilter, FluentBitNestFilter, FluentBitParserFilter, FluentBitRecordModifierFilter, FluentBitRewriteTagFilter, FluentBitThrottleFilter, IFluentBitFilterPlugin, ModifyOperation, NestFilterOperation, RewriteTagRule } from '.';
+import { IFluentBitParserPlugin } from '..';
 
 
 /**
- * Configuration options that apply to all Fluent Bit output plugins.
+ * Standard filter options which can be applied to Fluent Bit to control the
+ * output and formatting of logs.
+ *
+ * Filters change the structure of log records by doing things like adding
+ * metadata to a record, restructuring a record, or adding and removing fields.
  */
-export interface FluentBitFilterPluginCommonOptions {
+export class FluentBitFilter {
   /**
-   * The pattern to match for records that this output should apply to.
-   */
-  readonly match?: string;
-}
-
-/**
- * Represents a Fluent Bit plugin that controls log filtering and metadata.
- */
-export interface IFluentBitFilterPlugin extends IFluentBitPlugin {}
-
-export abstract class FluentBitFilterPlugin extends FluentBitPlugin implements IFluentBitFilterPlugin {
-  /**
-   * The pattern to match for records that this output should apply to.
-   *
-   * @group Inputs
-   */
-  public readonly match: string;
-
-
-  /**
-   * Creates a new instance of the FluentBitOutputPlugin class.
-   *
-   * @param name The name of the output plugin to configure.
-   * @param options Configuration options that apply to all Fluent Bit output
-   * plugin.
-   */
-  public constructor(name: string, options: FluentBitFilterPluginCommonOptions = {}) {
-    super({
-      name: name,
-      pluginType: FluentBitPluginType.FILTER,
+     * Creates a filter that adds fields to a record that matches the given
+     * pattern.
+     *
+     * @param match A pattern filtering to which records the filter should be
+     * applied.
+     * @param records The fields to be added to matched records.
+     * @returns A filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static appendFields(match: string, ...records: AppendedRecord[]): IFluentBitFilterPlugin {
+    return new FluentBitRecordModifierFilter({
+      match: match,
+      records: records,
     });
-
-    this.match = options.match ?? '*';
   }
 
   /**
-   * Renders a Fluent Bit configuration file for the plugin.
-   *
-   * @param config The configuration options to render into a configuration
-   * file.
-   * @returns A rendered plugin configuration file.
-   */
-  protected renderConfigFile(config: { [key: string]: any }): string {
-    return super.renderConfigFile({
-      Match: this.match,
-      ...config,
+     * Creates a filter that removes a set of fields from any records that
+     * match a given pattern.
+     *
+     * @param match A pattern filtering to which records the filter should be
+     * applied.
+     * @param fields The fields which should be removed from the record if they
+     * are present.
+     * @returns A filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static blacklistFields(match: string, ...fields: string[]): IFluentBitFilterPlugin {
+    return new FluentBitRecordModifierFilter({
+      match: match,
+      remove: fields,
+    });
+  }
+
+  /**
+     * Filters log entries based on a pattern. Log entries can be removed and
+     * not forwarded based on whether they match or do not match the given
+     * pattern.
+     *
+     * @param match A pattern filtering to which records the filter should be
+     * applied.
+     * @param pattern The pattern to match against incoming records.
+     * @param exclude Determines whether records that match the records should
+     * be kept or excluded. If this is true, all records that match the pattern
+     * will not be logged. If this is false, only records that match the
+     * pattern will be logged.
+     * @returns A filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static grep(match: string, pattern: FluentBitGrepRegex, exclude?: boolean): IFluentBitFilterPlugin {
+    return new FluentBitGrepFilter({
+      exclude: (exclude ?? false) ? pattern : undefined,
+      match: match,
+      regex: (exclude ?? false) ? undefined : pattern,
+    });
+  }
+
+  /**
+     * Adds Kubernetes metadata to output records including pod information,
+     * labels, etc..
+     *
+     * @param match A pattern filtering to which records the filter should be
+     * applied.
+     * @returns A filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static kubernetes(match: string): IFluentBitFilterPlugin {
+    return new FluentBitKubernetesFilter({
+      match: match,
+    });
+  }
+
+  /**
+     * Applies various transformations to matched records including adding,
+     * removing, copying, and renaming fields.
+     *
+     * @param match A pattern filtering to which records the filter should be
+     * applied.
+     * @param operations The operations to apply to the matched records.
+     * @returns A filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static modify(match: string, ...operations: ModifyOperation[]): IFluentBitFilterPlugin {
+    return new FluentBitModifyFilter({
+      match: match,
+      operations: operations,
+    });
+  }
+
+  /**
+     * Lifts nested fields in a record up to their parent object.
+     *
+     * @param match A pattern filtering to which records the filter should be
+     * applied.
+     * @param nestedUnder The record object under which you want to lift
+     * fields.
+     * @returns A filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static lift(match: string, nestedUnder: string): IFluentBitFilterPlugin {
+    return new FluentBitNestFilter({
+      match: match,
+      operation: NestFilterOperation.lift({
+        nestedUnder: nestedUnder,
+      }),
+    });
+  }
+
+  /**
+     * Nests a set of fields in a record under into a specified object.
+     *
+     * @param match A pattern filtering to which records the filter should be
+     * applied.
+     * @param nestUnder The record object under which you want to nest matched
+     * fields.
+     * @param fields The fields to nest under the specified object.
+     * @returns A filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static nest(match: string, nestUnder: string, ...fields: string[]): IFluentBitFilterPlugin {
+    return new FluentBitNestFilter({
+      match: match,
+      operation: NestFilterOperation.nest({
+        nestUnder: nestUnder,
+        wildcards: fields,
+      }),
+    });
+  }
+
+  /**
+     * Applies a set of parsers to matched records.
+     *
+     * The parser is used to read the input record and set structured fields in
+     * the output.
+     *
+     * @param match A pattern filtering to which records the filter should be
+     * applied.
+     * @param parsers The parser plugins to use to read matched records.
+     * @returns A filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static parser(match: string, ...parsers: IFluentBitParserPlugin[]): IFluentBitFilterPlugin {
+    return new FluentBitParserFilter({
+      match: match,
+      parsers: parsers,
+    });
+  }
+
+  /**
+     * Allows modification of tags set by the input configuration to affect the
+     * routing of when records are output.
+     *
+     * @param match A pattern filtering to which records the filter should be
+     * applied.
+     * @param rules The rules that define the matching criteria of format of
+     * the tag for the matching record.
+     * @returns A filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static rewriteTag(match: string, ...rules: RewriteTagRule[]): IFluentBitFilterPlugin {
+    return new FluentBitRewriteTagFilter({
+      match: match,
+      rules: rules,
+    });
+  }
+
+  /**
+     * Sets an average rate of messages that are allowed to be output over a
+     * configured period of time.
+     *
+     * When the rate of messages surpasses the configured limits messages will
+     * be dropped.
+     *
+     * @param match A pattern filtering to which records the filter should be
+     * applied.
+     * @param rate The average amount of messages over a given period.
+     * @param interval The interval of time over rate should be sampled to
+     * calculate an average.
+     * @param window Amount of intervals to calculate average over.
+     * @returns A filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static throttle(match: string, interval: Duration, rate: number, window: number): IFluentBitFilterPlugin {
+    return new FluentBitThrottleFilter({
+      interval: interval,
+      match: match,
+      rate: rate,
+      window: window,
+    });
+  }
+
+  /**
+     * Creates a filter that removes all fields in a record that are not
+     * approved.
+     *
+     * @param match A pattern filtering to which records the filter should be
+     * applied.
+     * @param fields The fields which are allowed to appear in the output
+     * record.
+     * @returns A filter object that can be applied to the Fluent Bit
+     * configuration.
+     */
+  public static whitelistFields(match: string, ...fields: string[]): IFluentBitFilterPlugin {
+    return new FluentBitRecordModifierFilter({
+      allow: fields,
+      match: match,
     });
   }
 }

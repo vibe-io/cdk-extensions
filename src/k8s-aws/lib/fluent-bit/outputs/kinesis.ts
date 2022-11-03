@@ -3,7 +3,7 @@ import { Effect, IRole, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { IStream, Stream } from 'aws-cdk-lib/aws-kinesis';
 import { IConstruct } from 'constructs';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
-import { FluentBitOutputPlugin, FluentBitOutputPluginCommonOptions } from './output-plugin';
+import { FluentBitOutputPluginBase, FluentBitOutputPluginCommonOptions } from './output-plugin-base';
 
 
 /**
@@ -73,7 +73,7 @@ export interface FluentBitKinesisOutputOptions extends FluentBitOutputPluginComm
  * Represents configuration for outputing logs from Fluent Bit to Kinesis Data
  * Streams.
  */
-export class FluentBitKinesisOutput extends FluentBitOutputPlugin {
+export class FluentBitKinesisOutput extends FluentBitOutputPluginBase {
   /**
      * Immediately retry failed requests to AWS services once. This option does
      * not affect the normal Fluent Bit retry mechanism with backoff. Instead,

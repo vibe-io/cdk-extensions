@@ -1,4 +1,5 @@
 export * from './filter-plugin';
+export * from './filter-plugin-base';
 export * from './grep-filter';
 export * from './kubernetes-filter';
 export * from './modify-filter';

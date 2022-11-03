@@ -1,7 +1,7 @@
 import { Duration } from 'aws-cdk-lib';
 import { IConstruct } from 'constructs';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
-import { FluentBitFilterPlugin, FluentBitFilterPluginCommonOptions } from './filter-plugin';
+import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from './filter-plugin-base';
 
 
 /**
@@ -39,7 +39,7 @@ export interface FluentBitThrottleFilterOptions extends FluentBitFilterPluginCom
  * based on leaky bucket and sliding window algorithm. In case of overflood,
  * it will leak within certain rate.
  */
-export class FluentBitThrottleFilter extends FluentBitFilterPlugin {
+export class FluentBitThrottleFilter extends FluentBitFilterPluginBase {
   /**
    * Time interval
    *

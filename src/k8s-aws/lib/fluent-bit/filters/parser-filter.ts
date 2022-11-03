@@ -1,7 +1,7 @@
 import { IConstruct } from 'constructs';
-import { IFluentBitParserPlugin } from '../parsers/parser-plugin';
+import { IFluentBitParserPlugin } from '../parsers/parser-plugin-base';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
-import { FluentBitFilterPlugin, FluentBitFilterPluginCommonOptions } from './filter-plugin';
+import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from './filter-plugin-base';
 
 
 /**
@@ -42,7 +42,7 @@ export interface FluentBitParserFilterOptions extends FluentBitFilterPluginCommo
 /**
  * A Fluent Bit filter that allows parsing of fields in event records.
  */
-export class FluentBitParserFilter extends FluentBitFilterPlugin {
+export class FluentBitParserFilter extends FluentBitFilterPluginBase {
   /**
      * Internal collection of the parsers that should be used to evaluate the
      * filter.

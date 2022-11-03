@@ -1,6 +1,6 @@
 import { IConstruct } from 'constructs';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
-import { FluentBitFilterPlugin, FluentBitFilterPluginCommonOptions } from './filter-plugin';
+import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from './filter-plugin-base';
 
 
 /**
@@ -45,7 +45,7 @@ export interface FluentBitRecordModifierFilterOptions extends FluentBitFilterPlu
  * A Fluent Bit filter that allows appending fields or excluding specific
  * fields.
  */
-export class FluentBitRecordModifierFilter extends FluentBitFilterPlugin {
+export class FluentBitRecordModifierFilter extends FluentBitFilterPluginBase {
   /**
      * Internal collection of tags that are allowed on a matched input record.
      *

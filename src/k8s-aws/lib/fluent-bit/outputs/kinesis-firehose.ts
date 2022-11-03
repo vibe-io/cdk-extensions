@@ -4,7 +4,7 @@ import { Bucket, BucketEncryption, IBucket, StorageClass } from 'aws-cdk-lib/aws
 import { IConstruct } from 'constructs';
 import { DeliveryStream, ExtendedS3Destination, IDeliveryStream } from '../../../../kinesis-firehose';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
-import { FluentBitOutputPlugin, FluentBitOutputPluginCommonOptions } from './output-plugin';
+import { FluentBitOutputPluginBase, FluentBitOutputPluginCommonOptions } from './output-plugin-base';
 
 
 export enum KinesisFirehoseCompressionFormat {
@@ -94,7 +94,7 @@ export interface FluentBitKinesisFirehoseOutputOptions extends FluentBitOutputPl
  * Represents configuration for outputing logs from Fluent Bit to Kinesis
  * Firehose.
  */
-export class FluentBitKinesisFirehoseOutput extends FluentBitOutputPlugin {
+export class FluentBitKinesisFirehoseOutput extends FluentBitOutputPluginBase {
   /**
      * Immediately retry failed requests to AWS services once. This option does
      * not affect the normal Fluent Bit retry mechanism with backoff. Instead,

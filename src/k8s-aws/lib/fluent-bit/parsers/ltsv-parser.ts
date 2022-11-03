@@ -1,6 +1,6 @@
 import { IConstruct } from 'constructs';
 import { ResolvedFluentBitConfiguration } from '..';
-import { FluentBitParserPlugin, FluentBitParserPluginCommonOptions, ParserPluginDataType } from './parser-plugin';
+import { FluentBitParserPluginBase, FluentBitParserPluginCommonOptions, ParserPluginDataType } from './parser-plugin-base';
 
 
 /**
@@ -32,7 +32,7 @@ export interface FluentBitLtsvParserOptions extends FluentBitParserPluginCommonO
 /**
  * A Fluent Bit filter that parsed inbound messages in LTSV format.
  */
-export class LtsvParser extends FluentBitParserPlugin {
+export class FluentBitLtsvParser extends FluentBitParserPluginBase {
   /**
    * Defines the format of the timestamp on the inbound record.
    *

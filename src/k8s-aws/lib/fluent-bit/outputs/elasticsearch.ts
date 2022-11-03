@@ -3,7 +3,7 @@ import { IConstruct } from 'constructs';
 import { DataSize } from '../../../../core';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
 import { convertBool } from '../utils';
-import { FluentBitOutputPlugin, FluentBitOutputPluginCommonOptions } from './output-plugin';
+import { FluentBitOutputPluginBase, FluentBitOutputPluginCommonOptions } from './output-plugin-base';
 
 
 export enum ElasticsearchCompressionFormat {
@@ -315,7 +315,7 @@ export interface FluentBitElasticsearchOutputOptions extends FluentBitOutputPlug
   readonly writeOperation?: string;
 }
 
-export class FluentBitElasticsearchOutput extends FluentBitOutputPlugin {
+export class FluentBitElasticsearchOutput extends FluentBitOutputPluginBase {
   /**
      * Enable AWS Sigv4 Authentication for Amazon Elasticsearch Service.
      *
