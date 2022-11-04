@@ -50,7 +50,7 @@ test('when create log group is not passed Fargate Profiles should not have logs:
       resources.cluster.defaultProfile,
     ],
     outputs: [
-      FluentBitOutput.cloudwatchLogs(FluentBitMatch.ALL, logGroup)
+      FluentBitOutput.cloudwatchLogs(FluentBitMatch.ALL, logGroup),
     ],
   });
 
@@ -85,11 +85,11 @@ test('when a parser filter is added it should register its parsers with the logg
       FluentBitFilter.parser(
         FluentBitMatch.ALL,
         'log',
-        FluentBitParser.regex('crio', '^(?<time>[^ ]+) (?<stream>stdout|stderr) (?<logtag>P|F) (?<log>.*)$')
-      )
+        FluentBitParser.regex('crio', '^(?<time>[^ ]+) (?<stream>stdout|stderr) (?<logtag>P|F) (?<log>.*)$'),
+      ),
     ],
     outputs: [
-      FluentBitOutput.cloudwatchLogs(FluentBitMatch.ALL, logGroup)
+      FluentBitOutput.cloudwatchLogs(FluentBitMatch.ALL, logGroup),
     ],
   });
 
@@ -101,9 +101,9 @@ test('when a parser filter is added it should register its parsers with the logg
         kind: 'ConfigMap',
         data: {
           'filters.conf': Match.stringLikeRegexp('\\s+Name parser\\n(.*\\n)*\\s+Parser crio'),
-          'parsers.conf': Match.stringLikeRegexp('\\s+Name crio')
-        }
-      })
+          'parsers.conf': Match.stringLikeRegexp('\\s+Name crio'),
+        },
+      }),
     ])),
   });
 });

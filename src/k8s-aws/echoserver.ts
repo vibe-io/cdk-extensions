@@ -21,9 +21,16 @@ export interface EchoserverProps extends ResourceProps {
   /**
    * The name of the Kubernetes service to be created.
    *
-   * @default 'netcat'
+   * @default 'echoserver'
    */
   readonly name?: string;
+
+  /**
+   * The Kubernetes namespace where the service should be created.
+   *
+   * @default 'default'
+   */
+  readonly namespace?: string;
 
   /**
    * The port which netcat should listen on.
@@ -45,16 +52,61 @@ export interface EchoserverProps extends ResourceProps {
   readonly securityGroups?: ISecurityGroup[];
 
   /**
-   * The subnets where the service pods should run.
+   * The Docker tag specifying the version of echoserver to use.
+   *
+   * @see [Google echoserver image repository](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/echoserver)
    */
-  readonly serviceSubnets?: SubnetSelection;
+  readonly tag?: string;
 }
 
 /**
- * Creates a ConfigMap that configures logging for containers running in EKS
- * on Fargate.
+ * Creates a simple Kubernetes test service using the Google echoserver test
+ * image.
+ *
+ * The server listens for incoming web requests and echos the details of the
+ * request back to the user. Each request results in output being written to
+ * the Docker log providing a convenient way to test logging setup.
+ *
+ * @see [Google echoserver image repository](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/echoserver)
  */
 export class Echoserver extends Resource implements IConnectable {
+  /**
+   * Default subnet selection that will be used if none is provided as input.
+   */
+  public static readonly DEFAULT_LOAD_BALANCER_SUBNETS: SubnetSelection = {
+    onePerAz: true,
+    subnetType: SubnetType.PUBLIC,
+  };
+
+  /**
+   * Default name of the Kubernetes service that will be created if none is
+   * provided as input.
+   */
+  public static readonly DEFAULT_NAME: string = 'echoserver';
+
+  /**
+   * Default Kubernetes namespace where the service will be created if none is
+   * provided as input.
+   */
+  public static readonly DEFAULT_NAMESPACE: string = 'default';
+
+  /**
+   * Default port where the service will be accessible if none is provided as
+   * input.
+   */
+  public static readonly DEFAULT_PORT: number = 80;
+
+  /**
+   * Default number of replicas that should be running is none is provided as
+   * input.
+   */
+  public static readonly DEFAULT_REPLICAS: number = 1;
+
+  /**
+   * The default Docker tag of the image to use if none is provided as input.
+   */
+  public static readonly DEFAULT_TAG: string = '1.10';
+
   /**
    * The EKS Cluster where the service should be deployed.
    *
@@ -77,6 +129,13 @@ export class Echoserver extends Resource implements IConnectable {
   public readonly name: string;
 
   /**
+   * The Kubernetes namespace where the service should be created.
+   *
+   * @group Inputs
+   */
+  public readonly namespace: string;
+
+  /**
    * The port which netcat should listen on.
    *
    * @group Inputs
@@ -91,11 +150,13 @@ export class Echoserver extends Resource implements IConnectable {
   public readonly replicas: number;
 
   /**
-   * The subnets where the service pods should run.
+   * The Docker tag specifying the version of echoserver to use.
+   *
+   * @see [Google echoserver image repository](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/echoserver)
    *
    * @group Inputs
    */
-  readonly serviceSubnets: SubnetSelection;
+  readonly tag: string;
 
   /**
    * The Kubernetes manifest that creates the ConfigMap that Fargate uses to
@@ -128,17 +189,12 @@ export class Echoserver extends Resource implements IConnectable {
     });
 
     this.cluster = props.cluster;
-    this.loadBalancerSubnets = props.loadBalancerSubnets ?? {
-      onePerAz: true,
-      subnetType: SubnetType.PUBLIC,
-    };
-    this.name = props.name ?? 'echoserver';
-    this.port = props.port ?? 80;
-    this.replicas = props.replicas ?? 1;
-    this.serviceSubnets = props.serviceSubnets ?? {
-      onePerAz: true,
-      subnetType: SubnetType.PRIVATE_WITH_EGRESS,
-    };
+    this.loadBalancerSubnets = props.loadBalancerSubnets ?? Echoserver.DEFAULT_LOAD_BALANCER_SUBNETS;
+    this.name = props.name ?? Echoserver.DEFAULT_NAME;
+    this.namespace = props.namespace ?? Echoserver.DEFAULT_NAMESPACE;
+    this.port = props.port ?? Echoserver.DEFAULT_PORT;
+    this.replicas = props.replicas ?? Echoserver.DEFAULT_REPLICAS;
+    this.tag = props.tag ?? Echoserver.DEFAULT_TAG;
 
     this.connections = new Connections({
       defaultPort: Port.tcp(this.port),
@@ -165,6 +221,7 @@ export class Echoserver extends Resource implements IConnectable {
           kind: 'SecurityGroupPolicy',
           metadata: {
             name: this.name,
+            namespace: this.namespace,
           },
           spec: {
             podSelector: {
@@ -183,10 +240,11 @@ export class Echoserver extends Resource implements IConnectable {
           apiVersion: 'apps/v1',
           kind: 'Deployment',
           metadata: {
-            name: this.name,
             labels: {
               app: this.name,
             },
+            name: this.name,
+            namespace: this.namespace,
           },
           spec: {
             replicas: this.replicas,
@@ -204,7 +262,7 @@ export class Echoserver extends Resource implements IConnectable {
               spec: {
                 containers: [
                   {
-                    image: 'gcr.io/google_containers/echoserver:1.4',
+                    image: `gcr.io/google_containers/echoserver:${this.tag}`,
                     imagePullPolicy: 'Always',
                     name: 'echoserver',
                     ports: [

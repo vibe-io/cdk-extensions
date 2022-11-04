@@ -160,3 +160,21 @@ operator.registerSecretsManagerSecret('sychronized-secret', secret, {
     ]
 });
 ```
+
+## Echoserver
+
+A basic Kubernetes test service that can be used for testing Kubernetes cluster integrations.
+
+This is a simple HTTP service that listens for incoming requests and echo details of requests back to the user.
+
+Log messages are produced for each request and provide a convenient way to test logging filter and output configurations.
+
+To create an echoserver service:
+
+```
+declare const cluster: eks.Cluster;
+
+const echoserver = new k8s_aws.Echoserver(this, 'echoserver', {
+    cluster: cluster
+});
+```
