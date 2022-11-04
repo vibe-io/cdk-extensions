@@ -103,6 +103,11 @@ export class Echoserver extends Resource implements IConnectable {
   public static readonly DEFAULT_REPLICAS: number = 1;
 
   /**
+   * The Docker repository where the echoserver image will be pulled from.
+   */
+  public static readonly DEFAULT_REPOSITORY: string = 'gcr.io/google_containers/echoserver';
+
+  /**
    * The default Docker tag of the image to use if none is provided as input.
    */
   public static readonly DEFAULT_TAG: string = '1.10';
@@ -262,7 +267,7 @@ export class Echoserver extends Resource implements IConnectable {
               spec: {
                 containers: [
                   {
-                    image: `gcr.io/google_containers/echoserver:${this.tag}`,
+                    image: `${Echoserver.DEFAULT_REPOSITORY}:${this.tag}`,
                     imagePullPolicy: 'Always',
                     name: 'echoserver',
                     ports: [
