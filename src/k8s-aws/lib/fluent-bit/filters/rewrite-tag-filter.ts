@@ -145,6 +145,11 @@ export interface FluentBitRewriteTagFilterOptions extends FluentBitFilterPluginC
  */
 export class FluentBitRewriteTagFilter extends FluentBitFilterPluginBase {
   /**
+     * The name of the plugin as it will appear in the fluent bit configuration.
+     */
+  public static readonly PLUGIN_NAME: string = 'rewrite_tag';
+
+  /**
      * Internal collection of rules defining matching criteria and the format
      * of the tag for the matching record.
      *
@@ -160,7 +165,7 @@ export class FluentBitRewriteTagFilter extends FluentBitFilterPluginBase {
      *
      * @group Inputs
      */
-  readonly emitterName?: string;
+  readonly emitterName: string;
 
   /**
       * Define a buffering mechanism for the new records created.
@@ -196,12 +201,12 @@ export class FluentBitRewriteTagFilter extends FluentBitFilterPluginBase {
      * @param options The configuration options to use for filter.
      */
   public constructor(options: FluentBitRewriteTagFilterOptions = {}) {
-    super('rewrite_tag', options);
+    super(FluentBitRewriteTagFilter.PLUGIN_NAME, options);
 
     this._rules = [];
 
     this.emitterMemBufLimit = options.emitterMemBufLimit;
-    this.emitterName = options.emitterName;
+    this.emitterName = options.emitterName ?? 're_emitted';
     this.emitterStorageType = options.emitterStorageType;
 
     options.rules?.forEach((x) => {

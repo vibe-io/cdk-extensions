@@ -13,7 +13,7 @@ export interface FluentBitParserFilterOptions extends FluentBitFilterPluginCommo
   /**
      * Specify field name in record to parse.
      */
-  readonly keyName?: string;
+  readonly keyName: string;
 
   /**
      * The parsers to use to interpret the field.
@@ -52,7 +52,7 @@ export class FluentBitParserFilter extends FluentBitFilterPluginBase {
   /**
      * Specify field name in record to parse.
      */
-  public readonly keyName?: string;
+  public readonly keyName: string;
 
   /**
       * Keep original `keyName` field in the parsed result.
@@ -85,7 +85,7 @@ export class FluentBitParserFilter extends FluentBitFilterPluginBase {
      *
      * @param options The configuration options to use for filter.
      */
-  public constructor(options: FluentBitParserFilterOptions = {}) {
+  public constructor(options: FluentBitParserFilterOptions) {
     super('parser', options);
 
     this._parsers = [];
@@ -128,9 +128,12 @@ export class FluentBitParserFilter extends FluentBitFilterPluginBase {
 
     return {
       configFile: this.renderConfigFile({
+        Key_Name: this.keyName,
         Parser: this._parsers.map((x) => {
           return x.name;
         }),
+        Preserve_Key: this.preserveKey,
+        Reserve_Data: this.reserveData,
       }),
       parsers: this.parsers,
     };

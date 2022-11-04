@@ -266,6 +266,11 @@ export interface FluentBitKubernetesFilterOptions extends FluentBitFilterPluginC
  */
 export class FluentBitKubernetesFilter extends FluentBitFilterPluginBase {
   /**
+    * The name of the plugin as it will appear in the fluent bit configuration.
+    */
+  public static readonly PLUGIN_NAME: string = 'kubernetes';
+
+  /**
      * Include Kubernetes resource annotations in the extra metadata.
      *
      * @group Inputs
@@ -533,7 +538,7 @@ export class FluentBitKubernetesFilter extends FluentBitFilterPluginBase {
    * @param options Options for configuring the filter.
    */
   public constructor(options: FluentBitKubernetesFilterOptions = {}) {
-    super('kubernetes', options);
+    super(FluentBitKubernetesFilter.PLUGIN_NAME, options);
 
     this.annotations = options.annotations;
     this.bufferSize = options.bufferSize;

@@ -2,7 +2,7 @@ import { Lazy, Resource, ResourceProps } from 'aws-cdk-lib';
 import { FargateProfile, ICluster, KubernetesManifest } from 'aws-cdk-lib/aws-eks';
 import { ILogGroup } from 'aws-cdk-lib/aws-logs';
 import { Construct } from 'constructs';
-import { FluentBitCloudWatchLogsOutput, IFluentBitFilterPlugin, IFluentBitOutputPlugin, IFluentBitParserPlugin, FluentBitKubernetesFilter } from '.';
+import { FluentBitCloudWatchLogsOutput, IFluentBitFilterPlugin, IFluentBitOutputPlugin, IFluentBitParserPlugin, FluentBitKubernetesFilter, FluentBitRewriteTagFilter } from '.';
 
 
 /**
@@ -221,7 +221,7 @@ export class FargateLogger extends Resource {
                         profile.podExecutionRole.addToPrincipalPolicy(statement);
                       });
                     });
-                    return boundConfig.configFile;
+                    result.push(boundConfig.configFile);
                   });
 
                   batch = queue;
@@ -234,6 +234,27 @@ export class FargateLogger extends Resource {
           },
         },
       ],
+    });
+
+    this.node.addValidation({
+      validate: () => {
+        let hasKubernetesFilter = false;
+        const result: string[] = [];
+
+        this.filters.forEach((x) => {
+          if (x.name === FluentBitKubernetesFilter.PLUGIN_NAME) {
+            hasKubernetesFilter = true;
+          } else if (hasKubernetesFilter && x.name === FluentBitRewriteTagFilter.PLUGIN_NAME) {
+            result.push([
+              'Cannot have rewrite_tag filters applied after kubernetes',
+              'filters in Fluent Bit filter configuration. See:',
+              'https://github.com/aws/containers-roadmap/issues/1697',
+            ].join(' '));
+          }
+        });
+
+        return result;
+      },
     });
 
     props.fargateProfiles?.forEach((x) => {

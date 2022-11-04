@@ -144,12 +144,14 @@ export class FluentBitFilter {
      *
      * @param match A pattern filtering to which records the filter should be
      * applied.
+     * @param key The key of the field to be parsed.
      * @param parsers The parser plugins to use to read matched records.
      * @returns A filter object that can be applied to the Fluent Bit
      * configuration.
      */
-  public static parser(match: FluentBitMatch, ...parsers: IFluentBitParserPlugin[]): IFluentBitFilterPlugin {
+  public static parser(match: FluentBitMatch, key: string, ...parsers: IFluentBitParserPlugin[]): IFluentBitFilterPlugin {
     return new FluentBitParserFilter({
+      keyName: key,
       match: match,
       parsers: parsers,
     });

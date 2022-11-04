@@ -29361,7 +29361,7 @@ The pattern to match for records that this output should apply to.
 
 ---
 
-##### `keyName`<sup>Optional</sup> <a name="keyName" id="cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.keyName"></a>
+##### `keyName`<sup>Required</sup> <a name="keyName" id="cdk-extensions.k8s_aws.FluentBitParserFilterOptions.property.keyName"></a>
 
 ```typescript
 public readonly keyName: string;
@@ -39999,7 +39999,7 @@ The fields to nest under the specified object.
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-k8s_aws.FluentBitFilter.parser(match: FluentBitMatch, parsers: IFluentBitParserPlugin)
+k8s_aws.FluentBitFilter.parser(match: FluentBitMatch, key: string, parsers: IFluentBitParserPlugin)
 ```
 
 Applies a set of parsers to matched records.
@@ -40012,6 +40012,14 @@ the output.
 - *Type:* cdk-extensions.k8s_aws.FluentBitMatch
 
 A pattern filtering to which records the filter should be applied.
+
+---
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.FluentBitFilter.parser.parameter.key"></a>
+
+- *Type:* string
+
+The key of the field to be parsed.
 
 ---
 
@@ -41464,6 +41472,25 @@ This is an optional feature flag to get metadata information from kubelet instea
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.PLUGIN_NAME">PLUGIN_NAME</a></code> | <code>string</code> | The name of the plugin as it will appear in the fluent bit configuration. |
+
+---
+
+##### `PLUGIN_NAME`<sup>Required</sup> <a name="PLUGIN_NAME" id="cdk-extensions.k8s_aws.FluentBitKubernetesFilter.property.PLUGIN_NAME"></a>
+
+```typescript
+public readonly PLUGIN_NAME: string;
+```
+
+- *Type:* string
+
+The name of the plugin as it will appear in the fluent bit configuration.
+
+---
 
 ### FluentBitLogfmtParser <a name="FluentBitLogfmtParser" id="cdk-extensions.k8s_aws.FluentBitLogfmtParser"></a>
 
@@ -43335,7 +43362,7 @@ A Fluent Bit filter that allows parsing of fields in event records.
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-new k8s_aws.FluentBitParserFilter(options?: FluentBitParserFilterOptions)
+new k8s_aws.FluentBitParserFilter(options: FluentBitParserFilterOptions)
 ```
 
 | **Name** | **Type** | **Description** |
@@ -43344,7 +43371,7 @@ new k8s_aws.FluentBitParserFilter(options?: FluentBitParserFilterOptions)
 
 ---
 
-##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitParserFilter.Initializer.parameter.options"></a>
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.k8s_aws.FluentBitParserFilter.Initializer.parameter.options"></a>
 
 - *Type:* cdk-extensions.k8s_aws.FluentBitParserFilterOptions
 
@@ -43401,8 +43428,8 @@ The parser to use for matched log entries.
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.parsers">parsers</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitParserPlugin[]</code> | Collection of the parsers that should be used to evaluate the filter. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.keyName">keyName</a></code> | <code>string</code> | Specify field name in record to parse. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.parsers">parsers</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitParserPlugin[]</code> | Collection of the parsers that should be used to evaluate the filter. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.preserveKey">preserveKey</a></code> | <code>boolean</code> | Keep original `keyName` field in the parsed result. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitParserFilter.property.reserveData">reserveData</a></code> | <code>boolean</code> | Keep all other original fields in the parsed result. |
 
@@ -43444,6 +43471,18 @@ The pattern to match for records that this output should apply to.
 
 ---
 
+##### `keyName`<sup>Required</sup> <a name="keyName" id="cdk-extensions.k8s_aws.FluentBitParserFilter.property.keyName"></a>
+
+```typescript
+public readonly keyName: string;
+```
+
+- *Type:* string
+
+Specify field name in record to parse.
+
+---
+
 ##### `parsers`<sup>Required</sup> <a name="parsers" id="cdk-extensions.k8s_aws.FluentBitParserFilter.property.parsers"></a>
 
 ```typescript
@@ -43453,18 +43492,6 @@ public readonly parsers: IFluentBitParserPlugin[];
 - *Type:* cdk-extensions.k8s_aws.IFluentBitParserPlugin[]
 
 Collection of the parsers that should be used to evaluate the filter.
-
----
-
-##### `keyName`<sup>Optional</sup> <a name="keyName" id="cdk-extensions.k8s_aws.FluentBitParserFilter.property.keyName"></a>
-
-```typescript
-public readonly keyName: string;
-```
-
-- *Type:* string
-
-Specify field name in record to parse.
 
 ---
 
@@ -44147,9 +44174,9 @@ The rule to apply for matched log entries.
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.name">name</a></code> | <code>string</code> | The name of the fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.pluginType">pluginType</a></code> | <code>string</code> | The type of fluent bit plugin. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.match">match</a></code> | <code>cdk-extensions.k8s_aws.FluentBitMatch</code> | The pattern to match for records that this output should apply to. |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterName">emitterName</a></code> | <code>string</code> | When the filter emits a record under the new Tag, there is an internal emitter plugin that takes care of the job. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.rules">rules</a></code> | <code>cdk-extensions.k8s_aws.RewriteTagRule[]</code> | Collection of rules defining matching criteria and the format of the tag for the matching record. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterMemBufLimit">emitterMemBufLimit</a></code> | <code>cdk-extensions.core.DataSize</code> | Set a limit on the amount of memory the tag rewrite emitter can consume if the outputs provide backpressure. |
-| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterName">emitterName</a></code> | <code>string</code> | When the filter emits a record under the new Tag, there is an internal emitter plugin that takes care of the job. |
 | <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterStorageType">emitterStorageType</a></code> | <code>cdk-extensions.k8s_aws.EmitterStorageType</code> | Define a buffering mechanism for the new records created. |
 
 ---
@@ -44190,6 +44217,22 @@ The pattern to match for records that this output should apply to.
 
 ---
 
+##### `emitterName`<sup>Required</sup> <a name="emitterName" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterName"></a>
+
+```typescript
+public readonly emitterName: string;
+```
+
+- *Type:* string
+
+When the filter emits a record under the new Tag, there is an internal emitter plugin that takes care of the job.
+
+Since this emitter expose
+metrics as any other component of the pipeline, you can use this
+property to configure an optional name for it.
+
+---
+
 ##### `rules`<sup>Required</sup> <a name="rules" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.rules"></a>
 
 ```typescript
@@ -44214,22 +44257,6 @@ Set a limit on the amount of memory the tag rewrite emitter can consume if the o
 
 ---
 
-##### `emitterName`<sup>Optional</sup> <a name="emitterName" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterName"></a>
-
-```typescript
-public readonly emitterName: string;
-```
-
-- *Type:* string
-
-When the filter emits a record under the new Tag, there is an internal emitter plugin that takes care of the job.
-
-Since this emitter expose
-metrics as any other component of the pipeline, you can use this
-property to configure an optional name for it.
-
----
-
 ##### `emitterStorageType`<sup>Optional</sup> <a name="emitterStorageType" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.emitterStorageType"></a>
 
 ```typescript
@@ -44244,6 +44271,25 @@ Note these records are part of the emitter plugin.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.PLUGIN_NAME">PLUGIN_NAME</a></code> | <code>string</code> | The name of the plugin as it will appear in the fluent bit configuration. |
+
+---
+
+##### `PLUGIN_NAME`<sup>Required</sup> <a name="PLUGIN_NAME" id="cdk-extensions.k8s_aws.FluentBitRewriteTagFilter.property.PLUGIN_NAME"></a>
+
+```typescript
+public readonly PLUGIN_NAME: string;
+```
+
+- *Type:* string
+
+The name of the plugin as it will appear in the fluent bit configuration.
+
+---
 
 ### FluentBitThrottleFilter <a name="FluentBitThrottleFilter" id="cdk-extensions.k8s_aws.FluentBitThrottleFilter"></a>
 
