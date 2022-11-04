@@ -242,7 +242,7 @@ export class FluentBitRewriteTagFilter extends FluentBitFilterPluginBase {
         'Emitter_Name': this.emitterName,
         'Emitter_Storage.type': this.emitterStorageType,
         'Rule': this.rules.map((x) => {
-          return `${x.key} ${x.regex} ${x.newTag}, ${x.keep}`;
+          return `${x.key} ${x.regex} ${x.newTag} ${x.keep}`;
         }),
       }),
     };
