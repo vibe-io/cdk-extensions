@@ -2,6 +2,7 @@ import { Lazy, Resource, ResourceProps } from 'aws-cdk-lib';
 import { Connections, IConnectable, ISecurityGroup, Port, SecurityGroup, SubnetSelection, SubnetType } from 'aws-cdk-lib/aws-ec2';
 import { ICluster, KubernetesManifest } from 'aws-cdk-lib/aws-eks';
 import { Construct } from 'constructs';
+import { Domain, DomainDiscovery, Domains, IDnsResolvable } from '../route53/domain-aspect';
 
 
 /**
@@ -14,7 +15,14 @@ export interface EchoserverProps extends ResourceProps {
   readonly cluster: ICluster;
 
   /**
-   * The subnets where the load balancer should be created..
+   * Determines the behavior of automatic DNS discovery and configuration.
+   *
+   * @default DomainDiscovery.PUBLIC
+   */
+  readonly domainDiscovery?: DomainDiscovery;
+
+  /**
+   * The subnets where the load balancer should be created.
    */
   readonly loadBalancerSubnets?: SubnetSelection;
 
@@ -52,6 +60,12 @@ export interface EchoserverProps extends ResourceProps {
   readonly securityGroups?: ISecurityGroup[];
 
   /**
+   * A subdomain that should be prefixed to the beginning of all registered
+   * domains.
+   */
+  readonly subdomain?: string;
+
+  /**
    * The Docker tag specifying the version of echoserver to use.
    *
    * @see [Google echoserver image repository](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/echoserver)
@@ -69,7 +83,13 @@ export interface EchoserverProps extends ResourceProps {
  *
  * @see [Google echoserver image repository](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/echoserver)
  */
-export class Echoserver extends Resource implements IConnectable {
+export class Echoserver extends Resource implements IConnectable, IDnsResolvable {
+  /**
+   * The default setting controlling how automatic DNS configuration should
+   * behave if none is provided as input.
+   */
+  public static readonly DEFAULT_DOMAIN_DISCOVERY: DomainDiscovery = DomainDiscovery.PUBLIC;
+
   /**
    * Default subnet selection that will be used if none is provided as input.
    */
@@ -111,6 +131,12 @@ export class Echoserver extends Resource implements IConnectable {
    * The default Docker tag of the image to use if none is provided as input.
    */
   public static readonly DEFAULT_TAG: string = '1.10';
+
+  /**
+   * Internal collection of domain objects that should be used for configuring
+   * DNS resolution.
+   */
+  public readonly _domains: Domain[];
 
   /**
    * The EKS Cluster where the service should be deployed.
@@ -155,6 +181,12 @@ export class Echoserver extends Resource implements IConnectable {
   public readonly replicas: number;
 
   /**
+   * A subdomain that should be prefixed to the beginning of all registered
+   * domains.
+   */
+  readonly subdomain?: string;
+
+  /**
    * The Docker tag specifying the version of echoserver to use.
    *
    * @see [Google echoserver image repository](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/echoserver)
@@ -178,6 +210,13 @@ export class Echoserver extends Resource implements IConnectable {
    */
   public readonly connections: Connections;
 
+  /**
+   * Determines the behavior of automatic DNS discovery and configuration.
+   *
+   * @group IDnsResolvable
+   */
+  public readonly domainDiscovery: DomainDiscovery;
+
 
   /**
    * Creates a new instance of the Echoserver class.
@@ -193,12 +232,16 @@ export class Echoserver extends Resource implements IConnectable {
       ...props,
     });
 
+    this._domains = [];
+
     this.cluster = props.cluster;
+    this.domainDiscovery = props.domainDiscovery ?? Echoserver.DEFAULT_DOMAIN_DISCOVERY;
     this.loadBalancerSubnets = props.loadBalancerSubnets ?? Echoserver.DEFAULT_LOAD_BALANCER_SUBNETS;
     this.name = props.name ?? Echoserver.DEFAULT_NAME;
     this.namespace = props.namespace ?? Echoserver.DEFAULT_NAMESPACE;
     this.port = props.port ?? Echoserver.DEFAULT_PORT;
     this.replicas = props.replicas ?? Echoserver.DEFAULT_REPLICAS;
+    this.subdomain = props.subdomain !== Domains.ROOT ? (props.subdomain ?? this.name) : undefined;
     this.tag = props.tag ?? Echoserver.DEFAULT_TAG;
 
     this.connections = new Connections({
@@ -323,6 +366,17 @@ export class Echoserver extends Resource implements IConnectable {
                 },
               }),
               'alb.ingress.kubernetes.io/subnets': this.cluster.vpc.selectSubnets(this.loadBalancerSubnets).subnetIds.join(', '),
+              'external-dns.alpha.kubernetes.io/hostname': Lazy.string({
+                produce: () => {
+                  if (this._domains.length === 0) {
+                    return undefined;
+                  }
+
+                  return this._domains.map((x) => {
+                    return this.subdomain ? `${this.subdomain}.${x.fqdn}` : x.fqdn;
+                  }).join(',');
+                },
+              }),
             },
           },
           spec: {
@@ -350,5 +404,9 @@ export class Echoserver extends Resource implements IConnectable {
         },
       ],
     });
+  }
+
+  public registerDomain(domain: Domain): void {
+    this._domains.push(domain);
   }
 }

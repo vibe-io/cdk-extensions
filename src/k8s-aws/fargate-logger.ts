@@ -6,9 +6,9 @@ import { FluentBitCloudWatchLogsOutput, IFluentBitFilterPlugin, IFluentBitOutput
 
 
 /**
- * Configuration for the FargateLogger resource.
+ * Optional configuration for the FargateLogger resource.
  */
-export interface FargateLoggerProps extends ResourceProps {
+export interface FargateLoggerOptions {
   /**
      * The EKS Cluster to configure Fargate logging for.
      */
@@ -40,6 +40,16 @@ export interface FargateLoggerProps extends ResourceProps {
    * The parsers to be used when reading log files.
    */
   readonly parsers?: IFluentBitParserPlugin[];
+}
+
+/**
+ * Required configuration for the Fargate logger resource.
+ */
+export interface FargateLoggerProps extends FargateLoggerOptions, ResourceProps {
+  /**
+   * The EKS Cluster to configure Fargate logging for.
+   */
+  readonly cluster: ICluster;
 }
 
 /**
@@ -109,7 +119,7 @@ export class FargateLogger extends Resource {
    *
    * @group Inputs
    */
-  public get parsers(): IFluentBitOutputPlugin[] {
+  public get parsers(): IFluentBitParserPlugin[] {
     return [...this._parsers];
   }
 
