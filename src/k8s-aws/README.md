@@ -95,6 +95,20 @@ logger.addFilter(k8s_aws.FluentBitFilter.grep(k8s_aws.FluentBitMatch.ALL, {
 }));
 ```
 
+## Container Insights
+
+[AWS Container Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContainerInsights.html) provides advanced diagnostic and performance metrics for your containerized applications running on AWS. For EKS cluster, Container Insights is provided by using [AWS Distro for OpenTelemetry](https://aws.amazon.com/blogs/containers/introducing-amazon-cloudwatch-container-insights-for-amazon-eks-fargate-using-aws-distro-for-opentelemetry/).
+
+To enable Container Insights for pods running on your EKS cluster:
+
+```
+declare const cluster: eks.Cluster;
+
+const collector = new k8s_aws.AdotCollector(this, 'adot-collector', {
+    cluster: cluster
+});
+```
+
 ## Secrets Manager
 
 Enable synchronization of specific secret between Secrets Manager and Kubernetes:

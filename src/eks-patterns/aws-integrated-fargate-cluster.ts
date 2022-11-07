@@ -4,7 +4,7 @@ import { ISecret } from 'aws-cdk-lib/aws-secretsmanager';
 import { IParameter } from 'aws-cdk-lib/aws-ssm';
 import { Construct, IDependable } from 'constructs';
 import { FargateLogger, FargateLoggerOptions, Route53Dns, Route53DnsOptions } from '../k8s-aws';
-import { CloudWatchMonitoring } from '../k8s-aws/cloudwatch-monitoring';
+import { AdotCollector } from '../k8s-aws/adot-collector';
 import { ExternalSecret } from '../k8s-aws/external-secret';
 import { ExternalSecretsOperator, NamespacedExternalSecretOptions } from '../k8s-aws/external-secrets-operator';
 
@@ -12,13 +12,21 @@ import { ExternalSecretsOperator, NamespacedExternalSecretOptions } from '../k8s
 /**
  * Configuration options for enabling CloudWatch monitoring on the cluster.
  */
-export interface CloudWatchMonitoringOptions {
+export interface ContainerInsightsOptions {
   /**
    * Flag that controls whether CloudWatch Monitoring should be enabled or not.
    *
    * @default true
    */
   readonly enabled?: boolean;
+
+  /**
+   * The Kubernetes namespace where resources related to the the configuration
+   * of Container Insights will be created.
+   *
+   * @default {@link AdotCollector.DEFAULT_NAMESPACE}
+   */
+  readonly namespace?: string;
 }
 
 /**
@@ -47,7 +55,7 @@ export interface ExternalSecretsOptions {
 }
 
 export interface AwsIntegratedFargateClusterProps extends FargateClusterProps {
-  readonly cloudWatchMonitoringOptions?: CloudWatchMonitoringOptions;
+  readonly containerInsightsOptions?: ContainerInsightsOptions;
   readonly externalDnsOptions?: ClusterRoute53DnsOptions;
   readonly externalSecretsOptions?: ExternalSecretsOptions;
   readonly loggingOptions?: ClusterFargateLoggingOptions;
@@ -55,7 +63,7 @@ export interface AwsIntegratedFargateClusterProps extends FargateClusterProps {
 
 export class AwsIntegratedFargateCluster extends Resource {
   // Resource properties
-  public readonly cloudWatchMonitoring?: CloudWatchMonitoring;
+  public readonly adotCollector?: AdotCollector;
   public readonly externalSecrets?: ExternalSecretsOperator;
   public readonly fargateLogger?: FargateLogger;
   public readonly route53Dns?: Route53Dns;
@@ -82,12 +90,23 @@ export class AwsIntegratedFargateCluster extends Resource {
       lastResource = this.fargateLogger;
     }
 
-    if (props.cloudWatchMonitoringOptions?.enabled ?? true) {
-      this.cloudWatchMonitoring = new CloudWatchMonitoring(this, 'cloudwatch-monitoring', {
+    if (props.containerInsightsOptions?.enabled ?? true) {
+
+      this.adotCollector = new AdotCollector(this, 'adot-collector', {
         cluster: this.resource,
       });
-      this.cloudWatchMonitoring.node.addDependency(lastResource);
-      lastResource = this.cloudWatchMonitoring;
+      this.adotCollector.node.addDependency(lastResource);
+
+      const fargateProfile = this.resource.addFargateProfile('adot-collector', {
+        selectors: [
+          {
+            namespace: this.adotCollector.namespace,
+          },
+        ],
+      });
+      this.fargateLogger?.addFargateProfile(fargateProfile);
+
+      lastResource = this.adotCollector;
     }
 
     if (props.externalDnsOptions?.enabled ?? true) {
@@ -100,21 +119,21 @@ export class AwsIntegratedFargateCluster extends Resource {
     }
 
     if (props.externalSecretsOptions?.enabled ?? true) {
-      const fargateProfile = this.resource.addFargateProfile('external-secrets', {
-        selectors: [
-          {
-            namespace: props.externalSecretsOptions?.namespace ?? ExternalSecretsOperator.DEFAULT_NAMESPACE,
-          },
-        ],
-      });
-
-      this.fargateLogger?.addFargateProfile(fargateProfile);
-
       this.externalSecrets = new ExternalSecretsOperator(this, 'external-secrets', {
         ...(props.externalSecretsOptions ?? {}),
         cluster: this.resource,
       });
       this.externalSecrets.node.addDependency(lastResource);
+
+      const fargateProfile = this.resource.addFargateProfile('external-secrets', {
+        selectors: [
+          {
+            namespace: this.externalSecrets.namespace,
+          },
+        ],
+      });
+      this.fargateLogger?.addFargateProfile(fargateProfile);
+
       lastResource = this.externalSecrets;
     }
   }
