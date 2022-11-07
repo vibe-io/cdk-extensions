@@ -36,7 +36,7 @@ export class InstanceAccessControlAttributeConfiguration extends Resource {
   // Input properties
 
   /**
-     * The ARN of the IAM Identity Center instance under which the operation
+     * The ARN of the IAM Identity Center {@link aws-sso.IInstance | instance } under which the operation
      * will be executed.
      */
   public readonly instance: IInstance;

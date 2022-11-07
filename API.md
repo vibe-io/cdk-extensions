@@ -11012,7 +11012,7 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.sso.GroupBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.sso.GroupBase.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.sso.GroupBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.sso.GroupBase.property.groupId">groupId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.sso.GroupBase.property.groupId">groupId</a></code> | <code>string</code> | A GUID identifier for a group object in IAM Identity Center are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). |
 | <code><a href="#cdk-extensions.sso.GroupBase.property.principalId">principalId</a></code> | <code>string</code> | The unique ID that identifies the entity withing IAM Identity Center. |
 | <code><a href="#cdk-extensions.sso.GroupBase.property.principalType">principalType</a></code> | <code>cdk-extensions.sso.IdentityCenterPrincipalType</code> | The type of entity being represented. |
 
@@ -11068,6 +11068,8 @@ public readonly groupId: string;
 ```
 
 - *Type:* string
+
+A GUID identifier for a group object in IAM Identity Center are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6).
 
 ---
 
@@ -11283,7 +11285,7 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.sso.InstanceAccessControlAttributeConfiguration.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.sso.InstanceAccessControlAttributeConfiguration.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.sso.InstanceAccessControlAttributeConfiguration.property.attributes">attributes</a></code> | <code>cdk-extensions.sso.AccessControlAttribute[]</code> | Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance. |
-| <code><a href="#cdk-extensions.sso.InstanceAccessControlAttributeConfiguration.property.instance">instance</a></code> | <code>cdk-extensions.sso.IInstance</code> | The ARN of the IAM Identity Center instance under which the operation will be executed. |
+| <code><a href="#cdk-extensions.sso.InstanceAccessControlAttributeConfiguration.property.instance">instance</a></code> | <code>cdk-extensions.sso.IInstance</code> | The ARN of the IAM Identity Center {@link aws-sso.IInstance \| instance } under which the operation will be executed. |
 | <code><a href="#cdk-extensions.sso.InstanceAccessControlAttributeConfiguration.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_sso.CfnInstanceAccessControlAttributeConfiguration</code> | The underlying InstanceAccessControlAttributeConfiguration CloudFormation resource. |
 
 ---
@@ -11355,7 +11357,7 @@ public readonly instance: IInstance;
 
 - *Type:* cdk-extensions.sso.IInstance
 
-The ARN of the IAM Identity Center instance under which the operation will be executed.
+The ARN of the IAM Identity Center {@link aws-sso.IInstance | instance } under which the operation will be executed.
 
 ---
 
@@ -11516,8 +11518,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.sso.InstanceBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.sso.InstanceBase.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.sso.InstanceBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.sso.InstanceBase.property.instanceArn">instanceArn</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.sso.InstanceBase.property.instanceId">instanceId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.sso.InstanceBase.property.instanceArn">instanceArn</a></code> | <code>string</code> | The ARN of the IAM Identity Center instance under which the operation will be executed. |
+| <code><a href="#cdk-extensions.sso.InstanceBase.property.instanceId">instanceId</a></code> | <code>string</code> | The ID of the IAM Identity Center instance under which the operation will be executed. |
 
 ---
 
@@ -11572,6 +11574,10 @@ public readonly instanceArn: string;
 
 - *Type:* string
 
+The ARN of the IAM Identity Center instance under which the operation will be executed.
+
+For more information about ARNs, see Amazon Resource Names (ARNs) and AWS Service Namespaces in the AWS General Reference.
+
 ---
 
 ##### `instanceId`<sup>Required</sup> <a name="instanceId" id="cdk-extensions.sso.InstanceBase.property.instanceId"></a>
@@ -11581,6 +11587,8 @@ public readonly instanceId: string;
 ```
 
 - *Type:* string
+
+The ID of the IAM Identity Center instance under which the operation will be executed.
 
 ---
 
@@ -19249,7 +19257,7 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.sso.UserBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.sso.UserBase.property.principalId">principalId</a></code> | <code>string</code> | The unique ID that identifies the entity withing IAM Identity Center. |
 | <code><a href="#cdk-extensions.sso.UserBase.property.principalType">principalType</a></code> | <code>cdk-extensions.sso.IdentityCenterPrincipalType</code> | The type of entity being represented. |
-| <code><a href="#cdk-extensions.sso.UserBase.property.userId">userId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.sso.UserBase.property.userId">userId</a></code> | <code>string</code> | A GUID identifier for a user object in IAM Identity Center (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). |
 
 ---
 
@@ -19327,6 +19335,8 @@ public readonly userId: string;
 ```
 
 - *Type:* string
+
+A GUID identifier for a user object in IAM Identity Center (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6).
 
 ---
 
@@ -21088,6 +21098,8 @@ public readonly sources: string[];
 
 A list of identity sources to use when mapping a specified attribute to IAM Identity Center.
 
+> [[AWS::SSO::InstanceAccessControlAttributeConfiguration AccessControlAttributeValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source)]([AWS::SSO::InstanceAccessControlAttributeConfiguration AccessControlAttributeValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source))
+
 ---
 
 ### AlbLogsBucketProps <a name="AlbLogsBucketProps" id="cdk-extensions.s3_buckets.AlbLogsBucketProps"></a>
@@ -21499,7 +21511,7 @@ const assignmentProps: sso.AssignmentProps = { ... }
 | <code><a href="#cdk-extensions.sso.AssignmentProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.sso.AssignmentProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.sso.AssignmentProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.sso.AssignmentProps.property.instance">instance</a></code> | <code>cdk-extensions.sso.IInstance</code> | The IAM Identity Center instance under which the operation will be executed. |
+| <code><a href="#cdk-extensions.sso.AssignmentProps.property.instance">instance</a></code> | <code>cdk-extensions.sso.IInstance</code> | The IAM Identity Center {@link aws-sso.IInstance \| instance } under which the operation will be executed. |
 | <code><a href="#cdk-extensions.sso.AssignmentProps.property.permissionSet">permissionSet</a></code> | <code>cdk-extensions.sso.IPermissionSet</code> | The permission set which governs the access being assigned. |
 | <code><a href="#cdk-extensions.sso.AssignmentProps.property.principal">principal</a></code> | <code>cdk-extensions.sso.IIdentityCenterPrincipal</code> | The IAM Identity Center principal you wish to grant permissions to. |
 | <code><a href="#cdk-extensions.sso.AssignmentProps.property.target">target</a></code> | <code>cdk-extensions.sso.AssignmentTarget</code> | The resource you wish to grant the {@link principal} entity access to using the permissions defined in the {@link permissionSet}. |
@@ -21577,7 +21589,7 @@ public readonly instance: IInstance;
 
 - *Type:* cdk-extensions.sso.IInstance
 
-The IAM Identity Center instance under which the operation will be executed.
+The IAM Identity Center {@link aws-sso.IInstance | instance } under which the operation will be executed.
 
 ---
 
@@ -28320,6 +28332,8 @@ public readonly description: string;
 
 A user friendly description providing details about the permission set.
 
+> [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description))
+
 ---
 
 ##### `inlinePolicies`<sup>Optional</sup> <a name="inlinePolicies" id="cdk-extensions.sso.PermissionSetProps.property.inlinePolicies"></a>
@@ -28331,6 +28345,8 @@ public readonly inlinePolicies: {[ key: string ]: PolicyDocument};
 - *Type:* {[ key: string ]: aws-cdk-lib.aws_iam.PolicyDocument}
 
 Adds inline policy documents that will be embedded in the permission set.
+
+> [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy))
 
 ---
 
@@ -28348,6 +28364,8 @@ Managed policies specified here must be AWS managed.
 To reference custom managed policies use the {@link PermissionSet.addCustomerManagedPolicy}
 method.
 
+> [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies))
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.sso.PermissionSetProps.property.name"></a>
@@ -28359,6 +28377,8 @@ public readonly name: string;
 - *Type:* string
 
 The name of the permission set.
+
+> [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name))
 
 ---
 
@@ -28380,6 +28400,8 @@ any policy can grant your role. For more information, see [Permissions
 boundaries](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) for IAM entities in the AWS Identity and Access Management
 User Guide.
 
+> [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-permissionsboundary)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-permissionsboundary))
+
 ---
 
 ##### `relayState`<sup>Optional</sup> <a name="relayState" id="cdk-extensions.sso.PermissionSetProps.property.relayState"></a>
@@ -28396,6 +28418,8 @@ For example, you can redirect users to a
 specific page that is most applicable to their job after singing in to
 an AWS account.
 
+> [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype))
+
 ---
 
 ##### `sessionDuration`<sup>Optional</sup> <a name="sessionDuration" id="cdk-extensions.sso.PermissionSetProps.property.sessionDuration"></a>
@@ -28407,6 +28431,8 @@ public readonly sessionDuration: Duration;
 - *Type:* aws-cdk-lib.Duration
 
 The length of time that the application user sessions are valid for.
+
+> [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration))
 
 ---
 
@@ -39992,7 +40018,7 @@ public renderBackupConfiguration(scope: IConstruct, enabled?: boolean): BackupCo
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.sso.IGroup.property.groupId">groupId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.sso.IGroup.property.groupId">groupId</a></code> | <code>string</code> | A GUID identifier for a group object in IAM Identity Center are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). |
 
 ---
 
@@ -40003,6 +40029,8 @@ public readonly groupId: string;
 ```
 
 - *Type:* string
+
+A GUID identifier for a group object in IAM Identity Center are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6).
 
 ---
 
@@ -40055,8 +40083,8 @@ The type of entity being represented.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.sso.IInstance.property.instanceArn">instanceArn</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.sso.IInstance.property.instanceId">instanceId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.sso.IInstance.property.instanceArn">instanceArn</a></code> | <code>string</code> | The ARN of the IAM Identity Center instance under which the operation will be executed. |
+| <code><a href="#cdk-extensions.sso.IInstance.property.instanceId">instanceId</a></code> | <code>string</code> | The ID of the IAM Identity Center instance under which the operation will be executed. |
 
 ---
 
@@ -40068,6 +40096,12 @@ public readonly instanceArn: string;
 
 - *Type:* string
 
+The ARN of the IAM Identity Center instance under which the operation will be executed.
+
+For more information about ARNs, see Amazon Resource Names (ARNs) and AWS Service Namespaces in the AWS General Reference.
+
+> [[AWS::SSO::Assignment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn)]([AWS::SSO::Assignment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn))
+
 ---
 
 ##### `instanceId`<sup>Required</sup> <a name="instanceId" id="cdk-extensions.sso.IInstance.property.instanceId"></a>
@@ -40077,6 +40111,8 @@ public readonly instanceId: string;
 ```
 
 - *Type:* string
+
+The ID of the IAM Identity Center instance under which the operation will be executed.
 
 ---
 
@@ -40301,7 +40337,7 @@ public bind(trigger: Trigger): ConditionProperty
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.sso.IUser.property.userId">userId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.sso.IUser.property.userId">userId</a></code> | <code>string</code> | A GUID identifier for a user object in IAM Identity Center (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). |
 
 ---
 
@@ -40312,6 +40348,8 @@ public readonly userId: string;
 ```
 
 - *Type:* string
+
+A GUID identifier for a user object in IAM Identity Center (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6).
 
 ---
 
