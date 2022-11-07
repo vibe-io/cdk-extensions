@@ -39,6 +39,9 @@ export interface OutboundResolverProps extends ResourceProps {
 
 export class OutboundResolver extends ResolverEndpointBase {
   // Static properties
+  /**
+   * By default allows outbound to all RFC1918 ranges.
+   */
   public static readonly DEFAULT_OUTBOUND_CIDRS: string[] = [
     '10.0.0.0/8',
     '172.16.0.0/12',
@@ -48,7 +51,13 @@ export class OutboundResolver extends ResolverEndpointBase {
   public static readonly SUBNET_OFFSET: number = 5;
 
   // Input properties
+  /**
+   * {@link OutboundResolverProps.organizationArn}
+   */
   public readonly organizationArn?: ArnComponents;
+  /**
+   * {@link OutboundResolverProps.outboundCidrs}
+   */
   public readonly outboundCidrs: string[];
 
   // Resource properties
