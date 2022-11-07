@@ -4,35 +4,87 @@ import { FlowLogFormat } from '../ec2';
 import { Database } from '../glue';
 import { AlbLogsBucket, CloudfrontLogsBucket, CloudtrailBucket, FlowLogsBucket, S3AccessLogsBucket, SesLogsBucket, WafLogsBucket } from '../s3-buckets';
 
-
 /**
- * Configuration for the demo service stack.
- */
+* Configuration for AwsLoggingStack.
+*/
 export interface AwsLoggingStackProps extends StackProps {
+  /**
+   * A cdk-extensions/s3-buckets {@link aws-s3-buckets!AlbLogsBucket} object.
+   */
   readonly albLogsBucket?: AlbLogsBucket;
+  /**
+   * A cdk-extensions/s3-buckets {@link aws-s3-buckets!CloudfrontLogsBucket} object.
+   */
   readonly cloudfrontLogsBucket?: CloudfrontLogsBucket;
+  /**
+   * A cdk-extensions/s3-buckets {@link aws-s3-buckets!CloudtrailBucket} object.
+   */
   readonly cloudtrailLogsBucket?: CloudtrailBucket;
+  /**
+   * Name used for the Glue Database that will be created
+   */
   readonly databaseName?: string;
+  /**
+   * A cdk-extensions/s3-buckets {@link aws-s3-buckets!FlowLogsBucket} object.
+   */
   readonly flowLogsBucket?: FlowLogsBucket;
+  /**
+   * A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs
+   */
   readonly flowLogsFormat?: FlowLogFormat;
+  /**
+   * Boolean for adding "friendly names" for the created Athena queries.
+   */
   readonly friendlyQueryNames?: boolean;
+  /**
+   * A cdk-extensions/s3-buckets {@link aws-s3-buckets!SesLogsBucket} object.
+   */
   readonly sesLogsBucket?: SesLogsBucket;
+  /**
+   * Boolean for using "standardized" naming (i.e. "aws-${service}-logs-${account}
+   * -${region}") for the created S3 Buckets.
+   */
   readonly standardizeNames?: boolean;
+  /**
+   * A cdk-extensions/s3-buckets {@link aws-s3-buckets!WafLogsBucket} object.
+   */
   readonly wafLogsBucket?: WafLogsBucket;
 }
 
 /**
- * Creates a demo web service running in Fargate that is accessible through an application load balancer.
- * The demo service serves a generic "Welcome to nginx" page.
+ * Creates a Stack that deploys a logging strategy for several AWS services.
+ * Stack creates a Glue Database using cdk-extensions Database, deploys
+ * cdk-extensions/s3-buckets patterns for each service, and utilizes methods exposed
+ * by cdk-extensions/s3-buckets S3AccessLogsBucket to enable logging for each created
+ * bucket.
  *
- * The service can be accessed remotely using ECS Exec. For details see the documentation at:
- * https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html#ecs-exec-running-commands
+ * @see {@link aws-glue!Database | cdk-extensions/glue Database}
+ * @see {@link aws-s3-buckets!AlbLogsBucket | cdk-extensions/s3-buckets AlbLogsBucket}
+ * @see {@link aws-s3-buckets!CloudfrontLogsBucket | cdk-extensions/s3-buckets CloudfrontLogsBucket}
+ * @see {@link aws-s3-buckets!CloudtrailBucket | cdk-extensions/s3-buckets CloudtrailBucket}
+ * @see {@link aws-s3-buckets!FlowLogsBucket | cdk-extensions/s3-buckets FlowLogsBucket}
+ * @see {@link aws-s3-buckets!S3AccessLogsBucket | cdk-extensions/s3-buckets S3AccessLogsBucket}
+ * @see {@link aws-s3-buckets!SesLogsBucket | cdk-extensions/s3-buckets SesLogsBucket}
+ * @see {@link aws-s3-buckets!WafLogsBucket | cdk-extensions/s3-buckets WafLogsBucket}
  */
 export class AwsLoggingStack extends Stack {
   // Input properties
+  /**
+   * Name for the AWS Logs Glue Database
+   */
   public readonly databaseName: string;
+  /**
+   * A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs
+   */
   public readonly flowLogsFormat: FlowLogFormat;
+  /**
+   * Boolean for adding "friendly names" for the created Athena queries.
+   */
   public readonly friendlyQueryNames?: boolean;
+  /**
+   * Boolean for using standardized names (i.e. "aws-${service}-logs-${account}
+   * -${region}") for the created S3 Buckets.
+   */
   public readonly standardizeNames: boolean;
 
   // Resource properties
@@ -45,7 +97,14 @@ export class AwsLoggingStack extends Stack {
   public readonly sesLogsBucket: SesLogsBucket;
   public readonly wafLogsBucket: WafLogsBucket;
 
-
+  /**
+     * Creates a new instance of the AwsLoggingStack class.
+     *
+     * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
+     * @param id A name to be associated with the stack and used in resource naming. Must be unique
+     * within the context of 'scope'.
+     * @param props Arguments related to the configuration of the resource.
+     */
   constructor(scope: Construct, id: string, props: AwsLoggingStackProps = {}) {
     super(scope, id, props);
 
