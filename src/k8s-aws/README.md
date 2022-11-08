@@ -109,6 +109,48 @@ const collector = new k8s_aws.AdotCollector(this, 'adot-collector', {
 });
 ```
 
+## Route 53
+
+Enable management of Route 53 hosted zones for ingress and service hosts:
+
+```
+declare const cluster: eks.Cluster;
+
+const manager = new k8s_aws.Route53Dns(this, 'route53-dns', {
+    cluster: cluster
+});
+```
+
+Only enable managment of Route 53 DNS to only records that end with `example.com`:
+
+```
+declare const manager: k8s_aws.Route53Dns;
+
+manager.addDomainFilter('example.com');
+```
+
+Only allow management for hosted zones that are tagged with `managed-dns=enabled`:
+
+```
+declare const manager: k8s_aws.Route53Dns;
+
+manager.addZoneTag({
+    key: 'managed-dns',
+    value: 'enabled'
+});
+```
+
+Only allow creates and updates of DNS records and not deletes:
+
+```
+declare const cluster: eks.Cluster;
+
+const manager = new k8s_aws.Route53Dns(this, 'route53-dns', {
+    cluster: cluster,
+    syncPolicy: ExternalDnsSyncPolicy.UPSERT_ONLY
+});
+```
+
 ## Secrets Manager
 
 Enable synchronization of specific secret between Secrets Manager and Kubernetes:
