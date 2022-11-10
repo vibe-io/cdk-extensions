@@ -43,7 +43,7 @@ export interface EchoserverProps extends ResourceProps {
   /**
    * The port which netcat should listen on.
    *
-   * @default 3838
+   * @default 80
    */
   readonly port?: number;
 
@@ -332,6 +332,7 @@ export class Echoserver extends Resource implements IConnectable, IDnsResolvable
               'alb.ingress.kubernetes.io/target-type': 'ip',
             },
             name: this.name,
+            namespace: this.namespace,
           },
           spec: {
             ports: [
@@ -351,7 +352,6 @@ export class Echoserver extends Resource implements IConnectable, IDnsResolvable
           apiVersion: 'networking.k8s.io/v1',
           kind: 'Ingress',
           metadata: {
-            name: this.name,
             annotations: {
               'kubernetes.io/ingress.class': 'alb',
               'alb.ingress.kubernetes.io/listen-ports': this.stack.toJsonString([{
@@ -378,6 +378,8 @@ export class Echoserver extends Resource implements IConnectable, IDnsResolvable
                 },
               }),
             },
+            name: this.name,
+            namespace: this.namespace,
           },
           spec: {
             rules: [
