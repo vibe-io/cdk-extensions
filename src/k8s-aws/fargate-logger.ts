@@ -10,11 +10,6 @@ import { FluentBitCloudWatchLogsOutput, IFluentBitFilterPlugin, IFluentBitOutput
  */
 export interface FargateLoggerOptions {
   /**
-     * The EKS Cluster to configure Fargate logging for.
-     */
-  readonly cluster: ICluster;
-
-  /**
      * A default list of Fargate profiles that should have permissions
      * configured. Alternatively profiles can be added at any time by calling
      * `addProfile`.

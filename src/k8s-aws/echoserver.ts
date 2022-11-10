@@ -135,8 +135,10 @@ export class Echoserver extends Resource implements IConnectable, IDnsResolvable
   /**
    * Internal collection of domain objects that should be used for configuring
    * DNS resolution.
+   *
+   * @group Internal
    */
-  public readonly _domains: Domain[];
+  private readonly _domains: Domain[];
 
   /**
    * The EKS Cluster where the service should be deployed.
@@ -184,7 +186,7 @@ export class Echoserver extends Resource implements IConnectable, IDnsResolvable
    * A subdomain that should be prefixed to the beginning of all registered
    * domains.
    */
-  readonly subdomain?: string;
+  public readonly subdomain?: string;
 
   /**
    * The Docker tag specifying the version of echoserver to use.
@@ -193,7 +195,7 @@ export class Echoserver extends Resource implements IConnectable, IDnsResolvable
    *
    * @group Inputs
    */
-  readonly tag: string;
+  public readonly tag: string;
 
   /**
    * The Kubernetes manifest that creates the ConfigMap that Fargate uses to

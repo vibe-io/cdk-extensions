@@ -20,6 +20,13 @@ describe('basic-usage', () => {
       Manifest: Match.joinedJson(Match.arrayWith([
         Match.objectLike({
           apiVersion: 'v1',
+          kind: 'Namespace',
+          metadata: {
+            name: AdotCollector.DEFAULT_NAMESPACE,
+          },
+        }),
+        Match.objectLike({
+          apiVersion: 'v1',
           kind: 'ConfigMap',
           metadata: {
             name: 'adot-collector-config',
@@ -61,6 +68,13 @@ describe('basic-usage', () => {
       Manifest: Match.joinedJson(Match.arrayWith([
         Match.objectLike({
           apiVersion: 'v1',
+          kind: 'Namespace',
+          metadata: {
+            name: 'test-namespace',
+          },
+        }),
+        Match.objectLike({
+          apiVersion: 'v1',
           kind: 'ConfigMap',
           metadata: {
             name: 'adot-collector-config',
@@ -84,6 +98,27 @@ describe('basic-usage', () => {
           },
         }),
       ])),
+    });
+  });
+
+  test('setting createNamespace to false should not add the namespace to the manifest', () => {
+    const resources = getCommonResources();
+    const stack = resources.stack;
+    const collector = new AdotCollector(stack, 'adot-collector', {
+      cluster: resources.cluster,
+      createNamespace: false,
+    });
+
+    const template = Template.fromStack(stack);
+
+    template.hasResourceProperties('Custom::AWSCDK-EKS-KubernetesResource', {
+      ClusterName: stack.resolve(resources.cluster.clusterName),
+      Manifest: Match.joinedJson(Match.not(Match.arrayWith([
+        Match.objectLike({
+          kind: 'Namespace',
+        }),
+      ]))),
+      PruneLabel: `aws.cdk.eks/prune-${collector.manifest.node.addr}`,
     });
   });
 });

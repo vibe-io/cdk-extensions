@@ -14,6 +14,14 @@ export interface AdotCollectorProps extends ResourceProps {
   readonly cluster: ICluster;
 
   /**
+   * Flag wich sets whether the deploy of the ADOT collector should include
+   * creating the Kubernetes namespace the service will be deployed to.
+   *
+   * @default true
+   */
+  readonly createNamespace?: boolean;
+
+  /**
    * The Kubernetes namespace where resources related to the ADOT collector
    * will be created.
    *
@@ -35,6 +43,14 @@ export class AdotCollector extends Resource {
    * @group Inputs
    */
   public readonly cluster: ICluster;
+
+  /**
+   * Flag wich sets whether the deploy of the ADOT collector should include
+   * creating the Kubernetes namespace the service will be deployed to.
+   *
+   * @group Inputs
+   */
+  public readonly createNamespace: boolean;
 
   /**
    * The Kubernetes namespace where resources related to the ADOT collector
@@ -73,6 +89,7 @@ export class AdotCollector extends Resource {
     super(scope, id, props);
 
     this.cluster = props.cluster;
+    this.createNamespace = props.createNamespace ?? true;
     this.namespace = props.namespace ?? AdotCollector.DEFAULT_NAMESPACE;
 
     this.serviceAccount = new ServiceAccount(this, 'service-account', {
@@ -85,6 +102,13 @@ export class AdotCollector extends Resource {
     this.manifest = new KubernetesManifest(this, 'Resource', {
       cluster: this.cluster,
       manifest: [
+        ...(!this.createNamespace ? [] : [{
+          apiVersion: 'v1',
+          kind: 'Namespace',
+          metadata: {
+            name: this.namespace,
+          },
+        }]),
         {
           kind: 'ClusterRole',
           apiVersion: 'rbac.authorization.k8s.io/v1',

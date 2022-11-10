@@ -2,6 +2,287 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
+### AdotCollector <a name="AdotCollector" id="cdk-extensions.k8s_aws.AdotCollector"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.AdotCollector.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.AdotCollector(scope: Construct, id: string, props: AdotCollectorProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the resource and used in resource naming. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_aws.AdotCollectorProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.AdotCollector.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.AdotCollector.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the resource and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.k8s_aws.AdotCollector.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.k8s_aws.AdotCollectorProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.k8s_aws.AdotCollector.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.k8s_aws.AdotCollector.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.k8s_aws.AdotCollector.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.k8s_aws.AdotCollector.isConstruct"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.AdotCollector.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.k8s_aws.AdotCollector.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.k8s_aws.AdotCollector.isOwnedResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.AdotCollector.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.AdotCollector.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.k8s_aws.AdotCollector.isResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.AdotCollector.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.AdotCollector.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS cluster where the ADOT Collector will be deployed. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.property.createNamespace">createNamespace</a></code> | <code>boolean</code> | Flag wich sets whether the deploy of the ADOT collector should include creating the Kubernetes namespace the service will be deployed to. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.property.manifest">manifest</a></code> | <code>aws-cdk-lib.aws_eks.KubernetesManifest</code> | The Kubernetes manifest used to deploy the ADOT Collector. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where resources related to the ADOT collector will be created. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.property.serviceAccount">serviceAccount</a></code> | <code>aws-cdk-lib.aws_eks.ServiceAccount</code> | The Kubernetes service account that allows the ADOT collector to gather metric information and publish it to CloudWatch. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.k8s_aws.AdotCollector.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.k8s_aws.AdotCollector.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.k8s_aws.AdotCollector.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.AdotCollector.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The EKS cluster where the ADOT Collector will be deployed.
+
+---
+
+##### `createNamespace`<sup>Required</sup> <a name="createNamespace" id="cdk-extensions.k8s_aws.AdotCollector.property.createNamespace"></a>
+
+```typescript
+public readonly createNamespace: boolean;
+```
+
+- *Type:* boolean
+
+Flag wich sets whether the deploy of the ADOT collector should include creating the Kubernetes namespace the service will be deployed to.
+
+---
+
+##### `manifest`<sup>Required</sup> <a name="manifest" id="cdk-extensions.k8s_aws.AdotCollector.property.manifest"></a>
+
+```typescript
+public readonly manifest: KubernetesManifest;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.KubernetesManifest
+
+The Kubernetes manifest used to deploy the ADOT Collector.
+
+---
+
+##### `namespace`<sup>Required</sup> <a name="namespace" id="cdk-extensions.k8s_aws.AdotCollector.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where resources related to the ADOT collector will be created.
+
+---
+
+##### `serviceAccount`<sup>Required</sup> <a name="serviceAccount" id="cdk-extensions.k8s_aws.AdotCollector.property.serviceAccount"></a>
+
+```typescript
+public readonly serviceAccount: ServiceAccount;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ServiceAccount
+
+The Kubernetes service account that allows the ADOT collector to gather metric information and publish it to CloudWatch.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollector.property.DEFAULT_NAMESPACE">DEFAULT_NAMESPACE</a></code> | <code>string</code> | The default Kubernetes namespace where resources related to the ADOT collector will be created if no overriding input is provided. |
+
+---
+
+##### `DEFAULT_NAMESPACE`<sup>Required</sup> <a name="DEFAULT_NAMESPACE" id="cdk-extensions.k8s_aws.AdotCollector.property.DEFAULT_NAMESPACE"></a>
+
+```typescript
+public readonly DEFAULT_NAMESPACE: string;
+```
+
+- *Type:* string
+
+The default Kubernetes namespace where resources related to the ADOT collector will be created if no overriding input is provided.
+
+---
+
 ### AlbLogsBucket <a name="AlbLogsBucket" id="cdk-extensions.s3_buckets.AlbLogsBucket"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.s3_buckets.AlbLogsBucket.Initializer"></a>
@@ -1123,25 +1404,25 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the ALB Logs. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.status5xxNamedQuery">status5xxNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTable.property.topIpsNamedQuery">topIpsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 
@@ -1198,6 +1479,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue_tables.AlbLogsTable.property.resource"></a>
@@ -1238,6 +1521,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue_tables.AlbLogsTable.property.dataFormat"></a>
@@ -1247,6 +1532,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -1258,6 +1545,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue_tables.AlbLogsTable.property.location"></a>
@@ -1267,6 +1556,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -1278,6 +1569,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue_tables.AlbLogsTable.property.owner"></a>
@@ -1287,6 +1580,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -1298,6 +1593,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue_tables.AlbLogsTable.property.serdeName"></a>
@@ -1307,6 +1604,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -1318,6 +1617,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue_tables.AlbLogsTable.property.tableType"></a>
@@ -1327,6 +1628,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -1338,6 +1641,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue_tables.AlbLogsTable.property.viewExpandedText"></a>
@@ -1347,6 +1652,8 @@ public readonly viewExpandedText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewExpandedText}.
 
 ---
 
@@ -1358,6 +1665,8 @@ public readonly viewOriginalText: string;
 
 - *Type:* string
 
+{@link TableProps.viewOriginalText}.
+
 ---
 
 ##### `createQueries`<sup>Required</sup> <a name="createQueries" id="cdk-extensions.glue_tables.AlbLogsTable.property.createQueries"></a>
@@ -1368,6 +1677,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the ALB Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.AlbLogsTable.property.friendlyQueryNames"></a>
@@ -1377,6 +1690,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -1865,10 +2180,10 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_eks.FargateCluster</code> | *No description.* |
-| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.cloudWatchMonitoring">cloudWatchMonitoring</a></code> | <code>cdk-extensions.k8s_aws.CloudWatchMonitoring</code> | *No description.* |
-| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.externalDns">externalDns</a></code> | <code>cdk-extensions.k8s_aws.ExternalDns</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.adotCollector">adotCollector</a></code> | <code>cdk-extensions.k8s_aws.AdotCollector</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.externalSecrets">externalSecrets</a></code> | <code>cdk-extensions.k8s_aws.ExternalSecretsOperator</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.fargateLogger">fargateLogger</a></code> | <code>cdk-extensions.k8s_aws.FargateLogger</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.route53Dns">route53Dns</a></code> | <code>cdk-extensions.k8s_aws.Route53Dns</code> | *No description.* |
 
 ---
 
@@ -1925,23 +2240,13 @@ public readonly resource: FargateCluster;
 
 ---
 
-##### `cloudWatchMonitoring`<sup>Optional</sup> <a name="cloudWatchMonitoring" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.cloudWatchMonitoring"></a>
+##### `adotCollector`<sup>Optional</sup> <a name="adotCollector" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.adotCollector"></a>
 
 ```typescript
-public readonly cloudWatchMonitoring: CloudWatchMonitoring;
+public readonly adotCollector: AdotCollector;
 ```
 
-- *Type:* cdk-extensions.k8s_aws.CloudWatchMonitoring
-
----
-
-##### `externalDns`<sup>Optional</sup> <a name="externalDns" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.externalDns"></a>
-
-```typescript
-public readonly externalDns: ExternalDns;
-```
-
-- *Type:* cdk-extensions.k8s_aws.ExternalDns
+- *Type:* cdk-extensions.k8s_aws.AdotCollector
 
 ---
 
@@ -1965,15 +2270,27 @@ public readonly fargateLogger: FargateLogger;
 
 ---
 
+##### `route53Dns`<sup>Optional</sup> <a name="route53Dns" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.route53Dns"></a>
+
+```typescript
+public readonly route53Dns: Route53Dns;
+```
+
+- *Type:* cdk-extensions.k8s_aws.Route53Dns
+
+---
+
 
 ### AwsLoggingStack <a name="AwsLoggingStack" id="cdk-extensions.stacks.AwsLoggingStack"></a>
 
-Creates a demo web service running in Fargate that is accessible through an application load balancer.
+Creates a Stack that deploys a logging strategy for several AWS services.
 
-The demo service serves a generic "Welcome to nginx" page.
+Stack creates a Glue Database using cdk-extensions Database, deploys
+cdk-extensions/s3-buckets patterns for each service, and utilizes methods exposed
+by cdk-extensions/s3-buckets S3AccessLogsBucket to enable logging for each created
+bucket.
 
-The service can be accessed remotely using ECS Exec. For details see the documentation at:
-https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html#ecs-exec-running-commands
+> [{@link aws-s3-buckets!WafLogsBucket | cdk-extensions/s3-buckets WafLogsBucket}]({@link aws-s3-buckets!WafLogsBucket | cdk-extensions/s3-buckets WafLogsBucket})
 
 #### Initializers <a name="Initializers" id="cdk-extensions.stacks.AwsLoggingStack.Initializer"></a>
 
@@ -1985,9 +2302,9 @@ new stacks.AwsLoggingStack(scope: Construct, id: string, props?: AwsLoggingStack
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.stacks.AwsLoggingStackProps</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.stacks.AwsLoggingStackProps</code> | Arguments related to the configuration of the resource. |
 
 ---
 
@@ -1995,17 +2312,26 @@ new stacks.AwsLoggingStack(scope: Construct, id: string, props?: AwsLoggingStack
 
 - *Type:* constructs.Construct
 
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.id"></a>
 
 - *Type:* string
 
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
 ---
 
 ##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.stacks.AwsLoggingStack.Initializer.parameter.props"></a>
 
 - *Type:* cdk-extensions.stacks.AwsLoggingStackProps
+
+Arguments related to the configuration of the resource.
 
 ---
 
@@ -2464,14 +2790,14 @@ The construct to start the search from.
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.cloudfrontLogsBucket">cloudfrontLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.CloudfrontLogsBucket</code> | *No description.* |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.cloudtrailLogsBucket">cloudtrailLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.CloudtrailBucket</code> | *No description.* |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.databaseName">databaseName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.databaseName">databaseName</a></code> | <code>string</code> | Name for the AWS Logs Glue Database. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.flowLogsBucket">flowLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.FlowLogsBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.flowLogsFormat">flowLogsFormat</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.flowLogsFormat">flowLogsFormat</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.s3AccessLogsBucket">s3AccessLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.S3AccessLogsBucket</code> | *No description.* |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.sesLogsBucket">sesLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.SesLogsBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.standardizeNames">standardizeNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.standardizeNames">standardizeNames</a></code> | <code>boolean</code> | Boolean for using standardized names (i.e. "aws-${service}-logs-${account} -${region}") for the created S3 Buckets. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.wafLogsBucket">wafLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.WafLogsBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 
 ---
 
@@ -2853,6 +3179,8 @@ public readonly databaseName: string;
 
 - *Type:* string
 
+Name for the AWS Logs Glue Database.
+
 ---
 
 ##### `flowLogsBucket`<sup>Required</sup> <a name="flowLogsBucket" id="cdk-extensions.stacks.AwsLoggingStack.property.flowLogsBucket"></a>
@@ -2872,6 +3200,8 @@ public readonly flowLogsFormat: FlowLogFormat;
 ```
 
 - *Type:* cdk-extensions.ec2.FlowLogFormat
+
+A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs.
 
 ---
 
@@ -2903,6 +3233,8 @@ public readonly standardizeNames: boolean;
 
 - *Type:* boolean
 
+Boolean for using standardized names (i.e. "aws-${service}-logs-${account} -${region}") for the created S3 Buckets.
+
 ---
 
 ##### `wafLogsBucket`<sup>Required</sup> <a name="wafLogsBucket" id="cdk-extensions.stacks.AwsLoggingStack.property.wafLogsBucket"></a>
@@ -2922,6 +3254,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -4358,25 +4692,25 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Cloudfront Logs. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.distributionStatisticsNamedQuery">distributionStatisticsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.requestErrorsNamedQuery">requestErrorsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTable.property.topIpsNamedQuery">topIpsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
@@ -4435,6 +4769,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.resource"></a>
@@ -4475,6 +4811,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.dataFormat"></a>
@@ -4484,6 +4822,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -4495,6 +4835,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.location"></a>
@@ -4504,6 +4846,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -4515,6 +4859,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.owner"></a>
@@ -4524,6 +4870,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -4535,6 +4883,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.serdeName"></a>
@@ -4544,6 +4894,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -4555,6 +4907,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.tableType"></a>
@@ -4564,6 +4918,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -4575,6 +4931,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.viewExpandedText"></a>
@@ -4584,6 +4942,8 @@ public readonly viewExpandedText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewExpandedText}.
 
 ---
 
@@ -4595,6 +4955,8 @@ public readonly viewOriginalText: string;
 
 - *Type:* string
 
+{@link TableProps.viewOriginalText}.
+
 ---
 
 ##### `createQueries`<sup>Required</sup> <a name="createQueries" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.createQueries"></a>
@@ -4605,6 +4967,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Cloudfront Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.CloudfrontLogsTable.property.friendlyQueryNames"></a>
@@ -4614,6 +4980,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -5779,25 +6147,25 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Cloudtrail Logs. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.unauthorizedNamedQuery">unauthorizedNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTable.property.userLoginsNamedQuery">userLoginsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 
@@ -5854,6 +6222,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue_tables.CloudtrailTable.property.resource"></a>
@@ -5894,6 +6264,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue_tables.CloudtrailTable.property.dataFormat"></a>
@@ -5903,6 +6275,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -5914,6 +6288,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue_tables.CloudtrailTable.property.location"></a>
@@ -5923,6 +6299,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -5934,6 +6312,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue_tables.CloudtrailTable.property.owner"></a>
@@ -5943,6 +6323,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -5954,6 +6336,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue_tables.CloudtrailTable.property.serdeName"></a>
@@ -5963,6 +6347,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -5974,6 +6360,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue_tables.CloudtrailTable.property.tableType"></a>
@@ -5983,6 +6371,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -5994,6 +6384,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue_tables.CloudtrailTable.property.viewExpandedText"></a>
@@ -6003,6 +6395,8 @@ public readonly viewExpandedText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewExpandedText}.
 
 ---
 
@@ -6014,6 +6408,8 @@ public readonly viewOriginalText: string;
 
 - *Type:* string
 
+{@link TableProps.viewOriginalText}.
+
 ---
 
 ##### `createQueries`<sup>Required</sup> <a name="createQueries" id="cdk-extensions.glue_tables.CloudtrailTable.property.createQueries"></a>
@@ -6024,6 +6420,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Cloudtrail Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.CloudtrailTable.property.friendlyQueryNames"></a>
@@ -6033,6 +6433,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -6057,231 +6459,13 @@ public readonly userLoginsNamedQuery: NamedQuery;
 ---
 
 
-### CloudWatchMonitoring <a name="CloudWatchMonitoring" id="cdk-extensions.k8s_aws.CloudWatchMonitoring"></a>
-
-#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.Initializer"></a>
-
-```typescript
-import { k8s_aws } from 'cdk-extensions'
-
-new k8s_aws.CloudWatchMonitoring(scope: Construct, id: string, props: CloudWatchMonitoringProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoring.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoring.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoring.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_aws.CloudWatchMonitoringProps</code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.Initializer.parameter.id"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.Initializer.parameter.props"></a>
-
-- *Type:* cdk-extensions.k8s_aws.CloudWatchMonitoringProps
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoring.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoring.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-
----
-
-##### `toString` <a name="toString" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoring.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoring.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoring.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
-
----
-
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.isConstruct"></a>
-
-```typescript
-import { k8s_aws } from 'cdk-extensions'
-
-k8s_aws.CloudWatchMonitoring.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.isOwnedResource"></a>
-
-```typescript
-import { k8s_aws } from 'cdk-extensions'
-
-k8s_aws.CloudWatchMonitoring.isOwnedResource(construct: IConstruct)
-```
-
-Returns true if the construct was created by CDK, and false otherwise.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-##### `isResource` <a name="isResource" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.isResource"></a>
-
-```typescript
-import { k8s_aws } from 'cdk-extensions'
-
-k8s_aws.CloudWatchMonitoring.isResource(construct: IConstruct)
-```
-
-Check whether the given construct is a Resource.
-
-###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoring.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoring.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoring.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoring.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoring.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_eks.KubernetesManifest</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoring.property.serviceAccount">serviceAccount</a></code> | <code>aws-cdk-lib.aws_eks.ServiceAccount</code> | *No description.* |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.property.cluster"></a>
-
-```typescript
-public readonly cluster: ICluster;
-```
-
-- *Type:* aws-cdk-lib.aws_eks.ICluster
-
----
-
-##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.property.resource"></a>
-
-```typescript
-public readonly resource: KubernetesManifest;
-```
-
-- *Type:* aws-cdk-lib.aws_eks.KubernetesManifest
-
----
-
-##### `serviceAccount`<sup>Required</sup> <a name="serviceAccount" id="cdk-extensions.k8s_aws.CloudWatchMonitoring.property.serviceAccount"></a>
-
-```typescript
-public readonly serviceAccount: ServiceAccount;
-```
-
-- *Type:* aws-cdk-lib.aws_eks.ServiceAccount
-
----
-
-
 ### Connection <a name="Connection" id="cdk-extensions.glue.Connection"></a>
 
 - *Implements:* aws-cdk-lib.aws_ec2.IConnectable
+
+Creates a resource specifying a Glue Connection to a data source.
+
+> [[AWS::Glue::Connection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html)]([AWS::Glue::Connection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html))
 
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.Connection.Initializer"></a>
 
@@ -6293,9 +6477,9 @@ new glue.Connection(scope: Construct, id: string, props: ConnectionProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.Connection.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Connection.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Connection.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.ConnectionProps</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Connection.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.Connection.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.Connection.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.ConnectionProps</code> | Arguments related to the configuration of the resource. |
 
 ---
 
@@ -6303,17 +6487,26 @@ new glue.Connection(scope: Construct, id: string, props: ConnectionProps)
 
 - *Type:* constructs.Construct
 
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Connection.Initializer.parameter.id"></a>
 
 - *Type:* string
 
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
 ---
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.Connection.Initializer.parameter.props"></a>
 
 - *Type:* cdk-extensions.glue.ConnectionProps
+
+Arguments related to the configuration of the resource.
 
 ---
 
@@ -6458,14 +6651,14 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Connection.property.connectionArn">connectionArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Connection.property.connectionName">connectionName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Connection.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The network connections associated with this resource. |
-| <code><a href="#cdk-extensions.glue.Connection.property.connectionType">connectionType</a></code> | <code>cdk-extensions.glue.ConnectionType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Connection.property.connectionType">connectionType</a></code> | <code>cdk-extensions.glue.ConnectionType</code> | {@link ConnectionProps.connectionType:}. |
 | <code><a href="#cdk-extensions.glue.Connection.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnConnection</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Connection.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Connection.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Connection.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Connection.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | {@link ConnectionProps.securityGroups:}. |
+| <code><a href="#cdk-extensions.glue.Connection.property.description">description</a></code> | <code>string</code> | {@link ConnectionProps.description}. |
+| <code><a href="#cdk-extensions.glue.Connection.property.name">name</a></code> | <code>string</code> | {@link ConnectionProps.name}. |
 | <code><a href="#cdk-extensions.glue.Connection.property.securityGroup">securityGroup</a></code> | <code>aws-cdk-lib.aws_ec2.SecurityGroup</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Connection.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Connection.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Connection.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | {@link ConnectionProps.subnets}. |
+| <code><a href="#cdk-extensions.glue.Connection.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | {@link ConnectionProps.vpc}. |
 
 ---
 
@@ -6552,6 +6745,8 @@ public readonly connectionType: ConnectionType;
 
 - *Type:* cdk-extensions.glue.ConnectionType
 
+{@link ConnectionProps.connectionType:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.Connection.property.resource"></a>
@@ -6572,6 +6767,8 @@ public readonly securityGroups: ISecurityGroup[];
 
 - *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
 
+{@link ConnectionProps.securityGroups:}.
+
 ---
 
 ##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.Connection.property.description"></a>
@@ -6582,6 +6779,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link ConnectionProps.description}.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.Connection.property.name"></a>
@@ -6591,6 +6790,8 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+{@link ConnectionProps.name}.
 
 ---
 
@@ -6612,6 +6813,8 @@ public readonly subnets: SubnetSelection;
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
 
+{@link ConnectionProps.subnets}.
+
 ---
 
 ##### `vpc`<sup>Optional</sup> <a name="vpc" id="cdk-extensions.glue.Connection.property.vpc"></a>
@@ -6622,10 +6825,16 @@ public readonly vpc: IVpc;
 
 - *Type:* aws-cdk-lib.aws_ec2.IVpc
 
+{@link ConnectionProps.vpc}.
+
 ---
 
 
 ### Crawler <a name="Crawler" id="cdk-extensions.glue.Crawler"></a>
+
+Create a Crawler resource to pull information from the provided resource.
+
+> [[AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html)]([AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html))
 
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.Crawler.Initializer"></a>
 
@@ -6806,16 +7015,16 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Crawler.property.crawlerName">crawlerName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Crawler.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnCrawler</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Crawler.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.Role</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.configuration">configuration</a></code> | <code>cdk-extensions.glue.CrawlerConfiguration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.deleteBehavior">deleteBehavior</a></code> | <code>cdk-extensions.glue.DeleteBehavior</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.recrawlBehavior">recrawlBehavior</a></code> | <code>cdk-extensions.glue.RecrawlBehavior</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.scheduleExpression">scheduleExpression</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.tablePrefix">tablePrefix</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.updateBehavior">updateBehavior</a></code> | <code>cdk-extensions.glue.UpdateBehavior</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Crawler.property.configuration">configuration</a></code> | <code>cdk-extensions.glue.CrawlerConfiguration</code> | {@link CrawlerProps.configuration}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link CrawlerProps.database}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.deleteBehavior">deleteBehavior</a></code> | <code>cdk-extensions.glue.DeleteBehavior</code> | {@link CrawlerProps.deleteBehavior}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.description">description</a></code> | <code>string</code> | {@link CrawlerProps.description}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.name">name</a></code> | <code>string</code> | {@link CrawlerProps.name}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.recrawlBehavior">recrawlBehavior</a></code> | <code>cdk-extensions.glue.RecrawlBehavior</code> | {@link CrawlerProps.recrawlBehavior}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.scheduleExpression">scheduleExpression</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | {@link CrawlerProps.scheduleExpression}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | {@link CrawlerProps.securityConfiguration}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.tablePrefix">tablePrefix</a></code> | <code>string</code> | {@link CrawlerProps.tablePrefix}. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.updateBehavior">updateBehavior</a></code> | <code>cdk-extensions.glue.UpdateBehavior</code> | {@link CrawlerProps.updateBehavior}. |
 
 ---
 
@@ -6910,6 +7119,8 @@ public readonly configuration: CrawlerConfiguration;
 
 - *Type:* cdk-extensions.glue.CrawlerConfiguration
 
+{@link CrawlerProps.configuration}.
+
 ---
 
 ##### `database`<sup>Optional</sup> <a name="database" id="cdk-extensions.glue.Crawler.property.database"></a>
@@ -6919,6 +7130,8 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+{@link CrawlerProps.database}.
 
 ---
 
@@ -6930,6 +7143,8 @@ public readonly deleteBehavior: DeleteBehavior;
 
 - *Type:* cdk-extensions.glue.DeleteBehavior
 
+{@link CrawlerProps.deleteBehavior}.
+
 ---
 
 ##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.Crawler.property.description"></a>
@@ -6939,6 +7154,8 @@ public readonly description: string;
 ```
 
 - *Type:* string
+
+{@link CrawlerProps.description}.
 
 ---
 
@@ -6950,6 +7167,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link CrawlerProps.name}.
+
 ---
 
 ##### `recrawlBehavior`<sup>Optional</sup> <a name="recrawlBehavior" id="cdk-extensions.glue.Crawler.property.recrawlBehavior"></a>
@@ -6959,6 +7178,8 @@ public readonly recrawlBehavior: RecrawlBehavior;
 ```
 
 - *Type:* cdk-extensions.glue.RecrawlBehavior
+
+{@link CrawlerProps.recrawlBehavior}.
 
 ---
 
@@ -6970,6 +7191,8 @@ public readonly scheduleExpression: Schedule;
 
 - *Type:* aws-cdk-lib.aws_events.Schedule
 
+{@link CrawlerProps.scheduleExpression}.
+
 ---
 
 ##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.Crawler.property.securityConfiguration"></a>
@@ -6979,6 +7202,8 @@ public readonly securityConfiguration: SecurityConfiguration;
 ```
 
 - *Type:* cdk-extensions.glue.SecurityConfiguration
+
+{@link CrawlerProps.securityConfiguration}.
 
 ---
 
@@ -6990,6 +7215,8 @@ public readonly tablePrefix: string;
 
 - *Type:* string
 
+{@link CrawlerProps.tablePrefix}.
+
 ---
 
 ##### `updateBehavior`<sup>Optional</sup> <a name="updateBehavior" id="cdk-extensions.glue.Crawler.property.updateBehavior"></a>
@@ -7000,10 +7227,16 @@ public readonly updateBehavior: UpdateBehavior;
 
 - *Type:* cdk-extensions.glue.UpdateBehavior
 
+{@link CrawlerProps.updateBehavior}.
+
 ---
 
 
 ### Database <a name="Database" id="cdk-extensions.glue.Database"></a>
+
+Creates a Glue Database resource to contain a collection of metadata Tables.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
 
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.Database.Initializer"></a>
 
@@ -7158,10 +7391,10 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Database.property.catalogId">catalogId</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Database.property.databaseArn">databaseArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Database.property.databaseName">databaseName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Database.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Database.property.name">name</a></code> | <code>string</code> | {@link DatabaseProps.name:}. |
 | <code><a href="#cdk-extensions.glue.Database.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnDatabase</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Database.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Database.property.locationUri">locationUri</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Database.property.description">description</a></code> | <code>string</code> | {@link DatabaseProps.description}. |
+| <code><a href="#cdk-extensions.glue.Database.property.locationUri">locationUri</a></code> | <code>string</code> | {@link DatabaseProps.locationUri}. |
 
 ---
 
@@ -7256,6 +7489,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link DatabaseProps.name:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.Database.property.resource"></a>
@@ -7276,6 +7511,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link DatabaseProps.description}.
+
 ---
 
 ##### `locationUri`<sup>Optional</sup> <a name="locationUri" id="cdk-extensions.glue.Database.property.locationUri"></a>
@@ -7285,6 +7522,8 @@ public readonly locationUri: string;
 ```
 
 - *Type:* string
+
+{@link DatabaseProps.locationUri}.
 
 ---
 
@@ -7771,9 +8010,15 @@ public readonly streamType: DeliveryStreamType;
 
 ### Echoserver <a name="Echoserver" id="cdk-extensions.k8s_aws.Echoserver"></a>
 
-- *Implements:* aws-cdk-lib.aws_ec2.IConnectable
+- *Implements:* aws-cdk-lib.aws_ec2.IConnectable, cdk-extensions.route53.IDnsResolvable
 
-Creates a ConfigMap that configures logging for containers running in EKS on Fargate.
+Creates a simple Kubernetes test service using the Google echoserver test image.
+
+The server listens for incoming web requests and echos the details of the
+request back to the user. Each request results in output being written to
+the Docker log providing a convenient way to test logging setup.
+
+> [[Google echoserver image repository](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/echoserver)]([Google echoserver image repository](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/echoserver))
 
 #### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.Echoserver.Initializer"></a>
 
@@ -7823,6 +8068,7 @@ Arguments related to the configuration of the resource.
 | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.Echoserver.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.k8s_aws.Echoserver.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.registerDomain">registerDomain</a></code> | *No description.* |
 
 ---
 
@@ -7853,6 +8099,18 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.k8s_aws.Echoserver.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `registerDomain` <a name="registerDomain" id="cdk-extensions.k8s_aws.Echoserver.registerDomain"></a>
+
+```typescript
+public registerDomain(domain: Domain): void
+```
+
+###### `domain`<sup>Required</sup> <a name="domain" id="cdk-extensions.k8s_aws.Echoserver.registerDomain.parameter.domain"></a>
+
+- *Type:* cdk-extensions.route53.Domain
 
 ---
 
@@ -7925,12 +8183,15 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS Cluster where the service should be deployed. |
 | <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | Access for network connections. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.domainDiscovery">domainDiscovery</a></code> | <code>cdk-extensions.route53.DomainDiscovery</code> | Determines the behavior of automatic DNS discovery and configuration. |
 | <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.loadBalancerSubnets">loadBalancerSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The subnets where the load balancer should be created.. |
 | <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.manifest">manifest</a></code> | <code>aws-cdk-lib.aws_eks.KubernetesManifest</code> | The Kubernetes manifest that creates the ConfigMap that Fargate uses to configure logging. |
 | <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.name">name</a></code> | <code>string</code> | The name of the Kubernetes service to be created. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be created. |
 | <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.port">port</a></code> | <code>number</code> | The port which netcat should listen on. |
 | <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.replicas">replicas</a></code> | <code>number</code> | The number of replicas that should exist. |
-| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.serviceSubnets">serviceSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The subnets where the service pods should run. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.tag">tag</a></code> | <code>string</code> | The Docker tag specifying the version of echoserver to use. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.subdomain">subdomain</a></code> | <code>string</code> | A subdomain that should be prefixed to the beginning of all registered domains. |
 
 ---
 
@@ -8001,6 +8262,18 @@ Access for network connections.
 
 ---
 
+##### `domainDiscovery`<sup>Required</sup> <a name="domainDiscovery" id="cdk-extensions.k8s_aws.Echoserver.property.domainDiscovery"></a>
+
+```typescript
+public readonly domainDiscovery: DomainDiscovery;
+```
+
+- *Type:* cdk-extensions.route53.DomainDiscovery
+
+Determines the behavior of automatic DNS discovery and configuration.
+
+---
+
 ##### `loadBalancerSubnets`<sup>Required</sup> <a name="loadBalancerSubnets" id="cdk-extensions.k8s_aws.Echoserver.property.loadBalancerSubnets"></a>
 
 ```typescript
@@ -8037,6 +8310,18 @@ The name of the Kubernetes service to be created.
 
 ---
 
+##### `namespace`<sup>Required</sup> <a name="namespace" id="cdk-extensions.k8s_aws.Echoserver.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where the service should be created.
+
+---
+
 ##### `port`<sup>Required</sup> <a name="port" id="cdk-extensions.k8s_aws.Echoserver.property.port"></a>
 
 ```typescript
@@ -8061,264 +8346,142 @@ The number of replicas that should exist.
 
 ---
 
-##### `serviceSubnets`<sup>Required</sup> <a name="serviceSubnets" id="cdk-extensions.k8s_aws.Echoserver.property.serviceSubnets"></a>
+##### `tag`<sup>Required</sup> <a name="tag" id="cdk-extensions.k8s_aws.Echoserver.property.tag"></a>
 
 ```typescript
-public readonly serviceSubnets: SubnetSelection;
+public readonly tag: string;
+```
+
+- *Type:* string
+
+The Docker tag specifying the version of echoserver to use.
+
+> [[Google echoserver image repository](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/echoserver)]([Google echoserver image repository](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/echoserver))
+
+---
+
+##### `subdomain`<sup>Optional</sup> <a name="subdomain" id="cdk-extensions.k8s_aws.Echoserver.property.subdomain"></a>
+
+```typescript
+public readonly subdomain: string;
+```
+
+- *Type:* string
+
+A subdomain that should be prefixed to the beginning of all registered domains.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_DOMAIN_DISCOVERY">DEFAULT_DOMAIN_DISCOVERY</a></code> | <code>cdk-extensions.route53.DomainDiscovery</code> | The default setting controlling how automatic DNS configuration should behave if none is provided as input. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_LOAD_BALANCER_SUBNETS">DEFAULT_LOAD_BALANCER_SUBNETS</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | Default subnet selection that will be used if none is provided as input. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_NAME">DEFAULT_NAME</a></code> | <code>string</code> | Default name of the Kubernetes service that will be created if none is provided as input. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_NAMESPACE">DEFAULT_NAMESPACE</a></code> | <code>string</code> | Default Kubernetes namespace where the service will be created if none is provided as input. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_PORT">DEFAULT_PORT</a></code> | <code>number</code> | Default port where the service will be accessible if none is provided as input. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_REPLICAS">DEFAULT_REPLICAS</a></code> | <code>number</code> | Default number of replicas that should be running is none is provided as input. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_REPOSITORY">DEFAULT_REPOSITORY</a></code> | <code>string</code> | The Docker repository where the echoserver image will be pulled from. |
+| <code><a href="#cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_TAG">DEFAULT_TAG</a></code> | <code>string</code> | The default Docker tag of the image to use if none is provided as input. |
+
+---
+
+##### `DEFAULT_DOMAIN_DISCOVERY`<sup>Required</sup> <a name="DEFAULT_DOMAIN_DISCOVERY" id="cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_DOMAIN_DISCOVERY"></a>
+
+```typescript
+public readonly DEFAULT_DOMAIN_DISCOVERY: DomainDiscovery;
+```
+
+- *Type:* cdk-extensions.route53.DomainDiscovery
+
+The default setting controlling how automatic DNS configuration should behave if none is provided as input.
+
+---
+
+##### `DEFAULT_LOAD_BALANCER_SUBNETS`<sup>Required</sup> <a name="DEFAULT_LOAD_BALANCER_SUBNETS" id="cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_LOAD_BALANCER_SUBNETS"></a>
+
+```typescript
+public readonly DEFAULT_LOAD_BALANCER_SUBNETS: SubnetSelection;
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
 
-The subnets where the service pods should run.
+Default subnet selection that will be used if none is provided as input.
 
 ---
 
-
-### ExternalDns <a name="ExternalDns" id="cdk-extensions.k8s_aws.ExternalDns"></a>
-
-#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.ExternalDns.Initializer"></a>
+##### `DEFAULT_NAME`<sup>Required</sup> <a name="DEFAULT_NAME" id="cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_NAME"></a>
 
 ```typescript
-import { k8s_aws } from 'cdk-extensions'
-
-new k8s_aws.ExternalDns(scope: Construct, id: string, props: ExternalDnsProps)
+public readonly DEFAULT_NAME: string;
 ```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsProps</code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.ExternalDns.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.ExternalDns.Initializer.parameter.id"></a>
 
 - *Type:* string
 
----
-
-##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.k8s_aws.ExternalDns.Initializer.parameter.props"></a>
-
-- *Type:* cdk-extensions.k8s_aws.ExternalDnsProps
+Default name of the Kubernetes service that will be created if none is provided as input.
 
 ---
 
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.addDomainFilter">addDomainFilter</a></code> | *No description.* |
-
----
-
-##### `toString` <a name="toString" id="cdk-extensions.k8s_aws.ExternalDns.toString"></a>
+##### `DEFAULT_NAMESPACE`<sup>Required</sup> <a name="DEFAULT_NAMESPACE" id="cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_NAMESPACE"></a>
 
 ```typescript
-public toString(): string
+public readonly DEFAULT_NAMESPACE: string;
 ```
-
-Returns a string representation of this construct.
-
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.k8s_aws.ExternalDns.applyRemovalPolicy"></a>
-
-```typescript
-public applyRemovalPolicy(policy: RemovalPolicy): void
-```
-
-Apply the given removal policy to this resource.
-
-The Removal Policy controls what happens to this resource when it stops
-being managed by CloudFormation, either because you've removed it from the
-CDK application or because you've made a change that requires the resource
-to be replaced.
-
-The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-
-###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.k8s_aws.ExternalDns.applyRemovalPolicy.parameter.policy"></a>
-
-- *Type:* aws-cdk-lib.RemovalPolicy
-
----
-
-##### `addDomainFilter` <a name="addDomainFilter" id="cdk-extensions.k8s_aws.ExternalDns.addDomainFilter"></a>
-
-```typescript
-public addDomainFilter(domain: string): ExternalDns
-```
-
-###### `domain`<sup>Required</sup> <a name="domain" id="cdk-extensions.k8s_aws.ExternalDns.addDomainFilter.parameter.domain"></a>
 
 - *Type:* string
 
----
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+Default Kubernetes namespace where the service will be created if none is provided as input.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.k8s_aws.ExternalDns.isConstruct"></a>
+##### `DEFAULT_PORT`<sup>Required</sup> <a name="DEFAULT_PORT" id="cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_PORT"></a>
 
 ```typescript
-import { k8s_aws } from 'cdk-extensions'
-
-k8s_aws.ExternalDns.isConstruct(x: any)
+public readonly DEFAULT_PORT: number;
 ```
 
-Checks if `x` is a construct.
+- *Type:* number
 
-###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.k8s_aws.ExternalDns.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
+Default port where the service will be accessible if none is provided as input.
 
 ---
 
-##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.k8s_aws.ExternalDns.isOwnedResource"></a>
+##### `DEFAULT_REPLICAS`<sup>Required</sup> <a name="DEFAULT_REPLICAS" id="cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_REPLICAS"></a>
 
 ```typescript
-import { k8s_aws } from 'cdk-extensions'
-
-k8s_aws.ExternalDns.isOwnedResource(construct: IConstruct)
+public readonly DEFAULT_REPLICAS: number;
 ```
 
-Returns true if the construct was created by CDK, and false otherwise.
+- *Type:* number
 
-###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.ExternalDns.isOwnedResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
+Default number of replicas that should be running is none is provided as input.
 
 ---
 
-##### `isResource` <a name="isResource" id="cdk-extensions.k8s_aws.ExternalDns.isResource"></a>
+##### `DEFAULT_REPOSITORY`<sup>Required</sup> <a name="DEFAULT_REPOSITORY" id="cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_REPOSITORY"></a>
 
 ```typescript
-import { k8s_aws } from 'cdk-extensions'
-
-k8s_aws.ExternalDns.isResource(construct: IConstruct)
+public readonly DEFAULT_REPOSITORY: string;
 ```
 
-Check whether the given construct is a Resource.
+- *Type:* string
 
-###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.ExternalDns.isResource.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
+The Docker repository where the echoserver image will be pulled from.
 
 ---
 
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.property.domainFilter">domainFilter</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_eks.HelmChart</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDns.property.serviceAccount">serviceAccount</a></code> | <code>aws-cdk-lib.aws_eks.ServiceAccount</code> | *No description.* |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.k8s_aws.ExternalDns.property.node"></a>
+##### `DEFAULT_TAG`<sup>Required</sup> <a name="DEFAULT_TAG" id="cdk-extensions.k8s_aws.Echoserver.property.DEFAULT_TAG"></a>
 
 ```typescript
-public readonly node: Node;
+public readonly DEFAULT_TAG: string;
 ```
 
-- *Type:* constructs.Node
+- *Type:* string
 
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.k8s_aws.ExternalDns.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
+The default Docker tag of the image to use if none is provided as input.
 
 ---
-
-##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.k8s_aws.ExternalDns.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
-
----
-
-##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.ExternalDns.property.cluster"></a>
-
-```typescript
-public readonly cluster: ICluster;
-```
-
-- *Type:* aws-cdk-lib.aws_eks.ICluster
-
----
-
-##### `domainFilter`<sup>Required</sup> <a name="domainFilter" id="cdk-extensions.k8s_aws.ExternalDns.property.domainFilter"></a>
-
-```typescript
-public readonly domainFilter: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.k8s_aws.ExternalDns.property.resource"></a>
-
-```typescript
-public readonly resource: HelmChart;
-```
-
-- *Type:* aws-cdk-lib.aws_eks.HelmChart
-
----
-
-##### `serviceAccount`<sup>Required</sup> <a name="serviceAccount" id="cdk-extensions.k8s_aws.ExternalDns.property.serviceAccount"></a>
-
-```typescript
-public readonly serviceAccount: ServiceAccount;
-```
-
-- *Type:* aws-cdk-lib.aws_eks.ServiceAccount
-
----
-
 
 ### ExternalSecret <a name="ExternalSecret" id="cdk-extensions.k8s_aws.ExternalSecret"></a>
 
@@ -8649,6 +8812,14 @@ The frequency at which synchronization should occur.
 
 ### ExternalSecretsOperator <a name="ExternalSecretsOperator" id="cdk-extensions.k8s_aws.ExternalSecretsOperator"></a>
 
+External Secrets Operator is a Kubernetes operator that integrates external secret management systems like AWS Secrets Manager, HashiCorp Vault, Google Secrets Manager, Azure Key Vault and many more.
+
+The operator reads
+information from external APIs and automatically injects the values into a
+Kubernetes Secret.
+
+> [[External Secrets Website](https://external-secrets.io/)]([External Secrets Website](https://external-secrets.io/))
+
 #### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer"></a>
 
 ```typescript
@@ -8659,9 +8830,9 @@ new k8s_aws.ExternalSecretsOperator(scope: Construct, id: string, props: Externa
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_aws.ExternalSecretsOperatorProps</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the resource and used in resource naming. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_aws.ExternalSecretsOperatorProps</code> | Arguments related to the configuration of the resource. |
 
 ---
 
@@ -8669,17 +8840,25 @@ new k8s_aws.ExternalSecretsOperator(scope: Construct, id: string, props: Externa
 
 - *Type:* constructs.Construct
 
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer.parameter.id"></a>
 
 - *Type:* string
 
+A name to be associated with the resource and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
 ---
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.Initializer.parameter.props"></a>
 
 - *Type:* cdk-extensions.k8s_aws.ExternalSecretsOperatorProps
+
+Arguments related to the configuration of the resource.
 
 ---
 
@@ -8689,8 +8868,8 @@ new k8s_aws.ExternalSecretsOperator(scope: Construct, id: string, props: Externa
 | --- | --- |
 | <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSecretsManagerSecret">registerSecretsManagerSecret</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSsmParameterSecret">registerSsmParameterSecret</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSecretsManagerSecret">registerSecretsManagerSecret</a></code> | Registers a Secrets Manager secret with the external secrets operator, enabling syncing from the Secrets Manager secret into Kubernetes. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSsmParameterSecret">registerSsmParameterSecret</a></code> | Registers a Systems Manager parameter with the external secrets operator, enabling syncing from the Systems Manager parameter into Kubernetes. |
 
 ---
 
@@ -8730,9 +8909,16 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 public registerSecretsManagerSecret(id: string, secret: ISecret, options?: NamespacedExternalSecretOptions): ExternalSecret
 ```
 
+Registers a Secrets Manager secret with the external secrets operator, enabling syncing from the Secrets Manager secret into Kubernetes.
+
 ###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSecretsManagerSecret.parameter.id"></a>
 
 - *Type:* string
+
+A name to be associated with the resource and used in resource naming.
+
+Must be unique within for each secrets manager secret within a
+Kubernetes namespace.
 
 ---
 
@@ -8740,11 +8926,15 @@ public registerSecretsManagerSecret(id: string, secret: ISecret, options?: Names
 
 - *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
 
+The Secrets Manager secret to enable syncing for.
+
 ---
 
 ###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSecretsManagerSecret.parameter.options"></a>
 
 - *Type:* cdk-extensions.k8s_aws.NamespacedExternalSecretOptions
+
+Options for configuring syncing of the Secrets Manager secret.
 
 ---
 
@@ -8754,9 +8944,16 @@ public registerSecretsManagerSecret(id: string, secret: ISecret, options?: Names
 public registerSsmParameterSecret(id: string, parameter: IParameter, options?: NamespacedExternalSecretOptions): ExternalSecret
 ```
 
+Registers a Systems Manager parameter with the external secrets operator, enabling syncing from the Systems Manager parameter into Kubernetes.
+
 ###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSsmParameterSecret.parameter.id"></a>
 
 - *Type:* string
+
+A name to be associated with the resource and used in resource naming.
+
+Must be unique within for each Systems Manager parameter within a
+Kubernetes namespace.
 
 ---
 
@@ -8764,11 +8961,15 @@ public registerSsmParameterSecret(id: string, parameter: IParameter, options?: N
 
 - *Type:* aws-cdk-lib.aws_ssm.IParameter
 
+The Systems Manager parameter to enable syncing for.
+
 ---
 
 ###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.registerSsmParameterSecret.parameter.options"></a>
 
 - *Type:* cdk-extensions.k8s_aws.NamespacedExternalSecretOptions
+
+Options for configuring syncing of the Systems Manager parameter.
 
 ---
 
@@ -8839,12 +9040,10 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.Cluster</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.helmChart">helmChart</a></code> | <code>aws-cdk-lib.aws_eks.HelmChart</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.namespace">namespace</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.operatorName">operatorName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.createNamespace">createNamespace</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.Cluster</code> | The EKS cluster where the external secrets operator service should be installed and configured. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.helmChart">helmChart</a></code> | <code>aws-cdk-lib.aws_eks.HelmChart</code> | The Helm chart the manages the installation and configuration of the external secrets operator service. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the external secrets operator service should be installed and configured. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.createNamespace">createNamespace</a></code> | <code>boolean</code> | Determines the behavior when the service is deployed to a namespace that doesn't already exist on the EKS cluster. |
 
 ---
 
@@ -8899,6 +9098,8 @@ public readonly cluster: Cluster;
 
 - *Type:* aws-cdk-lib.aws_eks.Cluster
 
+The EKS cluster where the external secrets operator service should be installed and configured.
+
 ---
 
 ##### `helmChart`<sup>Required</sup> <a name="helmChart" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.helmChart"></a>
@@ -8909,15 +9110,7 @@ public readonly helmChart: HelmChart;
 
 - *Type:* aws-cdk-lib.aws_eks.HelmChart
 
----
-
-##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
+The Helm chart the manages the installation and configuration of the external secrets operator service.
 
 ---
 
@@ -8929,15 +9122,7 @@ public readonly namespace: string;
 
 - *Type:* string
 
----
-
-##### `operatorName`<sup>Required</sup> <a name="operatorName" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.operatorName"></a>
-
-```typescript
-public readonly operatorName: string;
-```
-
-- *Type:* string
+The Kubernetes namespace where the external secrets operator service should be installed and configured.
 
 ---
 
@@ -8949,13 +9134,47 @@ public readonly createNamespace: boolean;
 
 - *Type:* boolean
 
+Determines the behavior when the service is deployed to a namespace that doesn't already exist on the EKS cluster.
+
+When this flag is `true` and the namespace doesn't exist, the namespace
+will be created automatically.
+
+When this flag is `false` and the namespace doesn't exist, an error will
+occur and resource creation will fail.
+
 ---
 
 #### Constants <a name="Constants" id="Constants"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.DEFAULT_NAMESPACE">DEFAULT_NAMESPACE</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.CHART_NAME">CHART_NAME</a></code> | <code>string</code> | The name of the Helm chart to install from the Helm repository. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.CHART_REPOSITORY">CHART_REPOSITORY</a></code> | <code>string</code> | The URL of the Helm repository that hostys the Helm charts used to install the externalk secrets operator service. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperator.property.DEFAULT_NAMESPACE">DEFAULT_NAMESPACE</a></code> | <code>string</code> | The default Kubernetes namespace where the external secrets operator service should be installed and configured if no overriding input is provided. |
+
+---
+
+##### `CHART_NAME`<sup>Required</sup> <a name="CHART_NAME" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.CHART_NAME"></a>
+
+```typescript
+public readonly CHART_NAME: string;
+```
+
+- *Type:* string
+
+The name of the Helm chart to install from the Helm repository.
+
+---
+
+##### `CHART_REPOSITORY`<sup>Required</sup> <a name="CHART_REPOSITORY" id="cdk-extensions.k8s_aws.ExternalSecretsOperator.property.CHART_REPOSITORY"></a>
+
+```typescript
+public readonly CHART_REPOSITORY: string;
+```
+
+- *Type:* string
+
+The URL of the Helm repository that hostys the Helm charts used to install the externalk secrets operator service.
 
 ---
 
@@ -8966,6 +9185,8 @@ public readonly DEFAULT_NAMESPACE: string;
 ```
 
 - *Type:* string
+
+The default Kubernetes namespace where the external secrets operator service should be installed and configured if no overriding input is provided.
 
 ---
 
@@ -9177,7 +9398,7 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.filters">filters</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitFilterPlugin[]</code> | Collection of Fluent Bit filter plugins being configured for logging. |
 | <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.manifest">manifest</a></code> | <code>aws-cdk-lib.aws_eks.KubernetesManifest</code> | The Kubernetes manifest that creates the ConfigMap that Fargate uses to configure logging. |
 | <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.outputs">outputs</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]</code> | Collection of Fluent Bit output plugins being configured for logging. |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.parsers">parsers</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]</code> | Collection of Fluent Bit parser plugins being configured for logging. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLogger.property.parsers">parsers</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitParserPlugin[]</code> | Collection of Fluent Bit parser plugins being configured for logging. |
 
 ---
 
@@ -9275,10 +9496,10 @@ Collection of Fluent Bit output plugins being configured for logging.
 ##### `parsers`<sup>Required</sup> <a name="parsers" id="cdk-extensions.k8s_aws.FargateLogger.property.parsers"></a>
 
 ```typescript
-public readonly parsers: IFluentBitOutputPlugin[];
+public readonly parsers: IFluentBitParserPlugin[];
 ```
 
-- *Type:* cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]
+- *Type:* cdk-extensions.k8s_aws.IFluentBitParserPlugin[]
 
 Collection of Fluent Bit parser plugins being configured for logging.
 
@@ -10757,26 +10978,26 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Flow Logs. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTable.property.internalRejectedNamedQuery">internalRejectedNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 
 ---
@@ -10832,6 +11053,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue_tables.FlowLogsTable.property.resource"></a>
@@ -10872,6 +11095,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue_tables.FlowLogsTable.property.dataFormat"></a>
@@ -10881,6 +11106,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -10892,6 +11119,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue_tables.FlowLogsTable.property.location"></a>
@@ -10901,6 +11130,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -10912,6 +11143,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue_tables.FlowLogsTable.property.owner"></a>
@@ -10921,6 +11154,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -10932,6 +11167,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue_tables.FlowLogsTable.property.serdeName"></a>
@@ -10941,6 +11178,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -10952,6 +11191,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue_tables.FlowLogsTable.property.tableType"></a>
@@ -10961,6 +11202,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -10972,6 +11215,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue_tables.FlowLogsTable.property.viewExpandedText"></a>
@@ -10981,6 +11226,8 @@ public readonly viewExpandedText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewExpandedText}.
 
 ---
 
@@ -10992,6 +11239,8 @@ public readonly viewOriginalText: string;
 
 - *Type:* string
 
+{@link TableProps.viewOriginalText}.
+
 ---
 
 ##### `createQueries`<sup>Required</sup> <a name="createQueries" id="cdk-extensions.glue_tables.FlowLogsTable.property.createQueries"></a>
@@ -11001,6 +11250,10 @@ public readonly createQueries: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean indicating whether to create default Athena queries for the Flow Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
 
 ---
 
@@ -11012,6 +11265,8 @@ public readonly format: FlowLogFormat;
 
 - *Type:* cdk-extensions.ec2.FlowLogFormat
 
+A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs.
+
 ---
 
 ##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.FlowLogsTable.property.friendlyQueryNames"></a>
@@ -11021,6 +11276,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -11179,7 +11436,7 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.sso.GroupBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.sso.GroupBase.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.sso.GroupBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.sso.GroupBase.property.groupId">groupId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.sso.GroupBase.property.groupId">groupId</a></code> | <code>string</code> | A GUID identifier for a group object in IAM Identity Center are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). |
 | <code><a href="#cdk-extensions.sso.GroupBase.property.principalId">principalId</a></code> | <code>string</code> | The unique ID that identifies the entity withing IAM Identity Center. |
 | <code><a href="#cdk-extensions.sso.GroupBase.property.principalType">principalType</a></code> | <code>cdk-extensions.sso.IdentityCenterPrincipalType</code> | The type of entity being represented. |
 
@@ -11235,6 +11492,8 @@ public readonly groupId: string;
 ```
 
 - *Type:* string
+
+A GUID identifier for a group object in IAM Identity Center are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6).
 
 ---
 
@@ -11450,7 +11709,7 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.sso.InstanceAccessControlAttributeConfiguration.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.sso.InstanceAccessControlAttributeConfiguration.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.sso.InstanceAccessControlAttributeConfiguration.property.attributes">attributes</a></code> | <code>cdk-extensions.sso.AccessControlAttribute[]</code> | Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance. |
-| <code><a href="#cdk-extensions.sso.InstanceAccessControlAttributeConfiguration.property.instance">instance</a></code> | <code>cdk-extensions.sso.IInstance</code> | The ARN of the IAM Identity Center instance under which the operation will be executed. |
+| <code><a href="#cdk-extensions.sso.InstanceAccessControlAttributeConfiguration.property.instance">instance</a></code> | <code>cdk-extensions.sso.IInstance</code> | The ARN of the IAM Identity Center {@link aws-sso.IInstance \| instance } under which the operation will be executed. |
 | <code><a href="#cdk-extensions.sso.InstanceAccessControlAttributeConfiguration.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_sso.CfnInstanceAccessControlAttributeConfiguration</code> | The underlying InstanceAccessControlAttributeConfiguration CloudFormation resource. |
 
 ---
@@ -11522,7 +11781,7 @@ public readonly instance: IInstance;
 
 - *Type:* cdk-extensions.sso.IInstance
 
-The ARN of the IAM Identity Center instance under which the operation will be executed.
+The ARN of the IAM Identity Center {@link aws-sso.IInstance | instance } under which the operation will be executed.
 
 ---
 
@@ -11683,8 +11942,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.sso.InstanceBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.sso.InstanceBase.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.sso.InstanceBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.sso.InstanceBase.property.instanceArn">instanceArn</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.sso.InstanceBase.property.instanceId">instanceId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.sso.InstanceBase.property.instanceArn">instanceArn</a></code> | <code>string</code> | The ARN of the IAM Identity Center instance under which the operation will be executed. |
+| <code><a href="#cdk-extensions.sso.InstanceBase.property.instanceId">instanceId</a></code> | <code>string</code> | The ID of the IAM Identity Center instance under which the operation will be executed. |
 
 ---
 
@@ -11739,6 +11998,10 @@ public readonly instanceArn: string;
 
 - *Type:* string
 
+The ARN of the IAM Identity Center instance under which the operation will be executed.
+
+For more information about ARNs, see Amazon Resource Names (ARNs) and AWS Service Namespaces in the AWS General Reference.
+
 ---
 
 ##### `instanceId`<sup>Required</sup> <a name="instanceId" id="cdk-extensions.sso.InstanceBase.property.instanceId"></a>
@@ -11749,10 +12012,16 @@ public readonly instanceId: string;
 
 - *Type:* string
 
+The ID of the IAM Identity Center instance under which the operation will be executed.
+
 ---
 
 
 ### Job <a name="Job" id="cdk-extensions.glue.Job"></a>
+
+Creates a Glue Job.
+
+> [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html))
 
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.Job.Initializer"></a>
 
@@ -11764,9 +12033,9 @@ new glue.Job(scope: Construct, id: string, props: JobProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.Job.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.JobProps</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Job.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.Job.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.Job.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.JobProps</code> | Arguments related to the configuration of the resource. |
 
 ---
 
@@ -11774,17 +12043,26 @@ new glue.Job(scope: Construct, id: string, props: JobProps)
 
 - *Type:* constructs.Construct
 
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Job.Initializer.parameter.id"></a>
 
 - *Type:* string
 
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
 ---
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.Job.Initializer.parameter.props"></a>
 
 - *Type:* cdk-extensions.glue.JobProps
+
+Arguments related to the configuration of the resource.
 
 ---
 
@@ -11926,25 +12204,25 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Job.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue.Job.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue.Job.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue.Job.property.executable">executable</a></code> | <code>cdk-extensions.glue.JobExecutable</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Job.property.executable">executable</a></code> | <code>cdk-extensions.glue.JobExecutable</code> | {@link JobProps.executable:}. |
 | <code><a href="#cdk-extensions.glue.Job.property.jobArn">jobArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Job.property.jobName">jobName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Job.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnJob</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Job.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.allocatedCapacity">allocatedCapacity</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.connections">connections</a></code> | <code>cdk-extensions.glue.Connection[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.continuousLogging">continuousLogging</a></code> | <code>cdk-extensions.glue.ContinuousLoggingProps</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Job.property.allocatedCapacity">allocatedCapacity</a></code> | <code>number</code> | {@link JobProps.allocatedCapacity }. |
+| <code><a href="#cdk-extensions.glue.Job.property.connections">connections</a></code> | <code>cdk-extensions.glue.Connection[]</code> | {@link JobProps.connections}. |
+| <code><a href="#cdk-extensions.glue.Job.property.continuousLogging">continuousLogging</a></code> | <code>cdk-extensions.glue.ContinuousLoggingProps</code> | {@link JobProps.continuousLogging}. |
+| <code><a href="#cdk-extensions.glue.Job.property.description">description</a></code> | <code>string</code> | {@link JobProps.description}. |
 | <code><a href="#cdk-extensions.glue.Job.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.maxCapacity">maxCapacity</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.maxConcurrentRuns">maxConcurrentRuns</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.maxRetries">maxRetries</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.workerCount">workerCount</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.workerType">workerType</a></code> | <code>cdk-extensions.glue.WorkerType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Job.property.maxCapacity">maxCapacity</a></code> | <code>number</code> | {@link JobProps.maxCapacity}. |
+| <code><a href="#cdk-extensions.glue.Job.property.maxConcurrentRuns">maxConcurrentRuns</a></code> | <code>number</code> | {@link JobProps.maxConcurrentRuns}. |
+| <code><a href="#cdk-extensions.glue.Job.property.maxRetries">maxRetries</a></code> | <code>number</code> | {@link JobProps.maxRetries}. |
+| <code><a href="#cdk-extensions.glue.Job.property.name">name</a></code> | <code>string</code> | {@link JobProps.name}. |
+| <code><a href="#cdk-extensions.glue.Job.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | {@link JobProps.notifyDelayAfter}. |
+| <code><a href="#cdk-extensions.glue.Job.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | {@link JobProps.securityConfiguration}. |
+| <code><a href="#cdk-extensions.glue.Job.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | {@link JobProps.timeout}. |
+| <code><a href="#cdk-extensions.glue.Job.property.workerCount">workerCount</a></code> | <code>number</code> | {@link JobProps.workerCount}. |
+| <code><a href="#cdk-extensions.glue.Job.property.workerType">workerType</a></code> | <code>cdk-extensions.glue.WorkerType</code> | {@link JobProps.workerType}. |
 
 ---
 
@@ -11999,6 +12277,8 @@ public readonly executable: JobExecutable;
 
 - *Type:* cdk-extensions.glue.JobExecutable
 
+{@link JobProps.executable:}.
+
 ---
 
 ##### `jobArn`<sup>Required</sup> <a name="jobArn" id="cdk-extensions.glue.Job.property.jobArn"></a>
@@ -12049,6 +12329,8 @@ public readonly allocatedCapacity: number;
 
 - *Type:* number
 
+{@link JobProps.allocatedCapacity }.
+
 ---
 
 ##### `connections`<sup>Optional</sup> <a name="connections" id="cdk-extensions.glue.Job.property.connections"></a>
@@ -12058,6 +12340,8 @@ public readonly connections: Connection[];
 ```
 
 - *Type:* cdk-extensions.glue.Connection[]
+
+{@link JobProps.connections}.
 
 ---
 
@@ -12069,6 +12353,8 @@ public readonly continuousLogging: ContinuousLoggingProps;
 
 - *Type:* cdk-extensions.glue.ContinuousLoggingProps
 
+{@link JobProps.continuousLogging}.
+
 ---
 
 ##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.Job.property.description"></a>
@@ -12078,6 +12364,8 @@ public readonly description: string;
 ```
 
 - *Type:* string
+
+{@link JobProps.description}.
 
 ---
 
@@ -12099,6 +12387,8 @@ public readonly maxCapacity: number;
 
 - *Type:* number
 
+{@link JobProps.maxCapacity}.
+
 ---
 
 ##### `maxConcurrentRuns`<sup>Optional</sup> <a name="maxConcurrentRuns" id="cdk-extensions.glue.Job.property.maxConcurrentRuns"></a>
@@ -12108,6 +12398,8 @@ public readonly maxConcurrentRuns: number;
 ```
 
 - *Type:* number
+
+{@link JobProps.maxConcurrentRuns}.
 
 ---
 
@@ -12119,6 +12411,8 @@ public readonly maxRetries: number;
 
 - *Type:* number
 
+{@link JobProps.maxRetries}.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.Job.property.name"></a>
@@ -12128,6 +12422,8 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+{@link JobProps.name}.
 
 ---
 
@@ -12139,6 +12435,8 @@ public readonly notifyDelayAfter: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link JobProps.notifyDelayAfter}.
+
 ---
 
 ##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.Job.property.securityConfiguration"></a>
@@ -12148,6 +12446,8 @@ public readonly securityConfiguration: SecurityConfiguration;
 ```
 
 - *Type:* cdk-extensions.glue.SecurityConfiguration
+
+{@link JobProps.securityConfiguration}.
 
 ---
 
@@ -12159,6 +12459,8 @@ public readonly timeout: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link JobProps.timeout}.
+
 ---
 
 ##### `workerCount`<sup>Optional</sup> <a name="workerCount" id="cdk-extensions.glue.Job.property.workerCount"></a>
@@ -12169,6 +12471,8 @@ public readonly workerCount: number;
 
 - *Type:* number
 
+{@link JobProps.workerCount}.
+
 ---
 
 ##### `workerType`<sup>Optional</sup> <a name="workerType" id="cdk-extensions.glue.Job.property.workerType"></a>
@@ -12178,6 +12482,8 @@ public readonly workerType: WorkerType;
 ```
 
 - *Type:* cdk-extensions.glue.WorkerType
+
+{@link JobProps.workerType}.
 
 ---
 
@@ -14543,6 +14849,535 @@ environment agnostic.
 ---
 
 
+### Route53Dns <a name="Route53Dns" id="cdk-extensions.k8s_aws.Route53Dns"></a>
+
+External DNS is a Kubernetes service that make Kubernetes resources dicoverable via public DNS servers.
+
+It retrieves a list of resources
+(Services, Ingresses, etc.) from the Kubernetes API to determine a desired
+list of DNS records and configures DNS providers accordingly.
+
+The version provided here specifically targets Amazon's Route 53 service and
+all options provded are for configuring Route 53. After being installed
+external-dns will create and manage Route 53 DNS records automatically to
+allow easy network access to your pods and services.
+
+> [[Kubernetes SIGs](https://github.com/kubernetes-sigs/external-dns)]([Kubernetes SIGs](https://github.com/kubernetes-sigs/external-dns))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.Route53Dns.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.Route53Dns(scope: Construct, id: string, props: Route53DnsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the resource and used in resource naming. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_aws.Route53DnsProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.Route53Dns.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_aws.Route53Dns.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the resource and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.k8s_aws.Route53Dns.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.k8s_aws.Route53DnsProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.addDomainFilter">addDomainFilter</a></code> | Adds a domain to the domain filter list. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.addZoneTag">addZoneTag</a></code> | Adds a zone tag filter to the external DNS service. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.k8s_aws.Route53Dns.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.k8s_aws.Route53Dns.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.k8s_aws.Route53Dns.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addDomainFilter` <a name="addDomainFilter" id="cdk-extensions.k8s_aws.Route53Dns.addDomainFilter"></a>
+
+```typescript
+public addDomainFilter(domain: string): Route53Dns
+```
+
+Adds a domain to the domain filter list.
+
+The domain filter list acts as a whitelist for the domains/hosted zones
+which external-dns will manage.
+
+When domains are added to the domain filter list, external-dns will only
+create and manage records when their domain ends in with a domain that has
+been approved.
+
+###### `domain`<sup>Required</sup> <a name="domain" id="cdk-extensions.k8s_aws.Route53Dns.addDomainFilter.parameter.domain"></a>
+
+- *Type:* string
+
+The domain to be added to the whitelist.
+
+---
+
+##### `addZoneTag` <a name="addZoneTag" id="cdk-extensions.k8s_aws.Route53Dns.addZoneTag"></a>
+
+```typescript
+public addZoneTag(tag: ExternalDnsZoneTag): Route53Dns
+```
+
+Adds a zone tag filter to the external DNS service.
+
+When zone tags are provided only Routew 53 Hosted Zones that have matching
+tags will be managed by external DNS.
+
+###### `tag`<sup>Required</sup> <a name="tag" id="cdk-extensions.k8s_aws.Route53Dns.addZoneTag.parameter.tag"></a>
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsZoneTag
+
+The tag that external-dns is allowed to manage.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.k8s_aws.Route53Dns.isConstruct"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.Route53Dns.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.k8s_aws.Route53Dns.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.k8s_aws.Route53Dns.isOwnedResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.Route53Dns.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.Route53Dns.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.k8s_aws.Route53Dns.isResource"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.Route53Dns.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_aws.Route53Dns.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.chart">chart</a></code> | <code>aws-cdk-lib.aws_eks.HelmChart</code> | The Helm chart that provides the installation of external-dns. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS cluster where external-dns should be deployed. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.domainFilter">domainFilter</a></code> | <code>string[]</code> | The domain suffixes that control which hosted zones external-dns is allowed to make changes for. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.recordOwnershipRegistry">recordOwnershipRegistry</a></code> | <code>cdk-extensions.k8s_aws.IExternalDnsRegistry</code> | Registry specifying how ExternalDNS should track record ownership. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.region">region</a></code> | <code>string</code> | Override the default region external-dns uses when calling AWS API's. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.serviceAccount">serviceAccount</a></code> | <code>aws-cdk-lib.aws_eks.ServiceAccount</code> | The Kubernetes service account that is linked with the IAM Role that allows external-dns to make changes on your behalf. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.zoneTags">zoneTags</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsZoneTag[]</code> | The AWS tags that control which hosted zones external-dns is allowed to make changes for. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.apiRetries">apiRetries</a></code> | <code>number</code> | Maximum number of retries for AWS API calls before giving up. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.batchChangeSize">batchChangeSize</a></code> | <code>number</code> | Set the maximum number of changes that will be applied in each batch. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.evaluateTargetHealth">evaluateTargetHealth</a></code> | <code>boolean</code> | Sets a flag determining whether the health of the backend service should be evaluated when determining DNS routing. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.logFormat">logFormat</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsLogFormat</code> | Sets the output format external dns will use when generating logs. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.logLevel">logLevel</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsLogLevel</code> | Controls the verbosity of logs generated using the external-dns service. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be deployed. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.preferCname">preferCname</a></code> | <code>boolean</code> | When true, alias records will be avoided and CNAME records will be used instead. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.replicaCount">replicaCount</a></code> | <code>number</code> | Desired number of ExternalDNS replicas. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.syncPolicy">syncPolicy</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsSyncPolicy</code> | Controls the operations ExternalDNS will perform on the records it manages. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.zoneType">zoneType</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsZoneType</code> | Controls the types of hosted zones external-dns will create records for. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.k8s_aws.Route53Dns.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.k8s_aws.Route53Dns.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.k8s_aws.Route53Dns.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `chart`<sup>Required</sup> <a name="chart" id="cdk-extensions.k8s_aws.Route53Dns.property.chart"></a>
+
+```typescript
+public readonly chart: HelmChart;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.HelmChart
+
+The Helm chart that provides the installation of external-dns.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.Route53Dns.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The EKS cluster where external-dns should be deployed.
+
+---
+
+##### `domainFilter`<sup>Required</sup> <a name="domainFilter" id="cdk-extensions.k8s_aws.Route53Dns.property.domainFilter"></a>
+
+```typescript
+public readonly domainFilter: string[];
+```
+
+- *Type:* string[]
+
+The domain suffixes that control which hosted zones external-dns is allowed to make changes for.
+
+---
+
+##### `recordOwnershipRegistry`<sup>Required</sup> <a name="recordOwnershipRegistry" id="cdk-extensions.k8s_aws.Route53Dns.property.recordOwnershipRegistry"></a>
+
+```typescript
+public readonly recordOwnershipRegistry: IExternalDnsRegistry;
+```
+
+- *Type:* cdk-extensions.k8s_aws.IExternalDnsRegistry
+
+Registry specifying how ExternalDNS should track record ownership.
+
+Without a registry to track record ownership, External has no way to know
+which records it owns and manages and which are owned and managed by a
+different service.
+
+This can cause conflicts if there are multiple instances of External DNS
+running or if there are other services managing DNS records in similar
+zones as the different services could try to make conflicting changes due
+to lacking a shared state.
+
+---
+
+##### `region`<sup>Required</sup> <a name="region" id="cdk-extensions.k8s_aws.Route53Dns.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+
+Override the default region external-dns uses when calling AWS API's.
+
+---
+
+##### `serviceAccount`<sup>Required</sup> <a name="serviceAccount" id="cdk-extensions.k8s_aws.Route53Dns.property.serviceAccount"></a>
+
+```typescript
+public readonly serviceAccount: ServiceAccount;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ServiceAccount
+
+The Kubernetes service account that is linked with the IAM Role that allows external-dns to make changes on your behalf.
+
+---
+
+##### `zoneTags`<sup>Required</sup> <a name="zoneTags" id="cdk-extensions.k8s_aws.Route53Dns.property.zoneTags"></a>
+
+```typescript
+public readonly zoneTags: ExternalDnsZoneTag[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsZoneTag[]
+
+The AWS tags that control which hosted zones external-dns is allowed to make changes for.
+
+---
+
+##### `apiRetries`<sup>Optional</sup> <a name="apiRetries" id="cdk-extensions.k8s_aws.Route53Dns.property.apiRetries"></a>
+
+```typescript
+public readonly apiRetries: number;
+```
+
+- *Type:* number
+
+Maximum number of retries for AWS API calls before giving up.
+
+---
+
+##### `batchChangeSize`<sup>Optional</sup> <a name="batchChangeSize" id="cdk-extensions.k8s_aws.Route53Dns.property.batchChangeSize"></a>
+
+```typescript
+public readonly batchChangeSize: number;
+```
+
+- *Type:* number
+
+Set the maximum number of changes that will be applied in each batch.
+
+---
+
+##### `evaluateTargetHealth`<sup>Optional</sup> <a name="evaluateTargetHealth" id="cdk-extensions.k8s_aws.Route53Dns.property.evaluateTargetHealth"></a>
+
+```typescript
+public readonly evaluateTargetHealth: boolean;
+```
+
+- *Type:* boolean
+
+Sets a flag determining whether the health of the backend service should be evaluated when determining DNS routing.
+
+---
+
+##### `logFormat`<sup>Optional</sup> <a name="logFormat" id="cdk-extensions.k8s_aws.Route53Dns.property.logFormat"></a>
+
+```typescript
+public readonly logFormat: ExternalDnsLogFormat;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsLogFormat
+
+Sets the output format external dns will use when generating logs.
+
+---
+
+##### `logLevel`<sup>Optional</sup> <a name="logLevel" id="cdk-extensions.k8s_aws.Route53Dns.property.logLevel"></a>
+
+```typescript
+public readonly logLevel: ExternalDnsLogLevel;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsLogLevel
+
+Controls the verbosity of logs generated using the external-dns service.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_aws.Route53Dns.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where the service should be deployed.
+
+---
+
+##### `preferCname`<sup>Optional</sup> <a name="preferCname" id="cdk-extensions.k8s_aws.Route53Dns.property.preferCname"></a>
+
+```typescript
+public readonly preferCname: boolean;
+```
+
+- *Type:* boolean
+
+When true, alias records will be avoided and CNAME records will be used instead.
+
+---
+
+##### `replicaCount`<sup>Optional</sup> <a name="replicaCount" id="cdk-extensions.k8s_aws.Route53Dns.property.replicaCount"></a>
+
+```typescript
+public readonly replicaCount: number;
+```
+
+- *Type:* number
+
+Desired number of ExternalDNS replicas.
+
+---
+
+##### `syncPolicy`<sup>Optional</sup> <a name="syncPolicy" id="cdk-extensions.k8s_aws.Route53Dns.property.syncPolicy"></a>
+
+```typescript
+public readonly syncPolicy: ExternalDnsSyncPolicy;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsSyncPolicy
+
+Controls the operations ExternalDNS will perform on the records it manages.
+
+---
+
+##### `zoneType`<sup>Optional</sup> <a name="zoneType" id="cdk-extensions.k8s_aws.Route53Dns.property.zoneType"></a>
+
+```typescript
+public readonly zoneType: ExternalDnsZoneType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsZoneType
+
+Controls the types of hosted zones external-dns will create records for.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.CHART_NAME">CHART_NAME</a></code> | <code>string</code> | The name of the external-dns Helm chart. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.CHART_REPOSITORY">CHART_REPOSITORY</a></code> | <code>string</code> | The Helm repository providing the chart to be used for installing the external-dns service. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53Dns.property.DEFAULT_NAMESPACE">DEFAULT_NAMESPACE</a></code> | <code>string</code> | The default Kubernetes namespace where external-dns will be installed if an alternative isn't given as input. |
+
+---
+
+##### `CHART_NAME`<sup>Required</sup> <a name="CHART_NAME" id="cdk-extensions.k8s_aws.Route53Dns.property.CHART_NAME"></a>
+
+```typescript
+public readonly CHART_NAME: string;
+```
+
+- *Type:* string
+
+The name of the external-dns Helm chart.
+
+---
+
+##### `CHART_REPOSITORY`<sup>Required</sup> <a name="CHART_REPOSITORY" id="cdk-extensions.k8s_aws.Route53Dns.property.CHART_REPOSITORY"></a>
+
+```typescript
+public readonly CHART_REPOSITORY: string;
+```
+
+- *Type:* string
+
+The Helm repository providing the chart to be used for installing the external-dns service.
+
+---
+
+##### `DEFAULT_NAMESPACE`<sup>Required</sup> <a name="DEFAULT_NAMESPACE" id="cdk-extensions.k8s_aws.Route53Dns.property.DEFAULT_NAMESPACE"></a>
+
+```typescript
+public readonly DEFAULT_NAMESPACE: string;
+```
+
+- *Type:* string
+
+The default Kubernetes namespace where external-dns will be installed if an alternative isn't given as input.
+
+---
+
 ### S3AccessLogsBucket <a name="S3AccessLogsBucket" id="cdk-extensions.s3_buckets.S3AccessLogsBucket"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.Initializer"></a>
@@ -15683,25 +16518,25 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the S3 Access Logs. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTable.property.requestErrorsNamedQuery">requestErrorsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 
 ---
@@ -15757,6 +16592,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.resource"></a>
@@ -15797,6 +16634,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.dataFormat"></a>
@@ -15806,6 +16645,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -15817,6 +16658,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.location"></a>
@@ -15826,6 +16669,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -15837,6 +16682,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.owner"></a>
@@ -15846,6 +16693,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -15857,6 +16706,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.serdeName"></a>
@@ -15866,6 +16717,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -15877,6 +16730,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.tableType"></a>
@@ -15886,6 +16741,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -15897,6 +16754,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.viewExpandedText"></a>
@@ -15906,6 +16765,8 @@ public readonly viewExpandedText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewExpandedText}.
 
 ---
 
@@ -15917,6 +16778,8 @@ public readonly viewOriginalText: string;
 
 - *Type:* string
 
+{@link TableProps.viewOriginalText}.
+
 ---
 
 ##### `createQueries`<sup>Required</sup> <a name="createQueries" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.createQueries"></a>
@@ -15927,6 +16790,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the S3 Access Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.S3AccessLogsTable.property.friendlyQueryNames"></a>
@@ -15936,6 +16803,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -16440,10 +17309,10 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.key">key</a></code> | <code>aws-cdk-lib.aws_kms.Key</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnSecurityConfiguration</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.securityConfigurationName">securityConfigurationName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.cloudWatchEncryption">cloudWatchEncryption</a></code> | <code>cdk-extensions.glue.CloudWatchEncryption</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.jobBookmarksEncryption">jobBookmarksEncryption</a></code> | <code>cdk-extensions.glue.JobBookmarksEncryption</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.s3Encryption">s3Encryption</a></code> | <code>cdk-extensions.glue.S3Encryption</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.cloudWatchEncryption">cloudWatchEncryption</a></code> | <code>cdk-extensions.glue.CloudWatchEncryption</code> | {@link SecurityConfigurationProps.cloudWatchEncryption}. |
+| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.jobBookmarksEncryption">jobBookmarksEncryption</a></code> | <code>cdk-extensions.glue.JobBookmarksEncryption</code> | {@link SecurityConfigurationProps.jobBookmarksEncryption}. |
+| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.name">name</a></code> | <code>string</code> | {@link SecurityConfigurationProps.name}. |
+| <code><a href="#cdk-extensions.glue.SecurityConfiguration.property.s3Encryption">s3Encryption</a></code> | <code>cdk-extensions.glue.S3Encryption</code> | {@link SecurityConfigurationProps.s3Encryption}. |
 
 ---
 
@@ -16528,6 +17397,8 @@ public readonly cloudWatchEncryption: CloudWatchEncryption;
 
 - *Type:* cdk-extensions.glue.CloudWatchEncryption
 
+{@link SecurityConfigurationProps.cloudWatchEncryption}.
+
 ---
 
 ##### `jobBookmarksEncryption`<sup>Optional</sup> <a name="jobBookmarksEncryption" id="cdk-extensions.glue.SecurityConfiguration.property.jobBookmarksEncryption"></a>
@@ -16537,6 +17408,8 @@ public readonly jobBookmarksEncryption: JobBookmarksEncryption;
 ```
 
 - *Type:* cdk-extensions.glue.JobBookmarksEncryption
+
+{@link SecurityConfigurationProps.jobBookmarksEncryption}.
 
 ---
 
@@ -16548,6 +17421,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link SecurityConfigurationProps.name}.
+
 ---
 
 ##### `s3Encryption`<sup>Optional</sup> <a name="s3Encryption" id="cdk-extensions.glue.SecurityConfiguration.property.s3Encryption"></a>
@@ -16557,6 +17432,8 @@ public readonly s3Encryption: S3Encryption;
 ```
 
 - *Type:* cdk-extensions.glue.S3Encryption
+
+{@link SecurityConfigurationProps.s3Encryption}.
 
 ---
 
@@ -17682,25 +18559,25 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Ses Logs. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.bouncesQuery">bouncesQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTable.property.complaintsQuery">complaintsQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 
@@ -17757,6 +18634,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue_tables.SesLogsTable.property.resource"></a>
@@ -17797,6 +18676,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue_tables.SesLogsTable.property.dataFormat"></a>
@@ -17806,6 +18687,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -17817,6 +18700,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue_tables.SesLogsTable.property.location"></a>
@@ -17826,6 +18711,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -17837,6 +18724,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue_tables.SesLogsTable.property.owner"></a>
@@ -17846,6 +18735,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -17857,6 +18748,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue_tables.SesLogsTable.property.serdeName"></a>
@@ -17866,6 +18759,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -17877,6 +18772,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue_tables.SesLogsTable.property.tableType"></a>
@@ -17886,6 +18783,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -17897,6 +18796,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue_tables.SesLogsTable.property.viewExpandedText"></a>
@@ -17906,6 +18807,8 @@ public readonly viewExpandedText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewExpandedText}.
 
 ---
 
@@ -17917,6 +18820,8 @@ public readonly viewOriginalText: string;
 
 - *Type:* string
 
+{@link TableProps.viewOriginalText}.
+
 ---
 
 ##### `createQueries`<sup>Required</sup> <a name="createQueries" id="cdk-extensions.glue_tables.SesLogsTable.property.createQueries"></a>
@@ -17927,6 +18832,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Ses Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.SesLogsTable.property.friendlyQueryNames"></a>
@@ -17936,6 +18845,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -18307,6 +19218,10 @@ The regex pattern used to validate secret store names.
 
 ### Table <a name="Table" id="cdk-extensions.glue.Table"></a>
 
+Creates a Table resource specifying tabular data in the Glue Database.
+
+> [[AWS::Glue::Table](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html)]([AWS::Glue::Table](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html))
+
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.Table.Initializer"></a>
 
 ```typescript
@@ -18539,23 +19454,23 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Table.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue.Table.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue.Table.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue.Table.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Table.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue.Table.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Table.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Table.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Table.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Table.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue.Table.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue.Table.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue.Table.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue.Table.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue.Table.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue.Table.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue.Table.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue.Table.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue.Table.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue.Table.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue.Table.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue.Table.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
 
 ---
 
@@ -18610,6 +19525,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.Table.property.resource"></a>
@@ -18650,6 +19567,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue.Table.property.dataFormat"></a>
@@ -18659,6 +19578,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -18670,6 +19591,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue.Table.property.location"></a>
@@ -18679,6 +19602,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -18690,6 +19615,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue.Table.property.owner"></a>
@@ -18699,6 +19626,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -18710,6 +19639,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue.Table.property.serdeName"></a>
@@ -18719,6 +19650,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -18730,6 +19663,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue.Table.property.tableType"></a>
@@ -18739,6 +19674,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -18750,6 +19687,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue.Table.property.viewExpandedText"></a>
@@ -18760,6 +19699,8 @@ public readonly viewExpandedText: string;
 
 - *Type:* string
 
+{@link TableProps.viewExpandedText}.
+
 ---
 
 ##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue.Table.property.viewOriginalText"></a>
@@ -18769,6 +19710,8 @@ public readonly viewOriginalText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewOriginalText}.
 
 ---
 
@@ -18785,9 +19728,9 @@ new glue.Trigger(scope: Construct, id: string, props: TriggerProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.TriggerProps</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.TriggerProps</code> | Arguments related to the configuration of the resource. |
 
 ---
 
@@ -18795,17 +19738,26 @@ new glue.Trigger(scope: Construct, id: string, props: TriggerProps)
 
 - *Type:* constructs.Construct
 
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Trigger.Initializer.parameter.id"></a>
 
 - *Type:* string
 
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
 ---
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.Trigger.Initializer.parameter.props"></a>
 
 - *Type:* cdk-extensions.glue.TriggerProps
+
+Arguments related to the configuration of the resource.
 
 ---
 
@@ -18941,16 +19893,16 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Trigger.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue.Trigger.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue.Trigger.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue.Trigger.property.predicateOperator">predicateOperator</a></code> | <code>cdk-extensions.glue.PredicateOperator</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Trigger.property.predicateOperator">predicateOperator</a></code> | <code>cdk-extensions.glue.PredicateOperator</code> | {@link TriggerProps.predicateOperator:}. |
 | <code><a href="#cdk-extensions.glue.Trigger.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTrigger</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.type">type</a></code> | <code>cdk-extensions.glue.TriggerType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Trigger.property.type">type</a></code> | <code>cdk-extensions.glue.TriggerType</code> | {@link TriggerProps.type:}. |
 | <code><a href="#cdk-extensions.glue.Trigger.property.workflowArn">workflowArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Trigger.property.workflowName">workflowName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.schedule">schedule</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.startOnCreation">startOnCreation</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.workflow">workflow</a></code> | <code>cdk-extensions.glue.Workflow</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Trigger.property.description">description</a></code> | <code>string</code> | {@link TriggerProps.description}. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.name">name</a></code> | <code>string</code> | {@link TriggerProps.name}. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.schedule">schedule</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | {@link TriggerProps.schedule}. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.startOnCreation">startOnCreation</a></code> | <code>boolean</code> | {@link TriggerProps.startOnCreation}. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.workflow">workflow</a></code> | <code>cdk-extensions.glue.Workflow</code> | {@link TriggerProps.workflow}. |
 
 ---
 
@@ -19005,6 +19957,8 @@ public readonly predicateOperator: PredicateOperator;
 
 - *Type:* cdk-extensions.glue.PredicateOperator
 
+{@link TriggerProps.predicateOperator:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.Trigger.property.resource"></a>
@@ -19024,6 +19978,8 @@ public readonly type: TriggerType;
 ```
 
 - *Type:* cdk-extensions.glue.TriggerType
+
+{@link TriggerProps.type:}.
 
 ---
 
@@ -19055,6 +20011,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TriggerProps.description}.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.Trigger.property.name"></a>
@@ -19064,6 +20022,8 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+{@link TriggerProps.name}.
 
 ---
 
@@ -19075,6 +20035,8 @@ public readonly schedule: Schedule;
 
 - *Type:* aws-cdk-lib.aws_events.Schedule
 
+{@link TriggerProps.schedule}.
+
 ---
 
 ##### `startOnCreation`<sup>Optional</sup> <a name="startOnCreation" id="cdk-extensions.glue.Trigger.property.startOnCreation"></a>
@@ -19085,6 +20047,8 @@ public readonly startOnCreation: boolean;
 
 - *Type:* boolean
 
+{@link TriggerProps.startOnCreation}.
+
 ---
 
 ##### `workflow`<sup>Optional</sup> <a name="workflow" id="cdk-extensions.glue.Trigger.property.workflow"></a>
@@ -19094,6 +20058,8 @@ public readonly workflow: Workflow;
 ```
 
 - *Type:* cdk-extensions.glue.Workflow
+
+{@link TriggerProps.workflow}.
 
 ---
 
@@ -19244,7 +20210,7 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.sso.UserBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.sso.UserBase.property.principalId">principalId</a></code> | <code>string</code> | The unique ID that identifies the entity withing IAM Identity Center. |
 | <code><a href="#cdk-extensions.sso.UserBase.property.principalType">principalType</a></code> | <code>cdk-extensions.sso.IdentityCenterPrincipalType</code> | The type of entity being represented. |
-| <code><a href="#cdk-extensions.sso.UserBase.property.userId">userId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.sso.UserBase.property.userId">userId</a></code> | <code>string</code> | A GUID identifier for a user object in IAM Identity Center (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). |
 
 ---
 
@@ -19322,6 +20288,8 @@ public readonly userId: string;
 ```
 
 - *Type:* string
+
+A GUID identifier for a user object in IAM Identity Center (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6).
 
 ---
 
@@ -20447,25 +21415,25 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | {@link TableProps.database:}. |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.tableArn">tableArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.tableName">tableName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.compressed">compressed</a></code> | <code>boolean</code> | {@link TableProps.compressed}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | {@link TableProps.dataFormat}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.description">description</a></code> | <code>string</code> | {@link TableProps.description}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.location">location</a></code> | <code>string</code> | {@link TableProps.location}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.name">name</a></code> | <code>string</code> | {@link TableProps.name}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.owner">owner</a></code> | <code>string</code> | {@link TableProps.owner}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | {@link TableProps.retention}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.serdeName">serdeName</a></code> | <code>string</code> | {@link TableProps.serdeName}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | {@link TableProps.storedAsSubDirectories}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | {@link TableProps.tableType}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | {@link TableProps.targetTable}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | {@link TableProps.viewExpandedText}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | {@link TableProps.viewOriginalText}. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the WAF Logs. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.status5xxNamedQuery">status5xxNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTable.property.topIpsNamedQuery">topIpsNamedQuery</a></code> | <code>cdk-extensions.athena.NamedQuery</code> | *No description.* |
 
@@ -20522,6 +21490,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+{@link TableProps.database:}.
+
 ---
 
 ##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue_tables.WafLogsTable.property.resource"></a>
@@ -20562,6 +21532,8 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.compressed}.
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue_tables.WafLogsTable.property.dataFormat"></a>
@@ -20571,6 +21543,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+{@link TableProps.dataFormat}.
 
 ---
 
@@ -20582,6 +21556,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link TableProps.description}.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue_tables.WafLogsTable.property.location"></a>
@@ -20591,6 +21567,8 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.location}.
 
 ---
 
@@ -20602,6 +21580,8 @@ public readonly name: string;
 
 - *Type:* string
 
+{@link TableProps.name}.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue_tables.WafLogsTable.property.owner"></a>
@@ -20611,6 +21591,8 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.owner}.
 
 ---
 
@@ -20622,6 +21604,8 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+{@link TableProps.retention}.
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue_tables.WafLogsTable.property.serdeName"></a>
@@ -20631,6 +21615,8 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.serdeName}.
 
 ---
 
@@ -20642,6 +21628,8 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+{@link TableProps.storedAsSubDirectories}.
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue_tables.WafLogsTable.property.tableType"></a>
@@ -20651,6 +21639,8 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+{@link TableProps.tableType}.
 
 ---
 
@@ -20662,6 +21652,8 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+{@link TableProps.targetTable}.
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue_tables.WafLogsTable.property.viewExpandedText"></a>
@@ -20671,6 +21663,8 @@ public readonly viewExpandedText: string;
 ```
 
 - *Type:* string
+
+{@link TableProps.viewExpandedText}.
 
 ---
 
@@ -20682,6 +21676,8 @@ public readonly viewOriginalText: string;
 
 - *Type:* string
 
+{@link TableProps.viewOriginalText}.
+
 ---
 
 ##### `createQueries`<sup>Required</sup> <a name="createQueries" id="cdk-extensions.glue_tables.WafLogsTable.property.createQueries"></a>
@@ -20692,6 +21688,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the WAF Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Required</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.WafLogsTable.property.friendlyQueryNames"></a>
@@ -20701,6 +21701,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -20737,9 +21739,9 @@ new glue.Workflow(scope: Construct, id: string, props: WorkflowProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.Workflow.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Workflow.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Workflow.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.WorkflowProps</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Workflow.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.Workflow.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.Workflow.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.WorkflowProps</code> | Arguments related to the configuration of the resource. |
 
 ---
 
@@ -20747,17 +21749,26 @@ new glue.Workflow(scope: Construct, id: string, props: WorkflowProps)
 
 - *Type:* constructs.Construct
 
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Workflow.Initializer.parameter.id"></a>
 
 - *Type:* string
 
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
 ---
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.Workflow.Initializer.parameter.props"></a>
 
 - *Type:* cdk-extensions.glue.WorkflowProps
+
+Arguments related to the configuration of the resource.
 
 ---
 
@@ -20889,8 +21900,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Workflow.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnWorkflow</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Workflow.property.workflowArn">workflowArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Workflow.property.workflowName">workflowName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Workflow.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Workflow.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Workflow.property.description">description</a></code> | <code>string</code> | {@link WorkflowProps.description}. |
+| <code><a href="#cdk-extensions.glue.Workflow.property.name">name</a></code> | <code>string</code> | {@link WorkflowProps.name}. |
 
 ---
 
@@ -20975,6 +21986,8 @@ public readonly description: string;
 
 - *Type:* string
 
+{@link WorkflowProps.description}.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.Workflow.property.name"></a>
@@ -20984,6 +21997,8 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+{@link WorkflowProps.name}.
 
 ---
 
@@ -21035,6 +22050,135 @@ public readonly sources: string[];
 - *Type:* string[]
 
 A list of identity sources to use when mapping a specified attribute to IAM Identity Center.
+
+> [[AWS::SSO::InstanceAccessControlAttributeConfiguration AccessControlAttributeValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source)]([AWS::SSO::InstanceAccessControlAttributeConfiguration AccessControlAttributeValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source))
+
+---
+
+### AdotCollectorProps <a name="AdotCollectorProps" id="cdk-extensions.k8s_aws.AdotCollectorProps"></a>
+
+Condifuration for the AdorCollector resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.AdotCollectorProps.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const adotCollectorProps: k8s_aws.AdotCollectorProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollectorProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollectorProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollectorProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollectorProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollectorProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS cluster where the ADOT Collector will be deployed. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollectorProps.property.createNamespace">createNamespace</a></code> | <code>boolean</code> | Flag wich sets whether the deploy of the ADOT collector should include creating the Kubernetes namespace the service will be deployed to. |
+| <code><a href="#cdk-extensions.k8s_aws.AdotCollectorProps.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where resources related to the ADOT collector will be created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.k8s_aws.AdotCollectorProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.k8s_aws.AdotCollectorProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.k8s_aws.AdotCollectorProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.AdotCollectorProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.AdotCollectorProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The EKS cluster where the ADOT Collector will be deployed.
+
+---
+
+##### `createNamespace`<sup>Optional</sup> <a name="createNamespace" id="cdk-extensions.k8s_aws.AdotCollectorProps.property.createNamespace"></a>
+
+```typescript
+public readonly createNamespace: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag wich sets whether the deploy of the ADOT collector should include creating the Kubernetes namespace the service will be deployed to.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_aws.AdotCollectorProps.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+- *Default:* {@link AdotCollector.DEFAULT_NAMESPACE}
+
+The Kubernetes namespace where resources related to the ADOT collector will be created.
 
 ---
 
@@ -21199,12 +22343,12 @@ const albLogsTableProps: glue_tables.AlbLogsTableProps = { ... }
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | A bucket where logs will be stored. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the ALB Logs. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.name">name</a></code> | <code>string</code> | Name for Alb Logs Table. |
+| <code><a href="#cdk-extensions.glue_tables.AlbLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | Set a custom prefix for the S3 Bucket. |
 
 ---
 
@@ -21279,6 +22423,10 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+A bucket where logs will be stored.
+
+> [[AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)]([AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html))
+
 ---
 
 ##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue_tables.AlbLogsTableProps.property.database"></a>
@@ -21288,6 +22436,10 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html))
 
 ---
 
@@ -21299,6 +22451,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the ALB Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.AlbLogsTableProps.property.friendlyQueryNames"></a>
@@ -21308,6 +22464,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -21319,6 +22477,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for Alb Logs Table.
+
 ---
 
 ##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue_tables.AlbLogsTableProps.property.s3Prefix"></a>
@@ -21328,6 +22488,8 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+Set a custom prefix for the S3 Bucket.
 
 ---
 
@@ -21474,7 +22636,7 @@ const assignmentProps: sso.AssignmentProps = { ... }
 | <code><a href="#cdk-extensions.sso.AssignmentProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.sso.AssignmentProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.sso.AssignmentProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.sso.AssignmentProps.property.instance">instance</a></code> | <code>cdk-extensions.sso.IInstance</code> | The IAM Identity Center instance under which the operation will be executed. |
+| <code><a href="#cdk-extensions.sso.AssignmentProps.property.instance">instance</a></code> | <code>cdk-extensions.sso.IInstance</code> | The IAM Identity Center {@link aws-sso.IInstance \| instance } under which the operation will be executed. |
 | <code><a href="#cdk-extensions.sso.AssignmentProps.property.permissionSet">permissionSet</a></code> | <code>cdk-extensions.sso.IPermissionSet</code> | The permission set which governs the access being assigned. |
 | <code><a href="#cdk-extensions.sso.AssignmentProps.property.principal">principal</a></code> | <code>cdk-extensions.sso.IIdentityCenterPrincipal</code> | The IAM Identity Center principal you wish to grant permissions to. |
 | <code><a href="#cdk-extensions.sso.AssignmentProps.property.target">target</a></code> | <code>cdk-extensions.sso.AssignmentTarget</code> | The resource you wish to grant the {@link principal} entity access to using the permissions defined in the {@link permissionSet}. |
@@ -21552,7 +22714,7 @@ public readonly instance: IInstance;
 
 - *Type:* cdk-extensions.sso.IInstance
 
-The IAM Identity Center instance under which the operation will be executed.
+The IAM Identity Center {@link aws-sso.IInstance | instance } under which the operation will be executed.
 
 ---
 
@@ -21638,10 +22800,10 @@ const awsIntegratedFargateClusterProps: eks_patterns.AwsIntegratedFargateCluster
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.secretsEncryptionKey">secretsEncryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | KMS secret for envelope encryption for Kubernetes secrets. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.serviceIpv4Cidr">serviceIpv4Cidr</a></code> | <code>string</code> | The CIDR block to assign Kubernetes service IP addresses from. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.defaultProfile">defaultProfile</a></code> | <code>aws-cdk-lib.aws_eks.FargateProfileOptions</code> | Fargate Profile to create along with the cluster. |
-| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.cloudWatchMonitoringOptions">cloudWatchMonitoringOptions</a></code> | <code>cdk-extensions.eks_patterns.CloudWatchMonitoringOptions</code> | *No description.* |
-| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.externalDnsOptions">externalDnsOptions</a></code> | <code>cdk-extensions.eks_patterns.ExternalDnsOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.containerInsightsOptions">containerInsightsOptions</a></code> | <code>cdk-extensions.eks_patterns.ContainerInsightsOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.externalDnsOptions">externalDnsOptions</a></code> | <code>cdk-extensions.eks_patterns.ClusterRoute53DnsOptions</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.externalSecretsOptions">externalSecretsOptions</a></code> | <code>cdk-extensions.eks_patterns.ExternalSecretsOptions</code> | *No description.* |
-| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.loggingOptions">loggingOptions</a></code> | <code>cdk-extensions.eks_patterns.FargateLoggingOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.loggingOptions">loggingOptions</a></code> | <code>cdk-extensions.eks_patterns.ClusterFargateLoggingOptions</code> | *No description.* |
 
 ---
 
@@ -22030,23 +23192,23 @@ Fargate Profile to create along with the cluster.
 
 ---
 
-##### `cloudWatchMonitoringOptions`<sup>Optional</sup> <a name="cloudWatchMonitoringOptions" id="cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.cloudWatchMonitoringOptions"></a>
+##### `containerInsightsOptions`<sup>Optional</sup> <a name="containerInsightsOptions" id="cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.containerInsightsOptions"></a>
 
 ```typescript
-public readonly cloudWatchMonitoringOptions: CloudWatchMonitoringOptions;
+public readonly containerInsightsOptions: ContainerInsightsOptions;
 ```
 
-- *Type:* cdk-extensions.eks_patterns.CloudWatchMonitoringOptions
+- *Type:* cdk-extensions.eks_patterns.ContainerInsightsOptions
 
 ---
 
 ##### `externalDnsOptions`<sup>Optional</sup> <a name="externalDnsOptions" id="cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.externalDnsOptions"></a>
 
 ```typescript
-public readonly externalDnsOptions: ExternalDnsOptions;
+public readonly externalDnsOptions: ClusterRoute53DnsOptions;
 ```
 
-- *Type:* cdk-extensions.eks_patterns.ExternalDnsOptions
+- *Type:* cdk-extensions.eks_patterns.ClusterRoute53DnsOptions
 
 ---
 
@@ -22063,16 +23225,16 @@ public readonly externalSecretsOptions: ExternalSecretsOptions;
 ##### `loggingOptions`<sup>Optional</sup> <a name="loggingOptions" id="cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.loggingOptions"></a>
 
 ```typescript
-public readonly loggingOptions: FargateLoggingOptions;
+public readonly loggingOptions: ClusterFargateLoggingOptions;
 ```
 
-- *Type:* cdk-extensions.eks_patterns.FargateLoggingOptions
+- *Type:* cdk-extensions.eks_patterns.ClusterFargateLoggingOptions
 
 ---
 
 ### AwsLoggingStackProps <a name="AwsLoggingStackProps" id="cdk-extensions.stacks.AwsLoggingStackProps"></a>
 
-Configuration for the demo service stack.
+Configuration for AwsLoggingStack.
 
 #### Initializer <a name="Initializer" id="cdk-extensions.stacks.AwsLoggingStackProps.Initializer"></a>
 
@@ -22093,16 +23255,16 @@ const awsLoggingStackProps: stacks.AwsLoggingStackProps = { ... }
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.synthesizer">synthesizer</a></code> | <code>aws-cdk-lib.IStackSynthesizer</code> | Synthesis method to use while deploying this stack. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.tags">tags</a></code> | <code>{[ key: string ]: string}</code> | Stack tags that will be applied to all the taggable resources and the stack itself. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.terminationProtection">terminationProtection</a></code> | <code>boolean</code> | Whether to enable termination protection for this stack. |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.albLogsBucket">albLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.AlbLogsBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.cloudfrontLogsBucket">cloudfrontLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.CloudfrontLogsBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.cloudtrailLogsBucket">cloudtrailLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.CloudtrailBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.databaseName">databaseName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.flowLogsBucket">flowLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.FlowLogsBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.flowLogsFormat">flowLogsFormat</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.sesLogsBucket">sesLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.SesLogsBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.standardizeNames">standardizeNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.wafLogsBucket">wafLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.WafLogsBucket</code> | *No description.* |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.albLogsBucket">albLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.AlbLogsBucket</code> | A cdk-extensions/s3-buckets {@link aws-s3-buckets!AlbLogsBucket} object. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.cloudfrontLogsBucket">cloudfrontLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.CloudfrontLogsBucket</code> | A cdk-extensions/s3-buckets {@link aws-s3-buckets!CloudfrontLogsBucket} object. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.cloudtrailLogsBucket">cloudtrailLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.CloudtrailBucket</code> | A cdk-extensions/s3-buckets {@link aws-s3-buckets!CloudtrailBucket} object. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.databaseName">databaseName</a></code> | <code>string</code> | Name used for the Glue Database that will be created. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.flowLogsBucket">flowLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.FlowLogsBucket</code> | A cdk-extensions/s3-buckets {@link aws-s3-buckets!FlowLogsBucket} object. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.flowLogsFormat">flowLogsFormat</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.sesLogsBucket">sesLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.SesLogsBucket</code> | A cdk-extensions/s3-buckets {@link aws-s3-buckets!SesLogsBucket} object. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.standardizeNames">standardizeNames</a></code> | <code>boolean</code> | Boolean for using "standardized" naming (i.e. "aws-${service}-logs-${account} -${region}") for the created S3 Buckets. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.wafLogsBucket">wafLogsBucket</a></code> | <code>cdk-extensions.s3_buckets.WafLogsBucket</code> | A cdk-extensions/s3-buckets {@link aws-s3-buckets!WafLogsBucket} object. |
 
 ---
 
@@ -22266,6 +23428,8 @@ public readonly albLogsBucket: AlbLogsBucket;
 
 - *Type:* cdk-extensions.s3_buckets.AlbLogsBucket
 
+A cdk-extensions/s3-buckets {@link aws-s3-buckets!AlbLogsBucket} object.
+
 ---
 
 ##### `cloudfrontLogsBucket`<sup>Optional</sup> <a name="cloudfrontLogsBucket" id="cdk-extensions.stacks.AwsLoggingStackProps.property.cloudfrontLogsBucket"></a>
@@ -22275,6 +23439,8 @@ public readonly cloudfrontLogsBucket: CloudfrontLogsBucket;
 ```
 
 - *Type:* cdk-extensions.s3_buckets.CloudfrontLogsBucket
+
+A cdk-extensions/s3-buckets {@link aws-s3-buckets!CloudfrontLogsBucket} object.
 
 ---
 
@@ -22286,6 +23452,8 @@ public readonly cloudtrailLogsBucket: CloudtrailBucket;
 
 - *Type:* cdk-extensions.s3_buckets.CloudtrailBucket
 
+A cdk-extensions/s3-buckets {@link aws-s3-buckets!CloudtrailBucket} object.
+
 ---
 
 ##### `databaseName`<sup>Optional</sup> <a name="databaseName" id="cdk-extensions.stacks.AwsLoggingStackProps.property.databaseName"></a>
@@ -22295,6 +23463,8 @@ public readonly databaseName: string;
 ```
 
 - *Type:* string
+
+Name used for the Glue Database that will be created.
 
 ---
 
@@ -22306,6 +23476,8 @@ public readonly flowLogsBucket: FlowLogsBucket;
 
 - *Type:* cdk-extensions.s3_buckets.FlowLogsBucket
 
+A cdk-extensions/s3-buckets {@link aws-s3-buckets!FlowLogsBucket} object.
+
 ---
 
 ##### `flowLogsFormat`<sup>Optional</sup> <a name="flowLogsFormat" id="cdk-extensions.stacks.AwsLoggingStackProps.property.flowLogsFormat"></a>
@@ -22315,6 +23487,8 @@ public readonly flowLogsFormat: FlowLogFormat;
 ```
 
 - *Type:* cdk-extensions.ec2.FlowLogFormat
+
+A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs.
 
 ---
 
@@ -22326,6 +23500,8 @@ public readonly friendlyQueryNames: boolean;
 
 - *Type:* boolean
 
+Boolean for adding "friendly names" for the created Athena queries.
+
 ---
 
 ##### `sesLogsBucket`<sup>Optional</sup> <a name="sesLogsBucket" id="cdk-extensions.stacks.AwsLoggingStackProps.property.sesLogsBucket"></a>
@@ -22335,6 +23511,8 @@ public readonly sesLogsBucket: SesLogsBucket;
 ```
 
 - *Type:* cdk-extensions.s3_buckets.SesLogsBucket
+
+A cdk-extensions/s3-buckets {@link aws-s3-buckets!SesLogsBucket} object.
 
 ---
 
@@ -22346,6 +23524,8 @@ public readonly standardizeNames: boolean;
 
 - *Type:* boolean
 
+Boolean for using "standardized" naming (i.e. "aws-${service}-logs-${account} -${region}") for the created S3 Buckets.
+
 ---
 
 ##### `wafLogsBucket`<sup>Optional</sup> <a name="wafLogsBucket" id="cdk-extensions.stacks.AwsLoggingStackProps.property.wafLogsBucket"></a>
@@ -22355,6 +23535,8 @@ public readonly wafLogsBucket: WafLogsBucket;
 ```
 
 - *Type:* cdk-extensions.s3_buckets.WafLogsBucket
+
+A cdk-extensions/s3-buckets {@link aws-s3-buckets!WafLogsBucket} object.
 
 ---
 
@@ -22824,12 +24006,12 @@ const cloudfrontLogsTableProps: glue_tables.CloudfrontLogsTableProps = { ... }
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | The bucket where logs will be contained. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Cloudfront Logs. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.name">name</a></code> | <code>string</code> | Name for Cloudfront Logs Table. |
+| <code><a href="#cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | Set a custom prefix for the S3 Bucket. |
 
 ---
 
@@ -22904,6 +24086,10 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+The bucket where logs will be contained.
+
+> [[AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)]([AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html))
+
 ---
 
 ##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.database"></a>
@@ -22913,6 +24099,10 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html))
 
 ---
 
@@ -22924,6 +24114,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Cloudfront Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.friendlyQueryNames"></a>
@@ -22933,6 +24127,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -22944,6 +24140,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for Cloudfront Logs Table.
+
 ---
 
 ##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue_tables.CloudfrontLogsTableProps.property.s3Prefix"></a>
@@ -22953,6 +24151,8 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+Set a custom prefix for the S3 Bucket.
 
 ---
 
@@ -23117,12 +24317,12 @@ const cloudtrailTableProps: glue_tables.CloudtrailTableProps = { ... }
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | A bucket where logs will be stored. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Cloudtrail Logs. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.name">name</a></code> | <code>string</code> | Name for Cloudtrail Logs Table. |
+| <code><a href="#cdk-extensions.glue_tables.CloudtrailTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | Set a custom prefix for the S3 Bucket. |
 
 ---
 
@@ -23197,6 +24397,10 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+A bucket where logs will be stored.
+
+> [[AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)]([AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html))
+
 ---
 
 ##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue_tables.CloudtrailTableProps.property.database"></a>
@@ -23206,6 +24410,10 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html))
 
 ---
 
@@ -23217,6 +24425,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Cloudtrail Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.CloudtrailTableProps.property.friendlyQueryNames"></a>
@@ -23226,6 +24438,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -23237,6 +24451,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for Cloudtrail Logs Table.
+
 ---
 
 ##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue_tables.CloudtrailTableProps.property.s3Prefix"></a>
@@ -23246,6 +24462,8 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+Set a custom prefix for the S3 Bucket.
 
 ---
 
@@ -23345,126 +24563,333 @@ public readonly logStream: ILogStream;
 
 ---
 
-### CloudWatchMonitoringOptions <a name="CloudWatchMonitoringOptions" id="cdk-extensions.eks_patterns.CloudWatchMonitoringOptions"></a>
+### ClusterFargateLoggingOptions <a name="ClusterFargateLoggingOptions" id="cdk-extensions.eks_patterns.ClusterFargateLoggingOptions"></a>
 
-#### Initializer <a name="Initializer" id="cdk-extensions.eks_patterns.CloudWatchMonitoringOptions.Initializer"></a>
+Configuration options for enabling persistent logging for Fargate containers on the cluster.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.eks_patterns.ClusterFargateLoggingOptions.Initializer"></a>
 
 ```typescript
 import { eks_patterns } from 'cdk-extensions'
 
-const cloudWatchMonitoringOptions: eks_patterns.CloudWatchMonitoringOptions = { ... }
+const clusterFargateLoggingOptions: eks_patterns.ClusterFargateLoggingOptions = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.eks_patterns.CloudWatchMonitoringOptions.property.enabled">enabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterFargateLoggingOptions.property.fargateProfiles">fargateProfiles</a></code> | <code>aws-cdk-lib.aws_eks.FargateProfile[]</code> | A default list of Fargate profiles that should have permissions configured. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterFargateLoggingOptions.property.filters">filters</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitFilterPlugin[]</code> | The filters that should be applied to logs being processed. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterFargateLoggingOptions.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The CloudWatch log group where Farget container logs will be sent. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterFargateLoggingOptions.property.outputs">outputs</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]</code> | The output destinations where logs should be written. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterFargateLoggingOptions.property.parsers">parsers</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitParserPlugin[]</code> | The parsers to be used when reading log files. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterFargateLoggingOptions.property.enabled">enabled</a></code> | <code>boolean</code> | Controls whether logging will be set up for pods using the default Fargate provide on the EKS cluster. |
 
 ---
 
-##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.eks_patterns.CloudWatchMonitoringOptions.property.enabled"></a>
+##### `fargateProfiles`<sup>Optional</sup> <a name="fargateProfiles" id="cdk-extensions.eks_patterns.ClusterFargateLoggingOptions.property.fargateProfiles"></a>
+
+```typescript
+public readonly fargateProfiles: FargateProfile[];
+```
+
+- *Type:* aws-cdk-lib.aws_eks.FargateProfile[]
+
+A default list of Fargate profiles that should have permissions configured.
+
+Alternatively profiles can be added at any time by calling
+`addProfile`.
+
+---
+
+##### `filters`<sup>Optional</sup> <a name="filters" id="cdk-extensions.eks_patterns.ClusterFargateLoggingOptions.property.filters"></a>
+
+```typescript
+public readonly filters: IFluentBitFilterPlugin[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitFilterPlugin[]
+
+The filters that should be applied to logs being processed.
+
+---
+
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.eks_patterns.ClusterFargateLoggingOptions.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+The CloudWatch log group where Farget container logs will be sent.
+
+---
+
+##### `outputs`<sup>Optional</sup> <a name="outputs" id="cdk-extensions.eks_patterns.ClusterFargateLoggingOptions.property.outputs"></a>
+
+```typescript
+public readonly outputs: IFluentBitOutputPlugin[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]
+
+The output destinations where logs should be written.
+
+---
+
+##### `parsers`<sup>Optional</sup> <a name="parsers" id="cdk-extensions.eks_patterns.ClusterFargateLoggingOptions.property.parsers"></a>
+
+```typescript
+public readonly parsers: IFluentBitParserPlugin[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitParserPlugin[]
+
+The parsers to be used when reading log files.
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.eks_patterns.ClusterFargateLoggingOptions.property.enabled"></a>
 
 ```typescript
 public readonly enabled: boolean;
 ```
 
 - *Type:* boolean
+- *Default:* true
+
+Controls whether logging will be set up for pods using the default Fargate provide on the EKS cluster.
 
 ---
 
-### CloudWatchMonitoringProps <a name="CloudWatchMonitoringProps" id="cdk-extensions.k8s_aws.CloudWatchMonitoringProps"></a>
+### ClusterRoute53DnsOptions <a name="ClusterRoute53DnsOptions" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions"></a>
 
-#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.CloudWatchMonitoringProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.Initializer"></a>
 
 ```typescript
-import { k8s_aws } from 'cdk-extensions'
+import { eks_patterns } from 'cdk-extensions'
 
-const cloudWatchMonitoringProps: k8s_aws.CloudWatchMonitoringProps = { ... }
+const clusterRoute53DnsOptions: eks_patterns.ClusterRoute53DnsOptions = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoringProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoringProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoringProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoringProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.k8s_aws.CloudWatchMonitoringProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.apiRetries">apiRetries</a></code> | <code>number</code> | Maximum number of retries for AWS API calls before giving up. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.batchChangeSize">batchChangeSize</a></code> | <code>number</code> | Set the maximum number of changes that will be applied in each batch. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.domainFilter">domainFilter</a></code> | <code>string[]</code> | Limits possible target zones by domain suffixes. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.evaluateTargetHealth">evaluateTargetHealth</a></code> | <code>boolean</code> | Sets a flag determining whether the health of the backend service should be evaluated when determining DNS routing. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.logFormat">logFormat</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsLogFormat</code> | Sets the output format external dns will use when generating logs. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.logLevel">logLevel</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsLogLevel</code> | Controls the verbosity of logs generated using the external-dns service. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be deployed. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.preferCname">preferCname</a></code> | <code>boolean</code> | When true, alias records will be avoided and CNAME records will be used instead. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.recordOwnershipRegistry">recordOwnershipRegistry</a></code> | <code>cdk-extensions.k8s_aws.IExternalDnsRegistry</code> | Registry specifying how ExternalDNS should track record ownership. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.region">region</a></code> | <code>string</code> | Override the default region external-dns uses when calling AWS API's. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.replicaCount">replicaCount</a></code> | <code>number</code> | Desired number of ExternalDNS replicas. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.syncPolicy">syncPolicy</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsSyncPolicy</code> | Controls the operations ExternalDNS will perform on the records it manages. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.zoneTags">zoneTags</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsZoneTag[]</code> | A set of tags that can be used to restrict which hosted zones external DNS will make changes to. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.zoneType">zoneType</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsZoneType</code> | Controls the types of hosted zones external-dns will create records for. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.enabled">enabled</a></code> | <code>boolean</code> | *No description.* |
 
 ---
 
-##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.k8s_aws.CloudWatchMonitoringProps.property.account"></a>
+##### `apiRetries`<sup>Optional</sup> <a name="apiRetries" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.apiRetries"></a>
 
 ```typescript
-public readonly account: string;
+public readonly apiRetries: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+Maximum number of retries for AWS API calls before giving up.
+
+---
+
+##### `batchChangeSize`<sup>Optional</sup> <a name="batchChangeSize" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.batchChangeSize"></a>
+
+```typescript
+public readonly batchChangeSize: number;
+```
+
+- *Type:* number
+- *Default:* 1000
+
+Set the maximum number of changes that will be applied in each batch.
+
+---
+
+##### `domainFilter`<sup>Optional</sup> <a name="domainFilter" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.domainFilter"></a>
+
+```typescript
+public readonly domainFilter: string[];
+```
+
+- *Type:* string[]
+
+Limits possible target zones by domain suffixes.
+
+---
+
+##### `evaluateTargetHealth`<sup>Optional</sup> <a name="evaluateTargetHealth" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.evaluateTargetHealth"></a>
+
+```typescript
+public readonly evaluateTargetHealth: boolean;
+```
+
+- *Type:* boolean
+
+Sets a flag determining whether the health of the backend service should be evaluated when determining DNS routing.
+
+---
+
+##### `logFormat`<sup>Optional</sup> <a name="logFormat" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.logFormat"></a>
+
+```typescript
+public readonly logFormat: ExternalDnsLogFormat;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsLogFormat
+- *Default:* {@link ExternalDnsLogLevel.JSON}
+
+Sets the output format external dns will use when generating logs.
+
+---
+
+##### `logLevel`<sup>Optional</sup> <a name="logLevel" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.logLevel"></a>
+
+```typescript
+public readonly logLevel: ExternalDnsLogLevel;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsLogLevel
+- *Default:* {@link ExternalDnsLogLevel.INFO}
+
+Controls the verbosity of logs generated using the external-dns service.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
 ```
 
 - *Type:* string
-- *Default:* the resource is in the same account as the stack it belongs to
+- *Default:* 'kube-system'
 
-The AWS account ID this resource belongs to.
+The Kubernetes namespace where the service should be deployed.
 
 ---
 
-##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.k8s_aws.CloudWatchMonitoringProps.property.environmentFromArn"></a>
+##### `preferCname`<sup>Optional</sup> <a name="preferCname" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.preferCname"></a>
 
 ```typescript
-public readonly environmentFromArn: string;
+public readonly preferCname: boolean;
 ```
 
-- *Type:* string
-- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+- *Type:* boolean
+- *Default:* false
 
-ARN to deduce region and account from.
-
-The ARN is parsed and the account and region are taken from the ARN.
-This should be used for imported resources.
-
-Cannot be supplied together with either `account` or `region`.
+When true, alias records will be avoided and CNAME records will be used instead.
 
 ---
 
-##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.k8s_aws.CloudWatchMonitoringProps.property.physicalName"></a>
+##### `recordOwnershipRegistry`<sup>Optional</sup> <a name="recordOwnershipRegistry" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.recordOwnershipRegistry"></a>
 
 ```typescript
-public readonly physicalName: string;
+public readonly recordOwnershipRegistry: IExternalDnsRegistry;
 ```
 
-- *Type:* string
-- *Default:* The physical name will be allocated by CloudFormation at deployment time
+- *Type:* cdk-extensions.k8s_aws.IExternalDnsRegistry
+- *Default:* A TXT registry configured with defaults.
 
-The value passed in by users to the physical name prop of the resource.
+Registry specifying how ExternalDNS should track record ownership.
 
-`undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
-- a concrete value implies a specific physical name
-- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+Without a registry to track record ownership, External has no way to know
+which records it owns and manages and which are owned and managed by a
+different service.
+
+This can cause conflicts if there are multiple instances of External DNS
+running or if there are other services managing DNS records in similar
+zones as the different services could try to make conflicting changes due
+to lacking a shared state.
 
 ---
 
-##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.CloudWatchMonitoringProps.property.region"></a>
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.region"></a>
 
 ```typescript
 public readonly region: string;
 ```
 
 - *Type:* string
-- *Default:* the resource is in the same region as the stack it belongs to
 
-The AWS region this resource belongs to.
+Override the default region external-dns uses when calling AWS API's.
 
 ---
 
-##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.CloudWatchMonitoringProps.property.cluster"></a>
+##### `replicaCount`<sup>Optional</sup> <a name="replicaCount" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.replicaCount"></a>
 
 ```typescript
-public readonly cluster: ICluster;
+public readonly replicaCount: number;
 ```
 
-- *Type:* aws-cdk-lib.aws_eks.ICluster
+- *Type:* number
+- *Default:* 1
+
+Desired number of ExternalDNS replicas.
+
+---
+
+##### `syncPolicy`<sup>Optional</sup> <a name="syncPolicy" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.syncPolicy"></a>
+
+```typescript
+public readonly syncPolicy: ExternalDnsSyncPolicy;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsSyncPolicy
+- *Default:* {@link ExternalDnsSyncPolicy.SYNC}
+
+Controls the operations ExternalDNS will perform on the records it manages.
+
+---
+
+##### `zoneTags`<sup>Optional</sup> <a name="zoneTags" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.zoneTags"></a>
+
+```typescript
+public readonly zoneTags: ExternalDnsZoneTag[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsZoneTag[]
+
+A set of tags that can be used to restrict which hosted zones external DNS will make changes to.
+
+---
+
+##### `zoneType`<sup>Optional</sup> <a name="zoneType" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.zoneType"></a>
+
+```typescript
+public readonly zoneType: ExternalDnsZoneType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsZoneType
+- *Default:* ExternalDnsZoneType.ALL
+
+Controls the types of hosted zones external-dns will create records for.
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.eks_patterns.ClusterRoute53DnsOptions.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
 
 ---
 
@@ -23598,13 +25023,13 @@ const connectionProps: glue.ConnectionProps = { ... }
 | <code><a href="#cdk-extensions.glue.ConnectionProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.ConnectionProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.ConnectionProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.ConnectionProps.property.connectionType">connectionType</a></code> | <code>cdk-extensions.glue.ConnectionType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionProps.property.properties">properties</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionProps.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionProps.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.ConnectionProps.property.connectionType">connectionType</a></code> | <code>cdk-extensions.glue.ConnectionType</code> | The type of the connection. |
+| <code><a href="#cdk-extensions.glue.ConnectionProps.property.description">description</a></code> | <code>string</code> | A description for the Connection. |
+| <code><a href="#cdk-extensions.glue.ConnectionProps.property.name">name</a></code> | <code>string</code> | The name of the connection. |
+| <code><a href="#cdk-extensions.glue.ConnectionProps.property.properties">properties</a></code> | <code>{[ key: string ]: string}</code> | List of Key/Value pairs defining the properties of the Connection. |
+| <code><a href="#cdk-extensions.glue.ConnectionProps.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | Existing Security Group to assign to the Connection. |
+| <code><a href="#cdk-extensions.glue.ConnectionProps.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | Options for selection of subnets from the VPC to attach to the Connection. |
+| <code><a href="#cdk-extensions.glue.ConnectionProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | VPC to attach to the Connection. |
 
 ---
 
@@ -23679,6 +25104,10 @@ public readonly connectionType: ConnectionType;
 
 - *Type:* cdk-extensions.glue.ConnectionType
 
+The type of the connection.
+
+> [[AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype)]([AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype))
+
 ---
 
 ##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.ConnectionProps.property.description"></a>
@@ -23688,6 +25117,8 @@ public readonly description: string;
 ```
 
 - *Type:* string
+
+A description for the Connection.
 
 ---
 
@@ -23699,6 +25130,12 @@ public readonly name: string;
 
 - *Type:* string
 
+The name of the connection.
+
+Connection will not function as expected without a name.
+
+> [[AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name)]([AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name))
+
 ---
 
 ##### `properties`<sup>Optional</sup> <a name="properties" id="cdk-extensions.glue.ConnectionProps.property.properties"></a>
@@ -23708,6 +25145,10 @@ public readonly properties: {[ key: string ]: string};
 ```
 
 - *Type:* {[ key: string ]: string}
+
+List of Key/Value pairs defining the properties of the Connection.
+
+> [[AWS::Glue::Connection Properties](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html#Properties)]([AWS::Glue::Connection Properties](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html#Properties))
 
 ---
 
@@ -23719,6 +25160,10 @@ public readonly securityGroups: ISecurityGroup[];
 
 - *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
 
+Existing Security Group to assign to the Connection.
+
+If none is provided a new Security Group will be created.
+
 ---
 
 ##### `subnets`<sup>Optional</sup> <a name="subnets" id="cdk-extensions.glue.ConnectionProps.property.subnets"></a>
@@ -23729,6 +25174,10 @@ public readonly subnets: SubnetSelection;
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
 
+Options for selection of subnets from the VPC to attach to the Connection.
+
+> [[CDK SubnetSelection](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.SubnetSelection.html)]([CDK SubnetSelection](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.SubnetSelection.html))
+
 ---
 
 ##### `vpc`<sup>Optional</sup> <a name="vpc" id="cdk-extensions.glue.ConnectionProps.property.vpc"></a>
@@ -23738,6 +25187,57 @@ public readonly vpc: IVpc;
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+VPC to attach to the Connection.
+
+> [[IVpc Interface](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.IVpc.html)]([IVpc Interface](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.IVpc.html))
+
+---
+
+### ContainerInsightsOptions <a name="ContainerInsightsOptions" id="cdk-extensions.eks_patterns.ContainerInsightsOptions"></a>
+
+Configuration options for enabling CloudWatch monitoring on the cluster.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.eks_patterns.ContainerInsightsOptions.Initializer"></a>
+
+```typescript
+import { eks_patterns } from 'cdk-extensions'
+
+const containerInsightsOptions: eks_patterns.ContainerInsightsOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.eks_patterns.ContainerInsightsOptions.property.enabled">enabled</a></code> | <code>boolean</code> | Flag that controls whether CloudWatch Monitoring should be enabled or not. |
+| <code><a href="#cdk-extensions.eks_patterns.ContainerInsightsOptions.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where resources related to the the configuration of Container Insights will be created. |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.eks_patterns.ContainerInsightsOptions.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Flag that controls whether CloudWatch Monitoring should be enabled or not.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.eks_patterns.ContainerInsightsOptions.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+- *Default:* {@link AdotCollector.DEFAULT_NAMESPACE}
+
+The Kubernetes namespace where resources related to the the configuration of Container Insights will be created.
 
 ---
 
@@ -23903,7 +25403,7 @@ public readonly version: ConfigurationVersion;
 
 ### CrawlerProps <a name="CrawlerProps" id="cdk-extensions.glue.CrawlerProps"></a>
 
-Configuration for Crawlner.
+Configuration for Crawler.
 
 #### Initializer <a name="Initializer" id="cdk-extensions.glue.CrawlerProps.Initializer"></a>
 
@@ -23921,18 +25421,18 @@ const crawlerProps: glue.CrawlerProps = { ... }
 | <code><a href="#cdk-extensions.glue.CrawlerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.CrawlerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.CrawlerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.classifiers">classifiers</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.configuration">configuration</a></code> | <code>cdk-extensions.glue.CrawlerConfiguration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.deleteBehavior">deleteBehavior</a></code> | <code>cdk-extensions.glue.DeleteBehavior</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.recrawlBehavior">recrawlBehavior</a></code> | <code>cdk-extensions.glue.RecrawlBehavior</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.scheduleExpression">scheduleExpression</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.tablePrefix">tablePrefix</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.targets">targets</a></code> | <code>cdk-extensions.glue.ICrawlerTarget[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerProps.property.updateBehavior">updateBehavior</a></code> | <code>cdk-extensions.glue.UpdateBehavior</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.classifiers">classifiers</a></code> | <code>string[]</code> | A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.configuration">configuration</a></code> | <code>cdk-extensions.glue.CrawlerConfiguration</code> | Crawler configuration information. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | The {@link aws-glue.Database \| Database } object in which the crawler's output is stored. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.deleteBehavior">deleteBehavior</a></code> | <code>cdk-extensions.glue.DeleteBehavior</code> | The deletion behavior when the crawler finds a deleted object. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.description">description</a></code> | <code>string</code> | Description of the Crawler. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.name">name</a></code> | <code>string</code> | Name of the Crawler. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.recrawlBehavior">recrawlBehavior</a></code> | <code>cdk-extensions.glue.RecrawlBehavior</code> | When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.scheduleExpression">scheduleExpression</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | For scheduled crawlers, the schedule when the crawler runs. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | A {@link aws-glue.SecurityConfiguration \| SecurityConfiguration } object to apply to the Crawler. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.tablePrefix">tablePrefix</a></code> | <code>string</code> | The prefix added to the names of tables that are created. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.targets">targets</a></code> | <code>cdk-extensions.glue.ICrawlerTarget[]</code> | A collection of targets to crawl. |
+| <code><a href="#cdk-extensions.glue.CrawlerProps.property.updateBehavior">updateBehavior</a></code> | <code>cdk-extensions.glue.UpdateBehavior</code> | The update behavior when the crawler finds a changed schema. |
 
 ---
 
@@ -24007,6 +25507,10 @@ public readonly classifiers: string[];
 
 - *Type:* string[]
 
+A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
+
+> [[AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-classifiers)]([AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-classifiers))
+
 ---
 
 ##### `configuration`<sup>Optional</sup> <a name="configuration" id="cdk-extensions.glue.CrawlerProps.property.configuration"></a>
@@ -24016,6 +25520,12 @@ public readonly configuration: CrawlerConfiguration;
 ```
 
 - *Type:* cdk-extensions.glue.CrawlerConfiguration
+
+Crawler configuration information.
+
+This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see Configuring a Crawler.
+
+> [[AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-configuration)]([AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-configuration))
 
 ---
 
@@ -24027,6 +25537,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+The {@link aws-glue.Database | Database } object in which the crawler's output is stored.
+
 ---
 
 ##### `deleteBehavior`<sup>Optional</sup> <a name="deleteBehavior" id="cdk-extensions.glue.CrawlerProps.property.deleteBehavior"></a>
@@ -24036,6 +25548,10 @@ public readonly deleteBehavior: DeleteBehavior;
 ```
 
 - *Type:* cdk-extensions.glue.DeleteBehavior
+
+The deletion behavior when the crawler finds a deleted object.
+
+> [[AWS::Glue::Crawler SchemaChangePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior)]([AWS::Glue::Crawler SchemaChangePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior))
 
 ---
 
@@ -24047,6 +25563,8 @@ public readonly description: string;
 
 - *Type:* string
 
+Description of the Crawler.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.CrawlerProps.property.name"></a>
@@ -24056,6 +25574,8 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+Name of the Crawler.
 
 ---
 
@@ -24067,6 +25587,10 @@ public readonly recrawlBehavior: RecrawlBehavior;
 
 - *Type:* cdk-extensions.glue.RecrawlBehavior
 
+When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
+
+> [[AWS::Glue::Crawler RecrawlPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html)]([AWS::Glue::Crawler RecrawlPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html))
+
 ---
 
 ##### `scheduleExpression`<sup>Optional</sup> <a name="scheduleExpression" id="cdk-extensions.glue.CrawlerProps.property.scheduleExpression"></a>
@@ -24076,6 +25600,10 @@ public readonly scheduleExpression: Schedule;
 ```
 
 - *Type:* aws-cdk-lib.aws_events.Schedule
+
+For scheduled crawlers, the schedule when the crawler runs.
+
+> [[AWS::Glue::Crawler Schedule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html)]([AWS::Glue::Crawler Schedule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html))
 
 ---
 
@@ -24087,6 +25615,8 @@ public readonly securityConfiguration: SecurityConfiguration;
 
 - *Type:* cdk-extensions.glue.SecurityConfiguration
 
+A {@link aws-glue.SecurityConfiguration | SecurityConfiguration } object to apply to the Crawler.
+
 ---
 
 ##### `tablePrefix`<sup>Optional</sup> <a name="tablePrefix" id="cdk-extensions.glue.CrawlerProps.property.tablePrefix"></a>
@@ -24096,6 +25626,10 @@ public readonly tablePrefix: string;
 ```
 
 - *Type:* string
+
+The prefix added to the names of tables that are created.
+
+> [[AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-tableprefix)]([AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-tableprefix))
 
 ---
 
@@ -24107,6 +25641,10 @@ public readonly targets: ICrawlerTarget[];
 
 - *Type:* cdk-extensions.glue.ICrawlerTarget[]
 
+A collection of targets to crawl.
+
+> [[AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-targets)]([AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-targets))
+
 ---
 
 ##### `updateBehavior`<sup>Optional</sup> <a name="updateBehavior" id="cdk-extensions.glue.CrawlerProps.property.updateBehavior"></a>
@@ -24116,6 +25654,10 @@ public readonly updateBehavior: UpdateBehavior;
 ```
 
 - *Type:* cdk-extensions.glue.UpdateBehavior
+
+The update behavior when the crawler finds a changed schema.
+
+> [[AWS::Glue::Crawler SchemaChangePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-updatebehavior)]([AWS::Glue::Crawler SchemaChangePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-updatebehavior))
 
 ---
 
@@ -24239,9 +25781,9 @@ const databaseProps: glue.DatabaseProps = { ... }
 | <code><a href="#cdk-extensions.glue.DatabaseProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.DatabaseProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.DatabaseProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.DatabaseProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.DatabaseProps.property.locationUri">locationUri</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.DatabaseProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.DatabaseProps.property.description">description</a></code> | <code>string</code> | A description of the database. |
+| <code><a href="#cdk-extensions.glue.DatabaseProps.property.locationUri">locationUri</a></code> | <code>string</code> | The location of the database (for example, an HDFS path). |
+| <code><a href="#cdk-extensions.glue.DatabaseProps.property.name">name</a></code> | <code>string</code> | The name of the database. |
 
 ---
 
@@ -24316,6 +25858,8 @@ public readonly description: string;
 
 - *Type:* string
 
+A description of the database.
+
 ---
 
 ##### `locationUri`<sup>Optional</sup> <a name="locationUri" id="cdk-extensions.glue.DatabaseProps.property.locationUri"></a>
@@ -24326,6 +25870,10 @@ public readonly locationUri: string;
 
 - *Type:* string
 
+The location of the database (for example, an HDFS path).
+
+> [[AWS::Glue::Database DatabaseInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri)]([AWS::Glue::Database DatabaseInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri))
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.DatabaseProps.property.name"></a>
@@ -24335,6 +25883,10 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+The name of the database.
+
+For Hive compatibility, this is folded to lowercase when it is stored.
 
 ---
 
@@ -24854,6 +26406,45 @@ public readonly streamType: DeliveryStreamType;
 
 ---
 
+### DomainOptions <a name="DomainOptions" id="cdk-extensions.route53.DomainOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.route53.DomainOptions.Initializer"></a>
+
+```typescript
+import { route53 } from 'cdk-extensions'
+
+const domainOptions: route53.DomainOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.route53.DomainOptions.property.certificate">certificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
+| <code><a href="#cdk-extensions.route53.DomainOptions.property.subdomain">subdomain</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `certificate`<sup>Optional</sup> <a name="certificate" id="cdk-extensions.route53.DomainOptions.property.certificate"></a>
+
+```typescript
+public readonly certificate: ICertificate;
+```
+
+- *Type:* aws-cdk-lib.aws_certificatemanager.ICertificate
+
+---
+
+##### `subdomain`<sup>Optional</sup> <a name="subdomain" id="cdk-extensions.route53.DomainOptions.property.subdomain"></a>
+
+```typescript
+public readonly subdomain: string;
+```
+
+- *Type:* string
+
+---
+
 ### DynamicPartitioningConfiguration <a name="DynamicPartitioningConfiguration" id="cdk-extensions.kinesis_firehose.DynamicPartitioningConfiguration"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.DynamicPartitioningConfiguration.Initializer"></a>
@@ -24914,12 +26505,15 @@ const echoserverProps: k8s_aws.EchoserverProps = { ... }
 | <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
 | <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS Cluster where the service should be deployed. |
-| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.loadBalancerSubnets">loadBalancerSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The subnets where the load balancer should be created.. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.domainDiscovery">domainDiscovery</a></code> | <code>cdk-extensions.route53.DomainDiscovery</code> | Determines the behavior of automatic DNS discovery and configuration. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.loadBalancerSubnets">loadBalancerSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The subnets where the load balancer should be created. |
 | <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.name">name</a></code> | <code>string</code> | The name of the Kubernetes service to be created. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be created. |
 | <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.port">port</a></code> | <code>number</code> | The port which netcat should listen on. |
 | <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.replicas">replicas</a></code> | <code>number</code> | The number of replicas that should exist. |
 | <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | The Security groups which should be applied to the service. |
-| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.serviceSubnets">serviceSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The subnets where the service pods should run. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.subdomain">subdomain</a></code> | <code>string</code> | A subdomain that should be prefixed to the beginning of all registered domains. |
+| <code><a href="#cdk-extensions.k8s_aws.EchoserverProps.property.tag">tag</a></code> | <code>string</code> | The Docker tag specifying the version of echoserver to use. |
 
 ---
 
@@ -24998,6 +26592,19 @@ The EKS Cluster where the service should be deployed.
 
 ---
 
+##### `domainDiscovery`<sup>Optional</sup> <a name="domainDiscovery" id="cdk-extensions.k8s_aws.EchoserverProps.property.domainDiscovery"></a>
+
+```typescript
+public readonly domainDiscovery: DomainDiscovery;
+```
+
+- *Type:* cdk-extensions.route53.DomainDiscovery
+- *Default:* DomainDiscovery.PUBLIC
+
+Determines the behavior of automatic DNS discovery and configuration.
+
+---
+
 ##### `loadBalancerSubnets`<sup>Optional</sup> <a name="loadBalancerSubnets" id="cdk-extensions.k8s_aws.EchoserverProps.property.loadBalancerSubnets"></a>
 
 ```typescript
@@ -25006,7 +26613,7 @@ public readonly loadBalancerSubnets: SubnetSelection;
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
 
-The subnets where the load balancer should be created..
+The subnets where the load balancer should be created.
 
 ---
 
@@ -25017,9 +26624,22 @@ public readonly name: string;
 ```
 
 - *Type:* string
-- *Default:* 'netcat'
+- *Default:* 'echoserver'
 
 The name of the Kubernetes service to be created.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_aws.EchoserverProps.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+- *Default:* 'default'
+
+The Kubernetes namespace where the service should be created.
 
 ---
 
@@ -25030,7 +26650,7 @@ public readonly port: number;
 ```
 
 - *Type:* number
-- *Default:* 3838
+- *Default:* 80
 
 The port which netcat should listen on.
 
@@ -25061,15 +26681,29 @@ The Security groups which should be applied to the service.
 
 ---
 
-##### `serviceSubnets`<sup>Optional</sup> <a name="serviceSubnets" id="cdk-extensions.k8s_aws.EchoserverProps.property.serviceSubnets"></a>
+##### `subdomain`<sup>Optional</sup> <a name="subdomain" id="cdk-extensions.k8s_aws.EchoserverProps.property.subdomain"></a>
 
 ```typescript
-public readonly serviceSubnets: SubnetSelection;
+public readonly subdomain: string;
 ```
 
-- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+- *Type:* string
 
-The subnets where the service pods should run.
+A subdomain that should be prefixed to the beginning of all registered domains.
+
+---
+
+##### `tag`<sup>Optional</sup> <a name="tag" id="cdk-extensions.k8s_aws.EchoserverProps.property.tag"></a>
+
+```typescript
+public readonly tag: string;
+```
+
+- *Type:* string
+
+The Docker tag specifying the version of echoserver to use.
+
+> [[Google echoserver image repository](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/echoserver)]([Google echoserver image repository](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/echoserver))
 
 ---
 
@@ -25222,154 +26856,104 @@ public readonly processorConfiguration: ProcessorConfiguration;
 
 ---
 
-### ExternalDnsOptions <a name="ExternalDnsOptions" id="cdk-extensions.eks_patterns.ExternalDnsOptions"></a>
+### ExternalDnsRegistryConfiguration <a name="ExternalDnsRegistryConfiguration" id="cdk-extensions.k8s_aws.ExternalDnsRegistryConfiguration"></a>
 
-#### Initializer <a name="Initializer" id="cdk-extensions.eks_patterns.ExternalDnsOptions.Initializer"></a>
-
-```typescript
-import { eks_patterns } from 'cdk-extensions'
-
-const externalDnsOptions: eks_patterns.ExternalDnsOptions = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.eks_patterns.ExternalDnsOptions.property.domainFilter">domainFilter</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.eks_patterns.ExternalDnsOptions.property.enabled">enabled</a></code> | <code>boolean</code> | *No description.* |
-
----
-
-##### `domainFilter`<sup>Optional</sup> <a name="domainFilter" id="cdk-extensions.eks_patterns.ExternalDnsOptions.property.domainFilter"></a>
-
-```typescript
-public readonly domainFilter: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.eks_patterns.ExternalDnsOptions.property.enabled"></a>
-
-```typescript
-public readonly enabled: boolean;
-```
-
-- *Type:* boolean
-
----
-
-### ExternalDnsProps <a name="ExternalDnsProps" id="cdk-extensions.k8s_aws.ExternalDnsProps"></a>
-
-Configuration for the Inbound Resolver resource.
-
-#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.ExternalDnsProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.ExternalDnsRegistryConfiguration.Initializer"></a>
 
 ```typescript
 import { k8s_aws } from 'cdk-extensions'
 
-const externalDnsProps: k8s_aws.ExternalDnsProps = { ... }
+const externalDnsRegistryConfiguration: k8s_aws.ExternalDnsRegistryConfiguration = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsProps.property.domainFilter">domainFilter</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsRegistryConfiguration.property.registryType">registryType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsRegistryConfiguration.property.permissions">permissions</a></code> | <code>aws-cdk-lib.aws_iam.PolicyStatement[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsRegistryConfiguration.property.properties">properties</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 
 ---
 
-##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.k8s_aws.ExternalDnsProps.property.account"></a>
+##### `registryType`<sup>Required</sup> <a name="registryType" id="cdk-extensions.k8s_aws.ExternalDnsRegistryConfiguration.property.registryType"></a>
 
 ```typescript
-public readonly account: string;
+public readonly registryType: string;
 ```
 
 - *Type:* string
-- *Default:* the resource is in the same account as the stack it belongs to
-
-The AWS account ID this resource belongs to.
 
 ---
 
-##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.k8s_aws.ExternalDnsProps.property.environmentFromArn"></a>
+##### `permissions`<sup>Optional</sup> <a name="permissions" id="cdk-extensions.k8s_aws.ExternalDnsRegistryConfiguration.property.permissions"></a>
 
 ```typescript
-public readonly environmentFromArn: string;
+public readonly permissions: PolicyStatement[];
+```
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement[]
+
+---
+
+##### `properties`<sup>Optional</sup> <a name="properties" id="cdk-extensions.k8s_aws.ExternalDnsRegistryConfiguration.property.properties"></a>
+
+```typescript
+public readonly properties: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+### ExternalDnsZoneTag <a name="ExternalDnsZoneTag" id="cdk-extensions.k8s_aws.ExternalDnsZoneTag"></a>
+
+Specifies a tag that can be used to restrict which Hosted Zone external-dns will have access to.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.ExternalDnsZoneTag.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const externalDnsZoneTag: k8s_aws.ExternalDnsZoneTag = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsZoneTag.property.key">key</a></code> | <code>string</code> | The name of the tag to filter on. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsZoneTag.property.value">value</a></code> | <code>string</code> | The value of the tag to filter on. |
+
+---
+
+##### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.k8s_aws.ExternalDnsZoneTag.property.key"></a>
+
+```typescript
+public readonly key: string;
 ```
 
 - *Type:* string
-- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
 
-ARN to deduce region and account from.
-
-The ARN is parsed and the account and region are taken from the ARN.
-This should be used for imported resources.
-
-Cannot be supplied together with either `account` or `region`.
+The name of the tag to filter on.
 
 ---
 
-##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.k8s_aws.ExternalDnsProps.property.physicalName"></a>
+##### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.k8s_aws.ExternalDnsZoneTag.property.value"></a>
 
 ```typescript
-public readonly physicalName: string;
+public readonly value: string;
 ```
 
 - *Type:* string
-- *Default:* The physical name will be allocated by CloudFormation at deployment time
 
-The value passed in by users to the physical name prop of the resource.
-
-`undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
-- a concrete value implies a specific physical name
-- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
-
----
-
-##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.ExternalDnsProps.property.region"></a>
-
-```typescript
-public readonly region: string;
-```
-
-- *Type:* string
-- *Default:* the resource is in the same region as the stack it belongs to
-
-The AWS region this resource belongs to.
-
----
-
-##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.ExternalDnsProps.property.cluster"></a>
-
-```typescript
-public readonly cluster: ICluster;
-```
-
-- *Type:* aws-cdk-lib.aws_eks.ICluster
-
----
-
-##### `domainFilter`<sup>Optional</sup> <a name="domainFilter" id="cdk-extensions.k8s_aws.ExternalDnsProps.property.domainFilter"></a>
-
-```typescript
-public readonly domainFilter: string[];
-```
-
-- *Type:* string[]
+The value of the tag to filter on.
 
 ---
 
 ### ExternalSecretOptions <a name="ExternalSecretOptions" id="cdk-extensions.k8s_aws.ExternalSecretOptions"></a>
+
+Configuration options for adding a Kubernetes secret synced from an external provider to Kubernetes.
 
 #### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.ExternalSecretOptions.Initializer"></a>
 
@@ -25383,8 +26967,8 @@ const externalSecretOptions: k8s_aws.ExternalSecretOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretOptions.property.fields">fields</a></code> | <code>cdk-extensions.k8s_aws.SecretFieldReference[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretOptions.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretOptions.property.fields">fields</a></code> | <code>cdk-extensions.k8s_aws.SecretFieldReference[]</code> | A collection of field mappings that tells the external secrets operator the structure of the Kubernetes secret to create and which how fields in the Kubernetes secret should map to fields in the secret from the external secret provider. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretOptions.property.name">name</a></code> | <code>string</code> | The name of the Kubernetes secret that will be created, as it will appear from within the Kubernetes cluster. |
 
 ---
 
@@ -25395,6 +26979,9 @@ public readonly fields: SecretFieldReference[];
 ```
 
 - *Type:* cdk-extensions.k8s_aws.SecretFieldReference[]
+- *Default:* The Kubernetes secret will mirror the fields from the secret in the external provider.
+
+A collection of field mappings that tells the external secrets operator the structure of the Kubernetes secret to create and which how fields in the Kubernetes secret should map to fields in the secret from the external secret provider.
 
 ---
 
@@ -25405,6 +26992,9 @@ public readonly name: string;
 ```
 
 - *Type:* string
+- *Default:* A name will be auto-generated.
+
+The name of the Kubernetes secret that will be created, as it will appear from within the Kubernetes cluster.
 
 ---
 
@@ -25576,7 +27166,7 @@ If multiple secrets are provided their fields will be merged.
 
 ### ExternalSecretsOperatorProps <a name="ExternalSecretsOperatorProps" id="cdk-extensions.k8s_aws.ExternalSecretsOperatorProps"></a>
 
-Configuration for the Inbound Resolver resource.
+Configuration for the ExternalSecretsOperator resource.
 
 #### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.Initializer"></a>
 
@@ -25594,10 +27184,9 @@ const externalSecretsOperatorProps: k8s_aws.ExternalSecretsOperatorProps = { ...
 | <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.Cluster</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.createNamespace">createNamespace</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.namespace">namespace</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.Cluster</code> | The EKS cluster where the external secrets operator should be installed. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.createNamespace">createNamespace</a></code> | <code>boolean</code> | Determines the behavior when the service is deployed to a namespace that doesn't already exist on the EKS cluster. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the external secrets operator service should be installed and configured. |
 
 ---
 
@@ -25672,6 +27261,8 @@ public readonly cluster: Cluster;
 
 - *Type:* aws-cdk-lib.aws_eks.Cluster
 
+The EKS cluster where the external secrets operator should be installed.
+
 ---
 
 ##### `createNamespace`<sup>Optional</sup> <a name="createNamespace" id="cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.createNamespace"></a>
@@ -25681,16 +27272,15 @@ public readonly createNamespace: boolean;
 ```
 
 - *Type:* boolean
+- *Default:* true
 
----
+Determines the behavior when the service is deployed to a namespace that doesn't already exist on the EKS cluster.
 
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.k8s_aws.ExternalSecretsOperatorProps.property.name"></a>
+When this flag is `true` and the namespace doesn't exist, the namespace
+will be created automatically.
 
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
+When this flag is `false` and the namespace doesn't exist, an error will
+occur and resource creation will fail.
 
 ---
 
@@ -25701,6 +27291,9 @@ public readonly namespace: string;
 ```
 
 - *Type:* string
+- *Default:* {@link ExternalSecretsOperator.DEFAULT_NAMESPACE}
+
+The Kubernetes namespace where the external secrets operator service should be installed and configured.
 
 ---
 
@@ -25765,9 +27358,96 @@ public readonly namespace: string;
 
 ---
 
+### FargateLoggerOptions <a name="FargateLoggerOptions" id="cdk-extensions.k8s_aws.FargateLoggerOptions"></a>
+
+Optional configuration for the FargateLogger resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FargateLoggerOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const fargateLoggerOptions: k8s_aws.FargateLoggerOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerOptions.property.fargateProfiles">fargateProfiles</a></code> | <code>aws-cdk-lib.aws_eks.FargateProfile[]</code> | A default list of Fargate profiles that should have permissions configured. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerOptions.property.filters">filters</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitFilterPlugin[]</code> | The filters that should be applied to logs being processed. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerOptions.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The CloudWatch log group where Farget container logs will be sent. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerOptions.property.outputs">outputs</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]</code> | The output destinations where logs should be written. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerOptions.property.parsers">parsers</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitParserPlugin[]</code> | The parsers to be used when reading log files. |
+
+---
+
+##### `fargateProfiles`<sup>Optional</sup> <a name="fargateProfiles" id="cdk-extensions.k8s_aws.FargateLoggerOptions.property.fargateProfiles"></a>
+
+```typescript
+public readonly fargateProfiles: FargateProfile[];
+```
+
+- *Type:* aws-cdk-lib.aws_eks.FargateProfile[]
+
+A default list of Fargate profiles that should have permissions configured.
+
+Alternatively profiles can be added at any time by calling
+`addProfile`.
+
+---
+
+##### `filters`<sup>Optional</sup> <a name="filters" id="cdk-extensions.k8s_aws.FargateLoggerOptions.property.filters"></a>
+
+```typescript
+public readonly filters: IFluentBitFilterPlugin[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitFilterPlugin[]
+
+The filters that should be applied to logs being processed.
+
+---
+
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.k8s_aws.FargateLoggerOptions.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+The CloudWatch log group where Farget container logs will be sent.
+
+---
+
+##### `outputs`<sup>Optional</sup> <a name="outputs" id="cdk-extensions.k8s_aws.FargateLoggerOptions.property.outputs"></a>
+
+```typescript
+public readonly outputs: IFluentBitOutputPlugin[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]
+
+The output destinations where logs should be written.
+
+---
+
+##### `parsers`<sup>Optional</sup> <a name="parsers" id="cdk-extensions.k8s_aws.FargateLoggerOptions.property.parsers"></a>
+
+```typescript
+public readonly parsers: IFluentBitParserPlugin[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitParserPlugin[]
+
+The parsers to be used when reading log files.
+
+---
+
 ### FargateLoggerProps <a name="FargateLoggerProps" id="cdk-extensions.k8s_aws.FargateLoggerProps"></a>
 
-Configuration for the FargateLogger resource.
+Required configuration for the Fargate logger resource.
 
 #### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.FargateLoggerProps.Initializer"></a>
 
@@ -25781,16 +27461,79 @@ const fargateLoggerProps: k8s_aws.FargateLoggerProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS Cluster to configure Fargate logging for. |
 | <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.fargateProfiles">fargateProfiles</a></code> | <code>aws-cdk-lib.aws_eks.FargateProfile[]</code> | A default list of Fargate profiles that should have permissions configured. |
 | <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.filters">filters</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitFilterPlugin[]</code> | The filters that should be applied to logs being processed. |
 | <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The CloudWatch log group where Farget container logs will be sent. |
 | <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.outputs">outputs</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]</code> | The output destinations where logs should be written. |
 | <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.parsers">parsers</a></code> | <code>cdk-extensions.k8s_aws.IFluentBitParserPlugin[]</code> | The parsers to be used when reading log files. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.FargateLoggerProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS Cluster to configure Fargate logging for. |
+
+---
+
+##### `fargateProfiles`<sup>Optional</sup> <a name="fargateProfiles" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.fargateProfiles"></a>
+
+```typescript
+public readonly fargateProfiles: FargateProfile[];
+```
+
+- *Type:* aws-cdk-lib.aws_eks.FargateProfile[]
+
+A default list of Fargate profiles that should have permissions configured.
+
+Alternatively profiles can be added at any time by calling
+`addProfile`.
+
+---
+
+##### `filters`<sup>Optional</sup> <a name="filters" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.filters"></a>
+
+```typescript
+public readonly filters: IFluentBitFilterPlugin[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitFilterPlugin[]
+
+The filters that should be applied to logs being processed.
+
+---
+
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+The CloudWatch log group where Farget container logs will be sent.
+
+---
+
+##### `outputs`<sup>Optional</sup> <a name="outputs" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.outputs"></a>
+
+```typescript
+public readonly outputs: IFluentBitOutputPlugin[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]
+
+The output destinations where logs should be written.
+
+---
+
+##### `parsers`<sup>Optional</sup> <a name="parsers" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.parsers"></a>
+
+```typescript
+public readonly parsers: IFluentBitParserPlugin[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.IFluentBitParserPlugin[]
+
+The parsers to be used when reading log files.
 
 ---
 
@@ -25866,139 +27609,6 @@ public readonly cluster: ICluster;
 - *Type:* aws-cdk-lib.aws_eks.ICluster
 
 The EKS Cluster to configure Fargate logging for.
-
----
-
-##### `fargateProfiles`<sup>Optional</sup> <a name="fargateProfiles" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.fargateProfiles"></a>
-
-```typescript
-public readonly fargateProfiles: FargateProfile[];
-```
-
-- *Type:* aws-cdk-lib.aws_eks.FargateProfile[]
-
-A default list of Fargate profiles that should have permissions configured.
-
-Alternatively profiles can be added at any time by calling
-`addProfile`.
-
----
-
-##### `filters`<sup>Optional</sup> <a name="filters" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.filters"></a>
-
-```typescript
-public readonly filters: IFluentBitFilterPlugin[];
-```
-
-- *Type:* cdk-extensions.k8s_aws.IFluentBitFilterPlugin[]
-
-The filters that should be applied to logs being processed.
-
----
-
-##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.logGroup"></a>
-
-```typescript
-public readonly logGroup: ILogGroup;
-```
-
-- *Type:* aws-cdk-lib.aws_logs.ILogGroup
-
-The CloudWatch log group where Farget container logs will be sent.
-
----
-
-##### `outputs`<sup>Optional</sup> <a name="outputs" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.outputs"></a>
-
-```typescript
-public readonly outputs: IFluentBitOutputPlugin[];
-```
-
-- *Type:* cdk-extensions.k8s_aws.IFluentBitOutputPlugin[]
-
-The output destinations where logs should be written.
-
----
-
-##### `parsers`<sup>Optional</sup> <a name="parsers" id="cdk-extensions.k8s_aws.FargateLoggerProps.property.parsers"></a>
-
-```typescript
-public readonly parsers: IFluentBitParserPlugin[];
-```
-
-- *Type:* cdk-extensions.k8s_aws.IFluentBitParserPlugin[]
-
-The parsers to be used when reading log files.
-
----
-
-### FargateLoggingOptions <a name="FargateLoggingOptions" id="cdk-extensions.eks_patterns.FargateLoggingOptions"></a>
-
-#### Initializer <a name="Initializer" id="cdk-extensions.eks_patterns.FargateLoggingOptions.Initializer"></a>
-
-```typescript
-import { eks_patterns } from 'cdk-extensions'
-
-const fargateLoggingOptions: eks_patterns.FargateLoggingOptions = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.eks_patterns.FargateLoggingOptions.property.enabled">enabled</a></code> | <code>boolean</code> | Controls whether logging will be set up for pods using the default Fargate provide on the EKS cluster. |
-| <code><a href="#cdk-extensions.eks_patterns.FargateLoggingOptions.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The CloudWatch log group where Farget container logs will be sent. |
-| <code><a href="#cdk-extensions.eks_patterns.FargateLoggingOptions.property.logStreamPrefix">logStreamPrefix</a></code> | <code>string</code> | The prefix to add to the start of log streams created by the Fargate logger. |
-| <code><a href="#cdk-extensions.eks_patterns.FargateLoggingOptions.property.retention">retention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | The number of days logs sent to CloudWatch from Fluent Bit should be retained before they are automatically removed. |
-
----
-
-##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.eks_patterns.FargateLoggingOptions.property.enabled"></a>
-
-```typescript
-public readonly enabled: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Controls whether logging will be set up for pods using the default Fargate provide on the EKS cluster.
-
----
-
-##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.eks_patterns.FargateLoggingOptions.property.logGroup"></a>
-
-```typescript
-public readonly logGroup: ILogGroup;
-```
-
-- *Type:* aws-cdk-lib.aws_logs.ILogGroup
-
-The CloudWatch log group where Farget container logs will be sent.
-
----
-
-##### `logStreamPrefix`<sup>Optional</sup> <a name="logStreamPrefix" id="cdk-extensions.eks_patterns.FargateLoggingOptions.property.logStreamPrefix"></a>
-
-```typescript
-public readonly logStreamPrefix: string;
-```
-
-- *Type:* string
-
-The prefix to add to the start of log streams created by the Fargate logger.
-
----
-
-##### `retention`<sup>Optional</sup> <a name="retention" id="cdk-extensions.eks_patterns.FargateLoggingOptions.property.retention"></a>
-
-```typescript
-public readonly retention: RetentionDays;
-```
-
-- *Type:* aws-cdk-lib.aws_logs.RetentionDays
-
-The number of days logs sent to CloudWatch from Fluent Bit should be retained before they are automatically removed.
 
 ---
 
@@ -26557,13 +28167,13 @@ const flowLogsTableProps: glue_tables.FlowLogsTableProps = { ... }
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | A bucket where logs will be stored. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Flow Logs. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.name">name</a></code> | <code>string</code> | Name for Flow Logs Table. |
+| <code><a href="#cdk-extensions.glue_tables.FlowLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | Set a custom prefix for the S3 Bucket. |
 
 ---
 
@@ -26638,6 +28248,10 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+A bucket where logs will be stored.
+
+> [[AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)]([AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html))
+
 ---
 
 ##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue_tables.FlowLogsTableProps.property.database"></a>
@@ -26647,6 +28261,10 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html))
 
 ---
 
@@ -26658,6 +28276,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Flow Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `format`<sup>Optional</sup> <a name="format" id="cdk-extensions.glue_tables.FlowLogsTableProps.property.format"></a>
@@ -26667,6 +28289,8 @@ public readonly format: FlowLogFormat;
 ```
 
 - *Type:* cdk-extensions.ec2.FlowLogFormat
+
+A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs.
 
 ---
 
@@ -26678,6 +28302,8 @@ public readonly friendlyQueryNames: boolean;
 
 - *Type:* boolean
 
+Boolean for adding "friendly names" for the created Athena queries.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue_tables.FlowLogsTableProps.property.name"></a>
@@ -26688,6 +28314,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for Flow Logs Table.
+
 ---
 
 ##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue_tables.FlowLogsTableProps.property.s3Prefix"></a>
@@ -26697,6 +28325,8 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+Set a custom prefix for the S3 Bucket.
 
 ---
 
@@ -30088,8 +31718,8 @@ const jdbcTargetOptions: glue.JdbcTargetOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.JdbcTargetOptions.property.exclusions">exclusions</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JdbcTargetOptions.property.paths">paths</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcTargetOptions.property.exclusions">exclusions</a></code> | <code>string[]</code> | A list of glob patterns used to exclude from the crawl. |
+| <code><a href="#cdk-extensions.glue.JdbcTargetOptions.property.paths">paths</a></code> | <code>string[]</code> | The path of the JDBC target. |
 
 ---
 
@@ -30101,6 +31731,12 @@ public readonly exclusions: string[];
 
 - *Type:* string[]
 
+A list of glob patterns used to exclude from the crawl.
+
+For more information
+
+> [[Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)]([Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html))
+
 ---
 
 ##### `paths`<sup>Optional</sup> <a name="paths" id="cdk-extensions.glue.JdbcTargetOptions.property.paths"></a>
@@ -30110,6 +31746,10 @@ public readonly paths: string[];
 ```
 
 - *Type:* string[]
+
+The path of the JDBC target.
+
+> [[AWS::Glue::Crawler JdbcTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-path)]([AWS::Glue::Crawler JdbcTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-path))
 
 ---
 
@@ -30350,23 +31990,23 @@ const jobProps: glue.JobProps = { ... }
 | <code><a href="#cdk-extensions.glue.JobProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.JobProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.JobProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.JobProps.property.executable">executable</a></code> | <code>cdk-extensions.glue.JobExecutable</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.allocatedCapacity">allocatedCapacity</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.connections">connections</a></code> | <code>cdk-extensions.glue.Connection[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.continuousLogging">continuousLogging</a></code> | <code>cdk-extensions.glue.ContinuousLoggingProps</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.defaultArguments">defaultArguments</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.enableProfilingMetrics">enableProfilingMetrics</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.maxCapacity">maxCapacity</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.maxConcurrentRuns">maxConcurrentRuns</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.maxRetries">maxRetries</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.workerCount">workerCount</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobProps.property.workerType">workerType</a></code> | <code>cdk-extensions.glue.WorkerType</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JobProps.property.executable">executable</a></code> | <code>cdk-extensions.glue.JobExecutable</code> | Executable properties for the Job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.allocatedCapacity">allocatedCapacity</a></code> | <code>number</code> | The number of capacity units that are allocated to this job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.connections">connections</a></code> | <code>cdk-extensions.glue.Connection[]</code> | List of Connections for use with this job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.continuousLogging">continuousLogging</a></code> | <code>cdk-extensions.glue.ContinuousLoggingProps</code> | Set of properties for configuration of Continuous Logging. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.defaultArguments">defaultArguments</a></code> | <code>{[ key: string ]: string}</code> | The default arguments for this job, specified as name-value pairs. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.description">description</a></code> | <code>string</code> | A description of the job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.enableProfilingMetrics">enableProfilingMetrics</a></code> | <code>boolean</code> | Boolean value for whether to enable Profiling Metrics. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.maxCapacity">maxCapacity</a></code> | <code>number</code> | The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.maxConcurrentRuns">maxConcurrentRuns</a></code> | <code>number</code> | Maximum number of concurrent executions. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.maxRetries">maxRetries</a></code> | <code>number</code> | The maximum number of times to retry this job after a JobRun fails. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.name">name</a></code> | <code>string</code> | A name for the Job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | After a job run starts, the number of minutes to wait before sending a job run delay notification. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The name or Amazon Resource Name (ARN) of the IAM role associated with this job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.securityConfiguration">securityConfiguration</a></code> | <code>cdk-extensions.glue.SecurityConfiguration</code> | The Security Configuration object to be applied to the Job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The job timeout in minutes. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.workerCount">workerCount</a></code> | <code>number</code> | The number of worker available the Job. |
+| <code><a href="#cdk-extensions.glue.JobProps.property.workerType">workerType</a></code> | <code>cdk-extensions.glue.WorkerType</code> | The type of predefined worker that is allocated when a job runs. |
 
 ---
 
@@ -30441,6 +32081,8 @@ public readonly executable: JobExecutable;
 
 - *Type:* cdk-extensions.glue.JobExecutable
 
+Executable properties for the Job.
+
 ---
 
 ##### `allocatedCapacity`<sup>Optional</sup> <a name="allocatedCapacity" id="cdk-extensions.glue.JobProps.property.allocatedCapacity"></a>
@@ -30450,6 +32092,10 @@ public readonly allocatedCapacity: number;
 ```
 
 - *Type:* number
+
+The number of capacity units that are allocated to this job.
+
+> [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-allocatedcapacity)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-allocatedcapacity))
 
 ---
 
@@ -30461,6 +32107,10 @@ public readonly connections: Connection[];
 
 - *Type:* cdk-extensions.glue.Connection[]
 
+List of Connections for use with this job.
+
+> [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-connections)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-connections))
+
 ---
 
 ##### `continuousLogging`<sup>Optional</sup> <a name="continuousLogging" id="cdk-extensions.glue.JobProps.property.continuousLogging"></a>
@@ -30470,6 +32120,8 @@ public readonly continuousLogging: ContinuousLoggingProps;
 ```
 
 - *Type:* cdk-extensions.glue.ContinuousLoggingProps
+
+Set of properties for configuration of Continuous Logging.
 
 ---
 
@@ -30481,6 +32133,12 @@ public readonly defaultArguments: {[ key: string ]: string};
 
 - *Type:* {[ key: string ]: string}
 
+The default arguments for this job, specified as name-value pairs.
+
+You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
+
+> [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-defaultarguments)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-defaultarguments))
+
 ---
 
 ##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.JobProps.property.description"></a>
@@ -30490,6 +32148,8 @@ public readonly description: string;
 ```
 
 - *Type:* string
+
+A description of the job.
 
 ---
 
@@ -30501,6 +32161,8 @@ public readonly enableProfilingMetrics: boolean;
 
 - *Type:* boolean
 
+Boolean value for whether to enable Profiling Metrics.
+
 ---
 
 ##### `maxCapacity`<sup>Optional</sup> <a name="maxCapacity" id="cdk-extensions.glue.JobProps.property.maxCapacity"></a>
@@ -30510,6 +32172,18 @@ public readonly maxCapacity: number;
 ```
 
 - *Type:* number
+
+The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+
+A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+
+Do not set Max Capacity if using WorkerType and NumberOfWorkers.
+
+The value that can be allocated for MaxCapacity depends on whether you are running a Python shell job or an Apache Spark ETL job:
+
+    - When you specify a Python shell job (JobCommand.Name="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
+
+    - When you specify an Apache Spark ETL job (JobCommand.Name="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
 
 ---
 
@@ -30521,6 +32195,10 @@ public readonly maxConcurrentRuns: number;
 
 - *Type:* number
 
+Maximum number of concurrent executions.
+
+> [[AWS::Glue::Job ExecutionProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html)]([AWS::Glue::Job ExecutionProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html))
+
 ---
 
 ##### `maxRetries`<sup>Optional</sup> <a name="maxRetries" id="cdk-extensions.glue.JobProps.property.maxRetries"></a>
@@ -30530,6 +32208,10 @@ public readonly maxRetries: number;
 ```
 
 - *Type:* number
+
+The maximum number of times to retry this job after a JobRun fails.
+
+> [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-maxretries)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-maxretries))
 
 ---
 
@@ -30541,6 +32223,8 @@ public readonly name: string;
 
 - *Type:* string
 
+A name for the Job.
+
 ---
 
 ##### `notifyDelayAfter`<sup>Optional</sup> <a name="notifyDelayAfter" id="cdk-extensions.glue.JobProps.property.notifyDelayAfter"></a>
@@ -30550,6 +32234,10 @@ public readonly notifyDelayAfter: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+After a job run starts, the number of minutes to wait before sending a job run delay notification.
+
+> [[AWS::Glue::Job NotificationProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html)]([AWS::Glue::Job NotificationProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html))
 
 ---
 
@@ -30561,6 +32249,8 @@ public readonly role: IRole;
 
 - *Type:* aws-cdk-lib.aws_iam.IRole
 
+The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
+
 ---
 
 ##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.JobProps.property.securityConfiguration"></a>
@@ -30570,6 +32260,8 @@ public readonly securityConfiguration: SecurityConfiguration;
 ```
 
 - *Type:* cdk-extensions.glue.SecurityConfiguration
+
+The Security Configuration object to be applied to the Job.
 
 ---
 
@@ -30581,6 +32273,12 @@ public readonly timeout: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+The job timeout in minutes.
+
+This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours).
+
+> [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-timeout)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-timeout))
+
 ---
 
 ##### `workerCount`<sup>Optional</sup> <a name="workerCount" id="cdk-extensions.glue.JobProps.property.workerCount"></a>
@@ -30591,6 +32289,8 @@ public readonly workerCount: number;
 
 - *Type:* number
 
+The number of worker available the Job.
+
 ---
 
 ##### `workerType`<sup>Optional</sup> <a name="workerType" id="cdk-extensions.glue.JobProps.property.workerType"></a>
@@ -30600,6 +32300,12 @@ public readonly workerType: WorkerType;
 ```
 
 - *Type:* cdk-extensions.glue.WorkerType
+
+The type of predefined worker that is allocated when a job runs.
+
+Accepts a value of Standard, G.1X, or G.2X.
+
+> [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-workertype)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-workertype))
 
 ---
 
@@ -30998,6 +32704,8 @@ The name of the query.
 
 ### NamespacedExternalSecretOptions <a name="NamespacedExternalSecretOptions" id="cdk-extensions.k8s_aws.NamespacedExternalSecretOptions"></a>
 
+Configuration options for adding a Kubernetes secret synced from an external provider to a specific Kubernetes namespace.
+
 #### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.NamespacedExternalSecretOptions.Initializer"></a>
 
 ```typescript
@@ -31010,9 +32718,9 @@ const namespacedExternalSecretOptions: k8s_aws.NamespacedExternalSecretOptions =
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.k8s_aws.NamespacedExternalSecretOptions.property.fields">fields</a></code> | <code>cdk-extensions.k8s_aws.SecretFieldReference[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.NamespacedExternalSecretOptions.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.k8s_aws.NamespacedExternalSecretOptions.property.namespace">namespace</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.k8s_aws.NamespacedExternalSecretOptions.property.fields">fields</a></code> | <code>cdk-extensions.k8s_aws.SecretFieldReference[]</code> | A collection of field mappings that tells the external secrets operator the structure of the Kubernetes secret to create and which how fields in the Kubernetes secret should map to fields in the secret from the external secret provider. |
+| <code><a href="#cdk-extensions.k8s_aws.NamespacedExternalSecretOptions.property.name">name</a></code> | <code>string</code> | The name of the Kubernetes secret that will be created, as it will appear from within the Kubernetes cluster. |
+| <code><a href="#cdk-extensions.k8s_aws.NamespacedExternalSecretOptions.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the synced secret should be created. |
 
 ---
 
@@ -31023,6 +32731,9 @@ public readonly fields: SecretFieldReference[];
 ```
 
 - *Type:* cdk-extensions.k8s_aws.SecretFieldReference[]
+- *Default:* The Kubernetes secret will mirror the fields from the secret in the external provider.
+
+A collection of field mappings that tells the external secrets operator the structure of the Kubernetes secret to create and which how fields in the Kubernetes secret should map to fields in the secret from the external secret provider.
 
 ---
 
@@ -31033,6 +32744,9 @@ public readonly name: string;
 ```
 
 - *Type:* string
+- *Default:* A name will be auto-generated.
+
+The name of the Kubernetes secret that will be created, as it will appear from within the Kubernetes cluster.
 
 ---
 
@@ -31043,6 +32757,9 @@ public readonly namespace: string;
 ```
 
 - *Type:* string
+- *Default:* 'default'
+
+The Kubernetes namespace where the synced secret should be created.
 
 ---
 
@@ -31465,6 +33182,8 @@ public readonly description: string;
 
 A user friendly description providing details about the permission set.
 
+> [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description))
+
 ---
 
 ##### `inlinePolicies`<sup>Optional</sup> <a name="inlinePolicies" id="cdk-extensions.sso.PermissionSetProps.property.inlinePolicies"></a>
@@ -31476,6 +33195,8 @@ public readonly inlinePolicies: {[ key: string ]: PolicyDocument};
 - *Type:* {[ key: string ]: aws-cdk-lib.aws_iam.PolicyDocument}
 
 Adds inline policy documents that will be embedded in the permission set.
+
+> [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy))
 
 ---
 
@@ -31493,6 +33214,8 @@ Managed policies specified here must be AWS managed.
 To reference custom managed policies use the {@link PermissionSet.addCustomerManagedPolicy}
 method.
 
+> [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies))
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.sso.PermissionSetProps.property.name"></a>
@@ -31504,6 +33227,8 @@ public readonly name: string;
 - *Type:* string
 
 The name of the permission set.
+
+> [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name))
 
 ---
 
@@ -31525,6 +33250,8 @@ any policy can grant your role. For more information, see [Permissions
 boundaries](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) for IAM entities in the AWS Identity and Access Management
 User Guide.
 
+> [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-permissionsboundary)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-permissionsboundary))
+
 ---
 
 ##### `relayState`<sup>Optional</sup> <a name="relayState" id="cdk-extensions.sso.PermissionSetProps.property.relayState"></a>
@@ -31541,6 +33268,8 @@ For example, you can redirect users to a
 specific page that is most applicable to their job after singing in to
 an AWS account.
 
+> [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype))
+
 ---
 
 ##### `sessionDuration`<sup>Optional</sup> <a name="sessionDuration" id="cdk-extensions.sso.PermissionSetProps.property.sessionDuration"></a>
@@ -31552,6 +33281,8 @@ public readonly sessionDuration: Duration;
 - *Type:* aws-cdk-lib.Duration
 
 The length of time that the application user sessions are valid for.
+
+> [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration))
 
 ---
 
@@ -32743,6 +34474,512 @@ Using a simple regular expression we can specify a matching pattern to use again
 
 ---
 
+### Route53DnsOptions <a name="Route53DnsOptions" id="cdk-extensions.k8s_aws.Route53DnsOptions"></a>
+
+Optional configuration for the Route53Dns resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.Route53DnsOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const route53DnsOptions: k8s_aws.Route53DnsOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsOptions.property.apiRetries">apiRetries</a></code> | <code>number</code> | Maximum number of retries for AWS API calls before giving up. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsOptions.property.batchChangeSize">batchChangeSize</a></code> | <code>number</code> | Set the maximum number of changes that will be applied in each batch. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsOptions.property.domainFilter">domainFilter</a></code> | <code>string[]</code> | Limits possible target zones by domain suffixes. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsOptions.property.evaluateTargetHealth">evaluateTargetHealth</a></code> | <code>boolean</code> | Sets a flag determining whether the health of the backend service should be evaluated when determining DNS routing. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsOptions.property.logFormat">logFormat</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsLogFormat</code> | Sets the output format external dns will use when generating logs. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsOptions.property.logLevel">logLevel</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsLogLevel</code> | Controls the verbosity of logs generated using the external-dns service. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsOptions.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be deployed. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsOptions.property.preferCname">preferCname</a></code> | <code>boolean</code> | When true, alias records will be avoided and CNAME records will be used instead. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsOptions.property.recordOwnershipRegistry">recordOwnershipRegistry</a></code> | <code>cdk-extensions.k8s_aws.IExternalDnsRegistry</code> | Registry specifying how ExternalDNS should track record ownership. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsOptions.property.region">region</a></code> | <code>string</code> | Override the default region external-dns uses when calling AWS API's. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsOptions.property.replicaCount">replicaCount</a></code> | <code>number</code> | Desired number of ExternalDNS replicas. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsOptions.property.syncPolicy">syncPolicy</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsSyncPolicy</code> | Controls the operations ExternalDNS will perform on the records it manages. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsOptions.property.zoneTags">zoneTags</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsZoneTag[]</code> | A set of tags that can be used to restrict which hosted zones external DNS will make changes to. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsOptions.property.zoneType">zoneType</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsZoneType</code> | Controls the types of hosted zones external-dns will create records for. |
+
+---
+
+##### `apiRetries`<sup>Optional</sup> <a name="apiRetries" id="cdk-extensions.k8s_aws.Route53DnsOptions.property.apiRetries"></a>
+
+```typescript
+public readonly apiRetries: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+Maximum number of retries for AWS API calls before giving up.
+
+---
+
+##### `batchChangeSize`<sup>Optional</sup> <a name="batchChangeSize" id="cdk-extensions.k8s_aws.Route53DnsOptions.property.batchChangeSize"></a>
+
+```typescript
+public readonly batchChangeSize: number;
+```
+
+- *Type:* number
+- *Default:* 1000
+
+Set the maximum number of changes that will be applied in each batch.
+
+---
+
+##### `domainFilter`<sup>Optional</sup> <a name="domainFilter" id="cdk-extensions.k8s_aws.Route53DnsOptions.property.domainFilter"></a>
+
+```typescript
+public readonly domainFilter: string[];
+```
+
+- *Type:* string[]
+
+Limits possible target zones by domain suffixes.
+
+---
+
+##### `evaluateTargetHealth`<sup>Optional</sup> <a name="evaluateTargetHealth" id="cdk-extensions.k8s_aws.Route53DnsOptions.property.evaluateTargetHealth"></a>
+
+```typescript
+public readonly evaluateTargetHealth: boolean;
+```
+
+- *Type:* boolean
+
+Sets a flag determining whether the health of the backend service should be evaluated when determining DNS routing.
+
+---
+
+##### `logFormat`<sup>Optional</sup> <a name="logFormat" id="cdk-extensions.k8s_aws.Route53DnsOptions.property.logFormat"></a>
+
+```typescript
+public readonly logFormat: ExternalDnsLogFormat;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsLogFormat
+- *Default:* {@link ExternalDnsLogLevel.JSON}
+
+Sets the output format external dns will use when generating logs.
+
+---
+
+##### `logLevel`<sup>Optional</sup> <a name="logLevel" id="cdk-extensions.k8s_aws.Route53DnsOptions.property.logLevel"></a>
+
+```typescript
+public readonly logLevel: ExternalDnsLogLevel;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsLogLevel
+- *Default:* {@link ExternalDnsLogLevel.INFO}
+
+Controls the verbosity of logs generated using the external-dns service.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_aws.Route53DnsOptions.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+- *Default:* 'kube-system'
+
+The Kubernetes namespace where the service should be deployed.
+
+---
+
+##### `preferCname`<sup>Optional</sup> <a name="preferCname" id="cdk-extensions.k8s_aws.Route53DnsOptions.property.preferCname"></a>
+
+```typescript
+public readonly preferCname: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When true, alias records will be avoided and CNAME records will be used instead.
+
+---
+
+##### `recordOwnershipRegistry`<sup>Optional</sup> <a name="recordOwnershipRegistry" id="cdk-extensions.k8s_aws.Route53DnsOptions.property.recordOwnershipRegistry"></a>
+
+```typescript
+public readonly recordOwnershipRegistry: IExternalDnsRegistry;
+```
+
+- *Type:* cdk-extensions.k8s_aws.IExternalDnsRegistry
+- *Default:* A TXT registry configured with defaults.
+
+Registry specifying how ExternalDNS should track record ownership.
+
+Without a registry to track record ownership, External has no way to know
+which records it owns and manages and which are owned and managed by a
+different service.
+
+This can cause conflicts if there are multiple instances of External DNS
+running or if there are other services managing DNS records in similar
+zones as the different services could try to make conflicting changes due
+to lacking a shared state.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.Route53DnsOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+
+Override the default region external-dns uses when calling AWS API's.
+
+---
+
+##### `replicaCount`<sup>Optional</sup> <a name="replicaCount" id="cdk-extensions.k8s_aws.Route53DnsOptions.property.replicaCount"></a>
+
+```typescript
+public readonly replicaCount: number;
+```
+
+- *Type:* number
+- *Default:* 1
+
+Desired number of ExternalDNS replicas.
+
+---
+
+##### `syncPolicy`<sup>Optional</sup> <a name="syncPolicy" id="cdk-extensions.k8s_aws.Route53DnsOptions.property.syncPolicy"></a>
+
+```typescript
+public readonly syncPolicy: ExternalDnsSyncPolicy;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsSyncPolicy
+- *Default:* {@link ExternalDnsSyncPolicy.SYNC}
+
+Controls the operations ExternalDNS will perform on the records it manages.
+
+---
+
+##### `zoneTags`<sup>Optional</sup> <a name="zoneTags" id="cdk-extensions.k8s_aws.Route53DnsOptions.property.zoneTags"></a>
+
+```typescript
+public readonly zoneTags: ExternalDnsZoneTag[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsZoneTag[]
+
+A set of tags that can be used to restrict which hosted zones external DNS will make changes to.
+
+---
+
+##### `zoneType`<sup>Optional</sup> <a name="zoneType" id="cdk-extensions.k8s_aws.Route53DnsOptions.property.zoneType"></a>
+
+```typescript
+public readonly zoneType: ExternalDnsZoneType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsZoneType
+- *Default:* ExternalDnsZoneType.ALL
+
+Controls the types of hosted zones external-dns will create records for.
+
+---
+
+### Route53DnsProps <a name="Route53DnsProps" id="cdk-extensions.k8s_aws.Route53DnsProps"></a>
+
+Full configuration for the Route53Dns resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.Route53DnsProps.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const route53DnsProps: k8s_aws.Route53DnsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.region">region</a></code> | <code>string</code> | Override the default region external-dns uses when calling AWS API's. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.apiRetries">apiRetries</a></code> | <code>number</code> | Maximum number of retries for AWS API calls before giving up. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.batchChangeSize">batchChangeSize</a></code> | <code>number</code> | Set the maximum number of changes that will be applied in each batch. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.domainFilter">domainFilter</a></code> | <code>string[]</code> | Limits possible target zones by domain suffixes. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.evaluateTargetHealth">evaluateTargetHealth</a></code> | <code>boolean</code> | Sets a flag determining whether the health of the backend service should be evaluated when determining DNS routing. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.logFormat">logFormat</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsLogFormat</code> | Sets the output format external dns will use when generating logs. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.logLevel">logLevel</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsLogLevel</code> | Controls the verbosity of logs generated using the external-dns service. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be deployed. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.preferCname">preferCname</a></code> | <code>boolean</code> | When true, alias records will be avoided and CNAME records will be used instead. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.recordOwnershipRegistry">recordOwnershipRegistry</a></code> | <code>cdk-extensions.k8s_aws.IExternalDnsRegistry</code> | Registry specifying how ExternalDNS should track record ownership. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.replicaCount">replicaCount</a></code> | <code>number</code> | Desired number of ExternalDNS replicas. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.syncPolicy">syncPolicy</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsSyncPolicy</code> | Controls the operations ExternalDNS will perform on the records it manages. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.zoneTags">zoneTags</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsZoneTag[]</code> | A set of tags that can be used to restrict which hosted zones external DNS will make changes to. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.zoneType">zoneType</a></code> | <code>cdk-extensions.k8s_aws.ExternalDnsZoneType</code> | Controls the types of hosted zones external-dns will create records for. |
+| <code><a href="#cdk-extensions.k8s_aws.Route53DnsProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.ICluster</code> | The EKS cluster where external-dns should be deployed. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.k8s_aws.Route53DnsProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.k8s_aws.Route53DnsProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.k8s_aws.Route53DnsProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_aws.Route53DnsProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+
+Override the default region external-dns uses when calling AWS API's.
+
+---
+
+##### `apiRetries`<sup>Optional</sup> <a name="apiRetries" id="cdk-extensions.k8s_aws.Route53DnsProps.property.apiRetries"></a>
+
+```typescript
+public readonly apiRetries: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+Maximum number of retries for AWS API calls before giving up.
+
+---
+
+##### `batchChangeSize`<sup>Optional</sup> <a name="batchChangeSize" id="cdk-extensions.k8s_aws.Route53DnsProps.property.batchChangeSize"></a>
+
+```typescript
+public readonly batchChangeSize: number;
+```
+
+- *Type:* number
+- *Default:* 1000
+
+Set the maximum number of changes that will be applied in each batch.
+
+---
+
+##### `domainFilter`<sup>Optional</sup> <a name="domainFilter" id="cdk-extensions.k8s_aws.Route53DnsProps.property.domainFilter"></a>
+
+```typescript
+public readonly domainFilter: string[];
+```
+
+- *Type:* string[]
+
+Limits possible target zones by domain suffixes.
+
+---
+
+##### `evaluateTargetHealth`<sup>Optional</sup> <a name="evaluateTargetHealth" id="cdk-extensions.k8s_aws.Route53DnsProps.property.evaluateTargetHealth"></a>
+
+```typescript
+public readonly evaluateTargetHealth: boolean;
+```
+
+- *Type:* boolean
+
+Sets a flag determining whether the health of the backend service should be evaluated when determining DNS routing.
+
+---
+
+##### `logFormat`<sup>Optional</sup> <a name="logFormat" id="cdk-extensions.k8s_aws.Route53DnsProps.property.logFormat"></a>
+
+```typescript
+public readonly logFormat: ExternalDnsLogFormat;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsLogFormat
+- *Default:* {@link ExternalDnsLogLevel.JSON}
+
+Sets the output format external dns will use when generating logs.
+
+---
+
+##### `logLevel`<sup>Optional</sup> <a name="logLevel" id="cdk-extensions.k8s_aws.Route53DnsProps.property.logLevel"></a>
+
+```typescript
+public readonly logLevel: ExternalDnsLogLevel;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsLogLevel
+- *Default:* {@link ExternalDnsLogLevel.INFO}
+
+Controls the verbosity of logs generated using the external-dns service.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_aws.Route53DnsProps.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+- *Default:* 'kube-system'
+
+The Kubernetes namespace where the service should be deployed.
+
+---
+
+##### `preferCname`<sup>Optional</sup> <a name="preferCname" id="cdk-extensions.k8s_aws.Route53DnsProps.property.preferCname"></a>
+
+```typescript
+public readonly preferCname: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When true, alias records will be avoided and CNAME records will be used instead.
+
+---
+
+##### `recordOwnershipRegistry`<sup>Optional</sup> <a name="recordOwnershipRegistry" id="cdk-extensions.k8s_aws.Route53DnsProps.property.recordOwnershipRegistry"></a>
+
+```typescript
+public readonly recordOwnershipRegistry: IExternalDnsRegistry;
+```
+
+- *Type:* cdk-extensions.k8s_aws.IExternalDnsRegistry
+- *Default:* A TXT registry configured with defaults.
+
+Registry specifying how ExternalDNS should track record ownership.
+
+Without a registry to track record ownership, External has no way to know
+which records it owns and manages and which are owned and managed by a
+different service.
+
+This can cause conflicts if there are multiple instances of External DNS
+running or if there are other services managing DNS records in similar
+zones as the different services could try to make conflicting changes due
+to lacking a shared state.
+
+---
+
+##### `replicaCount`<sup>Optional</sup> <a name="replicaCount" id="cdk-extensions.k8s_aws.Route53DnsProps.property.replicaCount"></a>
+
+```typescript
+public readonly replicaCount: number;
+```
+
+- *Type:* number
+- *Default:* 1
+
+Desired number of ExternalDNS replicas.
+
+---
+
+##### `syncPolicy`<sup>Optional</sup> <a name="syncPolicy" id="cdk-extensions.k8s_aws.Route53DnsProps.property.syncPolicy"></a>
+
+```typescript
+public readonly syncPolicy: ExternalDnsSyncPolicy;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsSyncPolicy
+- *Default:* {@link ExternalDnsSyncPolicy.SYNC}
+
+Controls the operations ExternalDNS will perform on the records it manages.
+
+---
+
+##### `zoneTags`<sup>Optional</sup> <a name="zoneTags" id="cdk-extensions.k8s_aws.Route53DnsProps.property.zoneTags"></a>
+
+```typescript
+public readonly zoneTags: ExternalDnsZoneTag[];
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsZoneTag[]
+
+A set of tags that can be used to restrict which hosted zones external DNS will make changes to.
+
+---
+
+##### `zoneType`<sup>Optional</sup> <a name="zoneType" id="cdk-extensions.k8s_aws.Route53DnsProps.property.zoneType"></a>
+
+```typescript
+public readonly zoneType: ExternalDnsZoneType;
+```
+
+- *Type:* cdk-extensions.k8s_aws.ExternalDnsZoneType
+- *Default:* ExternalDnsZoneType.ALL
+
+Controls the types of hosted zones external-dns will create records for.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_aws.Route53DnsProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: ICluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ICluster
+
+The EKS cluster where external-dns should be deployed.
+
+---
+
 ### S3AccessLogsBucketProps <a name="S3AccessLogsBucketProps" id="cdk-extensions.s3_buckets.S3AccessLogsBucketProps"></a>
 
 Configuration for objects bucket.
@@ -32904,12 +35141,12 @@ const s3AccessLogsTableProps: glue_tables.S3AccessLogsTableProps = { ... }
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | A bucket where logs will be stored. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the S3 Access Logs. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.name">name</a></code> | <code>string</code> | Name for S3 Access Logs Table. |
+| <code><a href="#cdk-extensions.glue_tables.S3AccessLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | Set a custom prefix for the S3 Bucket. |
 
 ---
 
@@ -32984,6 +35221,10 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+A bucket where logs will be stored.
+
+> [[AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)]([AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html))
+
 ---
 
 ##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue_tables.S3AccessLogsTableProps.property.database"></a>
@@ -32993,6 +35234,10 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html))
 
 ---
 
@@ -33004,6 +35249,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the S3 Access Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.S3AccessLogsTableProps.property.friendlyQueryNames"></a>
@@ -33013,6 +35262,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -33024,6 +35275,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for S3 Access Logs Table.
+
 ---
 
 ##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue_tables.S3AccessLogsTableProps.property.s3Prefix"></a>
@@ -33033,6 +35286,8 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+Set a custom prefix for the S3 Bucket.
 
 ---
 
@@ -33203,10 +35458,10 @@ const s3TargetOptions: glue.S3TargetOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.connection">connection</a></code> | <code>cdk-extensions.glue.Connection</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.exclusions">exclusions</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.keyPrefix">keyPrefix</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.sampleSize">sampleSize</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.connection">connection</a></code> | <code>cdk-extensions.glue.Connection</code> | A {@link aws-glue.Connection \| "Connection" } object to connect to the target with. |
+| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.exclusions">exclusions</a></code> | <code>string[]</code> | A list of glob patterns used to exclude from the crawl. |
+| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.keyPrefix">keyPrefix</a></code> | <code>string</code> | A Prefix Key for identification and organization of objects in the bucket. |
+| <code><a href="#cdk-extensions.glue.S3TargetOptions.property.sampleSize">sampleSize</a></code> | <code>string</code> | Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. |
 
 ---
 
@@ -33218,6 +35473,8 @@ public readonly connection: Connection;
 
 - *Type:* cdk-extensions.glue.Connection
 
+A {@link aws-glue.Connection | "Connection" } object to connect to the target with.
+
 ---
 
 ##### `exclusions`<sup>Optional</sup> <a name="exclusions" id="cdk-extensions.glue.S3TargetOptions.property.exclusions"></a>
@@ -33227,6 +35484,10 @@ public readonly exclusions: string[];
 ```
 
 - *Type:* string[]
+
+A list of glob patterns used to exclude from the crawl.
+
+> [[For More Information](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)]([For More Information](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html))
 
 ---
 
@@ -33238,6 +35499,8 @@ public readonly keyPrefix: string;
 
 - *Type:* string
 
+A Prefix Key for identification and organization of objects in the bucket.
+
 ---
 
 ##### `sampleSize`<sup>Optional</sup> <a name="sampleSize" id="cdk-extensions.glue.S3TargetOptions.property.sampleSize"></a>
@@ -33247,6 +35510,12 @@ public readonly sampleSize: string;
 ```
 
 - *Type:* string
+
+Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset.
+
+If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+
+> [[AWS::Glue::Crawler S3Target](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-samplesize)]([AWS::Glue::Crawler S3Target](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-samplesize))
 
 ---
 
@@ -33642,10 +35911,10 @@ const securityConfigurationProps: glue.SecurityConfigurationProps = { ... }
 | <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.cloudWatchEncryption">cloudWatchEncryption</a></code> | <code>cdk-extensions.glue.CloudWatchEncryption</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.jobBookmarksEncryption">jobBookmarksEncryption</a></code> | <code>cdk-extensions.glue.JobBookmarksEncryption</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.s3Encryption">s3Encryption</a></code> | <code>cdk-extensions.glue.S3Encryption</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.cloudWatchEncryption">cloudWatchEncryption</a></code> | <code>cdk-extensions.glue.CloudWatchEncryption</code> | Cloudwatch Encryption Settings. |
+| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.jobBookmarksEncryption">jobBookmarksEncryption</a></code> | <code>cdk-extensions.glue.JobBookmarksEncryption</code> | The encryption configuration for job bookmarks. |
+| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.name">name</a></code> | <code>string</code> | Name for the Security Configuration. |
+| <code><a href="#cdk-extensions.glue.SecurityConfigurationProps.property.s3Encryption">s3Encryption</a></code> | <code>cdk-extensions.glue.S3Encryption</code> | The encyption configuration for Amazon Simple Storage Service (Amazon S3) data. |
 
 ---
 
@@ -33720,6 +35989,10 @@ public readonly cloudWatchEncryption: CloudWatchEncryption;
 
 - *Type:* cdk-extensions.glue.CloudWatchEncryption
 
+Cloudwatch Encryption Settings.
+
+> [[AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-cloudwatchencryption)]([AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-cloudwatchencryption))
+
 ---
 
 ##### `jobBookmarksEncryption`<sup>Optional</sup> <a name="jobBookmarksEncryption" id="cdk-extensions.glue.SecurityConfigurationProps.property.jobBookmarksEncryption"></a>
@@ -33729,6 +36002,10 @@ public readonly jobBookmarksEncryption: JobBookmarksEncryption;
 ```
 
 - *Type:* cdk-extensions.glue.JobBookmarksEncryption
+
+The encryption configuration for job bookmarks.
+
+> [[AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-jobbookmarksencryption)]([AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-jobbookmarksencryption))
 
 ---
 
@@ -33740,6 +36017,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for the Security Configuration.
+
 ---
 
 ##### `s3Encryption`<sup>Optional</sup> <a name="s3Encryption" id="cdk-extensions.glue.SecurityConfigurationProps.property.s3Encryption"></a>
@@ -33749,6 +36028,10 @@ public readonly s3Encryption: S3Encryption;
 ```
 
 - *Type:* cdk-extensions.glue.S3Encryption
+
+The encyption configuration for Amazon Simple Storage Service (Amazon S3) data.
+
+> [[AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-s3encryptions)]([AWS::Glue::SecurityConfiguration EncryptionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-s3encryptions))
 
 ---
 
@@ -33913,12 +36196,12 @@ const sesLogsTableProps: glue_tables.SesLogsTableProps = { ... }
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | A bucket where logs will be stored. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the Ses Logs. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.name">name</a></code> | <code>string</code> | Name for SES Logs Table. |
+| <code><a href="#cdk-extensions.glue_tables.SesLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | Set a custom prefix for the S3 Bucket. |
 
 ---
 
@@ -33993,6 +36276,10 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+A bucket where logs will be stored.
+
+> [[AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)]([AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html))
+
 ---
 
 ##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue_tables.SesLogsTableProps.property.database"></a>
@@ -34002,6 +36289,10 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html))
 
 ---
 
@@ -34013,6 +36304,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the Ses Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.SesLogsTableProps.property.friendlyQueryNames"></a>
@@ -34022,6 +36317,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -34033,6 +36330,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for SES Logs Table.
+
 ---
 
 ##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue_tables.SesLogsTableProps.property.s3Prefix"></a>
@@ -34042,6 +36341,8 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+Set a custom prefix for the S3 Bucket.
 
 ---
 
@@ -34272,25 +36573,25 @@ const tableProps: glue.TableProps = { ... }
 | <code><a href="#cdk-extensions.glue.TableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.TableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.TableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.TableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.columns">columns</a></code> | <code>cdk-extensions.glue.Column[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.compressed">compressed</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.location">location</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.owner">owner</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.parameters">parameters</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.partitionKeys">partitionKeys</a></code> | <code>cdk-extensions.glue.Column[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.serdeName">serdeName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.serdeParameters">serdeParameters</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.storageParameters">storageParameters</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TableProps.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.TableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | Database object to add Table to. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.columns">columns</a></code> | <code>cdk-extensions.glue.Column[]</code> | A list of the Columns in the table. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.compressed">compressed</a></code> | <code>boolean</code> | True if the data in the table is compressed, or False if not. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.dataFormat">dataFormat</a></code> | <code>cdk-extensions.glue.DataFormat</code> | DataFormat object indicating the expected input/output format. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.description">description</a></code> | <code>string</code> | A description for the Table. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.location">location</a></code> | <code>string</code> | The physical location of the table. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.name">name</a></code> | <code>string</code> | A name for the Table. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.owner">owner</a></code> | <code>string</code> | The table owner. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.parameters">parameters</a></code> | <code>{[ key: string ]: string}</code> | These key-value pairs define properties associated with the table. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.partitionKeys">partitionKeys</a></code> | <code>cdk-extensions.glue.Column[]</code> | A list of columns by which the table is partitioned. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.retention">retention</a></code> | <code>aws-cdk-lib.Duration</code> | The retention time for this table. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.serdeName">serdeName</a></code> | <code>string</code> | Name of the SerDe. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.serdeParameters">serdeParameters</a></code> | <code>{[ key: string ]: string}</code> | These key-value pairs define initialization parameters for the SerDe. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.storageParameters">storageParameters</a></code> | <code>{[ key: string ]: string}</code> | The user-supplied properties in key-value form. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.storedAsSubDirectories">storedAsSubDirectories</a></code> | <code>boolean</code> | True if the table data is stored in subdirectories, or False if not. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.tableType">tableType</a></code> | <code>cdk-extensions.glue.TableType</code> | The type of this table. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.targetTable">targetTable</a></code> | <code>cdk-extensions.glue.Table</code> | A TableIdentifier structure that describes a target table for resource linking. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.viewExpandedText">viewExpandedText</a></code> | <code>string</code> | Included for Apache Hive compatibility. |
+| <code><a href="#cdk-extensions.glue.TableProps.property.viewOriginalText">viewOriginalText</a></code> | <code>string</code> | Included for Apache Hive compatibility. |
 
 ---
 
@@ -34365,6 +36666,8 @@ public readonly database: Database;
 
 - *Type:* cdk-extensions.glue.Database
 
+Database object to add Table to.
+
 ---
 
 ##### `columns`<sup>Optional</sup> <a name="columns" id="cdk-extensions.glue.TableProps.property.columns"></a>
@@ -34374,6 +36677,10 @@ public readonly columns: Column[];
 ```
 
 - *Type:* cdk-extensions.glue.Column[]
+
+A list of the Columns in the table.
+
+> [[AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-columns)]([AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-columns))
 
 ---
 
@@ -34385,6 +36692,10 @@ public readonly compressed: boolean;
 
 - *Type:* boolean
 
+True if the data in the table is compressed, or False if not.
+
+> [[AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-compressed)]([AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-compressed))
+
 ---
 
 ##### `dataFormat`<sup>Optional</sup> <a name="dataFormat" id="cdk-extensions.glue.TableProps.property.dataFormat"></a>
@@ -34394,6 +36705,8 @@ public readonly dataFormat: DataFormat;
 ```
 
 - *Type:* cdk-extensions.glue.DataFormat
+
+DataFormat object indicating the expected input/output format.
 
 ---
 
@@ -34405,6 +36718,8 @@ public readonly description: string;
 
 - *Type:* string
 
+A description for the Table.
+
 ---
 
 ##### `location`<sup>Optional</sup> <a name="location" id="cdk-extensions.glue.TableProps.property.location"></a>
@@ -34414,6 +36729,12 @@ public readonly location: string;
 ```
 
 - *Type:* string
+
+The physical location of the table.
+
+By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+
+> [[AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-location)]([AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-location))
 
 ---
 
@@ -34425,6 +36746,8 @@ public readonly name: string;
 
 - *Type:* string
 
+A name for the Table.
+
 ---
 
 ##### `owner`<sup>Optional</sup> <a name="owner" id="cdk-extensions.glue.TableProps.property.owner"></a>
@@ -34434,6 +36757,12 @@ public readonly owner: string;
 ```
 
 - *Type:* string
+
+The table owner.
+
+Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-owner)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-owner))
 
 ---
 
@@ -34445,6 +36774,10 @@ public readonly parameters: {[ key: string ]: string};
 
 - *Type:* {[ key: string ]: string}
 
+These key-value pairs define properties associated with the table.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters))
+
 ---
 
 ##### `partitionKeys`<sup>Optional</sup> <a name="partitionKeys" id="cdk-extensions.glue.TableProps.property.partitionKeys"></a>
@@ -34454,6 +36787,12 @@ public readonly partitionKeys: Column[];
 ```
 
 - *Type:* cdk-extensions.glue.Column[]
+
+A list of columns by which the table is partitioned.
+
+Only primitive types are supported as partition keys.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameterskeys)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameterskeys))
 
 ---
 
@@ -34465,6 +36804,10 @@ public readonly retention: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+The retention time for this table.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-retention)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-retention))
+
 ---
 
 ##### `serdeName`<sup>Optional</sup> <a name="serdeName" id="cdk-extensions.glue.TableProps.property.serdeName"></a>
@@ -34474,6 +36817,10 @@ public readonly serdeName: string;
 ```
 
 - *Type:* string
+
+Name of the SerDe.
+
+> [[AWS::Glue::Table SerdeInfo](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-name)]([AWS::Glue::Table SerdeInfo](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-name))
 
 ---
 
@@ -34485,6 +36832,10 @@ public readonly serdeParameters: {[ key: string ]: string};
 
 - *Type:* {[ key: string ]: string}
 
+These key-value pairs define initialization parameters for the SerDe.
+
+> [[AWS::Glue::Table SerdeInfo](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-parameters)]([AWS::Glue::Table SerdeInfo](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-parameters))
+
 ---
 
 ##### `storageParameters`<sup>Optional</sup> <a name="storageParameters" id="cdk-extensions.glue.TableProps.property.storageParameters"></a>
@@ -34494,6 +36845,10 @@ public readonly storageParameters: {[ key: string ]: string};
 ```
 
 - *Type:* {[ key: string ]: string}
+
+The user-supplied properties in key-value form.
+
+> [[AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-parameters)]([AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-parameters))
 
 ---
 
@@ -34505,6 +36860,10 @@ public readonly storedAsSubDirectories: boolean;
 
 - *Type:* boolean
 
+True if the table data is stored in subdirectories, or False if not.
+
+> [[AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-storedassubdirectories)]([AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-storedassubdirectories))
+
 ---
 
 ##### `tableType`<sup>Optional</sup> <a name="tableType" id="cdk-extensions.glue.TableProps.property.tableType"></a>
@@ -34514,6 +36873,12 @@ public readonly tableType: TableType;
 ```
 
 - *Type:* cdk-extensions.glue.TableType
+
+The type of this table.
+
+AWS Glue will create tables with the EXTERNAL_TABLE type. Other services, such as Athena, may create tables with additional table types.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype))
 
 ---
 
@@ -34525,6 +36890,10 @@ public readonly targetTable: Table;
 
 - *Type:* cdk-extensions.glue.Table
 
+A TableIdentifier structure that describes a target table for resource linking.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable))
+
 ---
 
 ##### `viewExpandedText`<sup>Optional</sup> <a name="viewExpandedText" id="cdk-extensions.glue.TableProps.property.viewExpandedText"></a>
@@ -34535,6 +36904,12 @@ public readonly viewExpandedText: string;
 
 - *Type:* string
 
+Included for Apache Hive compatibility.
+
+Not used in the normal course of AWS Glue operations.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext))
+
 ---
 
 ##### `viewOriginalText`<sup>Optional</sup> <a name="viewOriginalText" id="cdk-extensions.glue.TableProps.property.viewOriginalText"></a>
@@ -34544,6 +36919,12 @@ public readonly viewOriginalText: string;
 ```
 
 - *Type:* string
+
+Included for Apache Hive compatibility.
+
+Not used in the normal course of AWS Glue operations. If the table is a VIRTUAL_VIEW, certain Athena configuration encoded in base64.
+
+> [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext))
 
 ---
 
@@ -34739,15 +37120,15 @@ const triggerProps: glue.TriggerProps = { ... }
 | <code><a href="#cdk-extensions.glue.TriggerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.TriggerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.TriggerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.type">type</a></code> | <code>cdk-extensions.glue.TriggerType</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.actions">actions</a></code> | <code>cdk-extensions.glue.ITriggerAction[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.predicateConditions">predicateConditions</a></code> | <code>cdk-extensions.glue.ITriggerPredicate[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.predicateOperator">predicateOperator</a></code> | <code>cdk-extensions.glue.PredicateOperator</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.schedule">schedule</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.startOnCreation">startOnCreation</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.workflow">workflow</a></code> | <code>cdk-extensions.glue.Workflow</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.type">type</a></code> | <code>cdk-extensions.glue.TriggerType</code> | The type of trigger that this is. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.actions">actions</a></code> | <code>cdk-extensions.glue.ITriggerAction[]</code> | A list of actions initiated by this trigger. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.description">description</a></code> | <code>string</code> | A description for the Trigger. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.name">name</a></code> | <code>string</code> | A name for the Trigger. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.predicateConditions">predicateConditions</a></code> | <code>cdk-extensions.glue.ITriggerPredicate[]</code> | A list of conditions predicating the trigger, determining when it will fire. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.predicateOperator">predicateOperator</a></code> | <code>cdk-extensions.glue.PredicateOperator</code> | Operator for chaining predicate conditions (AND/OR). |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.schedule">schedule</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | A cron expression used to specify the schedule. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.startOnCreation">startOnCreation</a></code> | <code>boolean</code> | Set to true to start SCHEDULED and CONDITIONAL triggers when created. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.workflow">workflow</a></code> | <code>cdk-extensions.glue.Workflow</code> | Workflow object the Trigger should be attached to. |
 
 ---
 
@@ -34822,6 +37203,10 @@ public readonly type: TriggerType;
 
 - *Type:* cdk-extensions.glue.TriggerType
 
+The type of trigger that this is.
+
+> [[AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type)]([AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type))
+
 ---
 
 ##### `actions`<sup>Optional</sup> <a name="actions" id="cdk-extensions.glue.TriggerProps.property.actions"></a>
@@ -34831,6 +37216,10 @@ public readonly actions: ITriggerAction[];
 ```
 
 - *Type:* cdk-extensions.glue.ITriggerAction[]
+
+A list of actions initiated by this trigger.
+
+> [[AWS::Glue::Trigger Action](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html)]([AWS::Glue::Trigger Action](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html))
 
 ---
 
@@ -34842,6 +37231,8 @@ public readonly description: string;
 
 - *Type:* string
 
+A description for the Trigger.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.TriggerProps.property.name"></a>
@@ -34851,6 +37242,8 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+A name for the Trigger.
 
 ---
 
@@ -34862,6 +37255,10 @@ public readonly predicateConditions: ITriggerPredicate[];
 
 - *Type:* cdk-extensions.glue.ITriggerPredicate[]
 
+A list of conditions predicating the trigger, determining when it will fire.
+
+> [[AWS::Glue::Trigger Predicate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html)]([AWS::Glue::Trigger Predicate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html))
+
 ---
 
 ##### `predicateOperator`<sup>Optional</sup> <a name="predicateOperator" id="cdk-extensions.glue.TriggerProps.property.predicateOperator"></a>
@@ -34871,6 +37268,8 @@ public readonly predicateOperator: PredicateOperator;
 ```
 
 - *Type:* cdk-extensions.glue.PredicateOperator
+
+Operator for chaining predicate conditions (AND/OR).
 
 ---
 
@@ -34882,6 +37281,10 @@ public readonly schedule: Schedule;
 
 - *Type:* aws-cdk-lib.aws_events.Schedule
 
+A cron expression used to specify the schedule.
+
+> [[AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-schedule)]([AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-schedule))
+
 ---
 
 ##### `startOnCreation`<sup>Optional</sup> <a name="startOnCreation" id="cdk-extensions.glue.TriggerProps.property.startOnCreation"></a>
@@ -34892,6 +37295,12 @@ public readonly startOnCreation: boolean;
 
 - *Type:* boolean
 
+Set to true to start SCHEDULED and CONDITIONAL triggers when created.
+
+True is not supported for ON_DEMAND triggers.
+
+> [[AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation)]([AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation))
+
 ---
 
 ##### `workflow`<sup>Optional</sup> <a name="workflow" id="cdk-extensions.glue.TriggerProps.property.workflow"></a>
@@ -34901,6 +37310,64 @@ public readonly workflow: Workflow;
 ```
 
 - *Type:* cdk-extensions.glue.Workflow
+
+Workflow object the Trigger should be attached to.
+
+---
+
+### TxtRegistryOptions <a name="TxtRegistryOptions" id="cdk-extensions.k8s_aws.TxtRegistryOptions"></a>
+
+Configuration options for setting up a TXT registry for ExternalDNS.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_aws.TxtRegistryOptions.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+const txtRegistryOptions: k8s_aws.TxtRegistryOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.TxtRegistryOptions.property.ownerId">ownerId</a></code> | <code>string</code> | A unique identifier that is used to establish ownership of managed DNS records. |
+| <code><a href="#cdk-extensions.k8s_aws.TxtRegistryOptions.property.prefix">prefix</a></code> | <code>string</code> | A prefix to be added top TXT ownership records. |
+
+---
+
+##### `ownerId`<sup>Optional</sup> <a name="ownerId" id="cdk-extensions.k8s_aws.TxtRegistryOptions.property.ownerId"></a>
+
+```typescript
+public readonly ownerId: string;
+```
+
+- *Type:* string
+- *Default:* Unique address of the owning CDK node.
+
+A unique identifier that is used to establish ownership of managed DNS records.
+
+Prevents conflicts in the event of multiple clusters running external-dns.
+
+---
+
+##### `prefix`<sup>Optional</sup> <a name="prefix" id="cdk-extensions.k8s_aws.TxtRegistryOptions.property.prefix"></a>
+
+```typescript
+public readonly prefix: string;
+```
+
+- *Type:* string
+- *Default:* 'edns.''
+
+A prefix to be added top TXT ownership records.
+
+By default, the ownership record is a TXT record with the same name as the
+managed record that was created. This causes issues as some record types
+(CNAME's) do not allow duplicate records of a different type.
+
+This prefix is used to prevent such name collissions while still allowing
+DNS ownership records to be created.
 
 ---
 
@@ -35065,12 +37532,12 @@ const wafLogsTableProps: glue_tables.WafLogsTableProps = { ... }
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | A bucket where logs will be stored. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.database">database</a></code> | <code>cdk-extensions.glue.Database</code> | A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.createQueries">createQueries</a></code> | <code>boolean</code> | Boolean indicating whether to create default Athena queries for the WAF Logs. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.friendlyQueryNames">friendlyQueryNames</a></code> | <code>boolean</code> | Boolean for adding "friendly names" for the created Athena queries. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.name">name</a></code> | <code>string</code> | Name for WAF Logs Table. |
+| <code><a href="#cdk-extensions.glue_tables.WafLogsTableProps.property.s3Prefix">s3Prefix</a></code> | <code>string</code> | Set a custom prefix for the S3 Bucket. |
 
 ---
 
@@ -35145,6 +37612,10 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+A bucket where logs will be stored.
+
+> [[AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)]([AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html))
+
 ---
 
 ##### `database`<sup>Required</sup> <a name="database" id="cdk-extensions.glue_tables.WafLogsTableProps.property.database"></a>
@@ -35154,6 +37625,10 @@ public readonly database: Database;
 ```
 
 - *Type:* cdk-extensions.glue.Database
+
+A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
+
+> [[AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)]([AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html))
 
 ---
 
@@ -35165,6 +37640,10 @@ public readonly createQueries: boolean;
 
 - *Type:* boolean
 
+Boolean indicating whether to create default Athena queries for the WAF Logs.
+
+> [[`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)]([`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html))
+
 ---
 
 ##### `friendlyQueryNames`<sup>Optional</sup> <a name="friendlyQueryNames" id="cdk-extensions.glue_tables.WafLogsTableProps.property.friendlyQueryNames"></a>
@@ -35174,6 +37653,8 @@ public readonly friendlyQueryNames: boolean;
 ```
 
 - *Type:* boolean
+
+Boolean for adding "friendly names" for the created Athena queries.
 
 ---
 
@@ -35185,6 +37666,8 @@ public readonly name: string;
 
 - *Type:* string
 
+Name for WAF Logs Table.
+
 ---
 
 ##### `s3Prefix`<sup>Optional</sup> <a name="s3Prefix" id="cdk-extensions.glue_tables.WafLogsTableProps.property.s3Prefix"></a>
@@ -35194,6 +37677,8 @@ public readonly s3Prefix: string;
 ```
 
 - *Type:* string
+
+Set a custom prefix for the S3 Bucket.
 
 ---
 
@@ -35217,8 +37702,8 @@ const workflowProps: glue.WorkflowProps = { ... }
 | <code><a href="#cdk-extensions.glue.WorkflowProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.WorkflowProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.WorkflowProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.WorkflowProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowProps.property.description">description</a></code> | <code>string</code> | A description of the Workflow. |
+| <code><a href="#cdk-extensions.glue.WorkflowProps.property.name">name</a></code> | <code>string</code> | A name of the Workflow. |
 
 ---
 
@@ -35293,6 +37778,8 @@ public readonly description: string;
 
 - *Type:* string
 
+A description of the Workflow.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.WorkflowProps.property.name"></a>
@@ -35302,6 +37789,8 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+A name of the Workflow.
 
 ---
 
@@ -35545,8 +38034,8 @@ public bind(scope: IConstruct): ColumnProperty
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.glue.ArrayColumn.property.typeString">typeString</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ArrayColumn.property.comment">comment</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ArrayColumn.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.ArrayColumn.property.comment">comment</a></code> | <code>string</code> | A free-form text comment. |
+| <code><a href="#cdk-extensions.glue.ArrayColumn.property.name">name</a></code> | <code>string</code> | The name of the Column. |
 
 ---
 
@@ -35568,6 +38057,10 @@ public readonly comment: string;
 
 - *Type:* string
 
+A free-form text comment.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment))
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.ArrayColumn.property.name"></a>
@@ -35577,6 +38070,10 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+The name of the Column.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name))
 
 ---
 
@@ -35875,6 +38372,73 @@ An AWS account.
 
 ---
 
+### AwsServiceDiscoveryRegistry <a name="AwsServiceDiscoveryRegistry" id="cdk-extensions.k8s_aws.AwsServiceDiscoveryRegistry"></a>
+
+- *Implements:* cdk-extensions.k8s_aws.IExternalDnsRegistry
+
+An ExternalDNS registry that tracks DNS record ownership information using AWS Service Discovery.
+
+> [[AWS Cloud Map](https://docs.aws.amazon.com/cloud-map/latest/dg/what-is-cloud-map.html)]([AWS Cloud Map](https://docs.aws.amazon.com/cloud-map/latest/dg/what-is-cloud-map.html))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.AwsServiceDiscoveryRegistry.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.AwsServiceDiscoveryRegistry()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AwsServiceDiscoveryRegistry.bind">bind</a></code> | Generates an object with all the information needed to use the registry in a given CDK scope. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.AwsServiceDiscoveryRegistry.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ExternalDnsRegistryConfiguration
+```
+
+Generates an object with all the information needed to use the registry in a given CDK scope.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.AwsServiceDiscoveryRegistry.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The CDK resource that is configuring ExternalDNS.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.AwsServiceDiscoveryRegistry.property.registryType">registryType</a></code> | <code>string</code> | The type name of ExternalDNS registry. |
+
+---
+
+##### `registryType`<sup>Required</sup> <a name="registryType" id="cdk-extensions.k8s_aws.AwsServiceDiscoveryRegistry.property.registryType"></a>
+
+```typescript
+public readonly registryType: string;
+```
+
+- *Type:* string
+
+The type name of ExternalDNS registry.
+
+---
+
+
 ### BackupConfiguration <a name="BackupConfiguration" id="cdk-extensions.kinesis_firehose.BackupConfiguration"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.BackupConfiguration.Initializer"></a>
@@ -35996,8 +38560,8 @@ public bind(scope: IConstruct): ColumnProperty
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.glue.BasicColumn.property.typeString">typeString</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.BasicColumn.property.comment">comment</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.BasicColumn.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.BasicColumn.property.comment">comment</a></code> | <code>string</code> | A free-form text comment. |
+| <code><a href="#cdk-extensions.glue.BasicColumn.property.name">name</a></code> | <code>string</code> | The name of the Column. |
 
 ---
 
@@ -36019,6 +38583,10 @@ public readonly comment: string;
 
 - *Type:* string
 
+A free-form text comment.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment))
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.BasicColumn.property.name"></a>
@@ -36028,6 +38596,10 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+The name of the Column.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name))
 
 ---
 
@@ -36474,8 +39046,8 @@ public bind(scope: IConstruct): ColumnProperty
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.glue.Column.property.typeString">typeString</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Column.property.comment">comment</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Column.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Column.property.comment">comment</a></code> | <code>string</code> | A free-form text comment. |
+| <code><a href="#cdk-extensions.glue.Column.property.name">name</a></code> | <code>string</code> | The name of the Column. |
 
 ---
 
@@ -36497,6 +39069,10 @@ public readonly comment: string;
 
 - *Type:* string
 
+A free-form text comment.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment))
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.Column.property.name"></a>
@@ -36506,6 +39082,10 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+The name of the Column.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name))
 
 ---
 
@@ -37445,6 +40025,252 @@ public readonly processorType: ProcessorType;
 ---
 
 
+### Domain <a name="Domain" id="cdk-extensions.route53.Domain"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.route53.Domain.Initializer"></a>
+
+```typescript
+import { route53 } from 'cdk-extensions'
+
+new route53.Domain(zone: IHostedZone, isPublic: boolean, options?: DomainOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.route53.Domain.Initializer.parameter.zone">zone</a></code> | <code>aws-cdk-lib.aws_route53.IHostedZone</code> | *No description.* |
+| <code><a href="#cdk-extensions.route53.Domain.Initializer.parameter.isPublic">isPublic</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.route53.Domain.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.route53.DomainOptions</code> | *No description.* |
+
+---
+
+##### `zone`<sup>Required</sup> <a name="zone" id="cdk-extensions.route53.Domain.Initializer.parameter.zone"></a>
+
+- *Type:* aws-cdk-lib.aws_route53.IHostedZone
+
+---
+
+##### `isPublic`<sup>Required</sup> <a name="isPublic" id="cdk-extensions.route53.Domain.Initializer.parameter.isPublic"></a>
+
+- *Type:* boolean
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.route53.Domain.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.route53.DomainOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.route53.Domain.visit">visit</a></code> | *No description.* |
+
+---
+
+##### `visit` <a name="visit" id="cdk-extensions.route53.Domain.visit"></a>
+
+```typescript
+public visit(node: IConstruct): void
+```
+
+###### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.route53.Domain.visit.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.route53.Domain.property.fqdn">fqdn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.route53.Domain.property.isPublic">isPublic</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.route53.Domain.property.zone">zone</a></code> | <code>aws-cdk-lib.aws_route53.IHostedZone</code> | *No description.* |
+| <code><a href="#cdk-extensions.route53.Domain.property.zoneName">zoneName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.route53.Domain.property.certificate">certificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
+| <code><a href="#cdk-extensions.route53.Domain.property.subdomain">subdomain</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `fqdn`<sup>Required</sup> <a name="fqdn" id="cdk-extensions.route53.Domain.property.fqdn"></a>
+
+```typescript
+public readonly fqdn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `isPublic`<sup>Required</sup> <a name="isPublic" id="cdk-extensions.route53.Domain.property.isPublic"></a>
+
+```typescript
+public readonly isPublic: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `zone`<sup>Required</sup> <a name="zone" id="cdk-extensions.route53.Domain.property.zone"></a>
+
+```typescript
+public readonly zone: IHostedZone;
+```
+
+- *Type:* aws-cdk-lib.aws_route53.IHostedZone
+
+---
+
+##### `zoneName`<sup>Required</sup> <a name="zoneName" id="cdk-extensions.route53.Domain.property.zoneName"></a>
+
+```typescript
+public readonly zoneName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `certificate`<sup>Optional</sup> <a name="certificate" id="cdk-extensions.route53.Domain.property.certificate"></a>
+
+```typescript
+public readonly certificate: ICertificate;
+```
+
+- *Type:* aws-cdk-lib.aws_certificatemanager.ICertificate
+
+---
+
+##### `subdomain`<sup>Optional</sup> <a name="subdomain" id="cdk-extensions.route53.Domain.property.subdomain"></a>
+
+```typescript
+public readonly subdomain: string;
+```
+
+- *Type:* string
+
+---
+
+
+### DomainManager <a name="DomainManager" id="cdk-extensions.route53.DomainManager"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.route53.DomainManager.Initializer"></a>
+
+```typescript
+import { route53 } from 'cdk-extensions'
+
+new route53.DomainManager()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.route53.DomainManager.isDnsResolvable">isDnsResolvable</a></code> | *No description.* |
+
+---
+
+##### `isDnsResolvable` <a name="isDnsResolvable" id="cdk-extensions.route53.DomainManager.isDnsResolvable"></a>
+
+```typescript
+import { route53 } from 'cdk-extensions'
+
+route53.DomainManager.isDnsResolvable(node: IConstruct)
+```
+
+###### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.route53.DomainManager.isDnsResolvable.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+### Domains <a name="Domains" id="cdk-extensions.route53.Domains"></a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.route53.Domains.add">add</a></code> | *No description.* |
+
+---
+
+##### `add` <a name="add" id="cdk-extensions.route53.Domains.add"></a>
+
+```typescript
+public add(hostedZone: IHostedZone, isPublic: boolean, options?: DomainOptions): void
+```
+
+###### `hostedZone`<sup>Required</sup> <a name="hostedZone" id="cdk-extensions.route53.Domains.add.parameter.hostedZone"></a>
+
+- *Type:* aws-cdk-lib.aws_route53.IHostedZone
+
+---
+
+###### `isPublic`<sup>Required</sup> <a name="isPublic" id="cdk-extensions.route53.Domains.add.parameter.isPublic"></a>
+
+- *Type:* boolean
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.route53.Domains.add.parameter.options"></a>
+
+- *Type:* cdk-extensions.route53.DomainOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.route53.Domains.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.route53.Domains.of"></a>
+
+```typescript
+import { route53 } from 'cdk-extensions'
+
+route53.Domains.of(scope: IConstruct)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.route53.Domains.of.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.route53.Domains.property.ROOT">ROOT</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `ROOT`<sup>Required</sup> <a name="ROOT" id="cdk-extensions.route53.Domains.property.ROOT"></a>
+
+```typescript
+public readonly ROOT: string;
+```
+
+- *Type:* string
+
+---
+
 ### DynamicPartitioning <a name="DynamicPartitioning" id="cdk-extensions.kinesis_firehose.DynamicPartitioning"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.DynamicPartitioning.Initializer"></a>
@@ -37986,6 +40812,83 @@ public readonly processorConfiguration: ProcessorConfiguration;
 - *Type:* cdk-extensions.kinesis_firehose.ProcessorConfiguration
 
 ---
+
+
+### ExternalDnsRegistry <a name="ExternalDnsRegistry" id="cdk-extensions.k8s_aws.ExternalDnsRegistry"></a>
+
+Helper class that provides access to the available ExternalDns registry options.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.ExternalDnsRegistry.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.ExternalDnsRegistry()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsRegistry.awsServiceDiscovery">awsServiceDiscovery</a></code> | An ExternalDNS registry that tracks DNS record ownership information using AWS Service Discovery. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsRegistry.noop">noop</a></code> | A placeholder ExternalDNS registry that says ExternalDNS should use not use a registry. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsRegistry.txt">txt</a></code> | An ExternalDNS registry that tracks DNS record ownership information using DNS TXT records. |
+
+---
+
+##### `awsServiceDiscovery` <a name="awsServiceDiscovery" id="cdk-extensions.k8s_aws.ExternalDnsRegistry.awsServiceDiscovery"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ExternalDnsRegistry.awsServiceDiscovery()
+```
+
+An ExternalDNS registry that tracks DNS record ownership information using AWS Service Discovery.
+
+> [[AWS Cloud Map](https://docs.aws.amazon.com/cloud-map/latest/dg/what-is-cloud-map.html)]([AWS Cloud Map](https://docs.aws.amazon.com/cloud-map/latest/dg/what-is-cloud-map.html))
+
+##### `noop` <a name="noop" id="cdk-extensions.k8s_aws.ExternalDnsRegistry.noop"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ExternalDnsRegistry.noop()
+```
+
+A placeholder ExternalDNS registry that says ExternalDNS should use not use a registry.
+
+When configuring ExternalDNS without a registry, the service has no idea
+the original creator and maintainer of DNS records. This means that
+there are likely to be conflicts if there are multiple services that
+could create or change DNS records in the same zone.
+
+##### `txt` <a name="txt" id="cdk-extensions.k8s_aws.ExternalDnsRegistry.txt"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+k8s_aws.ExternalDnsRegistry.txt(options?: TxtRegistryOptions)
+```
+
+An ExternalDNS registry that tracks DNS record ownership information using DNS TXT records.
+
+> [[About TXT records](https://support.google.com/a/answer/2716800?hl=en)]([About TXT records](https://support.google.com/a/answer/2716800?hl=en))
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.ExternalDnsRegistry.txt.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.TxtRegistryOptions
+
+Options configuring how ExternalDNS will use TXT records to validate ownership.
+
+---
+
 
 
 ### FlowLogDestination <a name="FlowLogDestination" id="cdk-extensions.ec2.FlowLogDestination"></a>
@@ -46147,6 +49050,226 @@ public readonly managedPolicy: IManagedPolicy;
 ---
 
 
+### Match <a name="Match" id="cdk-extensions.assertions.Match"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.assertions.Match.Initializer"></a>
+
+```typescript
+import { assertions } from 'cdk-extensions'
+
+new assertions.Match()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.assertions.Match.absent">absent</a></code> | Use this matcher in the place of a field's value, if the field must not be present. |
+| <code><a href="#cdk-extensions.assertions.Match.anyValue">anyValue</a></code> | Matches any non-null value at the target. |
+| <code><a href="#cdk-extensions.assertions.Match.arrayEquals">arrayEquals</a></code> | Matches the specified pattern with the array found in the same relative path of the target. |
+| <code><a href="#cdk-extensions.assertions.Match.arrayWith">arrayWith</a></code> | Matches the specified pattern with the array found in the same relative path of the target. |
+| <code><a href="#cdk-extensions.assertions.Match.exact">exact</a></code> | Deep exact matching of the specified pattern to the target. |
+| <code><a href="#cdk-extensions.assertions.Match.not">not</a></code> | Matches any target which does NOT follow the specified pattern. |
+| <code><a href="#cdk-extensions.assertions.Match.objectEquals">objectEquals</a></code> | Matches the specified pattern to an object found in the same relative path of the target. |
+| <code><a href="#cdk-extensions.assertions.Match.objectLike">objectLike</a></code> | Matches the specified pattern to an object found in the same relative path of the target. |
+| <code><a href="#cdk-extensions.assertions.Match.serializedJson">serializedJson</a></code> | Matches any string-encoded JSON and applies the specified pattern after parsing it. |
+| <code><a href="#cdk-extensions.assertions.Match.stringLikeRegexp">stringLikeRegexp</a></code> | Matches targets according to a regular expression. |
+| <code><a href="#cdk-extensions.assertions.Match.joinedJson">joinedJson</a></code> | *No description.* |
+
+---
+
+##### `absent` <a name="absent" id="cdk-extensions.assertions.Match.absent"></a>
+
+```typescript
+import { assertions } from 'cdk-extensions'
+
+assertions.Match.absent()
+```
+
+Use this matcher in the place of a field's value, if the field must not be present.
+
+##### `anyValue` <a name="anyValue" id="cdk-extensions.assertions.Match.anyValue"></a>
+
+```typescript
+import { assertions } from 'cdk-extensions'
+
+assertions.Match.anyValue()
+```
+
+Matches any non-null value at the target.
+
+##### `arrayEquals` <a name="arrayEquals" id="cdk-extensions.assertions.Match.arrayEquals"></a>
+
+```typescript
+import { assertions } from 'cdk-extensions'
+
+assertions.Match.arrayEquals(pattern: any[])
+```
+
+Matches the specified pattern with the array found in the same relative path of the target.
+
+The set of elements (or matchers) must match exactly and in order.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.arrayEquals.parameter.pattern"></a>
+
+- *Type:* any[]
+
+the pattern to match.
+
+---
+
+##### `arrayWith` <a name="arrayWith" id="cdk-extensions.assertions.Match.arrayWith"></a>
+
+```typescript
+import { assertions } from 'cdk-extensions'
+
+assertions.Match.arrayWith(pattern: any[])
+```
+
+Matches the specified pattern with the array found in the same relative path of the target.
+
+The set of elements (or matchers) must be in the same order as would be found.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.arrayWith.parameter.pattern"></a>
+
+- *Type:* any[]
+
+the pattern to match.
+
+---
+
+##### `exact` <a name="exact" id="cdk-extensions.assertions.Match.exact"></a>
+
+```typescript
+import { assertions } from 'cdk-extensions'
+
+assertions.Match.exact(pattern: any)
+```
+
+Deep exact matching of the specified pattern to the target.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.exact.parameter.pattern"></a>
+
+- *Type:* any
+
+the pattern to match.
+
+---
+
+##### `not` <a name="not" id="cdk-extensions.assertions.Match.not"></a>
+
+```typescript
+import { assertions } from 'cdk-extensions'
+
+assertions.Match.not(pattern: any)
+```
+
+Matches any target which does NOT follow the specified pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.not.parameter.pattern"></a>
+
+- *Type:* any
+
+the pattern to NOT match.
+
+---
+
+##### `objectEquals` <a name="objectEquals" id="cdk-extensions.assertions.Match.objectEquals"></a>
+
+```typescript
+import { assertions } from 'cdk-extensions'
+
+assertions.Match.objectEquals(pattern: {[ key: string ]: any})
+```
+
+Matches the specified pattern to an object found in the same relative path of the target.
+
+The keys and their values (or matchers) must match exactly with the target.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.objectEquals.parameter.pattern"></a>
+
+- *Type:* {[ key: string ]: any}
+
+the pattern to match.
+
+---
+
+##### `objectLike` <a name="objectLike" id="cdk-extensions.assertions.Match.objectLike"></a>
+
+```typescript
+import { assertions } from 'cdk-extensions'
+
+assertions.Match.objectLike(pattern: {[ key: string ]: any})
+```
+
+Matches the specified pattern to an object found in the same relative path of the target.
+
+The keys and their values (or matchers) must be present in the target but the target can be a superset.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.objectLike.parameter.pattern"></a>
+
+- *Type:* {[ key: string ]: any}
+
+the pattern to match.
+
+---
+
+##### `serializedJson` <a name="serializedJson" id="cdk-extensions.assertions.Match.serializedJson"></a>
+
+```typescript
+import { assertions } from 'cdk-extensions'
+
+assertions.Match.serializedJson(pattern: any)
+```
+
+Matches any string-encoded JSON and applies the specified pattern after parsing it.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.serializedJson.parameter.pattern"></a>
+
+- *Type:* any
+
+the pattern to match after parsing the encoded JSON.
+
+---
+
+##### `stringLikeRegexp` <a name="stringLikeRegexp" id="cdk-extensions.assertions.Match.stringLikeRegexp"></a>
+
+```typescript
+import { assertions } from 'cdk-extensions'
+
+assertions.Match.stringLikeRegexp(pattern: string)
+```
+
+Matches targets according to a regular expression.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.stringLikeRegexp.parameter.pattern"></a>
+
+- *Type:* string
+
+---
+
+##### `joinedJson` <a name="joinedJson" id="cdk-extensions.assertions.Match.joinedJson"></a>
+
+```typescript
+import { assertions } from 'cdk-extensions'
+
+assertions.Match.joinedJson(pattern: any)
+```
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.joinedJson.parameter.pattern"></a>
+
+- *Type:* any
+
+---
+
+
+
 ### MetadataExtractionProcessor <a name="MetadataExtractionProcessor" id="cdk-extensions.kinesis_firehose.MetadataExtractionProcessor"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.MetadataExtractionProcessor.Initializer"></a>
@@ -47056,6 +50179,76 @@ public readonly operation: NestFilterOperationType;
 - *Type:* cdk-extensions.k8s_aws.NestFilterOperationType
 
 The type of operation to be performed.
+
+---
+
+
+### NoopRegistry <a name="NoopRegistry" id="cdk-extensions.k8s_aws.NoopRegistry"></a>
+
+- *Implements:* cdk-extensions.k8s_aws.IExternalDnsRegistry
+
+A placeholder ExternalDNS registry that says ExternalDNS should use not use a registry.
+
+When configuring ExternalDNS without a registry, the service has no idea the
+original creator and maintainer of DNS records. This means that there are
+likely to be conflicts if there are multiple services that could create or
+change DNS records in the same zone.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.NoopRegistry.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.NoopRegistry()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.NoopRegistry.bind">bind</a></code> | Generates an object with all the information needed to use the registry in a given CDK scope. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.NoopRegistry.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): ExternalDnsRegistryConfiguration
+```
+
+Generates an object with all the information needed to use the registry in a given CDK scope.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.k8s_aws.NoopRegistry.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The CDK resource that is configuring ExternalDNS.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.NoopRegistry.property.registryType">registryType</a></code> | <code>string</code> | The type name of ExternalDNS registry. |
+
+---
+
+##### `registryType`<sup>Required</sup> <a name="registryType" id="cdk-extensions.k8s_aws.NoopRegistry.property.registryType"></a>
+
+```typescript
+public readonly registryType: string;
+```
+
+- *Type:* string
+
+The type name of ExternalDNS registry.
 
 ---
 
@@ -48814,11 +52007,11 @@ public bind(crawler: Crawler): CrawlerTargetCollection
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.S3Target.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.S3Target.property.connection">connection</a></code> | <code>cdk-extensions.glue.Connection</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.S3Target.property.exclusions">exclusions</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.S3Target.property.keyPrefix">keyPrefix</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.S3Target.property.sampleSize">sampleSize</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.S3Target.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | Bucket to use as the Target. |
+| <code><a href="#cdk-extensions.glue.S3Target.property.connection">connection</a></code> | <code>cdk-extensions.glue.Connection</code> | {@link S3TargetOptions.connection}. |
+| <code><a href="#cdk-extensions.glue.S3Target.property.exclusions">exclusions</a></code> | <code>string[]</code> | {@link S3TargetOptions.exclusions}. |
+| <code><a href="#cdk-extensions.glue.S3Target.property.keyPrefix">keyPrefix</a></code> | <code>string</code> | {@link S3TargetOptions.keyPrefix}. |
+| <code><a href="#cdk-extensions.glue.S3Target.property.sampleSize">sampleSize</a></code> | <code>string</code> | {@link S3TargetOptions.sampleSize}. |
 
 ---
 
@@ -48830,6 +52023,8 @@ public readonly bucket: IBucket;
 
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
+Bucket to use as the Target.
+
 ---
 
 ##### `connection`<sup>Optional</sup> <a name="connection" id="cdk-extensions.glue.S3Target.property.connection"></a>
@@ -48839,6 +52034,8 @@ public readonly connection: Connection;
 ```
 
 - *Type:* cdk-extensions.glue.Connection
+
+{@link S3TargetOptions.connection}.
 
 ---
 
@@ -48850,6 +52047,8 @@ public readonly exclusions: string[];
 
 - *Type:* string[]
 
+{@link S3TargetOptions.exclusions}.
+
 ---
 
 ##### `keyPrefix`<sup>Optional</sup> <a name="keyPrefix" id="cdk-extensions.glue.S3Target.property.keyPrefix"></a>
@@ -48860,6 +52059,8 @@ public readonly keyPrefix: string;
 
 - *Type:* string
 
+{@link S3TargetOptions.keyPrefix}.
+
 ---
 
 ##### `sampleSize`<sup>Optional</sup> <a name="sampleSize" id="cdk-extensions.glue.S3Target.property.sampleSize"></a>
@@ -48869,6 +52070,8 @@ public readonly sampleSize: string;
 ```
 
 - *Type:* string
+
+{@link S3TargetOptions.sampleSize}.
 
 ---
 
@@ -49557,8 +52760,8 @@ public addColumn(column: Column): void
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.glue.StructColumn.property.typeString">typeString</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.StructColumn.property.comment">comment</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.StructColumn.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.StructColumn.property.comment">comment</a></code> | <code>string</code> | A free-form text comment. |
+| <code><a href="#cdk-extensions.glue.StructColumn.property.name">name</a></code> | <code>string</code> | The name of the Column. |
 
 ---
 
@@ -49580,6 +52783,10 @@ public readonly comment: string;
 
 - *Type:* string
 
+A free-form text comment.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment))
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.StructColumn.property.name"></a>
@@ -49589,6 +52796,10 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+The name of the Column.
+
+> [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name))
 
 ---
 
@@ -49723,6 +52934,157 @@ public readonly LATEST: TableVersion;
 ```
 
 - *Type:* cdk-extensions.kinesis_firehose.TableVersion
+
+---
+
+### TxtRegistry <a name="TxtRegistry" id="cdk-extensions.k8s_aws.TxtRegistry"></a>
+
+- *Implements:* cdk-extensions.k8s_aws.IExternalDnsRegistry
+
+An ExternalDNS registry that tracks DNS record ownership information using DNS TXT records.
+
+> [[About TXT records](https://support.google.com/a/answer/2716800?hl=en)]([About TXT records](https://support.google.com/a/answer/2716800?hl=en))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.TxtRegistry.Initializer"></a>
+
+```typescript
+import { k8s_aws } from 'cdk-extensions'
+
+new k8s_aws.TxtRegistry(options?: TxtRegistryOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.TxtRegistry.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.k8s_aws.TxtRegistryOptions</code> | Options configuring how ExternalDNS will use TXT records to validate ownership. |
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.k8s_aws.TxtRegistry.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.k8s_aws.TxtRegistryOptions
+
+Options configuring how ExternalDNS will use TXT records to validate ownership.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.TxtRegistry.bind">bind</a></code> | Generates an object with all the information needed to use the registry in a given CDK scope. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.TxtRegistry.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ExternalDnsRegistryConfiguration
+```
+
+Generates an object with all the information needed to use the registry in a given CDK scope.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.TxtRegistry.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The CDK resource that is configuring ExternalDNS.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.TxtRegistry.property.registryType">registryType</a></code> | <code>string</code> | The type name of ExternalDNS registry. |
+| <code><a href="#cdk-extensions.k8s_aws.TxtRegistry.property.ownerId">ownerId</a></code> | <code>string</code> | A unique identifier that is used to establish ownership of managed DNS records. |
+| <code><a href="#cdk-extensions.k8s_aws.TxtRegistry.property.prefix">prefix</a></code> | <code>string</code> | A prefix to be added top TXT ownership records. |
+
+---
+
+##### `registryType`<sup>Required</sup> <a name="registryType" id="cdk-extensions.k8s_aws.TxtRegistry.property.registryType"></a>
+
+```typescript
+public readonly registryType: string;
+```
+
+- *Type:* string
+
+The type name of ExternalDNS registry.
+
+---
+
+##### `ownerId`<sup>Optional</sup> <a name="ownerId" id="cdk-extensions.k8s_aws.TxtRegistry.property.ownerId"></a>
+
+```typescript
+public readonly ownerId: string;
+```
+
+- *Type:* string
+
+A unique identifier that is used to establish ownership of managed DNS records.
+
+Prevents conflicts in the event of multiple clusters running external-dns.
+
+---
+
+##### `prefix`<sup>Optional</sup> <a name="prefix" id="cdk-extensions.k8s_aws.TxtRegistry.property.prefix"></a>
+
+```typescript
+public readonly prefix: string;
+```
+
+- *Type:* string
+
+A prefix to be added top TXT ownership records.
+
+By default, the ownership record is a TXT record with the same name as the
+managed record that was created. This causes issues as some record types
+(CNAME's) do not allow duplicate records of a different type.
+
+This prefix is used to prevent such name collissions while still allowing
+DNS ownership records to be created.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.TxtRegistry.property.DEFAULT_PREFIX">DEFAULT_PREFIX</a></code> | <code>string</code> | The default prefix to append to TXT ownership records creates for the registry. |
+| <code><a href="#cdk-extensions.k8s_aws.TxtRegistry.property.NO_PREFIX">NO_PREFIX</a></code> | <code>string</code> | A special value that specifies ExternalDNS should not use any prefix when creating TXT ownership records. |
+
+---
+
+##### `DEFAULT_PREFIX`<sup>Required</sup> <a name="DEFAULT_PREFIX" id="cdk-extensions.k8s_aws.TxtRegistry.property.DEFAULT_PREFIX"></a>
+
+```typescript
+public readonly DEFAULT_PREFIX: string;
+```
+
+- *Type:* string
+
+The default prefix to append to TXT ownership records creates for the registry.
+
+---
+
+##### `NO_PREFIX`<sup>Required</sup> <a name="NO_PREFIX" id="cdk-extensions.k8s_aws.TxtRegistry.property.NO_PREFIX"></a>
+
+```typescript
+public readonly NO_PREFIX: string;
+```
+
+- *Type:* string
+
+A special value that specifies ExternalDNS should not use any prefix when creating TXT ownership records.
+
+This is not recommended as it is likely to cause issues with record
+creation and management with some record types that do not allow other
+records with the same name and different types to exist (CNAME's).
+
+However, if this behavior is desired this value can be passed as the
+prefix to override the default behavior with will set a prefix if none
+is provided as input.
 
 ---
 
@@ -50170,6 +53532,105 @@ public renderBackupConfiguration(scope: IConstruct, enabled?: boolean): BackupCo
 ---
 
 
+### IDnsResolvable <a name="IDnsResolvable" id="cdk-extensions.route53.IDnsResolvable"></a>
+
+- *Extends:* constructs.IConstruct
+
+- *Implemented By:* cdk-extensions.k8s_aws.Echoserver, cdk-extensions.route53.IDnsResolvable
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.route53.IDnsResolvable.registerDomain">registerDomain</a></code> | *No description.* |
+
+---
+
+##### `registerDomain` <a name="registerDomain" id="cdk-extensions.route53.IDnsResolvable.registerDomain"></a>
+
+```typescript
+public registerDomain(domain: Domain): void
+```
+
+###### `domain`<sup>Required</sup> <a name="domain" id="cdk-extensions.route53.IDnsResolvable.registerDomain.parameter.domain"></a>
+
+- *Type:* cdk-extensions.route53.Domain
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.route53.IDnsResolvable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.route53.IDnsResolvable.property.domainDiscovery">domainDiscovery</a></code> | <code>cdk-extensions.route53.DomainDiscovery</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.route53.IDnsResolvable.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `domainDiscovery`<sup>Required</sup> <a name="domainDiscovery" id="cdk-extensions.route53.IDnsResolvable.property.domainDiscovery"></a>
+
+```typescript
+public readonly domainDiscovery: DomainDiscovery;
+```
+
+- *Type:* cdk-extensions.route53.DomainDiscovery
+
+---
+
+### IExternalDnsRegistry <a name="IExternalDnsRegistry" id="cdk-extensions.k8s_aws.IExternalDnsRegistry"></a>
+
+- *Implemented By:* cdk-extensions.k8s_aws.AwsServiceDiscoveryRegistry, cdk-extensions.k8s_aws.NoopRegistry, cdk-extensions.k8s_aws.TxtRegistry, cdk-extensions.k8s_aws.IExternalDnsRegistry
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.IExternalDnsRegistry.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.k8s_aws.IExternalDnsRegistry.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ExternalDnsRegistryConfiguration
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_aws.IExternalDnsRegistry.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.IExternalDnsRegistry.property.registryType">registryType</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `registryType`<sup>Required</sup> <a name="registryType" id="cdk-extensions.k8s_aws.IExternalDnsRegistry.property.registryType"></a>
+
+```typescript
+public readonly registryType: string;
+```
+
+- *Type:* string
+
+---
+
 ### IFluentBitFilterPlugin <a name="IFluentBitFilterPlugin" id="cdk-extensions.k8s_aws.IFluentBitFilterPlugin"></a>
 
 - *Extends:* cdk-extensions.k8s_aws.IFluentBitPlugin
@@ -50377,7 +53838,7 @@ The type of fluent bit plugin.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.sso.IGroup.property.groupId">groupId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.sso.IGroup.property.groupId">groupId</a></code> | <code>string</code> | A GUID identifier for a group object in IAM Identity Center are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). |
 
 ---
 
@@ -50388,6 +53849,8 @@ public readonly groupId: string;
 ```
 
 - *Type:* string
+
+A GUID identifier for a group object in IAM Identity Center are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6).
 
 ---
 
@@ -50440,8 +53903,8 @@ The type of entity being represented.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.sso.IInstance.property.instanceArn">instanceArn</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.sso.IInstance.property.instanceId">instanceId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.sso.IInstance.property.instanceArn">instanceArn</a></code> | <code>string</code> | The ARN of the IAM Identity Center instance under which the operation will be executed. |
+| <code><a href="#cdk-extensions.sso.IInstance.property.instanceId">instanceId</a></code> | <code>string</code> | The ID of the IAM Identity Center instance under which the operation will be executed. |
 
 ---
 
@@ -50453,6 +53916,12 @@ public readonly instanceArn: string;
 
 - *Type:* string
 
+The ARN of the IAM Identity Center instance under which the operation will be executed.
+
+For more information about ARNs, see Amazon Resource Names (ARNs) and AWS Service Namespaces in the AWS General Reference.
+
+> [[AWS::SSO::Assignment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn)]([AWS::SSO::Assignment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn))
+
 ---
 
 ##### `instanceId`<sup>Required</sup> <a name="instanceId" id="cdk-extensions.sso.IInstance.property.instanceId"></a>
@@ -50462,6 +53931,8 @@ public readonly instanceId: string;
 ```
 
 - *Type:* string
+
+The ID of the IAM Identity Center instance under which the operation will be executed.
 
 ---
 
@@ -50722,7 +54193,7 @@ public bind(trigger: Trigger): ConditionProperty
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.sso.IUser.property.userId">userId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.sso.IUser.property.userId">userId</a></code> | <code>string</code> | A GUID identifier for a user object in IAM Identity Center (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). |
 
 ---
 
@@ -50733,6 +54204,8 @@ public readonly userId: string;
 ```
 
 - *Type:* string
+
+A GUID identifier for a user object in IAM Identity Center (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6).
 
 ---
 
@@ -50782,29 +54255,37 @@ Server-side encryption (SSE) with an AWS KMS key managed by the account owner.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.glue.ConnectionType.JDBC">JDBC</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionType.KAFKA">KAFKA</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionType.MONGODB">MONGODB</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.ConnectionType.NETWORK">NETWORK</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.ConnectionType.JDBC">JDBC</a></code> | JDBC - Designates a connection to a database through Java Database Connectivity (JDBC). |
+| <code><a href="#cdk-extensions.glue.ConnectionType.KAFKA">KAFKA</a></code> | KAFKA - Designates a connection to an Apache Kafka streaming platform. |
+| <code><a href="#cdk-extensions.glue.ConnectionType.MONGODB">MONGODB</a></code> | MONGODB - Designates a connection to a MongoDB document database. |
+| <code><a href="#cdk-extensions.glue.ConnectionType.NETWORK">NETWORK</a></code> | NETWORK - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC). |
 
 ---
 
 ##### `JDBC` <a name="JDBC" id="cdk-extensions.glue.ConnectionType.JDBC"></a>
+
+JDBC - Designates a connection to a database through Java Database Connectivity (JDBC).
 
 ---
 
 
 ##### `KAFKA` <a name="KAFKA" id="cdk-extensions.glue.ConnectionType.KAFKA"></a>
 
+KAFKA - Designates a connection to an Apache Kafka streaming platform.
+
 ---
 
 
 ##### `MONGODB` <a name="MONGODB" id="cdk-extensions.glue.ConnectionType.MONGODB"></a>
 
+MONGODB - Designates a connection to a MongoDB document database.
+
 ---
 
 
 ##### `NETWORK` <a name="NETWORK" id="cdk-extensions.glue.ConnectionType.NETWORK"></a>
+
+NETWORK - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).
 
 ---
 
@@ -50878,6 +54359,39 @@ Server-side encryption (SSE) with an AWS KMS key managed by the account owner.
 ---
 
 
+### DomainDiscovery <a name="DomainDiscovery" id="cdk-extensions.route53.DomainDiscovery"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.route53.DomainDiscovery.ALL">ALL</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.route53.DomainDiscovery.NONE">NONE</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.route53.DomainDiscovery.PRIVATE">PRIVATE</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.route53.DomainDiscovery.PUBLIC">PUBLIC</a></code> | *No description.* |
+
+---
+
+##### `ALL` <a name="ALL" id="cdk-extensions.route53.DomainDiscovery.ALL"></a>
+
+---
+
+
+##### `NONE` <a name="NONE" id="cdk-extensions.route53.DomainDiscovery.NONE"></a>
+
+---
+
+
+##### `PRIVATE` <a name="PRIVATE" id="cdk-extensions.route53.DomainDiscovery.PRIVATE"></a>
+
+---
+
+
+##### `PUBLIC` <a name="PUBLIC" id="cdk-extensions.route53.DomainDiscovery.PUBLIC"></a>
+
+---
+
+
 ### ElasticsearchCompressionFormat <a name="ElasticsearchCompressionFormat" id="cdk-extensions.k8s_aws.ElasticsearchCompressionFormat"></a>
 
 #### Members <a name="Members" id="Members"></a>
@@ -50891,6 +54405,170 @@ Server-side encryption (SSE) with an AWS KMS key managed by the account owner.
 ##### `GZIP` <a name="GZIP" id="cdk-extensions.k8s_aws.ElasticsearchCompressionFormat.GZIP"></a>
 
 Gzip compression format.
+
+---
+
+
+### ExternalDnsLogFormat <a name="ExternalDnsLogFormat" id="cdk-extensions.k8s_aws.ExternalDnsLogFormat"></a>
+
+The format external dns should use to output logs.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsLogFormat.JSON">JSON</a></code> | Output logs will be written as JSON objects. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsLogFormat.TEXT">TEXT</a></code> | Output logs will be written in plain text. |
+
+---
+
+##### `JSON` <a name="JSON" id="cdk-extensions.k8s_aws.ExternalDnsLogFormat.JSON"></a>
+
+Output logs will be written as JSON objects.
+
+---
+
+
+##### `TEXT` <a name="TEXT" id="cdk-extensions.k8s_aws.ExternalDnsLogFormat.TEXT"></a>
+
+Output logs will be written in plain text.
+
+---
+
+
+### ExternalDnsLogLevel <a name="ExternalDnsLogLevel" id="cdk-extensions.k8s_aws.ExternalDnsLogLevel"></a>
+
+Verbosity of the logs generated by the external-dns service.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsLogLevel.PANIC">PANIC</a></code> | Set log level to 'panic'. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsLogLevel.DEBUG">DEBUG</a></code> | Set log level to 'debug'. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsLogLevel.INFO">INFO</a></code> | Set log level to 'info'. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsLogLevel.WARNING">WARNING</a></code> | Set log level to 'warning'. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsLogLevel.ERROR">ERROR</a></code> | Set log level to 'error'. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsLogLevel.FATAL">FATAL</a></code> | Set log level to 'fatal'. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsLogLevel.TRACE">TRACE</a></code> | Set log level to 'trace'. |
+
+---
+
+##### `PANIC` <a name="PANIC" id="cdk-extensions.k8s_aws.ExternalDnsLogLevel.PANIC"></a>
+
+Set log level to 'panic'.
+
+---
+
+
+##### `DEBUG` <a name="DEBUG" id="cdk-extensions.k8s_aws.ExternalDnsLogLevel.DEBUG"></a>
+
+Set log level to 'debug'.
+
+---
+
+
+##### `INFO` <a name="INFO" id="cdk-extensions.k8s_aws.ExternalDnsLogLevel.INFO"></a>
+
+Set log level to 'info'.
+
+---
+
+
+##### `WARNING` <a name="WARNING" id="cdk-extensions.k8s_aws.ExternalDnsLogLevel.WARNING"></a>
+
+Set log level to 'warning'.
+
+---
+
+
+##### `ERROR` <a name="ERROR" id="cdk-extensions.k8s_aws.ExternalDnsLogLevel.ERROR"></a>
+
+Set log level to 'error'.
+
+---
+
+
+##### `FATAL` <a name="FATAL" id="cdk-extensions.k8s_aws.ExternalDnsLogLevel.FATAL"></a>
+
+Set log level to 'fatal'.
+
+---
+
+
+##### `TRACE` <a name="TRACE" id="cdk-extensions.k8s_aws.ExternalDnsLogLevel.TRACE"></a>
+
+Set log level to 'trace'.
+
+---
+
+
+### ExternalDnsSyncPolicy <a name="ExternalDnsSyncPolicy" id="cdk-extensions.k8s_aws.ExternalDnsSyncPolicy"></a>
+
+Controls the operations ExternalDNS will perform on the records it manages.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsSyncPolicy.SYNC">SYNC</a></code> | Full sync mode. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsSyncPolicy.UPSERT_ONLY">UPSERT_ONLY</a></code> | Only allow create and update operations. |
+
+---
+
+##### `SYNC` <a name="SYNC" id="cdk-extensions.k8s_aws.ExternalDnsSyncPolicy.SYNC"></a>
+
+Full sync mode.
+
+Records will be created, updated, and deleted based on the
+statis of their backing resources on the Kubernetes cluster.
+
+---
+
+
+##### `UPSERT_ONLY` <a name="UPSERT_ONLY" id="cdk-extensions.k8s_aws.ExternalDnsSyncPolicy.UPSERT_ONLY"></a>
+
+Only allow create and update operations.
+
+Records will have their values
+set based on the status of their backing Kubernetes resources, however if
+those resources are removed the DNS records will be retained, set to their
+last configured value.
+
+---
+
+
+### ExternalDnsZoneType <a name="ExternalDnsZoneType" id="cdk-extensions.k8s_aws.ExternalDnsZoneType"></a>
+
+Controls the types of Hosted Zones external DNS will create records for.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsZoneType.ALL">ALL</a></code> | Create DNS records for both public and private hosted zones. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsZoneType.PRIVATE">PRIVATE</a></code> | Only create DNS records for private hosted zones. |
+| <code><a href="#cdk-extensions.k8s_aws.ExternalDnsZoneType.PUBLIC">PUBLIC</a></code> | Only create DNS records for public hosted zones. |
+
+---
+
+##### `ALL` <a name="ALL" id="cdk-extensions.k8s_aws.ExternalDnsZoneType.ALL"></a>
+
+Create DNS records for both public and private hosted zones.
+
+---
+
+
+##### `PRIVATE` <a name="PRIVATE" id="cdk-extensions.k8s_aws.ExternalDnsZoneType.PRIVATE"></a>
+
+Only create DNS records for private hosted zones.
+
+---
+
+
+##### `PUBLIC` <a name="PUBLIC" id="cdk-extensions.k8s_aws.ExternalDnsZoneType.PUBLIC"></a>
+
+Only create DNS records for public hosted zones.
 
 ---
 
