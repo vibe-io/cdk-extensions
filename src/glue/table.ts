@@ -16,27 +16,119 @@ export enum TableType {
  * Configuration for Table
  */
 export interface TableProps extends ResourceProps {
+  /**
+   * A list of the Columns in the table.
+   *
+   * @see [AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-columns)
+   */
   readonly columns?: Column[];
+  /**
+   *  True if the data in the table is compressed, or False if not.
+   *
+   * @see [AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-compressed)
+   */
   readonly compressed?: boolean;
+  /**
+   * DataFormat object indicating the expected input/output format
+   */
   readonly dataFormat?: DataFormat;
+  /**
+   * Database object to add Table to
+   */
   readonly database: Database;
+  /**
+   * A description for the Table
+   */
   readonly description?: string;
+  /**
+   * The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+   *
+   * @see [AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-location)
+   */
   readonly location?: string;
+  /**
+   * A name for the Table
+   */
   readonly name?: string;
+  /**
+   * The table owner. Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+   *
+   * @see [AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-owner)
+   */
   readonly owner?: string;
+  /**
+   * These key-value pairs define properties associated with the table.
+   *
+   * @see [AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters)
+   */
   readonly parameters?: {[key: string]: string};
+  /**
+   * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+   *
+   * @see [AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameterskeys)
+   */
   readonly partitionKeys?: Column[];
+  /**
+   * The retention time for this table.
+   *
+   * @see [AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-retention)
+   */
   readonly retention?: Duration;
+  /**
+   * Name of the SerDe.
+   *
+   * @see [AWS::Glue::Table SerdeInfo](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-name)
+   */
   readonly serdeName?: string;
+  /**
+   * These key-value pairs define initialization parameters for the SerDe.
+   *
+   * @see [AWS::Glue::Table SerdeInfo](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-parameters)
+   */
   readonly serdeParameters?: {[key: string]: string};
+  /**
+   * The user-supplied properties in key-value form.
+   *
+   * @see [AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-parameters)
+   */
   readonly storageParameters?: {[key: string]: string};
+  /**
+   *  True if the table data is stored in subdirectories, or False if not.
+   *
+   * @see [AWS::Glue::Table StorageDescriptor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-storedassubdirectories)
+   */
   readonly storedAsSubDirectories?: boolean;
+  /**
+   * The type of this table. AWS Glue will create tables with the EXTERNAL_TABLE type. Other services, such as Athena, may create tables with additional table types.
+   *
+   * @see [AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype)
+   */
   readonly tableType?: TableType;
+  /**
+   * A TableIdentifier structure that describes a target table for resource linking.
+   *
+   * @see [AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable)
+   */
   readonly targetTable?: Table;
+  /**
+   * Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+   *
+   * @see [AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext)
+   */
   readonly viewExpandedText?: string;
+  /**
+   * Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations. If the table is a VIRTUAL_VIEW, certain Athena configuration encoded in base64.
+   *
+   * @see [AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext)
+   */
   readonly viewOriginalText?: string;
 }
 
+/**
+ * Creates a Table resource specifying tabular data in the Glue Database
+ *
+ * @see [AWS::Glue::Table](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html)
+ */
 export class Table extends Resource {
   // Internal properties
   private readonly _columns: Column[] = [];
@@ -46,19 +138,61 @@ export class Table extends Resource {
   private readonly _storageParameters: {[key: string]: string} = {};
 
   // Input properties
+  /**
+    * {@link TableProps.compressed}
+    */
   public readonly compressed?: boolean;
+  /**
+    * {@link TableProps.dataFormat}
+    */
   public readonly dataFormat?: DataFormat;
+  /**
+    * {@link TableProps.database:}
+    */
   public readonly database: Database;
+  /**
+    * {@link TableProps.description}
+    */
   public readonly description?: string;
+  /**
+    * {@link TableProps.location}
+    */
   public readonly location?: string;
+  /**
+    * {@link TableProps.name}
+    */
   public readonly name?: string;
+  /**
+    * {@link TableProps.owner}
+    */
   public readonly owner?: string;
+  /**
+    * {@link TableProps.retention}
+    */
   public readonly retention?: Duration;
+  /**
+    * {@link TableProps.serdeName}
+    */
   public readonly serdeName?: string;
+  /**
+    * {@link TableProps.tableType}
+    */
   public readonly tableType?: TableType;
+  /**
+    * {@link TableProps.targetTable}
+    */
   public readonly targetTable?: Table;
+  /**
+    * {@link TableProps.viewExpandedText}
+    */
   public readonly viewExpandedText?: string;
+  /**
+    * {@link TableProps.viewOriginalText}
+    */
   public readonly viewOriginalText?: string;
+  /**
+    * {@link TableProps.storedAsSubDirectories}
+    */
   public readonly storedAsSubDirectories?: boolean;
 
   // Resource properties

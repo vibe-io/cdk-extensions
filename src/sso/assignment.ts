@@ -12,7 +12,7 @@ import { IPermissionSet } from './permission-set';
  */
 export interface AssignmentProps extends ResourceProps {
   /**
-     * The IAM Identity Center instance under which the operation will be
+     * The IAM Identity Center {@link aws-sso.IInstance | instance } under which the operation will be
      * executed.
      */
   readonly instance: IInstance;

@@ -9,9 +9,26 @@ import { Crawler, CrawlerTargetCollection, ICrawlerTarget } from '../../crawler'
  * Configuration for Crawler S3 target
  */
 export interface S3TargetOptions {
+  /**
+   * A {@link aws-glue.Connection | "Connection" } object to connect to the target with
+   */
   readonly connection?: Connection;
+  /**
+   * A list of glob patterns used to exclude from the crawl.
+   *
+   * @see [AWS::Glue::Crawler S3Target](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-exclusions)
+   * @see [For More Information](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
+   */
   readonly exclusions?: string[];
+  /**
+   * A Prefix Key for identification and organization of objects in the bucket
+   */
   readonly keyPrefix?: string;
+  /**
+   * Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+   *
+   * @see [AWS::Glue::Crawler S3Target](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-samplesize)
+   */
   readonly sampleSize?: string;
 }
 
@@ -20,10 +37,25 @@ export class S3Target implements ICrawlerTarget {
   private readonly _exclusions: string[] = [];
 
   // Input properties
+  /**
+   * Bucket to use as the Target
+   */
   public readonly bucket: IBucket;
+  /**
+	 * {@link S3TargetOptions.connection}
+	 */
   public readonly connection?: Connection;
+  /**
+	 * {@link S3TargetOptions.exclusions}
+	 */
   public readonly exclusions?: string[];
+  /**
+	 * {@link S3TargetOptions.keyPrefix}
+	 */
   public readonly keyPrefix?: string;
+  /**
+	 * {@link S3TargetOptions.sampleSize}
+	 */
   public readonly sampleSize?: string;
 
 
