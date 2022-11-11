@@ -25,7 +25,12 @@ export class CacheEngineFamily {
   private constructor(name: string) {
     this.name = name;
   }
+
+  public toString(): string {
+    return this.name;
+  }
 }
+
 
 export interface CacheEngineOptions {
   readonly engineFamily?: CacheEngineFamily;

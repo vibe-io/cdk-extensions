@@ -55,7 +55,9 @@ export class S3Destination extends DeliveryStreamDestination implements IDeliver
 
     this.bucket = bucket;
     this.buffering = options.buffering;
-    this.cloudwatchLoggingConfiguration = options.cloudwatchLoggingConfiguration;
+    this.cloudwatchLoggingConfiguration = options.cloudwatchLoggingConfiguration ?? new CloudWatchLoggingConfiguration({
+      enabled: true,
+    });
     this.compressionFormat = options.compressionFormat;
     this.encryptionEnabled = options.encryptionEnabled ?? !!options.encryptionKey;
     this.encryptionKey = options.encryptionKey;
@@ -169,8 +171,8 @@ export class S3Destination extends DeliveryStreamDestination implements IDeliver
     }
 
     if (this.cloudwatchLoggingConfiguration?.enabled) {
-      const logGroupScope = this.cloudwatchLoggingConfiguration.logGroup?.logGroupName ?? '*';
-      const logStreamScope = this.cloudwatchLoggingConfiguration.logStream?.logStreamName ?? '*';
+      const logGroupScope = this.cloudwatchLoggingConfiguration?.logGroup?.logGroupName ?? '*';
+      const logStreamScope = this.cloudwatchLoggingConfiguration?.logStream?.logStreamName ?? '*';
 
       this._role.addToPrincipalPolicy(new PolicyStatement({
         actions: [
@@ -178,7 +180,7 @@ export class S3Destination extends DeliveryStreamDestination implements IDeliver
         ],
         effect: Effect.ALLOW,
         resources: [
-          Stack.of(this.cloudwatchLoggingConfiguration.logGroup ?? scope).formatArn({
+          Stack.of(this.cloudwatchLoggingConfiguration?.logGroup ?? scope).formatArn({
             arnFormat: ArnFormat.COLON_RESOURCE_NAME,
             resource: 'log-group',
             resourceName: `${logGroupScope}:log-stream:${logStreamScope}`,

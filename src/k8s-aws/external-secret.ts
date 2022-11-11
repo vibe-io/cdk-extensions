@@ -125,7 +125,6 @@ export class ExternalSecret extends Resource {
    */
   private readonly _secrets: ISecretReference[] = [];
 
-
   /**
    * The EKS cluster where the secret should be created.
    *
@@ -172,7 +171,6 @@ export class ExternalSecret extends Resource {
   public get secrets(): ISecretReference[] {
     return [...this._secrets];
   }
-
 
   /**
    * The Kubernetes manifest defining the configuration of how to synchronize

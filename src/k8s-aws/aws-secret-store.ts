@@ -47,7 +47,6 @@ export class AwsSecretStore extends Resource implements ISecretStore {
    */
   public static readonly NAME_VALIDATOR_REGEX='^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$';
 
-
   /**
    * The EKS cluster where the secret store should be created.
    *
@@ -76,7 +75,6 @@ export class AwsSecretStore extends Resource implements ISecretStore {
    */
   public readonly service: string;
 
-
   /**
    * The Kubernetes manifest that defines the secret store.
    *
@@ -91,7 +89,6 @@ export class AwsSecretStore extends Resource implements ISecretStore {
    * @group Resources
    */
   public readonly serviceAccount: ServiceAccount;
-
 
   /**
    * The name of the secret store as it appears in Kubernetes.

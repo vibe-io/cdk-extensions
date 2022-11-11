@@ -10,7 +10,12 @@ export * from './aws-secret-store';
 /**
  * @category Constructs
  */
-export * from './cloudwatch-monitoring';
+export * from './adot-collector';
+
+/**
+ * @category Constructs
+ */
+export * from './echoserver';
 
 /**
  * @category Constructs

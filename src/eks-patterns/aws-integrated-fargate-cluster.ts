@@ -1,21 +1,39 @@
 import { Resource } from 'aws-cdk-lib';
 import { FargateCluster, FargateClusterProps } from 'aws-cdk-lib/aws-eks';
-import { ILogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { ISecret } from 'aws-cdk-lib/aws-secretsmanager';
 import { IParameter } from 'aws-cdk-lib/aws-ssm';
 import { Construct, IDependable } from 'constructs';
-import { CloudWatchMonitoring } from '../k8s-aws/cloudwatch-monitoring';
-import { ExternalDns } from '../k8s-aws/external-dns';
+import { FargateLogger, FargateLoggerOptions, Route53Dns, Route53DnsOptions } from '../k8s-aws';
+import { AdotCollector } from '../k8s-aws/adot-collector';
 import { ExternalSecret } from '../k8s-aws/external-secret';
 import { ExternalSecretsOperator, NamespacedExternalSecretOptions } from '../k8s-aws/external-secrets-operator';
-import { FargateLogger } from '../k8s-aws/fargate-logger';
 
 
-export interface CloudWatchMonitoringOptions {
+/**
+ * Configuration options for enabling CloudWatch monitoring on the cluster.
+ */
+export interface ContainerInsightsOptions {
+  /**
+   * Flag that controls whether CloudWatch Monitoring should be enabled or not.
+   *
+   * @default true
+   */
   readonly enabled?: boolean;
+
+  /**
+   * The Kubernetes namespace where resources related to the the configuration
+   * of Container Insights will be created.
+   *
+   * @default {@link AdotCollector.DEFAULT_NAMESPACE}
+   */
+  readonly namespace?: string;
 }
 
-export interface FargateLoggingOptions {
+/**
+ * Configuration options for enabling persistent logging for Fargate containers
+ * on the cluster.
+ */
+export interface ClusterFargateLoggingOptions extends FargateLoggerOptions {
   /**
      * Controls whether logging will be set up for pods using the default
      * Fargate provide on the EKS cluster.
@@ -23,28 +41,10 @@ export interface FargateLoggingOptions {
      * @default true
      */
   readonly enabled?: boolean;
-
-  /**
-     * The CloudWatch log group where Farget container logs will be sent.
-     */
-  readonly logGroup?: ILogGroup;
-
-  /**
-      * The prefix to add to the start of log streams created by the Fargate
-      * logger.
-      */
-  readonly logStreamPrefix?: string;
-
-  /**
-      * The number of days logs sent to CloudWatch from Fluent Bit should be
-      * retained before they are automatically removed.
-      */
-  readonly retention?: RetentionDays;
 }
 
-export interface ExternalDnsOptions {
+export interface ClusterRoute53DnsOptions extends Route53DnsOptions {
   readonly enabled?: boolean;
-  readonly domainFilter?: string[];
 }
 
 export interface ExternalSecretsOptions {
@@ -55,18 +55,18 @@ export interface ExternalSecretsOptions {
 }
 
 export interface AwsIntegratedFargateClusterProps extends FargateClusterProps {
-  readonly cloudWatchMonitoringOptions?: CloudWatchMonitoringOptions;
-  readonly externalDnsOptions?: ExternalDnsOptions;
+  readonly containerInsightsOptions?: ContainerInsightsOptions;
+  readonly externalDnsOptions?: ClusterRoute53DnsOptions;
   readonly externalSecretsOptions?: ExternalSecretsOptions;
-  readonly loggingOptions?: FargateLoggingOptions;
+  readonly loggingOptions?: ClusterFargateLoggingOptions;
 }
 
 export class AwsIntegratedFargateCluster extends Resource {
   // Resource properties
-  public readonly cloudWatchMonitoring?: CloudWatchMonitoring;
-  public readonly externalDns?: ExternalDns;
+  public readonly adotCollector?: AdotCollector;
   public readonly externalSecrets?: ExternalSecretsOperator;
   public readonly fargateLogger?: FargateLogger;
+  public readonly route53Dns?: Route53Dns;
   public readonly resource: FargateCluster;
 
 
@@ -90,37 +90,50 @@ export class AwsIntegratedFargateCluster extends Resource {
       lastResource = this.fargateLogger;
     }
 
-    if (props.cloudWatchMonitoringOptions?.enabled ?? true) {
-      this.cloudWatchMonitoring = new CloudWatchMonitoring(this, 'cloudwatch-monitoring', {
+    if (props.containerInsightsOptions?.enabled ?? true) {
+
+      this.adotCollector = new AdotCollector(this, 'adot-collector', {
         cluster: this.resource,
       });
-      this.cloudWatchMonitoring.node.addDependency(lastResource);
-      lastResource = this.cloudWatchMonitoring;
-    }
+      this.adotCollector.node.addDependency(lastResource);
 
-    if (props.externalDnsOptions?.enabled ?? true) {
-      this.externalDns = new ExternalDns(this, 'external-dns', {
-        ...(props.externalDnsOptions ?? {}),
-        cluster: this.resource,
-      });
-      this.externalDns.node.addDependency(lastResource);
-      lastResource = this.externalDns;
-    }
-
-    if (props.externalSecretsOptions?.enabled ?? true) {
-      this.resource.addFargateProfile('external-secrets', {
+      const fargateProfile = this.resource.addFargateProfile('adot-collector', {
         selectors: [
           {
-            namespace: props.externalSecretsOptions?.namespace ?? ExternalSecretsOperator.DEFAULT_NAMESPACE,
+            namespace: this.adotCollector.namespace,
           },
         ],
       });
+      this.fargateLogger?.addFargateProfile(fargateProfile);
 
+      lastResource = this.adotCollector;
+    }
+
+    if (props.externalDnsOptions?.enabled ?? true) {
+      this.route53Dns = new Route53Dns(this, 'route-53-dns', {
+        ...(props.externalDnsOptions ?? {}),
+        cluster: this.resource,
+      });
+      this.route53Dns.node.addDependency(lastResource);
+      lastResource = this.route53Dns;
+    }
+
+    if (props.externalSecretsOptions?.enabled ?? true) {
       this.externalSecrets = new ExternalSecretsOperator(this, 'external-secrets', {
         ...(props.externalSecretsOptions ?? {}),
         cluster: this.resource,
       });
       this.externalSecrets.node.addDependency(lastResource);
+
+      const fargateProfile = this.resource.addFargateProfile('external-secrets', {
+        selectors: [
+          {
+            namespace: this.externalSecrets.namespace,
+          },
+        ],
+      });
+      this.fargateLogger?.addFargateProfile(fargateProfile);
+
       lastResource = this.externalSecrets;
     }
   }
