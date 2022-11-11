@@ -3,7 +3,7 @@ import { Template } from 'aws-cdk-lib/assertions';
 import { SecurityGroup, SubnetType } from 'aws-cdk-lib/aws-ec2';
 import { FargateCluster, KubernetesVersion } from 'aws-cdk-lib/aws-eks';
 import { HostedZone } from 'aws-cdk-lib/aws-route53';
-import { Match } from '../src/assertions';
+import { Match } from '../src/asserts';
 import { Echoserver } from '../src/k8s-aws';
 import { DomainDiscovery, Domains } from '../src/route53';
 

@@ -4,7 +4,7 @@
 
 export * as core from './core';
 
-export * as assertions from './assertions';
+export * as asserts from './asserts';
 
 export * as athena from './athena';
 export * as ec2 from './ec2';

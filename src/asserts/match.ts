@@ -8,7 +8,7 @@ export class Match extends CdkMatch {
   }
 }
 
-class JoinedJson extends Matcher {
+export class JoinedJson extends Matcher {
   private static parseInput(join: any): any {
     const joinArgs: any[] = join['Fn::Join'];
     const sep: string = joinArgs[0];

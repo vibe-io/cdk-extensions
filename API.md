@@ -48537,6 +48537,100 @@ Command for running a Glue streaming job.
 
 ---
 
+### JoinedJson <a name="JoinedJson" id="cdk-extensions.asserts.JoinedJson"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.asserts.JoinedJson.Initializer"></a>
+
+```typescript
+import { asserts } from 'cdk-extensions'
+
+new asserts.JoinedJson(pattern: any)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.asserts.JoinedJson.Initializer.parameter.pattern">pattern</a></code> | <code>any</code> | *No description.* |
+
+---
+
+##### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.asserts.JoinedJson.Initializer.parameter.pattern"></a>
+
+- *Type:* any
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.asserts.JoinedJson.test">test</a></code> | Test whether a target matches the provided pattern. |
+
+---
+
+##### `test` <a name="test" id="cdk-extensions.asserts.JoinedJson.test"></a>
+
+```typescript
+public test(actual: any): MatchResult
+```
+
+Test whether a target matches the provided pattern.
+
+Every Matcher must implement this method.
+This method will be invoked by the assertions framework. Do not call this method directly.
+
+###### `actual`<sup>Required</sup> <a name="actual" id="cdk-extensions.asserts.JoinedJson.test.parameter.actual"></a>
+
+- *Type:* any
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.asserts.JoinedJson.isMatcher">isMatcher</a></code> | Check whether the provided object is a subtype of the `IMatcher`. |
+
+---
+
+##### `isMatcher` <a name="isMatcher" id="cdk-extensions.asserts.JoinedJson.isMatcher"></a>
+
+```typescript
+import { asserts } from 'cdk-extensions'
+
+asserts.JoinedJson.isMatcher(x: any)
+```
+
+Check whether the provided object is a subtype of the `IMatcher`.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.asserts.JoinedJson.isMatcher.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.asserts.JoinedJson.property.name">name</a></code> | <code>string</code> | A name for the matcher. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.asserts.JoinedJson.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+A name for the matcher.
+
+This is collected as part of the result and may be presented to the user.
+
+---
+
+
 ### JsonPartitioningSource <a name="JsonPartitioningSource" id="cdk-extensions.kinesis_firehose.JsonPartitioningSource"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.JsonPartitioningSource.Initializer"></a>
@@ -49050,14 +49144,14 @@ public readonly managedPolicy: IManagedPolicy;
 ---
 
 
-### Match <a name="Match" id="cdk-extensions.assertions.Match"></a>
+### Match <a name="Match" id="cdk-extensions.asserts.Match"></a>
 
-#### Initializers <a name="Initializers" id="cdk-extensions.assertions.Match.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-extensions.asserts.Match.Initializer"></a>
 
 ```typescript
-import { assertions } from 'cdk-extensions'
+import { asserts } from 'cdk-extensions'
 
-new assertions.Match()
+new asserts.Match()
 ```
 
 | **Name** | **Type** | **Description** |
@@ -49070,53 +49164,53 @@ new assertions.Match()
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.assertions.Match.absent">absent</a></code> | Use this matcher in the place of a field's value, if the field must not be present. |
-| <code><a href="#cdk-extensions.assertions.Match.anyValue">anyValue</a></code> | Matches any non-null value at the target. |
-| <code><a href="#cdk-extensions.assertions.Match.arrayEquals">arrayEquals</a></code> | Matches the specified pattern with the array found in the same relative path of the target. |
-| <code><a href="#cdk-extensions.assertions.Match.arrayWith">arrayWith</a></code> | Matches the specified pattern with the array found in the same relative path of the target. |
-| <code><a href="#cdk-extensions.assertions.Match.exact">exact</a></code> | Deep exact matching of the specified pattern to the target. |
-| <code><a href="#cdk-extensions.assertions.Match.not">not</a></code> | Matches any target which does NOT follow the specified pattern. |
-| <code><a href="#cdk-extensions.assertions.Match.objectEquals">objectEquals</a></code> | Matches the specified pattern to an object found in the same relative path of the target. |
-| <code><a href="#cdk-extensions.assertions.Match.objectLike">objectLike</a></code> | Matches the specified pattern to an object found in the same relative path of the target. |
-| <code><a href="#cdk-extensions.assertions.Match.serializedJson">serializedJson</a></code> | Matches any string-encoded JSON and applies the specified pattern after parsing it. |
-| <code><a href="#cdk-extensions.assertions.Match.stringLikeRegexp">stringLikeRegexp</a></code> | Matches targets according to a regular expression. |
-| <code><a href="#cdk-extensions.assertions.Match.joinedJson">joinedJson</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.asserts.Match.absent">absent</a></code> | Use this matcher in the place of a field's value, if the field must not be present. |
+| <code><a href="#cdk-extensions.asserts.Match.anyValue">anyValue</a></code> | Matches any non-null value at the target. |
+| <code><a href="#cdk-extensions.asserts.Match.arrayEquals">arrayEquals</a></code> | Matches the specified pattern with the array found in the same relative path of the target. |
+| <code><a href="#cdk-extensions.asserts.Match.arrayWith">arrayWith</a></code> | Matches the specified pattern with the array found in the same relative path of the target. |
+| <code><a href="#cdk-extensions.asserts.Match.exact">exact</a></code> | Deep exact matching of the specified pattern to the target. |
+| <code><a href="#cdk-extensions.asserts.Match.not">not</a></code> | Matches any target which does NOT follow the specified pattern. |
+| <code><a href="#cdk-extensions.asserts.Match.objectEquals">objectEquals</a></code> | Matches the specified pattern to an object found in the same relative path of the target. |
+| <code><a href="#cdk-extensions.asserts.Match.objectLike">objectLike</a></code> | Matches the specified pattern to an object found in the same relative path of the target. |
+| <code><a href="#cdk-extensions.asserts.Match.serializedJson">serializedJson</a></code> | Matches any string-encoded JSON and applies the specified pattern after parsing it. |
+| <code><a href="#cdk-extensions.asserts.Match.stringLikeRegexp">stringLikeRegexp</a></code> | Matches targets according to a regular expression. |
+| <code><a href="#cdk-extensions.asserts.Match.joinedJson">joinedJson</a></code> | *No description.* |
 
 ---
 
-##### `absent` <a name="absent" id="cdk-extensions.assertions.Match.absent"></a>
+##### `absent` <a name="absent" id="cdk-extensions.asserts.Match.absent"></a>
 
 ```typescript
-import { assertions } from 'cdk-extensions'
+import { asserts } from 'cdk-extensions'
 
-assertions.Match.absent()
+asserts.Match.absent()
 ```
 
 Use this matcher in the place of a field's value, if the field must not be present.
 
-##### `anyValue` <a name="anyValue" id="cdk-extensions.assertions.Match.anyValue"></a>
+##### `anyValue` <a name="anyValue" id="cdk-extensions.asserts.Match.anyValue"></a>
 
 ```typescript
-import { assertions } from 'cdk-extensions'
+import { asserts } from 'cdk-extensions'
 
-assertions.Match.anyValue()
+asserts.Match.anyValue()
 ```
 
 Matches any non-null value at the target.
 
-##### `arrayEquals` <a name="arrayEquals" id="cdk-extensions.assertions.Match.arrayEquals"></a>
+##### `arrayEquals` <a name="arrayEquals" id="cdk-extensions.asserts.Match.arrayEquals"></a>
 
 ```typescript
-import { assertions } from 'cdk-extensions'
+import { asserts } from 'cdk-extensions'
 
-assertions.Match.arrayEquals(pattern: any[])
+asserts.Match.arrayEquals(pattern: any[])
 ```
 
 Matches the specified pattern with the array found in the same relative path of the target.
 
 The set of elements (or matchers) must match exactly and in order.
 
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.arrayEquals.parameter.pattern"></a>
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.asserts.Match.arrayEquals.parameter.pattern"></a>
 
 - *Type:* any[]
 
@@ -49124,19 +49218,19 @@ the pattern to match.
 
 ---
 
-##### `arrayWith` <a name="arrayWith" id="cdk-extensions.assertions.Match.arrayWith"></a>
+##### `arrayWith` <a name="arrayWith" id="cdk-extensions.asserts.Match.arrayWith"></a>
 
 ```typescript
-import { assertions } from 'cdk-extensions'
+import { asserts } from 'cdk-extensions'
 
-assertions.Match.arrayWith(pattern: any[])
+asserts.Match.arrayWith(pattern: any[])
 ```
 
 Matches the specified pattern with the array found in the same relative path of the target.
 
 The set of elements (or matchers) must be in the same order as would be found.
 
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.arrayWith.parameter.pattern"></a>
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.asserts.Match.arrayWith.parameter.pattern"></a>
 
 - *Type:* any[]
 
@@ -49144,17 +49238,17 @@ the pattern to match.
 
 ---
 
-##### `exact` <a name="exact" id="cdk-extensions.assertions.Match.exact"></a>
+##### `exact` <a name="exact" id="cdk-extensions.asserts.Match.exact"></a>
 
 ```typescript
-import { assertions } from 'cdk-extensions'
+import { asserts } from 'cdk-extensions'
 
-assertions.Match.exact(pattern: any)
+asserts.Match.exact(pattern: any)
 ```
 
 Deep exact matching of the specified pattern to the target.
 
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.exact.parameter.pattern"></a>
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.asserts.Match.exact.parameter.pattern"></a>
 
 - *Type:* any
 
@@ -49162,17 +49256,17 @@ the pattern to match.
 
 ---
 
-##### `not` <a name="not" id="cdk-extensions.assertions.Match.not"></a>
+##### `not` <a name="not" id="cdk-extensions.asserts.Match.not"></a>
 
 ```typescript
-import { assertions } from 'cdk-extensions'
+import { asserts } from 'cdk-extensions'
 
-assertions.Match.not(pattern: any)
+asserts.Match.not(pattern: any)
 ```
 
 Matches any target which does NOT follow the specified pattern.
 
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.not.parameter.pattern"></a>
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.asserts.Match.not.parameter.pattern"></a>
 
 - *Type:* any
 
@@ -49180,19 +49274,19 @@ the pattern to NOT match.
 
 ---
 
-##### `objectEquals` <a name="objectEquals" id="cdk-extensions.assertions.Match.objectEquals"></a>
+##### `objectEquals` <a name="objectEquals" id="cdk-extensions.asserts.Match.objectEquals"></a>
 
 ```typescript
-import { assertions } from 'cdk-extensions'
+import { asserts } from 'cdk-extensions'
 
-assertions.Match.objectEquals(pattern: {[ key: string ]: any})
+asserts.Match.objectEquals(pattern: {[ key: string ]: any})
 ```
 
 Matches the specified pattern to an object found in the same relative path of the target.
 
 The keys and their values (or matchers) must match exactly with the target.
 
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.objectEquals.parameter.pattern"></a>
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.asserts.Match.objectEquals.parameter.pattern"></a>
 
 - *Type:* {[ key: string ]: any}
 
@@ -49200,19 +49294,19 @@ the pattern to match.
 
 ---
 
-##### `objectLike` <a name="objectLike" id="cdk-extensions.assertions.Match.objectLike"></a>
+##### `objectLike` <a name="objectLike" id="cdk-extensions.asserts.Match.objectLike"></a>
 
 ```typescript
-import { assertions } from 'cdk-extensions'
+import { asserts } from 'cdk-extensions'
 
-assertions.Match.objectLike(pattern: {[ key: string ]: any})
+asserts.Match.objectLike(pattern: {[ key: string ]: any})
 ```
 
 Matches the specified pattern to an object found in the same relative path of the target.
 
 The keys and their values (or matchers) must be present in the target but the target can be a superset.
 
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.objectLike.parameter.pattern"></a>
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.asserts.Match.objectLike.parameter.pattern"></a>
 
 - *Type:* {[ key: string ]: any}
 
@@ -49220,17 +49314,17 @@ the pattern to match.
 
 ---
 
-##### `serializedJson` <a name="serializedJson" id="cdk-extensions.assertions.Match.serializedJson"></a>
+##### `serializedJson` <a name="serializedJson" id="cdk-extensions.asserts.Match.serializedJson"></a>
 
 ```typescript
-import { assertions } from 'cdk-extensions'
+import { asserts } from 'cdk-extensions'
 
-assertions.Match.serializedJson(pattern: any)
+asserts.Match.serializedJson(pattern: any)
 ```
 
 Matches any string-encoded JSON and applies the specified pattern after parsing it.
 
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.serializedJson.parameter.pattern"></a>
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.asserts.Match.serializedJson.parameter.pattern"></a>
 
 - *Type:* any
 
@@ -49238,31 +49332,31 @@ the pattern to match after parsing the encoded JSON.
 
 ---
 
-##### `stringLikeRegexp` <a name="stringLikeRegexp" id="cdk-extensions.assertions.Match.stringLikeRegexp"></a>
+##### `stringLikeRegexp` <a name="stringLikeRegexp" id="cdk-extensions.asserts.Match.stringLikeRegexp"></a>
 
 ```typescript
-import { assertions } from 'cdk-extensions'
+import { asserts } from 'cdk-extensions'
 
-assertions.Match.stringLikeRegexp(pattern: string)
+asserts.Match.stringLikeRegexp(pattern: string)
 ```
 
 Matches targets according to a regular expression.
 
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.stringLikeRegexp.parameter.pattern"></a>
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.asserts.Match.stringLikeRegexp.parameter.pattern"></a>
 
 - *Type:* string
 
 ---
 
-##### `joinedJson` <a name="joinedJson" id="cdk-extensions.assertions.Match.joinedJson"></a>
+##### `joinedJson` <a name="joinedJson" id="cdk-extensions.asserts.Match.joinedJson"></a>
 
 ```typescript
-import { assertions } from 'cdk-extensions'
+import { asserts } from 'cdk-extensions'
 
-assertions.Match.joinedJson(pattern: any)
+asserts.Match.joinedJson(pattern: any)
 ```
 
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.assertions.Match.joinedJson.parameter.pattern"></a>
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdk-extensions.asserts.Match.joinedJson.parameter.pattern"></a>
 
 - *Type:* any
 

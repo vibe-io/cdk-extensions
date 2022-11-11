@@ -8,6 +8,34 @@
             "type": "pwa-node",
             "cwd": "${workspaceFolder}/",
             "request": "launch",
+            "name": "Package Go",
+            "env": {
+                "NVM_DIR": "/root/.nvm",
+                "MAVEN_OPTS": "-Dlog-file=/tmp/mvn-out.txt"
+            },
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "runtimeExecutable": "npx",
+            "runtimeArgs": [
+                "ts-node",
+                "--prefer-ts-exts"
+            ],
+            "runtimeVersion": "16.16.0",
+            "program": "${workspaceFolder}/node_modules/jsii-pacmak/bin/jsii-pacmak.js",
+            "args": [
+                "-v",
+                "--target",
+                "go"
+            ],
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ]
+        },
+        {
+            "type": "pwa-node",
+            "cwd": "${workspaceFolder}/",
+            "request": "launch",
             "name": "Package Java",
             "env": {
                 "NVM_DIR": "/root/.nvm",

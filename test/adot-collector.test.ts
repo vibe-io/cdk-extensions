@@ -1,7 +1,7 @@
 import { Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { FargateCluster, KubernetesVersion } from 'aws-cdk-lib/aws-eks';
-import { Match } from '../src/assertions';
+import { Match } from '../src/asserts';
 import { AdotCollector } from '../src/k8s-aws';
 
 
