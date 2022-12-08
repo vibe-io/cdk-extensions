@@ -22784,13 +22784,14 @@ const awsIntegratedFargateClusterProps: eks_patterns.AwsIntegratedFargateCluster
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC in which to create the Cluster. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection[]</code> | Where to place EKS Control Plane ENIs. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.albController">albController</a></code> | <code>aws-cdk-lib.aws_eks.AlbControllerOptions</code> | Install the AWS Load Balancer Controller onto the cluster. |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.awscliLayer">awscliLayer</a></code> | <code>aws-cdk-lib.aws_lambda.ILayerVersion</code> | An AWS Lambda layer that contains the `aws` CLI. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.clusterHandlerEnvironment">clusterHandlerEnvironment</a></code> | <code>{[ key: string ]: string}</code> | Custom environment variables when interacting with the EKS endpoint to manage the cluster lifecycle. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.clusterHandlerSecurityGroup">clusterHandlerSecurityGroup</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup</code> | A security group to associate with the Cluster Handler's Lambdas. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.clusterLogging">clusterLogging</a></code> | <code>aws-cdk-lib.aws_eks.ClusterLoggingTypes[]</code> | The cluster log types which you want to enable. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.coreDnsComputeType">coreDnsComputeType</a></code> | <code>aws-cdk-lib.aws_eks.CoreDnsComputeType</code> | Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.endpointAccess">endpointAccess</a></code> | <code>aws-cdk-lib.aws_eks.EndpointAccess</code> | Configure access to the Kubernetes API server endpoint.. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.kubectlEnvironment">kubectlEnvironment</a></code> | <code>{[ key: string ]: string}</code> | Environment variables for the kubectl execution. |
-| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.kubectlLayer">kubectlLayer</a></code> | <code>aws-cdk-lib.aws_lambda.ILayerVersion</code> | An AWS Lambda Layer which includes `kubectl`, Helm and the AWS CLI. |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.kubectlLayer">kubectlLayer</a></code> | <code>aws-cdk-lib.aws_lambda.ILayerVersion</code> | An AWS Lambda Layer which includes `kubectl` and Helm. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.kubectlMemory">kubectlMemory</a></code> | <code>aws-cdk-lib.Size</code> | Amount of memory to allocate to the provider's lambda function. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.mastersRole">mastersRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | An IAM role that will be added to the `system:masters` Kubernetes RBAC group. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.onEventLayer">onEventLayer</a></code> | <code>aws-cdk-lib.aws_lambda.ILayerVersion</code> | An AWS Lambda Layer which includes the NPM dependency `proxy-agent`. |
@@ -22934,6 +22935,25 @@ Install the AWS Load Balancer Controller onto the cluster.
 
 ---
 
+##### `awscliLayer`<sup>Optional</sup> <a name="awscliLayer" id="cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.awscliLayer"></a>
+
+```typescript
+public readonly awscliLayer: ILayerVersion;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.ILayerVersion
+- *Default:* a default layer with the AWS CLI 1.x
+
+An AWS Lambda layer that contains the `aws` CLI.
+
+The handler expects the layer to include the following executables:
+
+```
+/opt/awscli/aws
+```
+
+---
+
 ##### `clusterHandlerEnvironment`<sup>Optional</sup> <a name="clusterHandlerEnvironment" id="cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.clusterHandlerEnvironment"></a>
 
 ```typescript
@@ -23027,27 +23047,22 @@ public readonly kubectlLayer: ILayerVersion;
 ```
 
 - *Type:* aws-cdk-lib.aws_lambda.ILayerVersion
-- *Default:* the layer provided by the `aws-lambda-layer-kubectl` SAR app.
+- *Default:* a default layer with Kubectl 1.20.
 
-An AWS Lambda Layer which includes `kubectl`, Helm and the AWS CLI.
+An AWS Lambda Layer which includes `kubectl` and Helm.
 
-By default, the provider will use the layer included in the
-"aws-lambda-layer-kubectl" SAR application which is available in all
-commercial regions.
+This layer is used by the kubectl handler to apply manifests and install
+helm charts. You must pick an appropriate releases of one of the
+`@aws-cdk/layer-kubectl-vXX` packages, that works with the version of
+Kubernetes you have chosen. If you don't supply this value `kubectl`
+1.20 will be used, but that version is most likely too old.
 
-To deploy the layer locally, visit
-https://github.com/aws-samples/aws-lambda-layer-kubectl/blob/master/cdk/README.md
-for instructions on how to prepare the .zip file and then define it in your
-app as follows:
+The handler expects the layer to include the following executables:
 
-```ts
-const layer = new lambda.LayerVersion(this, 'kubectl-layer', {
-   code: lambda.Code.fromAsset(`${__dirname}/layer.zip`),
-   compatibleRuntimes: [lambda.Runtime.PROVIDED],
-});
 ```
-
-> [https://github.com/aws-samples/aws-lambda-layer-kubectl](https://github.com/aws-samples/aws-lambda-layer-kubectl)
+/opt/helm/helm
+/opt/kubectl/kubectl
+```
 
 ---
 
@@ -23249,6 +23264,7 @@ const awsLoggingStackProps: stacks.AwsLoggingStackProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.analyticsReporting">analyticsReporting</a></code> | <code>boolean</code> | Include runtime versioning information in this Stack. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.crossRegionReferences">crossRegionReferences</a></code> | <code>boolean</code> | Enable this flag to allow native cross region stack references. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.description">description</a></code> | <code>string</code> | A description of the stack. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.env">env</a></code> | <code>aws-cdk-lib.Environment</code> | The AWS environment (account/region) where this stack will be deployed. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.stackName">stackName</a></code> | <code>string</code> | Name to deploy the stack with. |
@@ -23278,6 +23294,24 @@ public readonly analyticsReporting: boolean;
 - *Default:* `analyticsReporting` setting of containing `App`, or value of 'aws:cdk:version-reporting' context key
 
 Include runtime versioning information in this Stack.
+
+---
+
+##### `crossRegionReferences`<sup>Optional</sup> <a name="crossRegionReferences" id="cdk-extensions.stacks.AwsLoggingStackProps.property.crossRegionReferences"></a>
+
+```typescript
+public readonly crossRegionReferences: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Enable this flag to allow native cross region stack references.
+
+Enabling this will create a CloudFormation custom resource
+in both the producing stack and consuming stack in order to perform the export/import
+
+This feature is currently experimental
 
 ---
 

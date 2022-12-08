@@ -1,7 +1,7 @@
 const { awscdk } = require('projen');
 
 const projectName = 'cdk-extensions';
-const cdkVersion = '2.45.0';
+const cdkVersion = '2.51.1';
 const docsBucket = 'docs.vibe.io';
 const docsBucketRegion = 'us-east-1';
 
