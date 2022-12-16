@@ -16,8 +16,6 @@ export enum FlowLogDataType {
 }
 
 export class FlowLogField {
-  private static readonly _registeredFields: {[name: string]: FlowLogField} = {};
-
   /**
        * The AWS account ID of the owner of the source network interface for
        * which traffic is recorded. If the network interface is created by an
@@ -287,6 +285,9 @@ export class FlowLogField {
        * traffic is recorded.
        */
   public static readonly VPC_ID: FlowLogField = new FlowLogField('vpc-id', FlowLogDataType.STRING);
+
+
+  private static readonly _registeredFields: {[name: string]: FlowLogField} = {};
 
   /**
      * Tries to retieve full flow log field data for a log field based on name.
