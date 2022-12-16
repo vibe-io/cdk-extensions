@@ -286,9 +286,6 @@ export class FlowLogField {
        */
   public static readonly VPC_ID: FlowLogField = new FlowLogField('vpc-id', FlowLogDataType.STRING);
 
-
-  private static readonly _registeredFields: {[name: string]: FlowLogField} = {};
-
   /**
      * Tries to retieve full flow log field data for a log field based on name.
      *
@@ -301,6 +298,8 @@ export class FlowLogField {
   public static lookupField(name: string): FlowLogField | undefined {
     return FlowLogField._registeredFields[name];
   }
+
+  private static readonly _registeredFields: {[name: string]: FlowLogField} = {};
 
 
   /**
