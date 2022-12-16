@@ -3,6 +3,9 @@
  */
 
 export * from './flow-log';
-export * from './vpc';
+export * from './transit-gateway';
+export * from './transit-gateway-attachment';
+export * from './transit-gateway-route';
+export * from './transit-gateway-route-table';
 
 export * from './lib';
