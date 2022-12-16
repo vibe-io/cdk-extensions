@@ -299,6 +299,10 @@ export class FlowLogField {
     return FlowLogField._registeredFields[name];
   }
 
+  /**
+   * A cache of flow log fields. Used for tracking known fields to allow for
+   * reversing of format strings into FlowLogFormat objects.
+   */
   private static readonly _registeredFields: {[name: string]: FlowLogField} = {};
 
 
