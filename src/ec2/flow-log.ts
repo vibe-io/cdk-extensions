@@ -1,6 +1,6 @@
 import { Lazy, Names, ResourceProps, Stack } from 'aws-cdk-lib';
-import { CfnFlowLog, FlowLogDestination, FlowLogMaxAggregationInterval, FlowLogResourceType, FlowLogTrafficType, LogFormat } from 'aws-cdk-lib/aws-ec2';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
+import { CfnFlowLog, FlowLogDestination, FlowLogMaxAggregationInterval, FlowLogResourceType, FlowLogTrafficType, LogFormat } from 'aws-cdk-lib/aws-ec2';
 import { Bucket, IBucket } from 'aws-cdk-lib/aws-s3';
 import { IConstruct } from 'constructs';
 import { FlowLogFormat } from '.';
