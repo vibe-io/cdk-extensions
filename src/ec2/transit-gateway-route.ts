@@ -1,6 +1,6 @@
 import { Resource, ResourceProps } from 'aws-cdk-lib';
 import { CfnTransitGatewayRoute } from 'aws-cdk-lib/aws-ec2';
-import { Construct } from 'constructs';
+import { Construct, IConstruct } from 'constructs';
 import { ITransitGatewayAttachment, ITransitGatewayRouteTable } from '.';
 
 
@@ -36,6 +36,25 @@ export interface TransitGatewayRouteProps extends ResourceProps {
 }
 
 export class TransitGatewayRoute extends Resource {
+  /**
+   * Imports an existing Transit Gateway Route using its route ID.
+   *
+   * @param scope A CDK Construct that will serve as this resources's parent in
+   * the construct tree.
+   * @param id A name to be associated with the stack and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param transitGatewayAttachmentId The attachment ID of the Transit Gateway
+   * attachment being imported.
+   * @returns An object representing the imported Transit Gateway route.
+   */
+  public static fromTransitGatewayAttachmentId(scope: IConstruct, id: string, transitGatewayRouteId: string): ITransitGatewayRoute {
+    class Import extends TransitGatewayRouteBase {
+      public readonly transitGatewayRouteId = transitGatewayRouteId;
+    }
+
+    return new Import(scope, id);
+  }
+
   // Input properties
   public readonly attachment?: ITransitGatewayAttachment;
   public readonly blackhole?: boolean;

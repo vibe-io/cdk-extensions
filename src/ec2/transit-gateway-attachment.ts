@@ -1,5 +1,7 @@
+import { Stack } from 'aws-cdk-lib';
 import { CfnTransitGatewayVpcAttachment } from 'aws-cdk-lib/aws-ec2';
-import { Construct } from 'constructs';
+import { Construct, IConstruct } from 'constructs';
+import { ITransitGatewayAttachment, TransitGatewayAttachmentBase } from '.';
 import { definedFieldsOrUndefined } from '../utils/formatting';
 import { TransitGatewayAttachmentResource, TransitGatewayAttachmentResourceProps } from './transit-gateway-attachment-base';
 
@@ -17,6 +19,30 @@ export interface TransitGatewayAttachmentProps extends TransitGatewayAttachmentR
  * default propagation route table.
  */
 export class TransitGatewayAttachment extends TransitGatewayAttachmentResource {
+  /**
+   * Imports an existing Transit Gateway Attachment using its attachment ID.
+   *
+   * @param scope A CDK Construct that will serve as this resources's parent in
+   * the construct tree.
+   * @param id A name to be associated with the stack and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param transitGatewayAttachmentId The attachment ID of the Transit Gateway
+   * attachment being imported.
+   * @returns An object representing the imported Transit Gateway attachment.
+   */
+  public static fromTransitGatewayAttachmentId(scope: IConstruct, id: string, transitGatewayAttachmentId: string): ITransitGatewayAttachment {
+    class Import extends TransitGatewayAttachmentBase {
+      public readonly transitGatewayAttachmentArn = Stack.of(scope).formatArn({
+        resource: 'transit-gateway-attachment',
+        resourceName: transitGatewayAttachmentId,
+        service: 'ec2',
+      });
+      public readonly transitGatewayAttachmentId = transitGatewayAttachmentId;
+    }
+
+    return new Import(scope, id);
+  }
+
   /**
    * The underlying NamedQuery CloudFormation resource.
    *

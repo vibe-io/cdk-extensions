@@ -1,15 +1,29 @@
 import { Resource, ResourceProps, Tags } from 'aws-cdk-lib';
 import { IVpc, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
-import { ITransitGateway, ITransitGatewayRouteTable, TransitGatewayRoute, TransitGatewayRouteTable } from '.';
+import { ITransitGateway, ITransitGatewayRoute, ITransitGatewayRouteTable } from '.';
 
 
 /**
  * Represents a Transit Gateway Attachment in AWS.
  */
 export interface ITransitGatewayAttachment {
+  /**
+   * The ARN of the transit gateway attachment.
+   */
   readonly transitGatewayAttachmentArn: string;
+
+  /**
+   * The ID of the transit gateway attachment.
+   */
   readonly transitGatewayAttachmentId: string;
+
+  /**
+   * Adds a route to this Transit Gateway Route Table.
+   *
+   * @param options Configuration for the route being added.
+   * @returns The TransitGatewayRoute that was added.
+   */
   addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute;
 }
 
@@ -34,7 +48,7 @@ export abstract class TransitGatewayAttachmentBase extends Resource implements I
    * @param options Configuration for the route being added.
    * @returns The TransitGatewayRoute that was added.
    */
-  public addRoute(cidr: string, routeTable: TransitGatewayRouteTable): TransitGatewayRoute {
+  public addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute {
     return routeTable.addRoute({
       cidr: cidr,
       attachment: this,
