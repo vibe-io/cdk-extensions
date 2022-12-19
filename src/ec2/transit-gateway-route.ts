@@ -1,12 +1,32 @@
 import { Resource, ResourceProps } from 'aws-cdk-lib';
 import { CfnTransitGatewayRoute } from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
-import { ITransitGatewayAttachment } from './transit-gateway-attachment';
-import { ITransitGatewayRouteTable } from './transit-gateway-route-table';
+import { ITransitGatewayAttachment, ITransitGatewayRouteTable } from '.';
 
 
 /**
- * Configuration for TransitGatewayAttachment resource.
+ * Represents a Transit Gateway Route in AWS.
+ */
+export interface ITransitGatewayRoute {
+  /**
+   * The ID of the Transit Gateway Route.
+   */
+  readonly transitGatewayRouteId: string;
+}
+
+/**
+ * A base class providing common functionality between created and imported
+ * Transit Gateway routes.
+ */
+abstract class TransitGatewayRouteBase extends Resource implements ITransitGatewayRoute {
+  /**
+   * The ID of the Transit Gateway Route.
+   */
+  public abstract transitGatewayRouteId: string;
+}
+
+/**
+ * Configuration for TransitGatewayRoute resource.
  */
 export interface TransitGatewayRouteProps extends ResourceProps {
   readonly attachment?: ITransitGatewayAttachment;

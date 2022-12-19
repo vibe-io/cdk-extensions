@@ -1,8 +1,8 @@
 import { Resource, ResourceProps, Stack, Tags } from 'aws-cdk-lib';
 import { CfnTransitGatewayRouteTable } from 'aws-cdk-lib/aws-ec2';
 import { Construct, IConstruct } from 'constructs';
+import { ITransitGatewayAttachment } from '.';
 import { ITransitGateway } from './transit-gateway';
-import { ITransitGatewayAttachment } from './transit-gateway-attachment';
 import { TransitGatewayRoute } from './transit-gateway-route';
 
 
@@ -20,21 +20,21 @@ export interface ITransitGatewayRouteTable {
 
 abstract class TransitGatewayRouteTableBase extends Resource implements ITransitGatewayRouteTable {
   /**
-     * The ARN of this Transit Gateway Route Table.
-     */
+   * The ARN of this Transit Gateway Route Table.
+   */
   public abstract readonly transitGatewayRouteTableArn: string;
 
   /**
-     * The name of this Transit Gateway Route Table.
-     */
+   * The name of this Transit Gateway Route Table.
+   */
   public abstract readonly transitGatewayRouteTableId: string;
 
   /**
-     * Adds a route to this Transit Gateway Route Table.
-     *
-     * @param options Configuration for the route being added.
-     * @returns The TransitGatewayRoute that was added.
-     */
+   * Adds a route to this Transit Gateway Route Table.
+   *
+   * @param options Configuration for the route being added.
+   * @returns The TransitGatewayRoute that was added.
+   */
   public addRoute(options: TransitGatewayRouteOptions): TransitGatewayRoute {
     return new TransitGatewayRoute(this, `transit-gateway-route-${options.cidr}`, {
       attachment: options.attachment,

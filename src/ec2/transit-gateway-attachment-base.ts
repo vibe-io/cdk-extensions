@@ -1,7 +1,7 @@
 import { Resource, ResourceProps, Tags } from 'aws-cdk-lib';
 import { IVpc, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
-import { ITransitGateway, TransitGatewayRoute, TransitGatewayRouteTable } from '.';
+import { ITransitGateway, ITransitGatewayRouteTable, TransitGatewayRoute, TransitGatewayRouteTable } from '.';
 
 
 /**
@@ -10,7 +10,7 @@ import { ITransitGateway, TransitGatewayRoute, TransitGatewayRouteTable } from '
 export interface ITransitGatewayAttachment {
   readonly transitGatewayAttachmentArn: string;
   readonly transitGatewayAttachmentId: string;
-  addRoute(cidr: string, routeTable: TransitGatewayRouteTable): TransitGatewayRoute;
+  addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute;
 }
 
 /**
