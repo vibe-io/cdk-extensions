@@ -5,9 +5,9 @@ import { TransitGatewayAttachmentResource, TransitGatewayAttachmentResourceProps
 
 
 /**
- * Configuration for TransitGatewayAttachment resource.
+ * Configuration for TransitGatewayVpcAttachment resource.
  */
-export interface TransitGatewayAttachmentProps extends TransitGatewayAttachmentResourceProps {}
+export interface TransitGatewayVpcAttachmentProps extends TransitGatewayAttachmentResourceProps {}
 
 /**
  * Attaches a VPC to a transit gateway.
@@ -16,7 +16,7 @@ export interface TransitGatewayAttachmentProps extends TransitGatewayAttachmentR
  * that is already attached, the new VPC CIDR range is not propagated to the
  * default propagation route table.
  */
-export class TransitGatewayAttachment extends TransitGatewayAttachmentResource {
+export class TransitGatewayVpcAttachment extends TransitGatewayAttachmentResource {
   /**
    * The underlying NamedQuery CloudFormation resource.
    *
@@ -38,14 +38,14 @@ export class TransitGatewayAttachment extends TransitGatewayAttachmentResource {
 
 
   /**
-   * Creates a new instance of the TransitGatewayAttachment class.
+   * Creates a new instance of the TransitGatewayVpcAttachment class.
    *
    * @param scope A CDK Construct that will serve as this resources's parent in the construct tree.
    * @param id A name to be associated with the stack and used in resource naming. Must be unique
    * within the context of 'scope'.
    * @param props Arguments related to the configuration of the resource.
    */
-  public constructor(scope: Construct, id: string, props: TransitGatewayAttachmentProps) {
+  public constructor(scope: Construct, id: string, props: TransitGatewayVpcAttachmentProps) {
     super(scope, id, props);
 
     this.resource = new CfnTransitGatewayVpcAttachment(this, 'Resource', {
