@@ -190,7 +190,11 @@ export class TransitGatewayPeeringAttachment extends TransitGatewayPeeringAttach
    * @returns An object representing the imported transit gateway peering
    * attachment.
    */
-  public static fromTransitGatewayPeeringAttachmentAttributes(scope: IConstruct, id: string, attrs: TransitGatewayPeeringAttachmentImportAttributes): ITransitGatewayPeeringAttachment {
+  public static fromTransitGatewayPeeringAttachmentAttributes(
+    scope: IConstruct,
+    id: string,
+    attrs: TransitGatewayPeeringAttachmentImportAttributes,
+  ): ITransitGatewayPeeringAttachment {
     let attachmentArn = attrs.arn;
     let attachmentId = attrs.attachmentId;
 
