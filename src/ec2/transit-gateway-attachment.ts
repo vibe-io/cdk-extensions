@@ -1,9 +1,8 @@
 import { Stack } from 'aws-cdk-lib';
 import { CfnTransitGatewayVpcAttachment } from 'aws-cdk-lib/aws-ec2';
 import { Construct, IConstruct } from 'constructs';
-import { ITransitGatewayAttachment, TransitGatewayAttachmentBase } from '.';
 import { definedFieldsOrUndefined } from '../utils/formatting';
-import { TransitGatewayAttachmentResource, TransitGatewayAttachmentResourceProps } from './transit-gateway-attachment-base';
+import { ITransitGatewayAttachment, TransitGatewayAttachmentBase, TransitGatewayAttachmentResource, TransitGatewayAttachmentResourceProps } from './transit-gateway-attachment-base';
 
 
 /**
@@ -28,7 +27,7 @@ export class TransitGatewayAttachment extends TransitGatewayAttachmentResource {
    * naming. Must be unique within the context of 'scope'.
    * @param transitGatewayAttachmentId The attachment ID of the Transit Gateway
    * attachment being imported.
-   * @returns An object representing the imported Transit Gateway attachment.
+   * @returns An object representing the imported transit gateway attachment.
    */
   public static fromTransitGatewayAttachmentId(scope: IConstruct, id: string, transitGatewayAttachmentId: string): ITransitGatewayAttachment {
     class Import extends TransitGatewayAttachmentBase {

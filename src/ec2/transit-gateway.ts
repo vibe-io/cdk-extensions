@@ -21,7 +21,7 @@ export interface VpcAttachmentOptions {
   readonly subnets?: SubnetSelection;
 }
 
-export interface ITransitGateway {
+export interface ITransitGateway extends IConstruct {
   readonly transitGatewayArn: string;
   readonly transitGatewayId: string;
   addRouteTable(options?: TransitGatewayRouteTableOptions): TransitGatewayRouteTable;

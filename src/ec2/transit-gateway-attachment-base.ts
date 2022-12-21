@@ -19,7 +19,7 @@ export interface ITransitGatewayAttachment {
   readonly transitGatewayAttachmentId: string;
 
   /**
-   * Adds a route to this Transit Gateway Route Table.
+   * Adds a route that sends traffic to this transit gateway attachment.
    *
    * @param options Configuration for the route being added.
    * @returns The TransitGatewayRoute that was added.
@@ -43,7 +43,7 @@ export abstract class TransitGatewayAttachmentBase extends Resource implements I
   public abstract readonly transitGatewayAttachmentId: string;
 
   /**
-   * Adds a route to this Transit Gateway Route Table.
+   * Adds a route that directs traffic to this transit gateway attachment.
    *
    * @param options Configuration for the route being added.
    * @returns The TransitGatewayRoute that was added.

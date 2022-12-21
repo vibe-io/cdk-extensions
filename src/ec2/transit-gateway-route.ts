@@ -1,7 +1,8 @@
 import { Resource, ResourceProps } from 'aws-cdk-lib';
 import { CfnTransitGatewayRoute } from 'aws-cdk-lib/aws-ec2';
 import { Construct, IConstruct } from 'constructs';
-import { ITransitGatewayAttachment, ITransitGatewayRouteTable } from '.';
+import { ITransitGatewayRouteTable } from '.';
+import { ITransitGatewayAttachment } from './transit-gateway-attachment-base';
 
 
 /**
@@ -35,6 +36,9 @@ export interface TransitGatewayRouteProps extends ResourceProps {
   readonly routeTable: ITransitGatewayRouteTable;
 }
 
+/**
+ * Adds a routing rule for a transit gateway route table.
+ */
 export class TransitGatewayRoute extends Resource {
   /**
    * Imports an existing Transit Gateway Route using its route ID.

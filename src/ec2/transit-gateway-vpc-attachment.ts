@@ -18,7 +18,7 @@ export interface TransitGatewayVpcAttachmentProps extends TransitGatewayAttachme
  */
 export class TransitGatewayVpcAttachment extends TransitGatewayAttachmentResource {
   /**
-   * The underlying NamedQuery CloudFormation resource.
+   * The underlying TransitGatewayVpcAttachment CloudFormation resource.
    *
    * @see [AWS::EC2::TransitGatewayVpcAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html)
    *
