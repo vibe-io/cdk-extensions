@@ -107,16 +107,9 @@ export interface TransitGatewayPeeringAttachmentImportAttributes {
 }
 
 /**
- * Configuration for TransitGatewayPeeringAttachment resource.
+ * Optional configuration for TransitGatewayPeeringAttachment resource.
  */
-export interface TransitGatewayPeeringAttachmentProps extends ResourceProps {
-  /**
-   * The local side of the transit gateway peering connection.
-   *
-   * @see [TransitGatewayPeeringAttachment TransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid)
-   */
-  readonly localTransitGateway: ITransitGateway;
-
+export interface TransitGatewayPeeringAttachmentOptions {
   /**
    * The name of the transit gateway peering attachment.
    *
@@ -140,6 +133,18 @@ export interface TransitGatewayPeeringAttachmentProps extends ResourceProps {
    * @see [TransitGatewayPeeringAttachment PeerRegion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion)
    */
   readonly peerRegion?: string;
+}
+
+/**
+ * Configuration for TransitGatewayPeeringAttachment resource.
+ */
+export interface TransitGatewayPeeringAttachmentProps extends TransitGatewayPeeringAttachmentOptions, ResourceProps {
+  /**
+   * The local side of the transit gateway peering connection.
+   *
+   * @see [TransitGatewayPeeringAttachment TransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid)
+   */
+  readonly localTransitGateway: ITransitGateway;
 
   /**
    * The remote transit gateway being peered with.
@@ -415,8 +420,8 @@ export class TransitGatewayPeeringAttachment extends TransitGatewayPeeringAttach
     this.transitGatewayAttachmentCreationTime = this.resource.attrCreationTime;
     this.transitGatewayAttachmentId = this.resource.ref;
     this.transitGatewayAttachmentState = this.resource.attrState;
-    this.transitGatewayAttachmentStatus = 'unknown';
-    this.transitGatewayAttachmentStatusCode = 'unknown'; //this.resource.attrStatusCode;
-    this.transitGatewayAttachmentStatusMessage = 'unknown'; //this.resource.attrStatusMessage;
+    this.transitGatewayAttachmentStatus = this.resource.getAtt('status').toString();
+    this.transitGatewayAttachmentStatusCode = this.resource.attrStatusCode;
+    this.transitGatewayAttachmentStatusMessage = this.resource.attrStatusMessage;
   }
 }

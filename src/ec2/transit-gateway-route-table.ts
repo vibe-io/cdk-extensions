@@ -88,7 +88,7 @@ export interface TransitGatewayRouteTableProps extends ResourceProps {
    * The name of the transit gateway route table.
    *
    * Used to tag the route table with a name that will be displayed in the AWS
-   * EC2 console.
+   * VPC console.
    *
    * @see [TransitGatewayRouteTable Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-tags)
    */
