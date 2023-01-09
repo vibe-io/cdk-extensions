@@ -1,23 +1,23 @@
 import { CfnTrigger } from 'aws-cdk-lib/aws-glue';
-import { Crawler } from '../glue/constructs/crawler';
-import { ITriggerAction, Trigger } from '../glue/constructs/trigger';
+import { IConstruct } from 'constructs';
+import { ICrawler, ITriggerAction } from '../..';
 import { WorkflowActionBase, WorkflowActionOptions } from './action-base';
 
 
 export class WorkflowCrawlerAction extends WorkflowActionBase implements ITriggerAction {
   // Input properties
-  public readonly crawler: Crawler;
+  public readonly crawler: ICrawler;
 
 
-  public constructor(crawler: Crawler, options?: WorkflowActionOptions) {
+  public constructor(crawler: ICrawler, options?: WorkflowActionOptions) {
     super(options);
 
     this.crawler = crawler;
   }
 
-  public bind(trigger: Trigger): CfnTrigger.ActionProperty {
+  public bind(scope: IConstruct): CfnTrigger.ActionProperty {
     return {
-      ...super.bindOptions(trigger),
+      ...super.bindOptions(scope),
       crawlerName: this.crawler.crawlerName,
     };
   }

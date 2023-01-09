@@ -2,6 +2,7 @@ import { Resource, ResourceProps } from 'aws-cdk-lib';
 import { Schedule } from 'aws-cdk-lib/aws-events';
 import { CfnWorkflow } from 'aws-cdk-lib/aws-glue';
 import { Construct } from 'constructs';
+import { ITrigger } from '.';
 import { ITriggerAction, ITriggerPredicate, PredicateOperator, Trigger, TriggerType } from './trigger';
 
 
@@ -24,6 +25,7 @@ export interface WorkflowProps extends ResourceProps {
    * A description of the Workflow
    */
   readonly description?: string;
+
   /**
    * A name of the Workflow
    */
@@ -31,14 +33,14 @@ export interface WorkflowProps extends ResourceProps {
 }
 
 export class Workflow extends Resource {
-  // Input properties
   /**
-    * {@link WorkflowProps.description}
-    */
+   * {@link WorkflowProps.description}
+   */
+
   public readonly description?: string;
   /**
-    * {@link WorkflowProps.name}
-    */
+   * {@link WorkflowProps.name}
+   */
   public readonly name?: string;
 
   // Resource properties
@@ -49,14 +51,14 @@ export class Workflow extends Resource {
   public readonly workflowName: string;
 
   /**
-     * Creates a new instance of the Workflow class.
-     *
-     * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
-     * @param id A name to be associated with the stack and used in resource naming. Must be unique
-     * within the context of 'scope'.
-     * @param props Arguments related to the configuration of the resource.
-     */
-  constructor(scope: Construct, id: string, props: WorkflowProps) {
+   * Creates a new instance of the Workflow class.
+   *
+   * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
+   * @param id A name to be associated with the stack and used in resource naming. Must be unique
+   * within the context of 'scope'.
+   * @param props Arguments related to the configuration of the resource.
+   */
+  public constructor(scope: Construct, id: string, props: WorkflowProps) {
     super(scope, id, props);
 
     this.description = props.description;
@@ -75,7 +77,7 @@ export class Workflow extends Resource {
     this.workflowName = this.resource.ref;
   }
 
-  public addTrigger(id: string, options: TriggerOptions): Trigger {
+  public addTrigger(id: string, options: TriggerOptions): ITrigger {
     return new Trigger(this, `trigger-${id}`, {
       ...options,
       workflow: this,

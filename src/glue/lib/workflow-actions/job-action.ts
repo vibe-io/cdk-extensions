@@ -1,19 +1,19 @@
 import { CfnTrigger } from 'aws-cdk-lib/aws-glue';
-import { Job } from '../glue/constructs/job';
-import { ITriggerAction, Trigger } from '../glue/constructs/trigger';
+import { IConstruct } from 'constructs';
+import { IJob, ITriggerAction } from '../..';
 import { WorkflowActionBase, WorkflowActionOptions } from './action-base';
 
 
-export interface JobActionOptions extends WorkflowActionOptions {
+export interface WorkflowJobActionOptions extends WorkflowActionOptions {
   readonly enableBookmarks?: boolean;
 }
 
-export class JobAction extends WorkflowActionBase implements ITriggerAction {
+export class WorkflowJobAction extends WorkflowActionBase implements ITriggerAction {
   // Input properties
-  public readonly job: Job;
+  public readonly job: IJob;
 
 
-  public constructor(job: Job, options?: JobActionOptions) {
+  public constructor(job: IJob, options?: WorkflowJobActionOptions) {
     super(options);
 
     this.job = job;
@@ -23,9 +23,9 @@ export class JobAction extends WorkflowActionBase implements ITriggerAction {
     }
   }
 
-  public bind(trigger: Trigger): CfnTrigger.ActionProperty {
+  public bind(scope: IConstruct): CfnTrigger.ActionProperty {
     return {
-      ...super.bindOptions(trigger),
+      ...super.bindOptions(scope),
       jobName: this.job.jobName,
     };
   }

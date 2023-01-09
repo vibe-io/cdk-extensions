@@ -1,8 +1,8 @@
-import { Lazy, Resource, ResourceProps } from 'aws-cdk-lib';
+import { Arn, ArnFormat, Lazy, Resource, ResourceProps, Stack } from 'aws-cdk-lib';
 import { Schedule } from 'aws-cdk-lib/aws-events';
 import { CfnCrawler } from 'aws-cdk-lib/aws-glue';
 import { ManagedPolicy, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
-import { Construct } from 'constructs';
+import { Construct, IConstruct } from 'constructs';
 import { definedFieldsOrUndefined, flattenedOrUndefined, undefinedIfNoKeys } from '../utils/formatting';
 import { Database } from './database';
 import { SecurityConfiguration } from './security-configuration';
@@ -60,6 +60,30 @@ export interface ICrawlerTarget {
   bind(crawler: Crawler): CrawlerTargetCollection;
 }
 
+export interface ICrawler extends IConstruct {
+  /**
+   * The Amazon Resource Name (ARN) of the crawler.
+   */
+  readonly crawlerArn: string;
+
+  /**
+   * The name of the crawler.
+   */
+  readonly crawlerName: string;
+}
+
+abstract class CrawlerBase extends Resource implements ICrawler {
+  /**
+   * The Amazon Resource Name (ARN) of the crawler.
+   */
+  public abstract readonly crawlerArn: string;
+
+  /**
+   * The name of the crawler.
+   */
+  public abstract readonly crawlerName: string;
+}
+
 /**
  * Configuration for Crawler
  */
@@ -70,58 +94,69 @@ export interface CrawlerProps extends ResourceProps {
    * @see [AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-classifiers)
    */
   readonly classifiers?: string[];
+
   /**
    * Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see Configuring a Crawler.
    *
    * @see [AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-configuration)
    */
   readonly configuration?: CrawlerConfiguration;
+
   /**
    * The {@link aws-glue.Database | Database } object in which the crawler's output is stored.
    */
   readonly database?: Database;
+
   /**
    * The deletion behavior when the crawler finds a deleted object.
    *
    * @see [AWS::Glue::Crawler SchemaChangePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior)
    */
   readonly deleteBehavior?: DeleteBehavior;
+
   /**
    * Description of the Crawler
    */
   readonly description?: string;
+
   /**
    * Name of the Crawler
    */
   readonly name?: string;
+
   /**
    * When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
    *
    * @see [AWS::Glue::Crawler RecrawlPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html)
    */
   readonly recrawlBehavior?: RecrawlBehavior;
+
   /**
    * A {@link aws-glue.SecurityConfiguration | SecurityConfiguration } object to apply to the Crawler
    */
   readonly securityConfiguration?: SecurityConfiguration;
+
   /**
    * For scheduled crawlers, the schedule when the crawler runs.
    *
    * @see [AWS::Glue::Crawler Schedule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html)
    */
   readonly scheduleExpression?: Schedule;
+
   /**
    * The prefix added to the names of tables that are created.
    *
    * @see [AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-tableprefix)
    */
   readonly tablePrefix?: string;
+
   /**
    * A collection of targets to crawl.
    *
    * @see [AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-targets)
    */
   readonly targets?: ICrawlerTarget[];
+
   /**
    * The update behavior when the crawler finds a changed schema.
    *
@@ -131,12 +166,48 @@ export interface CrawlerProps extends ResourceProps {
 }
 
 /**
- * Create a Crawler resource to pull information from the provided resource
+ * Create a Crawler resource to pull information from the provided resource.
  *
  * @see [AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html)
  */
+export class Crawler extends CrawlerBase {
+  /**
+   * Imports an existing crawler using its Amazon Resource Name (ARN).
+   *
+   * @param scope A CDK Construct that will serve as this resource's parent in
+   * the construct tree.
+   * @param id A name to be associated with the stack and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param crawlerArn The ARN of the crawler to import.
+   * @returns An object representing the crawler that was imported.
+   */
+  public static fromCrawlerArn(scope: IConstruct, id: string, crawlerArn: string): ICrawler {
+    class Import extends CrawlerBase {
+      public readonly crawlerArn: string = crawlerArn;
+      public readonly crawlerName: string = Arn.split(crawlerArn, ArnFormat.SLASH_RESOURCE_NAME).resourceName!;
+    }
 
-export class Crawler extends Resource {
+    return new Import(scope, id);
+  }
+
+  /**
+   * Imports an existing crawler using its name.
+   *
+   * @param scope A CDK Construct that will serve as this resource's parent in
+   * the construct tree.
+   * @param id A name to be associated with the stack and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param crawlerName The name of the crawler to import.
+   * @returns An object representing the crawler that was imported.
+   */
+  public static fromCrawlerName(scope: IConstruct, id: string, crawlerName: string): ICrawler {
+    return Crawler.fromCrawlerArn(scope, id, Stack.of(scope).formatArn({
+      resource: 'crawler',
+      resourceName: crawlerName,
+      service: 'glue',
+    }));
+  }
+
   // Internal properties
   private readonly _classifiers: string[] = [];
   private readonly _targets: ICrawlerTarget[] = [];
@@ -146,38 +217,47 @@ export class Crawler extends Resource {
     * {@link CrawlerProps.configuration}
     */
   public readonly configuration?: CrawlerConfiguration;
+
   /**
     * {@link CrawlerProps.database}
     */
   public readonly database?: Database;
+
   /**
     * {@link CrawlerProps.deleteBehavior}
     */
   public readonly deleteBehavior?: DeleteBehavior;
+
   /**
     * {@link CrawlerProps.description}
     */
   public readonly description?: string;
+
   /**
     * {@link CrawlerProps.name}
     */
   public readonly name?: string;
+
   /**
     * {@link CrawlerProps.recrawlBehavior}
     */
   public readonly recrawlBehavior?: RecrawlBehavior;
+
   /**
     * {@link CrawlerProps.scheduleExpression}
     */
   public readonly scheduleExpression?: Schedule;
+
   /**
     * {@link CrawlerProps.securityConfiguration}
     */
   public readonly securityConfiguration?: SecurityConfiguration;
+
   /**
     * {@link CrawlerProps.tablePrefix}
     */
   public readonly tablePrefix?: string;
+
   /**
     * {@link CrawlerProps.updateBehavior}
     */
@@ -193,14 +273,15 @@ export class Crawler extends Resource {
 
 
   /**
-     * Creates a new instance of the Crawler class.
-     *
-     * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
-     * @param id A name to be associated with the stack and used in resource naming. Must be unique
-     * within the context of 'scope'.
-     * @param props Arguments related to the configuration of the resource.
-     */
-  constructor(scope: Construct, id: string, props: CrawlerProps) {
+   * Creates a new instance of the Crawler class.
+   *
+   * @param scope A CDK Construct that will serve as this resource's parent in
+   * the construct tree.
+   * @param id A name to be associated with the stack and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param props Arguments related to the configuration of the resource.
+   */
+  public constructor(scope: Construct, id: string, props: CrawlerProps) {
     super(scope, id, props);
 
     this.configuration = props.configuration;

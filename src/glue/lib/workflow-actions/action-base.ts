@@ -1,4 +1,5 @@
 import { Duration, Lazy, ResourceProps } from 'aws-cdk-lib';
+import { IConstruct } from 'constructs';
 import { undefinedIfNoKeys } from '../../../utils/formatting';
 
 
@@ -37,7 +38,7 @@ export class WorkflowActionBase {
     this._arguments[key] = value;
   }
 
-  protected bindOptions(trigger: Trigger): any {
+  protected bindOptions(_scope: IConstruct): any {
     return {
       arguments: Lazy.uncachedAny({
         produce: () => {
