@@ -12056,6 +12056,414 @@ The ID of the IAM Identity Center instance under which the operation will be exe
 ---
 
 
+### JdbcConnection <a name="JdbcConnection" id="cdk-extensions.glue.JdbcConnection"></a>
+
+Creates a Connection resource to a Java Database.
+
+> [[AWS::Glue::Connection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html)]([AWS::Glue::Connection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.JdbcConnection.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.JdbcConnection(scope: Construct, id: string, props: JdbcConnectionProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.JdbcConnectionProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.JdbcConnection.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.JdbcConnection.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.glue.JdbcConnection.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.glue.JdbcConnectionProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.addMatchCriteria">addMatchCriteria</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.addProperty">addProperty</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.glue.JdbcConnection.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.glue.JdbcConnection.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.glue.JdbcConnection.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addMatchCriteria` <a name="addMatchCriteria" id="cdk-extensions.glue.JdbcConnection.addMatchCriteria"></a>
+
+```typescript
+public addMatchCriteria(value: string): void
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.JdbcConnection.addMatchCriteria.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `addProperty` <a name="addProperty" id="cdk-extensions.glue.JdbcConnection.addProperty"></a>
+
+```typescript
+public addProperty(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.JdbcConnection.addProperty.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.JdbcConnection.addProperty.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.glue.JdbcConnection.isConstruct"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.JdbcConnection.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.glue.JdbcConnection.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.glue.JdbcConnection.isOwnedResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.JdbcConnection.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.JdbcConnection.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.glue.JdbcConnection.isResource"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.JdbcConnection.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.glue.JdbcConnection.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.connectionArn">connectionArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.connectionName">connectionName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The network connections associated with this resource. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.connectionType">connectionType</a></code> | <code>cdk-extensions.glue.ConnectionType</code> | {@link ConnectionProps.connectionType:}. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnConnection</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | {@link ConnectionProps.securityGroups:}. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.description">description</a></code> | <code>string</code> | {@link ConnectionProps.description}. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.name">name</a></code> | <code>string</code> | {@link ConnectionProps.name}. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.securityGroup">securityGroup</a></code> | <code>aws-cdk-lib.aws_ec2.SecurityGroup</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | {@link ConnectionProps.subnets}. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | {@link ConnectionProps.vpc}. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.password">password</a></code> | <code>aws-cdk-lib.SecretValue</code> | {@link JdbcConnectionProps.password:}. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.url">url</a></code> | <code>string</code> | {@link JdbcConnectionProps.url:}. |
+| <code><a href="#cdk-extensions.glue.JdbcConnection.property.username">username</a></code> | <code>string</code> | {@link JdbcConnectionProps.username:}. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.glue.JdbcConnection.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.glue.JdbcConnection.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.glue.JdbcConnection.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `connectionArn`<sup>Required</sup> <a name="connectionArn" id="cdk-extensions.glue.JdbcConnection.property.connectionArn"></a>
+
+```typescript
+public readonly connectionArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `connectionName`<sup>Required</sup> <a name="connectionName" id="cdk-extensions.glue.JdbcConnection.property.connectionName"></a>
+
+```typescript
+public readonly connectionName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `connections`<sup>Required</sup> <a name="connections" id="cdk-extensions.glue.JdbcConnection.property.connections"></a>
+
+```typescript
+public readonly connections: Connections;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.Connections
+
+The network connections associated with this resource.
+
+---
+
+##### `connectionType`<sup>Required</sup> <a name="connectionType" id="cdk-extensions.glue.JdbcConnection.property.connectionType"></a>
+
+```typescript
+public readonly connectionType: ConnectionType;
+```
+
+- *Type:* cdk-extensions.glue.ConnectionType
+
+{@link ConnectionProps.connectionType:}.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.glue.JdbcConnection.property.resource"></a>
+
+```typescript
+public readonly resource: CfnConnection;
+```
+
+- *Type:* aws-cdk-lib.aws_glue.CfnConnection
+
+---
+
+##### `securityGroups`<sup>Required</sup> <a name="securityGroups" id="cdk-extensions.glue.JdbcConnection.property.securityGroups"></a>
+
+```typescript
+public readonly securityGroups: ISecurityGroup[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
+
+{@link ConnectionProps.securityGroups:}.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.JdbcConnection.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+{@link ConnectionProps.description}.
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.JdbcConnection.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+{@link ConnectionProps.name}.
+
+---
+
+##### `securityGroup`<sup>Optional</sup> <a name="securityGroup" id="cdk-extensions.glue.JdbcConnection.property.securityGroup"></a>
+
+```typescript
+public readonly securityGroup: SecurityGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SecurityGroup
+
+---
+
+##### `subnets`<sup>Optional</sup> <a name="subnets" id="cdk-extensions.glue.JdbcConnection.property.subnets"></a>
+
+```typescript
+public readonly subnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+{@link ConnectionProps.subnets}.
+
+---
+
+##### `vpc`<sup>Optional</sup> <a name="vpc" id="cdk-extensions.glue.JdbcConnection.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+{@link ConnectionProps.vpc}.
+
+---
+
+##### `password`<sup>Required</sup> <a name="password" id="cdk-extensions.glue.JdbcConnection.property.password"></a>
+
+```typescript
+public readonly password: SecretValue;
+```
+
+- *Type:* aws-cdk-lib.SecretValue
+
+{@link JdbcConnectionProps.password:}.
+
+---
+
+##### `url`<sup>Required</sup> <a name="url" id="cdk-extensions.glue.JdbcConnection.property.url"></a>
+
+```typescript
+public readonly url: string;
+```
+
+- *Type:* string
+
+{@link JdbcConnectionProps.url:}.
+
+---
+
+##### `username`<sup>Required</sup> <a name="username" id="cdk-extensions.glue.JdbcConnection.property.username"></a>
+
+```typescript
+public readonly username: string;
+```
+
+- *Type:* string
+
+{@link JdbcConnectionProps.username:}.
+
+---
+
+
 ### Job <a name="Job" id="cdk-extensions.glue.Job"></a>
 
 Creates a Glue Job.
@@ -31786,6 +32194,221 @@ public readonly attributeMapping: {[ key: string ]: string[]};
 - *Type:* {[ key: string ]: string[]}
 
 Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+
+---
+
+### JdbcConnectionProps <a name="JdbcConnectionProps" id="cdk-extensions.glue.JdbcConnectionProps"></a>
+
+Configuration for the Glue Workflow resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.JdbcConnectionProps.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const jdbcConnectionProps: glue.JdbcConnectionProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.password">password</a></code> | <code>aws-cdk-lib.SecretValue</code> | A SecretValue providing the password for the Connection to authenticate to the source with. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.url">url</a></code> | <code>string</code> | The URL to the source for the Connection. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.username">username</a></code> | <code>string</code> | The username for the Connection to authenticate to the source with. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | VPC to attach to the Connection. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.description">description</a></code> | <code>string</code> | A description of the Connection. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.enforceSsl">enforceSsl</a></code> | <code>boolean</code> | Boolean value on whether to require encryption on the Connection. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.name">name</a></code> | <code>string</code> | A name for the Connection. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | A list of Security Groups to apply to the Connection. |
+| <code><a href="#cdk-extensions.glue.JdbcConnectionProps.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | Options for selection of subnets from the VPC to attach to the Connection. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.JdbcConnectionProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.JdbcConnectionProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.JdbcConnectionProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.JdbcConnectionProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `password`<sup>Required</sup> <a name="password" id="cdk-extensions.glue.JdbcConnectionProps.property.password"></a>
+
+```typescript
+public readonly password: SecretValue;
+```
+
+- *Type:* aws-cdk-lib.SecretValue
+
+A SecretValue providing the password for the Connection to authenticate to the source with.
+
+> [[AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype)]([AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype))
+
+---
+
+##### `url`<sup>Required</sup> <a name="url" id="cdk-extensions.glue.JdbcConnectionProps.property.url"></a>
+
+```typescript
+public readonly url: string;
+```
+
+- *Type:* string
+
+The URL to the source for the Connection.
+
+> [[AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype)]([AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype))
+
+---
+
+##### `username`<sup>Required</sup> <a name="username" id="cdk-extensions.glue.JdbcConnectionProps.property.username"></a>
+
+```typescript
+public readonly username: string;
+```
+
+- *Type:* string
+
+The username for the Connection to authenticate to the source with.
+
+> [[AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype)]([AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype))
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="cdk-extensions.glue.JdbcConnectionProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+VPC to attach to the Connection.
+
+> [[IVpc Interface](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.IVpc.html)]([IVpc Interface](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.IVpc.html))
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.glue.JdbcConnectionProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+A description of the Connection.
+
+---
+
+##### `enforceSsl`<sup>Optional</sup> <a name="enforceSsl" id="cdk-extensions.glue.JdbcConnectionProps.property.enforceSsl"></a>
+
+```typescript
+public readonly enforceSsl: boolean;
+```
+
+- *Type:* boolean
+
+Boolean value on whether to require encryption on the Connection.
+
+> [[AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype)]([AWS::Glue::Connection ConnectionInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype))
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.glue.JdbcConnectionProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+A name for the Connection.
+
+---
+
+##### `securityGroups`<sup>Optional</sup> <a name="securityGroups" id="cdk-extensions.glue.JdbcConnectionProps.property.securityGroups"></a>
+
+```typescript
+public readonly securityGroups: ISecurityGroup[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
+
+A list of Security Groups to apply to the Connection.
+
+---
+
+##### `subnets`<sup>Optional</sup> <a name="subnets" id="cdk-extensions.glue.JdbcConnectionProps.property.subnets"></a>
+
+```typescript
+public readonly subnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+Options for selection of subnets from the VPC to attach to the Connection.
+
+> [[CDK SubnetSelection](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.SubnetSelection.html)]([CDK SubnetSelection](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.SubnetSelection.html))
 
 ---
 
