@@ -78,12 +78,12 @@ export class NamedQuery extends Resource {
 
 
   /**
-     * The underlying NamedQuery CloudFormation resource.
-     *
-     * @see [AWS::Athena::NamedQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html)
-     *
-     * @group Resources
-     */
+   * The underlying NamedQuery CloudFormation resource.
+   *
+   * @see [AWS::Athena::NamedQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html)
+   *
+   * @group Resources
+   */
   public readonly resource: CfnNamedQuery;
 
 
