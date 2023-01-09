@@ -43,6 +43,32 @@ jobs:
           path: dist
     container:
       image: jsii/superchain:1-buster-slim-node14
+  typedoc:
+    needs: release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install typescript
+        run: npm install typescript
+      - name: Install dependencies
+        run: yarn install --check-files --production=false
+      - name: Generate typedoc
+        run: npx -p typedoc@latest typedoc --tsconfig ./tsconfig.dev.json
+      - name: Upload to S3
+        env:
+          DOCS_BUCKET: docs.vibe.io
+        run: aws s3 sync "./docs/generated" "s3://${DOCS_BUCKET}/"
   release_github:
     name: Publish to GitHub Releases
     needs: release
@@ -105,45 +131,6 @@ jobs:
           NPM_REGISTRY: registry.npmjs.org
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx -p publib@latest publib-npm
-  release_maven:
-    name: Publish to Maven Central
-    needs: release
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    if: needs.release.outputs.latest_commit == github.sha
-    steps:
-      - uses: actions/setup-java@v3
-        with:
-          distribution: temurin
-          java-version: 11.x
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14.x
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: build-artifact
-          path: dist
-      - name: Restore build artifact permissions
-        run: cd dist && setfacl --restore=permissions-backup.acl
-        continue-on-error: true
-      - name: Prepare Repository
-        run: mv dist .repo
-      - name: Install Dependencies
-        run: cd .repo && yarn install --check-files --frozen-lockfile
-      - name: Create java artifact
-        run: cd .repo && npx projen package:java
-      - name: Collect java Artifact
-        run: mv .repo/dist dist
-      - name: Release
-        env:
-          MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
-          MAVEN_GPG_PRIVATE_KEY_PASSPHRASE: ${{ secrets.MAVEN_GPG_PRIVATE_KEY_PASSPHRASE }}
-          MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
-          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
-          MAVEN_STAGING_PROFILE_ID: ${{ secrets.MAVEN_STAGING_PROFILE_ID }}
-        run: npx -p publib@latest publib-maven
   release_pypi:
     name: Publish to PyPI
     needs: release
@@ -213,3 +200,46 @@ jobs:
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: npx -p publib@latest publib-nuget
+  release_golang:
+    name: Publish to GitHub Go Module Repository
+    needs: release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    if: needs.release.outputs.latest_commit == github.sha
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14.x
+      - uses: actions/setup-go@v3
+        with:
+          go-version: ^1.16.0
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-artifact
+          path: dist
+      - name: Restore build artifact permissions
+        run: cd dist && setfacl --restore=permissions-backup.acl
+        continue-on-error: true
+      - name: Prepare Repository
+        run: mv dist .repo
+      - name: Install Dependencies
+        run: cd .repo && yarn install --check-files --frozen-lockfile
+      - name: Create go artifact
+        run: cd .repo && npx projen package:go
+      - name: Collect go Artifact
+        run: mv .repo/dist dist
+      - name: Setup GitHub deploy key
+        env:
+          GITHUB_DEPLOY_KEY: ${{ secrets.GO_GITHUB_DEPLOY_KEY }}
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: ssh-agent -a ${SSH_AUTH_SOCK} && ssh-add - <<< "${GITHUB_DEPLOY_KEY}"
+      - name: Release
+        env:
+          GIT_BRANCH: master
+          GIT_USER_NAME: github-actions
+          GIT_USER_EMAIL: github-actions@github.com
+          GITHUB_USE_SSH: "true"
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: npx -p publib@latest publib-golang

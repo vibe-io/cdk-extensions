@@ -3,28 +3,37 @@ phases:
   install:
     commands:
       - yarn
-      - pip install twine
+      - pip install git-remote-codecommit twine
+      - yum install -y java-17-amazon-corretto-devel
       - dotnet tool install -g AWS.CodeArtifact.NuGet.CredentialProvider
+      - dotnet codeartifact-creds install
   pre_build:
     commands:
-      - dotnet codeartifact-creds install
+      - git config user.name "codecommit"
+      - git config user.email "codecommit@amazonaws.com"
+      - git remote add codecommit "${CODECOMMIT_GRC_URL}"
   build:
     commands:
       - npx projen release
-      - echo "npx typedoc --tsconfig ./tsconfig.dev.json"
+      - npx typedoc --tsconfig ./tsconfig.dev.json
   post_build:
     commands:
+      - RELEASE_TAG="$(cat dist/releasetag.txt)"
+      - echo "Using release tag '${RELEASE_TAG}'"
+      - git tag "${RELEASE_TAG}"
+      - git push codecommit "${RELEASE_TAG}"
+      - aws s3 sync ./docs/generated/ "s3://${DOCS_BUCKET}/" --only-show-errors
       - CODE_ARTIFACT_TOKEN="$(aws codeartifact get-authorization-token --domain "${CODE_ARTIFACT_DOMAIN}" --domain-owner "${CODE_ARTIFACT_OWNER}" --query authorizationToken --output text)"
       - >-
           MAVEN_USERNAME='aws'
           MAVEN_PASSWORD="${CODE_ARTIFACT_TOKEN}"
           MAVEN_SERVER_ID='codeartifact'
-          MAVEN_REPOSITORY_URL="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format maven --query repositoryEndpoint --output text)"
+          MAVEN_REPOSITORY_URL="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository "${CODE_ARTIFACT_REPO}" --format maven --query repositoryEndpoint --output text)"
           NPM_DIST_TAG='latest'
-          NPM_REGISTRY="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format npm --query repositoryEndpoint --output text | sed -r 's!^https?://!!')"
+          NPM_REGISTRY="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository "${CODE_ARTIFACT_REPO}" --format npm --query repositoryEndpoint --output text | sed -r 's!^https?://!!')"
           NUGET_API_KEY="${CODE_ARTIFACT_TOKEN}"
-          NUGET_SERVER="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format nuget --query repositoryEndpoint --output text)v3/index.json"
+          NUGET_SERVER="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository "${CODE_ARTIFACT_REPO}" --format nuget --query repositoryEndpoint --output text)v3/index.json"
           TWINE_USERNAME='aws'
           TWINE_PASSWORD="${CODE_ARTIFACT_TOKEN}"
-          TWINE_REPOSITORY_URL="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository jsii --format pypi --query repositoryEndpoint --output text)"
+          TWINE_REPOSITORY_URL="$(aws codeartifact get-repository-endpoint --domain "${CODE_ARTIFACT_DOMAIN}" --repository "${CODE_ARTIFACT_REPO}" --format pypi --query repositoryEndpoint --output text)"
           npx -p publib@latest publib

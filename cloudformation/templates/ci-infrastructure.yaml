@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: Deploys resources used for configuring the `cdk-extensions` library in AWS.
 Parameters:
   ArtifactDomainName:
-    Default: cdk-extensions
+    Default: jsii
     Description: The name of the CodeArtifact Domain.
     Type: String
   PriceClass:
@@ -27,7 +27,7 @@ Resources:
     Properties:
       Description: Hosts JSII packages for cdk-extensions
       DomainName: !GetAtt 'ArtifactDomain.Name'
-      RepositoryName: jsii
+      RepositoryName: !Ref 'RepositoryName'
   DocsBucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -237,6 +237,12 @@ Resources:
             Value: !GetAtt 'ArtifactDomain.Name'
           - Name: CODE_ARTIFACT_OWNER
             Value: !GetAtt 'ArtifactDomain.Owner'
+          - Name: CODE_ARTIFACT_REPO
+            Value: !GetAtt 'ArtifactRepository.Name'
+          - Name: CODECOMMIT_GRC_URL
+            Value: !Sub 'codecommit::${AWS::Region}://${Repository.Name}'
+          - Name: DOCS_BUCKET
+            Value: !Ref 'DocsBucket'
         Image: aws/codebuild/amazonlinux2-x86_64-standard:4.0
         ImagePullCredentialsType: CODEBUILD
         Type: LINUX_CONTAINER
@@ -282,6 +288,9 @@ Resources:
               - codeartifact:PutPackageMetadata
             Effect: Allow
             Resource: !Sub 'arn:${AWS::Partition}:codeartifact:${AWS::Region}:${ArtifactDomain.Owner}:package/${ArtifactDomain.Name}/${ArtifactRepository.Name}/*'
+          - Action: codecommit:GitPush
+            Effect: Allow
+            Resource: !GetAtt 'Repository.Arn'
           - Action:
               - logs:CreateLogStream
               - logs:PutLogEvents
@@ -290,6 +299,9 @@ Resources:
           - Action: codecommit:GitPull
             Effect: Allow
             Resource: !GetAtt 'Repository.Arn'
+          - Action: 's3:*'
+            Effect: Allow
+            Resource: '*'
           - Action:
               - s3:GetBucketAcl
               - s3:GetBucketLocation
