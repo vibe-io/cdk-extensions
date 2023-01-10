@@ -1,7 +1,7 @@
 import { CfnTrigger } from 'aws-cdk-lib/aws-glue';
 import { IConstruct } from 'constructs';
 import { ICrawler, ITriggerPredicate } from '../..';
-import { PredicateBase, PredicateLogicalOperator, PredicateOptions } from './predicate-base';
+import { WorkflowPredicateBase, PredicateLogicalOperator, WorkflowPredicateOptions } from './predicate-base';
 
 
 export enum CrawlerState {
@@ -10,19 +10,19 @@ export enum CrawlerState {
   SUCCEEDED = 'SUCCEEDED'
 }
 
-export interface CrawlerPredicateOptions extends PredicateOptions {
+export interface WorkflowCrawlerPredicateOptions extends WorkflowPredicateOptions {
   readonly logicalOperator: PredicateLogicalOperator;
   readonly state?: CrawlerState;
 }
 
-export class CrawlerPredicate extends PredicateBase implements ITriggerPredicate {
+export class WorkflowCrawlerPredicate extends WorkflowPredicateBase implements ITriggerPredicate {
   // Input properties
   public readonly crawler: ICrawler;
   public readonly logicalOperator: PredicateLogicalOperator;
   public readonly state: CrawlerState;
 
 
-  public constructor(crawler: ICrawler, options?: CrawlerPredicateOptions) {
+  public constructor(crawler: ICrawler, options?: WorkflowCrawlerPredicateOptions) {
     super(options);
 
     this.crawler = crawler;

@@ -9,10 +9,10 @@ export enum PredicateLogicalOperator {
 /**
  * Options for a generic Glue Trigger predicate.
  */
-export interface PredicateOptions extends ResourceProps {}
+export interface WorkflowPredicateOptions extends ResourceProps {}
 
-export class PredicateBase {
-  public constructor(_options?: PredicateOptions) {}
+export class WorkflowPredicateBase {
+  public constructor(_options?: WorkflowPredicateOptions) {}
 
   protected bindOptions(_scope: IConstruct): any {
     return {};

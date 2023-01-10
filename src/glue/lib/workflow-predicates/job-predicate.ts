@@ -1,7 +1,7 @@
 import { CfnTrigger } from 'aws-cdk-lib/aws-glue';
 import { IConstruct } from 'constructs';
 import { IJob, ITriggerPredicate } from '../..';
-import { PredicateBase, PredicateLogicalOperator, PredicateOptions } from './predicate-base';
+import { WorkflowPredicateBase, PredicateLogicalOperator, WorkflowPredicateOptions } from './predicate-base';
 
 
 export enum JobState {
@@ -11,19 +11,19 @@ export enum JobState {
   TIMEOUT = 'TIMEOUT'
 }
 
-export interface JobPredicateOptions extends PredicateOptions {
+export interface WorkflowJobPredicateOptions extends WorkflowPredicateOptions {
   readonly logicalOperator?: PredicateLogicalOperator;
   readonly state?: JobState;
 }
 
-export class JobPredicate extends PredicateBase implements ITriggerPredicate {
+export class WorkflowJobPredicate extends WorkflowPredicateBase implements ITriggerPredicate {
   // Input properties
   public readonly job: IJob;
   public readonly logicalOperator: PredicateLogicalOperator;
   public readonly state: JobState;
 
 
-  public constructor(job: IJob, options?: JobPredicateOptions) {
+  public constructor(job: IJob, options?: WorkflowJobPredicateOptions) {
     super(options);
 
     this.job = job;
