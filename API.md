@@ -26208,112 +26208,6 @@ public readonly version: ConfigurationVersion;
 
 ---
 
-### CrawlerPredicateOptions <a name="CrawlerPredicateOptions" id="cdk-extensions.glue.CrawlerPredicateOptions"></a>
-
-#### Initializer <a name="Initializer" id="cdk-extensions.glue.CrawlerPredicateOptions.Initializer"></a>
-
-```typescript
-import { glue } from 'cdk-extensions'
-
-const crawlerPredicateOptions: glue.CrawlerPredicateOptions = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.CrawlerPredicateOptions.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.CrawlerPredicateOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
-| <code><a href="#cdk-extensions.glue.CrawlerPredicateOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
-| <code><a href="#cdk-extensions.glue.CrawlerPredicateOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.CrawlerPredicateOptions.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerPredicateOptions.property.state">state</a></code> | <code>cdk-extensions.glue.CrawlerState</code> | *No description.* |
-
----
-
-##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.CrawlerPredicateOptions.property.account"></a>
-
-```typescript
-public readonly account: string;
-```
-
-- *Type:* string
-- *Default:* the resource is in the same account as the stack it belongs to
-
-The AWS account ID this resource belongs to.
-
----
-
-##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.CrawlerPredicateOptions.property.environmentFromArn"></a>
-
-```typescript
-public readonly environmentFromArn: string;
-```
-
-- *Type:* string
-- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
-
-ARN to deduce region and account from.
-
-The ARN is parsed and the account and region are taken from the ARN.
-This should be used for imported resources.
-
-Cannot be supplied together with either `account` or `region`.
-
----
-
-##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.CrawlerPredicateOptions.property.physicalName"></a>
-
-```typescript
-public readonly physicalName: string;
-```
-
-- *Type:* string
-- *Default:* The physical name will be allocated by CloudFormation at deployment time
-
-The value passed in by users to the physical name prop of the resource.
-
-`undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
-- a concrete value implies a specific physical name
-- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
-
----
-
-##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.CrawlerPredicateOptions.property.region"></a>
-
-```typescript
-public readonly region: string;
-```
-
-- *Type:* string
-- *Default:* the resource is in the same region as the stack it belongs to
-
-The AWS region this resource belongs to.
-
----
-
-##### `logicalOperator`<sup>Required</sup> <a name="logicalOperator" id="cdk-extensions.glue.CrawlerPredicateOptions.property.logicalOperator"></a>
-
-```typescript
-public readonly logicalOperator: PredicateLogicalOperator;
-```
-
-- *Type:* cdk-extensions.glue.PredicateLogicalOperator
-
----
-
-##### `state`<sup>Optional</sup> <a name="state" id="cdk-extensions.glue.CrawlerPredicateOptions.property.state"></a>
-
-```typescript
-public readonly state: CrawlerState;
-```
-
-- *Type:* cdk-extensions.glue.CrawlerState
-
----
-
 ### CrawlerProps <a name="CrawlerProps" id="cdk-extensions.glue.CrawlerProps"></a>
 
 Configuration for Crawler.
@@ -33098,112 +32992,6 @@ The Python version to use.
 
 ---
 
-### JobPredicateOptions <a name="JobPredicateOptions" id="cdk-extensions.glue.JobPredicateOptions"></a>
-
-#### Initializer <a name="Initializer" id="cdk-extensions.glue.JobPredicateOptions.Initializer"></a>
-
-```typescript
-import { glue } from 'cdk-extensions'
-
-const jobPredicateOptions: glue.JobPredicateOptions = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.JobPredicateOptions.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.JobPredicateOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
-| <code><a href="#cdk-extensions.glue.JobPredicateOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
-| <code><a href="#cdk-extensions.glue.JobPredicateOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.JobPredicateOptions.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobPredicateOptions.property.state">state</a></code> | <code>cdk-extensions.glue.JobState</code> | *No description.* |
-
----
-
-##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.JobPredicateOptions.property.account"></a>
-
-```typescript
-public readonly account: string;
-```
-
-- *Type:* string
-- *Default:* the resource is in the same account as the stack it belongs to
-
-The AWS account ID this resource belongs to.
-
----
-
-##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.JobPredicateOptions.property.environmentFromArn"></a>
-
-```typescript
-public readonly environmentFromArn: string;
-```
-
-- *Type:* string
-- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
-
-ARN to deduce region and account from.
-
-The ARN is parsed and the account and region are taken from the ARN.
-This should be used for imported resources.
-
-Cannot be supplied together with either `account` or `region`.
-
----
-
-##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.JobPredicateOptions.property.physicalName"></a>
-
-```typescript
-public readonly physicalName: string;
-```
-
-- *Type:* string
-- *Default:* The physical name will be allocated by CloudFormation at deployment time
-
-The value passed in by users to the physical name prop of the resource.
-
-`undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
-- a concrete value implies a specific physical name
-- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
-
----
-
-##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.JobPredicateOptions.property.region"></a>
-
-```typescript
-public readonly region: string;
-```
-
-- *Type:* string
-- *Default:* the resource is in the same region as the stack it belongs to
-
-The AWS region this resource belongs to.
-
----
-
-##### `logicalOperator`<sup>Optional</sup> <a name="logicalOperator" id="cdk-extensions.glue.JobPredicateOptions.property.logicalOperator"></a>
-
-```typescript
-public readonly logicalOperator: PredicateLogicalOperator;
-```
-
-- *Type:* cdk-extensions.glue.PredicateLogicalOperator
-
----
-
-##### `state`<sup>Optional</sup> <a name="state" id="cdk-extensions.glue.JobPredicateOptions.property.state"></a>
-
-```typescript
-public readonly state: JobState;
-```
-
-- *Type:* cdk-extensions.glue.JobState
-
----
-
 ### JobProps <a name="JobProps" id="cdk-extensions.glue.JobProps"></a>
 
 Configuration for the Glue Job resource.
@@ -34517,92 +34305,6 @@ public readonly sessionDuration: Duration;
 The length of time that the application user sessions are valid for.
 
 > [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration))
-
----
-
-### PredicateOptions <a name="PredicateOptions" id="cdk-extensions.glue.PredicateOptions"></a>
-
-Options for a generic Glue Trigger predicate.
-
-#### Initializer <a name="Initializer" id="cdk-extensions.glue.PredicateOptions.Initializer"></a>
-
-```typescript
-import { glue } from 'cdk-extensions'
-
-const predicateOptions: glue.PredicateOptions = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.PredicateOptions.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.PredicateOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
-| <code><a href="#cdk-extensions.glue.PredicateOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
-| <code><a href="#cdk-extensions.glue.PredicateOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-
----
-
-##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.PredicateOptions.property.account"></a>
-
-```typescript
-public readonly account: string;
-```
-
-- *Type:* string
-- *Default:* the resource is in the same account as the stack it belongs to
-
-The AWS account ID this resource belongs to.
-
----
-
-##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.PredicateOptions.property.environmentFromArn"></a>
-
-```typescript
-public readonly environmentFromArn: string;
-```
-
-- *Type:* string
-- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
-
-ARN to deduce region and account from.
-
-The ARN is parsed and the account and region are taken from the ARN.
-This should be used for imported resources.
-
-Cannot be supplied together with either `account` or `region`.
-
----
-
-##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.PredicateOptions.property.physicalName"></a>
-
-```typescript
-public readonly physicalName: string;
-```
-
-- *Type:* string
-- *Default:* The physical name will be allocated by CloudFormation at deployment time
-
-The value passed in by users to the physical name prop of the resource.
-
-`undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
-- a concrete value implies a specific physical name
-- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
-
----
-
-##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.PredicateOptions.property.region"></a>
-
-```typescript
-public readonly region: string;
-```
-
-- *Type:* string
-- *Default:* the resource is in the same region as the stack it belongs to
-
-The AWS region this resource belongs to.
 
 ---
 
@@ -39141,6 +38843,112 @@ public readonly timeout: Duration;
 
 ---
 
+### WorkflowCrawlerPredicateOptions <a name="WorkflowCrawlerPredicateOptions" id="cdk-extensions.glue.WorkflowCrawlerPredicateOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.WorkflowCrawlerPredicateOptions.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const workflowCrawlerPredicateOptions: glue.WorkflowCrawlerPredicateOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.state">state</a></code> | <code>cdk-extensions.glue.CrawlerState</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `logicalOperator`<sup>Required</sup> <a name="logicalOperator" id="cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.logicalOperator"></a>
+
+```typescript
+public readonly logicalOperator: PredicateLogicalOperator;
+```
+
+- *Type:* cdk-extensions.glue.PredicateLogicalOperator
+
+---
+
+##### `state`<sup>Optional</sup> <a name="state" id="cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.state"></a>
+
+```typescript
+public readonly state: CrawlerState;
+```
+
+- *Type:* cdk-extensions.glue.CrawlerState
+
+---
+
 ### WorkflowJobActionOptions <a name="WorkflowJobActionOptions" id="cdk-extensions.glue.WorkflowJobActionOptions"></a>
 
 Configuration options for the WorkflowJobAction class.
@@ -39279,6 +39087,198 @@ public readonly bookmarkConfiguration: BookmarkConfiguration;
 ```
 
 - *Type:* cdk-extensions.glue.BookmarkConfiguration
+
+---
+
+### WorkflowJobPredicateOptions <a name="WorkflowJobPredicateOptions" id="cdk-extensions.glue.WorkflowJobPredicateOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.WorkflowJobPredicateOptions.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const workflowJobPredicateOptions: glue.WorkflowJobPredicateOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicateOptions.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicateOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicateOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicateOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicateOptions.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicateOptions.property.state">state</a></code> | <code>cdk-extensions.glue.JobState</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.WorkflowJobPredicateOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.WorkflowJobPredicateOptions.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.WorkflowJobPredicateOptions.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.WorkflowJobPredicateOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `logicalOperator`<sup>Optional</sup> <a name="logicalOperator" id="cdk-extensions.glue.WorkflowJobPredicateOptions.property.logicalOperator"></a>
+
+```typescript
+public readonly logicalOperator: PredicateLogicalOperator;
+```
+
+- *Type:* cdk-extensions.glue.PredicateLogicalOperator
+
+---
+
+##### `state`<sup>Optional</sup> <a name="state" id="cdk-extensions.glue.WorkflowJobPredicateOptions.property.state"></a>
+
+```typescript
+public readonly state: JobState;
+```
+
+- *Type:* cdk-extensions.glue.JobState
+
+---
+
+### WorkflowPredicateOptions <a name="WorkflowPredicateOptions" id="cdk-extensions.glue.WorkflowPredicateOptions"></a>
+
+Options for a generic Glue Trigger predicate.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.WorkflowPredicateOptions.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const workflowPredicateOptions: glue.WorkflowPredicateOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowPredicateOptions.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.WorkflowPredicateOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.WorkflowPredicateOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.WorkflowPredicateOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.WorkflowPredicateOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.WorkflowPredicateOptions.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.WorkflowPredicateOptions.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.WorkflowPredicateOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
 
 ---
 
@@ -40780,99 +40780,6 @@ public readonly name: string;
 The name of the Column.
 
 > [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name))
-
----
-
-
-### CrawlerPredicate <a name="CrawlerPredicate" id="cdk-extensions.glue.CrawlerPredicate"></a>
-
-- *Implements:* cdk-extensions.glue.ITriggerPredicate
-
-#### Initializers <a name="Initializers" id="cdk-extensions.glue.CrawlerPredicate.Initializer"></a>
-
-```typescript
-import { glue } from 'cdk-extensions'
-
-new glue.CrawlerPredicate(crawler: ICrawler, options?: CrawlerPredicateOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.CrawlerPredicate.Initializer.parameter.crawler">crawler</a></code> | <code>cdk-extensions.glue.ICrawler</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerPredicate.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.CrawlerPredicateOptions</code> | *No description.* |
-
----
-
-##### `crawler`<sup>Required</sup> <a name="crawler" id="cdk-extensions.glue.CrawlerPredicate.Initializer.parameter.crawler"></a>
-
-- *Type:* cdk-extensions.glue.ICrawler
-
----
-
-##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.CrawlerPredicate.Initializer.parameter.options"></a>
-
-- *Type:* cdk-extensions.glue.CrawlerPredicateOptions
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdk-extensions.glue.CrawlerPredicate.bind">bind</a></code> | *No description.* |
-
----
-
-##### `bind` <a name="bind" id="cdk-extensions.glue.CrawlerPredicate.bind"></a>
-
-```typescript
-public bind(scope: IConstruct): ConditionProperty
-```
-
-###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.CrawlerPredicate.bind.parameter.scope"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.CrawlerPredicate.property.crawler">crawler</a></code> | <code>cdk-extensions.glue.ICrawler</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerPredicate.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerPredicate.property.state">state</a></code> | <code>cdk-extensions.glue.CrawlerState</code> | *No description.* |
-
----
-
-##### `crawler`<sup>Required</sup> <a name="crawler" id="cdk-extensions.glue.CrawlerPredicate.property.crawler"></a>
-
-```typescript
-public readonly crawler: ICrawler;
-```
-
-- *Type:* cdk-extensions.glue.ICrawler
-
----
-
-##### `logicalOperator`<sup>Required</sup> <a name="logicalOperator" id="cdk-extensions.glue.CrawlerPredicate.property.logicalOperator"></a>
-
-```typescript
-public readonly logicalOperator: PredicateLogicalOperator;
-```
-
-- *Type:* cdk-extensions.glue.PredicateLogicalOperator
-
----
-
-##### `state`<sup>Required</sup> <a name="state" id="cdk-extensions.glue.CrawlerPredicate.property.state"></a>
-
-```typescript
-public readonly state: CrawlerState;
-```
-
-- *Type:* cdk-extensions.glue.CrawlerState
 
 ---
 
@@ -50224,99 +50131,6 @@ Scala Apache Spark Job props.
 
 
 
-### JobPredicate <a name="JobPredicate" id="cdk-extensions.glue.JobPredicate"></a>
-
-- *Implements:* cdk-extensions.glue.ITriggerPredicate
-
-#### Initializers <a name="Initializers" id="cdk-extensions.glue.JobPredicate.Initializer"></a>
-
-```typescript
-import { glue } from 'cdk-extensions'
-
-new glue.JobPredicate(job: IJob, options?: JobPredicateOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.JobPredicate.Initializer.parameter.job">job</a></code> | <code>cdk-extensions.glue.IJob</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobPredicate.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.JobPredicateOptions</code> | *No description.* |
-
----
-
-##### `job`<sup>Required</sup> <a name="job" id="cdk-extensions.glue.JobPredicate.Initializer.parameter.job"></a>
-
-- *Type:* cdk-extensions.glue.IJob
-
----
-
-##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.JobPredicate.Initializer.parameter.options"></a>
-
-- *Type:* cdk-extensions.glue.JobPredicateOptions
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdk-extensions.glue.JobPredicate.bind">bind</a></code> | *No description.* |
-
----
-
-##### `bind` <a name="bind" id="cdk-extensions.glue.JobPredicate.bind"></a>
-
-```typescript
-public bind(scope: IConstruct): ConditionProperty
-```
-
-###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.JobPredicate.bind.parameter.scope"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.JobPredicate.property.job">job</a></code> | <code>cdk-extensions.glue.IJob</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobPredicate.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobPredicate.property.state">state</a></code> | <code>cdk-extensions.glue.JobState</code> | *No description.* |
-
----
-
-##### `job`<sup>Required</sup> <a name="job" id="cdk-extensions.glue.JobPredicate.property.job"></a>
-
-```typescript
-public readonly job: IJob;
-```
-
-- *Type:* cdk-extensions.glue.IJob
-
----
-
-##### `logicalOperator`<sup>Required</sup> <a name="logicalOperator" id="cdk-extensions.glue.JobPredicate.property.logicalOperator"></a>
-
-```typescript
-public readonly logicalOperator: PredicateLogicalOperator;
-```
-
-- *Type:* cdk-extensions.glue.PredicateLogicalOperator
-
----
-
-##### `state`<sup>Required</sup> <a name="state" id="cdk-extensions.glue.JobPredicate.property.state"></a>
-
-```typescript
-public readonly state: JobState;
-```
-
-- *Type:* cdk-extensions.glue.JobState
-
----
-
-
 ### JobType <a name="JobType" id="cdk-extensions.glue.JobType"></a>
 
 The job type.
@@ -53233,32 +53047,6 @@ sso.PermissionsBoundary.fromReference(options: ReferenceOptions)
 
 
 
-### PredicateBase <a name="PredicateBase" id="cdk-extensions.glue.PredicateBase"></a>
-
-#### Initializers <a name="Initializers" id="cdk-extensions.glue.PredicateBase.Initializer"></a>
-
-```typescript
-import { glue } from 'cdk-extensions'
-
-new glue.PredicateBase(_options?: PredicateOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.PredicateBase.Initializer.parameter._options">_options</a></code> | <code>cdk-extensions.glue.PredicateOptions</code> | *No description.* |
-
----
-
-##### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.glue.PredicateBase.Initializer.parameter._options"></a>
-
-- *Type:* cdk-extensions.glue.PredicateOptions
-
----
-
-
-
-
-
 ### ProcessorConfiguration <a name="ProcessorConfiguration" id="cdk-extensions.kinesis_firehose.ProcessorConfiguration"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.ProcessorConfiguration.Initializer"></a>
@@ -55469,6 +55257,99 @@ The Glue crawler to be triggered as part of the workflow.
 ---
 
 
+### WorkflowCrawlerPredicate <a name="WorkflowCrawlerPredicate" id="cdk-extensions.glue.WorkflowCrawlerPredicate"></a>
+
+- *Implements:* cdk-extensions.glue.ITriggerPredicate
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.WorkflowCrawlerPredicate.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.WorkflowCrawlerPredicate(crawler: ICrawler, options?: WorkflowCrawlerPredicateOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.Initializer.parameter.crawler">crawler</a></code> | <code>cdk-extensions.glue.ICrawler</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.WorkflowCrawlerPredicateOptions</code> | *No description.* |
+
+---
+
+##### `crawler`<sup>Required</sup> <a name="crawler" id="cdk-extensions.glue.WorkflowCrawlerPredicate.Initializer.parameter.crawler"></a>
+
+- *Type:* cdk-extensions.glue.ICrawler
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.WorkflowCrawlerPredicate.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.glue.WorkflowCrawlerPredicateOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.glue.WorkflowCrawlerPredicate.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ConditionProperty
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.WorkflowCrawlerPredicate.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.property.crawler">crawler</a></code> | <code>cdk-extensions.glue.ICrawler</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.property.state">state</a></code> | <code>cdk-extensions.glue.CrawlerState</code> | *No description.* |
+
+---
+
+##### `crawler`<sup>Required</sup> <a name="crawler" id="cdk-extensions.glue.WorkflowCrawlerPredicate.property.crawler"></a>
+
+```typescript
+public readonly crawler: ICrawler;
+```
+
+- *Type:* cdk-extensions.glue.ICrawler
+
+---
+
+##### `logicalOperator`<sup>Required</sup> <a name="logicalOperator" id="cdk-extensions.glue.WorkflowCrawlerPredicate.property.logicalOperator"></a>
+
+```typescript
+public readonly logicalOperator: PredicateLogicalOperator;
+```
+
+- *Type:* cdk-extensions.glue.PredicateLogicalOperator
+
+---
+
+##### `state`<sup>Required</sup> <a name="state" id="cdk-extensions.glue.WorkflowCrawlerPredicate.property.state"></a>
+
+```typescript
+public readonly state: CrawlerState;
+```
+
+- *Type:* cdk-extensions.glue.CrawlerState
+
+---
+
+
 ### WorkflowJobAction <a name="WorkflowJobAction" id="cdk-extensions.glue.WorkflowJobAction"></a>
 
 - *Implements:* cdk-extensions.glue.ITriggerAction
@@ -55602,6 +55483,125 @@ public readonly job: IJob;
 The Glue job to be triggered as part of the workflow.
 
 ---
+
+
+### WorkflowJobPredicate <a name="WorkflowJobPredicate" id="cdk-extensions.glue.WorkflowJobPredicate"></a>
+
+- *Implements:* cdk-extensions.glue.ITriggerPredicate
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.WorkflowJobPredicate.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.WorkflowJobPredicate(job: IJob, options?: WorkflowJobPredicateOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.Initializer.parameter.job">job</a></code> | <code>cdk-extensions.glue.IJob</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.WorkflowJobPredicateOptions</code> | *No description.* |
+
+---
+
+##### `job`<sup>Required</sup> <a name="job" id="cdk-extensions.glue.WorkflowJobPredicate.Initializer.parameter.job"></a>
+
+- *Type:* cdk-extensions.glue.IJob
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.WorkflowJobPredicate.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.glue.WorkflowJobPredicateOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.glue.WorkflowJobPredicate.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ConditionProperty
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.WorkflowJobPredicate.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.property.job">job</a></code> | <code>cdk-extensions.glue.IJob</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.property.state">state</a></code> | <code>cdk-extensions.glue.JobState</code> | *No description.* |
+
+---
+
+##### `job`<sup>Required</sup> <a name="job" id="cdk-extensions.glue.WorkflowJobPredicate.property.job"></a>
+
+```typescript
+public readonly job: IJob;
+```
+
+- *Type:* cdk-extensions.glue.IJob
+
+---
+
+##### `logicalOperator`<sup>Required</sup> <a name="logicalOperator" id="cdk-extensions.glue.WorkflowJobPredicate.property.logicalOperator"></a>
+
+```typescript
+public readonly logicalOperator: PredicateLogicalOperator;
+```
+
+- *Type:* cdk-extensions.glue.PredicateLogicalOperator
+
+---
+
+##### `state`<sup>Required</sup> <a name="state" id="cdk-extensions.glue.WorkflowJobPredicate.property.state"></a>
+
+```typescript
+public readonly state: JobState;
+```
+
+- *Type:* cdk-extensions.glue.JobState
+
+---
+
+
+### WorkflowPredicateBase <a name="WorkflowPredicateBase" id="cdk-extensions.glue.WorkflowPredicateBase"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.WorkflowPredicateBase.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.WorkflowPredicateBase(_options?: WorkflowPredicateOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowPredicateBase.Initializer.parameter._options">_options</a></code> | <code>cdk-extensions.glue.WorkflowPredicateOptions</code> | *No description.* |
+
+---
+
+##### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.glue.WorkflowPredicateBase.Initializer.parameter._options"></a>
+
+- *Type:* cdk-extensions.glue.WorkflowPredicateOptions
+
+---
+
+
+
 
 
 ## Protocols <a name="Protocols" id="Protocols"></a>
@@ -56686,7 +56686,7 @@ public bind(scope: IConstruct): ActionProperty
 
 ### ITriggerPredicate <a name="ITriggerPredicate" id="cdk-extensions.glue.ITriggerPredicate"></a>
 
-- *Implemented By:* cdk-extensions.glue.CrawlerPredicate, cdk-extensions.glue.JobPredicate, cdk-extensions.glue.ITriggerPredicate
+- *Implemented By:* cdk-extensions.glue.WorkflowCrawlerPredicate, cdk-extensions.glue.WorkflowJobPredicate, cdk-extensions.glue.ITriggerPredicate
 
 Represents a precondition that must be satisfied in order for a trigger to be executed.
 
