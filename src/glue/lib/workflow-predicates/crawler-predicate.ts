@@ -33,9 +33,9 @@ export interface WorkflowCrawlerPredicateOptions extends WorkflowPredicateOption
   /**
    * The logical operator which should be applied in determining whether a
    * crawler meets the requested conditions.
-   * 
+   *
    * At the moment, the only supported operator is `EQUALS`.
-   * 
+   *
    * @see [Trigger Predicate.Conditions.LogicalOperator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator)
    */
   readonly logicalOperator: PredicateLogicalOperator;
@@ -43,7 +43,7 @@ export interface WorkflowCrawlerPredicateOptions extends WorkflowPredicateOption
   /**
    * The state that the crawler must be in in order to meet the criteria to
    * trigger the next stage of the workflow.
-   * 
+   *
    * @see [Trigger Predicate.Conditions.CrawlState](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate)
    */
   readonly state?: CrawlerState;
@@ -51,7 +51,7 @@ export interface WorkflowCrawlerPredicateOptions extends WorkflowPredicateOption
 
 /**
  * Represents a condition that is predicated on a Glue crawler completion.
- * 
+ *
  * The condition can be used to create a trigger that controls the execution of
  * downstream tasks in a workflow.
  */
@@ -59,9 +59,9 @@ export class WorkflowCrawlerPredicate extends WorkflowPredicateBase implements I
   /**
    * The crawler which must complete in order to meet the requirements to
    * trigger the next stage of the workflow.
-   * 
+   *
    * @see [Trigger Predicate.Conditions.CrawlerName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlername)
-   * 
+   *
    * @group Inputs
    */
   public readonly crawler: ICrawler;
@@ -69,9 +69,9 @@ export class WorkflowCrawlerPredicate extends WorkflowPredicateBase implements I
   /**
    * The logical operator which should be applied in determining whether a
    * crawler meets the requested conditions.
-   * 
+   *
    * At the moment, the only supported operator is `EQUALS`.
-   * 
+   *
    * @see [Trigger Predicate.Conditions.LogicalOperator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator)
    */
   public readonly logicalOperator: PredicateLogicalOperator;
@@ -79,7 +79,7 @@ export class WorkflowCrawlerPredicate extends WorkflowPredicateBase implements I
   /**
    * The state that the crawler must be in in order to meet the criteria to
    * trigger the next stage of the workflow.
-   * 
+   *
    * @see [Trigger Predicate.Conditions.CrawlState](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate)
    */
   public readonly state: CrawlerState;
@@ -87,7 +87,7 @@ export class WorkflowCrawlerPredicate extends WorkflowPredicateBase implements I
 
   /**
    * Creates a new instance of the WorkflowCrawlerPredicate class.
-   * 
+   *
    * @param crawler The crawler which must complete in order to meet the
    * requirements to trigger the next stage of the workflow.
    * @param options Options specifying the conditions the crawler must meet to
@@ -104,7 +104,7 @@ export class WorkflowCrawlerPredicate extends WorkflowPredicateBase implements I
   /**
    * Associates the predicate with a construct that is configuring a trigger
    * for a Glue workflow.
-   * 
+   *
    * @param scope The construct configuring the Glue trigger.
    * @returns A configuration object that can be used to configure a predicate
    * condition for the Glue trigger.

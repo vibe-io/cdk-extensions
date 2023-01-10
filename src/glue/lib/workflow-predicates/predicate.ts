@@ -1,5 +1,5 @@
-import { WorkflowCrawlerPredicate, WorkflowCrawlerPredicateOptions, WorkflowJobPredicate, WorkflowJobPredicateOptions } from ".";
-import { ICrawler, IJob } from "../..";
+import { WorkflowCrawlerPredicate, WorkflowCrawlerPredicateOptions, WorkflowJobPredicate, WorkflowJobPredicateOptions } from '.';
+import { ICrawler, IJob } from '../..';
 
 
 /**
@@ -8,7 +8,7 @@ import { ICrawler, IJob } from "../..";
 export class WorkflowPredicate {
   /**
    * A predicate condition dependent on the completion of a Glue crawler.
-   * 
+   *
    * @param crawler The crawler which must complete in order to meet the
    * requirements to trigger the next stage of the workflow.
    * @param options Options specifying the conditions the crawler must meet to
@@ -22,7 +22,7 @@ export class WorkflowPredicate {
 
   /**
    * A predicate condition dependent on the completion of a Glue job.
-   * 
+   *
    * @param job The job which must complete in order to meet the requirements
    * to trigger the next stage of the workflow.
    * @param options Options specifying the conditions the job must meet to

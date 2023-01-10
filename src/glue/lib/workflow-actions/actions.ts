@@ -1,5 +1,5 @@
-import { WorkflowCrawlerAction, WorkflowCrawlerActionOptions, WorkflowJobAction, WorkflowJobActionOptions } from ".";
-import { ICrawler, IJob } from "../..";
+import { WorkflowCrawlerAction, WorkflowCrawlerActionOptions, WorkflowJobAction, WorkflowJobActionOptions } from '.';
+import { ICrawler, IJob } from '../..';
 
 
 /**
@@ -8,7 +8,7 @@ import { ICrawler, IJob } from "../..";
 export class WorkflowAction {
   /**
    * An action that runs a crawler as part of a Glue workflow.
-   * 
+   *
    * @param crawler The crawler to run as part of the workflow.
    * @param options The options configuring how the crawler should be run.
    * @returns A workflow action that runs the crawler with the given options.
@@ -19,7 +19,7 @@ export class WorkflowAction {
 
   /**
    * An action that runs a Glue job as part of a workflow.
-   * 
+   *
    * @param job The job to run as part of the workflow.
    * @param options The options configuring how the job should be run.
    * @returns A workflow action that runs the job with the given options.

@@ -9,13 +9,13 @@ import { undefinedIfNoKeys } from '../../../utils/formatting';
 export interface WorkflowActionOptions extends ResourceProps {
   /**
    * The arguments to use when the associated trigger fires.
-   * 
+   *
    * Jobs run via the associated trigger will have their default arguments
    * replaced with the arguments specified.
-   * 
+   *
    * You can specify arguments here that your own job-execution script
    * consumes, in addition to arguments that AWS Glue itself consumes.
-   * 
+   *
    * @see [Trigger Actions.Arguments](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments)
    */
   readonly arguments?: {[key: string]: string};
@@ -23,7 +23,7 @@ export interface WorkflowActionOptions extends ResourceProps {
   /**
    * After a job run starts, the number of minutes to wait before sending a job
    * run delay notification.
-   * 
+   *
    * @see [Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter)
    */
   readonly notifyDelayAfter?: Duration;
@@ -31,9 +31,9 @@ export interface WorkflowActionOptions extends ResourceProps {
   /**
    * The name of the SecurityConfiguration structure to be used with this
    * action.
-   * 
+   *
    * @see [Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration)
-   * 
+   *
    * @alpha
    */
   readonly securityConfiguration?: string;
@@ -43,7 +43,7 @@ export interface WorkflowActionOptions extends ResourceProps {
    * can consume resources before it is terminated and enters TIMEOUT status.
    * The default is 48 hours. This overrides the timeout value set in the
    * parent job.
-   * 
+   *
    * @see [Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout)
    */
   readonly timeout?: Duration;
@@ -62,9 +62,9 @@ export class WorkflowActionBase {
   /**
    * After a job run starts, the number of minutes to wait before sending a job
    * run delay notification.
-   * 
+   *
    * @see [Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter)
-   * 
+   *
    * @group Inputs
    */
   public readonly notifyDelayAfter?: Duration;
@@ -72,9 +72,9 @@ export class WorkflowActionBase {
   /**
    * The name of the SecurityConfiguration structure to be used with this
    * action.
-   * 
+   *
    * @see [Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration)
-   * 
+   *
    * @alpha
    * @group Inputs
    */
@@ -85,9 +85,9 @@ export class WorkflowActionBase {
    * can consume resources before it is terminated and enters TIMEOUT status.
    * The default is 48 hours. This overrides the timeout value set in the
    * parent job.
-   * 
+   *
    * @see [Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout)
-   * 
+   *
    * @group Inputs
    */
   public readonly timeout?: Duration;
@@ -95,7 +95,7 @@ export class WorkflowActionBase {
 
   /**
    * Creates a new instance of the WorkflowActionBase class.
-   * 
+   *
    * @param options Options controlling aspects of the action being executed.
    */
   public constructor(options?: WorkflowActionOptions) {
@@ -112,9 +112,9 @@ export class WorkflowActionBase {
   /**
    * Adds an argument that will be passed to the specified action when
    * triggered as part of a workflow.
-   * 
+   *
    * @see [AWS Glue job parameters](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
-   * 
+   *
    * @param key The name of the argument being set.
    * @param value The value to pass for the specified argument.
    */
@@ -125,7 +125,7 @@ export class WorkflowActionBase {
   /**
    * Associates the action with a construct that is configuring a trigger for a
    * Glue workflow.
-   * 
+   *
    * @param _scope The construct configuring the Glue trigger.
    * @returns A configuration object that can be used to configure a triggered
    * workflow action.

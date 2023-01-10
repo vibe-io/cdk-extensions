@@ -7,7 +7,7 @@ import { WorkflowActionBase, WorkflowActionOptions } from './action-base';
 /**
  * Configuration options for the WorkflowCrawlerAction class.
  */
- export interface WorkflowCrawlerActionOptions extends WorkflowActionOptions {}
+export interface WorkflowCrawlerActionOptions extends WorkflowActionOptions {}
 
 /**
  * Configuration options for the WorkflowCrawlerAction class.

@@ -7,7 +7,7 @@ import { WorkflowActionBase, WorkflowActionOptions } from './action-base';
 /**
  * A range of job run ID's that specify the job bookmark state of a Glue job
  * which has had its bookmark state set to paused.
- * 
+ *
  * @see [Using job bookmarks in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html#monitor-continuations-implement)
  */
 export interface BookmarkRange {
@@ -30,7 +30,7 @@ export interface BookmarkRange {
 
 /**
  * Controls the bookmark state of a Glue job.
- * 
+ *
  * @see [Using job bookmarks in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html#monitor-continuations-implement)
  */
 export class BookmarkConfiguration {
@@ -38,7 +38,7 @@ export class BookmarkConfiguration {
    * Job bookmarks are not used, and the job always processes the entire
    * dataset. You are responsible for managing the output from previous job
    * runs.
-   * 
+   *
    * @returns A configuration object that disabled job bookmarks.
    */
   public static disable(): BookmarkConfiguration {
@@ -50,7 +50,7 @@ export class BookmarkConfiguration {
    * processed data. If your job has a source with job bookmark support, it
    * will keep track of processed data, and when a job runs, it processes new
    * data since the last checkpoint.
-   * 
+   *
    * @returns A configuration object that enables job bookmarks.
    */
   public static enable(): BookmarkConfiguration {
@@ -61,7 +61,7 @@ export class BookmarkConfiguration {
    * Process incremental data since the last successful run or the data in a
    * specified range, without updating the state of last bookmark. You are
    * responsible for managing the output from previous job runs.
-   * 
+   *
    * @param range The range of run ID's that should have their data processed.
    * @returns A configuration object that pauses job bookmarks.
    */
@@ -72,7 +72,7 @@ export class BookmarkConfiguration {
   /**
    * An escape hatch method that allows specifying arbitrary values for the
    * `job-bookmark-option` argument of a Glue job.
-   * 
+   *
    * @param value The value to pass to the `job-bookmark-option` argument.
    * @param range An optional range of job ID's that will correspond to the
    * `job-bookmark-from` and `job-bookmark-to` arguments.
@@ -84,14 +84,14 @@ export class BookmarkConfiguration {
 
   /**
    * Creates a new instance of the BookmarkConfiguration class.
-   * 
+   *
    * @param value The value to pass to the `job-bookmark-option` argument.
    * @param range An optional range of job ID's that will correspond to the
    * `job-bookmark-from` and `job-bookmark-to` arguments.
    */
   private constructor(
     public readonly value: string,
-    public readonly range?: BookmarkRange
+    public readonly range?: BookmarkRange,
   ) {}
 }
 

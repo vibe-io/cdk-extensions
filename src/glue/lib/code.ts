@@ -12,7 +12,7 @@ import { Construct } from 'constructs';
 export abstract class Code {
   /**
    * Job code as an S3 object.
-   * 
+   *
    * @param bucket The S3 bucket.
    * @param key The object key.
    */

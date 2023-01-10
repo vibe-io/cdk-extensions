@@ -24,7 +24,7 @@ export interface WorkflowPredicateOptions extends ResourceProps {}
 export class WorkflowPredicateBase {
   /**
    * Create a new instance of the WorkflowPredicateBase class.
-   * 
+   *
    * @param _options Options specifying the conditions the predicate must meet
    * to trigger the next stage of the workflow.
    */
@@ -33,7 +33,7 @@ export class WorkflowPredicateBase {
   /**
    * Associates the predicate with a construct that is configuring a trigger
    * for a Glue workflow.
-   * 
+   *
    * @param _scope The construct configuring the Glue trigger.
    * @returns A configuration object that can be used to configure a predicate
    * condition for the Glue trigger.
