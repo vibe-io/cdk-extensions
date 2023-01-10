@@ -23,7 +23,7 @@ export class WorkflowActionBase {
   public readonly timeout?: Duration;
 
 
-  constructor(options?: WorkflowActionOptions) {
+  public constructor(options?: WorkflowActionOptions) {
     this.notifyDelayAfter = options?.notifyDelayAfter;
     this.securityConfiguration = options?.securityConfiguration;
     this.timeout = options?.timeout;

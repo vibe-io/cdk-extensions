@@ -21,7 +21,7 @@ export enum TriggerType {
  * Represents an action that should be taken when a trigger is executed.
  */
 export interface ITriggerAction {
-  bind(trigger: Trigger): CfnTrigger.ActionProperty;
+  bind(scope: IConstruct): CfnTrigger.ActionProperty;
 }
 
 /**
@@ -29,7 +29,7 @@ export interface ITriggerAction {
  * be executed.
  */
 export interface ITriggerPredicate {
-  bind(trigger: Trigger): CfnTrigger.ConditionProperty;
+  bind(scope: IConstruct): CfnTrigger.ConditionProperty;
 }
 
 /**

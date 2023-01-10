@@ -6871,6 +6871,8 @@ public readonly vpc: IVpc;
 
 ### Crawler <a name="Crawler" id="cdk-extensions.glue.Crawler"></a>
 
+- *Implements:* cdk-extensions.glue.ICrawler
+
 Create a Crawler resource to pull information from the provided resource.
 
 > [[AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html)]([AWS::Glue::Crawler](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html))
@@ -6885,7 +6887,7 @@ new glue.Crawler(scope: Construct, id: string, props: CrawlerProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.Crawler.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.Crawler.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
 | <code><a href="#cdk-extensions.glue.Crawler.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
 | <code><a href="#cdk-extensions.glue.Crawler.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.CrawlerProps</code> | Arguments related to the configuration of the resource. |
 
@@ -6895,7 +6897,7 @@ new glue.Crawler(scope: Construct, id: string, props: CrawlerProps)
 
 - *Type:* constructs.Construct
 
-A CDK Construct that will serve as this stack's parent in the construct tree.
+A CDK Construct that will serve as this resource's parent in the construct tree.
 
 ---
 
@@ -6905,8 +6907,7 @@ A CDK Construct that will serve as this stack's parent in the construct tree.
 
 A name to be associated with the stack and used in resource naming.
 
-Must be unique
-within the context of 'scope'.
+Must be unique within the context of 'scope'.
 
 ---
 
@@ -6990,6 +6991,8 @@ public addTarget(target: ICrawlerTarget): void
 | <code><a href="#cdk-extensions.glue.Crawler.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#cdk-extensions.glue.Crawler.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#cdk-extensions.glue.Crawler.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.glue.Crawler.fromCrawlerArn">fromCrawlerArn</a></code> | Imports an existing crawler using its Amazon Resource Name (ARN). |
+| <code><a href="#cdk-extensions.glue.Crawler.fromCrawlerName">fromCrawlerName</a></code> | Imports an existing crawler using its name. |
 
 ---
 
@@ -7043,6 +7046,78 @@ Check whether the given construct is a Resource.
 
 ---
 
+##### `fromCrawlerArn` <a name="fromCrawlerArn" id="cdk-extensions.glue.Crawler.fromCrawlerArn"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.Crawler.fromCrawlerArn(scope: IConstruct, id: string, crawlerArn: string)
+```
+
+Imports an existing crawler using its Amazon Resource Name (ARN).
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.Crawler.fromCrawlerArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Crawler.fromCrawlerArn.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `crawlerArn`<sup>Required</sup> <a name="crawlerArn" id="cdk-extensions.glue.Crawler.fromCrawlerArn.parameter.crawlerArn"></a>
+
+- *Type:* string
+
+The ARN of the crawler to import.
+
+---
+
+##### `fromCrawlerName` <a name="fromCrawlerName" id="cdk-extensions.glue.Crawler.fromCrawlerName"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.Crawler.fromCrawlerName(scope: IConstruct, id: string, crawlerName: string)
+```
+
+Imports an existing crawler using its name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.Crawler.fromCrawlerName.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Crawler.fromCrawlerName.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `crawlerName`<sup>Required</sup> <a name="crawlerName" id="cdk-extensions.glue.Crawler.fromCrawlerName.parameter.crawlerName"></a>
+
+- *Type:* string
+
+The name of the crawler to import.
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
@@ -7050,8 +7125,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Crawler.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue.Crawler.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue.Crawler.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue.Crawler.property.crawlerArn">crawlerArn</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Crawler.property.crawlerName">crawlerName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Crawler.property.crawlerArn">crawlerArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the crawler. |
+| <code><a href="#cdk-extensions.glue.Crawler.property.crawlerName">crawlerName</a></code> | <code>string</code> | The name of the crawler. |
 | <code><a href="#cdk-extensions.glue.Crawler.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnCrawler</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Crawler.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.Role</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Crawler.property.configuration">configuration</a></code> | <code>cdk-extensions.glue.CrawlerConfiguration</code> | {@link CrawlerProps.configuration}. |
@@ -7118,6 +7193,8 @@ public readonly crawlerArn: string;
 
 - *Type:* string
 
+The Amazon Resource Name (ARN) of the crawler.
+
 ---
 
 ##### `crawlerName`<sup>Required</sup> <a name="crawlerName" id="cdk-extensions.glue.Crawler.property.crawlerName"></a>
@@ -7127,6 +7204,8 @@ public readonly crawlerName: string;
 ```
 
 - *Type:* string
+
+The name of the crawler.
 
 ---
 
@@ -12466,6 +12545,8 @@ public readonly username: string;
 
 ### Job <a name="Job" id="cdk-extensions.glue.Job"></a>
 
+- *Implements:* cdk-extensions.glue.IJob
+
 Creates a Glue Job.
 
 > [[AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html)]([AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html))
@@ -12591,6 +12672,8 @@ public addConnection(connection: Connection): void
 | <code><a href="#cdk-extensions.glue.Job.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#cdk-extensions.glue.Job.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#cdk-extensions.glue.Job.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.glue.Job.fromJobArn">fromJobArn</a></code> | Imports an existing job using its Amazon Resource Name (ARN). |
+| <code><a href="#cdk-extensions.glue.Job.fromJobName">fromJobName</a></code> | Imports an existing job using its name. |
 
 ---
 
@@ -12644,6 +12727,78 @@ Check whether the given construct is a Resource.
 
 ---
 
+##### `fromJobArn` <a name="fromJobArn" id="cdk-extensions.glue.Job.fromJobArn"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.Job.fromJobArn(scope: IConstruct, id: string, jobArn: string)
+```
+
+Imports an existing job using its Amazon Resource Name (ARN).
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.Job.fromJobArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Job.fromJobArn.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `jobArn`<sup>Required</sup> <a name="jobArn" id="cdk-extensions.glue.Job.fromJobArn.parameter.jobArn"></a>
+
+- *Type:* string
+
+The ARN of the job to import.
+
+---
+
+##### `fromJobName` <a name="fromJobName" id="cdk-extensions.glue.Job.fromJobName"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.Job.fromJobName(scope: IConstruct, id: string, jobName: string)
+```
+
+Imports an existing job using its name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.Job.fromJobName.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Job.fromJobName.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `jobName`<sup>Required</sup> <a name="jobName" id="cdk-extensions.glue.Job.fromJobName.parameter.jobName"></a>
+
+- *Type:* string
+
+The name of the job to import.
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
@@ -12652,8 +12807,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Job.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue.Job.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.glue.Job.property.executable">executable</a></code> | <code>cdk-extensions.glue.JobExecutable</code> | {@link JobProps.executable:}. |
-| <code><a href="#cdk-extensions.glue.Job.property.jobArn">jobArn</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Job.property.jobName">jobName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Job.property.jobArn">jobArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the job. |
+| <code><a href="#cdk-extensions.glue.Job.property.jobName">jobName</a></code> | <code>string</code> | The name of the job. |
 | <code><a href="#cdk-extensions.glue.Job.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnJob</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Job.property.role">role</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | *No description.* |
 | <code><a href="#cdk-extensions.glue.Job.property.allocatedCapacity">allocatedCapacity</a></code> | <code>number</code> | {@link JobProps.allocatedCapacity }. |
@@ -12736,6 +12891,8 @@ public readonly jobArn: string;
 
 - *Type:* string
 
+The Amazon Resource Name (ARN) of the job.
+
 ---
 
 ##### `jobName`<sup>Required</sup> <a name="jobName" id="cdk-extensions.glue.Job.property.jobName"></a>
@@ -12745,6 +12902,8 @@ public readonly jobName: string;
 ```
 
 - *Type:* string
+
+The name of the job.
 
 ---
 
@@ -20165,6 +20324,8 @@ public readonly viewOriginalText: string;
 
 ### Trigger <a name="Trigger" id="cdk-extensions.glue.Trigger"></a>
 
+- *Implements:* cdk-extensions.glue.ITrigger
+
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.Trigger.Initializer"></a>
 
 ```typescript
@@ -20175,7 +20336,7 @@ new glue.Trigger(scope: Construct, id: string, props: TriggerProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
 | <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
 | <code><a href="#cdk-extensions.glue.Trigger.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.glue.TriggerProps</code> | Arguments related to the configuration of the resource. |
 
@@ -20185,7 +20346,7 @@ new glue.Trigger(scope: Construct, id: string, props: TriggerProps)
 
 - *Type:* constructs.Construct
 
-A CDK Construct that will serve as this stack's parent in the construct tree.
+A CDK Construct that will serve as this resource's parent in the construct tree.
 
 ---
 
@@ -20195,8 +20356,7 @@ A CDK Construct that will serve as this stack's parent in the construct tree.
 
 A name to be associated with the stack and used in resource naming.
 
-Must be unique
-within the context of 'scope'.
+Must be unique within the context of 'scope'.
 
 ---
 
@@ -20214,8 +20374,8 @@ Arguments related to the configuration of the resource.
 | --- | --- |
 | <code><a href="#cdk-extensions.glue.Trigger.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.glue.Trigger.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#cdk-extensions.glue.Trigger.addAction">addAction</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.addPredicate">addPredicate</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.Trigger.addAction">addAction</a></code> | Registers an action with the trigger. |
+| <code><a href="#cdk-extensions.glue.Trigger.addPredicate">addPredicate</a></code> | Registers a predicate with the trigger. |
 
 ---
 
@@ -20255,9 +20415,16 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 public addAction(action: ITriggerAction): Trigger
 ```
 
+Registers an action with the trigger.
+
+All actions associated with the
+trigger are run when the conditions to trigger the trigger are met.
+
 ###### `action`<sup>Required</sup> <a name="action" id="cdk-extensions.glue.Trigger.addAction.parameter.action"></a>
 
 - *Type:* cdk-extensions.glue.ITriggerAction
+
+The action to be run by this trigger.
 
 ---
 
@@ -20267,9 +20434,16 @@ public addAction(action: ITriggerAction): Trigger
 public addPredicate(predicate: ITriggerPredicate): Trigger
 ```
 
+Registers a predicate with the trigger.
+
+Triggers with predicates must meet
+the conditions they specify in order to run.
+
 ###### `predicate`<sup>Required</sup> <a name="predicate" id="cdk-extensions.glue.Trigger.addPredicate.parameter.predicate"></a>
 
 - *Type:* cdk-extensions.glue.ITriggerPredicate
+
+The predicate to be added to the trigger.
 
 ---
 
@@ -20280,6 +20454,8 @@ public addPredicate(predicate: ITriggerPredicate): Trigger
 | <code><a href="#cdk-extensions.glue.Trigger.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#cdk-extensions.glue.Trigger.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#cdk-extensions.glue.Trigger.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.glue.Trigger.fromTriggerArn">fromTriggerArn</a></code> | Imports an existing trigger using its Amazon Resource Name (ARN). |
+| <code><a href="#cdk-extensions.glue.Trigger.fromTriggerName">fromTriggerName</a></code> | Imports an existing trigger using its name. |
 
 ---
 
@@ -20333,6 +20509,78 @@ Check whether the given construct is a Resource.
 
 ---
 
+##### `fromTriggerArn` <a name="fromTriggerArn" id="cdk-extensions.glue.Trigger.fromTriggerArn"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.Trigger.fromTriggerArn(scope: IConstruct, id: string, triggerArn: string)
+```
+
+Imports an existing trigger using its Amazon Resource Name (ARN).
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.Trigger.fromTriggerArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Trigger.fromTriggerArn.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `triggerArn`<sup>Required</sup> <a name="triggerArn" id="cdk-extensions.glue.Trigger.fromTriggerArn.parameter.triggerArn"></a>
+
+- *Type:* string
+
+The ARN of the trigger to import.
+
+---
+
+##### `fromTriggerName` <a name="fromTriggerName" id="cdk-extensions.glue.Trigger.fromTriggerName"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.Trigger.fromTriggerName(scope: IConstruct, id: string, triggerName: string)
+```
+
+Imports an existing trigger using its name.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.Trigger.fromTriggerName.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Trigger.fromTriggerName.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `triggerName`<sup>Required</sup> <a name="triggerName" id="cdk-extensions.glue.Trigger.fromTriggerName.parameter.triggerName"></a>
+
+- *Type:* string
+
+The name of the trigger to import.
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
@@ -20340,16 +20588,16 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.glue.Trigger.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.glue.Trigger.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.glue.Trigger.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.glue.Trigger.property.predicateOperator">predicateOperator</a></code> | <code>cdk-extensions.glue.PredicateOperator</code> | {@link TriggerProps.predicateOperator:}. |
-| <code><a href="#cdk-extensions.glue.Trigger.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTrigger</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.type">type</a></code> | <code>cdk-extensions.glue.TriggerType</code> | {@link TriggerProps.type:}. |
-| <code><a href="#cdk-extensions.glue.Trigger.property.workflowArn">workflowArn</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.workflowName">workflowName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.Trigger.property.description">description</a></code> | <code>string</code> | {@link TriggerProps.description}. |
-| <code><a href="#cdk-extensions.glue.Trigger.property.name">name</a></code> | <code>string</code> | {@link TriggerProps.name}. |
-| <code><a href="#cdk-extensions.glue.Trigger.property.schedule">schedule</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | {@link TriggerProps.schedule}. |
-| <code><a href="#cdk-extensions.glue.Trigger.property.startOnCreation">startOnCreation</a></code> | <code>boolean</code> | {@link TriggerProps.startOnCreation}. |
-| <code><a href="#cdk-extensions.glue.Trigger.property.workflow">workflow</a></code> | <code>cdk-extensions.glue.Workflow</code> | {@link TriggerProps.workflow}. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.predicateOperator">predicateOperator</a></code> | <code>cdk-extensions.glue.PredicateOperator</code> | Operator for chaining predicate conditions if multiple are given. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_glue.CfnTrigger</code> | The underlying Trigger CloudFormation resource. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.triggerArn">triggerArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the trigger. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.triggerName">triggerName</a></code> | <code>string</code> | The name of the trigger. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.type">type</a></code> | <code>cdk-extensions.glue.TriggerType</code> | The type of trigger that this is. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.description">description</a></code> | <code>string</code> | A description for the trigger. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.name">name</a></code> | <code>string</code> | A name for the trigger. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.schedule">schedule</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | A cron expression used to specify the schedule. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.startOnCreation">startOnCreation</a></code> | <code>boolean</code> | Set to true to start SCHEDULED and CONDITIONAL triggers when created. |
+| <code><a href="#cdk-extensions.glue.Trigger.property.workflow">workflow</a></code> | <code>cdk-extensions.glue.Workflow</code> | The name of the workflow associated with the trigger. |
 
 ---
 
@@ -20404,7 +20652,9 @@ public readonly predicateOperator: PredicateOperator;
 
 - *Type:* cdk-extensions.glue.PredicateOperator
 
-{@link TriggerProps.predicateOperator:}.
+Operator for chaining predicate conditions if multiple are given.
+
+> [[Trigger Predicate.Logical](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical)]([Trigger Predicate.Logical](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical))
 
 ---
 
@@ -20416,6 +20666,34 @@ public readonly resource: CfnTrigger;
 
 - *Type:* aws-cdk-lib.aws_glue.CfnTrigger
 
+The underlying Trigger CloudFormation resource.
+
+> [[AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html)]([AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html))
+
+---
+
+##### `triggerArn`<sup>Required</sup> <a name="triggerArn" id="cdk-extensions.glue.Trigger.property.triggerArn"></a>
+
+```typescript
+public readonly triggerArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the trigger.
+
+---
+
+##### `triggerName`<sup>Required</sup> <a name="triggerName" id="cdk-extensions.glue.Trigger.property.triggerName"></a>
+
+```typescript
+public readonly triggerName: string;
+```
+
+- *Type:* string
+
+The name of the trigger.
+
 ---
 
 ##### `type`<sup>Required</sup> <a name="type" id="cdk-extensions.glue.Trigger.property.type"></a>
@@ -20426,27 +20704,9 @@ public readonly type: TriggerType;
 
 - *Type:* cdk-extensions.glue.TriggerType
 
-{@link TriggerProps.type:}.
+The type of trigger that this is.
 
----
-
-##### `workflowArn`<sup>Required</sup> <a name="workflowArn" id="cdk-extensions.glue.Trigger.property.workflowArn"></a>
-
-```typescript
-public readonly workflowArn: string;
-```
-
-- *Type:* string
-
----
-
-##### `workflowName`<sup>Required</sup> <a name="workflowName" id="cdk-extensions.glue.Trigger.property.workflowName"></a>
-
-```typescript
-public readonly workflowName: string;
-```
-
-- *Type:* string
+> [[Trigger Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type)]([Trigger Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type))
 
 ---
 
@@ -20458,7 +20718,9 @@ public readonly description: string;
 
 - *Type:* string
 
-{@link TriggerProps.description}.
+A description for the trigger.
+
+> [[Trigger Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-description)]([Trigger Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-description))
 
 ---
 
@@ -20470,7 +20732,9 @@ public readonly name: string;
 
 - *Type:* string
 
-{@link TriggerProps.name}.
+A name for the trigger.
+
+> [[Trigger Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-name)]([Trigger Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-name))
 
 ---
 
@@ -20482,7 +20746,9 @@ public readonly schedule: Schedule;
 
 - *Type:* aws-cdk-lib.aws_events.Schedule
 
-{@link TriggerProps.schedule}.
+A cron expression used to specify the schedule.
+
+> [[Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)]([Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html))
 
 ---
 
@@ -20494,7 +20760,12 @@ public readonly startOnCreation: boolean;
 
 - *Type:* boolean
 
-{@link TriggerProps.startOnCreation}.
+Set to true to start SCHEDULED and CONDITIONAL triggers when created.
+
+True
+is not supported for ON_DEMAND triggers.
+
+> [[Trigger StartOnCreation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation)]([Trigger StartOnCreation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation))
 
 ---
 
@@ -20506,7 +20777,9 @@ public readonly workflow: Workflow;
 
 - *Type:* cdk-extensions.glue.Workflow
 
-{@link TriggerProps.workflow}.
+The name of the workflow associated with the trigger.
+
+> [[Trigger WorkflowName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-workflowname)]([Trigger WorkflowName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-workflowname))
 
 ---
 
@@ -22262,7 +22535,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addTrigger` <a name="addTrigger" id="cdk-extensions.glue.Workflow.addTrigger"></a>
 
 ```typescript
-public addTrigger(id: string, options: TriggerOptions): Trigger
+public addTrigger(id: string, options: TriggerOptions): ITrigger
 ```
 
 ###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.glue.Workflow.addTrigger.parameter.id"></a>
@@ -24301,6 +24574,45 @@ public readonly type: string;
 
 ---
 
+### BookmarkRange <a name="BookmarkRange" id="cdk-extensions.glue.BookmarkRange"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.BookmarkRange.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const bookmarkRange: glue.BookmarkRange = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.BookmarkRange.property.from">from</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.BookmarkRange.property.to">to</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `from`<sup>Required</sup> <a name="from" id="cdk-extensions.glue.BookmarkRange.property.from"></a>
+
+```typescript
+public readonly from: string;
+```
+
+- *Type:* string
+
+---
+
+##### `to`<sup>Required</sup> <a name="to" id="cdk-extensions.glue.BookmarkRange.property.to"></a>
+
+```typescript
+public readonly to: string;
+```
+
+- *Type:* string
+
+---
+
 ### BufferingConfigurationOptions <a name="BufferingConfigurationOptions" id="cdk-extensions.kinesis_firehose.BufferingConfigurationOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.BufferingConfigurationOptions.Initializer"></a>
@@ -25893,6 +26205,112 @@ public readonly version: ConfigurationVersion;
 ```
 
 - *Type:* cdk-extensions.glue.ConfigurationVersion
+
+---
+
+### CrawlerPredicateOptions <a name="CrawlerPredicateOptions" id="cdk-extensions.glue.CrawlerPredicateOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.CrawlerPredicateOptions.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const crawlerPredicateOptions: glue.CrawlerPredicateOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.CrawlerPredicateOptions.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.CrawlerPredicateOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.CrawlerPredicateOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.CrawlerPredicateOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.CrawlerPredicateOptions.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CrawlerPredicateOptions.property.state">state</a></code> | <code>cdk-extensions.glue.CrawlerState</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.CrawlerPredicateOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.CrawlerPredicateOptions.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.CrawlerPredicateOptions.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.CrawlerPredicateOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `logicalOperator`<sup>Required</sup> <a name="logicalOperator" id="cdk-extensions.glue.CrawlerPredicateOptions.property.logicalOperator"></a>
+
+```typescript
+public readonly logicalOperator: PredicateLogicalOperator;
+```
+
+- *Type:* cdk-extensions.glue.PredicateLogicalOperator
+
+---
+
+##### `state`<sup>Optional</sup> <a name="state" id="cdk-extensions.glue.CrawlerPredicateOptions.property.state"></a>
+
+```typescript
+public readonly state: CrawlerState;
+```
+
+- *Type:* cdk-extensions.glue.CrawlerState
 
 ---
 
@@ -32680,6 +33098,112 @@ The Python version to use.
 
 ---
 
+### JobPredicateOptions <a name="JobPredicateOptions" id="cdk-extensions.glue.JobPredicateOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.JobPredicateOptions.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const jobPredicateOptions: glue.JobPredicateOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.JobPredicateOptions.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.JobPredicateOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.JobPredicateOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.JobPredicateOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.JobPredicateOptions.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JobPredicateOptions.property.state">state</a></code> | <code>cdk-extensions.glue.JobState</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.JobPredicateOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.JobPredicateOptions.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.JobPredicateOptions.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.JobPredicateOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `logicalOperator`<sup>Optional</sup> <a name="logicalOperator" id="cdk-extensions.glue.JobPredicateOptions.property.logicalOperator"></a>
+
+```typescript
+public readonly logicalOperator: PredicateLogicalOperator;
+```
+
+- *Type:* cdk-extensions.glue.PredicateLogicalOperator
+
+---
+
+##### `state`<sup>Optional</sup> <a name="state" id="cdk-extensions.glue.JobPredicateOptions.property.state"></a>
+
+```typescript
+public readonly state: JobState;
+```
+
+- *Type:* cdk-extensions.glue.JobState
+
+---
+
 ### JobProps <a name="JobProps" id="cdk-extensions.glue.JobProps"></a>
 
 Configuration for the Glue Job resource.
@@ -33993,6 +34517,92 @@ public readonly sessionDuration: Duration;
 The length of time that the application user sessions are valid for.
 
 > [[AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration)]([AWS::SSO::PermissionSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration))
+
+---
+
+### PredicateOptions <a name="PredicateOptions" id="cdk-extensions.glue.PredicateOptions"></a>
+
+Options for a generic Glue Trigger predicate.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.PredicateOptions.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const predicateOptions: glue.PredicateOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.PredicateOptions.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.PredicateOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.PredicateOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.PredicateOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.PredicateOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.PredicateOptions.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.PredicateOptions.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.PredicateOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
 
 ---
 
@@ -37812,7 +38422,7 @@ public readonly startOnCreation: boolean;
 
 ### TriggerProps <a name="TriggerProps" id="cdk-extensions.glue.TriggerProps"></a>
 
-Configuration for the Glue Trigger resource.
+Configuration for the GlueTrigger resource.
 
 #### Initializer <a name="Initializer" id="cdk-extensions.glue.TriggerProps.Initializer"></a>
 
@@ -37832,13 +38442,13 @@ const triggerProps: glue.TriggerProps = { ... }
 | <code><a href="#cdk-extensions.glue.TriggerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
 | <code><a href="#cdk-extensions.glue.TriggerProps.property.type">type</a></code> | <code>cdk-extensions.glue.TriggerType</code> | The type of trigger that this is. |
 | <code><a href="#cdk-extensions.glue.TriggerProps.property.actions">actions</a></code> | <code>cdk-extensions.glue.ITriggerAction[]</code> | A list of actions initiated by this trigger. |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.description">description</a></code> | <code>string</code> | A description for the Trigger. |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.name">name</a></code> | <code>string</code> | A name for the Trigger. |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.predicateConditions">predicateConditions</a></code> | <code>cdk-extensions.glue.ITriggerPredicate[]</code> | A list of conditions predicating the trigger, determining when it will fire. |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.predicateOperator">predicateOperator</a></code> | <code>cdk-extensions.glue.PredicateOperator</code> | Operator for chaining predicate conditions (AND/OR). |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.description">description</a></code> | <code>string</code> | A description for the trigger. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.name">name</a></code> | <code>string</code> | A name for the trigger. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.predicateConditions">predicateConditions</a></code> | <code>cdk-extensions.glue.ITriggerPredicate[]</code> | A list of the conditions that determine when the trigger will fire. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.predicateOperator">predicateOperator</a></code> | <code>cdk-extensions.glue.PredicateOperator</code> | Operator for chaining predicate conditions if multiple are given. |
 | <code><a href="#cdk-extensions.glue.TriggerProps.property.schedule">schedule</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | A cron expression used to specify the schedule. |
 | <code><a href="#cdk-extensions.glue.TriggerProps.property.startOnCreation">startOnCreation</a></code> | <code>boolean</code> | Set to true to start SCHEDULED and CONDITIONAL triggers when created. |
-| <code><a href="#cdk-extensions.glue.TriggerProps.property.workflow">workflow</a></code> | <code>cdk-extensions.glue.Workflow</code> | Workflow object the Trigger should be attached to. |
+| <code><a href="#cdk-extensions.glue.TriggerProps.property.workflow">workflow</a></code> | <code>cdk-extensions.glue.Workflow</code> | The name of the workflow associated with the trigger. |
 
 ---
 
@@ -37915,7 +38525,7 @@ public readonly type: TriggerType;
 
 The type of trigger that this is.
 
-> [[AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type)]([AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type))
+> [[Trigger Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type)]([Trigger Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type))
 
 ---
 
@@ -37929,7 +38539,7 @@ public readonly actions: ITriggerAction[];
 
 A list of actions initiated by this trigger.
 
-> [[AWS::Glue::Trigger Action](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html)]([AWS::Glue::Trigger Action](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html))
+> [[Trigger Actions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-actions)]([Trigger Actions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-actions))
 
 ---
 
@@ -37941,7 +38551,9 @@ public readonly description: string;
 
 - *Type:* string
 
-A description for the Trigger.
+A description for the trigger.
+
+> [[Trigger Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-description)]([Trigger Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-description))
 
 ---
 
@@ -37953,7 +38565,9 @@ public readonly name: string;
 
 - *Type:* string
 
-A name for the Trigger.
+A name for the trigger.
+
+> [[Trigger Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-name)]([Trigger Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-name))
 
 ---
 
@@ -37965,9 +38579,9 @@ public readonly predicateConditions: ITriggerPredicate[];
 
 - *Type:* cdk-extensions.glue.ITriggerPredicate[]
 
-A list of conditions predicating the trigger, determining when it will fire.
+A list of the conditions that determine when the trigger will fire.
 
-> [[AWS::Glue::Trigger Predicate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html)]([AWS::Glue::Trigger Predicate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html))
+> [[Trigger Predicate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html)]([Trigger Predicate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html))
 
 ---
 
@@ -37979,7 +38593,9 @@ public readonly predicateOperator: PredicateOperator;
 
 - *Type:* cdk-extensions.glue.PredicateOperator
 
-Operator for chaining predicate conditions (AND/OR).
+Operator for chaining predicate conditions if multiple are given.
+
+> [[Trigger Predicate.Logical](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical)]([Trigger Predicate.Logical](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical))
 
 ---
 
@@ -37993,7 +38609,7 @@ public readonly schedule: Schedule;
 
 A cron expression used to specify the schedule.
 
-> [[AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-schedule)]([AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-schedule))
+> [[Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)]([Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html))
 
 ---
 
@@ -38007,9 +38623,10 @@ public readonly startOnCreation: boolean;
 
 Set to true to start SCHEDULED and CONDITIONAL triggers when created.
 
-True is not supported for ON_DEMAND triggers.
+True
+is not supported for ON_DEMAND triggers.
 
-> [[AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation)]([AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation))
+> [[Trigger StartOnCreation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation)]([Trigger StartOnCreation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation))
 
 ---
 
@@ -38021,7 +38638,9 @@ public readonly workflow: Workflow;
 
 - *Type:* cdk-extensions.glue.Workflow
 
-Workflow object the Trigger should be attached to.
+The name of the workflow associated with the trigger.
+
+> [[Trigger WorkflowName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-workflowname)]([Trigger WorkflowName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-workflowname))
 
 ---
 
@@ -38389,6 +39008,277 @@ public readonly s3Prefix: string;
 - *Type:* string
 
 Set a custom prefix for the S3 Bucket.
+
+---
+
+### WorkflowActionOptions <a name="WorkflowActionOptions" id="cdk-extensions.glue.WorkflowActionOptions"></a>
+
+Configuration for the Workflow Action resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.WorkflowActionOptions.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const workflowActionOptions: glue.WorkflowActionOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.arguments">arguments</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.WorkflowActionOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.WorkflowActionOptions.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.WorkflowActionOptions.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.WorkflowActionOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `arguments`<sup>Optional</sup> <a name="arguments" id="cdk-extensions.glue.WorkflowActionOptions.property.arguments"></a>
+
+```typescript
+public readonly arguments: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `notifyDelayAfter`<sup>Optional</sup> <a name="notifyDelayAfter" id="cdk-extensions.glue.WorkflowActionOptions.property.notifyDelayAfter"></a>
+
+```typescript
+public readonly notifyDelayAfter: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.WorkflowActionOptions.property.securityConfiguration"></a>
+
+```typescript
+public readonly securityConfiguration: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.glue.WorkflowActionOptions.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+### WorkflowJobActionOptions <a name="WorkflowJobActionOptions" id="cdk-extensions.glue.WorkflowJobActionOptions"></a>
+
+Configuration options for the WorkflowJobAction class.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.WorkflowJobActionOptions.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const workflowJobActionOptions: glue.WorkflowJobActionOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.arguments">arguments</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.bookmarkConfiguration">bookmarkConfiguration</a></code> | <code>cdk-extensions.glue.BookmarkConfiguration</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.WorkflowJobActionOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.WorkflowJobActionOptions.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.WorkflowJobActionOptions.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.WorkflowJobActionOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `arguments`<sup>Optional</sup> <a name="arguments" id="cdk-extensions.glue.WorkflowJobActionOptions.property.arguments"></a>
+
+```typescript
+public readonly arguments: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `notifyDelayAfter`<sup>Optional</sup> <a name="notifyDelayAfter" id="cdk-extensions.glue.WorkflowJobActionOptions.property.notifyDelayAfter"></a>
+
+```typescript
+public readonly notifyDelayAfter: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.WorkflowJobActionOptions.property.securityConfiguration"></a>
+
+```typescript
+public readonly securityConfiguration: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.glue.WorkflowJobActionOptions.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `bookmarkConfiguration`<sup>Optional</sup> <a name="bookmarkConfiguration" id="cdk-extensions.glue.WorkflowJobActionOptions.property.bookmarkConfiguration"></a>
+
+```typescript
+public readonly bookmarkConfiguration: BookmarkConfiguration;
+```
+
+- *Type:* cdk-extensions.glue.BookmarkConfiguration
 
 ---
 
@@ -39314,6 +40204,100 @@ The name of the Column.
 ---
 
 
+### BookmarkConfiguration <a name="BookmarkConfiguration" id="cdk-extensions.glue.BookmarkConfiguration"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.disable">disable</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.enable">enable</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.of">of</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.pause">pause</a></code> | *No description.* |
+
+---
+
+##### `disable` <a name="disable" id="cdk-extensions.glue.BookmarkConfiguration.disable"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.BookmarkConfiguration.disable()
+```
+
+##### `enable` <a name="enable" id="cdk-extensions.glue.BookmarkConfiguration.enable"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.BookmarkConfiguration.enable()
+```
+
+##### `of` <a name="of" id="cdk-extensions.glue.BookmarkConfiguration.of"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.BookmarkConfiguration.of(value: string, range?: BookmarkRange)
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.BookmarkConfiguration.of.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `range`<sup>Optional</sup> <a name="range" id="cdk-extensions.glue.BookmarkConfiguration.of.parameter.range"></a>
+
+- *Type:* cdk-extensions.glue.BookmarkRange
+
+---
+
+##### `pause` <a name="pause" id="cdk-extensions.glue.BookmarkConfiguration.pause"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.BookmarkConfiguration.pause(range?: BookmarkRange)
+```
+
+###### `range`<sup>Optional</sup> <a name="range" id="cdk-extensions.glue.BookmarkConfiguration.pause.parameter.range"></a>
+
+- *Type:* cdk-extensions.glue.BookmarkRange
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.property.value">value</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.property.range">range</a></code> | <code>cdk-extensions.glue.BookmarkRange</code> | *No description.* |
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.BookmarkConfiguration.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
+
+---
+
+##### `range`<sup>Optional</sup> <a name="range" id="cdk-extensions.glue.BookmarkConfiguration.property.range"></a>
+
+```typescript
+public readonly range: BookmarkRange;
+```
+
+- *Type:* cdk-extensions.glue.BookmarkRange
+
+---
+
+
 ### BufferingConfiguration <a name="BufferingConfiguration" id="cdk-extensions.kinesis_firehose.BufferingConfiguration"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.BufferingConfiguration.Initializer"></a>
@@ -39796,6 +40780,99 @@ public readonly name: string;
 The name of the Column.
 
 > [[AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name)]([AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name))
+
+---
+
+
+### CrawlerPredicate <a name="CrawlerPredicate" id="cdk-extensions.glue.CrawlerPredicate"></a>
+
+- *Implements:* cdk-extensions.glue.ITriggerPredicate
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.CrawlerPredicate.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.CrawlerPredicate(crawler: ICrawler, options?: CrawlerPredicateOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.CrawlerPredicate.Initializer.parameter.crawler">crawler</a></code> | <code>cdk-extensions.glue.ICrawler</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CrawlerPredicate.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.CrawlerPredicateOptions</code> | *No description.* |
+
+---
+
+##### `crawler`<sup>Required</sup> <a name="crawler" id="cdk-extensions.glue.CrawlerPredicate.Initializer.parameter.crawler"></a>
+
+- *Type:* cdk-extensions.glue.ICrawler
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.CrawlerPredicate.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.glue.CrawlerPredicateOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.CrawlerPredicate.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.glue.CrawlerPredicate.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ConditionProperty
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.CrawlerPredicate.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.CrawlerPredicate.property.crawler">crawler</a></code> | <code>cdk-extensions.glue.ICrawler</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CrawlerPredicate.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CrawlerPredicate.property.state">state</a></code> | <code>cdk-extensions.glue.CrawlerState</code> | *No description.* |
+
+---
+
+##### `crawler`<sup>Required</sup> <a name="crawler" id="cdk-extensions.glue.CrawlerPredicate.property.crawler"></a>
+
+```typescript
+public readonly crawler: ICrawler;
+```
+
+- *Type:* cdk-extensions.glue.ICrawler
+
+---
+
+##### `logicalOperator`<sup>Required</sup> <a name="logicalOperator" id="cdk-extensions.glue.CrawlerPredicate.property.logicalOperator"></a>
+
+```typescript
+public readonly logicalOperator: PredicateLogicalOperator;
+```
+
+- *Type:* cdk-extensions.glue.PredicateLogicalOperator
+
+---
+
+##### `state`<sup>Required</sup> <a name="state" id="cdk-extensions.glue.CrawlerPredicate.property.state"></a>
+
+```typescript
+public readonly state: CrawlerState;
+```
+
+- *Type:* cdk-extensions.glue.CrawlerState
 
 ---
 
@@ -49147,6 +50224,99 @@ Scala Apache Spark Job props.
 
 
 
+### JobPredicate <a name="JobPredicate" id="cdk-extensions.glue.JobPredicate"></a>
+
+- *Implements:* cdk-extensions.glue.ITriggerPredicate
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.JobPredicate.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.JobPredicate(job: IJob, options?: JobPredicateOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.JobPredicate.Initializer.parameter.job">job</a></code> | <code>cdk-extensions.glue.IJob</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JobPredicate.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.JobPredicateOptions</code> | *No description.* |
+
+---
+
+##### `job`<sup>Required</sup> <a name="job" id="cdk-extensions.glue.JobPredicate.Initializer.parameter.job"></a>
+
+- *Type:* cdk-extensions.glue.IJob
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.JobPredicate.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.glue.JobPredicateOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.JobPredicate.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.glue.JobPredicate.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ConditionProperty
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.JobPredicate.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.JobPredicate.property.job">job</a></code> | <code>cdk-extensions.glue.IJob</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JobPredicate.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JobPredicate.property.state">state</a></code> | <code>cdk-extensions.glue.JobState</code> | *No description.* |
+
+---
+
+##### `job`<sup>Required</sup> <a name="job" id="cdk-extensions.glue.JobPredicate.property.job"></a>
+
+```typescript
+public readonly job: IJob;
+```
+
+- *Type:* cdk-extensions.glue.IJob
+
+---
+
+##### `logicalOperator`<sup>Required</sup> <a name="logicalOperator" id="cdk-extensions.glue.JobPredicate.property.logicalOperator"></a>
+
+```typescript
+public readonly logicalOperator: PredicateLogicalOperator;
+```
+
+- *Type:* cdk-extensions.glue.PredicateLogicalOperator
+
+---
+
+##### `state`<sup>Required</sup> <a name="state" id="cdk-extensions.glue.JobPredicate.property.state"></a>
+
+```typescript
+public readonly state: JobState;
+```
+
+- *Type:* cdk-extensions.glue.JobState
+
+---
+
+
 ### JobType <a name="JobType" id="cdk-extensions.glue.JobType"></a>
 
 The job type.
@@ -52063,6 +53233,32 @@ sso.PermissionsBoundary.fromReference(options: ReferenceOptions)
 
 
 
+### PredicateBase <a name="PredicateBase" id="cdk-extensions.glue.PredicateBase"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.PredicateBase.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.PredicateBase(_options?: PredicateOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.PredicateBase.Initializer.parameter._options">_options</a></code> | <code>cdk-extensions.glue.PredicateOptions</code> | *No description.* |
+
+---
+
+##### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.glue.PredicateBase.Initializer.parameter._options"></a>
+
+- *Type:* cdk-extensions.glue.PredicateOptions
+
+---
+
+
+
+
+
 ### ProcessorConfiguration <a name="ProcessorConfiguration" id="cdk-extensions.kinesis_firehose.ProcessorConfiguration"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.ProcessorConfiguration.Initializer"></a>
@@ -54048,7 +55244,420 @@ Each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors pe
 
 ---
 
+### WorkflowActionBase <a name="WorkflowActionBase" id="cdk-extensions.glue.WorkflowActionBase"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.WorkflowActionBase.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.WorkflowActionBase(options?: WorkflowActionOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowActionBase.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.WorkflowActionOptions</code> | *No description.* |
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.WorkflowActionBase.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.glue.WorkflowActionOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowActionBase.addArgument">addArgument</a></code> | *No description.* |
+
+---
+
+##### `addArgument` <a name="addArgument" id="cdk-extensions.glue.WorkflowActionBase.addArgument"></a>
+
+```typescript
+public addArgument(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.WorkflowActionBase.addArgument.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.WorkflowActionBase.addArgument.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowActionBase.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowActionBase.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowActionBase.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `notifyDelayAfter`<sup>Optional</sup> <a name="notifyDelayAfter" id="cdk-extensions.glue.WorkflowActionBase.property.notifyDelayAfter"></a>
+
+```typescript
+public readonly notifyDelayAfter: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.WorkflowActionBase.property.securityConfiguration"></a>
+
+```typescript
+public readonly securityConfiguration: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.glue.WorkflowActionBase.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+
+### WorkflowCrawlerAction <a name="WorkflowCrawlerAction" id="cdk-extensions.glue.WorkflowCrawlerAction"></a>
+
+- *Implements:* cdk-extensions.glue.ITriggerAction
+
+Configuration options for the WorkflowCrawlerAction class.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.WorkflowCrawlerAction.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.WorkflowCrawlerAction(crawler: ICrawler, options?: WorkflowActionOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.Initializer.parameter.crawler">crawler</a></code> | <code>cdk-extensions.glue.ICrawler</code> | The crawler that should be triggered as part of the workflow. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.WorkflowActionOptions</code> | The options affecting how the crawler should be triggered. |
+
+---
+
+##### `crawler`<sup>Required</sup> <a name="crawler" id="cdk-extensions.glue.WorkflowCrawlerAction.Initializer.parameter.crawler"></a>
+
+- *Type:* cdk-extensions.glue.ICrawler
+
+The crawler that should be triggered as part of the workflow.
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.WorkflowCrawlerAction.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.glue.WorkflowActionOptions
+
+The options affecting how the crawler should be triggered.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.addArgument">addArgument</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.bind">bind</a></code> | Associates this action with a resource that is configuring a Glue trigger. |
+
+---
+
+##### `addArgument` <a name="addArgument" id="cdk-extensions.glue.WorkflowCrawlerAction.addArgument"></a>
+
+```typescript
+public addArgument(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.WorkflowCrawlerAction.addArgument.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.WorkflowCrawlerAction.addArgument.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.glue.WorkflowCrawlerAction.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ActionProperty
+```
+
+Associates this action with a resource that is configuring a Glue trigger.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.WorkflowCrawlerAction.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring the trigger that this action will be used in.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.property.crawler">crawler</a></code> | <code>cdk-extensions.glue.ICrawler</code> | The Glue crawler to be triggered as part of the workflow. |
+
+---
+
+##### `notifyDelayAfter`<sup>Optional</sup> <a name="notifyDelayAfter" id="cdk-extensions.glue.WorkflowCrawlerAction.property.notifyDelayAfter"></a>
+
+```typescript
+public readonly notifyDelayAfter: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.WorkflowCrawlerAction.property.securityConfiguration"></a>
+
+```typescript
+public readonly securityConfiguration: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.glue.WorkflowCrawlerAction.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `crawler`<sup>Required</sup> <a name="crawler" id="cdk-extensions.glue.WorkflowCrawlerAction.property.crawler"></a>
+
+```typescript
+public readonly crawler: ICrawler;
+```
+
+- *Type:* cdk-extensions.glue.ICrawler
+
+The Glue crawler to be triggered as part of the workflow.
+
+---
+
+
+### WorkflowJobAction <a name="WorkflowJobAction" id="cdk-extensions.glue.WorkflowJobAction"></a>
+
+- *Implements:* cdk-extensions.glue.ITriggerAction
+
+Represents the configuration for a job that will be triggered as part of a workflow.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.WorkflowJobAction.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.WorkflowJobAction(job: IJob, options?: WorkflowJobActionOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowJobAction.Initializer.parameter.job">job</a></code> | <code>cdk-extensions.glue.IJob</code> | The job that should be triggered as part of the workflow. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobAction.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.WorkflowJobActionOptions</code> | The options affecting how the job should be triggered. |
+
+---
+
+##### `job`<sup>Required</sup> <a name="job" id="cdk-extensions.glue.WorkflowJobAction.Initializer.parameter.job"></a>
+
+- *Type:* cdk-extensions.glue.IJob
+
+The job that should be triggered as part of the workflow.
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.WorkflowJobAction.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.glue.WorkflowJobActionOptions
+
+The options affecting how the job should be triggered.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowJobAction.addArgument">addArgument</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobAction.bind">bind</a></code> | Associates this action with a resource that is configuring a Glue trigger. |
+
+---
+
+##### `addArgument` <a name="addArgument" id="cdk-extensions.glue.WorkflowJobAction.addArgument"></a>
+
+```typescript
+public addArgument(key: string, value: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.WorkflowJobAction.addArgument.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.WorkflowJobAction.addArgument.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.glue.WorkflowJobAction.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ActionProperty
+```
+
+Associates this action with a resource that is configuring a Glue trigger.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.WorkflowJobAction.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring the trigger that this action will be used in.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowJobAction.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobAction.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobAction.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobAction.property.job">job</a></code> | <code>cdk-extensions.glue.IJob</code> | The Glue job to be triggered as part of the workflow. |
+
+---
+
+##### `notifyDelayAfter`<sup>Optional</sup> <a name="notifyDelayAfter" id="cdk-extensions.glue.WorkflowJobAction.property.notifyDelayAfter"></a>
+
+```typescript
+public readonly notifyDelayAfter: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.WorkflowJobAction.property.securityConfiguration"></a>
+
+```typescript
+public readonly securityConfiguration: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.glue.WorkflowJobAction.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+##### `job`<sup>Required</sup> <a name="job" id="cdk-extensions.glue.WorkflowJobAction.property.job"></a>
+
+```typescript
+public readonly job: IJob;
+```
+
+- *Type:* cdk-extensions.glue.IJob
+
+The Glue job to be triggered as part of the workflow.
+
+---
+
+
 ## Protocols <a name="Protocols" id="Protocols"></a>
+
+### ICrawler <a name="ICrawler" id="cdk-extensions.glue.ICrawler"></a>
+
+- *Extends:* constructs.IConstruct
+
+- *Implemented By:* cdk-extensions.glue.Crawler, cdk-extensions.glue.ICrawler
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.ICrawler.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.glue.ICrawler.property.crawlerArn">crawlerArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the crawler. |
+| <code><a href="#cdk-extensions.glue.ICrawler.property.crawlerName">crawlerName</a></code> | <code>string</code> | The name of the crawler. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.glue.ICrawler.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `crawlerArn`<sup>Required</sup> <a name="crawlerArn" id="cdk-extensions.glue.ICrawler.property.crawlerArn"></a>
+
+```typescript
+public readonly crawlerArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the crawler.
+
+---
+
+##### `crawlerName`<sup>Required</sup> <a name="crawlerName" id="cdk-extensions.glue.ICrawler.property.crawlerName"></a>
+
+```typescript
+public readonly crawlerName: string;
+```
+
+- *Type:* string
+
+The name of the crawler.
+
+---
 
 ### ICrawlerTarget <a name="ICrawlerTarget" id="cdk-extensions.glue.ICrawlerTarget"></a>
 
@@ -54740,6 +56349,61 @@ The ID of the IAM Identity Center instance under which the operation will be exe
 
 ---
 
+### IJob <a name="IJob" id="cdk-extensions.glue.IJob"></a>
+
+- *Extends:* constructs.IConstruct
+
+- *Implemented By:* cdk-extensions.glue.Job, cdk-extensions.glue.IJob
+
+Represnets a Glue Job in AWS.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.IJob.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.glue.IJob.property.jobArn">jobArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the job. |
+| <code><a href="#cdk-extensions.glue.IJob.property.jobName">jobName</a></code> | <code>string</code> | The name of the job. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.glue.IJob.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `jobArn`<sup>Required</sup> <a name="jobArn" id="cdk-extensions.glue.IJob.property.jobArn"></a>
+
+```typescript
+public readonly jobArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the job.
+
+---
+
+##### `jobName`<sup>Required</sup> <a name="jobName" id="cdk-extensions.glue.IJob.property.jobName"></a>
+
+```typescript
+public readonly jobName: string;
+```
+
+- *Type:* string
+
+The name of the job.
+
+---
+
 ### ILogDestination <a name="ILogDestination" id="cdk-extensions.ec2.ILogDestination"></a>
 
 - *Implemented By:* cdk-extensions.ec2.FlowLogDestination, cdk-extensions.ec2.ILogDestination
@@ -54938,9 +56602,66 @@ public bind(scope: IConstruct): string
 ---
 
 
+### ITrigger <a name="ITrigger" id="cdk-extensions.glue.ITrigger"></a>
+
+- *Extends:* constructs.IConstruct
+
+- *Implemented By:* cdk-extensions.glue.Trigger, cdk-extensions.glue.ITrigger
+
+Represents a Glue Trigger in AWS.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.ITrigger.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.glue.ITrigger.property.triggerArn">triggerArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the trigger. |
+| <code><a href="#cdk-extensions.glue.ITrigger.property.triggerName">triggerName</a></code> | <code>string</code> | The name of the trigger. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.glue.ITrigger.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `triggerArn`<sup>Required</sup> <a name="triggerArn" id="cdk-extensions.glue.ITrigger.property.triggerArn"></a>
+
+```typescript
+public readonly triggerArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the trigger.
+
+---
+
+##### `triggerName`<sup>Required</sup> <a name="triggerName" id="cdk-extensions.glue.ITrigger.property.triggerName"></a>
+
+```typescript
+public readonly triggerName: string;
+```
+
+- *Type:* string
+
+The name of the trigger.
+
+---
+
 ### ITriggerAction <a name="ITriggerAction" id="cdk-extensions.glue.ITriggerAction"></a>
 
-- *Implemented By:* cdk-extensions.glue.ITriggerAction
+- *Implemented By:* cdk-extensions.glue.WorkflowCrawlerAction, cdk-extensions.glue.WorkflowJobAction, cdk-extensions.glue.ITriggerAction
+
+Represents an action that should be taken when a trigger is executed.
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -54953,19 +56674,21 @@ public bind(scope: IConstruct): string
 ##### `bind` <a name="bind" id="cdk-extensions.glue.ITriggerAction.bind"></a>
 
 ```typescript
-public bind(trigger: Trigger): ActionProperty
+public bind(scope: IConstruct): ActionProperty
 ```
 
-###### `trigger`<sup>Required</sup> <a name="trigger" id="cdk-extensions.glue.ITriggerAction.bind.parameter.trigger"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.ITriggerAction.bind.parameter.scope"></a>
 
-- *Type:* cdk-extensions.glue.Trigger
+- *Type:* constructs.IConstruct
 
 ---
 
 
 ### ITriggerPredicate <a name="ITriggerPredicate" id="cdk-extensions.glue.ITriggerPredicate"></a>
 
-- *Implemented By:* cdk-extensions.glue.ITriggerPredicate
+- *Implemented By:* cdk-extensions.glue.CrawlerPredicate, cdk-extensions.glue.JobPredicate, cdk-extensions.glue.ITriggerPredicate
+
+Represents a precondition that must be satisfied in order for a trigger to be executed.
 
 #### Methods <a name="Methods" id="Methods"></a>
 
@@ -54978,12 +56701,12 @@ public bind(trigger: Trigger): ActionProperty
 ##### `bind` <a name="bind" id="cdk-extensions.glue.ITriggerPredicate.bind"></a>
 
 ```typescript
-public bind(trigger: Trigger): ConditionProperty
+public bind(scope: IConstruct): ConditionProperty
 ```
 
-###### `trigger`<sup>Required</sup> <a name="trigger" id="cdk-extensions.glue.ITriggerPredicate.bind.parameter.trigger"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.ITriggerPredicate.bind.parameter.scope"></a>
 
-- *Type:* cdk-extensions.glue.Trigger
+- *Type:* constructs.IConstruct
 
 ---
 
@@ -55111,6 +56834,33 @@ NETWORK - Designates a network connection to a data source within an Amazon Virt
 
 
 ##### `NONE` <a name="NONE" id="cdk-extensions.kinesis_firehose.ContentEncoding.NONE"></a>
+
+---
+
+
+### CrawlerState <a name="CrawlerState" id="cdk-extensions.glue.CrawlerState"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.CrawlerState.CANCELLED">CANCELLED</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CrawlerState.FAILED">FAILED</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CrawlerState.SUCCEEDED">SUCCEEDED</a></code> | *No description.* |
+
+---
+
+##### `CANCELLED` <a name="CANCELLED" id="cdk-extensions.glue.CrawlerState.CANCELLED"></a>
+
+---
+
+
+##### `FAILED` <a name="FAILED" id="cdk-extensions.glue.CrawlerState.FAILED"></a>
+
+---
+
+
+##### `SUCCEEDED` <a name="SUCCEEDED" id="cdk-extensions.glue.CrawlerState.SUCCEEDED"></a>
 
 ---
 
@@ -55581,6 +57331,39 @@ Scala.
 ---
 
 
+### JobState <a name="JobState" id="cdk-extensions.glue.JobState"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.JobState.FAILED">FAILED</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JobState.STOPPED">STOPPED</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JobState.SUCCEEDED">SUCCEEDED</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JobState.TIMEOUT">TIMEOUT</a></code> | *No description.* |
+
+---
+
+##### `FAILED` <a name="FAILED" id="cdk-extensions.glue.JobState.FAILED"></a>
+
+---
+
+
+##### `STOPPED` <a name="STOPPED" id="cdk-extensions.glue.JobState.STOPPED"></a>
+
+---
+
+
+##### `SUCCEEDED` <a name="SUCCEEDED" id="cdk-extensions.glue.JobState.SUCCEEDED"></a>
+
+---
+
+
+##### `TIMEOUT` <a name="TIMEOUT" id="cdk-extensions.glue.JobState.TIMEOUT"></a>
+
+---
+
+
 ### JsonParsingEngine <a name="JsonParsingEngine" id="cdk-extensions.kinesis_firehose.JsonParsingEngine"></a>
 
 #### Members <a name="Members" id="Members"></a>
@@ -55785,6 +57568,21 @@ Nest data into a specified object.
 ---
 
 ##### `INHERIT_FROM_TABLE` <a name="INHERIT_FROM_TABLE" id="cdk-extensions.glue.PartitionUpdateBehavior.INHERIT_FROM_TABLE"></a>
+
+---
+
+
+### PredicateLogicalOperator <a name="PredicateLogicalOperator" id="cdk-extensions.glue.PredicateLogicalOperator"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.PredicateLogicalOperator.EQUALS">EQUALS</a></code> | *No description.* |
+
+---
+
+##### `EQUALS` <a name="EQUALS" id="cdk-extensions.glue.PredicateLogicalOperator.EQUALS"></a>
 
 ---
 
