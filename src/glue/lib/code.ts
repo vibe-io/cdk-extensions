@@ -11,26 +11,27 @@ import { Construct } from 'constructs';
  */
 export abstract class Code {
   /**
-     * Job code as an S3 object.
-     * @param bucket The S3 bucket
-     * @param key The object key
-     */
+   * Job code as an S3 object.
+   * 
+   * @param bucket The S3 bucket.
+   * @param key The object key.
+   */
   public static fromBucket(bucket: IBucket, key: string): S3Code {
     return new S3Code(bucket, key);
   }
 
   /**
-     * Job code from a local disk path.
-     *
-     * @param path code file (not a directory).
-     */
+   * Job code from a local disk path.
+   *
+   * @param path Code file (not a directory).
+   */
   public static fromAsset(path: string, options?: AssetOptions): AssetCode {
     return new AssetCode(path, options);
   }
 
   /**
-     * Called when the Job is initialized to allow this object to bind.
-     */
+   * Called when the Job is initialized to allow this object to bind.
+   */
   public abstract bind(scope: Construct, grantable: IGrantable): CodeConfig;
 }
 
@@ -60,8 +61,8 @@ export class AssetCode extends Code {
   private asset?: Asset;
 
   /**
-     * @param path The path to the Code file.
-     */
+   * @param path The path to the Code file.
+   */
   constructor(private readonly path: string, private readonly options: AssetOptions = {}) {
     super();
 
@@ -95,8 +96,8 @@ export class AssetCode extends Code {
   }
 
   /**
-     * Hash a string
-     */
+   * Hash a string
+   */
   private hashcode(s: string): string {
     const hash = createHash('md5');
     hash.update(s);
@@ -109,7 +110,7 @@ export class AssetCode extends Code {
  */
 export interface CodeConfig {
   /**
-     * The location of the code in S3.
-     */
+   * The location of the code in S3.
+   */
   readonly s3Location: Location;
 }

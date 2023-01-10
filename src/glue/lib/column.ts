@@ -14,6 +14,7 @@ export abstract class Column {
    * @see [AWS::Glue::Table Column](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment)
    */
   public readonly comment?: string;
+
   /**
    * The name of the Column.
    *
@@ -79,7 +80,7 @@ export class StructColumn extends Column {
 
   public readonly typeString: string;
 
-  constructor(props: StructColumnProps) {
+  public constructor(props: StructColumnProps) {
     super(props);
 
     this.typeString = Lazy.string({

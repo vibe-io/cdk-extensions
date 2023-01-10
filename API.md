@@ -24576,6 +24576,10 @@ public readonly type: string;
 
 ### BookmarkRange <a name="BookmarkRange" id="cdk-extensions.glue.BookmarkRange"></a>
 
+A range of job run ID's that specify the job bookmark state of a Glue job which has had its bookmark state set to paused.
+
+> [[Using job bookmarks in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html#monitor-continuations-implement)]([Using job bookmarks in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html#monitor-continuations-implement))
+
 #### Initializer <a name="Initializer" id="cdk-extensions.glue.BookmarkRange.Initializer"></a>
 
 ```typescript
@@ -24588,8 +24592,8 @@ const bookmarkRange: glue.BookmarkRange = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.BookmarkRange.property.from">from</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.BookmarkRange.property.to">to</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.BookmarkRange.property.from">from</a></code> | <code>string</code> | The run ID which represents all the input that was processed until the last successful run before and including the specified run ID. |
+| <code><a href="#cdk-extensions.glue.BookmarkRange.property.to">to</a></code> | <code>string</code> | The run ID which represents all the input that was processed until the last successful run before and including the specified run ID. |
 
 ---
 
@@ -24601,6 +24605,11 @@ public readonly from: string;
 
 - *Type:* string
 
+The run ID which represents all the input that was processed until the last successful run before and including the specified run ID.
+
+The
+corresponding input is ignored.
+
 ---
 
 ##### `to`<sup>Required</sup> <a name="to" id="cdk-extensions.glue.BookmarkRange.property.to"></a>
@@ -24610,6 +24619,13 @@ public readonly to: string;
 ```
 
 - *Type:* string
+
+The run ID which represents all the input that was processed until the last successful run before and including the specified run ID.
+
+The
+corresponding input excluding the input identified by the
+{@link BookmarkRange.from | from} is processed by the job. Any input later
+than this input is also excluded for processing.
 
 ---
 
@@ -38733,10 +38749,10 @@ const workflowActionOptions: glue.WorkflowActionOptions = { ... }
 | <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.arguments">arguments</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.arguments">arguments</a></code> | <code>{[ key: string ]: string}</code> | The arguments to use when the associated trigger fires. |
+| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | After a job run starts, the number of minutes to wait before sending a job run delay notification. |
+| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | The name of the SecurityConfiguration structure to be used with this action. |
+| <code><a href="#cdk-extensions.glue.WorkflowActionOptions.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The `JobRun` timeout in minutes. |
 
 ---
 
@@ -38811,6 +38827,16 @@ public readonly arguments: {[ key: string ]: string};
 
 - *Type:* {[ key: string ]: string}
 
+The arguments to use when the associated trigger fires.
+
+Jobs run via the associated trigger will have their default arguments
+replaced with the arguments specified.
+
+You can specify arguments here that your own job-execution script
+consumes, in addition to arguments that AWS Glue itself consumes.
+
+> [[Trigger Actions.Arguments](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments)]([Trigger Actions.Arguments](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments))
+
 ---
 
 ##### `notifyDelayAfter`<sup>Optional</sup> <a name="notifyDelayAfter" id="cdk-extensions.glue.WorkflowActionOptions.property.notifyDelayAfter"></a>
@@ -38820,6 +38846,10 @@ public readonly notifyDelayAfter: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+After a job run starts, the number of minutes to wait before sending a job run delay notification.
+
+> [[Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter)]([Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter))
 
 ---
 
@@ -38831,6 +38861,10 @@ public readonly securityConfiguration: string;
 
 - *Type:* string
 
+The name of the SecurityConfiguration structure to be used with this action.
+
+> [[Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration)]([Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration))
+
 ---
 
 ##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.glue.WorkflowActionOptions.property.timeout"></a>
@@ -38841,9 +38875,177 @@ public readonly timeout: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+The `JobRun` timeout in minutes.
+
+This is the maximum time that a job run
+can consume resources before it is terminated and enters TIMEOUT status.
+The default is 48 hours. This overrides the timeout value set in the
+parent job.
+
+> [[Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout)]([Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout))
+
+---
+
+### WorkflowCrawlerActionOptions <a name="WorkflowCrawlerActionOptions" id="cdk-extensions.glue.WorkflowCrawlerActionOptions"></a>
+
+Configuration options for the WorkflowCrawlerAction class.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.glue.WorkflowCrawlerActionOptions.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+const workflowCrawlerActionOptions: glue.WorkflowCrawlerActionOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerActionOptions.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerActionOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerActionOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerActionOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerActionOptions.property.arguments">arguments</a></code> | <code>{[ key: string ]: string}</code> | The arguments to use when the associated trigger fires. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerActionOptions.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | After a job run starts, the number of minutes to wait before sending a job run delay notification. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerActionOptions.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | The name of the SecurityConfiguration structure to be used with this action. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerActionOptions.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The `JobRun` timeout in minutes. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.glue.WorkflowCrawlerActionOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.glue.WorkflowCrawlerActionOptions.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.glue.WorkflowCrawlerActionOptions.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.glue.WorkflowCrawlerActionOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `arguments`<sup>Optional</sup> <a name="arguments" id="cdk-extensions.glue.WorkflowCrawlerActionOptions.property.arguments"></a>
+
+```typescript
+public readonly arguments: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+The arguments to use when the associated trigger fires.
+
+Jobs run via the associated trigger will have their default arguments
+replaced with the arguments specified.
+
+You can specify arguments here that your own job-execution script
+consumes, in addition to arguments that AWS Glue itself consumes.
+
+> [[Trigger Actions.Arguments](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments)]([Trigger Actions.Arguments](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments))
+
+---
+
+##### `notifyDelayAfter`<sup>Optional</sup> <a name="notifyDelayAfter" id="cdk-extensions.glue.WorkflowCrawlerActionOptions.property.notifyDelayAfter"></a>
+
+```typescript
+public readonly notifyDelayAfter: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+After a job run starts, the number of minutes to wait before sending a job run delay notification.
+
+> [[Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter)]([Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter))
+
+---
+
+##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.WorkflowCrawlerActionOptions.property.securityConfiguration"></a>
+
+```typescript
+public readonly securityConfiguration: string;
+```
+
+- *Type:* string
+
+The name of the SecurityConfiguration structure to be used with this action.
+
+> [[Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration)]([Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration))
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.glue.WorkflowCrawlerActionOptions.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+The `JobRun` timeout in minutes.
+
+This is the maximum time that a job run
+can consume resources before it is terminated and enters TIMEOUT status.
+The default is 48 hours. This overrides the timeout value set in the
+parent job.
+
+> [[Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout)]([Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout))
+
 ---
 
 ### WorkflowCrawlerPredicateOptions <a name="WorkflowCrawlerPredicateOptions" id="cdk-extensions.glue.WorkflowCrawlerPredicateOptions"></a>
+
+Configuration options that specify the state a crawler must meet in order to satisfy the conditions of the predicate.
 
 #### Initializer <a name="Initializer" id="cdk-extensions.glue.WorkflowCrawlerPredicateOptions.Initializer"></a>
 
@@ -38861,8 +39063,8 @@ const workflowCrawlerPredicateOptions: glue.WorkflowCrawlerPredicateOptions = { 
 | <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.state">state</a></code> | <code>cdk-extensions.glue.CrawlerState</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | The logical operator which should be applied in determining whether a crawler meets the requested conditions. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.state">state</a></code> | <code>cdk-extensions.glue.CrawlerState</code> | The state that the crawler must be in in order to meet the criteria to trigger the next stage of the workflow. |
 
 ---
 
@@ -38937,6 +39139,12 @@ public readonly logicalOperator: PredicateLogicalOperator;
 
 - *Type:* cdk-extensions.glue.PredicateLogicalOperator
 
+The logical operator which should be applied in determining whether a crawler meets the requested conditions.
+
+At the moment, the only supported operator is `EQUALS`.
+
+> [[Trigger Predicate.Conditions.LogicalOperator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator)]([Trigger Predicate.Conditions.LogicalOperator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator))
+
 ---
 
 ##### `state`<sup>Optional</sup> <a name="state" id="cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.state"></a>
@@ -38946,6 +39154,10 @@ public readonly state: CrawlerState;
 ```
 
 - *Type:* cdk-extensions.glue.CrawlerState
+
+The state that the crawler must be in in order to meet the criteria to trigger the next stage of the workflow.
+
+> [[Trigger Predicate.Conditions.CrawlState](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate)]([Trigger Predicate.Conditions.CrawlState](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate))
 
 ---
 
@@ -38969,11 +39181,11 @@ const workflowJobActionOptions: glue.WorkflowJobActionOptions = { ... }
 | <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.arguments">arguments</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.bookmarkConfiguration">bookmarkConfiguration</a></code> | <code>cdk-extensions.glue.BookmarkConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.arguments">arguments</a></code> | <code>{[ key: string ]: string}</code> | The arguments to use when the associated trigger fires. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | After a job run starts, the number of minutes to wait before sending a job run delay notification. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | The name of the SecurityConfiguration structure to be used with this action. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The `JobRun` timeout in minutes. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobActionOptions.property.bookmarkConfiguration">bookmarkConfiguration</a></code> | <code>cdk-extensions.glue.BookmarkConfiguration</code> | The bookmark configuration override to use for the Glue job that is being triggered. |
 
 ---
 
@@ -39048,6 +39260,16 @@ public readonly arguments: {[ key: string ]: string};
 
 - *Type:* {[ key: string ]: string}
 
+The arguments to use when the associated trigger fires.
+
+Jobs run via the associated trigger will have their default arguments
+replaced with the arguments specified.
+
+You can specify arguments here that your own job-execution script
+consumes, in addition to arguments that AWS Glue itself consumes.
+
+> [[Trigger Actions.Arguments](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments)]([Trigger Actions.Arguments](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments))
+
 ---
 
 ##### `notifyDelayAfter`<sup>Optional</sup> <a name="notifyDelayAfter" id="cdk-extensions.glue.WorkflowJobActionOptions.property.notifyDelayAfter"></a>
@@ -39057,6 +39279,10 @@ public readonly notifyDelayAfter: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+After a job run starts, the number of minutes to wait before sending a job run delay notification.
+
+> [[Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter)]([Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter))
 
 ---
 
@@ -39068,6 +39294,10 @@ public readonly securityConfiguration: string;
 
 - *Type:* string
 
+The name of the SecurityConfiguration structure to be used with this action.
+
+> [[Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration)]([Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration))
+
 ---
 
 ##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.glue.WorkflowJobActionOptions.property.timeout"></a>
@@ -39077,6 +39307,15 @@ public readonly timeout: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+The `JobRun` timeout in minutes.
+
+This is the maximum time that a job run
+can consume resources before it is terminated and enters TIMEOUT status.
+The default is 48 hours. This overrides the timeout value set in the
+parent job.
+
+> [[Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout)]([Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout))
 
 ---
 
@@ -39088,9 +39327,13 @@ public readonly bookmarkConfiguration: BookmarkConfiguration;
 
 - *Type:* cdk-extensions.glue.BookmarkConfiguration
 
+The bookmark configuration override to use for the Glue job that is being triggered.
+
 ---
 
 ### WorkflowJobPredicateOptions <a name="WorkflowJobPredicateOptions" id="cdk-extensions.glue.WorkflowJobPredicateOptions"></a>
+
+Configuration options that specify the state a job must meet in order to satisfy the conditions of the predicate.
 
 #### Initializer <a name="Initializer" id="cdk-extensions.glue.WorkflowJobPredicateOptions.Initializer"></a>
 
@@ -39108,8 +39351,8 @@ const workflowJobPredicateOptions: glue.WorkflowJobPredicateOptions = { ... }
 | <code><a href="#cdk-extensions.glue.WorkflowJobPredicateOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.glue.WorkflowJobPredicateOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.glue.WorkflowJobPredicateOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.glue.WorkflowJobPredicateOptions.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowJobPredicateOptions.property.state">state</a></code> | <code>cdk-extensions.glue.JobState</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicateOptions.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | The logical operator which should be applied in determining whether a job meets the requested conditions. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicateOptions.property.state">state</a></code> | <code>cdk-extensions.glue.JobState</code> | The state that the job must be in in order to meet the criteria to trigger the next stage of the workflow. |
 
 ---
 
@@ -39184,6 +39427,12 @@ public readonly logicalOperator: PredicateLogicalOperator;
 
 - *Type:* cdk-extensions.glue.PredicateLogicalOperator
 
+The logical operator which should be applied in determining whether a job meets the requested conditions.
+
+At the moment, the only supported operator is `EQUALS`.
+
+> [[Trigger Predicate.Conditions.LogicalOperator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator)]([Trigger Predicate.Conditions.LogicalOperator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator))
+
 ---
 
 ##### `state`<sup>Optional</sup> <a name="state" id="cdk-extensions.glue.WorkflowJobPredicateOptions.property.state"></a>
@@ -39193,6 +39442,10 @@ public readonly state: JobState;
 ```
 
 - *Type:* cdk-extensions.glue.JobState
+
+The state that the job must be in in order to meet the criteria to trigger the next stage of the workflow.
+
+> [[Trigger Predicate.Conditions.State](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-state)]([Trigger Predicate.Conditions.State](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-state))
 
 ---
 
@@ -39762,7 +40015,7 @@ Job code from a local disk path.
 
 - *Type:* string
 
-code file (not a directory).
+Code file (not a directory).
 
 ---
 
@@ -40206,15 +40459,19 @@ The name of the Column.
 
 ### BookmarkConfiguration <a name="BookmarkConfiguration" id="cdk-extensions.glue.BookmarkConfiguration"></a>
 
+Controls the bookmark state of a Glue job.
+
+> [[Using job bookmarks in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html#monitor-continuations-implement)]([Using job bookmarks in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html#monitor-continuations-implement))
+
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.disable">disable</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.enable">enable</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.of">of</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.pause">pause</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.disable">disable</a></code> | Job bookmarks are not used, and the job always processes the entire dataset. |
+| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.enable">enable</a></code> | Causes the job to update the state after a run to keep track of previously processed data. |
+| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.of">of</a></code> | An escape hatch method that allows specifying arbitrary values for the `job-bookmark-option` argument of a Glue job. |
+| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.pause">pause</a></code> | Process incremental data since the last successful run or the data in a specified range, without updating the state of last bookmark. |
 
 ---
 
@@ -40226,6 +40483,11 @@ import { glue } from 'cdk-extensions'
 glue.BookmarkConfiguration.disable()
 ```
 
+Job bookmarks are not used, and the job always processes the entire dataset.
+
+You are responsible for managing the output from previous job
+runs.
+
 ##### `enable` <a name="enable" id="cdk-extensions.glue.BookmarkConfiguration.enable"></a>
 
 ```typescript
@@ -40233,6 +40495,12 @@ import { glue } from 'cdk-extensions'
 
 glue.BookmarkConfiguration.enable()
 ```
+
+Causes the job to update the state after a run to keep track of previously processed data.
+
+If your job has a source with job bookmark support, it
+will keep track of processed data, and when a job runs, it processes new
+data since the last checkpoint.
 
 ##### `of` <a name="of" id="cdk-extensions.glue.BookmarkConfiguration.of"></a>
 
@@ -40242,15 +40510,21 @@ import { glue } from 'cdk-extensions'
 glue.BookmarkConfiguration.of(value: string, range?: BookmarkRange)
 ```
 
+An escape hatch method that allows specifying arbitrary values for the `job-bookmark-option` argument of a Glue job.
+
 ###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.BookmarkConfiguration.of.parameter.value"></a>
 
 - *Type:* string
+
+The value to pass to the `job-bookmark-option` argument.
 
 ---
 
 ###### `range`<sup>Optional</sup> <a name="range" id="cdk-extensions.glue.BookmarkConfiguration.of.parameter.range"></a>
 
 - *Type:* cdk-extensions.glue.BookmarkRange
+
+An optional range of job ID's that will correspond to the `job-bookmark-from` and `job-bookmark-to` arguments.
 
 ---
 
@@ -40262,9 +40536,16 @@ import { glue } from 'cdk-extensions'
 glue.BookmarkConfiguration.pause(range?: BookmarkRange)
 ```
 
+Process incremental data since the last successful run or the data in a specified range, without updating the state of last bookmark.
+
+You are
+responsible for managing the output from previous job runs.
+
 ###### `range`<sup>Optional</sup> <a name="range" id="cdk-extensions.glue.BookmarkConfiguration.pause.parameter.range"></a>
 
 - *Type:* cdk-extensions.glue.BookmarkRange
+
+The range of run ID's that should have their data processed.
 
 ---
 
@@ -40272,8 +40553,8 @@ glue.BookmarkConfiguration.pause(range?: BookmarkRange)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.property.value">value</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.property.range">range</a></code> | <code>cdk-extensions.glue.BookmarkRange</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.property.value">value</a></code> | <code>string</code> | The value to pass to the `job-bookmark-option` argument. |
+| <code><a href="#cdk-extensions.glue.BookmarkConfiguration.property.range">range</a></code> | <code>cdk-extensions.glue.BookmarkRange</code> | An optional range of job ID's that will correspond to the `job-bookmark-from` and `job-bookmark-to` arguments. |
 
 ---
 
@@ -40285,6 +40566,8 @@ public readonly value: string;
 
 - *Type:* string
 
+The value to pass to the `job-bookmark-option` argument.
+
 ---
 
 ##### `range`<sup>Optional</sup> <a name="range" id="cdk-extensions.glue.BookmarkConfiguration.property.range"></a>
@@ -40294,6 +40577,8 @@ public readonly range: BookmarkRange;
 ```
 
 - *Type:* cdk-extensions.glue.BookmarkRange
+
+An optional range of job ID's that will correspond to the `job-bookmark-from` and `job-bookmark-to` arguments.
 
 ---
 
@@ -40654,7 +40939,7 @@ Job code from a local disk path.
 
 - *Type:* string
 
-code file (not a directory).
+Code file (not a directory).
 
 ---
 
@@ -53510,7 +53795,7 @@ Job code from a local disk path.
 
 - *Type:* string
 
-code file (not a directory).
+Code file (not a directory).
 
 ---
 
@@ -55034,6 +55319,8 @@ Each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors pe
 
 ### WorkflowActionBase <a name="WorkflowActionBase" id="cdk-extensions.glue.WorkflowActionBase"></a>
 
+Base class providing common functionality for workflow trigger actions.
+
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.WorkflowActionBase.Initializer"></a>
 
 ```typescript
@@ -55044,7 +55331,7 @@ new glue.WorkflowActionBase(options?: WorkflowActionOptions)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.WorkflowActionBase.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.WorkflowActionOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowActionBase.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.WorkflowActionOptions</code> | Options controlling aspects of the action being executed. |
 
 ---
 
@@ -55052,13 +55339,15 @@ new glue.WorkflowActionBase(options?: WorkflowActionOptions)
 
 - *Type:* cdk-extensions.glue.WorkflowActionOptions
 
+Options controlling aspects of the action being executed.
+
 ---
 
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.glue.WorkflowActionBase.addArgument">addArgument</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowActionBase.addArgument">addArgument</a></code> | Adds an argument that will be passed to the specified action when triggered as part of a workflow. |
 
 ---
 
@@ -55068,15 +55357,23 @@ new glue.WorkflowActionBase(options?: WorkflowActionOptions)
 public addArgument(key: string, value: string): void
 ```
 
+Adds an argument that will be passed to the specified action when triggered as part of a workflow.
+
+> [[AWS Glue job parameters](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)]([AWS Glue job parameters](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html))
+
 ###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.WorkflowActionBase.addArgument.parameter.key"></a>
 
 - *Type:* string
+
+The name of the argument being set.
 
 ---
 
 ###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.WorkflowActionBase.addArgument.parameter.value"></a>
 
 - *Type:* string
+
+The value to pass for the specified argument.
 
 ---
 
@@ -55085,9 +55382,9 @@ public addArgument(key: string, value: string): void
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.WorkflowActionBase.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowActionBase.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowActionBase.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowActionBase.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | After a job run starts, the number of minutes to wait before sending a job run delay notification. |
+| <code><a href="#cdk-extensions.glue.WorkflowActionBase.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | The name of the SecurityConfiguration structure to be used with this action. |
+| <code><a href="#cdk-extensions.glue.WorkflowActionBase.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The `JobRun` timeout in minutes. |
 
 ---
 
@@ -55099,6 +55396,10 @@ public readonly notifyDelayAfter: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+After a job run starts, the number of minutes to wait before sending a job run delay notification.
+
+> [[Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter)]([Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter))
+
 ---
 
 ##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.WorkflowActionBase.property.securityConfiguration"></a>
@@ -55109,6 +55410,10 @@ public readonly securityConfiguration: string;
 
 - *Type:* string
 
+The name of the SecurityConfiguration structure to be used with this action.
+
+> [[Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration)]([Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration))
+
 ---
 
 ##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.glue.WorkflowActionBase.property.timeout"></a>
@@ -55118,6 +55423,15 @@ public readonly timeout: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+The `JobRun` timeout in minutes.
+
+This is the maximum time that a job run
+can consume resources before it is terminated and enters TIMEOUT status.
+The default is 48 hours. This overrides the timeout value set in the
+parent job.
+
+> [[Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout)]([Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout))
 
 ---
 
@@ -55133,13 +55447,13 @@ Configuration options for the WorkflowCrawlerAction class.
 ```typescript
 import { glue } from 'cdk-extensions'
 
-new glue.WorkflowCrawlerAction(crawler: ICrawler, options?: WorkflowActionOptions)
+new glue.WorkflowCrawlerAction(crawler: ICrawler, options?: WorkflowCrawlerActionOptions)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.Initializer.parameter.crawler">crawler</a></code> | <code>cdk-extensions.glue.ICrawler</code> | The crawler that should be triggered as part of the workflow. |
-| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.WorkflowActionOptions</code> | The options affecting how the crawler should be triggered. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.WorkflowCrawlerActionOptions</code> | The options affecting how the crawler should be triggered. |
 
 ---
 
@@ -55153,7 +55467,7 @@ The crawler that should be triggered as part of the workflow.
 
 ##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.WorkflowCrawlerAction.Initializer.parameter.options"></a>
 
-- *Type:* cdk-extensions.glue.WorkflowActionOptions
+- *Type:* cdk-extensions.glue.WorkflowCrawlerActionOptions
 
 The options affecting how the crawler should be triggered.
 
@@ -55163,7 +55477,7 @@ The options affecting how the crawler should be triggered.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.addArgument">addArgument</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.addArgument">addArgument</a></code> | Adds an argument that will be passed to the specified action when triggered as part of a workflow. |
 | <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.bind">bind</a></code> | Associates this action with a resource that is configuring a Glue trigger. |
 
 ---
@@ -55174,15 +55488,23 @@ The options affecting how the crawler should be triggered.
 public addArgument(key: string, value: string): void
 ```
 
+Adds an argument that will be passed to the specified action when triggered as part of a workflow.
+
+> [[AWS Glue job parameters](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)]([AWS Glue job parameters](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html))
+
 ###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.WorkflowCrawlerAction.addArgument.parameter.key"></a>
 
 - *Type:* string
+
+The name of the argument being set.
 
 ---
 
 ###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.WorkflowCrawlerAction.addArgument.parameter.value"></a>
 
 - *Type:* string
+
+The value to pass for the specified argument.
 
 ---
 
@@ -55207,9 +55529,9 @@ The construct configuring the trigger that this action will be used in.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | After a job run starts, the number of minutes to wait before sending a job run delay notification. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | The name of the SecurityConfiguration structure to be used with this action. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The `JobRun` timeout in minutes. |
 | <code><a href="#cdk-extensions.glue.WorkflowCrawlerAction.property.crawler">crawler</a></code> | <code>cdk-extensions.glue.ICrawler</code> | The Glue crawler to be triggered as part of the workflow. |
 
 ---
@@ -55222,6 +55544,10 @@ public readonly notifyDelayAfter: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+After a job run starts, the number of minutes to wait before sending a job run delay notification.
+
+> [[Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter)]([Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter))
+
 ---
 
 ##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.WorkflowCrawlerAction.property.securityConfiguration"></a>
@@ -55232,6 +55558,10 @@ public readonly securityConfiguration: string;
 
 - *Type:* string
 
+The name of the SecurityConfiguration structure to be used with this action.
+
+> [[Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration)]([Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration))
+
 ---
 
 ##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.glue.WorkflowCrawlerAction.property.timeout"></a>
@@ -55241,6 +55571,15 @@ public readonly timeout: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+The `JobRun` timeout in minutes.
+
+This is the maximum time that a job run
+can consume resources before it is terminated and enters TIMEOUT status.
+The default is 48 hours. This overrides the timeout value set in the
+parent job.
+
+> [[Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout)]([Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout))
 
 ---
 
@@ -55261,6 +55600,11 @@ The Glue crawler to be triggered as part of the workflow.
 
 - *Implements:* cdk-extensions.glue.ITriggerPredicate
 
+Represents a condition that is predicated on a Glue crawler completion.
+
+The condition can be used to create a trigger that controls the execution of
+downstream tasks in a workflow.
+
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.WorkflowCrawlerPredicate.Initializer"></a>
 
 ```typescript
@@ -55271,8 +55615,8 @@ new glue.WorkflowCrawlerPredicate(crawler: ICrawler, options?: WorkflowCrawlerPr
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.Initializer.parameter.crawler">crawler</a></code> | <code>cdk-extensions.glue.ICrawler</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.WorkflowCrawlerPredicateOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.Initializer.parameter.crawler">crawler</a></code> | <code>cdk-extensions.glue.ICrawler</code> | The crawler which must complete in order to meet the requirements to trigger the next stage of the workflow. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.WorkflowCrawlerPredicateOptions</code> | Options specifying the conditions the crawler must meet to trigger the next stage of the workflow. |
 
 ---
 
@@ -55280,11 +55624,15 @@ new glue.WorkflowCrawlerPredicate(crawler: ICrawler, options?: WorkflowCrawlerPr
 
 - *Type:* cdk-extensions.glue.ICrawler
 
+The crawler which must complete in order to meet the requirements to trigger the next stage of the workflow.
+
 ---
 
 ##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.WorkflowCrawlerPredicate.Initializer.parameter.options"></a>
 
 - *Type:* cdk-extensions.glue.WorkflowCrawlerPredicateOptions
+
+Options specifying the conditions the crawler must meet to trigger the next stage of the workflow.
 
 ---
 
@@ -55292,7 +55640,7 @@ new glue.WorkflowCrawlerPredicate(crawler: ICrawler, options?: WorkflowCrawlerPr
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.bind">bind</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.bind">bind</a></code> | Associates the predicate with a construct that is configuring a trigger for a Glue workflow. |
 
 ---
 
@@ -55302,9 +55650,13 @@ new glue.WorkflowCrawlerPredicate(crawler: ICrawler, options?: WorkflowCrawlerPr
 public bind(scope: IConstruct): ConditionProperty
 ```
 
+Associates the predicate with a construct that is configuring a trigger for a Glue workflow.
+
 ###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.WorkflowCrawlerPredicate.bind.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
+
+The construct configuring the Glue trigger.
 
 ---
 
@@ -55313,9 +55665,9 @@ public bind(scope: IConstruct): ConditionProperty
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.property.crawler">crawler</a></code> | <code>cdk-extensions.glue.ICrawler</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.property.state">state</a></code> | <code>cdk-extensions.glue.CrawlerState</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.property.crawler">crawler</a></code> | <code>cdk-extensions.glue.ICrawler</code> | The crawler which must complete in order to meet the requirements to trigger the next stage of the workflow. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | The logical operator which should be applied in determining whether a crawler meets the requested conditions. |
+| <code><a href="#cdk-extensions.glue.WorkflowCrawlerPredicate.property.state">state</a></code> | <code>cdk-extensions.glue.CrawlerState</code> | The state that the crawler must be in in order to meet the criteria to trigger the next stage of the workflow. |
 
 ---
 
@@ -55327,6 +55679,10 @@ public readonly crawler: ICrawler;
 
 - *Type:* cdk-extensions.glue.ICrawler
 
+The crawler which must complete in order to meet the requirements to trigger the next stage of the workflow.
+
+> [[Trigger Predicate.Conditions.CrawlerName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlername)]([Trigger Predicate.Conditions.CrawlerName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlername))
+
 ---
 
 ##### `logicalOperator`<sup>Required</sup> <a name="logicalOperator" id="cdk-extensions.glue.WorkflowCrawlerPredicate.property.logicalOperator"></a>
@@ -55337,6 +55693,12 @@ public readonly logicalOperator: PredicateLogicalOperator;
 
 - *Type:* cdk-extensions.glue.PredicateLogicalOperator
 
+The logical operator which should be applied in determining whether a crawler meets the requested conditions.
+
+At the moment, the only supported operator is `EQUALS`.
+
+> [[Trigger Predicate.Conditions.LogicalOperator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator)]([Trigger Predicate.Conditions.LogicalOperator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator))
+
 ---
 
 ##### `state`<sup>Required</sup> <a name="state" id="cdk-extensions.glue.WorkflowCrawlerPredicate.property.state"></a>
@@ -55346,6 +55708,10 @@ public readonly state: CrawlerState;
 ```
 
 - *Type:* cdk-extensions.glue.CrawlerState
+
+The state that the crawler must be in in order to meet the criteria to trigger the next stage of the workflow.
+
+> [[Trigger Predicate.Conditions.CrawlState](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate)]([Trigger Predicate.Conditions.CrawlState](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate))
 
 ---
 
@@ -55391,7 +55757,7 @@ The options affecting how the job should be triggered.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.glue.WorkflowJobAction.addArgument">addArgument</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobAction.addArgument">addArgument</a></code> | Adds an argument that will be passed to the specified action when triggered as part of a workflow. |
 | <code><a href="#cdk-extensions.glue.WorkflowJobAction.bind">bind</a></code> | Associates this action with a resource that is configuring a Glue trigger. |
 
 ---
@@ -55402,15 +55768,23 @@ The options affecting how the job should be triggered.
 public addArgument(key: string, value: string): void
 ```
 
+Adds an argument that will be passed to the specified action when triggered as part of a workflow.
+
+> [[AWS Glue job parameters](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)]([AWS Glue job parameters](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html))
+
 ###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.glue.WorkflowJobAction.addArgument.parameter.key"></a>
 
 - *Type:* string
+
+The name of the argument being set.
 
 ---
 
 ###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.glue.WorkflowJobAction.addArgument.parameter.value"></a>
 
 - *Type:* string
+
+The value to pass for the specified argument.
 
 ---
 
@@ -55435,9 +55809,9 @@ The construct configuring the trigger that this action will be used in.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.WorkflowJobAction.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowJobAction.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowJobAction.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobAction.property.notifyDelayAfter">notifyDelayAfter</a></code> | <code>aws-cdk-lib.Duration</code> | After a job run starts, the number of minutes to wait before sending a job run delay notification. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobAction.property.securityConfiguration">securityConfiguration</a></code> | <code>string</code> | The name of the SecurityConfiguration structure to be used with this action. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobAction.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The `JobRun` timeout in minutes. |
 | <code><a href="#cdk-extensions.glue.WorkflowJobAction.property.job">job</a></code> | <code>cdk-extensions.glue.IJob</code> | The Glue job to be triggered as part of the workflow. |
 
 ---
@@ -55450,6 +55824,10 @@ public readonly notifyDelayAfter: Duration;
 
 - *Type:* aws-cdk-lib.Duration
 
+After a job run starts, the number of minutes to wait before sending a job run delay notification.
+
+> [[Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter)]([Trigger Actions.NotificationProperty.NotifyDelayAfter](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter))
+
 ---
 
 ##### `securityConfiguration`<sup>Optional</sup> <a name="securityConfiguration" id="cdk-extensions.glue.WorkflowJobAction.property.securityConfiguration"></a>
@@ -55460,6 +55838,10 @@ public readonly securityConfiguration: string;
 
 - *Type:* string
 
+The name of the SecurityConfiguration structure to be used with this action.
+
+> [[Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration)]([Trigger Actions.SecurityConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration))
+
 ---
 
 ##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.glue.WorkflowJobAction.property.timeout"></a>
@@ -55469,6 +55851,15 @@ public readonly timeout: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+The `JobRun` timeout in minutes.
+
+This is the maximum time that a job run
+can consume resources before it is terminated and enters TIMEOUT status.
+The default is 48 hours. This overrides the timeout value set in the
+parent job.
+
+> [[Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout)]([Trigger Actions.Timeout](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout))
 
 ---
 
@@ -55489,6 +55880,11 @@ The Glue job to be triggered as part of the workflow.
 
 - *Implements:* cdk-extensions.glue.ITriggerPredicate
 
+Represents a condition that is predicated on a Glue job completion.
+
+The condition can be used to create a trigger that controls the execution of
+downstream tasks in a workflow.
+
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.WorkflowJobPredicate.Initializer"></a>
 
 ```typescript
@@ -55499,8 +55895,8 @@ new glue.WorkflowJobPredicate(job: IJob, options?: WorkflowJobPredicateOptions)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.Initializer.parameter.job">job</a></code> | <code>cdk-extensions.glue.IJob</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.WorkflowJobPredicateOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.Initializer.parameter.job">job</a></code> | <code>cdk-extensions.glue.IJob</code> | The job which must complete in order to meet the requirements to trigger the next stage of the workflow. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.glue.WorkflowJobPredicateOptions</code> | Options specifying the conditions the job must meet to trigger the next stage of the workflow. |
 
 ---
 
@@ -55508,11 +55904,15 @@ new glue.WorkflowJobPredicate(job: IJob, options?: WorkflowJobPredicateOptions)
 
 - *Type:* cdk-extensions.glue.IJob
 
+The job which must complete in order to meet the requirements to trigger the next stage of the workflow.
+
 ---
 
 ##### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.WorkflowJobPredicate.Initializer.parameter.options"></a>
 
 - *Type:* cdk-extensions.glue.WorkflowJobPredicateOptions
+
+Options specifying the conditions the job must meet to trigger the next stage of the workflow.
 
 ---
 
@@ -55520,7 +55920,7 @@ new glue.WorkflowJobPredicate(job: IJob, options?: WorkflowJobPredicateOptions)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.bind">bind</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.bind">bind</a></code> | Associates the predicate with a construct that is configuring a trigger for a Glue workflow. |
 
 ---
 
@@ -55530,9 +55930,13 @@ new glue.WorkflowJobPredicate(job: IJob, options?: WorkflowJobPredicateOptions)
 public bind(scope: IConstruct): ConditionProperty
 ```
 
+Associates the predicate with a construct that is configuring a trigger for a Glue workflow.
+
 ###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.glue.WorkflowJobPredicate.bind.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
+
+The construct configuring the Glue trigger.
 
 ---
 
@@ -55541,9 +55945,9 @@ public bind(scope: IConstruct): ConditionProperty
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.property.job">job</a></code> | <code>cdk-extensions.glue.IJob</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.property.state">state</a></code> | <code>cdk-extensions.glue.JobState</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.property.job">job</a></code> | <code>cdk-extensions.glue.IJob</code> | The job which must complete in order to meet the requirements to trigger the next stage of the workflow. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.property.logicalOperator">logicalOperator</a></code> | <code>cdk-extensions.glue.PredicateLogicalOperator</code> | The logical operator which should be applied in determining whether a job meets the requested conditions. |
+| <code><a href="#cdk-extensions.glue.WorkflowJobPredicate.property.state">state</a></code> | <code>cdk-extensions.glue.JobState</code> | The state that the job must be in in order to meet the criteria to trigger the next stage of the workflow. |
 
 ---
 
@@ -55555,6 +55959,10 @@ public readonly job: IJob;
 
 - *Type:* cdk-extensions.glue.IJob
 
+The job which must complete in order to meet the requirements to trigger the next stage of the workflow.
+
+> [[Trigger Predicate.Conditions.JobName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-jobname)]([Trigger Predicate.Conditions.JobName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-jobname))
+
 ---
 
 ##### `logicalOperator`<sup>Required</sup> <a name="logicalOperator" id="cdk-extensions.glue.WorkflowJobPredicate.property.logicalOperator"></a>
@@ -55564,6 +55972,12 @@ public readonly logicalOperator: PredicateLogicalOperator;
 ```
 
 - *Type:* cdk-extensions.glue.PredicateLogicalOperator
+
+The logical operator which should be applied in determining whether a job meets the requested conditions.
+
+At the moment, the only supported operator is `EQUALS`.
+
+> [[Trigger Predicate.Conditions.LogicalOperator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator)]([Trigger Predicate.Conditions.LogicalOperator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator))
 
 ---
 
@@ -55575,10 +55989,16 @@ public readonly state: JobState;
 
 - *Type:* cdk-extensions.glue.JobState
 
+The state that the job must be in in order to meet the criteria to trigger the next stage of the workflow.
+
+> [[Trigger Predicate.Conditions.State](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-state)]([Trigger Predicate.Conditions.State](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-state))
+
 ---
 
 
 ### WorkflowPredicateBase <a name="WorkflowPredicateBase" id="cdk-extensions.glue.WorkflowPredicateBase"></a>
+
+Base class providing common functionality for trigger predicate conditions.
 
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.WorkflowPredicateBase.Initializer"></a>
 
@@ -55590,13 +56010,15 @@ new glue.WorkflowPredicateBase(_options?: WorkflowPredicateOptions)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.glue.WorkflowPredicateBase.Initializer.parameter._options">_options</a></code> | <code>cdk-extensions.glue.WorkflowPredicateOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.WorkflowPredicateBase.Initializer.parameter._options">_options</a></code> | <code>cdk-extensions.glue.WorkflowPredicateOptions</code> | Options specifying the conditions the predicate must meet to trigger the next stage of the workflow. |
 
 ---
 
 ##### `_options`<sup>Optional</sup> <a name="_options" id="cdk-extensions.glue.WorkflowPredicateBase.Initializer.parameter._options"></a>
 
 - *Type:* cdk-extensions.glue.WorkflowPredicateOptions
+
+Options specifying the conditions the predicate must meet to trigger the next stage of the workflow.
 
 ---
 
@@ -56840,27 +57262,35 @@ NETWORK - Designates a network connection to a data source within an Amazon Virt
 
 ### CrawlerState <a name="CrawlerState" id="cdk-extensions.glue.CrawlerState"></a>
 
+State a Glue crawler must be in in order to satisfy a predicate condition to trigger a part of a workflow.
+
 #### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.glue.CrawlerState.CANCELLED">CANCELLED</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerState.FAILED">FAILED</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.CrawlerState.SUCCEEDED">SUCCEEDED</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.CrawlerState.CANCELLED">CANCELLED</a></code> | A crawler execution was cancelled before it could finish. |
+| <code><a href="#cdk-extensions.glue.CrawlerState.FAILED">FAILED</a></code> | A crawler that has finished and ended in an error. |
+| <code><a href="#cdk-extensions.glue.CrawlerState.SUCCEEDED">SUCCEEDED</a></code> | A crawler which has finished successfully. |
 
 ---
 
 ##### `CANCELLED` <a name="CANCELLED" id="cdk-extensions.glue.CrawlerState.CANCELLED"></a>
+
+A crawler execution was cancelled before it could finish.
 
 ---
 
 
 ##### `FAILED` <a name="FAILED" id="cdk-extensions.glue.CrawlerState.FAILED"></a>
 
+A crawler that has finished and ended in an error.
+
 ---
 
 
 ##### `SUCCEEDED` <a name="SUCCEEDED" id="cdk-extensions.glue.CrawlerState.SUCCEEDED"></a>
+
+A crawler which has finished successfully.
 
 ---
 
@@ -57333,33 +57763,43 @@ Scala.
 
 ### JobState <a name="JobState" id="cdk-extensions.glue.JobState"></a>
 
+State a Glue job must be in in order to satisfy a predicate condition to trigger a part of a workflow.
+
 #### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.glue.JobState.FAILED">FAILED</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobState.STOPPED">STOPPED</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobState.SUCCEEDED">SUCCEEDED</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.glue.JobState.TIMEOUT">TIMEOUT</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.JobState.FAILED">FAILED</a></code> | A job that has finished and ended with an error. |
+| <code><a href="#cdk-extensions.glue.JobState.STOPPED">STOPPED</a></code> | A job which was stopped before completion. |
+| <code><a href="#cdk-extensions.glue.JobState.SUCCEEDED">SUCCEEDED</a></code> | A job which has finished successfully. |
+| <code><a href="#cdk-extensions.glue.JobState.TIMEOUT">TIMEOUT</a></code> | A job which timed out without completing. |
 
 ---
 
 ##### `FAILED` <a name="FAILED" id="cdk-extensions.glue.JobState.FAILED"></a>
+
+A job that has finished and ended with an error.
 
 ---
 
 
 ##### `STOPPED` <a name="STOPPED" id="cdk-extensions.glue.JobState.STOPPED"></a>
 
+A job which was stopped before completion.
+
 ---
 
 
 ##### `SUCCEEDED` <a name="SUCCEEDED" id="cdk-extensions.glue.JobState.SUCCEEDED"></a>
 
+A job which has finished successfully.
+
 ---
 
 
 ##### `TIMEOUT` <a name="TIMEOUT" id="cdk-extensions.glue.JobState.TIMEOUT"></a>
+
+A job which timed out without completing.
 
 ---
 
@@ -57574,15 +58014,19 @@ Nest data into a specified object.
 
 ### PredicateLogicalOperator <a name="PredicateLogicalOperator" id="cdk-extensions.glue.PredicateLogicalOperator"></a>
 
+Logical operator that specifies how the conditions of a predicate should be evaluated.
+
 #### Members <a name="Members" id="Members"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.glue.PredicateLogicalOperator.EQUALS">EQUALS</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.glue.PredicateLogicalOperator.EQUALS">EQUALS</a></code> | State equals specified value. |
 
 ---
 
 ##### `EQUALS` <a name="EQUALS" id="cdk-extensions.glue.PredicateLogicalOperator.EQUALS"></a>
+
+State equals specified value.
 
 ---
 

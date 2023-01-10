@@ -7,6 +7,11 @@ import { WorkflowActionBase, WorkflowActionOptions } from './action-base';
 /**
  * Configuration options for the WorkflowCrawlerAction class.
  */
+ export interface WorkflowCrawlerActionOptions extends WorkflowActionOptions {}
+
+/**
+ * Configuration options for the WorkflowCrawlerAction class.
+ */
 export class WorkflowCrawlerAction extends WorkflowActionBase implements ITriggerAction {
   /**
    * The Glue crawler to be triggered as part of the workflow.
@@ -23,7 +28,7 @@ export class WorkflowCrawlerAction extends WorkflowActionBase implements ITrigge
    * workflow.
    * @param options The options affecting how the crawler should be triggered.
    */
-  public constructor(crawler: ICrawler, options?: WorkflowActionOptions) {
+  public constructor(crawler: ICrawler, options?: WorkflowCrawlerActionOptions) {
     super(options);
 
     this.crawler = crawler;
