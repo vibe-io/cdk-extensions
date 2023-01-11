@@ -7646,6 +7646,320 @@ public readonly locationUri: string;
 ---
 
 
+### DatabaseProxyEndpoint <a name="DatabaseProxyEndpoint" id="cdk-extensions.rds.DatabaseProxyEndpoint"></a>
+
+- *Implements:* aws-cdk-lib.aws_ec2.IConnectable
+
+#### Initializers <a name="Initializers" id="cdk-extensions.rds.DatabaseProxyEndpoint.Initializer"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+new rds.DatabaseProxyEndpoint(scope: Construct, id: string, props: DatabaseProxyEndpointProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.rds.DatabaseProxyEndpointProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.rds.DatabaseProxyEndpoint.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.rds.DatabaseProxyEndpoint.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.rds.DatabaseProxyEndpoint.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.rds.DatabaseProxyEndpointProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.rds.DatabaseProxyEndpoint.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.rds.DatabaseProxyEndpoint.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.rds.DatabaseProxyEndpoint.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.rds.DatabaseProxyEndpoint.isConstruct"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+rds.DatabaseProxyEndpoint.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.rds.DatabaseProxyEndpoint.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.rds.DatabaseProxyEndpoint.isOwnedResource"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+rds.DatabaseProxyEndpoint.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.rds.DatabaseProxyEndpoint.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.rds.DatabaseProxyEndpoint.isResource"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+rds.DatabaseProxyEndpoint.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.rds.DatabaseProxyEndpoint.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The network connections associated with this resource. |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.property.databaseProxy">databaseProxy</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseProxy</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.property.databaseProxyEndpointArn">databaseProxyEndpointArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.property.databaseProxyEndpointHost">databaseProxyEndpointHost</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.property.databaseProxyEndpointIsDefault">databaseProxyEndpointIsDefault</a></code> | <code>aws-cdk-lib.IResolvable</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.property.databaseProxyEndpointVpcId">databaseProxyEndpointVpcId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_rds.CfnDBProxyEndpoint</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.property.access">access</a></code> | <code>cdk-extensions.rds.DatabaseProxyEndpointAccess</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpoint.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.rds.DatabaseProxyEndpoint.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.rds.DatabaseProxyEndpoint.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.rds.DatabaseProxyEndpoint.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `connections`<sup>Required</sup> <a name="connections" id="cdk-extensions.rds.DatabaseProxyEndpoint.property.connections"></a>
+
+```typescript
+public readonly connections: Connections;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.Connections
+
+The network connections associated with this resource.
+
+---
+
+##### `databaseProxy`<sup>Required</sup> <a name="databaseProxy" id="cdk-extensions.rds.DatabaseProxyEndpoint.property.databaseProxy"></a>
+
+```typescript
+public readonly databaseProxy: IDatabaseProxy;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseProxy
+
+---
+
+##### `databaseProxyEndpointArn`<sup>Required</sup> <a name="databaseProxyEndpointArn" id="cdk-extensions.rds.DatabaseProxyEndpoint.property.databaseProxyEndpointArn"></a>
+
+```typescript
+public readonly databaseProxyEndpointArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `databaseProxyEndpointHost`<sup>Required</sup> <a name="databaseProxyEndpointHost" id="cdk-extensions.rds.DatabaseProxyEndpoint.property.databaseProxyEndpointHost"></a>
+
+```typescript
+public readonly databaseProxyEndpointHost: string;
+```
+
+- *Type:* string
+
+---
+
+##### `databaseProxyEndpointIsDefault`<sup>Required</sup> <a name="databaseProxyEndpointIsDefault" id="cdk-extensions.rds.DatabaseProxyEndpoint.property.databaseProxyEndpointIsDefault"></a>
+
+```typescript
+public readonly databaseProxyEndpointIsDefault: IResolvable;
+```
+
+- *Type:* aws-cdk-lib.IResolvable
+
+---
+
+##### `databaseProxyEndpointVpcId`<sup>Required</sup> <a name="databaseProxyEndpointVpcId" id="cdk-extensions.rds.DatabaseProxyEndpoint.property.databaseProxyEndpointVpcId"></a>
+
+```typescript
+public readonly databaseProxyEndpointVpcId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.rds.DatabaseProxyEndpoint.property.resource"></a>
+
+```typescript
+public readonly resource: CfnDBProxyEndpoint;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.CfnDBProxyEndpoint
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="cdk-extensions.rds.DatabaseProxyEndpoint.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+---
+
+##### `vpcSubnets`<sup>Required</sup> <a name="vpcSubnets" id="cdk-extensions.rds.DatabaseProxyEndpoint.property.vpcSubnets"></a>
+
+```typescript
+public readonly vpcSubnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+---
+
+##### `access`<sup>Optional</sup> <a name="access" id="cdk-extensions.rds.DatabaseProxyEndpoint.property.access"></a>
+
+```typescript
+public readonly access: DatabaseProxyEndpointAccess;
+```
+
+- *Type:* cdk-extensions.rds.DatabaseProxyEndpointAccess
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.rds.DatabaseProxyEndpoint.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+
 ### DeliveryStream <a name="DeliveryStream" id="cdk-extensions.kinesis_firehose.DeliveryStream"></a>
 
 - *Implements:* cdk-extensions.kinesis_firehose.IDeliveryStream
@@ -26713,6 +27027,156 @@ For Hive compatibility, this is folded to lowercase when it is stored.
 
 ---
 
+### DatabaseProxyEndpointProps <a name="DatabaseProxyEndpointProps" id="cdk-extensions.rds.DatabaseProxyEndpointProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.rds.DatabaseProxyEndpointProps.Initializer"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+const databaseProxyEndpointProps: rds.DatabaseProxyEndpointProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpointProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpointProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpointProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpointProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpointProps.property.databaseProxy">databaseProxy</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseProxy</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpointProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpointProps.property.access">access</a></code> | <code>cdk-extensions.rds.DatabaseProxyEndpointAccess</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpointProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpointProps.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpointProps.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.rds.DatabaseProxyEndpointProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.rds.DatabaseProxyEndpointProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.rds.DatabaseProxyEndpointProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.rds.DatabaseProxyEndpointProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `databaseProxy`<sup>Required</sup> <a name="databaseProxy" id="cdk-extensions.rds.DatabaseProxyEndpointProps.property.databaseProxy"></a>
+
+```typescript
+public readonly databaseProxy: IDatabaseProxy;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseProxy
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="cdk-extensions.rds.DatabaseProxyEndpointProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+---
+
+##### `access`<sup>Optional</sup> <a name="access" id="cdk-extensions.rds.DatabaseProxyEndpointProps.property.access"></a>
+
+```typescript
+public readonly access: DatabaseProxyEndpointAccess;
+```
+
+- *Type:* cdk-extensions.rds.DatabaseProxyEndpointAccess
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.rds.DatabaseProxyEndpointProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `securityGroups`<sup>Optional</sup> <a name="securityGroups" id="cdk-extensions.rds.DatabaseProxyEndpointProps.property.securityGroups"></a>
+
+```typescript
+public readonly securityGroups: ISecurityGroup[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
+
+---
+
+##### `vpcSubnets`<sup>Optional</sup> <a name="vpcSubnets" id="cdk-extensions.rds.DatabaseProxyEndpointProps.property.vpcSubnets"></a>
+
+```typescript
+public readonly vpcSubnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+---
+
 ### DataFormatConversionOptions <a name="DataFormatConversionOptions" id="cdk-extensions.kinesis_firehose.DataFormatConversionOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.DataFormatConversionOptions.Initializer"></a>
@@ -41149,6 +41613,78 @@ public readonly processorType: ProcessorType;
 
 ---
 
+
+### DatabaseProxyEndpointAccess <a name="DatabaseProxyEndpointAccess" id="cdk-extensions.rds.DatabaseProxyEndpointAccess"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpointAccess.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.rds.DatabaseProxyEndpointAccess.of"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+rds.DatabaseProxyEndpointAccess.of(role: string)
+```
+
+###### `role`<sup>Required</sup> <a name="role" id="cdk-extensions.rds.DatabaseProxyEndpointAccess.of.parameter.role"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpointAccess.property.role">role</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `role`<sup>Required</sup> <a name="role" id="cdk-extensions.rds.DatabaseProxyEndpointAccess.property.role"></a>
+
+```typescript
+public readonly role: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpointAccess.property.READ_ONLY">READ_ONLY</a></code> | <code>cdk-extensions.rds.DatabaseProxyEndpointAccess</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.DatabaseProxyEndpointAccess.property.READ_WRITE">READ_WRITE</a></code> | <code>cdk-extensions.rds.DatabaseProxyEndpointAccess</code> | *No description.* |
+
+---
+
+##### `READ_ONLY`<sup>Required</sup> <a name="READ_ONLY" id="cdk-extensions.rds.DatabaseProxyEndpointAccess.property.READ_ONLY"></a>
+
+```typescript
+public readonly READ_ONLY: DatabaseProxyEndpointAccess;
+```
+
+- *Type:* cdk-extensions.rds.DatabaseProxyEndpointAccess
+
+---
+
+##### `READ_WRITE`<sup>Required</sup> <a name="READ_WRITE" id="cdk-extensions.rds.DatabaseProxyEndpointAccess.property.READ_WRITE"></a>
+
+```typescript
+public readonly READ_WRITE: DatabaseProxyEndpointAccess;
+```
+
+- *Type:* cdk-extensions.rds.DatabaseProxyEndpointAccess
+
+---
 
 ### DataFormat <a name="DataFormat" id="cdk-extensions.glue.DataFormat"></a>
 
