@@ -55317,6 +55317,87 @@ Each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors pe
 
 ---
 
+### WorkflowAction <a name="WorkflowAction" id="cdk-extensions.glue.WorkflowAction"></a>
+
+Actions to be started by a Glue workflow trigger when it is activated.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.WorkflowAction.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.WorkflowAction()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowAction.crawler">crawler</a></code> | An action that runs a crawler as part of a Glue workflow. |
+| <code><a href="#cdk-extensions.glue.WorkflowAction.job">job</a></code> | An action that runs a Glue job as part of a workflow. |
+
+---
+
+##### `crawler` <a name="crawler" id="cdk-extensions.glue.WorkflowAction.crawler"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.WorkflowAction.crawler(crawler: ICrawler, options?: WorkflowCrawlerActionOptions)
+```
+
+An action that runs a crawler as part of a Glue workflow.
+
+###### `crawler`<sup>Required</sup> <a name="crawler" id="cdk-extensions.glue.WorkflowAction.crawler.parameter.crawler"></a>
+
+- *Type:* cdk-extensions.glue.ICrawler
+
+The crawler to run as part of the workflow.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.WorkflowAction.crawler.parameter.options"></a>
+
+- *Type:* cdk-extensions.glue.WorkflowCrawlerActionOptions
+
+The options configuring how the crawler should be run.
+
+---
+
+##### `job` <a name="job" id="cdk-extensions.glue.WorkflowAction.job"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.WorkflowAction.job(job: IJob, options?: WorkflowJobActionOptions)
+```
+
+An action that runs a Glue job as part of a workflow.
+
+###### `job`<sup>Required</sup> <a name="job" id="cdk-extensions.glue.WorkflowAction.job.parameter.job"></a>
+
+- *Type:* cdk-extensions.glue.IJob
+
+The job to run as part of the workflow.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.WorkflowAction.job.parameter.options"></a>
+
+- *Type:* cdk-extensions.glue.WorkflowJobActionOptions
+
+The options configuring how the job should be run.
+
+---
+
+
+
 ### WorkflowActionBase <a name="WorkflowActionBase" id="cdk-extensions.glue.WorkflowActionBase"></a>
 
 Base class providing common functionality for workflow trigger actions.
@@ -55994,6 +56075,87 @@ The state that the job must be in in order to meet the criteria to trigger the n
 > [[Trigger Predicate.Conditions.State](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-state)]([Trigger Predicate.Conditions.State](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-state))
 
 ---
+
+
+### WorkflowPredicate <a name="WorkflowPredicate" id="cdk-extensions.glue.WorkflowPredicate"></a>
+
+Predicate conditions for controlling trigger activation in a Glue workflow.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.glue.WorkflowPredicate.Initializer"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+new glue.WorkflowPredicate()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.glue.WorkflowPredicate.crawler">crawler</a></code> | A predicate condition dependent on the completion of a Glue crawler. |
+| <code><a href="#cdk-extensions.glue.WorkflowPredicate.job">job</a></code> | A predicate condition dependent on the completion of a Glue job. |
+
+---
+
+##### `crawler` <a name="crawler" id="cdk-extensions.glue.WorkflowPredicate.crawler"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.WorkflowPredicate.crawler(crawler: ICrawler, options?: WorkflowCrawlerPredicateOptions)
+```
+
+A predicate condition dependent on the completion of a Glue crawler.
+
+###### `crawler`<sup>Required</sup> <a name="crawler" id="cdk-extensions.glue.WorkflowPredicate.crawler.parameter.crawler"></a>
+
+- *Type:* cdk-extensions.glue.ICrawler
+
+The crawler which must complete in order to meet the requirements to trigger the next stage of the workflow.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.WorkflowPredicate.crawler.parameter.options"></a>
+
+- *Type:* cdk-extensions.glue.WorkflowCrawlerPredicateOptions
+
+Options specifying the conditions the crawler must meet to trigger the next stage of the workflow.
+
+---
+
+##### `job` <a name="job" id="cdk-extensions.glue.WorkflowPredicate.job"></a>
+
+```typescript
+import { glue } from 'cdk-extensions'
+
+glue.WorkflowPredicate.job(job: IJob, options?: WorkflowJobPredicateOptions)
+```
+
+A predicate condition dependent on the completion of a Glue job.
+
+###### `job`<sup>Required</sup> <a name="job" id="cdk-extensions.glue.WorkflowPredicate.job.parameter.job"></a>
+
+- *Type:* cdk-extensions.glue.IJob
+
+The job which must complete in order to meet the requirements to trigger the next stage of the workflow.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.glue.WorkflowPredicate.job.parameter.options"></a>
+
+- *Type:* cdk-extensions.glue.WorkflowJobPredicateOptions
+
+Options specifying the conditions the job must meet to trigger the next stage of the workflow.
+
+---
+
 
 
 ### WorkflowPredicateBase <a name="WorkflowPredicateBase" id="cdk-extensions.glue.WorkflowPredicateBase"></a>
