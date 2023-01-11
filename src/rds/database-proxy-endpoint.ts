@@ -60,7 +60,7 @@ export class DatabaseProxyEndpoint extends Resource implements IConnectable {
 
     const securityGroups = props.securityGroups ?? [
       new SecurityGroup(this, 'security-group', {
-        description: `Controls access to RDS DB proxy at '${this.node.path}'.`,
+        description: 'Controls access to RDS DB proxy endpoint.',
         vpc: this.vpc,
       }),
     ];
