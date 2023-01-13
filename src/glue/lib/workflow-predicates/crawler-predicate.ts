@@ -38,7 +38,7 @@ export interface WorkflowCrawlerPredicateOptions extends WorkflowPredicateOption
    *
    * @see [Trigger Predicate.Conditions.LogicalOperator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator)
    */
-  readonly logicalOperator: PredicateLogicalOperator;
+  readonly logicalOperator?: PredicateLogicalOperator;
 
   /**
    * The state that the crawler must be in in order to meet the criteria to
