@@ -39595,7 +39595,7 @@ The AWS region this resource belongs to.
 
 ---
 
-##### `logicalOperator`<sup>Required</sup> <a name="logicalOperator" id="cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.logicalOperator"></a>
+##### `logicalOperator`<sup>Optional</sup> <a name="logicalOperator" id="cdk-extensions.glue.WorkflowCrawlerPredicateOptions.property.logicalOperator"></a>
 
 ```typescript
 public readonly logicalOperator: PredicateLogicalOperator;
