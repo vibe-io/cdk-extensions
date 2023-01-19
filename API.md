@@ -13410,6 +13410,22 @@ public readonly workerType: WorkerType;
 
 ### LogRetentionController <a name="LogRetentionController" id="cdk-extensions.lambda.LogRetentionController"></a>
 
+Deploys a solution that automatically sets a log retention policy for all CloudWatch log groups created by AWS Lamba.
+
+The controller consists of an EventBridge rule that detects the creation of
+new log groups and a state machine that sets a retention policy for any log
+groups that triggered the rule.
+
+The rule triggers for any log group that is created with a name that starts
+with `/aws/lambda/`.
+
+Currently existing log groups created by AWS Lambda are not affected by the
+policy. It is also possible that log groups created by means other than AWS
+Lambda that have a retention policy specified could have their retention
+policy overridden if the log group name starts with `/aws/lambda/`.
+
+> [[Reduce log-storage costs by automating retention settings in Amazon CloudWatch](https://aws.amazon.com/blogs/infrastructure-and-automation/reduce-log-storage-costs-by-automating-retention-settings-in-amazon-cloudwatch/)]([Reduce log-storage costs by automating retention settings in Amazon CloudWatch](https://aws.amazon.com/blogs/infrastructure-and-automation/reduce-log-storage-costs-by-automating-retention-settings-in-amazon-cloudwatch/))
+
 #### Initializers <a name="Initializers" id="cdk-extensions.lambda.LogRetentionController.Initializer"></a>
 
 ```typescript
@@ -13420,9 +13436,9 @@ new lambda.LogRetentionController(scope: IConstruct, id: string, props?: LogRete
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.lambda.LogRetentionController.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
-| <code><a href="#cdk-extensions.lambda.LogRetentionController.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.lambda.LogRetentionController.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.lambda.LogRetentionControllerProps</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.lambda.LogRetentionControllerProps</code> | Arguments related to the configuration of the resource. |
 
 ---
 
@@ -13430,17 +13446,25 @@ new lambda.LogRetentionController(scope: IConstruct, id: string, props?: LogRete
 
 - *Type:* constructs.IConstruct
 
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.lambda.LogRetentionController.Initializer.parameter.id"></a>
 
 - *Type:* string
 
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
 ---
 
 ##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.lambda.LogRetentionController.Initializer.parameter.props"></a>
 
 - *Type:* cdk-extensions.lambda.LogRetentionControllerProps
+
+Arguments related to the configuration of the resource.
 
 ---
 
@@ -13550,11 +13574,11 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.lambda.LogRetentionController.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.lambda.LogRetentionController.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.lambda.LogRetentionController.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.logGroupCreatedRule">logGroupCreatedRule</a></code> | <code>aws-cdk-lib.aws_events.Rule</code> | *No description.* |
-| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.retention">retention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | *No description.* |
-| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | *No description.* |
-| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.executionLogging">executionLogging</a></code> | <code>cdk-extensions.lambda.ExecutionLogOptions</code> | *No description.* |
-| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.executionLogGroup">executionLogGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.logGroupCreatedRule">logGroupCreatedRule</a></code> | <code>aws-cdk-lib.aws_events.Rule</code> | The EventBridge rule that detects the creation of new log groups with a name matching the prefix used by AWS Lambda. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.retention">retention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | The length of time logs sent to log groups created by AWS Lambda should be retained before being deleted. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | The state machine that is triggered to add a retention policy for all new log groups that trigger the EventBridge rule. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.executionLogging">executionLogging</a></code> | <code>cdk-extensions.lambda.ExecutionLogOptions</code> | Execution logging configuration for the state machine that is used to configure log retention for log groups created via AWS Lambda. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.executionLogGroup">executionLogGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The log group which will receive execution events from the state machine. |
 
 ---
 
@@ -13609,6 +13633,8 @@ public readonly logGroupCreatedRule: Rule;
 
 - *Type:* aws-cdk-lib.aws_events.Rule
 
+The EventBridge rule that detects the creation of new log groups with a name matching the prefix used by AWS Lambda.
+
 ---
 
 ##### `retention`<sup>Required</sup> <a name="retention" id="cdk-extensions.lambda.LogRetentionController.property.retention"></a>
@@ -13618,6 +13644,10 @@ public readonly retention: RetentionDays;
 ```
 
 - *Type:* aws-cdk-lib.aws_logs.RetentionDays
+
+The length of time logs sent to log groups created by AWS Lambda should be retained before being deleted.
+
+> [[LogGroup RetentionInDays](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays)]([LogGroup RetentionInDays](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays))
 
 ---
 
@@ -13629,6 +13659,8 @@ public readonly stateMachine: StateMachine;
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
 
+The state machine that is triggered to add a retention policy for all new log groups that trigger the EventBridge rule.
+
 ---
 
 ##### `executionLogging`<sup>Optional</sup> <a name="executionLogging" id="cdk-extensions.lambda.LogRetentionController.property.executionLogging"></a>
@@ -13639,6 +13671,10 @@ public readonly executionLogging: ExecutionLogOptions;
 
 - *Type:* cdk-extensions.lambda.ExecutionLogOptions
 
+Execution logging configuration for the state machine that is used to configure log retention for log groups created via AWS Lambda.
+
+> [[StateMachine LoggingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration)]([StateMachine LoggingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration))
+
 ---
 
 ##### `executionLogGroup`<sup>Optional</sup> <a name="executionLogGroup" id="cdk-extensions.lambda.LogRetentionController.property.executionLogGroup"></a>
@@ -13648,6 +13684,8 @@ public readonly executionLogGroup: ILogGroup;
 ```
 
 - *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+The log group which will receive execution events from the state machine.
 
 ---
 
@@ -13664,7 +13702,7 @@ new athena.NamedQuery(scope: Construct, id: string, props: NamedQueryProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.athena.NamedQuery.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.athena.NamedQuery.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
 | <code><a href="#cdk-extensions.athena.NamedQuery.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
 | <code><a href="#cdk-extensions.athena.NamedQuery.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.athena.NamedQueryProps</code> | Arguments related to the configuration of the resource. |
 
@@ -13674,7 +13712,7 @@ new athena.NamedQuery(scope: Construct, id: string, props: NamedQueryProps)
 
 - *Type:* constructs.Construct
 
-A CDK Construct that will serve as this stack's parent in the construct tree.
+A CDK Construct that will serve as this resource's parent in the construct tree.
 
 ---
 
@@ -28240,6 +28278,8 @@ The Docker tag specifying the version of echoserver to use.
 
 ### ExecutionLogOptions <a name="ExecutionLogOptions" id="cdk-extensions.lambda.ExecutionLogOptions"></a>
 
+Options for configuring logging from an executing state machine.
+
 #### Initializer <a name="Initializer" id="cdk-extensions.lambda.ExecutionLogOptions.Initializer"></a>
 
 ```typescript
@@ -28252,11 +28292,11 @@ const executionLogOptions: lambda.ExecutionLogOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.includeExecutionData">includeExecutionData</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.level">level</a></code> | <code>aws-cdk-lib.aws_stepfunctions.LogLevel</code> | *No description.* |
-| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.enabled">enabled</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | *No description.* |
-| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.retention">retention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.includeExecutionData">includeExecutionData</a></code> | <code>boolean</code> | Determines whether execution data is included in your log. |
+| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.level">level</a></code> | <code>aws-cdk-lib.aws_stepfunctions.LogLevel</code> | Defines which category of execution history events are logged. |
+| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.enabled">enabled</a></code> | <code>boolean</code> | Controls whether logging from the state machine is enabled. |
+| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | Specifies a log group which will receive execution events from the state machine. |
+| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.retention">retention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | The number of days execution logging events should be retained before being deleted. |
 
 ---
 
@@ -28267,6 +28307,14 @@ public readonly includeExecutionData: boolean;
 ```
 
 - *Type:* boolean
+- *Default:* true
+
+Determines whether execution data is included in your log.
+
+When set to
+`false`, data is excluded.
+
+> [[StateMachine LoggingConfiguration.IncludeExecutionData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-includeexecutiondata)]([StateMachine LoggingConfiguration.IncludeExecutionData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-includeexecutiondata))
 
 ---
 
@@ -28277,6 +28325,11 @@ public readonly level: LogLevel;
 ```
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.LogLevel
+- *Default:* LogLevel.ALL
+
+Defines which category of execution history events are logged.
+
+> [[StateMachine LoggingConfiguration.Level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level)]([StateMachine LoggingConfiguration.Level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level))
 
 ---
 
@@ -28287,6 +28340,11 @@ public readonly enabled: boolean;
 ```
 
 - *Type:* boolean
+- *Default:* true
+
+Controls whether logging from the state machine is enabled.
+
+> [[StateMachine LoggingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration)]([StateMachine LoggingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration))
 
 ---
 
@@ -28298,6 +28356,13 @@ public readonly logGroup: ILogGroup;
 
 - *Type:* aws-cdk-lib.aws_logs.ILogGroup
 
+Specifies a log group which will receive execution events from the state machine.
+
+If no log group is passed and loggin is enabled, a log group will be
+created automatically.
+
+> [[StateMachine LoggingConfiguration.Destinations.CloudWatchLogsLogGroup.LogGroupArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn)]([StateMachine LoggingConfiguration.Destinations.CloudWatchLogsLogGroup.LogGroupArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn))
+
 ---
 
 ##### `retention`<sup>Optional</sup> <a name="retention" id="cdk-extensions.lambda.ExecutionLogOptions.property.retention"></a>
@@ -28307,6 +28372,12 @@ public readonly retention: RetentionDays;
 ```
 
 - *Type:* aws-cdk-lib.aws_logs.RetentionDays
+
+The number of days execution logging events should be retained before being deleted.
+
+This value is ignored if `logGroup` is passed.
+
+> [[LogGroup RetentionInDays](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays)]([LogGroup RetentionInDays](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays))
 
 ---
 
@@ -34337,6 +34408,8 @@ public readonly prefix: string;
 
 ### LogRetentionControllerProps <a name="LogRetentionControllerProps" id="cdk-extensions.lambda.LogRetentionControllerProps"></a>
 
+Configuration for the LogRetentionController resource.
+
 #### Initializer <a name="Initializer" id="cdk-extensions.lambda.LogRetentionControllerProps.Initializer"></a>
 
 ```typescript
@@ -34353,8 +34426,8 @@ const logRetentionControllerProps: lambda.LogRetentionControllerProps = { ... }
 | <code><a href="#cdk-extensions.lambda.LogRetentionControllerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.lambda.LogRetentionControllerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.lambda.LogRetentionControllerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.lambda.LogRetentionControllerProps.property.executionLogging">executionLogging</a></code> | <code>cdk-extensions.lambda.ExecutionLogOptions</code> | *No description.* |
-| <code><a href="#cdk-extensions.lambda.LogRetentionControllerProps.property.retention">retention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.LogRetentionControllerProps.property.executionLogging">executionLogging</a></code> | <code>cdk-extensions.lambda.ExecutionLogOptions</code> | Execution logging configuration for the state machine that is used to configure log retention for log groups created via AWS Lambda. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionControllerProps.property.retention">retention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | The length of time logs sent to log groups created by AWS Lambda should be retained before being deleted. |
 
 ---
 
@@ -34429,6 +34502,10 @@ public readonly executionLogging: ExecutionLogOptions;
 
 - *Type:* cdk-extensions.lambda.ExecutionLogOptions
 
+Execution logging configuration for the state machine that is used to configure log retention for log groups created via AWS Lambda.
+
+> [[StateMachine LoggingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration)]([StateMachine LoggingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration))
+
 ---
 
 ##### `retention`<sup>Optional</sup> <a name="retention" id="cdk-extensions.lambda.LogRetentionControllerProps.property.retention"></a>
@@ -34438,6 +34515,10 @@ public readonly retention: RetentionDays;
 ```
 
 - *Type:* aws-cdk-lib.aws_logs.RetentionDays
+
+The length of time logs sent to log groups created by AWS Lambda should be retained before being deleted.
+
+> [[LogGroup RetentionInDays](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays)]([LogGroup RetentionInDays](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays))
 
 ---
 
