@@ -101,7 +101,7 @@ export class NamedQuery extends Resource {
   /**
      * Creates a new instance of the NamedQuery class.
      *
-     * @param scope A CDK Construct that will serve as this stack's parent in
+     * @param scope A CDK Construct that will serve as this resource's parent in
      * the construct tree.
      * @param id A name to be associated with the stack and used in resource
      * naming. Must be unique within the context of 'scope'.
