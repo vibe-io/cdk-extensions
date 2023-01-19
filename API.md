@@ -13408,6 +13408,250 @@ public readonly workerType: WorkerType;
 ---
 
 
+### LogRetentionController <a name="LogRetentionController" id="cdk-extensions.lambda.LogRetentionController"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.lambda.LogRetentionController.Initializer"></a>
+
+```typescript
+import { lambda } from 'cdk-extensions'
+
+new lambda.LogRetentionController(scope: IConstruct, id: string, props?: LogRetentionControllerProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.lambda.LogRetentionControllerProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.lambda.LogRetentionController.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.lambda.LogRetentionController.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.lambda.LogRetentionController.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.lambda.LogRetentionControllerProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.lambda.LogRetentionController.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.lambda.LogRetentionController.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.lambda.LogRetentionController.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.lambda.LogRetentionController.isConstruct"></a>
+
+```typescript
+import { lambda } from 'cdk-extensions'
+
+lambda.LogRetentionController.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.lambda.LogRetentionController.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.lambda.LogRetentionController.isOwnedResource"></a>
+
+```typescript
+import { lambda } from 'cdk-extensions'
+
+lambda.LogRetentionController.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.lambda.LogRetentionController.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.lambda.LogRetentionController.isResource"></a>
+
+```typescript
+import { lambda } from 'cdk-extensions'
+
+lambda.LogRetentionController.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.lambda.LogRetentionController.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.logGroupCreatedRule">logGroupCreatedRule</a></code> | <code>aws-cdk-lib.aws_events.Rule</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.retention">retention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.stateMachine">stateMachine</a></code> | <code>aws-cdk-lib.aws_stepfunctions.StateMachine</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.executionLogging">executionLogging</a></code> | <code>cdk-extensions.lambda.ExecutionLogOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.LogRetentionController.property.executionLogGroup">executionLogGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.lambda.LogRetentionController.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.lambda.LogRetentionController.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.lambda.LogRetentionController.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `logGroupCreatedRule`<sup>Required</sup> <a name="logGroupCreatedRule" id="cdk-extensions.lambda.LogRetentionController.property.logGroupCreatedRule"></a>
+
+```typescript
+public readonly logGroupCreatedRule: Rule;
+```
+
+- *Type:* aws-cdk-lib.aws_events.Rule
+
+---
+
+##### `retention`<sup>Required</sup> <a name="retention" id="cdk-extensions.lambda.LogRetentionController.property.retention"></a>
+
+```typescript
+public readonly retention: RetentionDays;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.RetentionDays
+
+---
+
+##### `stateMachine`<sup>Required</sup> <a name="stateMachine" id="cdk-extensions.lambda.LogRetentionController.property.stateMachine"></a>
+
+```typescript
+public readonly stateMachine: StateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+---
+
+##### `executionLogging`<sup>Optional</sup> <a name="executionLogging" id="cdk-extensions.lambda.LogRetentionController.property.executionLogging"></a>
+
+```typescript
+public readonly executionLogging: ExecutionLogOptions;
+```
+
+- *Type:* cdk-extensions.lambda.ExecutionLogOptions
+
+---
+
+##### `executionLogGroup`<sup>Optional</sup> <a name="executionLogGroup" id="cdk-extensions.lambda.LogRetentionController.property.executionLogGroup"></a>
+
+```typescript
+public readonly executionLogGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+---
+
+
 ### NamedQuery <a name="NamedQuery" id="cdk-extensions.athena.NamedQuery"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.athena.NamedQuery.Initializer"></a>
@@ -27994,6 +28238,78 @@ The Docker tag specifying the version of echoserver to use.
 
 ---
 
+### ExecutionLogOptions <a name="ExecutionLogOptions" id="cdk-extensions.lambda.ExecutionLogOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.lambda.ExecutionLogOptions.Initializer"></a>
+
+```typescript
+import { lambda } from 'cdk-extensions'
+
+const executionLogOptions: lambda.ExecutionLogOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.includeExecutionData">includeExecutionData</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.level">level</a></code> | <code>aws-cdk-lib.aws_stepfunctions.LogLevel</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.enabled">enabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.ExecutionLogOptions.property.retention">retention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | *No description.* |
+
+---
+
+##### `includeExecutionData`<sup>Required</sup> <a name="includeExecutionData" id="cdk-extensions.lambda.ExecutionLogOptions.property.includeExecutionData"></a>
+
+```typescript
+public readonly includeExecutionData: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `level`<sup>Required</sup> <a name="level" id="cdk-extensions.lambda.ExecutionLogOptions.property.level"></a>
+
+```typescript
+public readonly level: LogLevel;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.LogLevel
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.lambda.ExecutionLogOptions.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.lambda.ExecutionLogOptions.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+---
+
+##### `retention`<sup>Optional</sup> <a name="retention" id="cdk-extensions.lambda.ExecutionLogOptions.property.retention"></a>
+
+```typescript
+public readonly retention: RetentionDays;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.RetentionDays
+
+---
+
 ### ExtendedS3DestinationOptions <a name="ExtendedS3DestinationOptions" id="cdk-extensions.kinesis_firehose.ExtendedS3DestinationOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.ExtendedS3DestinationOptions.Initializer"></a>
@@ -34016,6 +34332,112 @@ public readonly prefix: string;
 ```
 
 - *Type:* string
+
+---
+
+### LogRetentionControllerProps <a name="LogRetentionControllerProps" id="cdk-extensions.lambda.LogRetentionControllerProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.lambda.LogRetentionControllerProps.Initializer"></a>
+
+```typescript
+import { lambda } from 'cdk-extensions'
+
+const logRetentionControllerProps: lambda.LogRetentionControllerProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.lambda.LogRetentionControllerProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionControllerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionControllerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionControllerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.lambda.LogRetentionControllerProps.property.executionLogging">executionLogging</a></code> | <code>cdk-extensions.lambda.ExecutionLogOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.lambda.LogRetentionControllerProps.property.retention">retention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.lambda.LogRetentionControllerProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.lambda.LogRetentionControllerProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.lambda.LogRetentionControllerProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.lambda.LogRetentionControllerProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `executionLogging`<sup>Optional</sup> <a name="executionLogging" id="cdk-extensions.lambda.LogRetentionControllerProps.property.executionLogging"></a>
+
+```typescript
+public readonly executionLogging: ExecutionLogOptions;
+```
+
+- *Type:* cdk-extensions.lambda.ExecutionLogOptions
+
+---
+
+##### `retention`<sup>Optional</sup> <a name="retention" id="cdk-extensions.lambda.LogRetentionControllerProps.property.retention"></a>
+
+```typescript
+public readonly retention: RetentionDays;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.RetentionDays
 
 ---
 
