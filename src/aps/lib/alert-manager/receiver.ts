@@ -76,12 +76,28 @@ export class AlertManagerReceiver extends Construct {
     });
   }
 
-
+  /**
+   * Adds a new generic destination that should receive alerts that have been
+   * routed to this receiver.
+   *
+   * @param destination The destination where alerts routed to this receiver
+   * should be sent.
+   * @returns The receiver where the destination was added.
+   */
   public addDestination(destination: IAlertManagerDestination): AlertManagerReceiver {
     this._destinations.push(destination);
     return this;
   }
 
+  /**
+   * Adds a new SNS destination that should receive alerts that have been
+   * routed to this receiver.
+   *
+   * @param topic The SNS topic where alerts should be sent.
+   * @param options Options configuring how alerts should be sent to the SNS
+   * topic.
+   * @returns The SnsDestination object that was added to the receiver.
+   */
   public addSnsTopic(topic: ITopic, options?: AlertManagerSnsDestinationOptions): AlertManagerSnsDestination {
     const destination = AlertManagerDestination.snsTopic(topic, options);
     this.addDestination(destination);

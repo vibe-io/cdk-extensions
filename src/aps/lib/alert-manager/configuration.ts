@@ -285,11 +285,15 @@ export class AlertManagerConfiguration extends AlertManagerConfigurationBase {
    * @param templates The templates referenced by the imported configuration.
    * @returns An object that can be used to configure alert manager for APS.
    */
-  public static fromSplitConfigurationContent(scope: IConstruct, id: string, content: string, templates?: AlertManagerTemplate[]): IAlertManagerConfiguration {
+  public static fromSplitConfigurationContent(
+    scope: IConstruct,
+    id: string, content: string,
+    templates?: AlertManagerTemplate[],
+  ): IAlertManagerConfiguration {
     class Import extends AlertManagerConfigurationBase {
-      public bind(scope: IConstruct): AlertManagerConfigurationDetails {
+      public bind(bindScope: IConstruct): AlertManagerConfigurationDetails {
         return {
-          contents: Stack.of(scope).toJsonString({
+          contents: Stack.of(bindScope).toJsonString({
             alertmanager_config: content,
             template_files: this.templates.reduce((prev, cur) => {
               prev[cur.name] = cur.content;
@@ -333,7 +337,12 @@ export class AlertManagerConfiguration extends AlertManagerConfigurationBase {
    * @param templates The templates referenced by the imported configuration.
    * @returns An object that can be used to configure alert manager for APS.
    */
-  public static fromSplitConfigurationFiles(scope: IConstruct, id: string, path: string, templates?: AlertManagerTemplate[]): IAlertManagerConfiguration {
+  public static fromSplitConfigurationFiles(
+    scope: IConstruct,
+    id: string,
+    path: string,
+    templates?: AlertManagerTemplate[],
+  ): IAlertManagerConfiguration {
     const data = readFileSync(path, {
       encoding: 'utf8',
       flag: 'r',

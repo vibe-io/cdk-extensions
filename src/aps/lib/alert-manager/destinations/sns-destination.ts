@@ -51,6 +51,12 @@ export interface AlertManagerSnsDestinationProps extends AlertManagerSnsDestinat
   readonly topic: ITopic;
 }
 
+/**
+ * An alert manager destination that provides details for sending alert
+ * notifications to an Amazon SNS topic.
+ *
+ * @see [Alert manager SNS configuration](https://prometheus.io/docs/alerting/latest/configuration/#sns_config)
+ */
 export class AlertManagerSnsDestination implements IAlertManagerDestination {
   /**
 	 * Internal collection of attributes to be applied to SNS messages.

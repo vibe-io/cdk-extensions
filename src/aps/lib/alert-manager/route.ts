@@ -284,6 +284,13 @@ export class AlertManagerRoute extends Construct {
    * @returns The route where the interval was associated.
    */
   public addActiveTimeInterval(interval: TimeInterval): AlertManagerRoute {
+    if (this.node.scope instanceof AlertManagerConfiguration) {
+      throw new Error([
+        'Cannot add an active time interval to the default route of an alert',
+        'manager configuration.',
+      ].join(' '));
+    }
+
     this._activeTimeIntervals.push(interval);
     return this;
   }
@@ -335,6 +342,13 @@ export class AlertManagerRoute extends Construct {
    * @returns
    */
   public addMuteTimeInterval(interval: TimeInterval): AlertManagerRoute {
+    if (this.node.scope instanceof AlertManagerConfiguration) {
+      throw new Error([
+        'Cannot add a mute time interval to the default route of an alert',
+        'manager configuration.',
+      ].join(' '));
+    }
+
     this._muteTimeIntervals.push(interval);
     return this;
   }

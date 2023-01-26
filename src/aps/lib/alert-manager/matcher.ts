@@ -1,23 +1,38 @@
-
+/**
+ * The logical operator an alert manager matcher should use when evaluating
+ * filters for labels.
+ */
 export enum MatchOperator {
+  /**
+   * Evaluate an alert manager filter on the basis that the label matches the
+   * string it is being compared against.
+   */
   EQUALS = '=',
+
+  /**
+   * Evaluate an alert manager filter on the basis that the label does not
+   * match the string it is being compared against.
+   */
   NOT_EQUALS = '!=',
+
+  /**
+   * Evaluate an alert manager filter on the basis that the label matches the
+   * regular expression it is being compared against.
+   */
   RE_EQUALS = '=~',
+
+  /**
+   * Evaluate an alert manager filter on the basis that the label does not
+   * match the regular expression it is being compared against.
+   */
   RE_NOT_EQUALS = '!~'
 }
 
+/**
+ * An expression that alert manager can use to evaluate incoming alerts to
+ * determine the actions it should take.
+ */
 export class AlertManagerMatcher {
-  /**
-   * Escapes a string to be compatible with the PromQL like syntax used by
-   * alert manager matcher expressions.
-   *
-   * @param value The string to be escaped.
-   * @returns The escaped version of the string.
-   */
-  private static escapePromQl(value: string): string {
-    return value.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n');
-  }
-
   /**
    * Creates a compund matcher expression by joining one or more other matcher
    * objects.
@@ -68,6 +83,17 @@ export class AlertManagerMatcher {
    */
   public static fromString(expression: string): AlertManagerMatcher {
     return new AlertManagerMatcher(expression);
+  }
+
+  /**
+   * Escapes a string to be compatible with the PromQL like syntax used by
+   * alert manager matcher expressions.
+   *
+   * @param value The string to be escaped.
+   * @returns The escaped version of the string.
+   */
+  private static escapePromQl(value: string): string {
+    return value.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n');
   }
 
 

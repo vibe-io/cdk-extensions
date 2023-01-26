@@ -117,16 +117,37 @@ export class AlertManagerInhibitRule extends Construct {
     });
   }
 
+  /**
+   * Adds a label that must be equal for both matched source and target alerts
+   * in order for the inhibition to take effect.
+   *
+   * @param label The label to add.
+   * @returns The inhibit rule to which the label was added.
+   */
   public addEqualLabel(label: string): AlertManagerInhibitRule {
     this._equalLabels.push(label);
     return this;
   }
 
+  /**
+   * Adds a matcher for which one or more alerts have to exist in order for
+   * inhibition to take effect.
+   *
+   * @param matcher The source matcher to add.
+   * @returns The inhibit rule to which the matcher was added.
+   */
   public addSourceMatcher(matcher: AlertManagerMatcher): AlertManagerInhibitRule {
     this._sourceMatchers.push(matcher);
     return this;
   }
 
+  /**
+   * Adds a matcher that has to be fulfilled by a target alert in order to be
+   * muted.
+   *
+   * @param matcher The target matcher to add.
+   * @returns The inhibit rule to which the matcher was added.
+   */
   public addTargetMatcher(matcher: AlertManagerMatcher): AlertManagerInhibitRule {
     this._targetMatchers.push(matcher);
     return this;
