@@ -1,5 +1,5 @@
-import { IVpc, IVpnGateway } from 'aws-cdk-lib/aws-ec2';
-import { ITransitGateway } from '../..';
+import { IVpnGateway } from 'aws-cdk-lib/aws-ec2';
+import { ITransitGateway } from '../../transit-gateway';
 import { TransitGatewayLocalVpnEndpoint } from './transit-gateway';
 import { VpnGatewayLocalVpnEndpoint } from './vpn-gateway';
 

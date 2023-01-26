@@ -1,8 +1,8 @@
-import { Annotations, Duration, Lazy, RemovalPolicy, Resource, ResourceProps } from 'aws-cdk-lib';
+import { Annotations, Arn, ArnFormat, Duration, Lazy, RemovalPolicy, Resource, ResourceProps, Stack } from 'aws-cdk-lib';
 import { CfnJob } from 'aws-cdk-lib/aws-glue';
 import { IRole, ManagedPolicy, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { ILogGroup, LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
-import { Construct } from 'constructs';
+import { Construct, IConstruct } from 'constructs';
 import { undefinedIfNoKeys } from '../utils/formatting';
 import { Connection } from './connection';
 import { Code } from './lib/code';
@@ -10,6 +10,33 @@ import { JobExecutable } from './lib/job-executable';
 import { WorkerType } from './lib/worker-type';
 import { SecurityConfiguration } from './security-configuration';
 
+
+/**
+ * Represnets a Glue Job in AWS.
+ */
+export interface IJob extends IConstruct {
+  /**
+   * The Amazon Resource Name (ARN) of the job.
+   */
+  readonly jobArn: string;
+
+  /**
+    * The name of the job.
+    */
+  readonly jobName: string;
+}
+
+abstract class JobBase extends Resource implements IJob {
+  /**
+   * The Amazon Resource Name (ARN) of the job.
+   */
+  public abstract readonly jobArn: string;
+
+  /**
+   * The name of the job.
+   */
+  public abstract readonly jobName: string;
+}
 
 export interface ContinuousLoggingProps {
   /**
@@ -155,7 +182,44 @@ export interface JobProps extends ResourceProps {
  * @see [AWS::Glue::Job](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html)
  */
 
-export class Job extends Resource {
+export class Job extends JobBase {
+  /**
+   * Imports an existing job using its Amazon Resource Name (ARN).
+   *
+   * @param scope A CDK Construct that will serve as this resource's parent in
+   * the construct tree.
+   * @param id A name to be associated with the stack and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param jobArn The ARN of the job to import.
+   * @returns An object representing the job that was imported.
+   */
+  public static fromJobArn(scope: IConstruct, id: string, jobArn: string): IJob {
+    class Import extends JobBase {
+      public readonly jobArn: string = jobArn;
+      public readonly jobName: string = Arn.split(jobArn, ArnFormat.SLASH_RESOURCE_NAME).resourceName!;
+    }
+
+    return new Import(scope, id);
+  }
+
+  /**
+   * Imports an existing job using its name.
+   *
+   * @param scope A CDK Construct that will serve as this resource's parent in
+   * the construct tree.
+   * @param id A name to be associated with the stack and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param jobName The name of the job to import.
+   * @returns An object representing the job that was imported.
+   */
+  public static fromJobName(scope: IConstruct, id: string, jobName: string): IJob {
+    return Job.fromJobArn(scope, id, Stack.of(scope).formatArn({
+      resource: 'job',
+      resourceName: jobName,
+      service: 'glue',
+    }));
+  }
+
   // Internal properties
   private readonly _arguments: {[key: string]: string} = {};
   private readonly _connections: Connection[] = [];

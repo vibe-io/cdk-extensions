@@ -1,7 +1,9 @@
 import { Resource, ResourceProps, Tags } from 'aws-cdk-lib';
 import { IVpc, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
-import { ITransitGateway, ITransitGatewayRoute, ITransitGatewayRouteTable } from '.';
+import { ITransitGateway } from './transit-gateway';
+import { ITransitGatewayRoute } from './transit-gateway-route';
+import { ITransitGatewayRouteTable } from './transit-gateway-route-table';
 
 
 /**

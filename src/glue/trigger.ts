@@ -1,7 +1,7 @@
-import { Lazy, Resource, ResourceProps } from 'aws-cdk-lib';
+import { Arn, ArnFormat, Lazy, Resource, ResourceProps, Stack } from 'aws-cdk-lib';
 import { Schedule } from 'aws-cdk-lib/aws-events';
 import { CfnTrigger } from 'aws-cdk-lib/aws-glue';
-import { Construct } from 'constructs';
+import { Construct, IConstruct } from 'constructs';
 import { Workflow } from './workflow';
 
 
@@ -17,117 +17,262 @@ export enum TriggerType {
   SCHEDULED = 'SCHEDULED'
 }
 
+/**
+ * Represents an action that should be taken when a trigger is executed.
+ */
 export interface ITriggerAction {
-  bind(trigger: Trigger): CfnTrigger.ActionProperty;
-}
-
-export interface ITriggerPredicate {
-  bind(trigger: Trigger): CfnTrigger.ConditionProperty;
+  bind(scope: IConstruct): CfnTrigger.ActionProperty;
 }
 
 /**
- * Configuration for the Glue Trigger resource.
+ * Represents a precondition that must be satisfied in order for a trigger to
+ * be executed.
+ */
+export interface ITriggerPredicate {
+  bind(scope: IConstruct): CfnTrigger.ConditionProperty;
+}
+
+/**
+ * Represents a Glue Trigger in AWS.
+ */
+export interface ITrigger extends IConstruct {
+  /**
+   * The Amazon Resource Name (ARN) of the trigger.
+   */
+  readonly triggerArn: string;
+
+  /**
+    * The name of the trigger.
+    */
+  readonly triggerName: string;
+}
+
+abstract class TriggerBase extends Resource implements ITrigger {
+  /**
+   * The Amazon Resource Name (ARN) of the trigger.
+   */
+  public abstract readonly triggerArn: string;
+
+  /**
+   * The name of the trigger.
+   */
+  public abstract readonly triggerName: string;
+}
+
+/**
+ * Configuration for the GlueTrigger resource.
  */
 export interface TriggerProps extends ResourceProps {
   /**
    * A list of actions initiated by this trigger.
    *
-   * @see [AWS::Glue::Trigger Action](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html)
+   * @see [Trigger Actions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-actions)
    */
   readonly actions?: ITriggerAction[];
+
   /**
-   * A description for the Trigger
+   * A description for the trigger.
+   *
+   * @see [Trigger Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-description)
    */
   readonly description?: string;
+
   /**
-   * A name for the Trigger
+   * A name for the trigger.
+   *
+   * @see [Trigger Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-name)
    */
   readonly name?: string;
+
   /**
-   * A list of conditions predicating the trigger, determining when it will fire
+   * A list of the conditions that determine when the trigger will fire.
    *
-   * @see [AWS::Glue::Trigger Predicate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html)
+   * @see [Trigger Predicate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html)
    */
   readonly predicateConditions?: ITriggerPredicate[];
+
   /**
-   * Operator for chaining predicate conditions (AND/OR)
+   * Operator for chaining predicate conditions if multiple are given.
+   *
+   * @see [Trigger Predicate.Logical](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical)
    */
   readonly predicateOperator?: PredicateOperator;
+
   /**
    * A cron expression used to specify the schedule.
    *
-   * @see [AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-schedule)
+   * @see [Trigger Schedule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-schedule)
+   * @see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
    */
   readonly schedule?: Schedule;
+
   /**
-   * Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
+   * Set to true to start SCHEDULED and CONDITIONAL triggers when created. True
+   * is not supported for ON_DEMAND triggers.
    *
-   * @see [AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation)
+   * @see [Trigger StartOnCreation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation)
    */
   readonly startOnCreation?: boolean;
+
   /**
    * The type of trigger that this is.
    *
-   * @see [AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type)
+   * @see [Trigger Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type)
    */
   readonly type: TriggerType;
+
   /**
-   * Workflow object the Trigger should be attached to
+   * The name of the workflow associated with the trigger.
+   *
+   * @see [Trigger WorkflowName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-workflowname)
    */
   readonly workflow?: Workflow;
 }
 
-export class Trigger extends Resource {
-  // Internal properties
+export class Trigger extends TriggerBase {
+  /**
+   * Imports an existing trigger using its Amazon Resource Name (ARN).
+   *
+   * @param scope A CDK Construct that will serve as this resource's parent in
+   * the construct tree.
+   * @param id A name to be associated with the stack and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param triggerArn The ARN of the trigger to import.
+   * @returns An object representing the trigger that was imported.
+   */
+  public static fromTriggerArn(scope: IConstruct, id: string, triggerArn: string): ITrigger {
+    class Import extends TriggerBase {
+      public readonly triggerArn: string = triggerArn;
+      public readonly triggerName: string = Arn.split(triggerArn, ArnFormat.SLASH_RESOURCE_NAME).resourceName!;
+    }
+
+    return new Import(scope, id);
+  }
+
+  /**
+   * Imports an existing trigger using its name.
+   *
+   * @param scope A CDK Construct that will serve as this resource's parent in
+   * the construct tree.
+   * @param id A name to be associated with the stack and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param triggerName The name of the trigger to import.
+   * @returns An object representing the trigger that was imported.
+   */
+  public static fromTriggerName(scope: IConstruct, id: string, triggerName: string): ITrigger {
+    return Trigger.fromTriggerArn(scope, id, Stack.of(scope).formatArn({
+      resource: 'trigger',
+      resourceName: triggerName,
+      service: 'glue',
+    }));
+  }
+
+  /**
+   * Internal collection tracking the actions which should be run by this
+   * trigger.
+   */
   private readonly _actions: ITriggerAction[] = [];
+
+  /**
+   * Internal collection tracking the predicates that serve as preconditions
+   * for when this trigger should run.
+   */
   private readonly _predicates: ITriggerPredicate[] = [];
 
-  // Input properties
   /**
-    * {@link TriggerProps.description}
-    */
+   * A description for the trigger.
+   *
+   * @see [Trigger Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-description)
+   *
+   * @group Inputs
+   */
   public readonly description?: string;
+
   /**
-    * {@link TriggerProps.name}
-    */
+   * A name for the trigger.
+   *
+   * @see [Trigger Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-name)
+   *
+   * @group Inputs
+   */
   public readonly name?: string;
+
   /**
-    * {@link TriggerProps.predicateOperator:}
-    */
+   * Operator for chaining predicate conditions if multiple are given.
+   *
+   * @see [Trigger Predicate.Logical](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical)
+   *
+   * @group Inputs
+   */
   public readonly predicateOperator: PredicateOperator;
+
   /**
-    * {@link TriggerProps.schedule}
-    */
+   * A cron expression used to specify the schedule.
+   *
+   * @see [Trigger Schedule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-schedule)
+   * @see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+   *
+   * @group Inputs
+   */
   public readonly schedule?: Schedule;
+
   /**
-    * {@link TriggerProps.startOnCreation}
-    */
+   * Set to true to start SCHEDULED and CONDITIONAL triggers when created. True
+   * is not supported for ON_DEMAND triggers.
+   *
+   * @see [Trigger StartOnCreation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-startoncreation)
+   *
+   * @group Inputs
+   */
   public readonly startOnCreation?: boolean;
+
   /**
-    * {@link TriggerProps.type:}
-    */
+   * The type of trigger that this is.
+   *
+   * @see [Trigger Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type)
+   *
+   * @group Inputs
+   */
   public readonly type: TriggerType;
+
   /**
-    * {@link TriggerProps.workflow}
-    */
+   * The name of the workflow associated with the trigger.
+   *
+   * @see [Trigger WorkflowName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-workflowname)
+   *
+   * @group Inputs
+   */
   public readonly workflow?: Workflow;
 
-  // Resource properties
+  /**
+   * The underlying Trigger CloudFormation resource.
+   *
+   * @see [AWS::Glue::Trigger](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html)
+   *
+   * @group Resources
+   */
   public readonly resource: CfnTrigger;
 
-  // Standard properties
-  public readonly workflowArn: string;
-  public readonly workflowName: string;
+  /**
+   * The Amazon Resource Name (ARN) of the trigger.
+   */
+  public readonly triggerArn: string;
 
   /**
-     * Creates a new instance of the Trigger class.
-     *
-     * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
-     * @param id A name to be associated with the stack and used in resource naming. Must be unique
-     * within the context of 'scope'.
-     * @param props Arguments related to the configuration of the resource.
-     */
-  constructor(scope: Construct, id: string, props: TriggerProps) {
+   * The name of the trigger.
+   */
+  public readonly triggerName: string;
+
+  /**
+   * Creates a new instance of the Trigger class.
+   *
+   * @param scope A CDK Construct that will serve as this resource's parent in
+   * the construct tree.
+   * @param id A name to be associated with the stack and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param props Arguments related to the configuration of the resource.
+   */
+  public constructor(scope: Construct, id: string, props: TriggerProps) {
     super(scope, id, props);
 
     this.description = props.description;
@@ -177,19 +322,33 @@ export class Trigger extends Resource {
       workflowName: this.workflow?.workflowName,
     });
 
-    this.workflowArn = this.stack.formatArn({
-      resource: 'table',
+    this.triggerArn = this.stack.formatArn({
+      resource: 'trigger',
       resourceName: this.resource.ref,
       service: 'glue',
     });
-    this.workflowName = this.resource.ref;
+    this.triggerName = this.resource.ref;
   }
 
+  /**
+   * Registers an action with the trigger. All actions associated with the
+   * trigger are run when the conditions to trigger the trigger are met.
+   *
+   * @param action The action to be run by this trigger.
+   * @returns The trigger to which the action was added.
+   */
   public addAction(action: ITriggerAction): Trigger {
     this._actions.push(action);
     return this;
   }
 
+  /**
+   * Registers a predicate with the trigger. Triggers with predicates must meet
+   * the conditions they specify in order to run.
+   *
+   * @param predicate The predicate to be added to the trigger.
+   * @returns The trigger to which the predicate was added.
+   */
   public addPredicate(predicate: ITriggerPredicate): Trigger {
     this._predicates.push(predicate);
     return this;

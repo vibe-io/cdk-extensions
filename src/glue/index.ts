@@ -22,6 +22,11 @@ export * from './database';
 /**
  * @category Constructs
  */
+export * from './jdbc-connection';
+
+/**
+ * @category Constructs
+ */
 export * from './job';
 
 /**

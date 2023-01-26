@@ -1,4 +1,6 @@
 export * from './targets';
+export * from './workflow-actions';
+export * from './workflow-predicates';
 
 export * from './code';
 export * from './column';
