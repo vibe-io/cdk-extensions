@@ -24,7 +24,7 @@ export interface AlertManagerRouteProps {
   /**
    * Optional child routes to add to the node.
    */
-  readonly children?: AlertManagerRoute[];
+  readonly children?: AlertManagerRouteProps[];
 
   /**
    * Whether an alert should continue matching subsequent sibling nodes.
@@ -251,11 +251,11 @@ export class AlertManagerRoute extends Construct {
     this.repeatInterval = options.repeatInterval;
 
     options.activeTimeIntervals?.forEach((x) => {
-      this.addMuteTimeInterval(x);
+      this.addActiveTimeInterval(x);
     });
 
-    options.children?.forEach((x) => {
-      this.addChild(x);
+    options.children?.forEach((x, idx) => {
+      this.addChild(`${idx + 1}`, x);
     });
 
     options.groupByLabels?.forEach((x) => {
@@ -298,12 +298,15 @@ export class AlertManagerRoute extends Construct {
   /**
    * Adds a new child route to this node.
    *
-   * @param child The child node to associate.
-   * @returns The route where the child was associated.
+   * @param id A name to be associated with the stack and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param options The configuration options for the child route.
+   * @returns The child route that was added.
    */
-  public addChild(child: AlertManagerRoute): AlertManagerRoute {
+  public addChild(id: string, options: AlertManagerRouteProps): AlertManagerRoute {
+    const child = new AlertManagerRoute(this, `child-${id}`, options);
     this._children.push(child);
-    return this;
+    return child;
   }
 
   /**
@@ -386,7 +389,7 @@ export class AlertManagerRoute extends Construct {
           omitEmpty: true,
         },
       ),
-      group_intervalL: this.groupInterval ? `${this.groupInterval.toSeconds()}s` : undefined,
+      group_interval: this.groupInterval ? `${this.groupInterval.toSeconds()}s` : undefined,
       group_wait: this.groupWait ? `${this.groupWait.toSeconds()}s` : undefined,
       matchers: Lazy.list(
         {

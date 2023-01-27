@@ -1,4 +1,4 @@
-import { Lazy } from 'aws-cdk-lib';
+import { Lazy, Names } from 'aws-cdk-lib';
 import { Construct, IConstruct } from 'constructs';
 import { AlertManagerConfiguration } from './configuration';
 import { TimeIntervalEntry } from './time-interval-entry';
@@ -18,7 +18,7 @@ export interface TimeIntervalProps {
    * The name of the time interval as it will be referenced throught the rest
    * of the alert manager configuration.
    */
-  readonly name: string;
+  readonly name?: string;
 }
 
 /**
@@ -68,7 +68,7 @@ export class TimeInterval extends Construct {
 
     this._intervals = [];
 
-    this.name = options.name;
+    this.name = options.name ?? Names.uniqueId(this);
 
     options.intervals?.forEach((x) => {
       this.addInterval(x);
@@ -79,11 +79,11 @@ export class TimeInterval extends Construct {
    * Adds a new time interval entry to the time interval.
    *
    * @param interval The the time interval entry to be added.
-   * @returns The time interval to which the entry was added.
+   * @returns The time interval which was added.
    */
-  public addInterval(interval: TimeIntervalEntry): TimeInterval {
+  public addInterval(interval: TimeIntervalEntry): TimeIntervalEntry {
     this._intervals.push(interval);
-    return this;
+    return interval;
   }
 
   /**
@@ -97,7 +97,7 @@ export class TimeInterval extends Construct {
   public bind(scope: IConstruct): { [key: string]: any } {
     return {
       name: this.name,
-      time_interval: Lazy.any(
+      time_intervals: Lazy.any(
         {
           produce: () => {
             return this._intervals.map((x) => {

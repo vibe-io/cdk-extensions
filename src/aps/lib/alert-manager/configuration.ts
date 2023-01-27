@@ -503,7 +503,7 @@ export class AlertManagerConfiguration extends AlertManagerConfigurationBase {
    * @param options Details for the receiver being created.
    * @returns The receiver that was added to the configuration.
    */
-  public addReciever(id: string, options: AlertManagerReceiverProps): AlertManagerReceiver {
+  public addReciever(id: string, options: AlertManagerReceiverProps = {}): AlertManagerReceiver {
     return new AlertManagerReceiver(this, `receiver-${id}`, options);
   }
 
@@ -519,7 +519,7 @@ export class AlertManagerConfiguration extends AlertManagerConfigurationBase {
    * @param options Details for the time interval being created.
    * @returns The time interval that was added to the configuration.
    */
-  public addTimeInterval(id: string, options: TimeIntervalProps): TimeInterval {
+  public addTimeInterval(id: string, options: TimeIntervalProps = {}): TimeInterval {
     return new TimeInterval(this, `time-interval-${id}`, options);
   }
 
@@ -535,30 +535,63 @@ export class AlertManagerConfiguration extends AlertManagerConfigurationBase {
     return {
       contents: Lazy.string({
         produce: () => {
+          const stack = Stack.of(this);
           if (this.defaultReceiver.destinations.length === 0) {
             this.defaultReceiver.addSnsTopic(this.defaultTopic);
           }
 
-          return Stack.of(this).toJsonString({
-            alertmanager_config: {
-              inhibit_rules: this.inhibitRules.map((x) => {
-                return x.bind(scope);
-              }),
-              receivers: this.receivers.map((x) => {
-                return x.bind(scope);
-              }),
-              route: this.defaultRoute.bind(scope),
-              time_intervals: this.timeIntervals.map((x) => {
-                return x.bind(scope);
-              }),
-            },
-            template_files: this.templates.reduce((prev, cur) => {
-              prev[cur.name] = cur.content;
-              return prev;
-            }, {} as { [key: string]: string }),
+          return stack.toJsonString({
+            alertmanager_config: this.renderAlertManagerConfig(scope),
+            template_files: this.renderTemplates(scope),
           });
         },
       }),
     };
+  }
+
+  /**
+   * Renders an alert manager configuration to be used for configuring
+   * notifications on an APS workspace.
+   *
+   * @param scope The construct that is handling the configuration of alert
+   * manager.
+   * @returns The string representation of the rendered Prometheus alert
+   * manager configuration.
+   */
+  protected renderAlertManagerConfig(scope: IConstruct): string {
+    return Stack.of(scope).toJsonString({
+      inhibit_rules: !this.inhibitRules.length ? undefined : this.inhibitRules.map((x) => {
+        return x.bind(scope);
+      }),
+      receivers: this.receivers.map((x) => {
+        return x.bind(scope);
+      }),
+      route: this.defaultRoute.bind(scope),
+      time_intervals: !this.timeIntervals.length ? undefined : this.timeIntervals.map((x) => {
+        return x.bind(scope);
+      }),
+    });
+  }
+
+  /**
+   * Renders the configuration templates into the structure that is expected
+   * for an APS workspace alert manager configuration.
+   *
+   * @param _scope The construct that is handling the configuration of alert
+   * manager.
+   * @returns An object that represents the templates contained in this
+   * configuration or undefined if the configuration has no templates.
+   */
+  protected renderTemplates(_scope: IConstruct): { [key: string]: string } | undefined {
+    const keys = Object.keys(this.templates);
+
+    if (keys.length === 0) {
+      return undefined;
+    }
+
+    return this.templates.reduce((prev, cur) => {
+      prev[cur.name] = cur.content;
+      return prev;
+    }, {} as { [key: string]: string });
   }
 }

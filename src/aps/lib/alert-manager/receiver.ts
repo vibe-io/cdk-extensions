@@ -51,7 +51,7 @@ export class AlertManagerReceiver extends Construct {
    * @group Inputs
    */
   public get destinations(): IAlertManagerDestination[] {
-    return [...this.destinations];
+    return [...this._destinations];
   }
 
 
@@ -62,16 +62,16 @@ export class AlertManagerReceiver extends Construct {
    * the construct tree.
    * @param id A name to be associated with the stack and used in resource
    * naming. Must be unique within the context of 'scope'.
-   * @param options Arguments related to the configuration of this construct.
+   * @param props Arguments related to the configuration of this construct.
    */
-  public constructor(scope: AlertManagerConfiguration, id: string, options: AlertManagerReceiverProps) {
+  public constructor(scope: AlertManagerConfiguration, id: string, props: AlertManagerReceiverProps = {}) {
     super(scope, id);
 
     this._destinations = [];
 
-    this.name = options.name ?? Names.uniqueId(this);
+    this.name = props.name ?? Names.uniqueId(this);
 
-    options.destinations?.forEach((x) => {
+    props.destinations?.forEach((x) => {
       this.addDestination(x);
     });
   }
