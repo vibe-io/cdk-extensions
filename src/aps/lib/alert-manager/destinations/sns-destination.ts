@@ -155,8 +155,8 @@ export class AlertManagerSnsDestination implements IAlertManagerDestination {
       throw new Error([
         `Tried to add duplicate key '${key}' to SNS destination attributes`,
         `with a value of '${value}'. However an attribute already exists for`,
-        `'${key}' with a value of '${value}'.`,
-      ].join());
+        `'${key}' with a value of '${this._attributes[key]}'.`,
+      ].join(' '));
     }
 
     this._attributes[key] = value;
@@ -172,7 +172,7 @@ export class AlertManagerSnsDestination implements IAlertManagerDestination {
 	 */
   public bind(scope: IConstruct): { [key: string]: any } {
     const stack = Stack.of(scope);
-    const topicRegion = stack.splitArn(this.topic.topicArn, ArnFormat.SLASH_RESOURCE_NAME).region;
+    const topicRegion = stack.splitArn(this.topic.topicArn, ArnFormat.NO_RESOURCE_NAME).region!;
 
     return definedFieldsOrUndefined({
       api_url: this.apiUrl,
@@ -184,7 +184,7 @@ export class AlertManagerSnsDestination implements IAlertManagerDestination {
       message: this.message,
       send_resolved: this.sendResolved,
       sigv4: {
-        region: topicRegion ?? stack.region,
+        region: topicRegion,
       },
       subject: this.subject,
       topic_arn: this.topic.topicArn,

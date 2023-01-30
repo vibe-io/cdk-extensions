@@ -1,6 +1,6 @@
 import { Stack } from 'aws-cdk-lib';
 import { Topic } from 'aws-cdk-lib/aws-sns';
-import { AlertManagerConfiguration, TimeIntervalEntry, Weekday } from '..';
+import { AlertManagerConfiguration, AlertManagerDestination, TimeIntervalEntry, Weekday } from '..';
 
 
 test('creating an inhibit rule respects passed configuration', () => {
@@ -10,7 +10,9 @@ test('creating an inhibit rule respects passed configuration', () => {
   const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
   const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
   const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-    defaultTopic: topic,
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic),
+    ],
   });
 
   const group = configuration.addTimeInterval('001');
@@ -161,7 +163,9 @@ test('custom name is used if one is provided', () => {
   const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
   const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
   const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-    defaultTopic: topic,
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic),
+    ],
   });
 
   const group = configuration.addTimeInterval('001', {

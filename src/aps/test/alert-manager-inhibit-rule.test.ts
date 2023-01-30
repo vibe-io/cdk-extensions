@@ -1,7 +1,7 @@
 import { Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { Topic } from 'aws-cdk-lib/aws-sns';
-import { AlertManagerConfiguration, AlertManagerMatcher, Workspace } from '..';
+import { AlertManagerConfiguration, AlertManagerDestination, AlertManagerMatcher, Workspace } from '..';
 
 
 test('creating an inhibit rule respects passed configuration', () => {
@@ -11,7 +11,9 @@ test('creating an inhibit rule respects passed configuration', () => {
   const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
   const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
   const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-    defaultTopic: topic,
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic),
+    ],
   });
 
   const sMatcher001 = AlertManagerMatcher.fromString('source001 = "active"');
@@ -112,7 +114,9 @@ test('an inhibit rule with no source matchers should throw an error', () => {
   const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
   const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
   const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-    defaultTopic: topic,
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic),
+    ],
   });
   new Workspace(stack, 'workspace', {
     alerting: {
@@ -145,7 +149,9 @@ test('an inhibit rule with no target matchers should throw an error', () => {
   const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
   const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
   const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-    defaultTopic: topic,
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic),
+    ],
   });
   new Workspace(stack, 'workspace', {
     alerting: {

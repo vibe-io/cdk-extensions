@@ -1,7 +1,8 @@
+import { readFileSync } from 'fs';
 import { ArnFormat, Fn, Lazy, Stack } from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
 import { LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
-import { Workspace } from '..';
+import { AlertManagerConfiguration, Workspace } from '..';
 
 test ('creating an APS workspace should add it to the CloudFormation stack', () => {
   const resources = getCommonResources();
@@ -205,6 +206,60 @@ describe('alerting', () => {
       },
     });
   });
+
+  test('loading a custom alerting config should make access to the config builder object unavailable', () => {
+    const resources = getCommonResources();
+    const stack = resources.stack;
+
+    const pathConfig = './src/aps/test/configs/alert-manager-combined.yaml';
+    const contentsConfig = readFileSync(pathConfig, {
+      encoding: 'utf8',
+      flag: 'r',
+    });
+
+    const workspace = new Workspace(stack, 'workspace', {
+      alerting: {
+        configuration: AlertManagerConfiguration.fromFullConfigurationFile(stack, 'configuration', pathConfig),
+        enabled: true,
+      },
+    });
+
+    const template = Template.fromStack(stack);
+
+    template.hasResourceProperties('AWS::APS::Workspace', {
+      AlertManagerDefinition: contentsConfig,
+      LoggingConfiguration: {
+        LogGroupArn: stack.resolve(workspace.logGroup?.logGroupArn),
+      },
+    });
+
+    expect(workspace.alertManagerConfiguration).toBeUndefined();
+  });
+});
+
+test('custom alerting configurs should not be included if alerting is disabled', () => {
+  const resources = getCommonResources();
+  const stack = resources.stack;
+
+  const pathConfig = './src/aps/test/configs/alert-manager-combined.yaml';
+
+  const workspace = new Workspace(stack, 'workspace', {
+    alerting: {
+      configuration: AlertManagerConfiguration.fromFullConfigurationFile(stack, 'configuration', pathConfig),
+      enabled: false,
+    },
+  });
+
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties('AWS::APS::Workspace', {
+    AlertManagerDefinition: Match.absent(),
+    LoggingConfiguration: {
+      LogGroupArn: stack.resolve(workspace.logGroup?.logGroupArn),
+    },
+  });
+
+  expect(workspace.alertManagerConfiguration).toBeUndefined();
 });
 
 function getCommonResources() {

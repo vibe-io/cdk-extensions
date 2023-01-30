@@ -1,6 +1,6 @@
 import { Lazy } from 'aws-cdk-lib';
 import { IConstruct } from 'constructs';
-import { IPrometheusRule } from './prometheus-rule';
+import { IPrometheusRule } from './prometheus-rule-base';
 
 
 /**
@@ -20,7 +20,7 @@ export interface RecordingRuleProps {
   /**
    * Labels to add or overwrite before storing the result.
    */
-  readonly labels: { [labelName: string]: string };
+  readonly labels?: { [labelName: string]: string };
 
   /**
    * The name of the time series to output to. Must be a valid metric name.
@@ -43,7 +43,7 @@ export class RecordingRule implements IPrometheusRule {
    * Internal collection of labels to add or overwrite before storing the
    * result.
    */
-  public readonly _labels: { [labelName: string]: string };
+  private readonly _labels: { [labelName: string]: string };
 
   /**
    * The PromQL expression to evaluate. Every evaluation cycle this is
@@ -81,6 +81,13 @@ export class RecordingRule implements IPrometheusRule {
 
     this.expression = props.expression;
     this.record = props.record;
+
+    if (props.labels) {
+      const labels = props.labels;
+      Object.keys(labels).forEach((x) => {
+        this.addLabel(x, labels[x]);
+      });
+    }
   }
 
   /**
@@ -114,7 +121,7 @@ export class RecordingRule implements IPrometheusRule {
    */
   public bind(_scope: IConstruct): { [key: string]: any } {
     return {
-      expression: this.expression,
+      expr: this.expression,
       labels: Lazy.any({
         produce: () => {
           return !!Object.keys(this._labels).length ? this._labels : undefined;

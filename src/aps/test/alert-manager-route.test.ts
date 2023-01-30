@@ -10,7 +10,9 @@ test('set default route details should be reflected in configuration', () => {
   const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
   const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
   const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-    defaultTopic: topic,
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic),
+    ],
     defaultRoute: {
       groupByLabels: [
         'testLabel001',
@@ -102,7 +104,9 @@ test('routes can have children for more advanced alerting', () => {
   const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
   const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
   const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-    defaultTopic: topic,
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic),
+    ],
   });
 
   const receiver001 = configuration.addReciever('001', {
@@ -213,7 +217,9 @@ test('child routes support additional configuration options', () => {
   const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
   const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
   const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-    defaultTopic: topic,
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic),
+    ],
   });
 
   const matcher = AlertManagerMatcher.fromComponents('matchLabel', MatchOperator.EQUALS, 'active');

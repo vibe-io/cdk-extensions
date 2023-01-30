@@ -10,7 +10,9 @@ test('receiver with no configuration should have expected default values', () =>
   const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
   const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
   const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-    defaultTopic: topic,
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic),
+    ],
   });
 
   const receiver = new AlertManagerReceiver(configuration, 'receiver-001');
@@ -28,7 +30,9 @@ test('receiver should respect passed configuration options', () => {
   const topic001 = Topic.fromTopicArn(stack, 'test-topic-001', topicArn001);
   const topic002 = Topic.fromTopicArn(stack, 'test-topic-002', topicArn002);
   const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-    defaultTopic: topic001,
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic001),
+    ],
   });
 
   const receiver = new AlertManagerReceiver(configuration, 'receiver-001', {
@@ -85,7 +89,9 @@ test('adding multiple of the same destination should give a list of destinations
   const topic002 = Topic.fromTopicArn(stack, 'test-topic-002', topicArn002);
   const topic003 = Topic.fromTopicArn(stack, 'test-topic-003', topicArn003);
   const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-    defaultTopic: topic001,
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic001),
+    ],
   });
 
   const receiver = new AlertManagerReceiver(configuration, 'receiver-001', {

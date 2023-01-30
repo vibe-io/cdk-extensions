@@ -172,7 +172,7 @@ export class RuleGroupsNamespace extends RuleGroupsNamespaceBase {
    * @param options Configuration options for the new rule group being added.
    * @returns The rule group that was added.
    */
-  public addRuleGroup(id: string, options: RuleGroupProps): RuleGroup {
+  public addRuleGroup(id: string, options?: RuleGroupProps): RuleGroup {
     if (this.configuration instanceof RuleGroupConfiguration) {
       return this.configuration.addRuleGroup(id, options);
     } else {

@@ -1,10 +1,10 @@
 import { ArnFormat, Fn, RemovalPolicy, Resource, ResourceProps, Stack, Token } from 'aws-cdk-lib';
 import { CfnWorkspace } from 'aws-cdk-lib/aws-aps';
 import { ILogGroup, LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
-import { ITopic, Topic } from 'aws-cdk-lib/aws-sns';
+import { ITopic } from 'aws-cdk-lib/aws-sns';
 import { IConstruct } from 'constructs';
 import { undefinedIfNoKeys } from '../utils/formatting';
-import { AlertManagerConfiguration, AlertManagerDestination, IAlertManagerConfiguration } from './lib/alert-manager';
+import { AlertManagerConfiguration, IAlertManagerConfiguration } from './lib/alert-manager';
 
 
 /**
@@ -373,17 +373,12 @@ export class Workspace extends Resource implements IWorkspace {
     }
 
     if ((props.alerting?.enabled ?? true) && props.alerting?.configuration === undefined) {
-      this.alertTopic = props.alerting?.topic ?? new Topic(this, 'alert-topic');
-      this.alertManagerConfiguration = new AlertManagerConfiguration(this, 'alert-manager-configuration', {
-        defaultReceiverDestinations: [
-          AlertManagerDestination.snsTopic(this.alertTopic),
-        ],
-        defaultTopic: this.alertTopic,
-      });
+      this.alertManagerConfiguration = new AlertManagerConfiguration(this, 'alert-manager-configuration');
+      this.alertTopic = this.alertManagerConfiguration.defaultTopic;
     }
 
     const alerting = props.alerting?.configuration ?? this.alertManagerConfiguration;
-    const alertingDetails = (props.alerting?.enabled ?? true) ? alerting?.bind(this) : undefined;
+    const alertingDetails = (props.alerting?.enabled ?? true) ? alerting!.bind(this) : undefined;
 
     this.resource = new CfnWorkspace(this, 'Resource', {
       alertManagerDefinition: alertingDetails?.contents,

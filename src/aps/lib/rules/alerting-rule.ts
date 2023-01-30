@@ -1,7 +1,6 @@
 import { Duration, Lazy } from 'aws-cdk-lib';
 import { IConstruct } from 'constructs';
-import { AlertManagerTemplate } from '..';
-import { IPrometheusRule } from './prometheus-rule';
+import { IPrometheusRule } from './prometheus-rule-base';
 
 
 /**
@@ -15,9 +14,9 @@ export interface AlertingRuleProps {
   readonly alert: string;
 
   /**
-   * Annotations to add to each alert.
+   * Annotations to add to each alert. Supports templating.
    */
-  readonly annotations: { [labelName: string]: AlertManagerTemplate };
+  readonly annotations?: { [labelName: string]: string };
 
   /**
    * The PromQL expression to evaluate. Every evaluation cycle this is
@@ -31,7 +30,7 @@ export interface AlertingRuleProps {
   /**
    * Labels to add or overwrite for each alert.
    */
-  readonly labels: { [labelName: string]: string };
+  readonly labels?: { [labelName: string]: string };
 
   /**
    * Alerts are considered firing once they have been returned for this long.
@@ -53,12 +52,12 @@ export class AlertingRule implements IPrometheusRule {
   /**
    * Internal collection of annotations to add to each alert.
    */
-  public readonly _annotations: { [labelName: string]: AlertManagerTemplate };
+  private readonly _annotations: { [labelName: string]: string };
 
   /**
    * Internal collection of labels to add or overwrite for each alert.
    */
-  public readonly _labels: { [labelName: string]: AlertManagerTemplate };
+  private readonly _labels: { [labelName: string]: string };
 
   /**
    * The name of the alert. Must be a valid label value.
@@ -99,6 +98,20 @@ export class AlertingRule implements IPrometheusRule {
     this.alert = props.alert;
     this.expression = props.expression;
     this.period = props.period;
+
+    if (props.annotations) {
+      const annotations = props.annotations;
+      Object.keys(annotations).forEach((x) => {
+        this.addAnnotation(x, annotations[x]);
+      });
+    }
+
+    if (props.labels) {
+      const labels = props.labels;
+      Object.keys(labels).forEach((x) => {
+        this.addLabel(x, labels[x]);
+      });
+    }
   }
 
   /**
@@ -109,7 +122,7 @@ export class AlertingRule implements IPrometheusRule {
    * annotation.
    * @returns The alerting rule that the annotation was added to.
    */
-  public addAnnotation(label: string, template: AlertManagerTemplate): AlertingRule {
+  public addAnnotation(label: string, template: string): AlertingRule {
     if (label in this._annotations) {
       throw new Error([
         'Cannot add duplicate annotation to Prometheus alerting rule with the',
@@ -130,7 +143,7 @@ export class AlertingRule implements IPrometheusRule {
    * label.
    * @returns The alerting rule that the label was added to.
    */
-  public addLabel(label: string, template: AlertManagerTemplate): AlertingRule {
+  public addLabel(label: string, template: string): AlertingRule {
     if (label in this._labels) {
       throw new Error([
         'Cannot add duplicate label to Prometheus alerting rule with the',
@@ -153,31 +166,17 @@ export class AlertingRule implements IPrometheusRule {
    */
   public bind(_scope: IConstruct): { [key: string]: any } {
     return {
+      alert: this.alert,
       annotations: Lazy.any({
         produce: () => {
-          if (Object.keys(this._annotations).length === 0) {
-            return undefined;
-          }
-
-          return Object.keys(this._annotations).reduce((prev, cur) => {
-            prev[cur] = this._annotations[cur].content;
-            return prev;
-          }, {} as { [key: string]: string });
+          return Object.keys(this._annotations).length === 0 ? undefined : this._annotations;
         },
       }),
-      alert: this.alert,
       expr: this.expression,
       for: this.period ? `${this.period.toSeconds()}s` : undefined,
       labels: Lazy.any({
         produce: () => {
-          if (Object.keys(this._labels).length === 0) {
-            return undefined;
-          }
-
-          return Object.keys(this._labels).reduce((prev, cur) => {
-            prev[cur] = this._labels[cur].content;
-            return prev;
-          }, {} as { [key: string]: string });
+          return Object.keys(this._labels).length === 0 ? undefined : this._labels;
         },
       }),
     };

@@ -12,43 +12,31 @@ export class AlertManagerTemplate {
   /**
    * Loads an alert template from the local filesystem.
    *
-   * @param name The name of the template. Used to reference the template
-   * withing the alert manager configuration.
    * @param path The path to the file containg the template.
    * @returns An object representing the template that can be used when
    * configuring alert manager for Amzon APS.
    */
-  public static fromFile(name: string, path: string): AlertManagerTemplate {
+  public static fromFile(path: string): AlertManagerTemplate {
     const data = readFileSync(path, {
       encoding: 'utf8',
       flag: 'r',
     });
 
-    return new AlertManagerTemplate(name, data);
+    return new AlertManagerTemplate(data);
   }
 
   /**
    * Loads an alert manager template using a template string.
    *
-   * @param name The name of the template. Used to reference the template
-   * within the alert manager configuration.
    * @param content The template content as a string. Uses the Go templating
    * system.
    * @returns An object representing the template that can be used when
    * configuring alert manager for Amzon APS.
    */
-  public static fromString(name: string, content: string): AlertManagerTemplate {
-    return new AlertManagerTemplate(name, content);
+  public static fromString(content: string): AlertManagerTemplate {
+    return new AlertManagerTemplate(content);
   }
 
-
-  /**
-   * The name of the template. Used to reference the template within the alert
-   * manager configuration.
-   *
-   * @group Inputs
-   */
-  public readonly name: string;
 
   /**
    * The template content as a string. Uses the Go templating system.
@@ -66,8 +54,7 @@ export class AlertManagerTemplate {
    * @param content The template content as a string. Uses the Go templating
    * system.
    */
-  private constructor(name: string, content: string) {
+  private constructor(content: string) {
     this.content = content;
-    this.name = name;
   }
 }

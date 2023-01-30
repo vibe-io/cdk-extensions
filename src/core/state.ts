@@ -8,13 +8,6 @@ import { IConstruct } from 'constructs';
  */
 export class State {
   /**
-   * The metadata key added to the root node in a construct tree to
-   * differentiate it from other construct trees that are part of the same
-   * build.
-   */
-  private static readonly METADATA_KEY: string = '_state_uuid';
-
-  /**
    * Gets an object that allows for interacting with the stored state of a
    * construct.
    *
@@ -25,6 +18,18 @@ export class State {
   public static of(scope: IConstruct): State {
     return new State(scope);
   }
+
+  /**
+   * The metadata key added to the root node in a construct tree to
+   * differentiate it from other construct trees that are part of the same
+   * build.
+   */
+  private static readonly METADATA_KEY: string = '_state_uuid';
+
+  /**
+   * The full state data for all constructs.
+   */
+  private static readonly _data: { [store: string]: { [construct: string]: { [key: string]: string } } } = {};
 
   /**
    * State is tracked by construst addresses which are always unique withing
@@ -57,11 +62,6 @@ export class State {
     return output;
   }
 
-  /**
-   * The full state data for all constructs.
-   */
-  private static readonly _data: { [store: string]: { [construct: string]: { [key: string]: string } } } = {};
-
 
   /**
    * The construct which is having its state managed.
@@ -73,32 +73,6 @@ export class State {
    * having its state managed belongs to.
    */
   private readonly _storeKey: string;
-
-  /**
-   * Gets the value of a key from state.
-   *
-   * @param key The key to get from state.
-   * @param defaultValue The value to return if the requested key does not
-   * exist in state.
-   * @returns The value of the requested key or `defaultValue` if the requested
-   * key was not found.
-   */
-  public get(key: string, defaultValue?: any): any | undefined {
-    return key in this._store ? this._store[key] : defaultValue;
-  }
-
-  /**
-   * Sets the value of a key in state.
-   *
-   * @param key The key to set in state.
-   * @param value The value to set for the key in state.
-   * @returns The previous value for the key that was set (if one exists).
-   */
-  public set(key: string, value: any): any | undefined {
-    const cur = this.get(key);
-    this._store[key] = value;
-    return cur;
-  }
 
   /**
    * Provides a shortcut to the state for the construct associated with the
@@ -131,5 +105,31 @@ export class State {
     if (!(this._scope.node.addr in State._data[this._storeKey])) {
       State._data[this._storeKey][this._scope.node.addr] = {};
     }
+  }
+
+  /**
+   * Gets the value of a key from state.
+   *
+   * @param key The key to get from state.
+   * @param defaultValue The value to return if the requested key does not
+   * exist in state.
+   * @returns The value of the requested key or `defaultValue` if the requested
+   * key was not found.
+   */
+  public get(key: string, defaultValue?: any): any | undefined {
+    return key in this._store ? this._store[key] : defaultValue;
+  }
+
+  /**
+   * Sets the value of a key in state.
+   *
+   * @param key The key to set in state.
+   * @param value The value to set for the key in state.
+   * @returns The previous value for the key that was set (if one exists).
+   */
+  public set(key: string, value: any): any | undefined {
+    const cur = this.get(key);
+    this._store[key] = value;
+    return cur;
   }
 }

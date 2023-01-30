@@ -1,7 +1,7 @@
 import { Duration, Lazy, Names } from 'aws-cdk-lib';
 import { Construct, IConstruct } from 'constructs';
 import { AlertingRule, AlertingRuleProps } from './alerting-rule';
-import { IPrometheusRule } from './prometheus-rule';
+import { IPrometheusRule } from './prometheus-rule-base';
 import { RecordingRule, RecordingRuleProps } from './recording-rule';
 
 
@@ -77,7 +77,7 @@ export class RuleGroup extends Construct {
    * naming. Must be unique within the context of 'scope'.
    * @param props Arguments related to the configuration of the construct.
    */
-  public constructor(scope: IConstruct, id: string, props: RuleGroupProps) {
+  public constructor(scope: IConstruct, id: string, props: RuleGroupProps = {}) {
     super(scope, id);
 
     this._rules = [];

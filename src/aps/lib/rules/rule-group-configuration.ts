@@ -169,7 +169,7 @@ export class RuleGroupConfiguration extends RuleGroupConfigurationBase {
    * @param options Configuration options for the new rule group being added.
    * @returns The rule group that was added.
    */
-  public addRuleGroup(id: string, options: RuleGroupProps): RuleGroup {
+  public addRuleGroup(id: string, options?: RuleGroupProps): RuleGroup {
     const output = new RuleGroup(this, `rule-group-${id}`, options);
     this._ruleGroups.push(output);
     return output;

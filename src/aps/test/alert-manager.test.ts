@@ -1,6 +1,7 @@
+import { readFileSync } from 'fs';
 import { Duration, Stack } from 'aws-cdk-lib';
 import { Topic } from 'aws-cdk-lib/aws-sns';
-import { AlertManagerConfiguration, AlertManagerDestination, AlertManagerMatcher, MatchOperator, TimeIntervalEntry, Weekday } from '..';
+import { AlertManagerConfiguration, AlertManagerDestination, AlertManagerMatcher, AlertManagerTemplate } from '..';
 
 test ('creating an alert manager config should give a basic configuration', () => {
   const resources = getCommonResources();
@@ -9,7 +10,9 @@ test ('creating an alert manager config should give a basic configuration', () =
   const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
   const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
   const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-    defaultTopic: topic,
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic),
+    ],
   });
   const detail = configuration.bind(stack);
   const content = stack.resolve(detail.contents);
@@ -34,393 +37,293 @@ test ('creating an alert manager config should give a basic configuration', () =
   expect(alertManagerConfig).toStrictEqual(expected);
 });
 
-describe('routes', () => {
-  test('set default route details should be reflected in configuration', () => {
-    const resources = getCommonResources();
-    const stack = resources.stack;
+test ('an sns topic should be created when default destinations is undefined', () => {
+  const resources = getCommonResources();
+  const stack = resources.stack;
 
-    const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
-    const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
-    const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-      defaultTopic: topic,
-      defaultRoute: {
-        groupByLabels: [
-          'testLabel001',
-          'testLabel002',
-        ],
-        groupInterval: Duration.minutes(15),
-        groupWait: Duration.seconds(30),
-        matchers: [
-          AlertManagerMatcher.fromComponents('matchLabel001', MatchOperator.EQUALS, 'active'),
-          AlertManagerMatcher.fromComponents('matchLabel002', MatchOperator.EQUALS, 'active'),
-        ],
-        repeatInterval: Duration.hours(12),
-      },
-    });
-    const detail = configuration.bind(stack);
-    const content = stack.resolve(detail.contents);
-    const apsConfig = JSON.parse(content);
-    const alertManagerConfig = JSON.parse(apsConfig.alertmanager_config);
+  const configuration = new AlertManagerConfiguration(stack, 'configuration');
 
-    const expected = {
-      receivers: [{
-        name: 'default',
-        sns_configs: [{
+  expect(configuration.defaultTopic).toBeDefined();
+  expect(configuration.defaultReceiver.destinations.length).toBe(1);
+});
+
+test ('default route should respect passed configuration', () => {
+  const resources = getCommonResources();
+  const stack = resources.stack;
+
+  const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
+  const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
+  const configuration = new AlertManagerConfiguration(stack, 'configuration', {
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic),
+    ],
+    defaultRoute: {
+      groupByLabels: [
+        'testLabel001',
+        'testLabel002',
+      ],
+      groupInterval: Duration.minutes(15),
+      groupWait: Duration.seconds(30),
+      matchers: [
+        AlertManagerMatcher.fromString('matchLabel001 = "active"'),
+        AlertManagerMatcher.fromString('matchLabel002 = "active"'),
+      ],
+      repeatInterval: Duration.hours(12),
+    },
+  });
+
+  const detail = configuration.bind(stack);
+  const content = stack.resolve(detail.contents);
+  const apsConfig = JSON.parse(content);
+  const alertManagerConfig = JSON.parse(apsConfig.alertmanager_config);
+
+  const expected = {
+    receivers: [{
+      name: 'default',
+      sns_configs: [{
+        sigv4: {
+          region: 'us-east-1',
+        },
+        topic_arn: topicArn,
+      }],
+    }],
+    route: {
+      group_by: [
+        'testLabel001',
+        'testLabel002',
+      ],
+      group_interval: '900s',
+      group_wait: '30s',
+      matchers: [
+        'matchLabel001 = "active"',
+        'matchLabel002 = "active"',
+      ],
+      receiver: 'default',
+      repeat_interval: '43200s',
+    },
+  };
+
+  expect(alertManagerConfig).toStrictEqual(expected);
+});
+
+test ('default receiver should route to passed destinations', () => {
+  const resources = getCommonResources();
+  const stack = resources.stack;
+
+  const topicArn001 = 'arn:aws:sns:us-east-1:123456789012:test-topic-001';
+  const topicArn002 = 'arn:aws:sns:us-east-1:123456789012:test-topic-002';
+  const topic001 = Topic.fromTopicArn(stack, 'test-topic-001', topicArn001);
+  const topic002 = Topic.fromTopicArn(stack, 'test-topic-002', topicArn002);
+  const configuration = new AlertManagerConfiguration(stack, 'configuration', {
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic001),
+      AlertManagerDestination.snsTopic(topic002),
+    ],
+  });
+
+  const detail = configuration.bind(stack);
+  const content = stack.resolve(detail.contents);
+  const apsConfig = JSON.parse(content);
+  const alertManagerConfig = JSON.parse(apsConfig.alertmanager_config);
+
+  const expected = {
+    receivers: [{
+      name: 'default',
+      sns_configs: [
+        {
           sigv4: {
             region: 'us-east-1',
           },
-          topic_arn: topicArn,
-        }],
-      }],
-      route: {
-        group_by: [
-          'testLabel001',
-          'testLabel002',
-        ],
-        group_interval: '900s',
-        group_wait: '30s',
-        matchers: [
-          'matchLabel001 = "active"',
-          'matchLabel002 = "active"',
-        ],
-        receiver: 'default',
-        repeat_interval: '43200s',
-      },
-    };
-
-    expect(alertManagerConfig).toStrictEqual(expected);
-    expect(configuration.defaultRoute.groupByLabels).toStrictEqual([
-      'testLabel001',
-      'testLabel002',
-    ]);
-  });
-
-  test('setting time intervals on the default route should throw an error', () => {
-    const resources = getCommonResources();
-    const stack = resources.stack;
-
-    const configuration = new AlertManagerConfiguration(stack, 'configuration');
-    const timeInterval = configuration.addTimeInterval('time-interval', {
-      intervals: [
-        new TimeIntervalEntry({
-          weekdays: [
-            {
-              start: Weekday.SATURDAY,
-            },
-          ],
-        }),
-      ],
-    });
-
-    expect(() => {
-      configuration.defaultRoute.addActiveTimeInterval(timeInterval);
-    }).toThrowError([
-      'Cannot add an active time interval to the default route of an alert',
-      'manager configuration.',
-    ].join(' '));
-
-    expect(() => {
-      configuration.defaultRoute.addMuteTimeInterval(timeInterval);
-    }).toThrowError([
-      'Cannot add a mute time interval to the default route of an alert',
-      'manager configuration.',
-    ].join(' '));
-  });
-
-  test('routes can have children for more advanced alerting', () => {
-    const resources = getCommonResources();
-    const stack = resources.stack;
-
-    const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
-    const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
-    const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-      defaultTopic: topic,
-    });
-
-    const receiver001 = configuration.addReciever('001', {
-      destinations: [
-        AlertManagerDestination.snsTopic(topic),
-      ],
-    });
-    const receiver002 = configuration.addReciever('002', {
-      destinations: [
-        AlertManagerDestination.snsTopic(topic),
-      ],
-    });
-    const receiver003 = configuration.addReciever('003', {
-      destinations: [
-        AlertManagerDestination.snsTopic(topic),
-      ],
-    });
-    const receiver004 = configuration.addReciever('004', {
-      destinations: [
-        AlertManagerDestination.snsTopic(topic),
-      ],
-    });
-
-    const child001 = configuration.defaultRoute.addChild('001', {
-      children: [
-        {
-          receiver: receiver003,
+          topic_arn: topicArn001,
         },
         {
-          receiver: receiver004,
+          sigv4: {
+            region: 'us-east-1',
+          },
+          topic_arn: topicArn002,
         },
       ],
-      receiver: receiver001,
-    });
-    const child002 = configuration.defaultRoute.addChild('002', {
-      receiver: receiver002,
-    });
+    }],
+    route: {
+      receiver: 'default',
+    },
+  };
 
-    const detail = configuration.bind(stack);
-    const content = stack.resolve(detail.contents);
-    const apsConfig = JSON.parse(content);
-    const alertManagerConfig = JSON.parse(apsConfig.alertmanager_config);
+  expect(alertManagerConfig).toStrictEqual(expected);
+});
 
-    const receiverCommonConfig = {
+test ('imported combined file configs should render to the contents of the file', () => {
+  const resources = getCommonResources();
+  const stack = resources.stack;
+
+  const path = './src/aps/test/configs/alert-manager-combined.yaml';
+
+  const contents = readFileSync(path, {
+    encoding: 'utf8',
+    flag: 'r',
+  });
+
+  const configuration = AlertManagerConfiguration.fromFullConfigurationFile(stack, 'configuration', path);
+  const detail = configuration.bind(stack);
+
+  expect(detail.contents).toStrictEqual(contents);
+});
+
+test ('imported split file configs should render to the contents of their files', () => {
+  const resources = getCommonResources();
+  const stack = resources.stack;
+
+  const pathConfig = './src/aps/test/configs/alert-manager-standalone.yaml';
+  const pathTemplate = './src/aps/test/configs/alert-manager-template.tmpl';
+
+  const contentsConfig = readFileSync(pathConfig, {
+    encoding: 'utf8',
+    flag: 'r',
+  });
+  const contentsTemplate = readFileSync(pathTemplate, {
+    encoding: 'utf8',
+    flag: 'r',
+  });
+
+  const configuration = AlertManagerConfiguration.fromSplitConfigurationFiles(stack, 'configuration', pathConfig, {
+    default: AlertManagerTemplate.fromFile(pathTemplate),
+  });
+
+  const detail = configuration.bind(stack);
+
+  expect(JSON.parse(stack.resolve(detail.contents))).toStrictEqual({
+    alertmanager_config: contentsConfig,
+    template_files: {
+      default: contentsTemplate,
+    },
+  });
+});
+
+test ('imported split file configs with no templates should not have template_files section', () => {
+  const resources = getCommonResources();
+  const stack = resources.stack;
+
+  const pathConfig = './src/aps/test/configs/alert-manager-standalone.yaml';
+
+  const contentsConfig = readFileSync(pathConfig, {
+    encoding: 'utf8',
+    flag: 'r',
+  });
+
+  const configuration = AlertManagerConfiguration.fromSplitConfigurationFiles(stack, 'configuration', pathConfig);
+
+  const detail = configuration.bind(stack);
+
+  expect(JSON.parse(stack.resolve(detail.contents))).toStrictEqual({
+    alertmanager_config: contentsConfig,
+  });
+});
+
+test('registered templates should appear in template_files and alertmanager_config', () => {
+  const resources = getCommonResources();
+  const stack = resources.stack;
+
+  const pathTemplate = './src/aps/test/configs/alert-manager-template.tmpl';
+  const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
+  const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
+  const configuration = new AlertManagerConfiguration(stack, 'configuration', {
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic),
+    ],
+    templates: [
+      AlertManagerTemplate.fromFile(pathTemplate),
+    ],
+  });
+
+  const detail = configuration.bind(stack);
+  const content = stack.resolve(detail.contents);
+  const apsConfig = JSON.parse(content);
+  const alertManagerConfig = JSON.parse(apsConfig.alertmanager_config);
+
+  const contentsTemplate = readFileSync(pathTemplate, {
+    encoding: 'utf8',
+    flag: 'r',
+  });
+
+  const expectedAlertManager = {
+    receivers: [{
+      name: 'default',
       sns_configs: [{
         sigv4: {
           region: 'us-east-1',
         },
         topic_arn: topicArn,
       }],
-    };
+    }],
+    route: {
+      receiver: 'default',
+    },
+    templates: [
+      `tmpl_${configuration.node.addr}_001`,
+    ],
+  };
 
-    const expected = {
-      receivers: [
-        {
-          name: 'default',
-          ...receiverCommonConfig,
-        },
-        {
-          name: receiver001.name,
-          ...receiverCommonConfig,
-        },
-        {
-          name: receiver002.name,
-          ...receiverCommonConfig,
-        },
-        {
-          name: receiver003.name,
-          ...receiverCommonConfig,
-        },
-        {
-          name: receiver004.name,
-          ...receiverCommonConfig,
-        },
-      ],
-      route: {
-        receiver: 'default',
-        routes: [
-          {
-            receiver: receiver001.name,
-            routes: [
-              {
-                receiver: receiver003.name,
-              },
-              {
-                receiver: receiver004.name,
-              },
-            ],
-          },
-          {
-            receiver: receiver002.name,
-          },
-        ],
-      },
-    };
+  const expectedTemplates = {
+    [`tmpl_${configuration.node.addr}_001`]: contentsTemplate,
+  };
 
-    expect(alertManagerConfig).toStrictEqual(expected);
-    expect(configuration.defaultRoute.children).toStrictEqual([
-      child001,
-      child002,
-    ]);
+  expect(alertManagerConfig).toStrictEqual(expectedAlertManager);
+  expect(apsConfig.template_files).toStrictEqual(expectedTemplates);
+});
+
+test('multiple templates should each to uniquely generated names', () => {
+  const resources = getCommonResources();
+  const stack = resources.stack;
+
+  const pathTemplate = './src/aps/test/configs/alert-manager-template.tmpl';
+  const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
+  const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
+  const configuration = new AlertManagerConfiguration(stack, 'configuration', {
+    defaultReceiverDestinations: [
+      AlertManagerDestination.snsTopic(topic),
+    ],
+    templates: [
+      AlertManagerTemplate.fromFile(pathTemplate),
+      AlertManagerTemplate.fromFile(pathTemplate),
+    ],
   });
 
-  test('child routes support additional configuration options', () => {
-    const resources = getCommonResources();
-    const stack = resources.stack;
+  const detail = configuration.bind(stack);
+  const content = stack.resolve(detail.contents);
+  const apsConfig = JSON.parse(content);
+  const alertManagerConfig = JSON.parse(apsConfig.alertmanager_config);
 
-    const topicArn = 'arn:aws:sns:us-east-1:123456789012:test-topic';
-    const topic = Topic.fromTopicArn(stack, 'test-topic', topicArn);
-    const configuration = new AlertManagerConfiguration(stack, 'configuration', {
-      defaultTopic: topic,
-    });
+  const contentsTemplate = readFileSync(pathTemplate, {
+    encoding: 'utf8',
+    flag: 'r',
+  });
 
-    const matcher = AlertManagerMatcher.fromComponents('matchLabel', MatchOperator.EQUALS, 'active');
-
-    const receiver001 = configuration.addReciever('001', {
-      destinations: [
-        AlertManagerDestination.snsTopic(topic),
-      ],
-    });
-    const receiver002 = configuration.addReciever('002', {
-      destinations: [
-        AlertManagerDestination.snsTopic(topic),
-      ],
-    });
-    const receiver003 = configuration.addReciever('003', {
-      destinations: [
-        AlertManagerDestination.snsTopic(topic),
-      ],
-    });
-
-    const timeInterval001 = configuration.addTimeInterval('001', {
-      intervals: [
-        new TimeIntervalEntry({
-          daysOfTheMonth: [{
-            end: 7,
-            start: 1,
-          }],
-        }),
-      ],
-    });
-    const timeInterval002 = configuration.addTimeInterval('002', {
-      intervals: [
-        new TimeIntervalEntry({
-          months: [{
-            end: 9,
-            start: 4,
-          }],
-        }),
-      ],
-    });
-
-    const child001 = configuration.defaultRoute.addChild('001', {
-      activeTimeIntervals: [
-        timeInterval001,
-        timeInterval002,
-      ],
-      continueMatching: true,
-      receiver: receiver001,
-    });
-    const child002 = configuration.defaultRoute.addChild('002', {
-      continueMatching: false,
-      muteTimeInterval: [
-        timeInterval001,
-        timeInterval002,
-      ],
-      receiver: receiver002,
-    });
-    const child003 = configuration.defaultRoute.addChild('003', {
-      activeTimeIntervals: [
-        timeInterval001,
-      ],
-      matchers: [
-        matcher,
-      ],
-      muteTimeInterval: [
-        timeInterval002,
-      ],
-      receiver: receiver003,
-    });
-
-    const detail = configuration.bind(stack);
-    const content = stack.resolve(detail.contents);
-    const apsConfig = JSON.parse(content);
-    const alertManagerConfig = JSON.parse(apsConfig.alertmanager_config);
-
-    const receiverCommonConfig = {
+  const expectedAlertManager = {
+    receivers: [{
+      name: 'default',
       sns_configs: [{
         sigv4: {
           region: 'us-east-1',
         },
         topic_arn: topicArn,
       }],
-    };
+    }],
+    route: {
+      receiver: 'default',
+    },
+    templates: [
+      `tmpl_${configuration.node.addr}_001`,
+      `tmpl_${configuration.node.addr}_002`,
+    ],
+  };
 
-    const expected = {
-      receivers: [
-        {
-          name: 'default',
-          ...receiverCommonConfig,
-        },
-        {
-          name: receiver001.name,
-          ...receiverCommonConfig,
-        },
-        {
-          name: receiver002.name,
-          ...receiverCommonConfig,
-        },
-        {
-          name: receiver003.name,
-          ...receiverCommonConfig,
-        },
-      ],
-      route: {
-        receiver: 'default',
-        routes: [
-          {
-            active_time_intervals: [
-              timeInterval001.name,
-              timeInterval002.name,
-            ],
-            continue: true,
-            receiver: receiver001.name,
-          },
-          {
-            continue: false,
-            receiver: receiver002.name,
-            mute_time_intervals: [
-              timeInterval001.name,
-              timeInterval002.name,
-            ],
-          },
-          {
-            active_time_intervals: [
-              timeInterval001.name,
-            ],
-            matchers: [
-              'matchLabel = "active"',
-            ],
-            mute_time_intervals: [
-              timeInterval002.name,
-            ],
-            receiver: receiver003.name,
-          },
-        ],
-      },
-      time_intervals: [
-        {
-          name: timeInterval001.name,
-          time_intervals: [{
-            days_of_month: [
-              '1:7',
-            ],
-          }],
-        },
-        {
-          name: timeInterval002.name,
-          time_intervals: [{
-            months: [
-              '4:9',
-            ],
-          }],
-        },
-      ],
-    };
+  const expectedTemplates = {
+    [`tmpl_${configuration.node.addr}_001`]: contentsTemplate,
+    [`tmpl_${configuration.node.addr}_002`]: contentsTemplate,
+  };
 
-    expect(alertManagerConfig).toStrictEqual(expected);
-    expect(child001.activeTimeIntervals).toStrictEqual([
-      timeInterval001,
-      timeInterval002,
-    ]);
-    expect(child002.muteTimeIntervals).toStrictEqual([
-      timeInterval001,
-      timeInterval002,
-    ]);
-    expect(child003.activeTimeIntervals).toStrictEqual([
-      timeInterval001,
-    ]);
-    expect(child003.muteTimeIntervals).toStrictEqual([
-      timeInterval002,
-    ]);
-    expect(child003.matchers).toStrictEqual([
-      matcher,
-    ]);
-  });
+  expect(alertManagerConfig).toStrictEqual(expectedAlertManager);
+  expect(apsConfig.template_files).toStrictEqual(expectedTemplates);
 });
 
 function getCommonResources() {
