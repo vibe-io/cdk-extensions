@@ -7,11 +7,11 @@ import { IConstruct } from 'constructs';
  */
 export interface IPrometheusRule {
   /**
-	 * Associates the rule with a construct that is configuring an APS rule
-	 * groups namespace.
-	 *
-	 * @param scope The construct handling the configuration of the APS rule
+   * Associates the rule with a construct that is configuring an APS rule
+   * groups namespace.
+   *
+   * @param scope The construct handling the configuration of the APS rule
    * groups namespace that will be consuming this rule.
-	 */
+   */
   bind(scope: IConstruct): { [key: string]: any };
 }

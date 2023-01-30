@@ -125,11 +125,11 @@ export interface IAlertManagerDestination {
   readonly category: AlertManagerDestinationCategory;
 
   /**
-	 * Associates the destination with a construct that is handling the
-	 * configuration of alert manager.
-	 *
-	 * @param scope The construct handling alert manager configuration.
-	 * @returns An object representing the configured destination.
-	 */
+   * Associates the destination with a construct that is handling the
+   * configuration of alert manager.
+   *
+   * @param scope The construct handling alert manager configuration.
+   * @returns An object representing the configured destination.
+   */
   bind(scope: IConstruct): {[key: string]: any};
 }
