@@ -6,6 +6,7 @@ export * as core from './core';
 
 export * as asserts from './asserts';
 
+export * as aps from './aps';
 export * as athena from './athena';
 export * as ec2 from './ec2';
 export * as eks_patterns from './eks-patterns';

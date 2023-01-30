@@ -1,0 +1,14 @@
+global:
+templates:
+  - 'default_template'
+route:
+  receiver: default
+receivers:
+  - name: 'default'
+    sns_configs:
+    - topic_arn: arn:aws:sns:us-east-2:accountid:My-Topic
+      sigv4:
+        region: us-east-2
+      attributes:
+        key: severity
+        value: SEV2
