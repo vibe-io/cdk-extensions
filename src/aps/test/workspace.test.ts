@@ -25,7 +25,7 @@ describe('imports', () => {
     const stack = resources.stack;
     const name = 'test-workspace';
     const arn = 'test-arn';
-    const endpoint = 'test-endpoint';
+    const endpoint = 'https://test-endpoint/';
     const workspace = Workspace.fromWorkspaceAttributes(stack, 'import', {
       workspaceArn: arn,
       workspaceId: name,
@@ -35,6 +35,8 @@ describe('imports', () => {
     expect(stack.resolve(workspace.workspaceArn)).toBe(arn);
     expect(stack.resolve(workspace.workspaceId)).toBe(name);
     expect(stack.resolve(workspace.workspacePrometheusEndpoint)).toBe(endpoint);
+    expect(stack.resolve(workspace.workspaceQueryUrl)).toBe(`${endpoint}api/v1/query`);
+    expect(stack.resolve(workspace.workspaceRemoteWriteUrl)).toBe(`${endpoint}api/v1/remote_write`);
   });
 
   test ('import workspace using arn', () => {
@@ -54,6 +56,8 @@ describe('imports', () => {
     expect(stack.resolve(workspace.workspaceArn)).toBe(arn);
     expect(stack.resolve(workspace.workspaceId)).toBe(name);
     expect(stack.resolve(workspace.workspacePrometheusEndpoint)).toStrictEqual(stack.resolve(endpoint));
+    expect(stack.resolve(workspace.workspaceQueryUrl)).toStrictEqual(stack.resolve(`${endpoint}api/v1/query`));
+    expect(stack.resolve(workspace.workspaceRemoteWriteUrl)).toStrictEqual(stack.resolve(`${endpoint}api/v1/remote_write`));
   });
 
   test ('import workspace using id', () => {
@@ -72,6 +76,8 @@ describe('imports', () => {
     expect(stack.resolve(workspace.workspaceArn)).toStrictEqual(stack.resolve(arn));
     expect(stack.resolve(workspace.workspaceId)).toBe(name);
     expect(stack.resolve(workspace.workspacePrometheusEndpoint)).toStrictEqual(stack.resolve(endpoint));
+    expect(stack.resolve(workspace.workspaceQueryUrl)).toStrictEqual(stack.resolve(`${endpoint}api/v1/query`));
+    expect(stack.resolve(workspace.workspaceRemoteWriteUrl)).toStrictEqual(stack.resolve(`${endpoint}api/v1/remote_write`));
   });
 
   test ('import workspace using prometheus endpoint string', () => {
@@ -92,6 +98,8 @@ describe('imports', () => {
     expect(stack.resolve(workspace.workspaceArn)).toStrictEqual(stack.resolve(arn));
     expect(stack.resolve(workspace.workspaceId)).toBe(name);
     expect(workspace.workspacePrometheusEndpoint).toBe(endpoint);
+    expect(stack.resolve(workspace.workspaceQueryUrl)).toBe(`${endpoint}api/v1/query`);
+    expect(stack.resolve(workspace.workspaceRemoteWriteUrl)).toBe(`${endpoint}api/v1/remote_write`);
   });
 
   test ('import workspace using prometheus endpoint token', () => {
@@ -116,6 +124,8 @@ describe('imports', () => {
     expect(stack.resolve(workspace.workspaceArn)).toStrictEqual(stack.resolve(arn));
     expect(stack.resolve(workspace.workspaceId)).toStrictEqual(stack.resolve(name));
     expect(stack.resolve(workspace.workspacePrometheusEndpoint)).toBe(stack.resolve(endpoint));
+    expect(stack.resolve(workspace.workspaceQueryUrl)).toBe(stack.resolve(`${endpoint}api/v1/query`));
+    expect(stack.resolve(workspace.workspaceRemoteWriteUrl)).toBe(stack.resolve(`${endpoint}api/v1/remote_write`));
   });
 });
 

@@ -426,7 +426,7 @@ export class Route53Dns extends Resource {
    * naming. Must be unique within the context of 'scope'.
    * @param props Arguments related to the configuration of the resource.
    */
-  constructor(scope: Construct, id: string, props: Route53DnsProps) {
+  public constructor(scope: Construct, id: string, props: Route53DnsProps) {
     super(scope, id, {
       ...props,
     });

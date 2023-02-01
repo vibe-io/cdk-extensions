@@ -3562,6 +3562,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.adotCollector">adotCollector</a></code> | <code>cdk-extensions.k8s_aws.AdotCollector</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.externalSecrets">externalSecrets</a></code> | <code>cdk-extensions.k8s_aws.ExternalSecretsOperator</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.fargateLogger">fargateLogger</a></code> | <code>cdk-extensions.k8s_aws.FargateLogger</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.prometheusService">prometheusService</a></code> | <code>cdk-extensions.k8s_fargate.Prometheus</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.prometheusWorkspace">prometheusWorkspace</a></code> | <code>cdk-extensions.aps.IWorkspace</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.route53Dns">route53Dns</a></code> | <code>cdk-extensions.k8s_aws.Route53Dns</code> | *No description.* |
 
 ---
@@ -3646,6 +3648,26 @@ public readonly fargateLogger: FargateLogger;
 ```
 
 - *Type:* cdk-extensions.k8s_aws.FargateLogger
+
+---
+
+##### `prometheusService`<sup>Optional</sup> <a name="prometheusService" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.prometheusService"></a>
+
+```typescript
+public readonly prometheusService: Prometheus;
+```
+
+- *Type:* cdk-extensions.k8s_fargate.Prometheus
+
+---
+
+##### `prometheusWorkspace`<sup>Optional</sup> <a name="prometheusWorkspace" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.prometheusWorkspace"></a>
+
+```typescript
+public readonly prometheusWorkspace: IWorkspace;
+```
+
+- *Type:* cdk-extensions.aps.IWorkspace
 
 ---
 
@@ -15773,6 +15795,359 @@ The length of time that the application user sessions are valid for.
 ---
 
 
+### Prometheus <a name="Prometheus" id="cdk-extensions.k8s_fargate.Prometheus"></a>
+
+Deploys Prometheus into EKS.
+
+The service is run in Fargate and writes data to Amazon Managed Service for
+Prometheus which provides the backing data store.
+
+> [[Official Helm chart documentation](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus#readme)]([Official Helm chart documentation](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus#readme))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_fargate.Prometheus.Initializer"></a>
+
+```typescript
+import { k8s_fargate } from 'cdk-extensions'
+
+new k8s_fargate.Prometheus(scope: IConstruct, id: string, props: PrometheusProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the resource and used in resource naming. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_fargate.PrometheusProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_fargate.Prometheus.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_fargate.Prometheus.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the resource and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.k8s_fargate.Prometheus.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.k8s_fargate.PrometheusProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.k8s_fargate.Prometheus.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.k8s_fargate.Prometheus.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.k8s_fargate.Prometheus.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.k8s_fargate.Prometheus.isConstruct"></a>
+
+```typescript
+import { k8s_fargate } from 'cdk-extensions'
+
+k8s_fargate.Prometheus.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.k8s_fargate.Prometheus.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.k8s_fargate.Prometheus.isOwnedResource"></a>
+
+```typescript
+import { k8s_fargate } from 'cdk-extensions'
+
+k8s_fargate.Prometheus.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_fargate.Prometheus.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.k8s_fargate.Prometheus.isResource"></a>
+
+```typescript
+import { k8s_fargate } from 'cdk-extensions'
+
+k8s_fargate.Prometheus.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_fargate.Prometheus.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.chart">chart</a></code> | <code>aws-cdk-lib.aws_eks.HelmChart</code> | The Helm chart that was used to deploy Prometheus. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.Cluster</code> | {@inheritdoc PrometheusProps.cluster}. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.fargateProfile">fargateProfile</a></code> | <code>aws-cdk-lib.aws_eks.FargateProfile</code> | The Fargate profile used for running the service in Fargate. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.namespace">namespace</a></code> | <code>string</code> | {@inheritdoc PrometheusOptions.namespace}. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.serviceAccount">serviceAccount</a></code> | <code>aws-cdk-lib.aws_eks.ServiceAccount</code> | The service account that Prometheus will use to gain permissions for Kubernetes and AWS. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.serviceAccountName">serviceAccountName</a></code> | <code>string</code> | {@inheritdoc PrometheusOptions.serviceAccountName}. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.workspace">workspace</a></code> | <code>cdk-extensions.aps.IWorkspace</code> | {@inheritdoc PrometheusProps.workspace}. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | {@inheritdoc PropmetheusOptions.queueConfiguration}. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.k8s_fargate.Prometheus.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.k8s_fargate.Prometheus.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.k8s_fargate.Prometheus.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `chart`<sup>Required</sup> <a name="chart" id="cdk-extensions.k8s_fargate.Prometheus.property.chart"></a>
+
+```typescript
+public readonly chart: HelmChart;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.HelmChart
+
+The Helm chart that was used to deploy Prometheus.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_fargate.Prometheus.property.cluster"></a>
+
+```typescript
+public readonly cluster: Cluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.Cluster
+
+{@inheritdoc PrometheusProps.cluster}.
+
+---
+
+##### `fargateProfile`<sup>Required</sup> <a name="fargateProfile" id="cdk-extensions.k8s_fargate.Prometheus.property.fargateProfile"></a>
+
+```typescript
+public readonly fargateProfile: FargateProfile;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.FargateProfile
+
+The Fargate profile used for running the service in Fargate.
+
+---
+
+##### `namespace`<sup>Required</sup> <a name="namespace" id="cdk-extensions.k8s_fargate.Prometheus.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+{@inheritdoc PrometheusOptions.namespace}.
+
+---
+
+##### `serviceAccount`<sup>Required</sup> <a name="serviceAccount" id="cdk-extensions.k8s_fargate.Prometheus.property.serviceAccount"></a>
+
+```typescript
+public readonly serviceAccount: ServiceAccount;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ServiceAccount
+
+The service account that Prometheus will use to gain permissions for Kubernetes and AWS.
+
+---
+
+##### `serviceAccountName`<sup>Required</sup> <a name="serviceAccountName" id="cdk-extensions.k8s_fargate.Prometheus.property.serviceAccountName"></a>
+
+```typescript
+public readonly serviceAccountName: string;
+```
+
+- *Type:* string
+
+{@inheritdoc PrometheusOptions.serviceAccountName}.
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="cdk-extensions.k8s_fargate.Prometheus.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* cdk-extensions.aps.IWorkspace
+
+{@inheritdoc PrometheusProps.workspace}.
+
+---
+
+##### `queueConfiguration`<sup>Optional</sup> <a name="queueConfiguration" id="cdk-extensions.k8s_fargate.Prometheus.property.queueConfiguration"></a>
+
+```typescript
+public readonly queueConfiguration: QueueConfiguration;
+```
+
+- *Type:* cdk-extensions.k8s_fargate.QueueConfiguration
+
+{@inheritdoc PropmetheusOptions.queueConfiguration}.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.CHART_NAME">CHART_NAME</a></code> | <code>string</code> | The name of the Prometheus Helm chart. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.CHART_REPOSITORY">CHART_REPOSITORY</a></code> | <code>string</code> | The Helm repository providing the chart to be used for installing the Prometheus service. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.DEFAULT_NAMESPACE">DEFAULT_NAMESPACE</a></code> | <code>string</code> | The default Kubernetes namespace where Prometheus will be installed if an alternative isn't given as input. |
+
+---
+
+##### `CHART_NAME`<sup>Required</sup> <a name="CHART_NAME" id="cdk-extensions.k8s_fargate.Prometheus.property.CHART_NAME"></a>
+
+```typescript
+public readonly CHART_NAME: string;
+```
+
+- *Type:* string
+
+The name of the Prometheus Helm chart.
+
+---
+
+##### `CHART_REPOSITORY`<sup>Required</sup> <a name="CHART_REPOSITORY" id="cdk-extensions.k8s_fargate.Prometheus.property.CHART_REPOSITORY"></a>
+
+```typescript
+public readonly CHART_REPOSITORY: string;
+```
+
+- *Type:* string
+
+The Helm repository providing the chart to be used for installing the Prometheus service.
+
+---
+
+##### `DEFAULT_NAMESPACE`<sup>Required</sup> <a name="DEFAULT_NAMESPACE" id="cdk-extensions.k8s_fargate.Prometheus.property.DEFAULT_NAMESPACE"></a>
+
+```typescript
+public readonly DEFAULT_NAMESPACE: string;
+```
+
+- *Type:* string
+
+The default Kubernetes namespace where Prometheus will be installed if an alternative isn't given as input.
+
+---
+
 ### RawBucket <a name="RawBucket" id="cdk-extensions.s3_buckets.RawBucket"></a>
 
 - *Implements:* aws-cdk-lib.aws_s3.IBucket
@@ -25984,6 +26359,8 @@ The AWS generated ID of the existing APS workspace to be imported.
 | <code><a href="#cdk-extensions.aps.Workspace.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the APS workspace. |
 | <code><a href="#cdk-extensions.aps.Workspace.property.workspaceId">workspaceId</a></code> | <code>string</code> | The ID generated by AWS for the APS workspace. |
 | <code><a href="#cdk-extensions.aps.Workspace.property.workspacePrometheusEndpoint">workspacePrometheusEndpoint</a></code> | <code>string</code> | The Prometheus endpoint attribute of the workspace. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.workspaceQueryUrl">workspaceQueryUrl</a></code> | <code>string</code> | The URL of the remote write endpoint which can be used to ingest metrics into the Prometheus workspace. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.workspaceRemoteWriteUrl">workspaceRemoteWriteUrl</a></code> | <code>string</code> | The URL of the endpoint that other services can use to query the workspace. |
 | <code><a href="#cdk-extensions.aps.Workspace.property.alerting">alerting</a></code> | <code>cdk-extensions.aps.WorkspaceAlertingOptions</code> | The details used to configure alerting for the APS workspace. |
 | <code><a href="#cdk-extensions.aps.Workspace.property.alertManagerConfiguration">alertManagerConfiguration</a></code> | <code>cdk-extensions.aps.AlertManagerConfiguration</code> | The configuration contolling how alerts are sent for the workspace. |
 | <code><a href="#cdk-extensions.aps.Workspace.property.alertTopic">alertTopic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | The SNS topic where alerts generated by the workspace will be sent. |
@@ -26086,6 +26463,30 @@ The Prometheus endpoint attribute of the workspace.
 
 This is the endpoint prefix without the remote_write or query API
 appended.
+
+---
+
+##### `workspaceQueryUrl`<sup>Required</sup> <a name="workspaceQueryUrl" id="cdk-extensions.aps.Workspace.property.workspaceQueryUrl"></a>
+
+```typescript
+public readonly workspaceQueryUrl: string;
+```
+
+- *Type:* string
+
+The URL of the remote write endpoint which can be used to ingest metrics into the Prometheus workspace.
+
+---
+
+##### `workspaceRemoteWriteUrl`<sup>Required</sup> <a name="workspaceRemoteWriteUrl" id="cdk-extensions.aps.Workspace.property.workspaceRemoteWriteUrl"></a>
+
+```typescript
+public readonly workspaceRemoteWriteUrl: string;
+```
+
+- *Type:* string
+
+The URL of the endpoint that other services can use to query the workspace.
 
 ---
 
@@ -27592,6 +27993,7 @@ const awsIntegratedFargateClusterProps: eks_patterns.AwsIntegratedFargateCluster
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.externalDnsOptions">externalDnsOptions</a></code> | <code>cdk-extensions.eks_patterns.ClusterRoute53DnsOptions</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.externalSecretsOptions">externalSecretsOptions</a></code> | <code>cdk-extensions.eks_patterns.ExternalSecretsOptions</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.loggingOptions">loggingOptions</a></code> | <code>cdk-extensions.eks_patterns.ClusterFargateLoggingOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.prometheusOptions">prometheusOptions</a></code> | <code>cdk-extensions.eks_patterns.ClusterPrometheusOptions</code> | *No description.* |
 
 ---
 
@@ -28031,6 +28433,16 @@ public readonly loggingOptions: ClusterFargateLoggingOptions;
 ```
 
 - *Type:* cdk-extensions.eks_patterns.ClusterFargateLoggingOptions
+
+---
+
+##### `prometheusOptions`<sup>Optional</sup> <a name="prometheusOptions" id="cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.prometheusOptions"></a>
+
+```typescript
+public readonly prometheusOptions: ClusterPrometheusOptions;
+```
+
+- *Type:* cdk-extensions.eks_patterns.ClusterPrometheusOptions
 
 ---
 
@@ -29551,6 +29963,84 @@ public readonly enabled: boolean;
 - *Default:* true
 
 Controls whether logging will be set up for pods using the default Fargate provide on the EKS cluster.
+
+---
+
+### ClusterPrometheusOptions <a name="ClusterPrometheusOptions" id="cdk-extensions.eks_patterns.ClusterPrometheusOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.eks_patterns.ClusterPrometheusOptions.Initializer"></a>
+
+```typescript
+import { eks_patterns } from 'cdk-extensions'
+
+const clusterPrometheusOptions: eks_patterns.ClusterPrometheusOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be deployed. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | {@inheritdoc QueueConfiguration}. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.serviceAccountName">serviceAccountName</a></code> | <code>string</code> | Name of the Kubernetes service account that should be created and used by Prometheus. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.enabled">enabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.workspace">workspace</a></code> | <code>cdk-extensions.aps.IWorkspace</code> | *No description.* |
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where the service should be deployed.
+
+---
+
+##### `queueConfiguration`<sup>Optional</sup> <a name="queueConfiguration" id="cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.queueConfiguration"></a>
+
+```typescript
+public readonly queueConfiguration: QueueConfiguration;
+```
+
+- *Type:* cdk-extensions.k8s_fargate.QueueConfiguration
+
+{@inheritdoc QueueConfiguration}.
+
+---
+
+##### `serviceAccountName`<sup>Optional</sup> <a name="serviceAccountName" id="cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.serviceAccountName"></a>
+
+```typescript
+public readonly serviceAccountName: string;
+```
+
+- *Type:* string
+
+Name of the Kubernetes service account that should be created and used by Prometheus.
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `workspace`<sup>Optional</sup> <a name="workspace" id="cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* cdk-extensions.aps.IWorkspace
 
 ---
 
@@ -39043,6 +39533,213 @@ public readonly enabled: boolean;
 
 ---
 
+### PrometheusOptions <a name="PrometheusOptions" id="cdk-extensions.k8s_fargate.PrometheusOptions"></a>
+
+Optional configurations for the Prometheus resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_fargate.PrometheusOptions.Initializer"></a>
+
+```typescript
+import { k8s_fargate } from 'cdk-extensions'
+
+const prometheusOptions: k8s_fargate.PrometheusOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusOptions.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be deployed. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusOptions.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | {@inheritdoc QueueConfiguration}. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusOptions.property.serviceAccountName">serviceAccountName</a></code> | <code>string</code> | Name of the Kubernetes service account that should be created and used by Prometheus. |
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_fargate.PrometheusOptions.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where the service should be deployed.
+
+---
+
+##### `queueConfiguration`<sup>Optional</sup> <a name="queueConfiguration" id="cdk-extensions.k8s_fargate.PrometheusOptions.property.queueConfiguration"></a>
+
+```typescript
+public readonly queueConfiguration: QueueConfiguration;
+```
+
+- *Type:* cdk-extensions.k8s_fargate.QueueConfiguration
+
+{@inheritdoc QueueConfiguration}.
+
+---
+
+##### `serviceAccountName`<sup>Optional</sup> <a name="serviceAccountName" id="cdk-extensions.k8s_fargate.PrometheusOptions.property.serviceAccountName"></a>
+
+```typescript
+public readonly serviceAccountName: string;
+```
+
+- *Type:* string
+
+Name of the Kubernetes service account that should be created and used by Prometheus.
+
+---
+
+### PrometheusProps <a name="PrometheusProps" id="cdk-extensions.k8s_fargate.PrometheusProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_fargate.PrometheusProps.Initializer"></a>
+
+```typescript
+import { k8s_fargate } from 'cdk-extensions'
+
+const prometheusProps: k8s_fargate.PrometheusProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be deployed. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | {@inheritdoc QueueConfiguration}. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.serviceAccountName">serviceAccountName</a></code> | <code>string</code> | Name of the Kubernetes service account that should be created and used by Prometheus. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.Cluster</code> | The EKS cluster where Prometheus should be deployed. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.workspace">workspace</a></code> | <code>cdk-extensions.aps.IWorkspace</code> | The Amazon Managed Service for Prometheus workspace where the Prometheus server should sned its data. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.k8s_fargate.PrometheusProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.k8s_fargate.PrometheusProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.k8s_fargate.PrometheusProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_fargate.PrometheusProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_fargate.PrometheusProps.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where the service should be deployed.
+
+---
+
+##### `queueConfiguration`<sup>Optional</sup> <a name="queueConfiguration" id="cdk-extensions.k8s_fargate.PrometheusProps.property.queueConfiguration"></a>
+
+```typescript
+public readonly queueConfiguration: QueueConfiguration;
+```
+
+- *Type:* cdk-extensions.k8s_fargate.QueueConfiguration
+
+{@inheritdoc QueueConfiguration}.
+
+---
+
+##### `serviceAccountName`<sup>Optional</sup> <a name="serviceAccountName" id="cdk-extensions.k8s_fargate.PrometheusProps.property.serviceAccountName"></a>
+
+```typescript
+public readonly serviceAccountName: string;
+```
+
+- *Type:* string
+
+Name of the Kubernetes service account that should be created and used by Prometheus.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_fargate.PrometheusProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: Cluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.Cluster
+
+The EKS cluster where Prometheus should be deployed.
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="cdk-extensions.k8s_fargate.PrometheusProps.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* cdk-extensions.aps.IWorkspace
+
+The Amazon Managed Service for Prometheus workspace where the Prometheus server should sned its data.
+
+---
+
 ### PythonShellExecutableProps <a name="PythonShellExecutableProps" id="cdk-extensions.glue.PythonShellExecutableProps"></a>
 
 Props for creating a Python shell job executable.
@@ -39264,6 +39961,70 @@ Additional Python files that AWS Glue adds to the Python path before executing y
 Only individual files are supported, directories are not supported.
 
 > [`--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html](`--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
+
+---
+
+### QueueConfiguration <a name="QueueConfiguration" id="cdk-extensions.k8s_fargate.QueueConfiguration"></a>
+
+Configures the queue used to write to Amazon Managed Service for Prometheus.
+
+> [[Remote write configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)]([Remote write configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_fargate.QueueConfiguration.Initializer"></a>
+
+```typescript
+import { k8s_fargate } from 'cdk-extensions'
+
+const queueConfiguration: k8s_fargate.QueueConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.QueueConfiguration.property.capacity">capacity</a></code> | <code>number</code> | Number of samples to buffer per shard before we block reading of more samples from the WAL. |
+| <code><a href="#cdk-extensions.k8s_fargate.QueueConfiguration.property.maxSamplesPerSend">maxSamplesPerSend</a></code> | <code>number</code> | Maximum number of samples per send. |
+| <code><a href="#cdk-extensions.k8s_fargate.QueueConfiguration.property.maxShards">maxShards</a></code> | <code>number</code> | Maximum number of shards, i.e. amount of concurrency. |
+
+---
+
+##### `capacity`<sup>Optional</sup> <a name="capacity" id="cdk-extensions.k8s_fargate.QueueConfiguration.property.capacity"></a>
+
+```typescript
+public readonly capacity: number;
+```
+
+- *Type:* number
+
+Number of samples to buffer per shard before we block reading of more samples from the WAL.
+
+It is recommended to have enough capacity in each
+shard to buffer several requests to keep throughput up while processing
+occasional slow remote requests.
+
+---
+
+##### `maxSamplesPerSend`<sup>Optional</sup> <a name="maxSamplesPerSend" id="cdk-extensions.k8s_fargate.QueueConfiguration.property.maxSamplesPerSend"></a>
+
+```typescript
+public readonly maxSamplesPerSend: number;
+```
+
+- *Type:* number
+
+Maximum number of samples per send.
+
+---
+
+##### `maxShards`<sup>Optional</sup> <a name="maxShards" id="cdk-extensions.k8s_fargate.QueueConfiguration.property.maxShards"></a>
+
+```typescript
+public readonly maxShards: number;
+```
+
+- *Type:* number
+
+Maximum number of shards, i.e. amount of concurrency.
 
 ---
 
@@ -64671,6 +65432,8 @@ Represents an APS workspace in AWS.
 | <code><a href="#cdk-extensions.aps.IWorkspace.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the APS workspace. |
 | <code><a href="#cdk-extensions.aps.IWorkspace.property.workspaceId">workspaceId</a></code> | <code>string</code> | The ID generated by AWS for the APS workspace. |
 | <code><a href="#cdk-extensions.aps.IWorkspace.property.workspacePrometheusEndpoint">workspacePrometheusEndpoint</a></code> | <code>string</code> | The Prometheus endpoint attribute of the workspace. |
+| <code><a href="#cdk-extensions.aps.IWorkspace.property.workspaceQueryUrl">workspaceQueryUrl</a></code> | <code>string</code> | The URL of the remote write endpoint which can be used to ingest metrics into the Prometheus workspace. |
+| <code><a href="#cdk-extensions.aps.IWorkspace.property.workspaceRemoteWriteUrl">workspaceRemoteWriteUrl</a></code> | <code>string</code> | The URL of the endpoint that other services can use to query the workspace. |
 
 ---
 
@@ -64710,6 +65473,30 @@ The Prometheus endpoint attribute of the workspace.
 
 This is the endpoint prefix without the remote_write or query API
 appended.
+
+---
+
+##### `workspaceQueryUrl`<sup>Required</sup> <a name="workspaceQueryUrl" id="cdk-extensions.aps.IWorkspace.property.workspaceQueryUrl"></a>
+
+```typescript
+public readonly workspaceQueryUrl: string;
+```
+
+- *Type:* string
+
+The URL of the remote write endpoint which can be used to ingest metrics into the Prometheus workspace.
+
+---
+
+##### `workspaceRemoteWriteUrl`<sup>Required</sup> <a name="workspaceRemoteWriteUrl" id="cdk-extensions.aps.IWorkspace.property.workspaceRemoteWriteUrl"></a>
+
+```typescript
+public readonly workspaceRemoteWriteUrl: string;
+```
+
+- *Type:* string
+
+The URL of the endpoint that other services can use to query the workspace.
 
 ---
 

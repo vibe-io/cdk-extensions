@@ -3,10 +3,12 @@ import { FargateCluster, FargateClusterProps } from 'aws-cdk-lib/aws-eks';
 import { ISecret } from 'aws-cdk-lib/aws-secretsmanager';
 import { IParameter } from 'aws-cdk-lib/aws-ssm';
 import { Construct, IDependable } from 'constructs';
+import { IWorkspace, Workspace } from '../aps';
 import { FargateLogger, FargateLoggerOptions, Route53Dns, Route53DnsOptions } from '../k8s-aws';
 import { AdotCollector } from '../k8s-aws/adot-collector';
 import { ExternalSecret } from '../k8s-aws/external-secret';
 import { ExternalSecretsOperator, NamespacedExternalSecretOptions } from '../k8s-aws/external-secrets-operator';
+import { Prometheus, PrometheusOptions } from '../k8s-fargate';
 
 
 /**
@@ -47,6 +49,11 @@ export interface ClusterRoute53DnsOptions extends Route53DnsOptions {
   readonly enabled?: boolean;
 }
 
+export interface ClusterPrometheusOptions extends PrometheusOptions {
+  readonly enabled?: boolean;
+  readonly workspace?: IWorkspace;
+}
+
 export interface ExternalSecretsOptions {
   readonly enabled?: boolean;
   readonly createNamespace?: boolean;
@@ -59,6 +66,7 @@ export interface AwsIntegratedFargateClusterProps extends FargateClusterProps {
   readonly externalDnsOptions?: ClusterRoute53DnsOptions;
   readonly externalSecretsOptions?: ExternalSecretsOptions;
   readonly loggingOptions?: ClusterFargateLoggingOptions;
+  readonly prometheusOptions?: ClusterPrometheusOptions;
 }
 
 export class AwsIntegratedFargateCluster extends Resource {
@@ -66,6 +74,8 @@ export class AwsIntegratedFargateCluster extends Resource {
   public readonly adotCollector?: AdotCollector;
   public readonly externalSecrets?: ExternalSecretsOperator;
   public readonly fargateLogger?: FargateLogger;
+  public readonly prometheusService?: Prometheus;
+  public readonly prometheusWorkspace?: IWorkspace;
   public readonly route53Dns?: Route53Dns;
   public readonly resource: FargateCluster;
 
@@ -91,7 +101,6 @@ export class AwsIntegratedFargateCluster extends Resource {
     }
 
     if (props.containerInsightsOptions?.enabled ?? true) {
-
       this.adotCollector = new AdotCollector(this, 'adot-collector', {
         cluster: this.resource,
       });
@@ -135,6 +144,19 @@ export class AwsIntegratedFargateCluster extends Resource {
       this.fargateLogger?.addFargateProfile(fargateProfile);
 
       lastResource = this.externalSecrets;
+    }
+
+    if (props.prometheusOptions?.enabled ?? true) {
+      this.prometheusWorkspace = props.prometheusOptions?.workspace ?? new Workspace(this, 'prometheus-workspace');
+
+      this.prometheusService = new Prometheus(this, 'prometheus-service', {
+        ...(props.prometheusOptions ?? {}),
+        cluster: this.resource,
+        workspace: this.prometheusWorkspace,
+      });
+      this.prometheusService.node.addDependency(lastResource);
+
+      lastResource = this.prometheusService;
     }
   }
 
