@@ -1,4 +1,4 @@
-import { ArnFormat, Fn, RemovalPolicy, Resource, ResourceProps, Stack, Token } from 'aws-cdk-lib';
+import { ArnFormat, Fn, Lazy, RemovalPolicy, Resource, ResourceProps, Stack, Token } from 'aws-cdk-lib';
 import { CfnWorkspace } from 'aws-cdk-lib/aws-aps';
 import { ILogGroup, LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { ITopic } from 'aws-cdk-lib/aws-sns';
@@ -28,6 +28,18 @@ export interface IWorkspace {
    * appended.
    */
   readonly workspacePrometheusEndpoint: string;
+
+  /**
+   * The URL of the remote write endpoint which can be used to ingest metrics
+   * into the Prometheus workspace.
+   */
+  readonly workspaceQueryUrl: string;
+
+  /**
+   * The URL of the endpoint that other services can use to query the
+   * workspace.
+   */
+  readonly workspaceRemoteWriteUrl: string;
 }
 
 /**
@@ -166,6 +178,35 @@ abstract class WorkspaceBase extends Resource implements IWorkspace {
    * appended.
    */
   public abstract readonly workspacePrometheusEndpoint: string;
+
+  /**
+   * The URL of the remote write endpoint which can be used to ingest metrics
+   * into the Prometheus workspace.
+   */
+  public readonly workspaceQueryUrl: string;
+
+  /**
+   * The URL of the endpoint that other services can use to query the
+   * workspace.
+   */
+  public readonly workspaceRemoteWriteUrl: string;
+
+
+  public constructor(scope: IConstruct, id: string, props?: ResourceProps) {
+    super(scope, id, props);
+
+    this.workspaceQueryUrl = Lazy.string({
+      produce: () => {
+        return `${this.workspacePrometheusEndpoint}api/v1/query`;
+      },
+    });
+
+    this.workspaceRemoteWriteUrl = Lazy.string({
+      produce: () => {
+        return `${this.workspacePrometheusEndpoint}api/v1/remote_write`;
+      },
+    });
+  }
 }
 
 /**
@@ -178,7 +219,7 @@ abstract class WorkspaceBase extends Resource implements IWorkspace {
  *
  * @see [AWS::APS::Workspace](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#aws-resource-aps-workspace-return-values)
  */
-export class Workspace extends Resource implements IWorkspace {
+export class Workspace extends WorkspaceBase implements IWorkspace {
   /**
    * Imports an existing APS workspace by specifying its Amazon Resource Name
    * (ARN).
