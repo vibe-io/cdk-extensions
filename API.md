@@ -4273,7 +4273,7 @@ This value is resolved according to the following rules:
 
 Preferably, you should use the return value as an opaque string and not
 attempt to parse it to implement your logic. If you do, you must first
-check that it is a concerete value an not an unresolved token. If this
+check that it is a concrete value an not an unresolved token. If this
 value is an unresolved token (`Token.isUnresolved(stack.account)` returns
 `true`), this implies that the user wishes that this stack will synthesize
 into a **account-agnostic template**. In this case, your code should either
@@ -4414,14 +4414,14 @@ The AWS region into which this stack will be deployed (e.g. `us-west-2`).
 This value is resolved according to the following rules:
 
 1. The value provided to `env.region` when the stack is defined. This can
-    either be a concerete region (e.g. `us-west-2`) or the `Aws.REGION`
+    either be a concrete region (e.g. `us-west-2`) or the `Aws.REGION`
     token.
 3. `Aws.REGION`, which is represents the CloudFormation intrinsic reference
     `{ "Ref": "AWS::Region" }` encoded as a string token.
 
 Preferably, you should use the return value as an opaque string and not
 attempt to parse it to implement your logic. If you do, you must first
-check that it is a concerete value an not an unresolved token. If this
+check that it is a concrete value an not an unresolved token. If this
 value is an unresolved token (`Token.isUnresolved(stack.region)` returns
 `true`), this implies that the user wishes that this stack will synthesize
 into a **region-agnostic template**. In this case, your code should either
@@ -13125,6 +13125,361 @@ public readonly internalRejectedNamedQuery: NamedQuery;
 ---
 
 
+### GlobalCluster <a name="GlobalCluster" id="cdk-extensions.rds.GlobalCluster"></a>
+
+- *Implements:* cdk-extensions.rds.IGlobalCluster
+
+#### Initializers <a name="Initializers" id="cdk-extensions.rds.GlobalCluster.Initializer"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+new rds.GlobalCluster(scope: Construct, id: string, props: GlobalClusterProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.rds.GlobalClusterProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.rds.GlobalCluster.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.rds.GlobalCluster.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.rds.GlobalCluster.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.rds.GlobalClusterProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.rds.GlobalCluster.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.rds.GlobalCluster.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.rds.GlobalCluster.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.fromArn">fromArn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.fromAttributes">fromAttributes</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.fromName">fromName</a></code> | *No description.* |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.rds.GlobalCluster.isConstruct"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+rds.GlobalCluster.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.rds.GlobalCluster.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.rds.GlobalCluster.isOwnedResource"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+rds.GlobalCluster.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.rds.GlobalCluster.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.rds.GlobalCluster.isResource"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+rds.GlobalCluster.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.rds.GlobalCluster.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromArn` <a name="fromArn" id="cdk-extensions.rds.GlobalCluster.fromArn"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+rds.GlobalCluster.fromArn(scope: IConstruct, id: string, arn: string)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.rds.GlobalCluster.fromArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.rds.GlobalCluster.fromArn.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `arn`<sup>Required</sup> <a name="arn" id="cdk-extensions.rds.GlobalCluster.fromArn.parameter.arn"></a>
+
+- *Type:* string
+
+---
+
+##### `fromAttributes` <a name="fromAttributes" id="cdk-extensions.rds.GlobalCluster.fromAttributes"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+rds.GlobalCluster.fromAttributes(scope: IConstruct, id: string, attrs: GlobalClusterAttributes)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.rds.GlobalCluster.fromAttributes.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.rds.GlobalCluster.fromAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.rds.GlobalCluster.fromAttributes.parameter.attrs"></a>
+
+- *Type:* cdk-extensions.rds.GlobalClusterAttributes
+
+---
+
+##### `fromName` <a name="fromName" id="cdk-extensions.rds.GlobalCluster.fromName"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+rds.GlobalCluster.fromName(scope: IConstruct, id: string, name: string)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.rds.GlobalCluster.fromName.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.rds.GlobalCluster.fromName.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.rds.GlobalCluster.fromName.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.property.configuration">configuration</a></code> | <code>cdk-extensions.rds.GlobalClusterConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.property.encrypted">encrypted</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.property.globalClusterArn">globalClusterArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.property.globalClusterName">globalClusterName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_rds.CfnGlobalCluster</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.rds.GlobalCluster.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.rds.GlobalCluster.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.rds.GlobalCluster.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `configuration`<sup>Required</sup> <a name="configuration" id="cdk-extensions.rds.GlobalCluster.property.configuration"></a>
+
+```typescript
+public readonly configuration: GlobalClusterConfiguration;
+```
+
+- *Type:* cdk-extensions.rds.GlobalClusterConfiguration
+
+---
+
+##### `encrypted`<sup>Required</sup> <a name="encrypted" id="cdk-extensions.rds.GlobalCluster.property.encrypted"></a>
+
+```typescript
+public readonly encrypted: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `globalClusterArn`<sup>Required</sup> <a name="globalClusterArn" id="cdk-extensions.rds.GlobalCluster.property.globalClusterArn"></a>
+
+```typescript
+public readonly globalClusterArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `globalClusterName`<sup>Required</sup> <a name="globalClusterName" id="cdk-extensions.rds.GlobalCluster.property.globalClusterName"></a>
+
+```typescript
+public readonly globalClusterName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.rds.GlobalCluster.property.resource"></a>
+
+```typescript
+public readonly resource: CfnGlobalCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.CfnGlobalCluster
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.rds.GlobalCluster.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.rds.GlobalCluster.property.ARN_FORMAT">ARN_FORMAT</a></code> | <code>aws-cdk-lib.ArnFormat</code> | *No description.* |
+
+---
+
+##### `ARN_FORMAT`<sup>Required</sup> <a name="ARN_FORMAT" id="cdk-extensions.rds.GlobalCluster.property.ARN_FORMAT"></a>
+
+```typescript
+public readonly ARN_FORMAT: ArnFormat;
+```
+
+- *Type:* aws-cdk-lib.ArnFormat
+
+---
+
 ### GroupBase <a name="GroupBase" id="cdk-extensions.sso.GroupBase"></a>
 
 - *Implements:* cdk-extensions.sso.IGroup, cdk-extensions.sso.IIdentityCenterPrincipal
@@ -17331,6 +17686,7 @@ The reference configuration used when registering a customer managed policy with
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.description">description</a></code> | <code>string</code> | The description of this policy. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.document">document</a></code> | <code>aws-cdk-lib.aws_iam.PolicyDocument</code> | The policy document. |
+| <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.grantPrincipal">grantPrincipal</a></code> | <code>aws-cdk-lib.aws_iam.IPrincipal</code> | The principal to grant permissions to. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.managedPolicyArn">managedPolicyArn</a></code> | <code>string</code> | Returns the ARN of this managed policy. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.managedPolicyName">managedPolicyName</a></code> | <code>string</code> | The name of this policy. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.path">path</a></code> | <code>string</code> | The path of this policy. |
@@ -17403,6 +17759,18 @@ public readonly document: PolicyDocument;
 - *Type:* aws-cdk-lib.aws_iam.PolicyDocument
 
 The policy document.
+
+---
+
+##### `grantPrincipal`<sup>Required</sup> <a name="grantPrincipal" id="cdk-extensions.sso.ReferencedManagedPolicy.property.grantPrincipal"></a>
+
+```typescript
+public readonly grantPrincipal: IPrincipal;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IPrincipal
+
+The principal to grant permissions to.
 
 ---
 
@@ -28635,9 +29003,19 @@ public readonly synthesizer: IStackSynthesizer;
 ```
 
 - *Type:* aws-cdk-lib.IStackSynthesizer
-- *Default:* `DefaultStackSynthesizer` if the `@aws-cdk/core:newStyleStackSynthesis` feature flag is set, `LegacyStackSynthesizer` otherwise.
+- *Default:* The synthesizer specified on `App`, or `DefaultStackSynthesizer` otherwise.
 
 Synthesis method to use while deploying this stack.
+
+The Stack Synthesizer controls aspects of synthesis and deployment,
+like how assets are referenced and what IAM roles to use. For more
+information, see the README of the main CDK package.
+
+If not specified, the `defaultStackSynthesizer` from `App` will be used.
+If that is not specified, `DefaultStackSynthesizer` is used if
+`@aws-cdk/core:newStyleStackSynthesis` is set to `true` or the CDK major
+version is v2. In CDK v1 `LegacyStackSynthesizer` is the default if no
+other synthesizer is specified.
 
 ---
 
@@ -37234,6 +37612,229 @@ public readonly window: number;
 - *Default:* 5
 
 Amount of intervals to calculate average over.
+
+---
+
+### GlobalClusterAttributes <a name="GlobalClusterAttributes" id="cdk-extensions.rds.GlobalClusterAttributes"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.rds.GlobalClusterAttributes.Initializer"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+const globalClusterAttributes: rds.GlobalClusterAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.rds.GlobalClusterAttributes.property.arn">arn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.GlobalClusterAttributes.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `arn`<sup>Optional</sup> <a name="arn" id="cdk-extensions.rds.GlobalClusterAttributes.property.arn"></a>
+
+```typescript
+public readonly arn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.rds.GlobalClusterAttributes.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+### GlobalClusterConfigurationAttributes <a name="GlobalClusterConfigurationAttributes" id="cdk-extensions.rds.GlobalClusterConfigurationAttributes"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.rds.GlobalClusterConfigurationAttributes.Initializer"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+const globalClusterConfigurationAttributes: rds.GlobalClusterConfigurationAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.rds.GlobalClusterConfigurationAttributes.property.engine">engine</a></code> | <code>aws-cdk-lib.aws_rds.IClusterEngine</code> | *No description.* |
+
+---
+
+##### `engine`<sup>Required</sup> <a name="engine" id="cdk-extensions.rds.GlobalClusterConfigurationAttributes.property.engine"></a>
+
+```typescript
+public readonly engine: IClusterEngine;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IClusterEngine
+
+---
+
+### GlobalClusterConfigurationDetails <a name="GlobalClusterConfigurationDetails" id="cdk-extensions.rds.GlobalClusterConfigurationDetails"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.rds.GlobalClusterConfigurationDetails.Initializer"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+const globalClusterConfigurationDetails: rds.GlobalClusterConfigurationDetails = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.rds.GlobalClusterConfigurationDetails.property.engine">engine</a></code> | <code>aws-cdk-lib.aws_rds.IClusterEngine</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.GlobalClusterConfigurationDetails.property.sourceCluster">sourceCluster</a></code> | <code>aws-cdk-lib.aws_rds.IDatabaseCluster</code> | *No description.* |
+
+---
+
+##### `engine`<sup>Optional</sup> <a name="engine" id="cdk-extensions.rds.GlobalClusterConfigurationDetails.property.engine"></a>
+
+```typescript
+public readonly engine: IClusterEngine;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IClusterEngine
+
+---
+
+##### `sourceCluster`<sup>Optional</sup> <a name="sourceCluster" id="cdk-extensions.rds.GlobalClusterConfigurationDetails.property.sourceCluster"></a>
+
+```typescript
+public readonly sourceCluster: IDatabaseCluster;
+```
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseCluster
+
+---
+
+### GlobalClusterProps <a name="GlobalClusterProps" id="cdk-extensions.rds.GlobalClusterProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.rds.GlobalClusterProps.Initializer"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+const globalClusterProps: rds.GlobalClusterProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.rds.GlobalClusterProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.rds.GlobalClusterProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.rds.GlobalClusterProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.rds.GlobalClusterProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.rds.GlobalClusterProps.property.configuration">configuration</a></code> | <code>cdk-extensions.rds.GlobalClusterConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.GlobalClusterProps.property.encrypted">encrypted</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.GlobalClusterProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.rds.GlobalClusterProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.rds.GlobalClusterProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.rds.GlobalClusterProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.rds.GlobalClusterProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `configuration`<sup>Required</sup> <a name="configuration" id="cdk-extensions.rds.GlobalClusterProps.property.configuration"></a>
+
+```typescript
+public readonly configuration: GlobalClusterConfiguration;
+```
+
+- *Type:* cdk-extensions.rds.GlobalClusterConfiguration
+
+---
+
+##### `encrypted`<sup>Optional</sup> <a name="encrypted" id="cdk-extensions.rds.GlobalClusterProps.property.encrypted"></a>
+
+```typescript
+public readonly encrypted: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.rds.GlobalClusterProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -56643,6 +57244,67 @@ Whether to print status messages with current rate and the limits to information
 ---
 
 
+### GlobalClusterConfiguration <a name="GlobalClusterConfiguration" id="cdk-extensions.rds.GlobalClusterConfiguration"></a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.rds.GlobalClusterConfiguration.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.rds.GlobalClusterConfiguration.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): GlobalClusterConfigurationDetails
+```
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.rds.GlobalClusterConfiguration.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.rds.GlobalClusterConfiguration.fromAttributes">fromAttributes</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.GlobalClusterConfiguration.fromSourceCluster">fromSourceCluster</a></code> | *No description.* |
+
+---
+
+##### `fromAttributes` <a name="fromAttributes" id="cdk-extensions.rds.GlobalClusterConfiguration.fromAttributes"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+rds.GlobalClusterConfiguration.fromAttributes(attrs: GlobalClusterConfigurationAttributes)
+```
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.rds.GlobalClusterConfiguration.fromAttributes.parameter.attrs"></a>
+
+- *Type:* cdk-extensions.rds.GlobalClusterConfigurationAttributes
+
+---
+
+##### `fromSourceCluster` <a name="fromSourceCluster" id="cdk-extensions.rds.GlobalClusterConfiguration.fromSourceCluster"></a>
+
+```typescript
+import { rds } from 'cdk-extensions'
+
+rds.GlobalClusterConfiguration.fromSourceCluster(sourceCluster: IDatabaseCluster)
+```
+
+###### `sourceCluster`<sup>Required</sup> <a name="sourceCluster" id="cdk-extensions.rds.GlobalClusterConfiguration.fromSourceCluster.parameter.sourceCluster"></a>
+
+- *Type:* aws-cdk-lib.aws_rds.IDatabaseCluster
+
+---
+
+
+
 ### GlueVersion <a name="GlueVersion" id="cdk-extensions.glue.GlueVersion"></a>
 
 
@@ -64811,6 +65473,40 @@ public readonly pluginType: string;
 - *Type:* string
 
 The type of fluent bit plugin.
+
+---
+
+### IGlobalCluster <a name="IGlobalCluster" id="cdk-extensions.rds.IGlobalCluster"></a>
+
+- *Implemented By:* cdk-extensions.rds.GlobalCluster, cdk-extensions.rds.IGlobalCluster
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.rds.IGlobalCluster.property.globalClusterArn">globalClusterArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.rds.IGlobalCluster.property.globalClusterName">globalClusterName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `globalClusterArn`<sup>Required</sup> <a name="globalClusterArn" id="cdk-extensions.rds.IGlobalCluster.property.globalClusterArn"></a>
+
+```typescript
+public readonly globalClusterArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `globalClusterName`<sup>Required</sup> <a name="globalClusterName" id="cdk-extensions.rds.IGlobalCluster.property.globalClusterName"></a>
+
+```typescript
+public readonly globalClusterName: string;
+```
+
+- *Type:* string
 
 ---
 

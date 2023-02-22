@@ -1,4 +1,4 @@
-import { IResolvable, Lazy, Names, Resource, ResourceProps } from 'aws-cdk-lib';
+import { Annotations, IResolvable, Lazy, Names, Resource, ResourceProps } from 'aws-cdk-lib';
 import { Connections, IConnectable, ISecurityGroup, IVpc, SecurityGroup, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
 import { CfnDBProxyEndpoint, IDatabaseProxy } from 'aws-cdk-lib/aws-rds';
 import { Construct } from 'constructs';
@@ -58,6 +58,13 @@ export class DatabaseProxyEndpoint extends Resource implements IConnectable {
       onePerAz: true,
     };
 
+    if (this.access) {
+      Annotations.of(this).addWarning([
+        'CloudFormation removed support for setting DB endpoint access',
+        'levels. As a result the access property is currently being ignored.',
+      ].join(' '));
+    }
+
     const securityGroups = props.securityGroups ?? [
       new SecurityGroup(this, 'security-group', {
         description: 'Controls access to RDS DB proxy endpoint.',
@@ -73,8 +80,9 @@ export class DatabaseProxyEndpoint extends Resource implements IConnectable {
     this.resource = new CfnDBProxyEndpoint(this, 'Resource', {
       dbProxyEndpointName: this.name,
       dbProxyName: this.databaseProxy.dbProxyName,
+      // CloudFormation mysteriously removed this one day
+      //targetRole: this.access?.role,
       vpcSubnetIds: this.vpc.selectSubnets(this.vpcSubnets).subnetIds,
-      targetRole: this.access?.role,
       vpcSecurityGroupIds: Lazy.list({
         produce: () => {
           return this.connections.securityGroups.map((x) => {
