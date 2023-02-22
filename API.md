@@ -4273,7 +4273,7 @@ This value is resolved according to the following rules:
 
 Preferably, you should use the return value as an opaque string and not
 attempt to parse it to implement your logic. If you do, you must first
-check that it is a concrete value an not an unresolved token. If this
+check that it is a concerete value an not an unresolved token. If this
 value is an unresolved token (`Token.isUnresolved(stack.account)` returns
 `true`), this implies that the user wishes that this stack will synthesize
 into a **account-agnostic template**. In this case, your code should either
@@ -4414,14 +4414,14 @@ The AWS region into which this stack will be deployed (e.g. `us-west-2`).
 This value is resolved according to the following rules:
 
 1. The value provided to `env.region` when the stack is defined. This can
-    either be a concrete region (e.g. `us-west-2`) or the `Aws.REGION`
+    either be a concerete region (e.g. `us-west-2`) or the `Aws.REGION`
     token.
 3. `Aws.REGION`, which is represents the CloudFormation intrinsic reference
     `{ "Ref": "AWS::Region" }` encoded as a string token.
 
 Preferably, you should use the return value as an opaque string and not
 attempt to parse it to implement your logic. If you do, you must first
-check that it is a concrete value an not an unresolved token. If this
+check that it is a concerete value an not an unresolved token. If this
 value is an unresolved token (`Token.isUnresolved(stack.region)` returns
 `true`), this implies that the user wishes that this stack will synthesize
 into a **region-agnostic template**. In this case, your code should either
@@ -17331,7 +17331,6 @@ The reference configuration used when registering a customer managed policy with
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.description">description</a></code> | <code>string</code> | The description of this policy. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.document">document</a></code> | <code>aws-cdk-lib.aws_iam.PolicyDocument</code> | The policy document. |
-| <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.grantPrincipal">grantPrincipal</a></code> | <code>aws-cdk-lib.aws_iam.IPrincipal</code> | The principal to grant permissions to. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.managedPolicyArn">managedPolicyArn</a></code> | <code>string</code> | Returns the ARN of this managed policy. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.managedPolicyName">managedPolicyName</a></code> | <code>string</code> | The name of this policy. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.path">path</a></code> | <code>string</code> | The path of this policy. |
@@ -17404,18 +17403,6 @@ public readonly document: PolicyDocument;
 - *Type:* aws-cdk-lib.aws_iam.PolicyDocument
 
 The policy document.
-
----
-
-##### `grantPrincipal`<sup>Required</sup> <a name="grantPrincipal" id="cdk-extensions.sso.ReferencedManagedPolicy.property.grantPrincipal"></a>
-
-```typescript
-public readonly grantPrincipal: IPrincipal;
-```
-
-- *Type:* aws-cdk-lib.aws_iam.IPrincipal
-
-The principal to grant permissions to.
 
 ---
 
@@ -28648,19 +28635,9 @@ public readonly synthesizer: IStackSynthesizer;
 ```
 
 - *Type:* aws-cdk-lib.IStackSynthesizer
-- *Default:* The synthesizer specified on `App`, or `DefaultStackSynthesizer` otherwise.
+- *Default:* `DefaultStackSynthesizer` if the `@aws-cdk/core:newStyleStackSynthesis` feature flag is set, `LegacyStackSynthesizer` otherwise.
 
 Synthesis method to use while deploying this stack.
-
-The Stack Synthesizer controls aspects of synthesis and deployment,
-like how assets are referenced and what IAM roles to use. For more
-information, see the README of the main CDK package.
-
-If not specified, the `defaultStackSynthesizer` from `App` will be used.
-If that is not specified, `DefaultStackSynthesizer` is used if
-`@aws-cdk/core:newStyleStackSynthesis` is set to `true` or the CDK major
-version is v2. In CDK v1 `LegacyStackSynthesizer` is the default if no
-other synthesizer is specified.
 
 ---
 
