@@ -601,7 +601,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.AlbLogsBucket.grantPutAcl.parameter._identity"></a>
@@ -656,7 +656,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.AlbLogsBucket.grantReadWrite.parameter._identity"></a>
 
@@ -687,7 +687,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.AlbLogsBucket.grantWrite.parameter._identity"></a>
 
@@ -5329,7 +5329,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantPutAcl.parameter._identity"></a>
@@ -5384,7 +5384,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantReadWrite.parameter._identity"></a>
 
@@ -5415,7 +5415,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantWrite.parameter._identity"></a>
 
@@ -6784,7 +6784,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudtrailBucket.grantPutAcl.parameter._identity"></a>
@@ -6839,7 +6839,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudtrailBucket.grantReadWrite.parameter._identity"></a>
 
@@ -6870,7 +6870,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudtrailBucket.grantWrite.parameter._identity"></a>
 
@@ -11975,7 +11975,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.FlowLogsBucket.grantPutAcl.parameter._identity"></a>
@@ -12030,7 +12030,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.FlowLogsBucket.grantReadWrite.parameter._identity"></a>
 
@@ -12061,7 +12061,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.FlowLogsBucket.grantWrite.parameter._identity"></a>
 
@@ -16472,7 +16472,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.RawBucket.grantPutAcl.parameter._identity"></a>
@@ -16527,7 +16527,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.RawBucket.grantReadWrite.parameter._identity"></a>
 
@@ -16558,7 +16558,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.RawBucket.grantWrite.parameter._identity"></a>
 
@@ -19505,7 +19505,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.grantPutAcl.parameter._identity"></a>
@@ -19560,7 +19560,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.grantReadWrite.parameter._identity"></a>
 
@@ -19591,7 +19591,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.grantWrite.parameter._identity"></a>
 
@@ -21564,7 +21564,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.SesLogsBucket.grantPutAcl.parameter._identity"></a>
@@ -21619,7 +21619,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.SesLogsBucket.grantReadWrite.parameter._identity"></a>
 
@@ -21650,7 +21650,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.SesLogsBucket.grantWrite.parameter._identity"></a>
 
@@ -24705,7 +24705,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
+calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.WafLogsBucket.grantPutAcl.parameter._identity"></a>
@@ -24760,7 +24760,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.WafLogsBucket.grantReadWrite.parameter._identity"></a>
 
@@ -24791,7 +24791,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the `grantPutAcl` method.
+use the {@link grantPutAcl} method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.WafLogsBucket.grantWrite.parameter._identity"></a>
 
