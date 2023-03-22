@@ -601,7 +601,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.AlbLogsBucket.grantPutAcl.parameter._identity"></a>
@@ -656,7 +656,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.AlbLogsBucket.grantReadWrite.parameter._identity"></a>
 
@@ -687,7 +687,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.AlbLogsBucket.grantWrite.parameter._identity"></a>
 
@@ -1716,6 +1716,1385 @@ public readonly topIpsNamedQuery: NamedQuery;
 ---
 
 
+### AlertManagerConfiguration <a name="AlertManagerConfiguration" id="cdk-extensions.aps.AlertManagerConfiguration"></a>
+
+- *Implements:* cdk-extensions.aps.IAlertManagerConfiguration
+
+Represents a Prometheus alert manager configuration that can be used by Amazon APS to send generated alerts to one or more destinations.
+
+Currently
+the only destination type supported by APS is Amazon SNS.
+
+> [[Alert manager configuration specification](https://prometheus.io/docs/alerting/latest/configuration/)]([Alert manager configuration specification](https://prometheus.io/docs/alerting/latest/configuration/))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.AlertManagerConfiguration.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.AlertManagerConfiguration(scope: IConstruct, id: string, props?: AlertManagerConfigurationProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | A CDK Construct that will serve as this construct's parent in the construct tree. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.aps.AlertManagerConfigurationProps</code> | Arguments related to the configuration of the construct. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.AlertManagerConfiguration.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this construct's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.AlertManagerConfiguration.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.aps.AlertManagerConfiguration.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerConfigurationProps
+
+Arguments related to the configuration of the construct.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.addInhibitRule">addInhibitRule</a></code> | Adds a new inhibit rule that can mute alerts under specific circumstances. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.addReciever">addReciever</a></code> | Adds a new receiver to the configuration. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.addTemplate">addTemplate</a></code> | Adds a new template to the configuration. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.addTimeInterval">addTimeInterval</a></code> | Adds a new time interval to the configuration. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.bind">bind</a></code> | Associates the configuration with a construct that is handling the configuration of alert manager for an APS workspace. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.aps.AlertManagerConfiguration.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addInhibitRule` <a name="addInhibitRule" id="cdk-extensions.aps.AlertManagerConfiguration.addInhibitRule"></a>
+
+```typescript
+public addInhibitRule(id: string, options: AlertManagerInhibitRuleProps): AlertManagerInhibitRule
+```
+
+Adds a new inhibit rule that can mute alerts under specific circumstances.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.AlertManagerConfiguration.addInhibitRule.parameter.id"></a>
+
+- *Type:* string
+
+Unique identifier for the inhibit rule.
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.aps.AlertManagerConfiguration.addInhibitRule.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerInhibitRuleProps
+
+Details for the rule being created.
+
+---
+
+##### `addReciever` <a name="addReciever" id="cdk-extensions.aps.AlertManagerConfiguration.addReciever"></a>
+
+```typescript
+public addReciever(id: string, options?: AlertManagerReceiverProps): AlertManagerReceiver
+```
+
+Adds a new receiver to the configuration.
+
+The receiver can be used to
+specify one or more destinations where alerts should be sent when matched
+by a route in the routing tree.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.AlertManagerConfiguration.addReciever.parameter.id"></a>
+
+- *Type:* string
+
+Unique identifier for the receiver.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.aps.AlertManagerConfiguration.addReciever.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerReceiverProps
+
+Details for the receiver being created.
+
+---
+
+##### `addTemplate` <a name="addTemplate" id="cdk-extensions.aps.AlertManagerConfiguration.addTemplate"></a>
+
+```typescript
+public addTemplate(template: AlertManagerTemplate): IAlertManagerConfiguration
+```
+
+Adds a new template to the configuration.
+
+The template can be referenced
+within the configuration to control the formatting of the alerts being sent.
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-extensions.aps.AlertManagerConfiguration.addTemplate.parameter.template"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerTemplate
+
+The template to add to the configuration.
+
+---
+
+##### `addTimeInterval` <a name="addTimeInterval" id="cdk-extensions.aps.AlertManagerConfiguration.addTimeInterval"></a>
+
+```typescript
+public addTimeInterval(id: string, options?: TimeIntervalProps): TimeInterval
+```
+
+Adds a new time interval to the configuration.
+
+Time intervals can be used
+to mute or activate groups of alerts under specific circumstances.
+
+Time intervals are referenced by routes in the routing tree to control the
+behavior of the route. Time intervals to mute or activate alerts cannot be
+added to the default route.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.AlertManagerConfiguration.addTimeInterval.parameter.id"></a>
+
+- *Type:* string
+
+Unique identifier for the time interval.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.aps.AlertManagerConfiguration.addTimeInterval.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.TimeIntervalProps
+
+Details for the time interval being created.
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.AlertManagerConfiguration.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): AlertManagerConfigurationDetails
+```
+
+Associates the configuration with a construct that is handling the configuration of alert manager for an APS workspace.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.AlertManagerConfiguration.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of alert manager that will consume the configuration.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.fromFullConfigurationContent">fromFullConfigurationContent</a></code> | Imports an alert manager configuration from a raw string in the format expected by Amazon APS. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.fromFullConfigurationFile">fromFullConfigurationFile</a></code> | Imports an alert manager configuration using a file in the format expected by Amazon APS. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.fromSplitConfigurationContent">fromSplitConfigurationContent</a></code> | Imports an alert manager configuration from a raw string. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.fromSplitConfigurationFiles">fromSplitConfigurationFiles</a></code> | Imports an alert manager configuration from a file. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.aps.AlertManagerConfiguration.isConstruct"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerConfiguration.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.aps.AlertManagerConfiguration.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `fromFullConfigurationContent` <a name="fromFullConfigurationContent" id="cdk-extensions.aps.AlertManagerConfiguration.fromFullConfigurationContent"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerConfiguration.fromFullConfigurationContent(scope: IConstruct, id: string, content: string)
+```
+
+Imports an alert manager configuration from a raw string in the format expected by Amazon APS.
+
+The string should combine both the alert manager configuration and the
+alert template content into a single file. To import a configuration that
+has the alert manager configuration and templates being loaded from
+different files/sources use {@link fromSplitConfigurationContent} instead.
+
+> [[Alert manager configuration specification](https://prometheus.io/docs/alerting/latest/configuration/)]([Alert manager configuration specification](https://prometheus.io/docs/alerting/latest/configuration/))
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.AlertManagerConfiguration.fromFullConfigurationContent.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of alert manager that will consume the rendered configuration.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.AlertManagerConfiguration.fromFullConfigurationContent.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `content`<sup>Required</sup> <a name="content" id="cdk-extensions.aps.AlertManagerConfiguration.fromFullConfigurationContent.parameter.content"></a>
+
+- *Type:* string
+
+A YAML formatted string specifying the alert manager configuration as expected by Amazon APS.
+
+---
+
+##### `fromFullConfigurationFile` <a name="fromFullConfigurationFile" id="cdk-extensions.aps.AlertManagerConfiguration.fromFullConfigurationFile"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerConfiguration.fromFullConfigurationFile(scope: IConstruct, id: string, path: string)
+```
+
+Imports an alert manager configuration using a file in the format expected by Amazon APS.
+
+The file should combine both the alert manager configuration and the alert
+template content into a single file. To import a configuration that has
+the alert manager configuration and templates being loaded from different
+files/sources use {@link fromSplitConfigurationFiles} instead.
+
+> [[Alert manager configuration specification](https://prometheus.io/docs/alerting/latest/configuration/)]([Alert manager configuration specification](https://prometheus.io/docs/alerting/latest/configuration/))
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.AlertManagerConfiguration.fromFullConfigurationFile.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of alert manager that will consume the rendered configuration.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.AlertManagerConfiguration.fromFullConfigurationFile.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `path`<sup>Required</sup> <a name="path" id="cdk-extensions.aps.AlertManagerConfiguration.fromFullConfigurationFile.parameter.path"></a>
+
+- *Type:* string
+
+The path to the file containing the APS alert manager configuration.
+
+---
+
+##### `fromSplitConfigurationContent` <a name="fromSplitConfigurationContent" id="cdk-extensions.aps.AlertManagerConfiguration.fromSplitConfigurationContent"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerConfiguration.fromSplitConfigurationContent(scope: IConstruct, id: string, content: string, templates?: {[ key: string ]: AlertManagerTemplate})
+```
+
+Imports an alert manager configuration from a raw string.
+
+The string should be in YAML format and follow the alert manager
+configuration specifications. To import a configuration using a string
+that combines the alert manager configuration with the template content
+that is already in the format expected by Amazon APS use the import method
+{@link fromFullConfigurationContent} instead.
+
+If the configuration references any templates then each template the
+configuration references should be specified using the `templates`
+argument. Templates can be read from their own separate files on disk or
+as a string.
+
+> [[Alert manager configuration specification](https://prometheus.io/docs/alerting/latest/configuration/)]([Alert manager configuration specification](https://prometheus.io/docs/alerting/latest/configuration/))
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.AlertManagerConfiguration.fromSplitConfigurationContent.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of alert manager that will consume the rendered configuration.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.AlertManagerConfiguration.fromSplitConfigurationContent.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `content`<sup>Required</sup> <a name="content" id="cdk-extensions.aps.AlertManagerConfiguration.fromSplitConfigurationContent.parameter.content"></a>
+
+- *Type:* string
+
+A YAML formatted string specifying the alert manager configuration.
+
+---
+
+###### `templates`<sup>Optional</sup> <a name="templates" id="cdk-extensions.aps.AlertManagerConfiguration.fromSplitConfigurationContent.parameter.templates"></a>
+
+- *Type:* {[ key: string ]: cdk-extensions.aps.AlertManagerTemplate}
+
+The templates referenced by the imported configuration.
+
+---
+
+##### `fromSplitConfigurationFiles` <a name="fromSplitConfigurationFiles" id="cdk-extensions.aps.AlertManagerConfiguration.fromSplitConfigurationFiles"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerConfiguration.fromSplitConfigurationFiles(scope: IConstruct, id: string, path: string, templates?: {[ key: string ]: AlertManagerTemplate})
+```
+
+Imports an alert manager configuration from a file.
+
+The file is a YAML file that follows the alert manager configuration
+specifications. To import a configuration file that combines the alert
+manager configuration with the template content that is already in the
+format expected by Amazon APS use the import method
+{@link fromFullConfigurationFile} instead.
+
+If the configuration references any templates then each template the
+configuration references should be specified using the `templates`
+argument. Templates can be read from their own separate files on disk or
+as a string.
+
+> [[Alert manager configuration specification](https://prometheus.io/docs/alerting/latest/configuration/)]([Alert manager configuration specification](https://prometheus.io/docs/alerting/latest/configuration/))
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.AlertManagerConfiguration.fromSplitConfigurationFiles.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of alert manager that will consume the rendered configuration.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.AlertManagerConfiguration.fromSplitConfigurationFiles.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `path`<sup>Required</sup> <a name="path" id="cdk-extensions.aps.AlertManagerConfiguration.fromSplitConfigurationFiles.parameter.path"></a>
+
+- *Type:* string
+
+The path to the file containing the alert manager specification.
+
+---
+
+###### `templates`<sup>Optional</sup> <a name="templates" id="cdk-extensions.aps.AlertManagerConfiguration.fromSplitConfigurationFiles.parameter.templates"></a>
+
+- *Type:* {[ key: string ]: cdk-extensions.aps.AlertManagerTemplate}
+
+The templates referenced by the imported configuration.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.property.defaultReceiver">defaultReceiver</a></code> | <code>cdk-extensions.aps.AlertManagerReceiver</code> | The receiver configuring the destinations where all alerts that are not matched by a child route in the routing tree will be sent. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.property.defaultRoute">defaultRoute</a></code> | <code>cdk-extensions.aps.AlertManagerRoute</code> | The default root route withing the routing tree. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.property.inhibitRules">inhibitRules</a></code> | <code>cdk-extensions.aps.AlertManagerInhibitRule[]</code> | Collection of inhibit rules that mute an alert under scecific sets of circumstances. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.property.receivers">receivers</a></code> | <code>cdk-extensions.aps.AlertManagerReceiver[]</code> | Collection of notification integrations that provide the details for how and where generated alerts should be sent. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.property.templates">templates</a></code> | <code>cdk-extensions.aps.AlertManagerTemplate[]</code> | Collection of alert manager templates that the configuration uses to format the alerts that it sends. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.property.timeIntervals">timeIntervals</a></code> | <code>cdk-extensions.aps.TimeInterval[]</code> | Collection of timing configurations that can be used to control when specific alerts should be muted or activated. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfiguration.property.defaultTopic">defaultTopic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | The topic that the default receiver will send messages to if no destinations are specified as inputs (input destinations are null/undefined). |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.aps.AlertManagerConfiguration.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `defaultReceiver`<sup>Required</sup> <a name="defaultReceiver" id="cdk-extensions.aps.AlertManagerConfiguration.property.defaultReceiver"></a>
+
+```typescript
+public readonly defaultReceiver: AlertManagerReceiver;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerReceiver
+
+The receiver configuring the destinations where all alerts that are not matched by a child route in the routing tree will be sent.
+
+> [[Receiver Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#receiver)]([Receiver Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#receiver))
+
+---
+
+##### `defaultRoute`<sup>Required</sup> <a name="defaultRoute" id="cdk-extensions.aps.AlertManagerConfiguration.property.defaultRoute"></a>
+
+```typescript
+public readonly defaultRoute: AlertManagerRoute;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerRoute
+
+The default root route withing the routing tree.
+
+Serves as the default
+configuration for all alerts. Sends alerts to the default receiver.
+
+Must match all alerts and cannot be muted or deactivated. To add more
+advanced configurations create additional routes as children of the
+default route.
+
+> [[Route OfficialDocumentation](https://prometheus.io/docs/alerting/latest/configuration/#route)]([Route OfficialDocumentation](https://prometheus.io/docs/alerting/latest/configuration/#route))
+
+---
+
+##### `inhibitRules`<sup>Required</sup> <a name="inhibitRules" id="cdk-extensions.aps.AlertManagerConfiguration.property.inhibitRules"></a>
+
+```typescript
+public readonly inhibitRules: AlertManagerInhibitRule[];
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerInhibitRule[]
+
+Collection of inhibit rules that mute an alert under scecific sets of circumstances.
+
+> [[Inhibit Rule Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#inhibit_rule)]([Inhibit Rule Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#inhibit_rule))
+
+---
+
+##### `receivers`<sup>Required</sup> <a name="receivers" id="cdk-extensions.aps.AlertManagerConfiguration.property.receivers"></a>
+
+```typescript
+public readonly receivers: AlertManagerReceiver[];
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerReceiver[]
+
+Collection of notification integrations that provide the details for how and where generated alerts should be sent.
+
+> [[Receiver Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#inhibit_rule)]([Receiver Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#inhibit_rule))
+
+---
+
+##### `templates`<sup>Required</sup> <a name="templates" id="cdk-extensions.aps.AlertManagerConfiguration.property.templates"></a>
+
+```typescript
+public readonly templates: AlertManagerTemplate[];
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerTemplate[]
+
+Collection of alert manager templates that the configuration uses to format the alerts that it sends.
+
+---
+
+##### `timeIntervals`<sup>Required</sup> <a name="timeIntervals" id="cdk-extensions.aps.AlertManagerConfiguration.property.timeIntervals"></a>
+
+```typescript
+public readonly timeIntervals: TimeInterval[];
+```
+
+- *Type:* cdk-extensions.aps.TimeInterval[]
+
+Collection of timing configurations that can be used to control when specific alerts should be muted or activated.
+
+> [[Time Interval Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#time_interval)]([Time Interval Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#time_interval))
+
+---
+
+##### `defaultTopic`<sup>Optional</sup> <a name="defaultTopic" id="cdk-extensions.aps.AlertManagerConfiguration.property.defaultTopic"></a>
+
+```typescript
+public readonly defaultTopic: ITopic;
+```
+
+- *Type:* aws-cdk-lib.aws_sns.ITopic
+
+The topic that the default receiver will send messages to if no destinations are specified as inputs (input destinations are null/undefined).
+
+The creation of this topic can be skipped to allow the defferred
+configuration of default destination by providing an empty list of
+destinations as inputs.
+
+---
+
+
+### AlertManagerInhibitRule <a name="AlertManagerInhibitRule" id="cdk-extensions.aps.AlertManagerInhibitRule"></a>
+
+An inhibition rule mutes an alert (target) matching a set of matchers when an alert (source) exists that matches another set of matchers.
+
+Both target
+and source alerts can optionally be required to have the same label values
+for a specified list of label names.
+
+Semantically, a missing label and a label with an empty value are the same
+thing. Therefore, if all the label names given for `equalLabels` are missing
+from both the source and target alerts, the inhibition rule will apply.
+
+To prevent an alert from inhibiting itself, an alert that matches both the
+target and the source side of a rule cannot be inhibited by alerts for which
+the same is true (including itself). However, we recommend to choose target
+and source matchers in a way that alerts never match both sides. It is much
+easier to reason about and does not trigger this special case.
+
+> [[Inhibit Rule Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#inhibit_rule)]([Inhibit Rule Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#inhibit_rule))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.AlertManagerInhibitRule.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.AlertManagerInhibitRule(scope: AlertManagerConfiguration, id: string, options: AlertManagerInhibitRuleProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRule.Initializer.parameter.scope">scope</a></code> | <code>cdk-extensions.aps.AlertManagerConfiguration</code> | A CDK Construct that will serve as this construct's parent in the construct tree. |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRule.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRule.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.aps.AlertManagerInhibitRuleProps</code> | Arguments related to the configuration of this construct. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.AlertManagerInhibitRule.Initializer.parameter.scope"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerConfiguration
+
+A CDK Construct that will serve as this construct's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.AlertManagerInhibitRule.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.aps.AlertManagerInhibitRule.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerInhibitRuleProps
+
+Arguments related to the configuration of this construct.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRule.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRule.addEqualLabel">addEqualLabel</a></code> | Adds a label that must be equal for both matched source and target alerts in order for the inhibition to take effect. |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRule.addSourceMatcher">addSourceMatcher</a></code> | Adds a matcher for which one or more alerts have to exist in order for inhibition to take effect. |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRule.addTargetMatcher">addTargetMatcher</a></code> | Adds a matcher that has to be fulfilled by a target alert in order to be muted. |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRule.bind">bind</a></code> | Associates the inhibit rule with a construct that is handling the configuration of alert manager. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.aps.AlertManagerInhibitRule.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addEqualLabel` <a name="addEqualLabel" id="cdk-extensions.aps.AlertManagerInhibitRule.addEqualLabel"></a>
+
+```typescript
+public addEqualLabel(label: string): AlertManagerInhibitRule
+```
+
+Adds a label that must be equal for both matched source and target alerts in order for the inhibition to take effect.
+
+###### `label`<sup>Required</sup> <a name="label" id="cdk-extensions.aps.AlertManagerInhibitRule.addEqualLabel.parameter.label"></a>
+
+- *Type:* string
+
+The label to add.
+
+---
+
+##### `addSourceMatcher` <a name="addSourceMatcher" id="cdk-extensions.aps.AlertManagerInhibitRule.addSourceMatcher"></a>
+
+```typescript
+public addSourceMatcher(matcher: AlertManagerMatcher): AlertManagerInhibitRule
+```
+
+Adds a matcher for which one or more alerts have to exist in order for inhibition to take effect.
+
+###### `matcher`<sup>Required</sup> <a name="matcher" id="cdk-extensions.aps.AlertManagerInhibitRule.addSourceMatcher.parameter.matcher"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerMatcher
+
+The source matcher to add.
+
+---
+
+##### `addTargetMatcher` <a name="addTargetMatcher" id="cdk-extensions.aps.AlertManagerInhibitRule.addTargetMatcher"></a>
+
+```typescript
+public addTargetMatcher(matcher: AlertManagerMatcher): AlertManagerInhibitRule
+```
+
+Adds a matcher that has to be fulfilled by a target alert in order to be muted.
+
+###### `matcher`<sup>Required</sup> <a name="matcher" id="cdk-extensions.aps.AlertManagerInhibitRule.addTargetMatcher.parameter.matcher"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerMatcher
+
+The target matcher to add.
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.AlertManagerInhibitRule.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): {[ key: string ]: any}
+```
+
+Associates the inhibit rule with a construct that is handling the configuration of alert manager.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.aps.AlertManagerInhibitRule.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of alert manager that will consume the rendered configuration.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRule.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.aps.AlertManagerInhibitRule.isConstruct"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerInhibitRule.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.aps.AlertManagerInhibitRule.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRule.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRule.property.equalLabels">equalLabels</a></code> | <code>string[]</code> | Collection of labels that must be equal for both matched source and target alerts in order for the inhibition to take effect. |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRule.property.sourceMatchers">sourceMatchers</a></code> | <code>cdk-extensions.aps.AlertManagerMatcher[]</code> | Collection of matchers for which one or more alerts have to exist for the inhibition to take effect. |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRule.property.targetMatchers">targetMatchers</a></code> | <code>cdk-extensions.aps.AlertManagerMatcher[]</code> | Collection of matchers that have to be fulfilled by the target alerts to be muted. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.aps.AlertManagerInhibitRule.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `equalLabels`<sup>Required</sup> <a name="equalLabels" id="cdk-extensions.aps.AlertManagerInhibitRule.property.equalLabels"></a>
+
+```typescript
+public readonly equalLabels: string[];
+```
+
+- *Type:* string[]
+
+Collection of labels that must be equal for both matched source and target alerts in order for the inhibition to take effect.
+
+---
+
+##### `sourceMatchers`<sup>Required</sup> <a name="sourceMatchers" id="cdk-extensions.aps.AlertManagerInhibitRule.property.sourceMatchers"></a>
+
+```typescript
+public readonly sourceMatchers: AlertManagerMatcher[];
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerMatcher[]
+
+Collection of matchers for which one or more alerts have to exist for the inhibition to take effect.
+
+---
+
+##### `targetMatchers`<sup>Required</sup> <a name="targetMatchers" id="cdk-extensions.aps.AlertManagerInhibitRule.property.targetMatchers"></a>
+
+```typescript
+public readonly targetMatchers: AlertManagerMatcher[];
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerMatcher[]
+
+Collection of matchers that have to be fulfilled by the target alerts to be muted.
+
+---
+
+
+### AlertManagerReceiver <a name="AlertManagerReceiver" id="cdk-extensions.aps.AlertManagerReceiver"></a>
+
+Represents a notification integration within alert manager.
+
+> [[Receiver configuration](https://prometheus.io/docs/alerting/latest/configuration/#receiver)]([Receiver configuration](https://prometheus.io/docs/alerting/latest/configuration/#receiver))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.AlertManagerReceiver.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.AlertManagerReceiver(scope: AlertManagerConfiguration, id: string, props?: AlertManagerReceiverProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerReceiver.Initializer.parameter.scope">scope</a></code> | <code>cdk-extensions.aps.AlertManagerConfiguration</code> | A CDK Construct that will serve as this construct's parent in the construct tree. |
+| <code><a href="#cdk-extensions.aps.AlertManagerReceiver.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.aps.AlertManagerReceiver.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.aps.AlertManagerReceiverProps</code> | Arguments related to the configuration of this construct. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.AlertManagerReceiver.Initializer.parameter.scope"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerConfiguration
+
+A CDK Construct that will serve as this construct's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.AlertManagerReceiver.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.aps.AlertManagerReceiver.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerReceiverProps
+
+Arguments related to the configuration of this construct.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerReceiver.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.aps.AlertManagerReceiver.addDestination">addDestination</a></code> | Adds a new generic destination that should receive alerts that have been routed to this receiver. |
+| <code><a href="#cdk-extensions.aps.AlertManagerReceiver.addSnsTopic">addSnsTopic</a></code> | Adds a new SNS destination that should receive alerts that have been routed to this receiver. |
+| <code><a href="#cdk-extensions.aps.AlertManagerReceiver.bind">bind</a></code> | Associates the receiver with a construct that is handling the configuration of alert manager that will consume the configuration. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.aps.AlertManagerReceiver.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addDestination` <a name="addDestination" id="cdk-extensions.aps.AlertManagerReceiver.addDestination"></a>
+
+```typescript
+public addDestination(destination: IAlertManagerDestination): AlertManagerReceiver
+```
+
+Adds a new generic destination that should receive alerts that have been routed to this receiver.
+
+###### `destination`<sup>Required</sup> <a name="destination" id="cdk-extensions.aps.AlertManagerReceiver.addDestination.parameter.destination"></a>
+
+- *Type:* cdk-extensions.aps.IAlertManagerDestination
+
+The destination where alerts routed to this receiver should be sent.
+
+---
+
+##### `addSnsTopic` <a name="addSnsTopic" id="cdk-extensions.aps.AlertManagerReceiver.addSnsTopic"></a>
+
+```typescript
+public addSnsTopic(topic: ITopic, options?: AlertManagerSnsDestinationOptions): AlertManagerSnsDestination
+```
+
+Adds a new SNS destination that should receive alerts that have been routed to this receiver.
+
+###### `topic`<sup>Required</sup> <a name="topic" id="cdk-extensions.aps.AlertManagerReceiver.addSnsTopic.parameter.topic"></a>
+
+- *Type:* aws-cdk-lib.aws_sns.ITopic
+
+The SNS topic where alerts should be sent.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.aps.AlertManagerReceiver.addSnsTopic.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerSnsDestinationOptions
+
+Options configuring how alerts should be sent to the SNS topic.
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.AlertManagerReceiver.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): {[ key: string ]: any}
+```
+
+Associates the receiver with a construct that is handling the configuration of alert manager that will consume the configuration.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.AlertManagerReceiver.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of alert manager that will consume the rendered configuration.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerReceiver.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.aps.AlertManagerReceiver.isConstruct"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerReceiver.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.aps.AlertManagerReceiver.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerReceiver.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.aps.AlertManagerReceiver.property.destinations">destinations</a></code> | <code>cdk-extensions.aps.IAlertManagerDestination[]</code> | Collection of destinations which define details for alerting providers where events routed to this receiver should be sent. |
+| <code><a href="#cdk-extensions.aps.AlertManagerReceiver.property.name">name</a></code> | <code>string</code> | The name of the receiver which can be referenced in the other parts of the configuration. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.aps.AlertManagerReceiver.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `destinations`<sup>Required</sup> <a name="destinations" id="cdk-extensions.aps.AlertManagerReceiver.property.destinations"></a>
+
+```typescript
+public readonly destinations: IAlertManagerDestination[];
+```
+
+- *Type:* cdk-extensions.aps.IAlertManagerDestination[]
+
+Collection of destinations which define details for alerting providers where events routed to this receiver should be sent.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.aps.AlertManagerReceiver.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the receiver which can be referenced in the other parts of the configuration.
+
+---
+
+
+### AlertManagerRoute <a name="AlertManagerRoute" id="cdk-extensions.aps.AlertManagerRoute"></a>
+
+Defines a node in a routing tree and its children.
+
+Its optional
+configuration parameters are inherited from its parent node if not set.
+
+Every alert enters the routing tree at the configured top-level route, which
+must match all alerts (i.e. not have any configured matchers). It then
+traverses the child nodes. If `continueMatching` is set to `false`, it stops
+after the first matching child. If `continueMatching` is `true` on a
+matching node, the alert will continue matching against subsequent siblings.
+If an alert does not match any children of a node (no matching child nodes,
+or none exist), the alert is handled based on the configuration parameters
+of the current node.
+
+> [[Route Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#route)]([Route Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#route))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.AlertManagerRoute.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.AlertManagerRoute(scope: AlertManagerConfiguration | AlertManagerRoute, id: string, options: AlertManagerRouteProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.Initializer.parameter.scope">scope</a></code> | <code>cdk-extensions.aps.AlertManagerConfiguration \| cdk-extensions.aps.AlertManagerRoute</code> | A CDK Construct that will serve as this construct's parent in the construct tree. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.aps.AlertManagerRouteProps</code> | Arguments related to the configuration of this construct. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.AlertManagerRoute.Initializer.parameter.scope"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerConfiguration | cdk-extensions.aps.AlertManagerRoute
+
+A CDK Construct that will serve as this construct's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.AlertManagerRoute.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.aps.AlertManagerRoute.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerRouteProps
+
+Arguments related to the configuration of this construct.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.addActiveTimeInterval">addActiveTimeInterval</a></code> | Adds a new time when the route should be active. The root node cannot have any active times. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.addChild">addChild</a></code> | Adds a new child route to this node. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.addGroupByLabel">addGroupByLabel</a></code> | Adds a label by which incoming alerts are grouped together. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.addMatcher">addMatcher</a></code> | Adds a matcher that an alert has to fulfill to match the node. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.addMuteTimeInterval">addMuteTimeInterval</a></code> | Adds a time when the route should be muted. The root node cannot have any mute times. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.bind">bind</a></code> | Associates the route with a construct that is handling the configuration of alert manager that will consume the configuration. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.aps.AlertManagerRoute.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addActiveTimeInterval` <a name="addActiveTimeInterval" id="cdk-extensions.aps.AlertManagerRoute.addActiveTimeInterval"></a>
+
+```typescript
+public addActiveTimeInterval(interval: TimeInterval): AlertManagerRoute
+```
+
+Adds a new time when the route should be active. The root node cannot have any active times.
+
+The route will send notifications only when active, but otherwise acts
+normally (including ending the route-matching process if the
+`continueMatching` option is not set).
+
+###### `interval`<sup>Required</sup> <a name="interval" id="cdk-extensions.aps.AlertManagerRoute.addActiveTimeInterval.parameter.interval"></a>
+
+- *Type:* cdk-extensions.aps.TimeInterval
+
+The time interval when alerting on this route should be active.
+
+---
+
+##### `addChild` <a name="addChild" id="cdk-extensions.aps.AlertManagerRoute.addChild"></a>
+
+```typescript
+public addChild(id: string, options: AlertManagerRouteProps): AlertManagerRoute
+```
+
+Adds a new child route to this node.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.AlertManagerRoute.addChild.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.aps.AlertManagerRoute.addChild.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerRouteProps
+
+The configuration options for the child route.
+
+---
+
+##### `addGroupByLabel` <a name="addGroupByLabel" id="cdk-extensions.aps.AlertManagerRoute.addGroupByLabel"></a>
+
+```typescript
+public addGroupByLabel(label: string): AlertManagerRoute
+```
+
+Adds a label by which incoming alerts are grouped together.
+
+For example,
+multiple alerts coming in for cluster=A and alertname=LatencyHigh would be
+batched into a single group.
+
+###### `label`<sup>Required</sup> <a name="label" id="cdk-extensions.aps.AlertManagerRoute.addGroupByLabel.parameter.label"></a>
+
+- *Type:* string
+
+The label by which incoming alerts should be grouped.
+
+---
+
+##### `addMatcher` <a name="addMatcher" id="cdk-extensions.aps.AlertManagerRoute.addMatcher"></a>
+
+```typescript
+public addMatcher(matcher: AlertManagerMatcher): AlertManagerRoute
+```
+
+Adds a matcher that an alert has to fulfill to match the node.
+
+###### `matcher`<sup>Required</sup> <a name="matcher" id="cdk-extensions.aps.AlertManagerRoute.addMatcher.parameter.matcher"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerMatcher
+
+The matcher to associate.
+
+---
+
+##### `addMuteTimeInterval` <a name="addMuteTimeInterval" id="cdk-extensions.aps.AlertManagerRoute.addMuteTimeInterval"></a>
+
+```typescript
+public addMuteTimeInterval(interval: TimeInterval): AlertManagerRoute
+```
+
+Adds a time when the route should be muted. The root node cannot have any mute times.
+
+When a route is muted it will not send any notifications, but otherwise
+acts normally (including ending the route-matching process if the
+`continueMatching` option is not set).
+
+###### `interval`<sup>Required</sup> <a name="interval" id="cdk-extensions.aps.AlertManagerRoute.addMuteTimeInterval.parameter.interval"></a>
+
+- *Type:* cdk-extensions.aps.TimeInterval
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.AlertManagerRoute.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): {[ key: string ]: any}
+```
+
+Associates the route with a construct that is handling the configuration of alert manager that will consume the configuration.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.AlertManagerRoute.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of alert manager that will consume the rendered configuration.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.aps.AlertManagerRoute.isConstruct"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerRoute.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.aps.AlertManagerRoute.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.property.activeTimeIntervals">activeTimeIntervals</a></code> | <code>cdk-extensions.aps.TimeInterval[]</code> | Times when the route should be active. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.property.children">children</a></code> | <code>cdk-extensions.aps.AlertManagerRoute[]</code> | Optional child routes to add to the node. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.property.groupByLabels">groupByLabels</a></code> | <code>string[]</code> | The labels by which incoming alerts are grouped together. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.property.matchers">matchers</a></code> | <code>cdk-extensions.aps.AlertManagerMatcher[]</code> | A list of matchers that an alert has to fulfill to match the node. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.property.muteTimeIntervals">muteTimeIntervals</a></code> | <code>cdk-extensions.aps.TimeInterval[]</code> | Times when the route should be muted. The root node cannot have any mute times. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.property.receiver">receiver</a></code> | <code>cdk-extensions.aps.AlertManagerReceiver</code> | The receiver that should be the target of alerts that are generated by the node. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.property.continueMatching">continueMatching</a></code> | <code>boolean</code> | Whether an alert should continue matching subsequent sibling nodes. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.property.groupInterval">groupInterval</a></code> | <code>aws-cdk-lib.Duration</code> | How long to wait before sending a notification about new alerts that are added to a group of alerts for which an initial notification has already been sent (usually ~5m or more). |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.property.groupWait">groupWait</a></code> | <code>aws-cdk-lib.Duration</code> | How long to initially wait to send a notification for a group of alerts. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRoute.property.repeatInterval">repeatInterval</a></code> | <code>aws-cdk-lib.Duration</code> | How long to wait before sending a notification again if it has already been sent successfully for an alert. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.aps.AlertManagerRoute.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `activeTimeIntervals`<sup>Required</sup> <a name="activeTimeIntervals" id="cdk-extensions.aps.AlertManagerRoute.property.activeTimeIntervals"></a>
+
+```typescript
+public readonly activeTimeIntervals: TimeInterval[];
+```
+
+- *Type:* cdk-extensions.aps.TimeInterval[]
+
+Times when the route should be active.
+
+An empty value means that the route
+is always active. Additionally, the root node cannot have any active
+times.
+
+The route will send notifications only when active, but otherwise acts
+normally (including ending the route-matching process if the
+`continueMatching` option is not set).
+
+---
+
+##### `children`<sup>Required</sup> <a name="children" id="cdk-extensions.aps.AlertManagerRoute.property.children"></a>
+
+```typescript
+public readonly children: AlertManagerRoute[];
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerRoute[]
+
+Optional child routes to add to the node.
+
+---
+
+##### `groupByLabels`<sup>Required</sup> <a name="groupByLabels" id="cdk-extensions.aps.AlertManagerRoute.property.groupByLabels"></a>
+
+```typescript
+public readonly groupByLabels: string[];
+```
+
+- *Type:* string[]
+
+The labels by which incoming alerts are grouped together.
+
+For example,
+multiple alerts coming in for cluster=A and alertname=LatencyHigh would be
+batched into a single group.
+
+---
+
+##### `matchers`<sup>Required</sup> <a name="matchers" id="cdk-extensions.aps.AlertManagerRoute.property.matchers"></a>
+
+```typescript
+public readonly matchers: AlertManagerMatcher[];
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerMatcher[]
+
+A list of matchers that an alert has to fulfill to match the node.
+
+---
+
+##### `muteTimeIntervals`<sup>Required</sup> <a name="muteTimeIntervals" id="cdk-extensions.aps.AlertManagerRoute.property.muteTimeIntervals"></a>
+
+```typescript
+public readonly muteTimeIntervals: TimeInterval[];
+```
+
+- *Type:* cdk-extensions.aps.TimeInterval[]
+
+Times when the route should be muted. The root node cannot have any mute times.
+
+When a route is muted it will not send any notifications, but otherwise
+acts normally (including ending the route-matching process if the
+`continueMatching` option is not set).
+
+---
+
+##### `receiver`<sup>Required</sup> <a name="receiver" id="cdk-extensions.aps.AlertManagerRoute.property.receiver"></a>
+
+```typescript
+public readonly receiver: AlertManagerReceiver;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerReceiver
+
+The receiver that should be the target of alerts that are generated by the node.
+
+---
+
+##### `continueMatching`<sup>Optional</sup> <a name="continueMatching" id="cdk-extensions.aps.AlertManagerRoute.property.continueMatching"></a>
+
+```typescript
+public readonly continueMatching: boolean;
+```
+
+- *Type:* boolean
+
+Whether an alert should continue matching subsequent sibling nodes.
+
+---
+
+##### `groupInterval`<sup>Optional</sup> <a name="groupInterval" id="cdk-extensions.aps.AlertManagerRoute.property.groupInterval"></a>
+
+```typescript
+public readonly groupInterval: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+How long to wait before sending a notification about new alerts that are added to a group of alerts for which an initial notification has already been sent (usually ~5m or more).
+
+---
+
+##### `groupWait`<sup>Optional</sup> <a name="groupWait" id="cdk-extensions.aps.AlertManagerRoute.property.groupWait"></a>
+
+```typescript
+public readonly groupWait: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+How long to initially wait to send a notification for a group of alerts.
+
+Allows to wait for an inhibiting alert to arrive or collect more initial
+alerts for the same group (usually ~0s to few minutes).
+
+---
+
+##### `repeatInterval`<sup>Optional</sup> <a name="repeatInterval" id="cdk-extensions.aps.AlertManagerRoute.property.repeatInterval"></a>
+
+```typescript
+public readonly repeatInterval: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+How long to wait before sending a notification again if it has already been sent successfully for an alert.
+
+(Usually ~3h or more).
+
+---
+
+
 ### Assignment <a name="Assignment" id="cdk-extensions.sso.Assignment"></a>
 
 Assigns access to a Principal for a specified AWS account using a specified permission set.
@@ -2183,6 +3562,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.adotCollector">adotCollector</a></code> | <code>cdk-extensions.k8s_aws.AdotCollector</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.externalSecrets">externalSecrets</a></code> | <code>cdk-extensions.k8s_aws.ExternalSecretsOperator</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.fargateLogger">fargateLogger</a></code> | <code>cdk-extensions.k8s_aws.FargateLogger</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.prometheusService">prometheusService</a></code> | <code>cdk-extensions.k8s_fargate.Prometheus</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.prometheusWorkspace">prometheusWorkspace</a></code> | <code>cdk-extensions.aps.IWorkspace</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.route53Dns">route53Dns</a></code> | <code>cdk-extensions.k8s_aws.Route53Dns</code> | *No description.* |
 
 ---
@@ -2267,6 +3648,26 @@ public readonly fargateLogger: FargateLogger;
 ```
 
 - *Type:* cdk-extensions.k8s_aws.FargateLogger
+
+---
+
+##### `prometheusService`<sup>Optional</sup> <a name="prometheusService" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.prometheusService"></a>
+
+```typescript
+public readonly prometheusService: Prometheus;
+```
+
+- *Type:* cdk-extensions.k8s_fargate.Prometheus
+
+---
+
+##### `prometheusWorkspace`<sup>Optional</sup> <a name="prometheusWorkspace" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.property.prometheusWorkspace"></a>
+
+```typescript
+public readonly prometheusWorkspace: IWorkspace;
+```
+
+- *Type:* cdk-extensions.aps.IWorkspace
 
 ---
 
@@ -2872,7 +4273,7 @@ This value is resolved according to the following rules:
 
 Preferably, you should use the return value as an opaque string and not
 attempt to parse it to implement your logic. If you do, you must first
-check that it is a concerete value an not an unresolved token. If this
+check that it is a concrete value an not an unresolved token. If this
 value is an unresolved token (`Token.isUnresolved(stack.account)` returns
 `true`), this implies that the user wishes that this stack will synthesize
 into a **account-agnostic template**. In this case, your code should either
@@ -3013,14 +4414,14 @@ The AWS region into which this stack will be deployed (e.g. `us-west-2`).
 This value is resolved according to the following rules:
 
 1. The value provided to `env.region` when the stack is defined. This can
-    either be a concerete region (e.g. `us-west-2`) or the `Aws.REGION`
+    either be a concrete region (e.g. `us-west-2`) or the `Aws.REGION`
     token.
 3. `Aws.REGION`, which is represents the CloudFormation intrinsic reference
     `{ "Ref": "AWS::Region" }` encoded as a string token.
 
 Preferably, you should use the return value as an opaque string and not
 attempt to parse it to implement your logic. If you do, you must first
-check that it is a concerete value an not an unresolved token. If this
+check that it is a concrete value an not an unresolved token. If this
 value is an unresolved token (`Token.isUnresolved(stack.region)` returns
 `true`), this implies that the user wishes that this stack will synthesize
 into a **region-agnostic template**. In this case, your code should either
@@ -3928,7 +5329,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantPutAcl.parameter._identity"></a>
@@ -3983,7 +5384,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantReadWrite.parameter._identity"></a>
 
@@ -4014,7 +5415,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantWrite.parameter._identity"></a>
 
@@ -5383,7 +6784,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudtrailBucket.grantPutAcl.parameter._identity"></a>
@@ -5438,7 +6839,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudtrailBucket.grantReadWrite.parameter._identity"></a>
 
@@ -5469,7 +6870,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudtrailBucket.grantWrite.parameter._identity"></a>
 
@@ -10574,7 +11975,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.FlowLogsBucket.grantPutAcl.parameter._identity"></a>
@@ -10629,7 +12030,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.FlowLogsBucket.grantReadWrite.parameter._identity"></a>
 
@@ -10660,7 +12061,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.FlowLogsBucket.grantWrite.parameter._identity"></a>
 
@@ -14394,6 +15795,359 @@ The length of time that the application user sessions are valid for.
 ---
 
 
+### Prometheus <a name="Prometheus" id="cdk-extensions.k8s_fargate.Prometheus"></a>
+
+Deploys Prometheus into EKS.
+
+The service is run in Fargate and writes data to Amazon Managed Service for
+Prometheus which provides the backing data store.
+
+> [[Official Helm chart documentation](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus#readme)]([Official Helm chart documentation](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus#readme))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.k8s_fargate.Prometheus.Initializer"></a>
+
+```typescript
+import { k8s_fargate } from 'cdk-extensions'
+
+new k8s_fargate.Prometheus(scope: IConstruct, id: string, props: PrometheusProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the resource and used in resource naming. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.k8s_fargate.PrometheusProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.k8s_fargate.Prometheus.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.k8s_fargate.Prometheus.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the resource and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.k8s_fargate.Prometheus.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.k8s_fargate.PrometheusProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.k8s_fargate.Prometheus.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.k8s_fargate.Prometheus.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.k8s_fargate.Prometheus.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.k8s_fargate.Prometheus.isConstruct"></a>
+
+```typescript
+import { k8s_fargate } from 'cdk-extensions'
+
+k8s_fargate.Prometheus.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.k8s_fargate.Prometheus.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.k8s_fargate.Prometheus.isOwnedResource"></a>
+
+```typescript
+import { k8s_fargate } from 'cdk-extensions'
+
+k8s_fargate.Prometheus.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_fargate.Prometheus.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.k8s_fargate.Prometheus.isResource"></a>
+
+```typescript
+import { k8s_fargate } from 'cdk-extensions'
+
+k8s_fargate.Prometheus.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.k8s_fargate.Prometheus.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.chart">chart</a></code> | <code>aws-cdk-lib.aws_eks.HelmChart</code> | The Helm chart that was used to deploy Prometheus. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.Cluster</code> | {@inheritdoc PrometheusProps.cluster}. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.fargateProfile">fargateProfile</a></code> | <code>aws-cdk-lib.aws_eks.FargateProfile</code> | The Fargate profile used for running the service in Fargate. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.namespace">namespace</a></code> | <code>string</code> | {@inheritdoc PrometheusOptions.namespace}. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.serviceAccount">serviceAccount</a></code> | <code>aws-cdk-lib.aws_eks.ServiceAccount</code> | The service account that Prometheus will use to gain permissions for Kubernetes and AWS. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.serviceAccountName">serviceAccountName</a></code> | <code>string</code> | {@inheritdoc PrometheusOptions.serviceAccountName}. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.workspace">workspace</a></code> | <code>cdk-extensions.aps.IWorkspace</code> | {@inheritdoc PrometheusProps.workspace}. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | {@inheritdoc PropmetheusOptions.queueConfiguration}. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.k8s_fargate.Prometheus.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.k8s_fargate.Prometheus.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.k8s_fargate.Prometheus.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `chart`<sup>Required</sup> <a name="chart" id="cdk-extensions.k8s_fargate.Prometheus.property.chart"></a>
+
+```typescript
+public readonly chart: HelmChart;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.HelmChart
+
+The Helm chart that was used to deploy Prometheus.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_fargate.Prometheus.property.cluster"></a>
+
+```typescript
+public readonly cluster: Cluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.Cluster
+
+{@inheritdoc PrometheusProps.cluster}.
+
+---
+
+##### `fargateProfile`<sup>Required</sup> <a name="fargateProfile" id="cdk-extensions.k8s_fargate.Prometheus.property.fargateProfile"></a>
+
+```typescript
+public readonly fargateProfile: FargateProfile;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.FargateProfile
+
+The Fargate profile used for running the service in Fargate.
+
+---
+
+##### `namespace`<sup>Required</sup> <a name="namespace" id="cdk-extensions.k8s_fargate.Prometheus.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+{@inheritdoc PrometheusOptions.namespace}.
+
+---
+
+##### `serviceAccount`<sup>Required</sup> <a name="serviceAccount" id="cdk-extensions.k8s_fargate.Prometheus.property.serviceAccount"></a>
+
+```typescript
+public readonly serviceAccount: ServiceAccount;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.ServiceAccount
+
+The service account that Prometheus will use to gain permissions for Kubernetes and AWS.
+
+---
+
+##### `serviceAccountName`<sup>Required</sup> <a name="serviceAccountName" id="cdk-extensions.k8s_fargate.Prometheus.property.serviceAccountName"></a>
+
+```typescript
+public readonly serviceAccountName: string;
+```
+
+- *Type:* string
+
+{@inheritdoc PrometheusOptions.serviceAccountName}.
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="cdk-extensions.k8s_fargate.Prometheus.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* cdk-extensions.aps.IWorkspace
+
+{@inheritdoc PrometheusProps.workspace}.
+
+---
+
+##### `queueConfiguration`<sup>Optional</sup> <a name="queueConfiguration" id="cdk-extensions.k8s_fargate.Prometheus.property.queueConfiguration"></a>
+
+```typescript
+public readonly queueConfiguration: QueueConfiguration;
+```
+
+- *Type:* cdk-extensions.k8s_fargate.QueueConfiguration
+
+{@inheritdoc PropmetheusOptions.queueConfiguration}.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.CHART_NAME">CHART_NAME</a></code> | <code>string</code> | The name of the Prometheus Helm chart. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.CHART_REPOSITORY">CHART_REPOSITORY</a></code> | <code>string</code> | The Helm repository providing the chart to be used for installing the Prometheus service. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.DEFAULT_NAMESPACE">DEFAULT_NAMESPACE</a></code> | <code>string</code> | The default Kubernetes namespace where Prometheus will be installed if an alternative isn't given as input. |
+
+---
+
+##### `CHART_NAME`<sup>Required</sup> <a name="CHART_NAME" id="cdk-extensions.k8s_fargate.Prometheus.property.CHART_NAME"></a>
+
+```typescript
+public readonly CHART_NAME: string;
+```
+
+- *Type:* string
+
+The name of the Prometheus Helm chart.
+
+---
+
+##### `CHART_REPOSITORY`<sup>Required</sup> <a name="CHART_REPOSITORY" id="cdk-extensions.k8s_fargate.Prometheus.property.CHART_REPOSITORY"></a>
+
+```typescript
+public readonly CHART_REPOSITORY: string;
+```
+
+- *Type:* string
+
+The Helm repository providing the chart to be used for installing the Prometheus service.
+
+---
+
+##### `DEFAULT_NAMESPACE`<sup>Required</sup> <a name="DEFAULT_NAMESPACE" id="cdk-extensions.k8s_fargate.Prometheus.property.DEFAULT_NAMESPACE"></a>
+
+```typescript
+public readonly DEFAULT_NAMESPACE: string;
+```
+
+- *Type:* string
+
+The default Kubernetes namespace where Prometheus will be installed if an alternative isn't given as input.
+
+---
+
 ### RawBucket <a name="RawBucket" id="cdk-extensions.s3_buckets.RawBucket"></a>
 
 - *Implements:* aws-cdk-lib.aws_s3.IBucket
@@ -14718,7 +16472,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.RawBucket.grantPutAcl.parameter._identity"></a>
@@ -14773,7 +16527,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.RawBucket.grantReadWrite.parameter._identity"></a>
 
@@ -14804,7 +16558,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.RawBucket.grantWrite.parameter._identity"></a>
 
@@ -15577,6 +17331,7 @@ The reference configuration used when registering a customer managed policy with
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.description">description</a></code> | <code>string</code> | The description of this policy. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.document">document</a></code> | <code>aws-cdk-lib.aws_iam.PolicyDocument</code> | The policy document. |
+| <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.grantPrincipal">grantPrincipal</a></code> | <code>aws-cdk-lib.aws_iam.IPrincipal</code> | The principal to grant permissions to. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.managedPolicyArn">managedPolicyArn</a></code> | <code>string</code> | Returns the ARN of this managed policy. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.managedPolicyName">managedPolicyName</a></code> | <code>string</code> | The name of this policy. |
 | <code><a href="#cdk-extensions.sso.ReferencedManagedPolicy.property.path">path</a></code> | <code>string</code> | The path of this policy. |
@@ -15649,6 +17404,18 @@ public readonly document: PolicyDocument;
 - *Type:* aws-cdk-lib.aws_iam.PolicyDocument
 
 The policy document.
+
+---
+
+##### `grantPrincipal`<sup>Required</sup> <a name="grantPrincipal" id="cdk-extensions.sso.ReferencedManagedPolicy.property.grantPrincipal"></a>
+
+```typescript
+public readonly grantPrincipal: IPrincipal;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IPrincipal
+
+The principal to grant permissions to.
 
 ---
 
@@ -16580,6 +18347,845 @@ The default Kubernetes namespace where external-dns will be installed if an alte
 
 ---
 
+### RuleGroup <a name="RuleGroup" id="cdk-extensions.aps.RuleGroup"></a>
+
+A group of alerting and recording rules for use inside an APS rule groups namespace configuration.
+
+Rules within a group are run sequentially at a
+regular interval, with the same evaluation time. The names of recording
+rules must be valid metric names. The names of alerting rules must be valid
+label values.
+
+> [[Prometheus rule_group specification](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#rule_group)]([Prometheus rule_group specification](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#rule_group))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.RuleGroup.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.RuleGroup(scope: IConstruct, id: string, props?: RuleGroupProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroup.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | A CDK Construct that will serve as this construct's parent in the construct tree. |
+| <code><a href="#cdk-extensions.aps.RuleGroup.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.aps.RuleGroup.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.aps.RuleGroupProps</code> | Arguments related to the configuration of the construct. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.RuleGroup.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this construct's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.RuleGroup.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.aps.RuleGroup.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.aps.RuleGroupProps
+
+Arguments related to the configuration of the construct.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroup.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.aps.RuleGroup.addAlertingRule">addAlertingRule</a></code> | Adds an alerting rule to the rule group. |
+| <code><a href="#cdk-extensions.aps.RuleGroup.addRecordingRule">addRecordingRule</a></code> | Adds a recording rule to the rule group. |
+| <code><a href="#cdk-extensions.aps.RuleGroup.addRule">addRule</a></code> | Adds a Prometheus rule to the rule group. |
+| <code><a href="#cdk-extensions.aps.RuleGroup.bind">bind</a></code> | Associates the rule group with a construct that is configuring an APS rule groups namespace. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.aps.RuleGroup.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addAlertingRule` <a name="addAlertingRule" id="cdk-extensions.aps.RuleGroup.addAlertingRule"></a>
+
+```typescript
+public addAlertingRule(options: AlertingRuleProps): AlertingRule
+```
+
+Adds an alerting rule to the rule group.
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.aps.RuleGroup.addAlertingRule.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.AlertingRuleProps
+
+Options for configuring the alerting rule to be added.
+
+---
+
+##### `addRecordingRule` <a name="addRecordingRule" id="cdk-extensions.aps.RuleGroup.addRecordingRule"></a>
+
+```typescript
+public addRecordingRule(options: RecordingRuleProps): RecordingRule
+```
+
+Adds a recording rule to the rule group.
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.aps.RuleGroup.addRecordingRule.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.RecordingRuleProps
+
+Options for configuring the recording rule to be added.
+
+---
+
+##### `addRule` <a name="addRule" id="cdk-extensions.aps.RuleGroup.addRule"></a>
+
+```typescript
+public addRule(rule: IPrometheusRule): RuleGroup
+```
+
+Adds a Prometheus rule to the rule group.
+
+This method can be used to implement any rules that are created outside of
+the the rule group that were created manually by calling their
+constructors or for adding Prometheus rules that use their own custom
+implementations.
+
+###### `rule`<sup>Required</sup> <a name="rule" id="cdk-extensions.aps.RuleGroup.addRule.parameter.rule"></a>
+
+- *Type:* cdk-extensions.aps.IPrometheusRule
+
+The rule to add to the rule group.
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.RuleGroup.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): {[ key: string ]: any}
+```
+
+Associates the rule group with a construct that is configuring an APS rule groups namespace.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.RuleGroup.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of the APS rule groups namespace that will be consuming this rule group.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroup.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.aps.RuleGroup.isConstruct"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.RuleGroup.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.aps.RuleGroup.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroup.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.aps.RuleGroup.property.name">name</a></code> | <code>string</code> | The name of the group. |
+| <code><a href="#cdk-extensions.aps.RuleGroup.property.interval">interval</a></code> | <code>aws-cdk-lib.Duration</code> | How often rules in the group are evaluated. |
+| <code><a href="#cdk-extensions.aps.RuleGroup.property.limit">limit</a></code> | <code>number</code> | Limit the number of alerts an alerting rule and series a recording rule can produce. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.aps.RuleGroup.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.aps.RuleGroup.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the group.
+
+Must be unique within the configuration.
+
+---
+
+##### `interval`<sup>Optional</sup> <a name="interval" id="cdk-extensions.aps.RuleGroup.property.interval"></a>
+
+```typescript
+public readonly interval: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+How often rules in the group are evaluated.
+
+---
+
+##### `limit`<sup>Optional</sup> <a name="limit" id="cdk-extensions.aps.RuleGroup.property.limit"></a>
+
+```typescript
+public readonly limit: number;
+```
+
+- *Type:* number
+
+Limit the number of alerts an alerting rule and series a recording rule can produce.
+
+0 is no limit.
+
+---
+
+
+### RuleGroupConfiguration <a name="RuleGroupConfiguration" id="cdk-extensions.aps.RuleGroupConfiguration"></a>
+
+- *Implements:* cdk-extensions.aps.IRuleGroupConfiguration
+
+Represents a rules file definition that can be consumed by Amazon Managed Service for Prometheus.
+
+> [[Creating a rules file](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-ruler-rulesfile.html)]([Creating a rules file](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-ruler-rulesfile.html))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.RuleGroupConfiguration.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.RuleGroupConfiguration(scope: IConstruct, id: string, _props?: RuleGroupConfigurationProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroupConfiguration.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | A CDK Construct that will serve as this construct's parent in the construct tree. |
+| <code><a href="#cdk-extensions.aps.RuleGroupConfiguration.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.aps.RuleGroupConfiguration.Initializer.parameter._props">_props</a></code> | <code>cdk-extensions.aps.RuleGroupConfigurationProps</code> | Arguments related to the configuration of the construct. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.RuleGroupConfiguration.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this construct's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.RuleGroupConfiguration.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `_props`<sup>Optional</sup> <a name="_props" id="cdk-extensions.aps.RuleGroupConfiguration.Initializer.parameter._props"></a>
+
+- *Type:* cdk-extensions.aps.RuleGroupConfigurationProps
+
+Arguments related to the configuration of the construct.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroupConfiguration.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.aps.RuleGroupConfiguration.addRuleGroup">addRuleGroup</a></code> | Adds a new rule group to the configuration. |
+| <code><a href="#cdk-extensions.aps.RuleGroupConfiguration.bind">bind</a></code> | Associates the configuration with a resource that is handling the creation of an APS rule groups namespace. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.aps.RuleGroupConfiguration.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addRuleGroup` <a name="addRuleGroup" id="cdk-extensions.aps.RuleGroupConfiguration.addRuleGroup"></a>
+
+```typescript
+public addRuleGroup(id: string, options?: RuleGroupProps): RuleGroup
+```
+
+Adds a new rule group to the configuration.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.RuleGroupConfiguration.addRuleGroup.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.aps.RuleGroupConfiguration.addRuleGroup.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.RuleGroupProps
+
+Configuration options for the new rule group being added.
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.RuleGroupConfiguration.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): RuleGroupConfigurationDetails
+```
+
+Associates the configuration with a resource that is handling the creation of an APS rule groups namespace.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.RuleGroupConfiguration.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of an APS rule groups namespace that will be consuming this configuration.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroupConfiguration.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.aps.RuleGroupConfiguration.fromContent">fromContent</a></code> | Imports an APS rules configuration using a raw string. |
+| <code><a href="#cdk-extensions.aps.RuleGroupConfiguration.fromRulesFile">fromRulesFile</a></code> | Imports an APS rules file from the local filesystem. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.aps.RuleGroupConfiguration.isConstruct"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.RuleGroupConfiguration.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.aps.RuleGroupConfiguration.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `fromContent` <a name="fromContent" id="cdk-extensions.aps.RuleGroupConfiguration.fromContent"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.RuleGroupConfiguration.fromContent(scope: IConstruct, id: string, content: string)
+```
+
+Imports an APS rules configuration using a raw string.
+
+The string should be in YAML format and follow the specification expected
+by the `aps:CreateRuleGroupsNamespace` API call.
+
+> [[Rules file specification](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-ruler-rulesfile.html)]([Rules file specification](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-ruler-rulesfile.html))
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.RuleGroupConfiguration.fromContent.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of a rule groups namespace that will consume the rendered configuration.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.RuleGroupConfiguration.fromContent.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `content`<sup>Required</sup> <a name="content" id="cdk-extensions.aps.RuleGroupConfiguration.fromContent.parameter.content"></a>
+
+- *Type:* string
+
+The raw string content of a rule groups configuration.
+
+---
+
+##### `fromRulesFile` <a name="fromRulesFile" id="cdk-extensions.aps.RuleGroupConfiguration.fromRulesFile"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.RuleGroupConfiguration.fromRulesFile(scope: IConstruct, id: string, path: string)
+```
+
+Imports an APS rules file from the local filesystem.
+
+The file should be in YAML format and follow the specification expected by
+the `aps:CreateRuleGroupsNamespace` API call.
+
+> [[Rules file specification](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-ruler-rulesfile.html)]([Rules file specification](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-ruler-rulesfile.html))
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.RuleGroupConfiguration.fromRulesFile.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of a rule groups namespace that will consume the rendered configuration.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.RuleGroupConfiguration.fromRulesFile.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `path`<sup>Required</sup> <a name="path" id="cdk-extensions.aps.RuleGroupConfiguration.fromRulesFile.parameter.path"></a>
+
+- *Type:* string
+
+The path to the file containing the rule group definitions.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroupConfiguration.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.aps.RuleGroupConfiguration.property.ruleGroups">ruleGroups</a></code> | <code>cdk-extensions.aps.RuleGroup[]</code> | Collection of rule groups that are part of this configuration. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.aps.RuleGroupConfiguration.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `ruleGroups`<sup>Required</sup> <a name="ruleGroups" id="cdk-extensions.aps.RuleGroupConfiguration.property.ruleGroups"></a>
+
+```typescript
+public readonly ruleGroups: RuleGroup[];
+```
+
+- *Type:* cdk-extensions.aps.RuleGroup[]
+
+Collection of rule groups that are part of this configuration.
+
+---
+
+
+### RuleGroupsNamespace <a name="RuleGroupsNamespace" id="cdk-extensions.aps.RuleGroupsNamespace"></a>
+
+- *Implements:* cdk-extensions.aps.IRuleGroupsNamespace
+
+Amazon Managed Service for Prometheus allows for the configuration of rules that configure alerting and precomputation of frequently needed expressions.
+
+These rules are added to a workspace using configurations that define one or
+more resource groups. Eache group can contain one or more rules and
+configures the frequency that its rules should be evaluated.
+
+You can have multiple configurations per workspace. Each configuration is
+contained in a separate _namespace_. Having multiple configuration lets you
+import existing Prometheus rules files to a workspace without having to
+change or combine them. Different rule group namespaces can also have
+different tags.
+
+> [[Recording rules and alerting rules](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html)]([Recording rules and alerting rules](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.RuleGroupsNamespace.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.RuleGroupsNamespace(scope: IConstruct, id: string, props: RuleGroupsNamespaceProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.aps.RuleGroupsNamespaceProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.RuleGroupsNamespace.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.RuleGroupsNamespace.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.aps.RuleGroupsNamespace.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.aps.RuleGroupsNamespaceProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.addRuleGroup">addRuleGroup</a></code> | Adds a new rule group to the configuration. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.aps.RuleGroupsNamespace.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.aps.RuleGroupsNamespace.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.aps.RuleGroupsNamespace.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addRuleGroup` <a name="addRuleGroup" id="cdk-extensions.aps.RuleGroupsNamespace.addRuleGroup"></a>
+
+```typescript
+public addRuleGroup(id: string, options?: RuleGroupProps): RuleGroup
+```
+
+Adds a new rule group to the configuration.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.RuleGroupsNamespace.addRuleGroup.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.aps.RuleGroupsNamespace.addRuleGroup.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.RuleGroupProps
+
+Configuration options for the new rule group being added.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.fromRuleGroupsNamespaceArn">fromRuleGroupsNamespaceArn</a></code> | Imports an existing APS rule groups namespace by specifying its Amazon Resource Name (ARN). |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.aps.RuleGroupsNamespace.isConstruct"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.RuleGroupsNamespace.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.aps.RuleGroupsNamespace.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.aps.RuleGroupsNamespace.isOwnedResource"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.RuleGroupsNamespace.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.aps.RuleGroupsNamespace.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.aps.RuleGroupsNamespace.isResource"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.RuleGroupsNamespace.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.aps.RuleGroupsNamespace.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromRuleGroupsNamespaceArn` <a name="fromRuleGroupsNamespaceArn" id="cdk-extensions.aps.RuleGroupsNamespace.fromRuleGroupsNamespaceArn"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.RuleGroupsNamespace.fromRuleGroupsNamespaceArn(scope: IConstruct, id: string, arn: string)
+```
+
+Imports an existing APS rule groups namespace by specifying its Amazon Resource Name (ARN).
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.RuleGroupsNamespace.fromRuleGroupsNamespaceArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.RuleGroupsNamespace.fromRuleGroupsNamespaceArn.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `arn`<sup>Required</sup> <a name="arn" id="cdk-extensions.aps.RuleGroupsNamespace.fromRuleGroupsNamespaceArn.parameter.arn"></a>
+
+- *Type:* string
+
+The ARN of the existing APS rule groups namespace.
+
+to be
+imported.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.property.configuration">configuration</a></code> | <code>cdk-extensions.aps.IRuleGroupConfiguration</code> | The rules definition file for this namespace. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.property.name">name</a></code> | <code>string</code> | The name of the rule groups namespace. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_aps.CfnRuleGroupsNamespace</code> | The underlying RuleGroupsNamespace CloudFormation resource. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.property.rulesGroupsNamespaceArn">rulesGroupsNamespaceArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the APS rule groups namespace. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespace.property.workspace">workspace</a></code> | <code>cdk-extensions.aps.IWorkspace</code> | The APS workspace that contains this rule groups namespace. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.aps.RuleGroupsNamespace.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.aps.RuleGroupsNamespace.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.aps.RuleGroupsNamespace.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `configuration`<sup>Required</sup> <a name="configuration" id="cdk-extensions.aps.RuleGroupsNamespace.property.configuration"></a>
+
+```typescript
+public readonly configuration: IRuleGroupConfiguration;
+```
+
+- *Type:* cdk-extensions.aps.IRuleGroupConfiguration
+
+The rules definition file for this namespace.
+
+> [[RuleGroupsNamespace Data](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-data)]([RuleGroupsNamespace Data](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-data))
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.aps.RuleGroupsNamespace.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the rule groups namespace.
+
+> [[RuleGroupsNamespace Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-name)]([RuleGroupsNamespace Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-name))
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.aps.RuleGroupsNamespace.property.resource"></a>
+
+```typescript
+public readonly resource: CfnRuleGroupsNamespace;
+```
+
+- *Type:* aws-cdk-lib.aws_aps.CfnRuleGroupsNamespace
+
+The underlying RuleGroupsNamespace CloudFormation resource.
+
+> [[AWS::APS::RuleGroupsNamespace](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html)]([AWS::APS::RuleGroupsNamespace](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html))
+
+---
+
+##### `rulesGroupsNamespaceArn`<sup>Required</sup> <a name="rulesGroupsNamespaceArn" id="cdk-extensions.aps.RuleGroupsNamespace.property.rulesGroupsNamespaceArn"></a>
+
+```typescript
+public readonly rulesGroupsNamespaceArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the APS rule groups namespace.
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="cdk-extensions.aps.RuleGroupsNamespace.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* cdk-extensions.aps.IWorkspace
+
+The APS workspace that contains this rule groups namespace.
+
+> [[RuleGroupsNamespace Workspace](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-workspace)]([RuleGroupsNamespace Workspace](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-workspace))
+
+---
+
+
 ### S3AccessLogsBucket <a name="S3AccessLogsBucket" id="cdk-extensions.s3_buckets.S3AccessLogsBucket"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.Initializer"></a>
@@ -16899,7 +19505,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.grantPutAcl.parameter._identity"></a>
@@ -16954,7 +19560,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.grantReadWrite.parameter._identity"></a>
 
@@ -16985,7 +19591,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.grantWrite.parameter._identity"></a>
 
@@ -18958,7 +21564,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.SesLogsBucket.grantPutAcl.parameter._identity"></a>
@@ -19013,7 +21619,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.SesLogsBucket.grantReadWrite.parameter._identity"></a>
 
@@ -19044,7 +21650,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.SesLogsBucket.grantWrite.parameter._identity"></a>
 
@@ -20918,6 +23524,177 @@ public readonly viewOriginalText: string;
 ---
 
 
+### TimeInterval <a name="TimeInterval" id="cdk-extensions.aps.TimeInterval"></a>
+
+Represents a named interval of time that may be referenced by the alert manager router to mute/activate particular routes for particular times of day.
+
+> [[Time Interval Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#time_interval-0)]([Time Interval Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#time_interval-0))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.TimeInterval.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.TimeInterval(scope: AlertManagerConfiguration, id: string, options: TimeIntervalProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.TimeInterval.Initializer.parameter.scope">scope</a></code> | <code>cdk-extensions.aps.AlertManagerConfiguration</code> | A CDK Construct that will serve as this construct's parent in the construct tree. |
+| <code><a href="#cdk-extensions.aps.TimeInterval.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.aps.TimeInterval.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.aps.TimeIntervalProps</code> | Arguments related to the configuration of this construct. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.TimeInterval.Initializer.parameter.scope"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerConfiguration
+
+A CDK Construct that will serve as this construct's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.TimeInterval.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.aps.TimeInterval.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.TimeIntervalProps
+
+Arguments related to the configuration of this construct.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.TimeInterval.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.aps.TimeInterval.addInterval">addInterval</a></code> | Adds a new time interval entry to the time interval. |
+| <code><a href="#cdk-extensions.aps.TimeInterval.bind">bind</a></code> | Associates the time interval with a construct that is handling the configuration of alert manager. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.aps.TimeInterval.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addInterval` <a name="addInterval" id="cdk-extensions.aps.TimeInterval.addInterval"></a>
+
+```typescript
+public addInterval(interval: TimeIntervalEntry): TimeIntervalEntry
+```
+
+Adds a new time interval entry to the time interval.
+
+###### `interval`<sup>Required</sup> <a name="interval" id="cdk-extensions.aps.TimeInterval.addInterval.parameter.interval"></a>
+
+- *Type:* cdk-extensions.aps.TimeIntervalEntry
+
+The the time interval entry to be added.
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.TimeInterval.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): {[ key: string ]: any}
+```
+
+Associates the time interval with a construct that is handling the configuration of alert manager.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.TimeInterval.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of alert manager that will consume the rendered configuration.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.TimeInterval.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.aps.TimeInterval.isConstruct"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.TimeInterval.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.aps.TimeInterval.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.TimeInterval.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.aps.TimeInterval.property.intervals">intervals</a></code> | <code>cdk-extensions.aps.TimeIntervalEntry[]</code> | Collection of interval entries that defined the the full scope of the periods for which the time interval should apply. |
+| <code><a href="#cdk-extensions.aps.TimeInterval.property.name">name</a></code> | <code>string</code> | The name of the time interval as it will be referenced throught the rest of the alert manager configuration. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.aps.TimeInterval.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `intervals`<sup>Required</sup> <a name="intervals" id="cdk-extensions.aps.TimeInterval.property.intervals"></a>
+
+```typescript
+public readonly intervals: TimeIntervalEntry[];
+```
+
+- *Type:* cdk-extensions.aps.TimeIntervalEntry[]
+
+Collection of interval entries that defined the the full scope of the periods for which the time interval should apply.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.aps.TimeInterval.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the time interval as it will be referenced throught the rest of the alert manager configuration.
+
+---
+
+
 ### Trigger <a name="Trigger" id="cdk-extensions.glue.Trigger"></a>
 
 - *Implements:* cdk-extensions.glue.ITrigger
@@ -21928,7 +24705,7 @@ public grantPutAcl(_identity: IGrantable, _objectsKeyPattern?: string): Grant
 Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 
 If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
+calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
 in this case, if you need to modify object ACLs, call this method explicitly.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.WafLogsBucket.grantPutAcl.parameter._identity"></a>
@@ -21983,7 +24760,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.WafLogsBucket.grantReadWrite.parameter._identity"></a>
 
@@ -22014,7 +24791,7 @@ If you want to get rid of that behavior, update your CDK version to 1.85.0 or la
 and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
 in the `context` key of your cdk.json file.
 If you've already updated, but still need the principal to have permissions to modify the ACLs,
-use the {@link grantPutAcl} method.
+use the `grantPutAcl` method.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.WafLogsBucket.grantWrite.parameter._identity"></a>
 
@@ -23319,6 +26096,503 @@ public readonly name: string;
 ---
 
 
+### Workspace <a name="Workspace" id="cdk-extensions.aps.Workspace"></a>
+
+- *Implements:* cdk-extensions.aps.IWorkspace
+
+Represents an Amazon Managed Service for Prometheus workspace.
+
+A _workspace_ is a logical and isolated Prometheus server dedicated to
+Prometheus resources such as metrics.
+
+You can have one or more workspaces in each Region in your account.
+
+> [[AWS::APS::Workspace](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#aws-resource-aps-workspace-return-values)]([AWS::APS::Workspace](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#aws-resource-aps-workspace-return-values))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.Workspace.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.Workspace(scope: IConstruct, id: string, props?: WorkspaceProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.Workspace.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.aps.Workspace.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.aps.Workspace.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.aps.WorkspaceProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.Workspace.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.Workspace.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.aps.Workspace.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.aps.WorkspaceProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.Workspace.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.aps.Workspace.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.aps.Workspace.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.aps.Workspace.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.aps.Workspace.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.Workspace.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.aps.Workspace.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.aps.Workspace.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.aps.Workspace.fromWorkspaceArn">fromWorkspaceArn</a></code> | Imports an existing APS workspace by specifying its Amazon Resource Name (ARN). |
+| <code><a href="#cdk-extensions.aps.Workspace.fromWorkspaceAttributes">fromWorkspaceAttributes</a></code> | Imports an existing APS workspace by explicitly specifying its attributes. |
+| <code><a href="#cdk-extensions.aps.Workspace.fromWorkspaceId">fromWorkspaceId</a></code> | Imports an existing APS workspace by explicitly specifying its AWS generated ID. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.aps.Workspace.isConstruct"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.Workspace.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.aps.Workspace.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.aps.Workspace.isOwnedResource"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.Workspace.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.aps.Workspace.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.aps.Workspace.isResource"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.Workspace.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.aps.Workspace.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromWorkspaceArn` <a name="fromWorkspaceArn" id="cdk-extensions.aps.Workspace.fromWorkspaceArn"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.Workspace.fromWorkspaceArn(scope: IConstruct, id: string, workspaceArn: string)
+```
+
+Imports an existing APS workspace by specifying its Amazon Resource Name (ARN).
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.Workspace.fromWorkspaceArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.Workspace.fromWorkspaceArn.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `workspaceArn`<sup>Required</sup> <a name="workspaceArn" id="cdk-extensions.aps.Workspace.fromWorkspaceArn.parameter.workspaceArn"></a>
+
+- *Type:* string
+
+The ARN of the existing APS workspace to be imported.
+
+---
+
+##### `fromWorkspaceAttributes` <a name="fromWorkspaceAttributes" id="cdk-extensions.aps.Workspace.fromWorkspaceAttributes"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.Workspace.fromWorkspaceAttributes(scope: IConstruct, id: string, attrs: WorkspaceAttributes)
+```
+
+Imports an existing APS workspace by explicitly specifying its attributes.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.Workspace.fromWorkspaceAttributes.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.Workspace.fromWorkspaceAttributes.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.aps.Workspace.fromWorkspaceAttributes.parameter.attrs"></a>
+
+- *Type:* cdk-extensions.aps.WorkspaceAttributes
+
+The attributes of the existing APS workspace to be imported.
+
+---
+
+##### `fromWorkspaceId` <a name="fromWorkspaceId" id="cdk-extensions.aps.Workspace.fromWorkspaceId"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.Workspace.fromWorkspaceId(scope: IConstruct, id: string, workspaceId: string)
+```
+
+Imports an existing APS workspace by explicitly specifying its AWS generated ID.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.Workspace.fromWorkspaceId.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.aps.Workspace.fromWorkspaceId.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `workspaceId`<sup>Required</sup> <a name="workspaceId" id="cdk-extensions.aps.Workspace.fromWorkspaceId.parameter.workspaceId"></a>
+
+- *Type:* string
+
+The AWS generated ID of the existing APS workspace to be imported.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.Workspace.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_aps.CfnWorkspace</code> | The underlying Workspace CloudFormation resource. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the APS workspace. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.workspaceId">workspaceId</a></code> | <code>string</code> | The ID generated by AWS for the APS workspace. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.workspacePrometheusEndpoint">workspacePrometheusEndpoint</a></code> | <code>string</code> | The Prometheus endpoint attribute of the workspace. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.workspaceQueryUrl">workspaceQueryUrl</a></code> | <code>string</code> | The URL of the remote write endpoint which can be used to ingest metrics into the Prometheus workspace. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.workspaceRemoteWriteUrl">workspaceRemoteWriteUrl</a></code> | <code>string</code> | The URL of the endpoint that other services can use to query the workspace. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.alerting">alerting</a></code> | <code>cdk-extensions.aps.WorkspaceAlertingOptions</code> | The details used to configure alerting for the APS workspace. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.alertManagerConfiguration">alertManagerConfiguration</a></code> | <code>cdk-extensions.aps.AlertManagerConfiguration</code> | The configuration contolling how alerts are sent for the workspace. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.alertTopic">alertTopic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | The SNS topic where alerts generated by the workspace will be sent. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.alias">alias</a></code> | <code>string</code> | An alias that you assign to this workspace to help you identify it. It does not need to be unique. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.logging">logging</a></code> | <code>cdk-extensions.aps.WorkspaceLoggingOptions</code> | The details used for configuring logging for the APS workspace. |
+| <code><a href="#cdk-extensions.aps.Workspace.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The CloudWatch log group where logs emitted by the APS workspace will be sent. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.aps.Workspace.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.aps.Workspace.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.aps.Workspace.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.aps.Workspace.property.resource"></a>
+
+```typescript
+public readonly resource: CfnWorkspace;
+```
+
+- *Type:* aws-cdk-lib.aws_aps.CfnWorkspace
+
+The underlying Workspace CloudFormation resource.
+
+> [[AWS::APS::Workspace](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html)]([AWS::APS::Workspace](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html))
+
+---
+
+##### `workspaceArn`<sup>Required</sup> <a name="workspaceArn" id="cdk-extensions.aps.Workspace.property.workspaceArn"></a>
+
+```typescript
+public readonly workspaceArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the APS workspace.
+
+---
+
+##### `workspaceId`<sup>Required</sup> <a name="workspaceId" id="cdk-extensions.aps.Workspace.property.workspaceId"></a>
+
+```typescript
+public readonly workspaceId: string;
+```
+
+- *Type:* string
+
+The ID generated by AWS for the APS workspace.
+
+---
+
+##### `workspacePrometheusEndpoint`<sup>Required</sup> <a name="workspacePrometheusEndpoint" id="cdk-extensions.aps.Workspace.property.workspacePrometheusEndpoint"></a>
+
+```typescript
+public readonly workspacePrometheusEndpoint: string;
+```
+
+- *Type:* string
+
+The Prometheus endpoint attribute of the workspace.
+
+This is the endpoint prefix without the remote_write or query API
+appended.
+
+---
+
+##### `workspaceQueryUrl`<sup>Required</sup> <a name="workspaceQueryUrl" id="cdk-extensions.aps.Workspace.property.workspaceQueryUrl"></a>
+
+```typescript
+public readonly workspaceQueryUrl: string;
+```
+
+- *Type:* string
+
+The URL of the remote write endpoint which can be used to ingest metrics into the Prometheus workspace.
+
+---
+
+##### `workspaceRemoteWriteUrl`<sup>Required</sup> <a name="workspaceRemoteWriteUrl" id="cdk-extensions.aps.Workspace.property.workspaceRemoteWriteUrl"></a>
+
+```typescript
+public readonly workspaceRemoteWriteUrl: string;
+```
+
+- *Type:* string
+
+The URL of the endpoint that other services can use to query the workspace.
+
+---
+
+##### `alerting`<sup>Optional</sup> <a name="alerting" id="cdk-extensions.aps.Workspace.property.alerting"></a>
+
+```typescript
+public readonly alerting: WorkspaceAlertingOptions;
+```
+
+- *Type:* cdk-extensions.aps.WorkspaceAlertingOptions
+
+The details used to configure alerting for the APS workspace.
+
+> [[Workspace AlertManagerDefinition](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alertmanagerdefinition)]([Workspace AlertManagerDefinition](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alertmanagerdefinition))
+
+---
+
+##### `alertManagerConfiguration`<sup>Optional</sup> <a name="alertManagerConfiguration" id="cdk-extensions.aps.Workspace.property.alertManagerConfiguration"></a>
+
+```typescript
+public readonly alertManagerConfiguration: AlertManagerConfiguration;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerConfiguration
+
+The configuration contolling how alerts are sent for the workspace.
+
+Only
+available when alerting is enabled and the default alerting configuration
+is used.
+
+---
+
+##### `alertTopic`<sup>Optional</sup> <a name="alertTopic" id="cdk-extensions.aps.Workspace.property.alertTopic"></a>
+
+```typescript
+public readonly alertTopic: ITopic;
+```
+
+- *Type:* aws-cdk-lib.aws_sns.ITopic
+
+The SNS topic where alerts generated by the workspace will be sent.
+
+Only
+set if alerting is enabled and the default alert manager configuration is
+used.
+
+---
+
+##### `alias`<sup>Optional</sup> <a name="alias" id="cdk-extensions.aps.Workspace.property.alias"></a>
+
+```typescript
+public readonly alias: string;
+```
+
+- *Type:* string
+
+An alias that you assign to this workspace to help you identify it. It does not need to be unique.
+
+The alias can be as many as 100 characters and can include any type of
+characters.
+
+> [[Workspace Alias](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alias)]([Workspace Alias](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alias))
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.aps.Workspace.property.logging"></a>
+
+```typescript
+public readonly logging: WorkspaceLoggingOptions;
+```
+
+- *Type:* cdk-extensions.aps.WorkspaceLoggingOptions
+
+The details used for configuring logging for the APS workspace.
+
+> [[Workspace LoggingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-loggingconfiguration)]([Workspace LoggingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-loggingconfiguration))
+
+---
+
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.aps.Workspace.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+The CloudWatch log group where logs emitted by the APS workspace will be sent.
+
+---
+
+
 ## Structs <a name="Structs" id="Structs"></a>
 
 ### AccessControlAttributeOptions <a name="AccessControlAttributeOptions" id="cdk-extensions.sso.AccessControlAttributeOptions"></a>
@@ -23809,6 +27083,617 @@ Set a custom prefix for the S3 Bucket.
 
 ---
 
+### AlertingRuleProps <a name="AlertingRuleProps" id="cdk-extensions.aps.AlertingRuleProps"></a>
+
+Options needed to configure a Prometheus alerting rule inside an APS rules configuration.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.AlertingRuleProps.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const alertingRuleProps: aps.AlertingRuleProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertingRuleProps.property.alert">alert</a></code> | <code>string</code> | The name of the alert. |
+| <code><a href="#cdk-extensions.aps.AlertingRuleProps.property.expression">expression</a></code> | <code>string</code> | The PromQL expression to evaluate. |
+| <code><a href="#cdk-extensions.aps.AlertingRuleProps.property.annotations">annotations</a></code> | <code>{[ key: string ]: string}</code> | Annotations to add to each alert. |
+| <code><a href="#cdk-extensions.aps.AlertingRuleProps.property.labels">labels</a></code> | <code>{[ key: string ]: string}</code> | Labels to add or overwrite for each alert. |
+| <code><a href="#cdk-extensions.aps.AlertingRuleProps.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Alerts are considered firing once they have been returned for this long. |
+
+---
+
+##### `alert`<sup>Required</sup> <a name="alert" id="cdk-extensions.aps.AlertingRuleProps.property.alert"></a>
+
+```typescript
+public readonly alert: string;
+```
+
+- *Type:* string
+
+The name of the alert.
+
+Must be a valid label value.
+
+---
+
+##### `expression`<sup>Required</sup> <a name="expression" id="cdk-extensions.aps.AlertingRuleProps.property.expression"></a>
+
+```typescript
+public readonly expression: string;
+```
+
+- *Type:* string
+
+The PromQL expression to evaluate.
+
+Every evaluation cycle this is
+evaluated at the current time, and all resultant time series become
+pending/firing alerts.
+
+> [[Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/)]([Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/))
+
+---
+
+##### `annotations`<sup>Optional</sup> <a name="annotations" id="cdk-extensions.aps.AlertingRuleProps.property.annotations"></a>
+
+```typescript
+public readonly annotations: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Annotations to add to each alert.
+
+Supports templating.
+
+---
+
+##### `labels`<sup>Optional</sup> <a name="labels" id="cdk-extensions.aps.AlertingRuleProps.property.labels"></a>
+
+```typescript
+public readonly labels: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Labels to add or overwrite for each alert.
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-extensions.aps.AlertingRuleProps.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+Alerts are considered firing once they have been returned for this long.
+
+Alerts which have not yet fired for long enough are considered pending.
+
+---
+
+### AlertManagerConfigurationDetails <a name="AlertManagerConfigurationDetails" id="cdk-extensions.aps.AlertManagerConfigurationDetails"></a>
+
+The details that are needed to configure alert manager for an Amazon APS workspace.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.AlertManagerConfigurationDetails.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const alertManagerConfigurationDetails: aps.AlertManagerConfigurationDetails = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfigurationDetails.property.contents">contents</a></code> | <code>string</code> | The rendered alert manager configuration in the format expected by an Amazon APS workspace. |
+
+---
+
+##### `contents`<sup>Required</sup> <a name="contents" id="cdk-extensions.aps.AlertManagerConfigurationDetails.property.contents"></a>
+
+```typescript
+public readonly contents: string;
+```
+
+- *Type:* string
+
+The rendered alert manager configuration in the format expected by an Amazon APS workspace.
+
+---
+
+### AlertManagerConfigurationProps <a name="AlertManagerConfigurationProps" id="cdk-extensions.aps.AlertManagerConfigurationProps"></a>
+
+Configuration for alert manager running on Amazon APS.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.AlertManagerConfigurationProps.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const alertManagerConfigurationProps: aps.AlertManagerConfigurationProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfigurationProps.property.defaultReceiverDestinations">defaultReceiverDestinations</a></code> | <code>cdk-extensions.aps.IAlertManagerDestination[]</code> | Destinations where all alerts generated by APS should be sent. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfigurationProps.property.defaultRoute">defaultRoute</a></code> | <code>cdk-extensions.aps.DefaultRouteOptions</code> | Options for configuring the behavior of the default route that gets created for alerts. |
+| <code><a href="#cdk-extensions.aps.AlertManagerConfigurationProps.property.templates">templates</a></code> | <code>cdk-extensions.aps.AlertManagerTemplate[]</code> | Collection of templates to make available to alert manager. |
+
+---
+
+##### `defaultReceiverDestinations`<sup>Optional</sup> <a name="defaultReceiverDestinations" id="cdk-extensions.aps.AlertManagerConfigurationProps.property.defaultReceiverDestinations"></a>
+
+```typescript
+public readonly defaultReceiverDestinations: IAlertManagerDestination[];
+```
+
+- *Type:* cdk-extensions.aps.IAlertManagerDestination[]
+
+Destinations where all alerts generated by APS should be sent.
+
+If this property is not a provided, a new default topic will be created to
+receive notifications. If a default topic is not desired (such as in cases
+where topics will be registered dynamically later in the build) an empty
+list can be provided. This will result in the default topic not being
+created an no destinations being configured for the default receiver.
+
+Note that the default receiver requires at least one destination to be
+registered, so if the default topic is skipped and no destinations are
+provided here, at least one destination _must_ be registered for the
+default route before the CDK app is synthed.
+
+---
+
+##### `defaultRoute`<sup>Optional</sup> <a name="defaultRoute" id="cdk-extensions.aps.AlertManagerConfigurationProps.property.defaultRoute"></a>
+
+```typescript
+public readonly defaultRoute: DefaultRouteOptions;
+```
+
+- *Type:* cdk-extensions.aps.DefaultRouteOptions
+
+Options for configuring the behavior of the default route that gets created for alerts.
+
+The default route for alert manager does not support all options allowed
+by child routes.
+
+---
+
+##### `templates`<sup>Optional</sup> <a name="templates" id="cdk-extensions.aps.AlertManagerConfigurationProps.property.templates"></a>
+
+```typescript
+public readonly templates: AlertManagerTemplate[];
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerTemplate[]
+
+Collection of templates to make available to alert manager.
+
+The templates
+are available to be referenced in any field that supports templating by
+using the `template` templating function and referencing the name of the
+template as defined in the template content with the `define` keyword.
+
+> [[Reference defined templates](https://pkg.go.dev/text/template#hdr-Nested_template_definitions)]([Reference defined templates](https://pkg.go.dev/text/template#hdr-Nested_template_definitions))
+
+---
+
+### AlertManagerReceiverProps <a name="AlertManagerReceiverProps" id="cdk-extensions.aps.AlertManagerReceiverProps"></a>
+
+Configuration for the aler manager route.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.AlertManagerReceiverProps.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const alertManagerReceiverProps: aps.AlertManagerReceiverProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerReceiverProps.property.destinations">destinations</a></code> | <code>cdk-extensions.aps.IAlertManagerDestination[]</code> | Details for alerting providers where events routed to this receiver should be sent,. |
+| <code><a href="#cdk-extensions.aps.AlertManagerReceiverProps.property.name">name</a></code> | <code>string</code> | The name of the receiver which can be referenced in the other parts of the configuration. |
+
+---
+
+##### `destinations`<sup>Optional</sup> <a name="destinations" id="cdk-extensions.aps.AlertManagerReceiverProps.property.destinations"></a>
+
+```typescript
+public readonly destinations: IAlertManagerDestination[];
+```
+
+- *Type:* cdk-extensions.aps.IAlertManagerDestination[]
+
+Details for alerting providers where events routed to this receiver should be sent,.
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.aps.AlertManagerReceiverProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the receiver which can be referenced in the other parts of the configuration.
+
+---
+
+### AlertManagerRouteProps <a name="AlertManagerRouteProps" id="cdk-extensions.aps.AlertManagerRouteProps"></a>
+
+Configuration for the alert manager route.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.AlertManagerRouteProps.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const alertManagerRouteProps: aps.AlertManagerRouteProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerRouteProps.property.receiver">receiver</a></code> | <code>cdk-extensions.aps.AlertManagerReceiver</code> | The receiver that should be the target of alerts that are generated by the node. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRouteProps.property.activeTimeIntervals">activeTimeIntervals</a></code> | <code>cdk-extensions.aps.TimeInterval[]</code> | Times when the route should be active. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRouteProps.property.children">children</a></code> | <code>cdk-extensions.aps.AlertManagerRouteProps[]</code> | Optional child routes to add to the node. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRouteProps.property.continueMatching">continueMatching</a></code> | <code>boolean</code> | Whether an alert should continue matching subsequent sibling nodes. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRouteProps.property.groupByLabels">groupByLabels</a></code> | <code>string[]</code> | The labels by which incoming alerts are grouped together. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRouteProps.property.groupInterval">groupInterval</a></code> | <code>aws-cdk-lib.Duration</code> | How long to wait before sending a notification about new alerts that are added to a group of alerts for which an initial notification has already been sent (usually ~5m or more). |
+| <code><a href="#cdk-extensions.aps.AlertManagerRouteProps.property.groupWait">groupWait</a></code> | <code>aws-cdk-lib.Duration</code> | How long to initially wait to send a notification for a group of alerts. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRouteProps.property.matchers">matchers</a></code> | <code>cdk-extensions.aps.AlertManagerMatcher[]</code> | A list of matchers that an alert has to fulfill to match the node. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRouteProps.property.muteTimeInterval">muteTimeInterval</a></code> | <code>cdk-extensions.aps.TimeInterval[]</code> | Times when the route should be muted. The root node cannot have any mute times. |
+| <code><a href="#cdk-extensions.aps.AlertManagerRouteProps.property.repeatInterval">repeatInterval</a></code> | <code>aws-cdk-lib.Duration</code> | How long to wait before sending a notification again if it has already been sent successfully for an alert. |
+
+---
+
+##### `receiver`<sup>Required</sup> <a name="receiver" id="cdk-extensions.aps.AlertManagerRouteProps.property.receiver"></a>
+
+```typescript
+public readonly receiver: AlertManagerReceiver;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerReceiver
+
+The receiver that should be the target of alerts that are generated by the node.
+
+---
+
+##### `activeTimeIntervals`<sup>Optional</sup> <a name="activeTimeIntervals" id="cdk-extensions.aps.AlertManagerRouteProps.property.activeTimeIntervals"></a>
+
+```typescript
+public readonly activeTimeIntervals: TimeInterval[];
+```
+
+- *Type:* cdk-extensions.aps.TimeInterval[]
+
+Times when the route should be active.
+
+An empty value means that the route
+is always active. Additionally, the root node cannot have any active
+times.
+
+The route will send notifications only when active, but otherwise acts
+normally (including ending the route-matching process if the
+`continueMatching` option is not set).
+
+---
+
+##### `children`<sup>Optional</sup> <a name="children" id="cdk-extensions.aps.AlertManagerRouteProps.property.children"></a>
+
+```typescript
+public readonly children: AlertManagerRouteProps[];
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerRouteProps[]
+
+Optional child routes to add to the node.
+
+---
+
+##### `continueMatching`<sup>Optional</sup> <a name="continueMatching" id="cdk-extensions.aps.AlertManagerRouteProps.property.continueMatching"></a>
+
+```typescript
+public readonly continueMatching: boolean;
+```
+
+- *Type:* boolean
+
+Whether an alert should continue matching subsequent sibling nodes.
+
+---
+
+##### `groupByLabels`<sup>Optional</sup> <a name="groupByLabels" id="cdk-extensions.aps.AlertManagerRouteProps.property.groupByLabels"></a>
+
+```typescript
+public readonly groupByLabels: string[];
+```
+
+- *Type:* string[]
+
+The labels by which incoming alerts are grouped together.
+
+For example,
+multiple alerts coming in for cluster=A and alertname=LatencyHigh would be
+batched into a single group.
+
+---
+
+##### `groupInterval`<sup>Optional</sup> <a name="groupInterval" id="cdk-extensions.aps.AlertManagerRouteProps.property.groupInterval"></a>
+
+```typescript
+public readonly groupInterval: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+How long to wait before sending a notification about new alerts that are added to a group of alerts for which an initial notification has already been sent (usually ~5m or more).
+
+---
+
+##### `groupWait`<sup>Optional</sup> <a name="groupWait" id="cdk-extensions.aps.AlertManagerRouteProps.property.groupWait"></a>
+
+```typescript
+public readonly groupWait: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+How long to initially wait to send a notification for a group of alerts.
+
+Allows to wait for an inhibiting alert to arrive or collect more initial
+alerts for the same group (usually ~0s to few minutes).
+
+---
+
+##### `matchers`<sup>Optional</sup> <a name="matchers" id="cdk-extensions.aps.AlertManagerRouteProps.property.matchers"></a>
+
+```typescript
+public readonly matchers: AlertManagerMatcher[];
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerMatcher[]
+
+A list of matchers that an alert has to fulfill to match the node.
+
+---
+
+##### `muteTimeInterval`<sup>Optional</sup> <a name="muteTimeInterval" id="cdk-extensions.aps.AlertManagerRouteProps.property.muteTimeInterval"></a>
+
+```typescript
+public readonly muteTimeInterval: TimeInterval[];
+```
+
+- *Type:* cdk-extensions.aps.TimeInterval[]
+
+Times when the route should be muted. The root node cannot have any mute times.
+
+When a route is muted it will not send any notifications, but otherwise
+acts normally (including ending the route-matching process if the
+`continueMatching` option is not set).
+
+---
+
+##### `repeatInterval`<sup>Optional</sup> <a name="repeatInterval" id="cdk-extensions.aps.AlertManagerRouteProps.property.repeatInterval"></a>
+
+```typescript
+public readonly repeatInterval: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+How long to wait before sending a notification again if it has already been sent successfully for an alert.
+
+(Usually ~3h or more).
+
+---
+
+### AlertManagerSnsDestinationOptions <a name="AlertManagerSnsDestinationOptions" id="cdk-extensions.aps.AlertManagerSnsDestinationOptions"></a>
+
+Optional configuration for an alert manager SNS destination.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.AlertManagerSnsDestinationOptions.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const alertManagerSnsDestinationOptions: aps.AlertManagerSnsDestinationOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestinationOptions.property.apiUrl">apiUrl</a></code> | <code>string</code> | The SNS API URL i.e. https://sns.us-east-2.amazonaws.com. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestinationOptions.property.attributes">attributes</a></code> | <code>{[ key: string ]: string}</code> | SNS message attributes. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestinationOptions.property.message">message</a></code> | <code>string</code> | The message content of the SNS notification. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestinationOptions.property.sendResolved">sendResolved</a></code> | <code>boolean</code> | Controls whether to notify about resolved alerts. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestinationOptions.property.subject">subject</a></code> | <code>string</code> | Subject line when the message is delivered to email endpoints. |
+
+---
+
+##### `apiUrl`<sup>Optional</sup> <a name="apiUrl" id="cdk-extensions.aps.AlertManagerSnsDestinationOptions.property.apiUrl"></a>
+
+```typescript
+public readonly apiUrl: string;
+```
+
+- *Type:* string
+
+The SNS API URL i.e. https://sns.us-east-2.amazonaws.com.
+
+If not specified, the SNS API URL from the SNS SDK will be used.
+
+---
+
+##### `attributes`<sup>Optional</sup> <a name="attributes" id="cdk-extensions.aps.AlertManagerSnsDestinationOptions.property.attributes"></a>
+
+```typescript
+public readonly attributes: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+SNS message attributes.
+
+---
+
+##### `message`<sup>Optional</sup> <a name="message" id="cdk-extensions.aps.AlertManagerSnsDestinationOptions.property.message"></a>
+
+```typescript
+public readonly message: string;
+```
+
+- *Type:* string
+
+The message content of the SNS notification.
+
+---
+
+##### `sendResolved`<sup>Optional</sup> <a name="sendResolved" id="cdk-extensions.aps.AlertManagerSnsDestinationOptions.property.sendResolved"></a>
+
+```typescript
+public readonly sendResolved: boolean;
+```
+
+- *Type:* boolean
+
+Controls whether to notify about resolved alerts.
+
+---
+
+##### `subject`<sup>Optional</sup> <a name="subject" id="cdk-extensions.aps.AlertManagerSnsDestinationOptions.property.subject"></a>
+
+```typescript
+public readonly subject: string;
+```
+
+- *Type:* string
+
+Subject line when the message is delivered to email endpoints.
+
+---
+
+### AlertManagerSnsDestinationProps <a name="AlertManagerSnsDestinationProps" id="cdk-extensions.aps.AlertManagerSnsDestinationProps"></a>
+
+Configuration for an alert manager SNS destination.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.AlertManagerSnsDestinationProps.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const alertManagerSnsDestinationProps: aps.AlertManagerSnsDestinationProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestinationProps.property.apiUrl">apiUrl</a></code> | <code>string</code> | The SNS API URL i.e. https://sns.us-east-2.amazonaws.com. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestinationProps.property.attributes">attributes</a></code> | <code>{[ key: string ]: string}</code> | SNS message attributes. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestinationProps.property.message">message</a></code> | <code>string</code> | The message content of the SNS notification. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestinationProps.property.sendResolved">sendResolved</a></code> | <code>boolean</code> | Controls whether to notify about resolved alerts. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestinationProps.property.subject">subject</a></code> | <code>string</code> | Subject line when the message is delivered to email endpoints. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestinationProps.property.topic">topic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | SNS topic where alerts will be sent. |
+
+---
+
+##### `apiUrl`<sup>Optional</sup> <a name="apiUrl" id="cdk-extensions.aps.AlertManagerSnsDestinationProps.property.apiUrl"></a>
+
+```typescript
+public readonly apiUrl: string;
+```
+
+- *Type:* string
+
+The SNS API URL i.e. https://sns.us-east-2.amazonaws.com.
+
+If not specified, the SNS API URL from the SNS SDK will be used.
+
+---
+
+##### `attributes`<sup>Optional</sup> <a name="attributes" id="cdk-extensions.aps.AlertManagerSnsDestinationProps.property.attributes"></a>
+
+```typescript
+public readonly attributes: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+SNS message attributes.
+
+---
+
+##### `message`<sup>Optional</sup> <a name="message" id="cdk-extensions.aps.AlertManagerSnsDestinationProps.property.message"></a>
+
+```typescript
+public readonly message: string;
+```
+
+- *Type:* string
+
+The message content of the SNS notification.
+
+---
+
+##### `sendResolved`<sup>Optional</sup> <a name="sendResolved" id="cdk-extensions.aps.AlertManagerSnsDestinationProps.property.sendResolved"></a>
+
+```typescript
+public readonly sendResolved: boolean;
+```
+
+- *Type:* boolean
+
+Controls whether to notify about resolved alerts.
+
+---
+
+##### `subject`<sup>Optional</sup> <a name="subject" id="cdk-extensions.aps.AlertManagerSnsDestinationProps.property.subject"></a>
+
+```typescript
+public readonly subject: string;
+```
+
+- *Type:* string
+
+Subject line when the message is delivered to email endpoints.
+
+---
+
+##### `topic`<sup>Required</sup> <a name="topic" id="cdk-extensions.aps.AlertManagerSnsDestinationProps.property.topic"></a>
+
+```typescript
+public readonly topic: ITopic;
+```
+
+- *Type:* aws-cdk-lib.aws_sns.ITopic
+
+SNS topic where alerts will be sent.
+
+If you are using a FIFO SNS topic you should set a message group interval
+longer than 5 minutes to prevent messages with the same group key being
+deduplicated by the SNS default deduplication window.
+
+---
+
 ### AppendDelimiterProcessorOptions <a name="AppendDelimiterProcessorOptions" id="cdk-extensions.kinesis_firehose.AppendDelimiterProcessorOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.AppendDelimiterProcessorOptions.Initializer"></a>
@@ -24121,6 +28006,7 @@ const awsIntegratedFargateClusterProps: eks_patterns.AwsIntegratedFargateCluster
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.externalDnsOptions">externalDnsOptions</a></code> | <code>cdk-extensions.eks_patterns.ClusterRoute53DnsOptions</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.externalSecretsOptions">externalSecretsOptions</a></code> | <code>cdk-extensions.eks_patterns.ExternalSecretsOptions</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.loggingOptions">loggingOptions</a></code> | <code>cdk-extensions.eks_patterns.ClusterFargateLoggingOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.prometheusOptions">prometheusOptions</a></code> | <code>cdk-extensions.eks_patterns.ClusterPrometheusOptions</code> | *No description.* |
 
 ---
 
@@ -24563,6 +28449,16 @@ public readonly loggingOptions: ClusterFargateLoggingOptions;
 
 ---
 
+##### `prometheusOptions`<sup>Optional</sup> <a name="prometheusOptions" id="cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.prometheusOptions"></a>
+
+```typescript
+public readonly prometheusOptions: ClusterPrometheusOptions;
+```
+
+- *Type:* cdk-extensions.eks_patterns.ClusterPrometheusOptions
+
+---
+
 ### AwsLoggingStackProps <a name="AwsLoggingStackProps" id="cdk-extensions.stacks.AwsLoggingStackProps"></a>
 
 Configuration for AwsLoggingStack.
@@ -24752,9 +28648,19 @@ public readonly synthesizer: IStackSynthesizer;
 ```
 
 - *Type:* aws-cdk-lib.IStackSynthesizer
-- *Default:* `DefaultStackSynthesizer` if the `@aws-cdk/core:newStyleStackSynthesis` feature flag is set, `LegacyStackSynthesizer` otherwise.
+- *Default:* The synthesizer specified on `App`, or `DefaultStackSynthesizer` otherwise.
 
 Synthesis method to use while deploying this stack.
+
+The Stack Synthesizer controls aspects of synthesis and deployment,
+like how assets are referenced and what IAM roles to use. For more
+information, see the README of the main CDK package.
+
+If not specified, the `defaultStackSynthesizer` from `App` will be used.
+If that is not specified, `DefaultStackSynthesizer` is used if
+`@aws-cdk/core:newStyleStackSynthesis` is set to `true` or the CDK major
+version is v2. In CDK v1 `LegacyStackSynthesizer` is the default if no
+other synthesizer is specified.
 
 ---
 
@@ -26080,6 +29986,84 @@ public readonly enabled: boolean;
 - *Default:* true
 
 Controls whether logging will be set up for pods using the default Fargate provide on the EKS cluster.
+
+---
+
+### ClusterPrometheusOptions <a name="ClusterPrometheusOptions" id="cdk-extensions.eks_patterns.ClusterPrometheusOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.eks_patterns.ClusterPrometheusOptions.Initializer"></a>
+
+```typescript
+import { eks_patterns } from 'cdk-extensions'
+
+const clusterPrometheusOptions: eks_patterns.ClusterPrometheusOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be deployed. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | {@inheritdoc QueueConfiguration}. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.serviceAccountName">serviceAccountName</a></code> | <code>string</code> | Name of the Kubernetes service account that should be created and used by Prometheus. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.enabled">enabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.workspace">workspace</a></code> | <code>cdk-extensions.aps.IWorkspace</code> | *No description.* |
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where the service should be deployed.
+
+---
+
+##### `queueConfiguration`<sup>Optional</sup> <a name="queueConfiguration" id="cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.queueConfiguration"></a>
+
+```typescript
+public readonly queueConfiguration: QueueConfiguration;
+```
+
+- *Type:* cdk-extensions.k8s_fargate.QueueConfiguration
+
+{@inheritdoc QueueConfiguration}.
+
+---
+
+##### `serviceAccountName`<sup>Optional</sup> <a name="serviceAccountName" id="cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.serviceAccountName"></a>
+
+```typescript
+public readonly serviceAccountName: string;
+```
+
+- *Type:* string
+
+Name of the Kubernetes service account that should be created and used by Prometheus.
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `workspace`<sup>Optional</sup> <a name="workspace" id="cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* cdk-extensions.aps.IWorkspace
 
 ---
 
@@ -27644,6 +31628,162 @@ public readonly classificationString: ClassificationString;
 - *Default:* No classification is specified.
 
 Classification string given to tables with this data format.
+
+---
+
+### DayOfMonthRange <a name="DayOfMonthRange" id="cdk-extensions.aps.DayOfMonthRange"></a>
+
+A range specifying the numerical days in the month.
+
+Days begin at 1. Negative values are also accepted which begin at the end of
+the month, e.g. -1 during January would represent January 31. For example:
+`start: 1` and `end: 5` or `start:-3` and `end: -1` would both be valid
+ranges.
+
+Extending past the start or end of the month will cause it to be clamped.
+E.g. specifying `start: 1` and `end: 31` during February will clamp the
+actual end date to 28 or 29 depending on leap years.
+
+Inclusive on both ends.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.DayOfMonthRange.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const dayOfMonthRange: aps.DayOfMonthRange = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.DayOfMonthRange.property.end">end</a></code> | <code>number</code> | The last day of the month for which the range should apply (inclusive). |
+| <code><a href="#cdk-extensions.aps.DayOfMonthRange.property.start">start</a></code> | <code>number</code> | The first day of the month for which the range should apply. |
+
+---
+
+##### `end`<sup>Required</sup> <a name="end" id="cdk-extensions.aps.DayOfMonthRange.property.end"></a>
+
+```typescript
+public readonly end: number;
+```
+
+- *Type:* number
+
+The last day of the month for which the range should apply (inclusive).
+
+---
+
+##### `start`<sup>Required</sup> <a name="start" id="cdk-extensions.aps.DayOfMonthRange.property.start"></a>
+
+```typescript
+public readonly start: number;
+```
+
+- *Type:* number
+
+The first day of the month for which the range should apply.
+
+---
+
+### DefaultRouteOptions <a name="DefaultRouteOptions" id="cdk-extensions.aps.DefaultRouteOptions"></a>
+
+Configuration options that control the default behavior of alerts.
+
+These are the settings that will be used for any alerts that do not match a
+child node in the default routing tree or alerts that do match a child node
+that doesn't override the settings provded here.
+
+The default route does not support all the settings supported by other
+(child) routes.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.DefaultRouteOptions.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const defaultRouteOptions: aps.DefaultRouteOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.DefaultRouteOptions.property.groupByLabels">groupByLabels</a></code> | <code>string[]</code> | The labels by which incoming alerts are grouped together. |
+| <code><a href="#cdk-extensions.aps.DefaultRouteOptions.property.groupInterval">groupInterval</a></code> | <code>aws-cdk-lib.Duration</code> | How long to wait before sending a notification about new alerts that are added to a group of alerts for which an initial notification has already been sent (usually ~5m or more). |
+| <code><a href="#cdk-extensions.aps.DefaultRouteOptions.property.groupWait">groupWait</a></code> | <code>aws-cdk-lib.Duration</code> | How long to initially wait to send a notification for a group of alerts. |
+| <code><a href="#cdk-extensions.aps.DefaultRouteOptions.property.matchers">matchers</a></code> | <code>cdk-extensions.aps.AlertManagerMatcher[]</code> | A list of matchers that an alert has to fulfill to match the node. |
+| <code><a href="#cdk-extensions.aps.DefaultRouteOptions.property.repeatInterval">repeatInterval</a></code> | <code>aws-cdk-lib.Duration</code> | How long to wait before sending a notification again if it has already been sent successfully for an alert. |
+
+---
+
+##### `groupByLabels`<sup>Optional</sup> <a name="groupByLabels" id="cdk-extensions.aps.DefaultRouteOptions.property.groupByLabels"></a>
+
+```typescript
+public readonly groupByLabels: string[];
+```
+
+- *Type:* string[]
+
+The labels by which incoming alerts are grouped together.
+
+For example,
+multiple alerts coming in for cluster=A and alertname=LatencyHigh would be
+batched into a single group.
+
+---
+
+##### `groupInterval`<sup>Optional</sup> <a name="groupInterval" id="cdk-extensions.aps.DefaultRouteOptions.property.groupInterval"></a>
+
+```typescript
+public readonly groupInterval: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+How long to wait before sending a notification about new alerts that are added to a group of alerts for which an initial notification has already been sent (usually ~5m or more).
+
+---
+
+##### `groupWait`<sup>Optional</sup> <a name="groupWait" id="cdk-extensions.aps.DefaultRouteOptions.property.groupWait"></a>
+
+```typescript
+public readonly groupWait: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+How long to initially wait to send a notification for a group of alerts.
+
+Allows to wait for an inhibiting alert to arrive or collect more initial
+alerts for the same group (usually ~0s to few minutes).
+
+---
+
+##### `matchers`<sup>Optional</sup> <a name="matchers" id="cdk-extensions.aps.DefaultRouteOptions.property.matchers"></a>
+
+```typescript
+public readonly matchers: AlertManagerMatcher[];
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerMatcher[]
+
+A list of matchers that an alert has to fulfill to match the node.
+
+---
+
+##### `repeatInterval`<sup>Optional</sup> <a name="repeatInterval" id="cdk-extensions.aps.DefaultRouteOptions.property.repeatInterval"></a>
+
+```typescript
+public readonly repeatInterval: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+How long to wait before sending a notification again if it has already been sent successfully for an alert.
+
+(Usually ~3h or more).
 
 ---
 
@@ -34561,6 +38701,53 @@ public readonly engine: JsonParsingEngine;
 
 ---
 
+### MonthRange <a name="MonthRange" id="cdk-extensions.aps.MonthRange"></a>
+
+A range of calendar months identified by number, where January = 1.
+
+Ranges are also accepted by specifying `end` inclusive on both ends.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.MonthRange.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const monthRange: aps.MonthRange = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.MonthRange.property.start">start</a></code> | <code>number</code> | The month where the range should start. |
+| <code><a href="#cdk-extensions.aps.MonthRange.property.end">end</a></code> | <code>number</code> | The month at the end of the range if the range should cover multiple months (inclusive). |
+
+---
+
+##### `start`<sup>Required</sup> <a name="start" id="cdk-extensions.aps.MonthRange.property.start"></a>
+
+```typescript
+public readonly start: number;
+```
+
+- *Type:* number
+
+The month where the range should start.
+
+---
+
+##### `end`<sup>Optional</sup> <a name="end" id="cdk-extensions.aps.MonthRange.property.end"></a>
+
+```typescript
+public readonly end: number;
+```
+
+- *Type:* number
+
+The month at the end of the range if the range should cover multiple months (inclusive).
+
+---
+
 ### NamedQueryProps <a name="NamedQueryProps" id="cdk-extensions.athena.NamedQueryProps"></a>
 
 Configuration for Database.
@@ -35369,6 +39556,213 @@ public readonly enabled: boolean;
 
 ---
 
+### PrometheusOptions <a name="PrometheusOptions" id="cdk-extensions.k8s_fargate.PrometheusOptions"></a>
+
+Optional configurations for the Prometheus resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_fargate.PrometheusOptions.Initializer"></a>
+
+```typescript
+import { k8s_fargate } from 'cdk-extensions'
+
+const prometheusOptions: k8s_fargate.PrometheusOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusOptions.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be deployed. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusOptions.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | {@inheritdoc QueueConfiguration}. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusOptions.property.serviceAccountName">serviceAccountName</a></code> | <code>string</code> | Name of the Kubernetes service account that should be created and used by Prometheus. |
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_fargate.PrometheusOptions.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where the service should be deployed.
+
+---
+
+##### `queueConfiguration`<sup>Optional</sup> <a name="queueConfiguration" id="cdk-extensions.k8s_fargate.PrometheusOptions.property.queueConfiguration"></a>
+
+```typescript
+public readonly queueConfiguration: QueueConfiguration;
+```
+
+- *Type:* cdk-extensions.k8s_fargate.QueueConfiguration
+
+{@inheritdoc QueueConfiguration}.
+
+---
+
+##### `serviceAccountName`<sup>Optional</sup> <a name="serviceAccountName" id="cdk-extensions.k8s_fargate.PrometheusOptions.property.serviceAccountName"></a>
+
+```typescript
+public readonly serviceAccountName: string;
+```
+
+- *Type:* string
+
+Name of the Kubernetes service account that should be created and used by Prometheus.
+
+---
+
+### PrometheusProps <a name="PrometheusProps" id="cdk-extensions.k8s_fargate.PrometheusProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_fargate.PrometheusProps.Initializer"></a>
+
+```typescript
+import { k8s_fargate } from 'cdk-extensions'
+
+const prometheusProps: k8s_fargate.PrometheusProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be deployed. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | {@inheritdoc QueueConfiguration}. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.serviceAccountName">serviceAccountName</a></code> | <code>string</code> | Name of the Kubernetes service account that should be created and used by Prometheus. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.Cluster</code> | The EKS cluster where Prometheus should be deployed. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.workspace">workspace</a></code> | <code>cdk-extensions.aps.IWorkspace</code> | The Amazon Managed Service for Prometheus workspace where the Prometheus server should sned its data. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.k8s_fargate.PrometheusProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.k8s_fargate.PrometheusProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.k8s_fargate.PrometheusProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.k8s_fargate.PrometheusProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk-extensions.k8s_fargate.PrometheusProps.property.namespace"></a>
+
+```typescript
+public readonly namespace: string;
+```
+
+- *Type:* string
+
+The Kubernetes namespace where the service should be deployed.
+
+---
+
+##### `queueConfiguration`<sup>Optional</sup> <a name="queueConfiguration" id="cdk-extensions.k8s_fargate.PrometheusProps.property.queueConfiguration"></a>
+
+```typescript
+public readonly queueConfiguration: QueueConfiguration;
+```
+
+- *Type:* cdk-extensions.k8s_fargate.QueueConfiguration
+
+{@inheritdoc QueueConfiguration}.
+
+---
+
+##### `serviceAccountName`<sup>Optional</sup> <a name="serviceAccountName" id="cdk-extensions.k8s_fargate.PrometheusProps.property.serviceAccountName"></a>
+
+```typescript
+public readonly serviceAccountName: string;
+```
+
+- *Type:* string
+
+Name of the Kubernetes service account that should be created and used by Prometheus.
+
+---
+
+##### `cluster`<sup>Required</sup> <a name="cluster" id="cdk-extensions.k8s_fargate.PrometheusProps.property.cluster"></a>
+
+```typescript
+public readonly cluster: Cluster;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.Cluster
+
+The EKS cluster where Prometheus should be deployed.
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="cdk-extensions.k8s_fargate.PrometheusProps.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* cdk-extensions.aps.IWorkspace
+
+The Amazon Managed Service for Prometheus workspace where the Prometheus server should sned its data.
+
+---
+
 ### PythonShellExecutableProps <a name="PythonShellExecutableProps" id="cdk-extensions.glue.PythonShellExecutableProps"></a>
 
 Props for creating a Python shell job executable.
@@ -35590,6 +39984,70 @@ Additional Python files that AWS Glue adds to the Python path before executing y
 Only individual files are supported, directories are not supported.
 
 > [`--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html](`--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
+
+---
+
+### QueueConfiguration <a name="QueueConfiguration" id="cdk-extensions.k8s_fargate.QueueConfiguration"></a>
+
+Configures the queue used to write to Amazon Managed Service for Prometheus.
+
+> [[Remote write configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)]([Remote write configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write))
+
+#### Initializer <a name="Initializer" id="cdk-extensions.k8s_fargate.QueueConfiguration.Initializer"></a>
+
+```typescript
+import { k8s_fargate } from 'cdk-extensions'
+
+const queueConfiguration: k8s_fargate.QueueConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.k8s_fargate.QueueConfiguration.property.capacity">capacity</a></code> | <code>number</code> | Number of samples to buffer per shard before we block reading of more samples from the WAL. |
+| <code><a href="#cdk-extensions.k8s_fargate.QueueConfiguration.property.maxSamplesPerSend">maxSamplesPerSend</a></code> | <code>number</code> | Maximum number of samples per send. |
+| <code><a href="#cdk-extensions.k8s_fargate.QueueConfiguration.property.maxShards">maxShards</a></code> | <code>number</code> | Maximum number of shards, i.e. amount of concurrency. |
+
+---
+
+##### `capacity`<sup>Optional</sup> <a name="capacity" id="cdk-extensions.k8s_fargate.QueueConfiguration.property.capacity"></a>
+
+```typescript
+public readonly capacity: number;
+```
+
+- *Type:* number
+
+Number of samples to buffer per shard before we block reading of more samples from the WAL.
+
+It is recommended to have enough capacity in each
+shard to buffer several requests to keep throughput up while processing
+occasional slow remote requests.
+
+---
+
+##### `maxSamplesPerSend`<sup>Optional</sup> <a name="maxSamplesPerSend" id="cdk-extensions.k8s_fargate.QueueConfiguration.property.maxSamplesPerSend"></a>
+
+```typescript
+public readonly maxSamplesPerSend: number;
+```
+
+- *Type:* number
+
+Maximum number of samples per send.
+
+---
+
+##### `maxShards`<sup>Optional</sup> <a name="maxShards" id="cdk-extensions.k8s_fargate.QueueConfiguration.property.maxShards"></a>
+
+```typescript
+public readonly maxShards: number;
+```
+
+- *Type:* number
+
+Maximum number of shards, i.e. amount of concurrency.
 
 ---
 
@@ -35984,6 +40442,72 @@ public readonly delimiter: string;
 ```
 
 - *Type:* string
+
+---
+
+### RecordingRuleProps <a name="RecordingRuleProps" id="cdk-extensions.aps.RecordingRuleProps"></a>
+
+Options needed to configure a Prometheus recording rule inside an APS rules configuration.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.RecordingRuleProps.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const recordingRuleProps: aps.RecordingRuleProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.RecordingRuleProps.property.expression">expression</a></code> | <code>string</code> | The PromQL expression to evaluate. |
+| <code><a href="#cdk-extensions.aps.RecordingRuleProps.property.record">record</a></code> | <code>string</code> | The name of the time series to output to. |
+| <code><a href="#cdk-extensions.aps.RecordingRuleProps.property.labels">labels</a></code> | <code>{[ key: string ]: string}</code> | Labels to add or overwrite before storing the result. |
+
+---
+
+##### `expression`<sup>Required</sup> <a name="expression" id="cdk-extensions.aps.RecordingRuleProps.property.expression"></a>
+
+```typescript
+public readonly expression: string;
+```
+
+- *Type:* string
+
+The PromQL expression to evaluate.
+
+Every evaluation cycle this is
+evaluated at the current time, and the result recorded as a new set of
+time series with the metric name as given by `record`.
+
+> [[Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/)]([Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/))
+
+---
+
+##### `record`<sup>Required</sup> <a name="record" id="cdk-extensions.aps.RecordingRuleProps.property.record"></a>
+
+```typescript
+public readonly record: string;
+```
+
+- *Type:* string
+
+The name of the time series to output to.
+
+Must be a valid metric name.
+
+---
+
+##### `labels`<sup>Optional</sup> <a name="labels" id="cdk-extensions.aps.RecordingRuleProps.property.labels"></a>
+
+```typescript
+public readonly labels: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Labels to add or overwrite before storing the result.
 
 ---
 
@@ -36982,6 +41506,259 @@ public readonly cluster: ICluster;
 - *Type:* aws-cdk-lib.aws_eks.ICluster
 
 The EKS cluster where external-dns should be deployed.
+
+---
+
+### RuleGroupConfigurationDetails <a name="RuleGroupConfigurationDetails" id="cdk-extensions.aps.RuleGroupConfigurationDetails"></a>
+
+The details that are needed to configure an APS rule groups namespace that will consume a rule group configuration.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.RuleGroupConfigurationDetails.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const ruleGroupConfigurationDetails: aps.RuleGroupConfigurationDetails = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroupConfigurationDetails.property.content">content</a></code> | <code>string</code> | The content of the rules configuration definition, in the format of an APS rules configuration file. |
+
+---
+
+##### `content`<sup>Required</sup> <a name="content" id="cdk-extensions.aps.RuleGroupConfigurationDetails.property.content"></a>
+
+```typescript
+public readonly content: string;
+```
+
+- *Type:* string
+
+The content of the rules configuration definition, in the format of an APS rules configuration file.
+
+> [[Creating a rules file](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-ruler-rulesfile.html)]([Creating a rules file](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-ruler-rulesfile.html))
+
+---
+
+### RuleGroupConfigurationProps <a name="RuleGroupConfigurationProps" id="cdk-extensions.aps.RuleGroupConfigurationProps"></a>
+
+Configuration options for a Prometheus rule group configuration.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.RuleGroupConfigurationProps.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const ruleGroupConfigurationProps: aps.RuleGroupConfigurationProps = { ... }
+```
+
+
+### RuleGroupProps <a name="RuleGroupProps" id="cdk-extensions.aps.RuleGroupProps"></a>
+
+Options needed to configure a Prometheus rule group for use with an APS rule groups namespace configuration.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.RuleGroupProps.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const ruleGroupProps: aps.RuleGroupProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroupProps.property.interval">interval</a></code> | <code>aws-cdk-lib.Duration</code> | How often rules in the group are evaluated. |
+| <code><a href="#cdk-extensions.aps.RuleGroupProps.property.limit">limit</a></code> | <code>number</code> | Limit the number of alerts an alerting rule and series a recording rule can produce. |
+| <code><a href="#cdk-extensions.aps.RuleGroupProps.property.name">name</a></code> | <code>string</code> | The name of the group. |
+| <code><a href="#cdk-extensions.aps.RuleGroupProps.property.rules">rules</a></code> | <code>cdk-extensions.aps.IPrometheusRule[]</code> | The rules to be evaluated per the rule group's configuration. |
+
+---
+
+##### `interval`<sup>Optional</sup> <a name="interval" id="cdk-extensions.aps.RuleGroupProps.property.interval"></a>
+
+```typescript
+public readonly interval: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+How often rules in the group are evaluated.
+
+---
+
+##### `limit`<sup>Optional</sup> <a name="limit" id="cdk-extensions.aps.RuleGroupProps.property.limit"></a>
+
+```typescript
+public readonly limit: number;
+```
+
+- *Type:* number
+
+Limit the number of alerts an alerting rule and series a recording rule can produce.
+
+0 is no limit.
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.aps.RuleGroupProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the group.
+
+Must be unique within the configuration.
+
+---
+
+##### `rules`<sup>Optional</sup> <a name="rules" id="cdk-extensions.aps.RuleGroupProps.property.rules"></a>
+
+```typescript
+public readonly rules: IPrometheusRule[];
+```
+
+- *Type:* cdk-extensions.aps.IPrometheusRule[]
+
+The rules to be evaluated per the rule group's configuration.
+
+---
+
+### RuleGroupsNamespaceProps <a name="RuleGroupsNamespaceProps" id="cdk-extensions.aps.RuleGroupsNamespaceProps"></a>
+
+Configuration for the RuleGroupsNamespace resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.RuleGroupsNamespaceProps.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const ruleGroupsNamespaceProps: aps.RuleGroupsNamespaceProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespaceProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespaceProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespaceProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespaceProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespaceProps.property.workspace">workspace</a></code> | <code>cdk-extensions.aps.IWorkspace</code> | The APS workspace that contains this rule groups namespace. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespaceProps.property.configuration">configuration</a></code> | <code>cdk-extensions.aps.IRuleGroupConfiguration</code> | The rules definition file for this namespace. |
+| <code><a href="#cdk-extensions.aps.RuleGroupsNamespaceProps.property.name">name</a></code> | <code>string</code> | The name of the rule groups namespace. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.aps.RuleGroupsNamespaceProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.aps.RuleGroupsNamespaceProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.aps.RuleGroupsNamespaceProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.aps.RuleGroupsNamespaceProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="cdk-extensions.aps.RuleGroupsNamespaceProps.property.workspace"></a>
+
+```typescript
+public readonly workspace: IWorkspace;
+```
+
+- *Type:* cdk-extensions.aps.IWorkspace
+
+The APS workspace that contains this rule groups namespace.
+
+> [[RuleGroupsNamespace Workspace](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-workspace)]([RuleGroupsNamespace Workspace](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-workspace))
+
+---
+
+##### `configuration`<sup>Optional</sup> <a name="configuration" id="cdk-extensions.aps.RuleGroupsNamespaceProps.property.configuration"></a>
+
+```typescript
+public readonly configuration: IRuleGroupConfiguration;
+```
+
+- *Type:* cdk-extensions.aps.IRuleGroupConfiguration
+
+The rules definition file for this namespace.
+
+> [[RuleGroupsNamespace Data](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-data)]([RuleGroupsNamespace Data](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-data))
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.aps.RuleGroupsNamespaceProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the rule groups namespace.
+
+> [[RuleGroupsNamespace Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-name)]([RuleGroupsNamespace Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-name))
 
 ---
 
@@ -38933,6 +43710,203 @@ Not used in the normal course of AWS Glue operations. If the table is a VIRTUAL_
 
 ---
 
+### TimeIntervalEntryProps <a name="TimeIntervalEntryProps" id="cdk-extensions.aps.TimeIntervalEntryProps"></a>
+
+Configuration for the alert manager time interval.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.TimeIntervalEntryProps.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const timeIntervalEntryProps: aps.TimeIntervalEntryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntryProps.property.daysOfTheMonth">daysOfTheMonth</a></code> | <code>cdk-extensions.aps.DayOfMonthRange[]</code> | A list of ranges specifying the days of the month that the time interval should apply for. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntryProps.property.months">months</a></code> | <code>cdk-extensions.aps.MonthRange[]</code> | A list of ranges specifying the months that the time interval should apply for. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntryProps.property.times">times</a></code> | <code>cdk-extensions.aps.TimeRange[]</code> | A list of ranges specifying the time periods that the time interval should apply for. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntryProps.property.timeZone">timeZone</a></code> | <code>string</code> | A string that matches a location in the IANA time zone database. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntryProps.property.weekdays">weekdays</a></code> | <code>cdk-extensions.aps.WeekdayRange[]</code> | A list of ranges specifying the weekdays that the time interval should apply for. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntryProps.property.years">years</a></code> | <code>cdk-extensions.aps.YearRange[]</code> | A list of ranges specifying the years that the time interval should apply for. |
+
+---
+
+##### `daysOfTheMonth`<sup>Optional</sup> <a name="daysOfTheMonth" id="cdk-extensions.aps.TimeIntervalEntryProps.property.daysOfTheMonth"></a>
+
+```typescript
+public readonly daysOfTheMonth: DayOfMonthRange[];
+```
+
+- *Type:* cdk-extensions.aps.DayOfMonthRange[]
+
+A list of ranges specifying the days of the month that the time interval should apply for.
+
+---
+
+##### `months`<sup>Optional</sup> <a name="months" id="cdk-extensions.aps.TimeIntervalEntryProps.property.months"></a>
+
+```typescript
+public readonly months: MonthRange[];
+```
+
+- *Type:* cdk-extensions.aps.MonthRange[]
+
+A list of ranges specifying the months that the time interval should apply for.
+
+---
+
+##### `times`<sup>Optional</sup> <a name="times" id="cdk-extensions.aps.TimeIntervalEntryProps.property.times"></a>
+
+```typescript
+public readonly times: TimeRange[];
+```
+
+- *Type:* cdk-extensions.aps.TimeRange[]
+
+A list of ranges specifying the time periods that the time interval should apply for.
+
+---
+
+##### `timeZone`<sup>Optional</sup> <a name="timeZone" id="cdk-extensions.aps.TimeIntervalEntryProps.property.timeZone"></a>
+
+```typescript
+public readonly timeZone: string;
+```
+
+- *Type:* string
+
+A string that matches a location in the IANA time zone database.
+
+For example, 'Australia/Sydney'. The location provides the time zone for
+the time interval.
+
+You may also use `Local` as a location to use the local time of the
+machine where Alertmanager is running, or `UTC` for UTC time. If no
+timezone is provided, the time interval is taken to be in UTC time.
+
+---
+
+##### `weekdays`<sup>Optional</sup> <a name="weekdays" id="cdk-extensions.aps.TimeIntervalEntryProps.property.weekdays"></a>
+
+```typescript
+public readonly weekdays: WeekdayRange[];
+```
+
+- *Type:* cdk-extensions.aps.WeekdayRange[]
+
+A list of ranges specifying the weekdays that the time interval should apply for.
+
+---
+
+##### `years`<sup>Optional</sup> <a name="years" id="cdk-extensions.aps.TimeIntervalEntryProps.property.years"></a>
+
+```typescript
+public readonly years: YearRange[];
+```
+
+- *Type:* cdk-extensions.aps.YearRange[]
+
+A list of ranges specifying the years that the time interval should apply for.
+
+---
+
+### TimeIntervalProps <a name="TimeIntervalProps" id="cdk-extensions.aps.TimeIntervalProps"></a>
+
+Configuration for the alert manager time interval.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.TimeIntervalProps.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const timeIntervalProps: aps.TimeIntervalProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.TimeIntervalProps.property.intervals">intervals</a></code> | <code>cdk-extensions.aps.TimeIntervalEntry[]</code> | The interval definitions that define the periods of time that the time interval should apply for. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalProps.property.name">name</a></code> | <code>string</code> | The name of the time interval as it will be referenced throught the rest of the alert manager configuration. |
+
+---
+
+##### `intervals`<sup>Optional</sup> <a name="intervals" id="cdk-extensions.aps.TimeIntervalProps.property.intervals"></a>
+
+```typescript
+public readonly intervals: TimeIntervalEntry[];
+```
+
+- *Type:* cdk-extensions.aps.TimeIntervalEntry[]
+
+The interval definitions that define the periods of time that the time interval should apply for.
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.aps.TimeIntervalProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the time interval as it will be referenced throught the rest of the alert manager configuration.
+
+---
+
+### TimeRange <a name="TimeRange" id="cdk-extensions.aps.TimeRange"></a>
+
+Ranges inclusive of the starting time and exclusive of the end time to make it easy to represent times that start/end on hour boundaries.
+
+For example, `start: '17:00'` and `end: '24:00'` will begin at 17:00 and
+finish immediately before 24:00.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.TimeRange.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const timeRange: aps.TimeRange = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.TimeRange.property.end">end</a></code> | <code>string</code> | The end time, specified in the format 'HH:MM' using 24 hour time. |
+| <code><a href="#cdk-extensions.aps.TimeRange.property.start">start</a></code> | <code>string</code> | The start time, specified in the format 'HH:MM' using 24 hour time. |
+
+---
+
+##### `end`<sup>Required</sup> <a name="end" id="cdk-extensions.aps.TimeRange.property.end"></a>
+
+```typescript
+public readonly end: string;
+```
+
+- *Type:* string
+
+The end time, specified in the format 'HH:MM' using 24 hour time.
+
+---
+
+##### `start`<sup>Required</sup> <a name="start" id="cdk-extensions.aps.TimeRange.property.start"></a>
+
+```typescript
+public readonly start: string;
+```
+
+- *Type:* string
+
+The start time, specified in the format 'HH:MM' using 24 hour time.
+
+---
+
 ### TriggerOptions <a name="TriggerOptions" id="cdk-extensions.glue.TriggerOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.glue.TriggerOptions.Initializer"></a>
@@ -39693,6 +44667,57 @@ public readonly s3Prefix: string;
 - *Type:* string
 
 Set a custom prefix for the S3 Bucket.
+
+---
+
+### WeekdayRange <a name="WeekdayRange" id="cdk-extensions.aps.WeekdayRange"></a>
+
+A day of the week, where the week begins on Sunday and ends on Saturday.
+
+For convenience, ranges are also accepted by specifying `end` and are
+inclusive on both ends.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.WeekdayRange.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const weekdayRange: aps.WeekdayRange = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.WeekdayRange.property.start">start</a></code> | <code>cdk-extensions.aps.Weekday</code> | The day of the week where the range should start. |
+| <code><a href="#cdk-extensions.aps.WeekdayRange.property.end">end</a></code> | <code>cdk-extensions.aps.Weekday</code> | The day of the week where the range should end. |
+
+---
+
+##### `start`<sup>Required</sup> <a name="start" id="cdk-extensions.aps.WeekdayRange.property.start"></a>
+
+```typescript
+public readonly start: Weekday;
+```
+
+- *Type:* cdk-extensions.aps.Weekday
+
+The day of the week where the range should start.
+
+---
+
+##### `end`<sup>Optional</sup> <a name="end" id="cdk-extensions.aps.WeekdayRange.property.end"></a>
+
+```typescript
+public readonly end: Weekday;
+```
+
+- *Type:* cdk-extensions.aps.Weekday
+
+The day of the week where the range should end.
+
+If not specified, the range will end at the end of the day specified by
+`start`.
 
 ---
 
@@ -40614,6 +45639,387 @@ A name of the Workflow.
 
 ---
 
+### WorkspaceAlertingOptions <a name="WorkspaceAlertingOptions" id="cdk-extensions.aps.WorkspaceAlertingOptions"></a>
+
+Alerting configuration to use when setting up an APS workspace.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.WorkspaceAlertingOptions.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const workspaceAlertingOptions: aps.WorkspaceAlertingOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.WorkspaceAlertingOptions.property.configuration">configuration</a></code> | <code>cdk-extensions.aps.IAlertManagerConfiguration</code> | The alert manager configuration to use when setting up alerting. |
+| <code><a href="#cdk-extensions.aps.WorkspaceAlertingOptions.property.enabled">enabled</a></code> | <code>boolean</code> | Controls whether alerting from the APS workspace should be configured. |
+| <code><a href="#cdk-extensions.aps.WorkspaceAlertingOptions.property.topic">topic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | The SNS topic where alerts should be sent when using the default alerting configuration. |
+
+---
+
+##### `configuration`<sup>Optional</sup> <a name="configuration" id="cdk-extensions.aps.WorkspaceAlertingOptions.property.configuration"></a>
+
+```typescript
+public readonly configuration: IAlertManagerConfiguration;
+```
+
+- *Type:* cdk-extensions.aps.IAlertManagerConfiguration
+
+The alert manager configuration to use when setting up alerting.
+
+If alerting is enabled and no configuration is given a default
+configuration that sends all alerts to SNS will be used.
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.aps.WorkspaceAlertingOptions.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Controls whether alerting from the APS workspace should be configured.
+
+---
+
+##### `topic`<sup>Optional</sup> <a name="topic" id="cdk-extensions.aps.WorkspaceAlertingOptions.property.topic"></a>
+
+```typescript
+public readonly topic: ITopic;
+```
+
+- *Type:* aws-cdk-lib.aws_sns.ITopic
+
+The SNS topic where alerts should be sent when using the default alerting configuration.
+
+If a custom alert manager configuration is provided this option is ignored.
+
+---
+
+### WorkspaceAttributes <a name="WorkspaceAttributes" id="cdk-extensions.aps.WorkspaceAttributes"></a>
+
+Configuration for importing an existing APS workspace.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.WorkspaceAttributes.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const workspaceAttributes: aps.WorkspaceAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.WorkspaceAttributes.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the APS workspace. |
+| <code><a href="#cdk-extensions.aps.WorkspaceAttributes.property.workspaceId">workspaceId</a></code> | <code>string</code> | The ID generated by AWS for the APS workspace. |
+| <code><a href="#cdk-extensions.aps.WorkspaceAttributes.property.workspacePrometheusEndpoint">workspacePrometheusEndpoint</a></code> | <code>string</code> | The Prometheus endpoint attribute of the workspace. |
+
+---
+
+##### `workspaceArn`<sup>Optional</sup> <a name="workspaceArn" id="cdk-extensions.aps.WorkspaceAttributes.property.workspaceArn"></a>
+
+```typescript
+public readonly workspaceArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the APS workspace.
+
+---
+
+##### `workspaceId`<sup>Optional</sup> <a name="workspaceId" id="cdk-extensions.aps.WorkspaceAttributes.property.workspaceId"></a>
+
+```typescript
+public readonly workspaceId: string;
+```
+
+- *Type:* string
+
+The ID generated by AWS for the APS workspace.
+
+---
+
+##### `workspacePrometheusEndpoint`<sup>Optional</sup> <a name="workspacePrometheusEndpoint" id="cdk-extensions.aps.WorkspaceAttributes.property.workspacePrometheusEndpoint"></a>
+
+```typescript
+public readonly workspacePrometheusEndpoint: string;
+```
+
+- *Type:* string
+
+The Prometheus endpoint attribute of the workspace.
+
+This is the endpoint prefix without the remote_write or query API
+appended.
+
+---
+
+### WorkspaceLoggingOptions <a name="WorkspaceLoggingOptions" id="cdk-extensions.aps.WorkspaceLoggingOptions"></a>
+
+Logging configuration to use when setting up the APS workspace.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.WorkspaceLoggingOptions.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const workspaceLoggingOptions: aps.WorkspaceLoggingOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.WorkspaceLoggingOptions.property.enabled">enabled</a></code> | <code>boolean</code> | Controls whether logging for the workspace should be enabled. |
+| <code><a href="#cdk-extensions.aps.WorkspaceLoggingOptions.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The log group where events from the APS workspace will be written. |
+| <code><a href="#cdk-extensions.aps.WorkspaceLoggingOptions.property.retention">retention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | The length of time that logs from the APS workspace should be kept when a new log group is created for the workspace. |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.aps.WorkspaceLoggingOptions.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Controls whether logging for the workspace should be enabled.
+
+---
+
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.aps.WorkspaceLoggingOptions.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+The log group where events from the APS workspace will be written.
+
+If logging is enabled and no log group is provided a new log group will be
+created.
+
+> [[Workspace LoggingConfiguration.LogGroupArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingconfiguration.html#cfn-aps-workspace-loggingconfiguration-loggrouparn)]([Workspace LoggingConfiguration.LogGroupArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingconfiguration.html#cfn-aps-workspace-loggingconfiguration-loggrouparn))
+
+---
+
+##### `retention`<sup>Optional</sup> <a name="retention" id="cdk-extensions.aps.WorkspaceLoggingOptions.property.retention"></a>
+
+```typescript
+public readonly retention: RetentionDays;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.RetentionDays
+
+The length of time that logs from the APS workspace should be kept when a new log group is created for the workspace.
+
+This property is ignored when a log group is passed as part of the logging
+configuration.
+
+> [[LogGroup RetentionInDays](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays)]([LogGroup RetentionInDays](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays))
+
+---
+
+### WorkspaceProps <a name="WorkspaceProps" id="cdk-extensions.aps.WorkspaceProps"></a>
+
+Configuration for the Workspace resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.WorkspaceProps.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const workspaceProps: aps.WorkspaceProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.WorkspaceProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.aps.WorkspaceProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.aps.WorkspaceProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.aps.WorkspaceProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.aps.WorkspaceProps.property.alerting">alerting</a></code> | <code>cdk-extensions.aps.WorkspaceAlertingOptions</code> | The details used to configure alerting for the APS workspace. |
+| <code><a href="#cdk-extensions.aps.WorkspaceProps.property.alias">alias</a></code> | <code>string</code> | An alias that you assign to this workspace to help you identify it. It does not need to be unique. |
+| <code><a href="#cdk-extensions.aps.WorkspaceProps.property.logging">logging</a></code> | <code>cdk-extensions.aps.WorkspaceLoggingOptions</code> | The details used for configuring logging for the APS workspace. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.aps.WorkspaceProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.aps.WorkspaceProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.aps.WorkspaceProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+   CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.aps.WorkspaceProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `alerting`<sup>Optional</sup> <a name="alerting" id="cdk-extensions.aps.WorkspaceProps.property.alerting"></a>
+
+```typescript
+public readonly alerting: WorkspaceAlertingOptions;
+```
+
+- *Type:* cdk-extensions.aps.WorkspaceAlertingOptions
+
+The details used to configure alerting for the APS workspace.
+
+> [[Workspace AlertManagerDefinition](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alertmanagerdefinition)]([Workspace AlertManagerDefinition](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alertmanagerdefinition))
+
+---
+
+##### `alias`<sup>Optional</sup> <a name="alias" id="cdk-extensions.aps.WorkspaceProps.property.alias"></a>
+
+```typescript
+public readonly alias: string;
+```
+
+- *Type:* string
+
+An alias that you assign to this workspace to help you identify it. It does not need to be unique.
+
+The alias can be as many as 100 characters and can include any type of
+characters.
+
+> [[Workspace Alias](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alias)]([Workspace Alias](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alias))
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.aps.WorkspaceProps.property.logging"></a>
+
+```typescript
+public readonly logging: WorkspaceLoggingOptions;
+```
+
+- *Type:* cdk-extensions.aps.WorkspaceLoggingOptions
+
+The details used for configuring logging for the APS workspace.
+
+> [[Workspace LoggingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-loggingconfiguration)]([Workspace LoggingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-loggingconfiguration))
+
+---
+
+### YearRange <a name="YearRange" id="cdk-extensions.aps.YearRange"></a>
+
+A numerical range of years.
+
+Ranges to cover multiple years are accepted. For example, `start: 2020` and
+`end: 2022`.
+
+Inclusive on both ends.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.aps.YearRange.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+const yearRange: aps.YearRange = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.YearRange.property.start">start</a></code> | <code>number</code> | The year where the range should start. |
+| <code><a href="#cdk-extensions.aps.YearRange.property.end">end</a></code> | <code>number</code> | The year where the range should end. |
+
+---
+
+##### `start`<sup>Required</sup> <a name="start" id="cdk-extensions.aps.YearRange.property.start"></a>
+
+```typescript
+public readonly start: number;
+```
+
+- *Type:* number
+
+The year where the range should start.
+
+---
+
+##### `end`<sup>Optional</sup> <a name="end" id="cdk-extensions.aps.YearRange.property.end"></a>
+
+```typescript
+public readonly end: number;
+```
+
+- *Type:* number
+
+The year where the range should end.
+
+If not specified, the range will end at the end of the year specified by
+`start`.
+
+---
+
 ## Classes <a name="Classes" id="Classes"></a>
 
 ### AccessControlAttribute <a name="AccessControlAttribute" id="cdk-extensions.sso.AccessControlAttribute"></a>
@@ -40729,6 +46135,901 @@ Note that the array is readonly and changes made
 to it will not be reflected when generating ABAC attribute
 configuration. To add a source to the attribute use the {@link addSource}
 method.
+
+---
+
+
+### AlertingRule <a name="AlertingRule" id="cdk-extensions.aps.AlertingRule"></a>
+
+- *Implements:* cdk-extensions.aps.IPrometheusRule
+
+Alerting rules allow you to define alert conditions based on Prometheus expression language expressions and to send notifications about firing alerts to an external service.
+
+Whenever the alert expression results in one
+or more vector elements at a given point in time, the alert counts as active
+for these elements' label sets.
+
+> [[Alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)]([Alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.AlertingRule.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.AlertingRule(props: AlertingRuleProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertingRule.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.aps.AlertingRuleProps</code> | Arguments defining the configuration of the alerting rule. |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.aps.AlertingRule.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.aps.AlertingRuleProps
+
+Arguments defining the configuration of the alerting rule.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertingRule.addAnnotation">addAnnotation</a></code> | Sets a new annotation that will be added to each generated alert. |
+| <code><a href="#cdk-extensions.aps.AlertingRule.addLabel">addLabel</a></code> | Sets a new label that will be added or overridden for each generated alert. |
+| <code><a href="#cdk-extensions.aps.AlertingRule.bind">bind</a></code> | Associates the alerting rule with a construct that is configuring an APS rule groups namespace. |
+
+---
+
+##### `addAnnotation` <a name="addAnnotation" id="cdk-extensions.aps.AlertingRule.addAnnotation"></a>
+
+```typescript
+public addAnnotation(label: string, template: string): AlertingRule
+```
+
+Sets a new annotation that will be added to each generated alert.
+
+###### `label`<sup>Required</sup> <a name="label" id="cdk-extensions.aps.AlertingRule.addAnnotation.parameter.label"></a>
+
+- *Type:* string
+
+The name of the annotation to add.
+
+---
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-extensions.aps.AlertingRule.addAnnotation.parameter.template"></a>
+
+- *Type:* string
+
+The template that will be used to render the value of the annotation.
+
+---
+
+##### `addLabel` <a name="addLabel" id="cdk-extensions.aps.AlertingRule.addLabel"></a>
+
+```typescript
+public addLabel(label: string, template: string): AlertingRule
+```
+
+Sets a new label that will be added or overridden for each generated alert.
+
+###### `label`<sup>Required</sup> <a name="label" id="cdk-extensions.aps.AlertingRule.addLabel.parameter.label"></a>
+
+- *Type:* string
+
+The name of the label to add.
+
+---
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-extensions.aps.AlertingRule.addLabel.parameter.template"></a>
+
+- *Type:* string
+
+The template that will be used to render the value of the label.
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.AlertingRule.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): {[ key: string ]: any}
+```
+
+Associates the alerting rule with a construct that is configuring an APS rule groups namespace.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.aps.AlertingRule.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of the APS rule groups namespace that will be consuming this rule.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertingRule.property.alert">alert</a></code> | <code>string</code> | The name of the alert. |
+| <code><a href="#cdk-extensions.aps.AlertingRule.property.expression">expression</a></code> | <code>string</code> | The PromQL expression to evaluate. |
+| <code><a href="#cdk-extensions.aps.AlertingRule.property.period">period</a></code> | <code>aws-cdk-lib.Duration</code> | Alerts are considered firing once they have been returned for this long. |
+
+---
+
+##### `alert`<sup>Required</sup> <a name="alert" id="cdk-extensions.aps.AlertingRule.property.alert"></a>
+
+```typescript
+public readonly alert: string;
+```
+
+- *Type:* string
+
+The name of the alert.
+
+Must be a valid label value.
+
+---
+
+##### `expression`<sup>Required</sup> <a name="expression" id="cdk-extensions.aps.AlertingRule.property.expression"></a>
+
+```typescript
+public readonly expression: string;
+```
+
+- *Type:* string
+
+The PromQL expression to evaluate.
+
+Every evaluation cycle this is
+evaluated at the current time, and all resultant time series become
+pending/firing alerts.
+
+> [[Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/)]([Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/))
+
+---
+
+##### `period`<sup>Optional</sup> <a name="period" id="cdk-extensions.aps.AlertingRule.property.period"></a>
+
+```typescript
+public readonly period: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+Alerts are considered firing once they have been returned for this long.
+
+Alerts which have not yet fired for long enough are considered pending.
+
+---
+
+
+### AlertManagerDestination <a name="AlertManagerDestination" id="cdk-extensions.aps.AlertManagerDestination"></a>
+
+Provides an interface for creating various alert manager destination objects that can receive notifications when an alert happens in Prometheus.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.AlertManagerDestination.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.AlertManagerDestination()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerDestination.snsTopic">snsTopic</a></code> | Creates an alert manager destination that sends alert notifications to an Amazon SNS topic. |
+
+---
+
+##### `snsTopic` <a name="snsTopic" id="cdk-extensions.aps.AlertManagerDestination.snsTopic"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerDestination.snsTopic(topic: ITopic, options?: AlertManagerSnsDestinationOptions)
+```
+
+Creates an alert manager destination that sends alert notifications to an Amazon SNS topic.
+
+###### `topic`<sup>Required</sup> <a name="topic" id="cdk-extensions.aps.AlertManagerDestination.snsTopic.parameter.topic"></a>
+
+- *Type:* aws-cdk-lib.aws_sns.ITopic
+
+The SNS topic where alert notifications should be sent.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.aps.AlertManagerDestination.snsTopic.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerSnsDestinationOptions
+
+Options controlling aspects of how alert notification should be handled when being sent to the SNS topic.
+
+---
+
+
+
+### AlertManagerDestinationCategory <a name="AlertManagerDestinationCategory" id="cdk-extensions.aps.AlertManagerDestinationCategory"></a>
+
+Specifies the type of destination where alert manager can send notifications.
+
+Corresponds with a config block inside an alert manager receiver
+configuration.
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerDestinationCategory.of">of</a></code> | An escape hatch method that allows specifying arbitrary values for the type a receiver field a destination should be placed under. |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.aps.AlertManagerDestinationCategory.of"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerDestinationCategory.of(name: string)
+```
+
+An escape hatch method that allows specifying arbitrary values for the type a receiver field a destination should be placed under.
+
+In the event that new destination types are added by alert manager, this
+can be used to implement custom destinations in the event that it hasn't
+had the chance to be implemented here.
+
+Whenever possible, it is recommended the static values provided be used.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.aps.AlertManagerDestinationCategory.of.parameter.name"></a>
+
+- *Type:* string
+
+The name of the key in a receiver config where the destination being configured should be placed.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerDestinationCategory.property.name">name</a></code> | <code>string</code> | The name of the category, as it would appear as a key in the configuration for an alert manager receiver. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.aps.AlertManagerDestinationCategory.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the category, as it would appear as a key in the configuration for an alert manager receiver.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerDestinationCategory.property.EMAIL">EMAIL</a></code> | <code>cdk-extensions.aps.AlertManagerDestinationCategory</code> | Sends notifications via email. |
+| <code><a href="#cdk-extensions.aps.AlertManagerDestinationCategory.property.OPSGENIE">OPSGENIE</a></code> | <code>cdk-extensions.aps.AlertManagerDestinationCategory</code> | Sends notifications using Opsgenie. |
+| <code><a href="#cdk-extensions.aps.AlertManagerDestinationCategory.property.PAGERDUTY">PAGERDUTY</a></code> | <code>cdk-extensions.aps.AlertManagerDestinationCategory</code> | Sends notifications using PagerDuty. |
+| <code><a href="#cdk-extensions.aps.AlertManagerDestinationCategory.property.PUSHOVER">PUSHOVER</a></code> | <code>cdk-extensions.aps.AlertManagerDestinationCategory</code> | Sends notifications using Pushover. |
+| <code><a href="#cdk-extensions.aps.AlertManagerDestinationCategory.property.SLACK">SLACK</a></code> | <code>cdk-extensions.aps.AlertManagerDestinationCategory</code> | Sends notifications via Slack. |
+| <code><a href="#cdk-extensions.aps.AlertManagerDestinationCategory.property.SNS">SNS</a></code> | <code>cdk-extensions.aps.AlertManagerDestinationCategory</code> | Sends notifications using Amazon SNS. |
+| <code><a href="#cdk-extensions.aps.AlertManagerDestinationCategory.property.TELEGRAM">TELEGRAM</a></code> | <code>cdk-extensions.aps.AlertManagerDestinationCategory</code> | Sends notifications via Telegram. |
+| <code><a href="#cdk-extensions.aps.AlertManagerDestinationCategory.property.VICTOROPS">VICTOROPS</a></code> | <code>cdk-extensions.aps.AlertManagerDestinationCategory</code> | Sends notifications using VictorOps. |
+| <code><a href="#cdk-extensions.aps.AlertManagerDestinationCategory.property.WEBEX">WEBEX</a></code> | <code>cdk-extensions.aps.AlertManagerDestinationCategory</code> | Sends notifications using Webex. |
+| <code><a href="#cdk-extensions.aps.AlertManagerDestinationCategory.property.WEBHOOK">WEBHOOK</a></code> | <code>cdk-extensions.aps.AlertManagerDestinationCategory</code> | Sends notifications via a webhook. |
+| <code><a href="#cdk-extensions.aps.AlertManagerDestinationCategory.property.WECHAT">WECHAT</a></code> | <code>cdk-extensions.aps.AlertManagerDestinationCategory</code> | Sends notifications via WeChat. |
+
+---
+
+##### `EMAIL`<sup>Required</sup> <a name="EMAIL" id="cdk-extensions.aps.AlertManagerDestinationCategory.property.EMAIL"></a>
+
+```typescript
+public readonly EMAIL: AlertManagerDestinationCategory;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerDestinationCategory
+
+Sends notifications via email.
+
+Not currently supported by APS.
+
+---
+
+##### `OPSGENIE`<sup>Required</sup> <a name="OPSGENIE" id="cdk-extensions.aps.AlertManagerDestinationCategory.property.OPSGENIE"></a>
+
+```typescript
+public readonly OPSGENIE: AlertManagerDestinationCategory;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerDestinationCategory
+
+Sends notifications using Opsgenie.
+
+Not currently supported by APS.
+
+---
+
+##### `PAGERDUTY`<sup>Required</sup> <a name="PAGERDUTY" id="cdk-extensions.aps.AlertManagerDestinationCategory.property.PAGERDUTY"></a>
+
+```typescript
+public readonly PAGERDUTY: AlertManagerDestinationCategory;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerDestinationCategory
+
+Sends notifications using PagerDuty.
+
+Not currently supported by APS.
+
+---
+
+##### `PUSHOVER`<sup>Required</sup> <a name="PUSHOVER" id="cdk-extensions.aps.AlertManagerDestinationCategory.property.PUSHOVER"></a>
+
+```typescript
+public readonly PUSHOVER: AlertManagerDestinationCategory;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerDestinationCategory
+
+Sends notifications using Pushover.
+
+Not currently supported by APS.
+
+---
+
+##### `SLACK`<sup>Required</sup> <a name="SLACK" id="cdk-extensions.aps.AlertManagerDestinationCategory.property.SLACK"></a>
+
+```typescript
+public readonly SLACK: AlertManagerDestinationCategory;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerDestinationCategory
+
+Sends notifications via Slack.
+
+Not currently supported by APS.
+
+---
+
+##### `SNS`<sup>Required</sup> <a name="SNS" id="cdk-extensions.aps.AlertManagerDestinationCategory.property.SNS"></a>
+
+```typescript
+public readonly SNS: AlertManagerDestinationCategory;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerDestinationCategory
+
+Sends notifications using Amazon SNS.
+
+---
+
+##### `TELEGRAM`<sup>Required</sup> <a name="TELEGRAM" id="cdk-extensions.aps.AlertManagerDestinationCategory.property.TELEGRAM"></a>
+
+```typescript
+public readonly TELEGRAM: AlertManagerDestinationCategory;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerDestinationCategory
+
+Sends notifications via Telegram.
+
+Not currently supported by APS.
+
+---
+
+##### `VICTOROPS`<sup>Required</sup> <a name="VICTOROPS" id="cdk-extensions.aps.AlertManagerDestinationCategory.property.VICTOROPS"></a>
+
+```typescript
+public readonly VICTOROPS: AlertManagerDestinationCategory;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerDestinationCategory
+
+Sends notifications using VictorOps.
+
+Not currently supported by APS.
+
+---
+
+##### `WEBEX`<sup>Required</sup> <a name="WEBEX" id="cdk-extensions.aps.AlertManagerDestinationCategory.property.WEBEX"></a>
+
+```typescript
+public readonly WEBEX: AlertManagerDestinationCategory;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerDestinationCategory
+
+Sends notifications using Webex.
+
+Not currently supported by APS.
+
+---
+
+##### `WEBHOOK`<sup>Required</sup> <a name="WEBHOOK" id="cdk-extensions.aps.AlertManagerDestinationCategory.property.WEBHOOK"></a>
+
+```typescript
+public readonly WEBHOOK: AlertManagerDestinationCategory;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerDestinationCategory
+
+Sends notifications via a webhook.
+
+Not currently supported by APS.
+
+---
+
+##### `WECHAT`<sup>Required</sup> <a name="WECHAT" id="cdk-extensions.aps.AlertManagerDestinationCategory.property.WECHAT"></a>
+
+```typescript
+public readonly WECHAT: AlertManagerDestinationCategory;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerDestinationCategory
+
+Sends notifications via WeChat.
+
+Not currently supported by APS.
+
+---
+
+### AlertManagerInhibitRuleProps <a name="AlertManagerInhibitRuleProps" id="cdk-extensions.aps.AlertManagerInhibitRuleProps"></a>
+
+Configuration options for the alert manager inhibit rule.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.AlertManagerInhibitRuleProps.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.AlertManagerInhibitRuleProps()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRuleProps.property.equalLabels">equalLabels</a></code> | <code>string[]</code> | Labels that must have an equal value in the source and target alert for the inhibition to take effect. |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRuleProps.property.sourceMatchers">sourceMatchers</a></code> | <code>cdk-extensions.aps.AlertManagerMatcher[]</code> | A list of matchers for which one or more alerts have to exist for the inhibition to take effect. |
+| <code><a href="#cdk-extensions.aps.AlertManagerInhibitRuleProps.property.targetMatchers">targetMatchers</a></code> | <code>cdk-extensions.aps.AlertManagerMatcher[]</code> | A list of matchers that have to be fulfilled by the target alerts to be muted. |
+
+---
+
+##### `equalLabels`<sup>Optional</sup> <a name="equalLabels" id="cdk-extensions.aps.AlertManagerInhibitRuleProps.property.equalLabels"></a>
+
+```typescript
+public readonly equalLabels: string[];
+```
+
+- *Type:* string[]
+
+Labels that must have an equal value in the source and target alert for the inhibition to take effect.
+
+---
+
+##### `sourceMatchers`<sup>Optional</sup> <a name="sourceMatchers" id="cdk-extensions.aps.AlertManagerInhibitRuleProps.property.sourceMatchers"></a>
+
+```typescript
+public readonly sourceMatchers: AlertManagerMatcher[];
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerMatcher[]
+
+A list of matchers for which one or more alerts have to exist for the inhibition to take effect.
+
+---
+
+##### `targetMatchers`<sup>Optional</sup> <a name="targetMatchers" id="cdk-extensions.aps.AlertManagerInhibitRuleProps.property.targetMatchers"></a>
+
+```typescript
+public readonly targetMatchers: AlertManagerMatcher[];
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerMatcher[]
+
+A list of matchers that have to be fulfilled by the target alerts to be muted.
+
+---
+
+
+### AlertManagerMatcher <a name="AlertManagerMatcher" id="cdk-extensions.aps.AlertManagerMatcher"></a>
+
+An expression that alert manager can use to evaluate incoming alerts to determine the actions it should take.
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerMatcher.fromComponents">fromComponents</a></code> | Builds a simple matcher using the standard components supported by the matcher expression syntax. |
+| <code><a href="#cdk-extensions.aps.AlertManagerMatcher.fromCompound">fromCompound</a></code> | Creates a compund matcher expression by joining one or more other matcher objects. |
+| <code><a href="#cdk-extensions.aps.AlertManagerMatcher.fromString">fromString</a></code> | Creates a matcher from a raw string expression. |
+
+---
+
+##### `fromComponents` <a name="fromComponents" id="cdk-extensions.aps.AlertManagerMatcher.fromComponents"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerMatcher.fromComponents(label: string, operator: MatchOperator, value: string)
+```
+
+Builds a simple matcher using the standard components supported by the matcher expression syntax.
+
+Handles formatting an escaping of values.
+
+###### `label`<sup>Required</sup> <a name="label" id="cdk-extensions.aps.AlertManagerMatcher.fromComponents.parameter.label"></a>
+
+- *Type:* string
+
+The Prometheus label name to match against.
+
+---
+
+###### `operator`<sup>Required</sup> <a name="operator" id="cdk-extensions.aps.AlertManagerMatcher.fromComponents.parameter.operator"></a>
+
+- *Type:* cdk-extensions.aps.MatchOperator
+
+The logical operator to use when evaluating the matcher.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.aps.AlertManagerMatcher.fromComponents.parameter.value"></a>
+
+- *Type:* string
+
+The value being compared against the specified label using the specified operator.
+
+---
+
+##### `fromCompound` <a name="fromCompound" id="cdk-extensions.aps.AlertManagerMatcher.fromCompound"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerMatcher.fromCompound(matchers: AlertManagerMatcher)
+```
+
+Creates a compund matcher expression by joining one or more other matcher objects.
+
+###### `matchers`<sup>Required</sup> <a name="matchers" id="cdk-extensions.aps.AlertManagerMatcher.fromCompound.parameter.matchers"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerMatcher
+
+The matcher objects to join into a compound expression.
+
+---
+
+##### `fromString` <a name="fromString" id="cdk-extensions.aps.AlertManagerMatcher.fromString"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerMatcher.fromString(expression: string)
+```
+
+Creates a matcher from a raw string expression.
+
+This allows for specifying
+arbitrary matching conditions that may be too complex to be supported by
+the other means of constructing matchers.
+
+> [[Matcher expression syntax](https://prometheus.io/docs/alerting/latest/configuration/#matcher)]([Matcher expression syntax](https://prometheus.io/docs/alerting/latest/configuration/#matcher))
+
+###### `expression`<sup>Required</sup> <a name="expression" id="cdk-extensions.aps.AlertManagerMatcher.fromString.parameter.expression"></a>
+
+- *Type:* string
+
+The PromQL-like expression to use for matching.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerMatcher.property.expression">expression</a></code> | <code>string</code> | The PromQL like expression to use for the matcher. |
+
+---
+
+##### `expression`<sup>Required</sup> <a name="expression" id="cdk-extensions.aps.AlertManagerMatcher.property.expression"></a>
+
+```typescript
+public readonly expression: string;
+```
+
+- *Type:* string
+
+The PromQL like expression to use for the matcher.
+
+---
+
+
+### AlertManagerSnsDestination <a name="AlertManagerSnsDestination" id="cdk-extensions.aps.AlertManagerSnsDestination"></a>
+
+- *Implements:* cdk-extensions.aps.IAlertManagerDestination
+
+An alert manager destination that provides details for sending alert notifications to an Amazon SNS topic.
+
+> [[Alert manager SNS configuration](https://prometheus.io/docs/alerting/latest/configuration/#sns_config)]([Alert manager SNS configuration](https://prometheus.io/docs/alerting/latest/configuration/#sns_config))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.AlertManagerSnsDestination.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.AlertManagerSnsDestination(options: AlertManagerSnsDestinationProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestination.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.aps.AlertManagerSnsDestinationProps</code> | Arguments related to the configuration of the destination. |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.aps.AlertManagerSnsDestination.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.AlertManagerSnsDestinationProps
+
+Arguments related to the configuration of the destination.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestination.addAttribute">addAttribute</a></code> | Registers a new attribute to be added to sent SNS messages. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestination.bind">bind</a></code> | Associates the destination with a construct that is handling the configuration of alert manager. |
+
+---
+
+##### `addAttribute` <a name="addAttribute" id="cdk-extensions.aps.AlertManagerSnsDestination.addAttribute"></a>
+
+```typescript
+public addAttribute(key: string, value: string): AlertManagerSnsDestination
+```
+
+Registers a new attribute to be added to sent SNS messages.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.aps.AlertManagerSnsDestination.addAttribute.parameter.key"></a>
+
+- *Type:* string
+
+The name of the attribute.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.aps.AlertManagerSnsDestination.addAttribute.parameter.value"></a>
+
+- *Type:* string
+
+The value to use for the named attribute.
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.AlertManagerSnsDestination.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): {[ key: string ]: any}
+```
+
+Associates the destination with a construct that is handling the configuration of alert manager.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.AlertManagerSnsDestination.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling alert manager configuration.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestination.property.attributes">attributes</a></code> | <code>{[ key: string ]: string}</code> | Attributes to be applied to SNS messages. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestination.property.category">category</a></code> | <code>cdk-extensions.aps.AlertManagerDestinationCategory</code> | The destination type being configured. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestination.property.topic">topic</a></code> | <code>aws-cdk-lib.aws_sns.ITopic</code> | SNS topic where alerts will be sent. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestination.property.apiUrl">apiUrl</a></code> | <code>string</code> | The SNS API URL i.e. https://sns.us-east-2.amazonaws.com. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestination.property.message">message</a></code> | <code>string</code> | The message content of the SNS notification. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestination.property.sendResolved">sendResolved</a></code> | <code>boolean</code> | Controls whether to notify about resolved alerts. |
+| <code><a href="#cdk-extensions.aps.AlertManagerSnsDestination.property.subject">subject</a></code> | <code>string</code> | Subject line when the message is delivered to email endpoints. |
+
+---
+
+##### `attributes`<sup>Required</sup> <a name="attributes" id="cdk-extensions.aps.AlertManagerSnsDestination.property.attributes"></a>
+
+```typescript
+public readonly attributes: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Attributes to be applied to SNS messages.
+
+---
+
+##### `category`<sup>Required</sup> <a name="category" id="cdk-extensions.aps.AlertManagerSnsDestination.property.category"></a>
+
+```typescript
+public readonly category: AlertManagerDestinationCategory;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerDestinationCategory
+
+The destination type being configured.
+
+Represents a config block in an alert manager receiver configuration.
+
+---
+
+##### `topic`<sup>Required</sup> <a name="topic" id="cdk-extensions.aps.AlertManagerSnsDestination.property.topic"></a>
+
+```typescript
+public readonly topic: ITopic;
+```
+
+- *Type:* aws-cdk-lib.aws_sns.ITopic
+
+SNS topic where alerts will be sent.
+
+If you are using a FIFO SNS topic you should set a message group interval
+longer than 5 minutes to prevent messages with the same group key being
+deduplicated by the SNS default deduplication window.
+
+---
+
+##### `apiUrl`<sup>Optional</sup> <a name="apiUrl" id="cdk-extensions.aps.AlertManagerSnsDestination.property.apiUrl"></a>
+
+```typescript
+public readonly apiUrl: string;
+```
+
+- *Type:* string
+
+The SNS API URL i.e. https://sns.us-east-2.amazonaws.com.
+
+If not specified, the SNS API URL from the SNS SDK will be used.
+
+---
+
+##### `message`<sup>Optional</sup> <a name="message" id="cdk-extensions.aps.AlertManagerSnsDestination.property.message"></a>
+
+```typescript
+public readonly message: string;
+```
+
+- *Type:* string
+
+The message content of the SNS notification.
+
+---
+
+##### `sendResolved`<sup>Optional</sup> <a name="sendResolved" id="cdk-extensions.aps.AlertManagerSnsDestination.property.sendResolved"></a>
+
+```typescript
+public readonly sendResolved: boolean;
+```
+
+- *Type:* boolean
+
+Controls whether to notify about resolved alerts.
+
+---
+
+##### `subject`<sup>Optional</sup> <a name="subject" id="cdk-extensions.aps.AlertManagerSnsDestination.property.subject"></a>
+
+```typescript
+public readonly subject: string;
+```
+
+- *Type:* string
+
+Subject line when the message is delivered to email endpoints.
+
+---
+
+
+### AlertManagerTemplate <a name="AlertManagerTemplate" id="cdk-extensions.aps.AlertManagerTemplate"></a>
+
+A template that can be used for formatting alerts sent by alert manager.
+
+> [[Notification template examples](https://prometheus.io/docs/alerting/latest/notification_examples/)]([Notification template examples](https://prometheus.io/docs/alerting/latest/notification_examples/))
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerTemplate.fromFile">fromFile</a></code> | Loads an alert template from the local filesystem. |
+| <code><a href="#cdk-extensions.aps.AlertManagerTemplate.fromString">fromString</a></code> | Loads an alert manager template using a template string. |
+
+---
+
+##### `fromFile` <a name="fromFile" id="cdk-extensions.aps.AlertManagerTemplate.fromFile"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerTemplate.fromFile(path: string)
+```
+
+Loads an alert template from the local filesystem.
+
+###### `path`<sup>Required</sup> <a name="path" id="cdk-extensions.aps.AlertManagerTemplate.fromFile.parameter.path"></a>
+
+- *Type:* string
+
+The path to the file containg the template.
+
+---
+
+##### `fromString` <a name="fromString" id="cdk-extensions.aps.AlertManagerTemplate.fromString"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.AlertManagerTemplate.fromString(content: string)
+```
+
+Loads an alert manager template using a template string.
+
+###### `content`<sup>Required</sup> <a name="content" id="cdk-extensions.aps.AlertManagerTemplate.fromString.parameter.content"></a>
+
+- *Type:* string
+
+The template content as a string.
+
+Uses the Go templating
+system.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.AlertManagerTemplate.property.content">content</a></code> | <code>string</code> | The template content as a string. |
+
+---
+
+##### `content`<sup>Required</sup> <a name="content" id="cdk-extensions.aps.AlertManagerTemplate.property.content"></a>
+
+```typescript
+public readonly content: string;
+```
+
+- *Type:* string
+
+The template content as a string.
+
+Uses the Go templating system.
 
 ---
 
@@ -54540,6 +60841,61 @@ public readonly RECORD_DEAGGREGATION: ProcessorType;
 
 ---
 
+### PrometheusRule <a name="PrometheusRule" id="cdk-extensions.aps.PrometheusRule"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.PrometheusRule.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.PrometheusRule()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.PrometheusRule.alertingRule">alertingRule</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.aps.PrometheusRule.recordingRule">recordingRule</a></code> | *No description.* |
+
+---
+
+##### `alertingRule` <a name="alertingRule" id="cdk-extensions.aps.PrometheusRule.alertingRule"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.PrometheusRule.alertingRule(options: AlertingRuleProps)
+```
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.aps.PrometheusRule.alertingRule.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.AlertingRuleProps
+
+---
+
+##### `recordingRule` <a name="recordingRule" id="cdk-extensions.aps.PrometheusRule.recordingRule"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+aps.PrometheusRule.recordingRule(options: RecordingRuleProps)
+```
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.aps.PrometheusRule.recordingRule.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.RecordingRuleProps
+
+---
+
+
+
 ### RecordDeaggregationProcessor <a name="RecordDeaggregationProcessor" id="cdk-extensions.kinesis_firehose.RecordDeaggregationProcessor"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.RecordDeaggregationProcessor.Initializer"></a>
@@ -54650,6 +61006,146 @@ public readonly delimiter: string;
 ```
 
 - *Type:* string
+
+---
+
+
+### RecordingRule <a name="RecordingRule" id="cdk-extensions.aps.RecordingRule"></a>
+
+- *Implements:* cdk-extensions.aps.IPrometheusRule
+
+Recording rules allow you to precompute frequently needed or computationally expensive expressions and save their result as a new set of time series.
+
+Querying the precomputed result will then often be much faster than
+executing the original expression every time it is needed. This is
+especially useful for dashboards, which need to query the same expression
+repeatedly every time they refresh.
+
+> [[Defining recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/)]([Defining recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.RecordingRule.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.RecordingRule(props: RecordingRuleProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.RecordingRule.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.aps.RecordingRuleProps</code> | Arguments defining the configuration of the reporting rule. |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.aps.RecordingRule.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.aps.RecordingRuleProps
+
+Arguments defining the configuration of the reporting rule.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.RecordingRule.addLabel">addLabel</a></code> | Sets a new label and value that will be added or overridden before storing the result. |
+| <code><a href="#cdk-extensions.aps.RecordingRule.bind">bind</a></code> | Associates the recording rule with a construct that is configuring an APS rule groups namespace. |
+
+---
+
+##### `addLabel` <a name="addLabel" id="cdk-extensions.aps.RecordingRule.addLabel"></a>
+
+```typescript
+public addLabel(label: string, value: string): RecordingRule
+```
+
+Sets a new label and value that will be added or overridden before storing the result.
+
+###### `label`<sup>Required</sup> <a name="label" id="cdk-extensions.aps.RecordingRule.addLabel.parameter.label"></a>
+
+- *Type:* string
+
+The name of the label to add.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.aps.RecordingRule.addLabel.parameter.value"></a>
+
+- *Type:* string
+
+The values of the label to add.
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.RecordingRule.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): {[ key: string ]: any}
+```
+
+Associates the recording rule with a construct that is configuring an APS rule groups namespace.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.aps.RecordingRule.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of the APS rule groups namespace that will be consuming this rule.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.RecordingRule.property.expression">expression</a></code> | <code>string</code> | The PromQL expression to evaluate. |
+| <code><a href="#cdk-extensions.aps.RecordingRule.property.labels">labels</a></code> | <code>{[ key: string ]: string}</code> | Labels to add or overwrite before storing the result. |
+| <code><a href="#cdk-extensions.aps.RecordingRule.property.record">record</a></code> | <code>string</code> | The name of the time series to output to. |
+
+---
+
+##### `expression`<sup>Required</sup> <a name="expression" id="cdk-extensions.aps.RecordingRule.property.expression"></a>
+
+```typescript
+public readonly expression: string;
+```
+
+- *Type:* string
+
+The PromQL expression to evaluate.
+
+Every evaluation cycle this is
+evaluated at the current time, and the result recorded as a new set of
+time series with the metric name as given by `record`.
+
+> [[Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/)]([Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/))
+
+---
+
+##### `labels`<sup>Required</sup> <a name="labels" id="cdk-extensions.aps.RecordingRule.property.labels"></a>
+
+```typescript
+public readonly labels: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Labels to add or overwrite before storing the result.
+
+---
+
+##### `record`<sup>Required</sup> <a name="record" id="cdk-extensions.aps.RecordingRule.property.record"></a>
+
+```typescript
+public readonly record: string;
+```
+
+- *Type:* string
+
+The name of the time series to output to.
+
+Must be a valid metric name.
 
 ---
 
@@ -55811,6 +62307,95 @@ The SSM parameter being referenced to import into Kubernetes.
 ---
 
 
+### State <a name="State" id="cdk-extensions.core.State"></a>
+
+Provides a means of storing and retrieving arbitrary data that can be associated with a construct.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.core.State.get">get</a></code> | Gets the value of a key from state. |
+| <code><a href="#cdk-extensions.core.State.set">set</a></code> | Sets the value of a key in state. |
+
+---
+
+##### `get` <a name="get" id="cdk-extensions.core.State.get"></a>
+
+```typescript
+public get(key: string, defaultValue?: any): any
+```
+
+Gets the value of a key from state.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.core.State.get.parameter.key"></a>
+
+- *Type:* string
+
+The key to get from state.
+
+---
+
+###### `defaultValue`<sup>Optional</sup> <a name="defaultValue" id="cdk-extensions.core.State.get.parameter.defaultValue"></a>
+
+- *Type:* any
+
+The value to return if the requested key does not exist in state.
+
+---
+
+##### `set` <a name="set" id="cdk-extensions.core.State.set"></a>
+
+```typescript
+public set(key: string, value: any): any
+```
+
+Sets the value of a key in state.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.core.State.set.parameter.key"></a>
+
+- *Type:* string
+
+The key to set in state.
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.core.State.set.parameter.value"></a>
+
+- *Type:* any
+
+The value to set for the key in state.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.core.State.of">of</a></code> | Gets an object that allows for interacting with the stored state of a construct. |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.core.State.of"></a>
+
+```typescript
+import { core } from 'cdk-extensions'
+
+core.State.of(scope: IConstruct)
+```
+
+Gets an object that allows for interacting with the stored state of a construct.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.core.State.of.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct for which state information is desired.
+
+---
+
+
+
 ### StructColumn <a name="StructColumn" id="cdk-extensions.glue.StructColumn"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.glue.StructColumn.Initializer"></a>
@@ -56048,6 +62633,310 @@ public readonly LATEST: TableVersion;
 - *Type:* cdk-extensions.kinesis_firehose.TableVersion
 
 ---
+
+### TimeIntervalEntry <a name="TimeIntervalEntry" id="cdk-extensions.aps.TimeIntervalEntry"></a>
+
+An object specifying a collection of ranges that together make up an interval of time.
+
+Referenced by alert manager to define periods for which certain settings
+should apply.
+
+> [[Time Interval Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#time_interval-0)]([Time Interval Official Documentation](https://prometheus.io/docs/alerting/latest/configuration/#time_interval-0))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.aps.TimeIntervalEntry.Initializer"></a>
+
+```typescript
+import { aps } from 'cdk-extensions'
+
+new aps.TimeIntervalEntry(options: TimeIntervalEntryProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntry.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.aps.TimeIntervalEntryProps</code> | Configuration options that define the TimeIntervalEntry. |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.aps.TimeIntervalEntry.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.aps.TimeIntervalEntryProps
+
+Configuration options that define the TimeIntervalEntry.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntry.addDaysOfTheMonth">addDaysOfTheMonth</a></code> | Adds a range specifying the numerical days in the month. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntry.addMonth">addMonth</a></code> | A range of calendar months identified by number, where January = 1. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntry.addTimes">addTimes</a></code> | Ranges inclusive of the starting time and exclusive of the end time to make it easy to represent times that start/end on hour boundaries. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntry.addWeekday">addWeekday</a></code> | Adds a day of the week, where the week begins on Sunday and ends on Saturday. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntry.addYears">addYears</a></code> | Adds a numerical range of years. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntry.bind">bind</a></code> | Associates the time interval with a construct that is handling the configuration of alert manager. |
+
+---
+
+##### `addDaysOfTheMonth` <a name="addDaysOfTheMonth" id="cdk-extensions.aps.TimeIntervalEntry.addDaysOfTheMonth"></a>
+
+```typescript
+public addDaysOfTheMonth(start: number, end: number): TimeIntervalEntry
+```
+
+Adds a range specifying the numerical days in the month.
+
+Days begin at 1. Negative values are also accepted which begin at the end
+of the month, e.g. -1 during January would represent January 31. For
+example: `start: 1` and `end: 5` or `start:-3` and `end: -1` would both be
+valid ranges.
+
+Extending past the start or end of the month will cause it to be clamped.
+E.g. specifying `start: 1` and `end: 31` during February will clamp the
+actual end date to 28 or 29 depending on leap years.
+
+Inclusive on both ends.
+
+###### `start`<sup>Required</sup> <a name="start" id="cdk-extensions.aps.TimeIntervalEntry.addDaysOfTheMonth.parameter.start"></a>
+
+- *Type:* number
+
+The first day of the month for which the range should apply.
+
+---
+
+###### `end`<sup>Required</sup> <a name="end" id="cdk-extensions.aps.TimeIntervalEntry.addDaysOfTheMonth.parameter.end"></a>
+
+- *Type:* number
+
+The last day of the month for which the range should apply (inclusive).
+
+---
+
+##### `addMonth` <a name="addMonth" id="cdk-extensions.aps.TimeIntervalEntry.addMonth"></a>
+
+```typescript
+public addMonth(start: number, end?: number): TimeIntervalEntry
+```
+
+A range of calendar months identified by number, where January = 1.
+
+Ranges are also accepted by specifying `end` inclusive on both ends.
+
+###### `start`<sup>Required</sup> <a name="start" id="cdk-extensions.aps.TimeIntervalEntry.addMonth.parameter.start"></a>
+
+- *Type:* number
+
+The month where the range should start.
+
+---
+
+###### `end`<sup>Optional</sup> <a name="end" id="cdk-extensions.aps.TimeIntervalEntry.addMonth.parameter.end"></a>
+
+- *Type:* number
+
+The month at the end of the range if the range should cover multiple months (inclusive).
+
+---
+
+##### `addTimes` <a name="addTimes" id="cdk-extensions.aps.TimeIntervalEntry.addTimes"></a>
+
+```typescript
+public addTimes(start: string, end: string): TimeIntervalEntry
+```
+
+Ranges inclusive of the starting time and exclusive of the end time to make it easy to represent times that start/end on hour boundaries.
+
+For example, `start: '17:00'` and `end: '24:00'` will begin at 17:00 and
+finish immediately before 24:00.
+
+###### `start`<sup>Required</sup> <a name="start" id="cdk-extensions.aps.TimeIntervalEntry.addTimes.parameter.start"></a>
+
+- *Type:* string
+
+The start time, specified in the format 'HH:MM' using 24 hour time.
+
+---
+
+###### `end`<sup>Required</sup> <a name="end" id="cdk-extensions.aps.TimeIntervalEntry.addTimes.parameter.end"></a>
+
+- *Type:* string
+
+The end time, specified in the format 'HH:MM' using 24 hour time.
+
+---
+
+##### `addWeekday` <a name="addWeekday" id="cdk-extensions.aps.TimeIntervalEntry.addWeekday"></a>
+
+```typescript
+public addWeekday(start: Weekday, end?: Weekday): TimeIntervalEntry
+```
+
+Adds a day of the week, where the week begins on Sunday and ends on Saturday.
+
+For convenience, ranges are also accepted by specifying `end` and are
+inclusive on both ends.
+
+###### `start`<sup>Required</sup> <a name="start" id="cdk-extensions.aps.TimeIntervalEntry.addWeekday.parameter.start"></a>
+
+- *Type:* cdk-extensions.aps.Weekday
+
+The day of the week where the range should start.
+
+---
+
+###### `end`<sup>Optional</sup> <a name="end" id="cdk-extensions.aps.TimeIntervalEntry.addWeekday.parameter.end"></a>
+
+- *Type:* cdk-extensions.aps.Weekday
+
+The day of the week where the range should end.
+
+If not
+specified, the range will end at the end of the day specified by `start`.
+
+---
+
+##### `addYears` <a name="addYears" id="cdk-extensions.aps.TimeIntervalEntry.addYears"></a>
+
+```typescript
+public addYears(start: number, end?: number): TimeIntervalEntry
+```
+
+Adds a numerical range of years.
+
+Ranges to cover multiple years are accepted. For example, `start: 2020` and
+`end: 2022`.
+
+Inclusive on both ends.
+
+###### `start`<sup>Required</sup> <a name="start" id="cdk-extensions.aps.TimeIntervalEntry.addYears.parameter.start"></a>
+
+- *Type:* number
+
+The year where the range should start.
+
+---
+
+###### `end`<sup>Optional</sup> <a name="end" id="cdk-extensions.aps.TimeIntervalEntry.addYears.parameter.end"></a>
+
+- *Type:* number
+
+The year where the range should end.
+
+If not specified, the
+range will end at the end of the year specified by `start`.
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.TimeIntervalEntry.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): {[ key: string ]: any}
+```
+
+Associates the time interval with a construct that is handling the configuration of alert manager.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.aps.TimeIntervalEntry.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of alert manager that will consume the rendered configuration.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntry.property.daysOfTheMonth">daysOfTheMonth</a></code> | <code>cdk-extensions.aps.DayOfMonthRange[]</code> | Collection of day of the month ranges for which this time interval will apply. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntry.property.months">months</a></code> | <code>cdk-extensions.aps.MonthRange[]</code> | Collection of month ranges for which this time interval will apply. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntry.property.times">times</a></code> | <code>cdk-extensions.aps.TimeRange[]</code> | Collection of time ranges for which this time interval will apply. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntry.property.weekdays">weekdays</a></code> | <code>cdk-extensions.aps.WeekdayRange[]</code> | Collection of weekday ranges for which this time interval will apply. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntry.property.years">years</a></code> | <code>cdk-extensions.aps.YearRange[]</code> | Collection of year ranges for which this time interval will apply. |
+| <code><a href="#cdk-extensions.aps.TimeIntervalEntry.property.timeZone">timeZone</a></code> | <code>string</code> | A string that matches a location in the IANA time zone database. |
+
+---
+
+##### `daysOfTheMonth`<sup>Required</sup> <a name="daysOfTheMonth" id="cdk-extensions.aps.TimeIntervalEntry.property.daysOfTheMonth"></a>
+
+```typescript
+public readonly daysOfTheMonth: DayOfMonthRange[];
+```
+
+- *Type:* cdk-extensions.aps.DayOfMonthRange[]
+
+Collection of day of the month ranges for which this time interval will apply.
+
+---
+
+##### `months`<sup>Required</sup> <a name="months" id="cdk-extensions.aps.TimeIntervalEntry.property.months"></a>
+
+```typescript
+public readonly months: MonthRange[];
+```
+
+- *Type:* cdk-extensions.aps.MonthRange[]
+
+Collection of month ranges for which this time interval will apply.
+
+---
+
+##### `times`<sup>Required</sup> <a name="times" id="cdk-extensions.aps.TimeIntervalEntry.property.times"></a>
+
+```typescript
+public readonly times: TimeRange[];
+```
+
+- *Type:* cdk-extensions.aps.TimeRange[]
+
+Collection of time ranges for which this time interval will apply.
+
+---
+
+##### `weekdays`<sup>Required</sup> <a name="weekdays" id="cdk-extensions.aps.TimeIntervalEntry.property.weekdays"></a>
+
+```typescript
+public readonly weekdays: WeekdayRange[];
+```
+
+- *Type:* cdk-extensions.aps.WeekdayRange[]
+
+Collection of weekday ranges for which this time interval will apply.
+
+---
+
+##### `years`<sup>Required</sup> <a name="years" id="cdk-extensions.aps.TimeIntervalEntry.property.years"></a>
+
+```typescript
+public readonly years: YearRange[];
+```
+
+- *Type:* cdk-extensions.aps.YearRange[]
+
+Collection of year ranges for which this time interval will apply.
+
+---
+
+##### `timeZone`<sup>Optional</sup> <a name="timeZone" id="cdk-extensions.aps.TimeIntervalEntry.property.timeZone"></a>
+
+```typescript
+public readonly timeZone: string;
+```
+
+- *Type:* string
+
+A string that matches a location in the IANA time zone database.
+
+For example, 'Australia/Sydney'. The location provides the time zone for
+the time interval.
+
+You may also use `Local` as a location to use the local time of the
+machine where Alertmanager is running, or `UTC` for UTC time. If no
+timezone is provided, the time interval is taken to be in UTC time.
+
+---
+
 
 ### TxtRegistry <a name="TxtRegistry" id="cdk-extensions.k8s_aws.TxtRegistry"></a>
 
@@ -57229,6 +64118,89 @@ Options specifying the conditions the predicate must meet to trigger the next st
 
 ## Protocols <a name="Protocols" id="Protocols"></a>
 
+### IAlertManagerConfiguration <a name="IAlertManagerConfiguration" id="cdk-extensions.aps.IAlertManagerConfiguration"></a>
+
+- *Implemented By:* cdk-extensions.aps.AlertManagerConfiguration, cdk-extensions.aps.IAlertManagerConfiguration
+
+Represents an alert manager configuration object that can be used by resources configuring alerting for Amazon APS.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.IAlertManagerConfiguration.bind">bind</a></code> | Associates the configuration with a construct that is handling the configuration of alert manager for an APS workspace. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.IAlertManagerConfiguration.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): AlertManagerConfigurationDetails
+```
+
+Associates the configuration with a construct that is handling the configuration of alert manager for an APS workspace.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.IAlertManagerConfiguration.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of alert manager that will consume the configuration.
+
+---
+
+
+### IAlertManagerDestination <a name="IAlertManagerDestination" id="cdk-extensions.aps.IAlertManagerDestination"></a>
+
+- *Implemented By:* cdk-extensions.aps.AlertManagerSnsDestination, cdk-extensions.aps.IAlertManagerDestination
+
+Represents a destination where alert manager can send notifications.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.IAlertManagerDestination.bind">bind</a></code> | Associates the destination with a construct that is handling the configuration of alert manager. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.IAlertManagerDestination.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): {[ key: string ]: any}
+```
+
+Associates the destination with a construct that is handling the configuration of alert manager.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.IAlertManagerDestination.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling alert manager configuration.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.IAlertManagerDestination.property.category">category</a></code> | <code>cdk-extensions.aps.AlertManagerDestinationCategory</code> | The destination type being configured. |
+
+---
+
+##### `category`<sup>Required</sup> <a name="category" id="cdk-extensions.aps.IAlertManagerDestination.property.category"></a>
+
+```typescript
+public readonly category: AlertManagerDestinationCategory;
+```
+
+- *Type:* cdk-extensions.aps.AlertManagerDestinationCategory
+
+The destination type being configured.
+
+Represents a config block in an alert manager receiver configuration.
+
+---
+
 ### ICrawler <a name="ICrawler" id="cdk-extensions.glue.ICrawler"></a>
 
 - *Extends:* constructs.IConstruct
@@ -58115,6 +65087,116 @@ public readonly permissionSetArn: string;
 
 ---
 
+### IPrometheusRule <a name="IPrometheusRule" id="cdk-extensions.aps.IPrometheusRule"></a>
+
+- *Implemented By:* cdk-extensions.aps.AlertingRule, cdk-extensions.aps.RecordingRule, cdk-extensions.aps.IPrometheusRule
+
+Represents a Prometheus rule that can be added to a rule group and used as part of an APS rules configuration.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.IPrometheusRule.bind">bind</a></code> | Associates the rule with a construct that is configuring an APS rule groups namespace. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.IPrometheusRule.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): {[ key: string ]: any}
+```
+
+Associates the rule with a construct that is configuring an APS rule groups namespace.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.IPrometheusRule.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of the APS rule groups namespace that will be consuming this rule.
+
+---
+
+
+### IRuleGroupConfiguration <a name="IRuleGroupConfiguration" id="cdk-extensions.aps.IRuleGroupConfiguration"></a>
+
+- *Extends:* constructs.IConstruct
+
+- *Implemented By:* cdk-extensions.aps.RuleGroupConfiguration, cdk-extensions.aps.IRuleGroupConfiguration
+
+Represents a rules configuration that can be consumed by Amazon Managed Service for Prometheus when creating a rule groups namespace.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.IRuleGroupConfiguration.bind">bind</a></code> | Associates the configuration with a resource that is handling the creation of an APS rule groups namespace. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.aps.IRuleGroupConfiguration.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): RuleGroupConfigurationDetails
+```
+
+Associates the configuration with a resource that is handling the creation of an APS rule groups namespace.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.aps.IRuleGroupConfiguration.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct handling the configuration of an APS rule groups namespace that will be consuming this configuration.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.IRuleGroupConfiguration.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.aps.IRuleGroupConfiguration.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+### IRuleGroupsNamespace <a name="IRuleGroupsNamespace" id="cdk-extensions.aps.IRuleGroupsNamespace"></a>
+
+- *Implemented By:* cdk-extensions.aps.RuleGroupsNamespace, cdk-extensions.aps.IRuleGroupsNamespace
+
+Represents an APS rule groups namespace in AWS.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.IRuleGroupsNamespace.property.rulesGroupsNamespaceArn">rulesGroupsNamespaceArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the APS rule groups namespace. |
+
+---
+
+##### `rulesGroupsNamespaceArn`<sup>Required</sup> <a name="rulesGroupsNamespaceArn" id="cdk-extensions.aps.IRuleGroupsNamespace.property.rulesGroupsNamespaceArn"></a>
+
+```typescript
+public readonly rulesGroupsNamespaceArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the APS rule groups namespace.
+
+---
+
 ### ISecretReference <a name="ISecretReference" id="cdk-extensions.k8s_aws.ISecretReference"></a>
 
 - *Implemented By:* cdk-extensions.k8s_aws.SecretsManagerReference, cdk-extensions.k8s_aws.SsmParameterReference, cdk-extensions.k8s_aws.ISecretReference
@@ -58356,6 +65438,88 @@ public readonly userId: string;
 - *Type:* string
 
 A GUID identifier for a user object in IAM Identity Center (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6).
+
+---
+
+### IWorkspace <a name="IWorkspace" id="cdk-extensions.aps.IWorkspace"></a>
+
+- *Implemented By:* cdk-extensions.aps.Workspace, cdk-extensions.aps.IWorkspace
+
+Represents an APS workspace in AWS.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.aps.IWorkspace.property.workspaceArn">workspaceArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the APS workspace. |
+| <code><a href="#cdk-extensions.aps.IWorkspace.property.workspaceId">workspaceId</a></code> | <code>string</code> | The ID generated by AWS for the APS workspace. |
+| <code><a href="#cdk-extensions.aps.IWorkspace.property.workspacePrometheusEndpoint">workspacePrometheusEndpoint</a></code> | <code>string</code> | The Prometheus endpoint attribute of the workspace. |
+| <code><a href="#cdk-extensions.aps.IWorkspace.property.workspaceQueryUrl">workspaceQueryUrl</a></code> | <code>string</code> | The URL of the remote write endpoint which can be used to ingest metrics into the Prometheus workspace. |
+| <code><a href="#cdk-extensions.aps.IWorkspace.property.workspaceRemoteWriteUrl">workspaceRemoteWriteUrl</a></code> | <code>string</code> | The URL of the endpoint that other services can use to query the workspace. |
+
+---
+
+##### `workspaceArn`<sup>Required</sup> <a name="workspaceArn" id="cdk-extensions.aps.IWorkspace.property.workspaceArn"></a>
+
+```typescript
+public readonly workspaceArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the APS workspace.
+
+---
+
+##### `workspaceId`<sup>Required</sup> <a name="workspaceId" id="cdk-extensions.aps.IWorkspace.property.workspaceId"></a>
+
+```typescript
+public readonly workspaceId: string;
+```
+
+- *Type:* string
+
+The ID generated by AWS for the APS workspace.
+
+---
+
+##### `workspacePrometheusEndpoint`<sup>Required</sup> <a name="workspacePrometheusEndpoint" id="cdk-extensions.aps.IWorkspace.property.workspacePrometheusEndpoint"></a>
+
+```typescript
+public readonly workspacePrometheusEndpoint: string;
+```
+
+- *Type:* string
+
+The Prometheus endpoint attribute of the workspace.
+
+This is the endpoint prefix without the remote_write or query API
+appended.
+
+---
+
+##### `workspaceQueryUrl`<sup>Required</sup> <a name="workspaceQueryUrl" id="cdk-extensions.aps.IWorkspace.property.workspaceQueryUrl"></a>
+
+```typescript
+public readonly workspaceQueryUrl: string;
+```
+
+- *Type:* string
+
+The URL of the remote write endpoint which can be used to ingest metrics into the Prometheus workspace.
+
+---
+
+##### `workspaceRemoteWriteUrl`<sup>Required</sup> <a name="workspaceRemoteWriteUrl" id="cdk-extensions.aps.IWorkspace.property.workspaceRemoteWriteUrl"></a>
+
+```typescript
+public readonly workspaceRemoteWriteUrl: string;
+```
+
+- *Type:* string
+
+The URL of the endpoint that other services can use to query the workspace.
 
 ---
 
@@ -59048,6 +66212,49 @@ Gzip compression format.
 ---
 
 
+### MatchOperator <a name="MatchOperator" id="cdk-extensions.aps.MatchOperator"></a>
+
+The logical operator an alert manager matcher should use when evaluating filters for labels.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.MatchOperator.EQUALS">EQUALS</a></code> | Evaluate an alert manager filter on the basis that the label matches the string it is being compared against. |
+| <code><a href="#cdk-extensions.aps.MatchOperator.NOT_EQUALS">NOT_EQUALS</a></code> | Evaluate an alert manager filter on the basis that the label does not match the string it is being compared against. |
+| <code><a href="#cdk-extensions.aps.MatchOperator.RE_EQUALS">RE_EQUALS</a></code> | Evaluate an alert manager filter on the basis that the label matches the regular expression it is being compared against. |
+| <code><a href="#cdk-extensions.aps.MatchOperator.RE_NOT_EQUALS">RE_NOT_EQUALS</a></code> | Evaluate an alert manager filter on the basis that the label does not match the regular expression it is being compared against. |
+
+---
+
+##### `EQUALS` <a name="EQUALS" id="cdk-extensions.aps.MatchOperator.EQUALS"></a>
+
+Evaluate an alert manager filter on the basis that the label matches the string it is being compared against.
+
+---
+
+
+##### `NOT_EQUALS` <a name="NOT_EQUALS" id="cdk-extensions.aps.MatchOperator.NOT_EQUALS"></a>
+
+Evaluate an alert manager filter on the basis that the label does not match the string it is being compared against.
+
+---
+
+
+##### `RE_EQUALS` <a name="RE_EQUALS" id="cdk-extensions.aps.MatchOperator.RE_EQUALS"></a>
+
+Evaluate an alert manager filter on the basis that the label matches the regular expression it is being compared against.
+
+---
+
+
+##### `RE_NOT_EQUALS` <a name="RE_NOT_EQUALS" id="cdk-extensions.aps.MatchOperator.RE_NOT_EQUALS"></a>
+
+Evaluate an alert manager filter on the basis that the label does not match the regular expression it is being compared against.
+
+---
+
+
 ### MetadataPolicy <a name="MetadataPolicy" id="cdk-extensions.k8s_aws.MetadataPolicy"></a>
 
 Options for fetching tags/labels from provider secrets.
@@ -59478,6 +66685,73 @@ Server side encryption (SSE) with an Amazon S3-managed key.
 
 
 ##### `LOG` <a name="LOG" id="cdk-extensions.glue.UpdateBehavior.LOG"></a>
+
+---
+
+
+### Weekday <a name="Weekday" id="cdk-extensions.aps.Weekday"></a>
+
+The days of the week to be used in Prometheus alert manager configurations.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.aps.Weekday.SUNDAY">SUNDAY</a></code> | Sunday. |
+| <code><a href="#cdk-extensions.aps.Weekday.MONDAY">MONDAY</a></code> | Monday. |
+| <code><a href="#cdk-extensions.aps.Weekday.TUESDAY">TUESDAY</a></code> | Tuesday. |
+| <code><a href="#cdk-extensions.aps.Weekday.WEDNESDAY">WEDNESDAY</a></code> | Wednesday. |
+| <code><a href="#cdk-extensions.aps.Weekday.THURSDAY">THURSDAY</a></code> | Thursday. |
+| <code><a href="#cdk-extensions.aps.Weekday.FRIDAY">FRIDAY</a></code> | Friday. |
+| <code><a href="#cdk-extensions.aps.Weekday.SATURDAY">SATURDAY</a></code> | Saturday. |
+
+---
+
+##### `SUNDAY` <a name="SUNDAY" id="cdk-extensions.aps.Weekday.SUNDAY"></a>
+
+Sunday.
+
+---
+
+
+##### `MONDAY` <a name="MONDAY" id="cdk-extensions.aps.Weekday.MONDAY"></a>
+
+Monday.
+
+---
+
+
+##### `TUESDAY` <a name="TUESDAY" id="cdk-extensions.aps.Weekday.TUESDAY"></a>
+
+Tuesday.
+
+---
+
+
+##### `WEDNESDAY` <a name="WEDNESDAY" id="cdk-extensions.aps.Weekday.WEDNESDAY"></a>
+
+Wednesday.
+
+---
+
+
+##### `THURSDAY` <a name="THURSDAY" id="cdk-extensions.aps.Weekday.THURSDAY"></a>
+
+Thursday.
+
+---
+
+
+##### `FRIDAY` <a name="FRIDAY" id="cdk-extensions.aps.Weekday.FRIDAY"></a>
+
+Friday.
+
+---
+
+
+##### `SATURDAY` <a name="SATURDAY" id="cdk-extensions.aps.Weekday.SATURDAY"></a>
+
+Saturday.
 
 ---
 

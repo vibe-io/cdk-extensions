@@ -76,7 +76,8 @@ export class BookmarkConfiguration {
    * @param value The value to pass to the `job-bookmark-option` argument.
    * @param range An optional range of job ID's that will correspond to the
    * `job-bookmark-from` and `job-bookmark-to` arguments.
-   * @returns A configuration object that represents the provided bookmark configuration.
+   * @returns A configuration object that represents the provided bookmark
+   * configuration.
    */
   public static of(value: string, range?: BookmarkRange): BookmarkConfiguration {
     return new BookmarkConfiguration(value, range);
