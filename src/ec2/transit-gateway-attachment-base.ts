@@ -21,9 +21,11 @@ export interface ITransitGatewayAttachment {
   readonly transitGatewayAttachmentId: string;
 
   /**
-   * Adds a route that sends traffic to this transit gateway attachment.
+   * Adds a route that directs traffic to this transit gateway attachment.
    *
-   * @param options Configuration for the route being added.
+   * @param cidr CIDR range that should be routed to this attachment.
+   * @param routeTable The transit gateway route table where the route should
+   * be added.
    * @returns The TransitGatewayRoute that was added.
    */
   addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute;

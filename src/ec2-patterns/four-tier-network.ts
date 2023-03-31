@@ -89,12 +89,12 @@ export class FourTierNetwork extends Vpc {
       };
 
       Object.keys(flowLogs).forEach((x) => {
-        this.addFlowLog(x, flowLogs[x]);
+        this.addVpcFlowLog(x, flowLogs[x]);
       });
     }
   }
 
-  public addFlowLog(id: string, options?: FlowLogOptions): ec2.FlowLog {
+  public addVpcFlowLog(id: string, options?: FlowLogOptions): ec2.FlowLog {
     if (options?.logFormat && options.logFormatDefinition) {
       throw new Error([
         "Only one of 'logFormat' and 'logFormatDefinition' should be",

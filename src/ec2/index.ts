@@ -2,6 +2,7 @@
  * @module aws-ec2
  */
 
+export * from './customer-gateway';
 export * from './flow-log';
 export * from './transit-gateway';
 export * from './transit-gateway-attachment';

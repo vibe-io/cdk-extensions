@@ -31,7 +31,7 @@ export class CustomerGatewayRemoteVpnEndpoint implements IRemoteVpnEndpoint {
    * Produces a configuration that can be used when configuring the remote
    * end of a VPN connection.
    *
-   * @param scope The construct configuring the VPN connection that will be
+   * @param _scope The construct configuring the VPN connection that will be
    * referencing the remote endpoint.
    */
   bind(_scope: IConstruct): RemoteVpnEndpointConfiguration {

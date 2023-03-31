@@ -3,8 +3,7 @@ import { MetricOptions, Metric } from 'aws-cdk-lib/aws-cloudwatch';
 import { CfnVPNConnection, IVpnConnection } from 'aws-cdk-lib/aws-ec2';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
-import { ILocalVpnEndpoint } from './lib/local-vpn-endpoint/local-endpoint-base';
-import { IRemoteVpnEndpoint } from './lib/remote-vpn-endpoint/remote-endpoint-base';
+import { ILocalVpnEndpoint, IRemoteVpnEndpoint } from '.';
 
 
 /**

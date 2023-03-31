@@ -89,7 +89,7 @@ export class FourTierNetworkHub extends FourTierNetwork {
     this._sharedAccounts = [];
   }
 
-  protected _addSharedAccount(accountId: string): void {
+  private _addSharedAccount(accountId: string): void {
     if (!this._sharedAccounts.includes(accountId)) {
       const resourceShare = this._resourceShare ?? this._enableResourceShare();
       resourceShare.addPrincipal(SharedPrincipal.fromAccountId(accountId));
@@ -97,7 +97,7 @@ export class FourTierNetworkHub extends FourTierNetwork {
     }
   }
 
-  protected _enableResourceShare(): IResourceShare {
+  private _enableResourceShare(): IResourceShare {
     const transitGateway = this.transitGateway ?? this.enableTransitGateway();
 
     if (!this._resourceShare) {

@@ -1,6 +1,6 @@
 import { IConstruct } from 'constructs';
+import { ILocalVpnEndpoint, LocalVpnEndpointConfiguration } from '.';
 import { ITransitGateway } from '../..';
-import { ILocalVpnEndpoint, LocalVpnEndpointConfiguration } from './local-endpoint-base';
 
 
 /**
@@ -30,7 +30,7 @@ export class TransitGatewayLocalVpnEndpoint implements ILocalVpnEndpoint {
    * Produces a configuration that can be used when configuring the local
    * end of a VPN connection.
    *
-   * @param scope The construct configuring the VPN connection that will be
+   * @param _scope The construct configuring the VPN connection that will be
    * referencing the local endpoint.
    */
   bind(_scope: IConstruct): LocalVpnEndpointConfiguration {
