@@ -1,10 +1,10 @@
 import { PhysicalName, ResourceProps } from 'aws-cdk-lib';
 import { Schedule } from 'aws-cdk-lib/aws-events';
 import { Construct } from 'constructs';
+import { RawBucket } from './private/raw-bucket';
 import { FlowLogFormat } from '../ec2';
 import { ConfigurationVersion, Crawler, Database, PartitionUpdateBehavior, S3Target, UpdateBehavior } from '../glue';
 import { FlowLogsTable } from '../glue-tables';
-import { RawBucket } from './private/raw-bucket';
 
 
 /**

@@ -131,7 +131,7 @@ export class RawBucket extends Resource implements IBucket {
     throw new Error('Method not implemented.');
   }
 
-  public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant {
+  grantWrite(_identity: IGrantable, _objectsKeyPattern?: any, _allowedActionPatterns?: string[]): Grant {
     throw new Error('Method not implemented.');
   }
 

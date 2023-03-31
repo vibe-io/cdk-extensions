@@ -335,25 +335,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
 
 ---
 
@@ -419,7 +419,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -442,7 +442,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -465,13 +465,7 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
-
-Note that the policy statement may or may not be added to the policy.
-For example, when an `IBucket` is created from an existing bucket,
-it's not possible to tell whether the bucket already has a policy
-attached, let alone to re-use that policy to add more statements to it.
-So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.AlbLogsBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -485,7 +479,7 @@ So it's safest to do nothing in these cases.
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -501,18 +495,7 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:.
-
-Object Deleted (DeleteObject)
-- Object Deleted (Lifecycle expiration)
-- Object Restore Initiated
-- Object Restore Completed
-- Object Restore Expired
-- Object Storage Class Changed
-- Object Access Tier Changed
-- Object ACL Updated
-- Object Tags Added
-- Object Tags Deleted
+Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.AlbLogsBucket.grantDelete"></a>
 
@@ -520,7 +503,7 @@ Object Deleted (DeleteObject)
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.AlbLogsBucket.grantDelete.parameter._identity"></a>
 
@@ -622,7 +605,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -645,7 +628,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -673,7 +656,7 @@ use the `grantPutAcl` method.
 ##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3_buckets.AlbLogsBucket.grantWrite"></a>
 
 ```typescript
-public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any, _allowedActionPatterns?: string[]): Grant
 ```
 
 Grant write permissions to this bucket to an IAM principal.
@@ -701,16 +684,21 @@ use the `grantPutAcl` method.
 
 ---
 
+###### `_allowedActionPatterns`<sup>Optional</sup> <a name="_allowedActionPatterns" id="cdk-extensions.s3_buckets.AlbLogsBucket.grantWrite.parameter._allowedActionPatterns"></a>
+
+- *Type:* string[]
+
+---
+
 ##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailEvent"></a>
 
 ```typescript
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket.
+Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
 
-Requires that there exists at least one CloudTrail Trail in your account
-that captures the event. This method will not create the Trail.
+This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -730,7 +718,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -757,7 +745,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -831,9 +819,11 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object. For example:.
+The https URL of an S3 object.
 
-`https://s3.us-west-1.amazonaws.com/onlybucket`
+For example:
+
+- `https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -849,9 +839,12 @@ The https URL of an S3 object. For example:.
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+The virtual hosted-style URL of an S3 object.
 
-`https://only-bucket.s3.us-west-1.amazonaws.com`
+Specify `regional: false` at
+the options for non-regional URL. For example:
+
+- `https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -3754,6 +3747,7 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.resolve">resolve</a></code> | Resolve a tokenized value in the context of the current stack. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.splitArn">splitArn</a></code> | Splits the provided ARN into its components. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.toJsonString">toJsonString</a></code> | Convert an object, potentially containing tokens, to a JSON string. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.toYamlString">toYamlString</a></code> | Convert an object, potentially containing tokens, to a YAML string. |
 
 ---
 
@@ -3917,11 +3911,11 @@ Instead, the process takes two deployments:
 ### Deployment 1: break the relationship
 
 - Make sure `consumerStack` no longer references `bucket.bucketName` (maybe the consumer
-   stack now uses its own bucket, or it writes to an AWS DynamoDB table, or maybe you just
-   remove the Lambda Function altogether).
+  stack now uses its own bucket, or it writes to an AWS DynamoDB table, or maybe you just
+  remove the Lambda Function altogether).
 - In the `ProducerStack` class, call `this.exportValue(this.bucket.bucketName)`. This
-   will make sure the CloudFormation Export continues to exist while the relationship
-   between the two stacks is being broken.
+  will make sure the CloudFormation Export continues to exist while the relationship
+  between the two stacks is being broken.
 - Deploy (this will effectively only change the `consumerStack`, but it's safe to deploy both).
 
 ### Deployment 2: remove the bucket resource
@@ -3958,7 +3952,7 @@ into the generated ARN at the location that component corresponds to.
 
 The ARN will be formatted as follows:
 
-   arn:{partition}:{service}:{region}:{account}:{resource}{sep}{resource-name}
+  arn:{partition}:{service}:{region}:{account}:{resource}{sep}{resource-name}
 
 The required ARN pieces that are omitted will be taken from the stack that
 the 'scope' is attached to. If all ARN pieces are supplied, the supplied scope
@@ -4135,6 +4129,20 @@ Convert an object, potentially containing tokens, to a JSON string.
 
 ---
 
+##### `toYamlString` <a name="toYamlString" id="cdk-extensions.stacks.AwsLoggingStack.toYamlString"></a>
+
+```typescript
+public toYamlString(obj: any): string
+```
+
+Convert an object, potentially containing tokens, to a YAML string.
+
+###### `obj`<sup>Required</sup> <a name="obj" id="cdk-extensions.stacks.AwsLoggingStack.toYamlString.parameter.obj"></a>
+
+- *Type:* any
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -4266,10 +4274,10 @@ The AWS account into which this stack will be deployed.
 This value is resolved according to the following rules:
 
 1. The value provided to `env.account` when the stack is defined. This can
-    either be a concrete account (e.g. `585695031111`) or the
-    `Aws.ACCOUNT_ID` token.
+   either be a concrete account (e.g. `585695031111`) or the
+   `Aws.ACCOUNT_ID` token.
 3. `Aws.ACCOUNT_ID`, which represents the CloudFormation intrinsic reference
-    `{ "Ref": "AWS::AccountId" }` encoded as a string token.
+   `{ "Ref": "AWS::AccountId" }` encoded as a string token.
 
 Preferably, you should use the return value as an opaque string and not
 attempt to parse it to implement your logic. If you do, you must first
@@ -4414,10 +4422,10 @@ The AWS region into which this stack will be deployed (e.g. `us-west-2`).
 This value is resolved according to the following rules:
 
 1. The value provided to `env.region` when the stack is defined. This can
-    either be a concrete region (e.g. `us-west-2`) or the `Aws.REGION`
-    token.
+   either be a concrete region (e.g. `us-west-2`) or the `Aws.REGION`
+   token.
 3. `Aws.REGION`, which is represents the CloudFormation intrinsic reference
-    `{ "Ref": "AWS::Region" }` encoded as a string token.
+   `{ "Ref": "AWS::Region" }` encoded as a string token.
 
 Preferably, you should use the return value as an opaque string and not
 attempt to parse it to implement your logic. If you do, you must first
@@ -5063,25 +5071,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
 
 ---
 
@@ -5147,7 +5155,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -5170,7 +5178,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -5193,13 +5201,7 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
-
-Note that the policy statement may or may not be added to the policy.
-For example, when an `IBucket` is created from an existing bucket,
-it's not possible to tell whether the bucket already has a policy
-attached, let alone to re-use that policy to add more statements to it.
-So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -5213,7 +5215,7 @@ So it's safest to do nothing in these cases.
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -5229,18 +5231,7 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:.
-
-Object Deleted (DeleteObject)
-- Object Deleted (Lifecycle expiration)
-- Object Restore Initiated
-- Object Restore Completed
-- Object Restore Expired
-- Object Storage Class Changed
-- Object Access Tier Changed
-- Object ACL Updated
-- Object Tags Added
-- Object Tags Deleted
+Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantDelete"></a>
 
@@ -5248,7 +5239,7 @@ Object Deleted (DeleteObject)
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantDelete.parameter._identity"></a>
 
@@ -5350,7 +5341,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -5373,7 +5364,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -5401,7 +5392,7 @@ use the `grantPutAcl` method.
 ##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantWrite"></a>
 
 ```typescript
-public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any, _allowedActionPatterns?: string[]): Grant
 ```
 
 Grant write permissions to this bucket to an IAM principal.
@@ -5429,16 +5420,21 @@ use the `grantPutAcl` method.
 
 ---
 
+###### `_allowedActionPatterns`<sup>Optional</sup> <a name="_allowedActionPatterns" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantWrite.parameter._allowedActionPatterns"></a>
+
+- *Type:* string[]
+
+---
+
 ##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailEvent"></a>
 
 ```typescript
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket.
+Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
 
-Requires that there exists at least one CloudTrail Trail in your account
-that captures the event. This method will not create the Trail.
+This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -5458,7 +5454,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -5485,7 +5481,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -5559,9 +5555,11 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object. For example:.
+The https URL of an S3 object.
 
-`https://s3.us-west-1.amazonaws.com/onlybucket`
+For example:
+
+- `https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -5577,9 +5575,12 @@ The https URL of an S3 object. For example:.
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+The virtual hosted-style URL of an S3 object.
 
-`https://only-bucket.s3.us-west-1.amazonaws.com`
+Specify `regional: false` at
+the options for non-regional URL. For example:
+
+- `https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -6518,25 +6519,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
 
 ---
 
@@ -6602,7 +6603,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -6625,7 +6626,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -6648,13 +6649,7 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
-
-Note that the policy statement may or may not be added to the policy.
-For example, when an `IBucket` is created from an existing bucket,
-it's not possible to tell whether the bucket already has a policy
-attached, let alone to re-use that policy to add more statements to it.
-So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.CloudtrailBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -6668,7 +6663,7 @@ So it's safest to do nothing in these cases.
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -6684,18 +6679,7 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:.
-
-Object Deleted (DeleteObject)
-- Object Deleted (Lifecycle expiration)
-- Object Restore Initiated
-- Object Restore Completed
-- Object Restore Expired
-- Object Storage Class Changed
-- Object Access Tier Changed
-- Object ACL Updated
-- Object Tags Added
-- Object Tags Deleted
+Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.CloudtrailBucket.grantDelete"></a>
 
@@ -6703,7 +6687,7 @@ Object Deleted (DeleteObject)
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudtrailBucket.grantDelete.parameter._identity"></a>
 
@@ -6805,7 +6789,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -6828,7 +6812,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -6856,7 +6840,7 @@ use the `grantPutAcl` method.
 ##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3_buckets.CloudtrailBucket.grantWrite"></a>
 
 ```typescript
-public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any, _allowedActionPatterns?: string[]): Grant
 ```
 
 Grant write permissions to this bucket to an IAM principal.
@@ -6884,16 +6868,21 @@ use the `grantPutAcl` method.
 
 ---
 
+###### `_allowedActionPatterns`<sup>Optional</sup> <a name="_allowedActionPatterns" id="cdk-extensions.s3_buckets.CloudtrailBucket.grantWrite.parameter._allowedActionPatterns"></a>
+
+- *Type:* string[]
+
+---
+
 ##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailEvent"></a>
 
 ```typescript
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket.
+Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
 
-Requires that there exists at least one CloudTrail Trail in your account
-that captures the event. This method will not create the Trail.
+This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -6913,7 +6902,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -6940,7 +6929,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -7014,9 +7003,11 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object. For example:.
+The https URL of an S3 object.
 
-`https://s3.us-west-1.amazonaws.com/onlybucket`
+For example:
+
+- `https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -7032,9 +7023,12 @@ The https URL of an S3 object. For example:.
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+The virtual hosted-style URL of an S3 object.
 
-`https://only-bucket.s3.us-west-1.amazonaws.com`
+Specify `regional: false` at
+the options for non-regional URL. For example:
+
+- `https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -8747,6 +8741,382 @@ public readonly updateBehavior: UpdateBehavior;
 - *Type:* cdk-extensions.glue.UpdateBehavior
 
 {@link CrawlerProps.updateBehavior}.
+
+---
+
+
+### CustomerGateway <a name="CustomerGateway" id="cdk-extensions.ec2.CustomerGateway"></a>
+
+- *Implements:* cdk-extensions.ec2.ICustomerGateway
+
+Specifies thje details of a remote endpoint that can serve as an endpoint for connections to AWS.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.CustomerGateway.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.CustomerGateway(scope: Construct, id: string, props: CustomerGatewayProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.CustomerGatewayProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.CustomerGateway.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.CustomerGateway.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.CustomerGateway.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.CustomerGatewayProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.CustomerGateway.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.CustomerGateway.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.CustomerGateway.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.fromCustomerGatewayAttributes">fromCustomerGatewayAttributes</a></code> | Imports an existing custom gateway by specifying its details. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.fromCustomerGatewayId">fromCustomerGatewayId</a></code> | Imports an existing custom gateway using its CustomerGatewayId. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.CustomerGateway.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.CustomerGateway.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.CustomerGateway.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.CustomerGateway.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.CustomerGateway.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.CustomerGateway.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.CustomerGateway.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.CustomerGateway.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.CustomerGateway.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromCustomerGatewayAttributes` <a name="fromCustomerGatewayAttributes" id="cdk-extensions.ec2.CustomerGateway.fromCustomerGatewayAttributes"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.CustomerGateway.fromCustomerGatewayAttributes(scope: IConstruct, id: string, attributes: CustomerGatewayAttributes)
+```
+
+Imports an existing custom gateway by specifying its details.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.CustomerGateway.fromCustomerGatewayAttributes.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.CustomerGateway.fromCustomerGatewayAttributes.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `attributes`<sup>Required</sup> <a name="attributes" id="cdk-extensions.ec2.CustomerGateway.fromCustomerGatewayAttributes.parameter.attributes"></a>
+
+- *Type:* cdk-extensions.ec2.CustomerGatewayAttributes
+
+The details of the existing customer gateway being imported.
+
+---
+
+##### `fromCustomerGatewayId` <a name="fromCustomerGatewayId" id="cdk-extensions.ec2.CustomerGateway.fromCustomerGatewayId"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.CustomerGateway.fromCustomerGatewayId(scope: IConstruct, id: string, customerGatewayId: string)
+```
+
+Imports an existing custom gateway using its CustomerGatewayId.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.CustomerGateway.fromCustomerGatewayId.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.CustomerGateway.fromCustomerGatewayId.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `customerGatewayId`<sup>Required</sup> <a name="customerGatewayId" id="cdk-extensions.ec2.CustomerGateway.fromCustomerGatewayId.parameter.customerGatewayId"></a>
+
+- *Type:* string
+
+The ID of the existing customer gateway being imported.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.property.bgpAsn">bgpAsn</a></code> | <code>number</code> | For devices that support BGP, the customer gateway's BGP ASN. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.property.connectionType">connectionType</a></code> | <code>cdk-extensions.ec2.VpnConnectionType</code> | The type of VPN connection that this customer gateway supports. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.property.customerGatewayAsn">customerGatewayAsn</a></code> | <code>number</code> | The BGP ASN of the customer gateway. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.property.customerGatewayId">customerGatewayId</a></code> | <code>string</code> | The ID of the customer gateway. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.property.customerGatewayIp">customerGatewayIp</a></code> | <code>string</code> | The IP address of the customer gateway. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.property.ipAddress">ipAddress</a></code> | <code>string</code> | The Internet-routable IP address for the customer gateway's outside interface. |
+| <code><a href="#cdk-extensions.ec2.CustomerGateway.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnCustomerGateway</code> | The underlying CustomerGateway CloudFormation resource. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.CustomerGateway.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.CustomerGateway.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.CustomerGateway.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `bgpAsn`<sup>Required</sup> <a name="bgpAsn" id="cdk-extensions.ec2.CustomerGateway.property.bgpAsn"></a>
+
+```typescript
+public readonly bgpAsn: number;
+```
+
+- *Type:* number
+
+For devices that support BGP, the customer gateway's BGP ASN.
+
+> [[CustomerGateway BgpAsn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-bgpasn)]([CustomerGateway BgpAsn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-bgpasn))
+
+---
+
+##### `connectionType`<sup>Required</sup> <a name="connectionType" id="cdk-extensions.ec2.CustomerGateway.property.connectionType"></a>
+
+```typescript
+public readonly connectionType: VpnConnectionType;
+```
+
+- *Type:* cdk-extensions.ec2.VpnConnectionType
+
+The type of VPN connection that this customer gateway supports.
+
+> [[CustomerGateway Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-type)]([CustomerGateway Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-type))
+
+---
+
+##### `customerGatewayAsn`<sup>Required</sup> <a name="customerGatewayAsn" id="cdk-extensions.ec2.CustomerGateway.property.customerGatewayAsn"></a>
+
+```typescript
+public readonly customerGatewayAsn: number;
+```
+
+- *Type:* number
+
+The BGP ASN of the customer gateway.
+
+---
+
+##### `customerGatewayId`<sup>Required</sup> <a name="customerGatewayId" id="cdk-extensions.ec2.CustomerGateway.property.customerGatewayId"></a>
+
+```typescript
+public readonly customerGatewayId: string;
+```
+
+- *Type:* string
+
+The ID of the customer gateway.
+
+---
+
+##### `customerGatewayIp`<sup>Required</sup> <a name="customerGatewayIp" id="cdk-extensions.ec2.CustomerGateway.property.customerGatewayIp"></a>
+
+```typescript
+public readonly customerGatewayIp: string;
+```
+
+- *Type:* string
+
+The IP address of the customer gateway.
+
+---
+
+##### `ipAddress`<sup>Required</sup> <a name="ipAddress" id="cdk-extensions.ec2.CustomerGateway.property.ipAddress"></a>
+
+```typescript
+public readonly ipAddress: string;
+```
+
+- *Type:* string
+
+The Internet-routable IP address for the customer gateway's outside interface.
+
+The address must be static.
+
+> [[CustomerGateway IpAddress](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-ipaddress)]([CustomerGateway IpAddress](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-ipaddress))
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.CustomerGateway.property.resource"></a>
+
+```typescript
+public readonly resource: CfnCustomerGateway;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnCustomerGateway
+
+The underlying CustomerGateway CloudFormation resource.
+
+> [[AWS::EC2::CustomerGateway](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html)]([AWS::EC2::CustomerGateway](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html))
 
 ---
 
@@ -11341,8 +11711,6 @@ Collection of Fluent Bit parser plugins being configured for logging.
 
 ### FlowLog <a name="FlowLog" id="cdk-extensions.ec2.FlowLog"></a>
 
-- *Implements:* aws-cdk-lib.aws_ec2.IFlowLog
-
 #### Initializers <a name="Initializers" id="cdk-extensions.ec2.FlowLog.Initializer"></a>
 
 ```typescript
@@ -11432,6 +11800,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 | <code><a href="#cdk-extensions.ec2.FlowLog.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#cdk-extensions.ec2.FlowLog.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#cdk-extensions.ec2.FlowLog.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ec2.FlowLog.fromFlowLogId">fromFlowLogId</a></code> | Import a Flow Log by it's Id. |
 
 ---
 
@@ -11485,6 +11854,34 @@ Check whether the given construct is a Resource.
 
 ---
 
+##### `fromFlowLogId` <a name="fromFlowLogId" id="cdk-extensions.ec2.FlowLog.fromFlowLogId"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.FlowLog.fromFlowLogId(scope: Construct, id: string, flowLogId: string)
+```
+
+Import a Flow Log by it's Id.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.FlowLog.fromFlowLogId.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.FlowLog.fromFlowLogId.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `flowLogId`<sup>Required</sup> <a name="flowLogId" id="cdk-extensions.ec2.FlowLog.fromFlowLogId.parameter.flowLogId"></a>
+
+- *Type:* string
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
@@ -11492,14 +11889,18 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.ec2.FlowLog.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.ec2.FlowLog.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.ec2.FlowLog.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#cdk-extensions.ec2.FlowLog.property.destination">destination</a></code> | <code>cdk-extensions.ec2.FlowLogDestination</code> | The location where flow logs should be delivered. |
-| <code><a href="#cdk-extensions.ec2.FlowLog.property.flowLogArn">flowLogArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the flow log. |
-| <code><a href="#cdk-extensions.ec2.FlowLog.property.flowLogId">flowLogId</a></code> | <code>string</code> | The ID of the flow log. |
-| <code><a href="#cdk-extensions.ec2.FlowLog.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | The fields to include in the flow log record, in the order in which they should appear. |
+| <code><a href="#cdk-extensions.ec2.FlowLog.property.flowLogId">flowLogId</a></code> | <code>string</code> | The Id of the VPC Flow Log. |
+| <code><a href="#cdk-extensions.ec2.FlowLog.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | The S3 bucket to publish flow logs to. |
+| <code><a href="#cdk-extensions.ec2.FlowLog.property.iamRole">iamRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The iam role used to publish logs to CloudWatch. |
+| <code><a href="#cdk-extensions.ec2.FlowLog.property.keyPrefix">keyPrefix</a></code> | <code>string</code> | S3 bucket key prefix to publish the flow logs under. |
+| <code><a href="#cdk-extensions.ec2.FlowLog.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The CloudWatch Logs LogGroup to publish flow logs to. |
+| <code><a href="#cdk-extensions.ec2.FlowLog.property.destination">destination</a></code> | <code>aws-cdk-lib.aws_ec2.FlowLogDestination</code> | The location where flow logs should be delivered. |
+| <code><a href="#cdk-extensions.ec2.FlowLog.property.logFormat">logFormat</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | The fields to include in the flow log record, in the order in which they should appear. |
 | <code><a href="#cdk-extensions.ec2.FlowLog.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnFlowLog</code> | The underlying FlowLog CloudFormation resource. |
 | <code><a href="#cdk-extensions.ec2.FlowLog.property.resourceType">resourceType</a></code> | <code>aws-cdk-lib.aws_ec2.FlowLogResourceType</code> | Details for the resource from which flow logs will be captured. |
 | <code><a href="#cdk-extensions.ec2.FlowLog.property.trafficType">trafficType</a></code> | <code>aws-cdk-lib.aws_ec2.FlowLogTrafficType</code> | The type of traffic to monitor (accepted traffic, rejected traffic, or all traffic). |
-| <code><a href="#cdk-extensions.ec2.FlowLog.property.maxAggregationInterval">maxAggregationInterval</a></code> | <code>cdk-extensions.ec2.FlowLogAggregationInterval</code> | The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. |
+| <code><a href="#cdk-extensions.ec2.FlowLog.property.flowLogName">flowLogName</a></code> | <code>string</code> | The name of the FlowLog. |
+| <code><a href="#cdk-extensions.ec2.FlowLog.property.maxAggregationInterval">maxAggregationInterval</a></code> | <code>aws-cdk-lib.aws_ec2.FlowLogMaxAggregationInterval</code> | The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. |
 
 ---
 
@@ -11546,32 +11947,6 @@ The stack in which this resource is defined.
 
 ---
 
-##### `destination`<sup>Required</sup> <a name="destination" id="cdk-extensions.ec2.FlowLog.property.destination"></a>
-
-```typescript
-public readonly destination: FlowLogDestination;
-```
-
-- *Type:* cdk-extensions.ec2.FlowLogDestination
-
-The location where flow logs should be delivered.
-
-> [[FlowLog LogDestinationType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype)]([FlowLog LogDestinationType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype))
-
----
-
-##### `flowLogArn`<sup>Required</sup> <a name="flowLogArn" id="cdk-extensions.ec2.FlowLog.property.flowLogArn"></a>
-
-```typescript
-public readonly flowLogArn: string;
-```
-
-- *Type:* string
-
-The Amazon Resource Name (ARN) of the flow log.
-
----
-
 ##### `flowLogId`<sup>Required</sup> <a name="flowLogId" id="cdk-extensions.ec2.FlowLog.property.flowLogId"></a>
 
 ```typescript
@@ -11580,14 +11955,76 @@ public readonly flowLogId: string;
 
 - *Type:* string
 
-The ID of the flow log.
+The Id of the VPC Flow Log.
 
 ---
 
-##### `format`<sup>Required</sup> <a name="format" id="cdk-extensions.ec2.FlowLog.property.format"></a>
+##### `bucket`<sup>Optional</sup> <a name="bucket" id="cdk-extensions.ec2.FlowLog.property.bucket"></a>
 
 ```typescript
-public readonly format: FlowLogFormat;
+public readonly bucket: IBucket;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.IBucket
+
+The S3 bucket to publish flow logs to.
+
+---
+
+##### `iamRole`<sup>Optional</sup> <a name="iamRole" id="cdk-extensions.ec2.FlowLog.property.iamRole"></a>
+
+```typescript
+public readonly iamRole: IRole;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IRole
+
+The iam role used to publish logs to CloudWatch.
+
+---
+
+##### `keyPrefix`<sup>Optional</sup> <a name="keyPrefix" id="cdk-extensions.ec2.FlowLog.property.keyPrefix"></a>
+
+```typescript
+public readonly keyPrefix: string;
+```
+
+- *Type:* string
+
+S3 bucket key prefix to publish the flow logs under.
+
+---
+
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.ec2.FlowLog.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+The CloudWatch Logs LogGroup to publish flow logs to.
+
+---
+
+##### `destination`<sup>Required</sup> <a name="destination" id="cdk-extensions.ec2.FlowLog.property.destination"></a>
+
+```typescript
+public readonly destination: FlowLogDestination;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.FlowLogDestination
+
+The location where flow logs should be delivered.
+
+> [[FlowLog LogDestinationType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype)]([FlowLog LogDestinationType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype))
+
+---
+
+##### `logFormat`<sup>Required</sup> <a name="logFormat" id="cdk-extensions.ec2.FlowLog.property.logFormat"></a>
+
+```typescript
+public readonly logFormat: FlowLogFormat;
 ```
 
 - *Type:* cdk-extensions.ec2.FlowLogFormat
@@ -11642,13 +12079,25 @@ The type of traffic to monitor (accepted traffic, rejected traffic, or all traff
 
 ---
 
+##### `flowLogName`<sup>Optional</sup> <a name="flowLogName" id="cdk-extensions.ec2.FlowLog.property.flowLogName"></a>
+
+```typescript
+public readonly flowLogName: string;
+```
+
+- *Type:* string
+
+The name of the FlowLog.
+
+---
+
 ##### `maxAggregationInterval`<sup>Optional</sup> <a name="maxAggregationInterval" id="cdk-extensions.ec2.FlowLog.property.maxAggregationInterval"></a>
 
 ```typescript
-public readonly maxAggregationInterval: FlowLogAggregationInterval;
+public readonly maxAggregationInterval: FlowLogMaxAggregationInterval;
 ```
 
-- *Type:* cdk-extensions.ec2.FlowLogAggregationInterval
+- *Type:* aws-cdk-lib.aws_ec2.FlowLogMaxAggregationInterval
 
 The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
 
@@ -11709,25 +12158,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
 
 ---
 
@@ -11793,7 +12242,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -11816,7 +12265,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -11839,13 +12288,7 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
-
-Note that the policy statement may or may not be added to the policy.
-For example, when an `IBucket` is created from an existing bucket,
-it's not possible to tell whether the bucket already has a policy
-attached, let alone to re-use that policy to add more statements to it.
-So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.FlowLogsBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -11859,7 +12302,7 @@ So it's safest to do nothing in these cases.
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -11875,18 +12318,7 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:.
-
-Object Deleted (DeleteObject)
-- Object Deleted (Lifecycle expiration)
-- Object Restore Initiated
-- Object Restore Completed
-- Object Restore Expired
-- Object Storage Class Changed
-- Object Access Tier Changed
-- Object ACL Updated
-- Object Tags Added
-- Object Tags Deleted
+Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.FlowLogsBucket.grantDelete"></a>
 
@@ -11894,7 +12326,7 @@ Object Deleted (DeleteObject)
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.FlowLogsBucket.grantDelete.parameter._identity"></a>
 
@@ -11996,7 +12428,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -12019,7 +12451,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -12047,7 +12479,7 @@ use the `grantPutAcl` method.
 ##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3_buckets.FlowLogsBucket.grantWrite"></a>
 
 ```typescript
-public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any, _allowedActionPatterns?: string[]): Grant
 ```
 
 Grant write permissions to this bucket to an IAM principal.
@@ -12075,16 +12507,21 @@ use the `grantPutAcl` method.
 
 ---
 
+###### `_allowedActionPatterns`<sup>Optional</sup> <a name="_allowedActionPatterns" id="cdk-extensions.s3_buckets.FlowLogsBucket.grantWrite.parameter._allowedActionPatterns"></a>
+
+- *Type:* string[]
+
+---
+
 ##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailEvent"></a>
 
 ```typescript
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket.
+Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
 
-Requires that there exists at least one CloudTrail Trail in your account
-that captures the event. This method will not create the Trail.
+This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -12104,7 +12541,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -12131,7 +12568,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -12205,9 +12642,11 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object. For example:.
+The https URL of an S3 object.
 
-`https://s3.us-west-1.amazonaws.com/onlybucket`
+For example:
+
+- `https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -12223,9 +12662,12 @@ The https URL of an S3 object. For example:.
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+The virtual hosted-style URL of an S3 object.
 
-`https://only-bucket.s3.us-west-1.amazonaws.com`
+Specify `regional: false` at
+the options for non-regional URL. For example:
+
+- `https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -13124,6 +13566,2276 @@ public readonly internalRejectedNamedQuery: NamedQuery;
 
 ---
 
+
+### FourTierNetwork <a name="FourTierNetwork" id="cdk-extensions.ec2_patterns.FourTierNetwork"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2_patterns.FourTierNetwork.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+new ec2_patterns.FourTierNetwork(scope: IConstruct, id: string, props?: FourTierNetworkProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2_patterns.FourTierNetworkProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.FourTierNetwork.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetwork.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2_patterns.FourTierNetwork.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.FourTierNetworkProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.addClientVpnEndpoint">addClientVpnEndpoint</a></code> | Adds a new client VPN endpoint to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.addFlowLog">addFlowLog</a></code> | Adds a new flow log to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.addGatewayEndpoint">addGatewayEndpoint</a></code> | Adds a new gateway endpoint to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.addInterfaceEndpoint">addInterfaceEndpoint</a></code> | Adds a new interface endpoint to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.addVpnConnection">addVpnConnection</a></code> | Adds a new VPN connection to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.enableVpnGateway">enableVpnGateway</a></code> | Adds a VPN Gateway to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.selectSubnets">selectSubnets</a></code> | Returns IDs of selected subnets. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.addVpcFlowLog">addVpcFlowLog</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2_patterns.FourTierNetwork.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2_patterns.FourTierNetwork.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2_patterns.FourTierNetwork.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addClientVpnEndpoint` <a name="addClientVpnEndpoint" id="cdk-extensions.ec2_patterns.FourTierNetwork.addClientVpnEndpoint"></a>
+
+```typescript
+public addClientVpnEndpoint(id: string, options: ClientVpnEndpointOptions): ClientVpnEndpoint
+```
+
+Adds a new client VPN endpoint to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetwork.addClientVpnEndpoint.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetwork.addClientVpnEndpoint.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.ClientVpnEndpointOptions
+
+---
+
+##### `addFlowLog` <a name="addFlowLog" id="cdk-extensions.ec2_patterns.FourTierNetwork.addFlowLog"></a>
+
+```typescript
+public addFlowLog(id: string, options?: FlowLogOptions): FlowLog
+```
+
+Adds a new flow log to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetwork.addFlowLog.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetwork.addFlowLog.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.FlowLogOptions
+
+---
+
+##### `addGatewayEndpoint` <a name="addGatewayEndpoint" id="cdk-extensions.ec2_patterns.FourTierNetwork.addGatewayEndpoint"></a>
+
+```typescript
+public addGatewayEndpoint(id: string, options: GatewayVpcEndpointOptions): GatewayVpcEndpoint
+```
+
+Adds a new gateway endpoint to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetwork.addGatewayEndpoint.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetwork.addGatewayEndpoint.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions
+
+---
+
+##### `addInterfaceEndpoint` <a name="addInterfaceEndpoint" id="cdk-extensions.ec2_patterns.FourTierNetwork.addInterfaceEndpoint"></a>
+
+```typescript
+public addInterfaceEndpoint(id: string, options: InterfaceVpcEndpointOptions): InterfaceVpcEndpoint
+```
+
+Adds a new interface endpoint to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetwork.addInterfaceEndpoint.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetwork.addInterfaceEndpoint.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.InterfaceVpcEndpointOptions
+
+---
+
+##### `addVpnConnection` <a name="addVpnConnection" id="cdk-extensions.ec2_patterns.FourTierNetwork.addVpnConnection"></a>
+
+```typescript
+public addVpnConnection(id: string, options: VpnConnectionOptions): VpnConnection
+```
+
+Adds a new VPN connection to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetwork.addVpnConnection.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetwork.addVpnConnection.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.VpnConnectionOptions
+
+---
+
+##### `enableVpnGateway` <a name="enableVpnGateway" id="cdk-extensions.ec2_patterns.FourTierNetwork.enableVpnGateway"></a>
+
+```typescript
+public enableVpnGateway(options: EnableVpnGatewayOptions): void
+```
+
+Adds a VPN Gateway to this VPC.
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetwork.enableVpnGateway.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.EnableVpnGatewayOptions
+
+---
+
+##### `selectSubnets` <a name="selectSubnets" id="cdk-extensions.ec2_patterns.FourTierNetwork.selectSubnets"></a>
+
+```typescript
+public selectSubnets(selection?: SubnetSelection): SelectedSubnets
+```
+
+Returns IDs of selected subnets.
+
+###### `selection`<sup>Optional</sup> <a name="selection" id="cdk-extensions.ec2_patterns.FourTierNetwork.selectSubnets.parameter.selection"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+---
+
+##### `addVpcFlowLog` <a name="addVpcFlowLog" id="cdk-extensions.ec2_patterns.FourTierNetwork.addVpcFlowLog"></a>
+
+```typescript
+public addVpcFlowLog(id: string, options?: FlowLogOptions): FlowLog
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetwork.addVpcFlowLog.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetwork.addVpcFlowLog.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.FlowLogOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.fromLookup">fromLookup</a></code> | Import an existing VPC by querying the AWS environment this stack is deployed to. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.fromVpcAttributes">fromVpcAttributes</a></code> | Import a VPC by supplying all attributes directly. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2_patterns.FourTierNetwork.isConstruct"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetwork.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2_patterns.FourTierNetwork.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2_patterns.FourTierNetwork.isOwnedResource"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetwork.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2_patterns.FourTierNetwork.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2_patterns.FourTierNetwork.isResource"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetwork.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2_patterns.FourTierNetwork.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromLookup` <a name="fromLookup" id="cdk-extensions.ec2_patterns.FourTierNetwork.fromLookup"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetwork.fromLookup(scope: Construct, id: string, options: VpcLookupOptions)
+```
+
+Import an existing VPC by querying the AWS environment this stack is deployed to.
+
+This function only needs to be used to use VPCs not defined in your CDK
+application. If you are looking to share a VPC between stacks, you can
+pass the `Vpc` object between stacks and use it as normal.
+
+Calling this method will lead to a lookup when the CDK CLI is executed.
+You can therefore not use any values that will only be available at
+CloudFormation execution time (i.e., Tokens).
+
+The VPC information will be cached in `cdk.context.json` and the same VPC
+will be used on future runs. To refresh the lookup, you will have to
+evict the value from the cache using the `cdk context` command. See
+https://docs.aws.amazon.com/cdk/latest/guide/context.html for more information.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.FourTierNetwork.fromLookup.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetwork.fromLookup.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetwork.fromLookup.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.VpcLookupOptions
+
+---
+
+##### `fromVpcAttributes` <a name="fromVpcAttributes" id="cdk-extensions.ec2_patterns.FourTierNetwork.fromVpcAttributes"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetwork.fromVpcAttributes(scope: Construct, id: string, attrs: VpcAttributes)
+```
+
+Import a VPC by supplying all attributes directly.
+
+NOTE: using `fromVpcAttributes()` with deploy-time parameters (like a `Fn.importValue()` or
+`CfnParameter` to represent a list of subnet IDs) sometimes accidentally works. It happens
+to work for constructs that need a list of subnets (like `AutoScalingGroup` and `eks.Cluster`)
+but it does not work for constructs that need individual subnets (like
+`Instance`). See https://github.com/aws/aws-cdk/issues/4118 for more
+information.
+
+Prefer to use `Vpc.fromLookup()` instead.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.FourTierNetwork.fromVpcAttributes.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetwork.fromVpcAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.ec2_patterns.FourTierNetwork.fromVpcAttributes.parameter.attrs"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.VpcAttributes
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | AZs for this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.dnsHostnamesEnabled">dnsHostnamesEnabled</a></code> | <code>boolean</code> | Indicates if instances launched in this VPC will have public DNS hostnames. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.dnsSupportEnabled">dnsSupportEnabled</a></code> | <code>boolean</code> | Indicates if DNS support is enabled for this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.internetConnectivityEstablished">internetConnectivityEstablished</a></code> | <code>constructs.IDependable</code> | Dependencies for internet connectivity. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.isolatedSubnets">isolatedSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | List of isolated subnets in this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.privateSubnets">privateSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | List of private subnets in this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.publicSubnets">publicSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | List of public subnets in this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcArn">vpcArn</a></code> | <code>string</code> | Arn of this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcCidrBlock">vpcCidrBlock</a></code> | <code>string</code> | CIDR range for this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcCidrBlockAssociations">vpcCidrBlockAssociations</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcDefaultNetworkAcl">vpcDefaultNetworkAcl</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcDefaultSecurityGroup">vpcDefaultSecurityGroup</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcId">vpcId</a></code> | <code>string</code> | Identifier for this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcIpv6CidrBlocks">vpcIpv6CidrBlocks</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.internetGatewayId">internetGatewayId</a></code> | <code>string</code> | Internet Gateway for the VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | Returns the id of the VPN Gateway (if enabled). |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `availabilityZones`<sup>Required</sup> <a name="availabilityZones" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.availabilityZones"></a>
+
+```typescript
+public readonly availabilityZones: string[];
+```
+
+- *Type:* string[]
+
+AZs for this VPC.
+
+---
+
+##### `dnsHostnamesEnabled`<sup>Required</sup> <a name="dnsHostnamesEnabled" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.dnsHostnamesEnabled"></a>
+
+```typescript
+public readonly dnsHostnamesEnabled: boolean;
+```
+
+- *Type:* boolean
+
+Indicates if instances launched in this VPC will have public DNS hostnames.
+
+---
+
+##### `dnsSupportEnabled`<sup>Required</sup> <a name="dnsSupportEnabled" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.dnsSupportEnabled"></a>
+
+```typescript
+public readonly dnsSupportEnabled: boolean;
+```
+
+- *Type:* boolean
+
+Indicates if DNS support is enabled for this VPC.
+
+---
+
+##### `internetConnectivityEstablished`<sup>Required</sup> <a name="internetConnectivityEstablished" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.internetConnectivityEstablished"></a>
+
+```typescript
+public readonly internetConnectivityEstablished: IDependable;
+```
+
+- *Type:* constructs.IDependable
+
+Dependencies for internet connectivity.
+
+---
+
+##### `isolatedSubnets`<sup>Required</sup> <a name="isolatedSubnets" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.isolatedSubnets"></a>
+
+```typescript
+public readonly isolatedSubnets: ISubnet[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
+
+List of isolated subnets in this VPC.
+
+---
+
+##### `privateSubnets`<sup>Required</sup> <a name="privateSubnets" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.privateSubnets"></a>
+
+```typescript
+public readonly privateSubnets: ISubnet[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
+
+List of private subnets in this VPC.
+
+---
+
+##### `publicSubnets`<sup>Required</sup> <a name="publicSubnets" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.publicSubnets"></a>
+
+```typescript
+public readonly publicSubnets: ISubnet[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
+
+List of public subnets in this VPC.
+
+---
+
+##### `vpcArn`<sup>Required</sup> <a name="vpcArn" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcArn"></a>
+
+```typescript
+public readonly vpcArn: string;
+```
+
+- *Type:* string
+
+Arn of this VPC.
+
+---
+
+##### `vpcCidrBlock`<sup>Required</sup> <a name="vpcCidrBlock" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcCidrBlock"></a>
+
+```typescript
+public readonly vpcCidrBlock: string;
+```
+
+- *Type:* string
+
+CIDR range for this VPC.
+
+---
+
+##### `vpcCidrBlockAssociations`<sup>Required</sup> <a name="vpcCidrBlockAssociations" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcCidrBlockAssociations"></a>
+
+```typescript
+public readonly vpcCidrBlockAssociations: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `vpcDefaultNetworkAcl`<sup>Required</sup> <a name="vpcDefaultNetworkAcl" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcDefaultNetworkAcl"></a>
+
+```typescript
+public readonly vpcDefaultNetworkAcl: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpcDefaultSecurityGroup`<sup>Required</sup> <a name="vpcDefaultSecurityGroup" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcDefaultSecurityGroup"></a>
+
+```typescript
+public readonly vpcDefaultSecurityGroup: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpcId`<sup>Required</sup> <a name="vpcId" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcId"></a>
+
+```typescript
+public readonly vpcId: string;
+```
+
+- *Type:* string
+
+Identifier for this VPC.
+
+---
+
+##### `vpcIpv6CidrBlocks`<sup>Required</sup> <a name="vpcIpv6CidrBlocks" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcIpv6CidrBlocks"></a>
+
+```typescript
+public readonly vpcIpv6CidrBlocks: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `internetGatewayId`<sup>Optional</sup> <a name="internetGatewayId" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.internetGatewayId"></a>
+
+```typescript
+public readonly internetGatewayId: string;
+```
+
+- *Type:* string
+
+Internet Gateway for the VPC.
+
+Note that in case the VPC is configured only
+with ISOLATED subnets, this attribute will be `undefined`.
+
+---
+
+##### `vpnGatewayId`<sup>Optional</sup> <a name="vpnGatewayId" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.vpnGatewayId"></a>
+
+```typescript
+public readonly vpnGatewayId: string;
+```
+
+- *Type:* string
+
+Returns the id of the VPN Gateway (if enabled).
+
+---
+
+##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.defaultInstanceTenancy"></a>
+
+```typescript
+public readonly defaultInstanceTenancy: DefaultInstanceTenancy;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.DefaultInstanceTenancy
+
+---
+
+##### `enableDnsHostnames`<sup>Optional</sup> <a name="enableDnsHostnames" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.enableDnsHostnames"></a>
+
+```typescript
+public readonly enableDnsHostnames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `enableDnsSupport`<sup>Optional</sup> <a name="enableDnsSupport" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.enableDnsSupport"></a>
+
+```typescript
+public readonly enableDnsSupport: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.maxAzs"></a>
+
+```typescript
+public readonly maxAzs: number;
+```
+
+- *Type:* number
+
+---
+
+##### `vpcName`<sup>Optional</sup> <a name="vpcName" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcName"></a>
+
+```typescript
+public readonly vpcName: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.DEFAULT_CIDR_RANGE">DEFAULT_CIDR_RANGE</a></code> | <code>string</code> | The default CIDR range used when creating VPCs. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.DEFAULT_SUBNETS">DEFAULT_SUBNETS</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetConfiguration[]</code> | The default subnet configuration. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.DEFAULT_SUBNETS_NO_NAT">DEFAULT_SUBNETS_NO_NAT</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetConfiguration[]</code> | The default subnet configuration if natGateways specified to be 0. |
+
+---
+
+##### `DEFAULT_CIDR_RANGE`<sup>Required</sup> <a name="DEFAULT_CIDR_RANGE" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.DEFAULT_CIDR_RANGE"></a>
+
+```typescript
+public readonly DEFAULT_CIDR_RANGE: string;
+```
+
+- *Type:* string
+
+The default CIDR range used when creating VPCs.
+
+This can be overridden using VpcProps when creating a VPCNetwork resource.
+e.g. new VpcResource(this, { cidr: '192.168.0.0./16' })
+
+---
+
+##### `DEFAULT_SUBNETS`<sup>Required</sup> <a name="DEFAULT_SUBNETS" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.DEFAULT_SUBNETS"></a>
+
+```typescript
+public readonly DEFAULT_SUBNETS: SubnetConfiguration[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetConfiguration[]
+
+The default subnet configuration.
+
+1 Public and 1 Private subnet per AZ evenly split
+
+---
+
+##### `DEFAULT_SUBNETS_NO_NAT`<sup>Required</sup> <a name="DEFAULT_SUBNETS_NO_NAT" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.DEFAULT_SUBNETS_NO_NAT"></a>
+
+```typescript
+public readonly DEFAULT_SUBNETS_NO_NAT: SubnetConfiguration[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetConfiguration[]
+
+The default subnet configuration if natGateways specified to be 0.
+
+1 Public and 1 Isolated Subnet per AZ evenly split
+
+---
+
+### FourTierNetworkHub <a name="FourTierNetworkHub" id="cdk-extensions.ec2_patterns.FourTierNetworkHub"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+new ec2_patterns.FourTierNetworkHub(scope: IConstruct, id: string, props?: FourTierNetworkHubProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2_patterns.FourTierNetworkHubProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.FourTierNetworkHubProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.addClientVpnEndpoint">addClientVpnEndpoint</a></code> | Adds a new client VPN endpoint to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.addFlowLog">addFlowLog</a></code> | Adds a new flow log to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.addGatewayEndpoint">addGatewayEndpoint</a></code> | Adds a new gateway endpoint to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.addInterfaceEndpoint">addInterfaceEndpoint</a></code> | Adds a new interface endpoint to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.addVpnConnection">addVpnConnection</a></code> | Adds a new VPN connection to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.enableVpnGateway">enableVpnGateway</a></code> | Adds a VPN Gateway to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.selectSubnets">selectSubnets</a></code> | Returns IDs of selected subnets. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.addVpcFlowLog">addVpcFlowLog</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.addSpoke">addSpoke</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.enableTransitGateway">enableTransitGateway</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addClientVpnEndpoint` <a name="addClientVpnEndpoint" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addClientVpnEndpoint"></a>
+
+```typescript
+public addClientVpnEndpoint(id: string, options: ClientVpnEndpointOptions): ClientVpnEndpoint
+```
+
+Adds a new client VPN endpoint to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addClientVpnEndpoint.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addClientVpnEndpoint.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.ClientVpnEndpointOptions
+
+---
+
+##### `addFlowLog` <a name="addFlowLog" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addFlowLog"></a>
+
+```typescript
+public addFlowLog(id: string, options?: FlowLogOptions): FlowLog
+```
+
+Adds a new flow log to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addFlowLog.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addFlowLog.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.FlowLogOptions
+
+---
+
+##### `addGatewayEndpoint` <a name="addGatewayEndpoint" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addGatewayEndpoint"></a>
+
+```typescript
+public addGatewayEndpoint(id: string, options: GatewayVpcEndpointOptions): GatewayVpcEndpoint
+```
+
+Adds a new gateway endpoint to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addGatewayEndpoint.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addGatewayEndpoint.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions
+
+---
+
+##### `addInterfaceEndpoint` <a name="addInterfaceEndpoint" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addInterfaceEndpoint"></a>
+
+```typescript
+public addInterfaceEndpoint(id: string, options: InterfaceVpcEndpointOptions): InterfaceVpcEndpoint
+```
+
+Adds a new interface endpoint to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addInterfaceEndpoint.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addInterfaceEndpoint.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.InterfaceVpcEndpointOptions
+
+---
+
+##### `addVpnConnection` <a name="addVpnConnection" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addVpnConnection"></a>
+
+```typescript
+public addVpnConnection(id: string, options: VpnConnectionOptions): VpnConnection
+```
+
+Adds a new VPN connection to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addVpnConnection.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addVpnConnection.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.VpnConnectionOptions
+
+---
+
+##### `enableVpnGateway` <a name="enableVpnGateway" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.enableVpnGateway"></a>
+
+```typescript
+public enableVpnGateway(options: EnableVpnGatewayOptions): void
+```
+
+Adds a VPN Gateway to this VPC.
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.enableVpnGateway.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.EnableVpnGatewayOptions
+
+---
+
+##### `selectSubnets` <a name="selectSubnets" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.selectSubnets"></a>
+
+```typescript
+public selectSubnets(selection?: SubnetSelection): SelectedSubnets
+```
+
+Returns IDs of selected subnets.
+
+###### `selection`<sup>Optional</sup> <a name="selection" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.selectSubnets.parameter.selection"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+---
+
+##### `addVpcFlowLog` <a name="addVpcFlowLog" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addVpcFlowLog"></a>
+
+```typescript
+public addVpcFlowLog(id: string, options?: FlowLogOptions): FlowLog
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addVpcFlowLog.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addVpcFlowLog.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.FlowLogOptions
+
+---
+
+##### `addSpoke` <a name="addSpoke" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addSpoke"></a>
+
+```typescript
+public addSpoke(scope: IConstruct, id: string, props?: AddSpokeNetworkProps): FourTierNetworkSpoke
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addSpoke.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addSpoke.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addSpoke.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.AddSpokeNetworkProps
+
+---
+
+##### `enableTransitGateway` <a name="enableTransitGateway" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.enableTransitGateway"></a>
+
+```typescript
+public enableTransitGateway(props?: TransitGatewayProps): ITransitGateway
+```
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.enableTransitGateway.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.TransitGatewayProps
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.fromLookup">fromLookup</a></code> | Import an existing VPC by querying the AWS environment this stack is deployed to. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.fromVpcAttributes">fromVpcAttributes</a></code> | Import a VPC by supplying all attributes directly. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.isConstruct"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetworkHub.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.isOwnedResource"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetworkHub.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.isResource"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetworkHub.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromLookup` <a name="fromLookup" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.fromLookup"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetworkHub.fromLookup(scope: Construct, id: string, options: VpcLookupOptions)
+```
+
+Import an existing VPC by querying the AWS environment this stack is deployed to.
+
+This function only needs to be used to use VPCs not defined in your CDK
+application. If you are looking to share a VPC between stacks, you can
+pass the `Vpc` object between stacks and use it as normal.
+
+Calling this method will lead to a lookup when the CDK CLI is executed.
+You can therefore not use any values that will only be available at
+CloudFormation execution time (i.e., Tokens).
+
+The VPC information will be cached in `cdk.context.json` and the same VPC
+will be used on future runs. To refresh the lookup, you will have to
+evict the value from the cache using the `cdk context` command. See
+https://docs.aws.amazon.com/cdk/latest/guide/context.html for more information.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.fromLookup.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.fromLookup.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.fromLookup.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.VpcLookupOptions
+
+---
+
+##### `fromVpcAttributes` <a name="fromVpcAttributes" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.fromVpcAttributes"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetworkHub.fromVpcAttributes(scope: Construct, id: string, attrs: VpcAttributes)
+```
+
+Import a VPC by supplying all attributes directly.
+
+NOTE: using `fromVpcAttributes()` with deploy-time parameters (like a `Fn.importValue()` or
+`CfnParameter` to represent a list of subnet IDs) sometimes accidentally works. It happens
+to work for constructs that need a list of subnets (like `AutoScalingGroup` and `eks.Cluster`)
+but it does not work for constructs that need individual subnets (like
+`Instance`). See https://github.com/aws/aws-cdk/issues/4118 for more
+information.
+
+Prefer to use `Vpc.fromLookup()` instead.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.fromVpcAttributes.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.fromVpcAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.fromVpcAttributes.parameter.attrs"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.VpcAttributes
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | AZs for this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.dnsHostnamesEnabled">dnsHostnamesEnabled</a></code> | <code>boolean</code> | Indicates if instances launched in this VPC will have public DNS hostnames. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.dnsSupportEnabled">dnsSupportEnabled</a></code> | <code>boolean</code> | Indicates if DNS support is enabled for this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.internetConnectivityEstablished">internetConnectivityEstablished</a></code> | <code>constructs.IDependable</code> | Dependencies for internet connectivity. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.isolatedSubnets">isolatedSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | List of isolated subnets in this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.privateSubnets">privateSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | List of private subnets in this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.publicSubnets">publicSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | List of public subnets in this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcArn">vpcArn</a></code> | <code>string</code> | Arn of this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcCidrBlock">vpcCidrBlock</a></code> | <code>string</code> | CIDR range for this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcCidrBlockAssociations">vpcCidrBlockAssociations</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcDefaultNetworkAcl">vpcDefaultNetworkAcl</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcDefaultSecurityGroup">vpcDefaultSecurityGroup</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcId">vpcId</a></code> | <code>string</code> | Identifier for this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcIpv6CidrBlocks">vpcIpv6CidrBlocks</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.internetGatewayId">internetGatewayId</a></code> | <code>string</code> | Internet Gateway for the VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | Returns the id of the VPN Gateway (if enabled). |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.sharing">sharing</a></code> | <code>cdk-extensions.ec2_patterns.FourTierNetworkShareProperties</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `availabilityZones`<sup>Required</sup> <a name="availabilityZones" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.availabilityZones"></a>
+
+```typescript
+public readonly availabilityZones: string[];
+```
+
+- *Type:* string[]
+
+AZs for this VPC.
+
+---
+
+##### `dnsHostnamesEnabled`<sup>Required</sup> <a name="dnsHostnamesEnabled" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.dnsHostnamesEnabled"></a>
+
+```typescript
+public readonly dnsHostnamesEnabled: boolean;
+```
+
+- *Type:* boolean
+
+Indicates if instances launched in this VPC will have public DNS hostnames.
+
+---
+
+##### `dnsSupportEnabled`<sup>Required</sup> <a name="dnsSupportEnabled" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.dnsSupportEnabled"></a>
+
+```typescript
+public readonly dnsSupportEnabled: boolean;
+```
+
+- *Type:* boolean
+
+Indicates if DNS support is enabled for this VPC.
+
+---
+
+##### `internetConnectivityEstablished`<sup>Required</sup> <a name="internetConnectivityEstablished" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.internetConnectivityEstablished"></a>
+
+```typescript
+public readonly internetConnectivityEstablished: IDependable;
+```
+
+- *Type:* constructs.IDependable
+
+Dependencies for internet connectivity.
+
+---
+
+##### `isolatedSubnets`<sup>Required</sup> <a name="isolatedSubnets" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.isolatedSubnets"></a>
+
+```typescript
+public readonly isolatedSubnets: ISubnet[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
+
+List of isolated subnets in this VPC.
+
+---
+
+##### `privateSubnets`<sup>Required</sup> <a name="privateSubnets" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.privateSubnets"></a>
+
+```typescript
+public readonly privateSubnets: ISubnet[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
+
+List of private subnets in this VPC.
+
+---
+
+##### `publicSubnets`<sup>Required</sup> <a name="publicSubnets" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.publicSubnets"></a>
+
+```typescript
+public readonly publicSubnets: ISubnet[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
+
+List of public subnets in this VPC.
+
+---
+
+##### `vpcArn`<sup>Required</sup> <a name="vpcArn" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcArn"></a>
+
+```typescript
+public readonly vpcArn: string;
+```
+
+- *Type:* string
+
+Arn of this VPC.
+
+---
+
+##### `vpcCidrBlock`<sup>Required</sup> <a name="vpcCidrBlock" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcCidrBlock"></a>
+
+```typescript
+public readonly vpcCidrBlock: string;
+```
+
+- *Type:* string
+
+CIDR range for this VPC.
+
+---
+
+##### `vpcCidrBlockAssociations`<sup>Required</sup> <a name="vpcCidrBlockAssociations" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcCidrBlockAssociations"></a>
+
+```typescript
+public readonly vpcCidrBlockAssociations: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `vpcDefaultNetworkAcl`<sup>Required</sup> <a name="vpcDefaultNetworkAcl" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcDefaultNetworkAcl"></a>
+
+```typescript
+public readonly vpcDefaultNetworkAcl: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpcDefaultSecurityGroup`<sup>Required</sup> <a name="vpcDefaultSecurityGroup" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcDefaultSecurityGroup"></a>
+
+```typescript
+public readonly vpcDefaultSecurityGroup: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpcId`<sup>Required</sup> <a name="vpcId" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcId"></a>
+
+```typescript
+public readonly vpcId: string;
+```
+
+- *Type:* string
+
+Identifier for this VPC.
+
+---
+
+##### `vpcIpv6CidrBlocks`<sup>Required</sup> <a name="vpcIpv6CidrBlocks" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcIpv6CidrBlocks"></a>
+
+```typescript
+public readonly vpcIpv6CidrBlocks: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `internetGatewayId`<sup>Optional</sup> <a name="internetGatewayId" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.internetGatewayId"></a>
+
+```typescript
+public readonly internetGatewayId: string;
+```
+
+- *Type:* string
+
+Internet Gateway for the VPC.
+
+Note that in case the VPC is configured only
+with ISOLATED subnets, this attribute will be `undefined`.
+
+---
+
+##### `vpnGatewayId`<sup>Optional</sup> <a name="vpnGatewayId" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpnGatewayId"></a>
+
+```typescript
+public readonly vpnGatewayId: string;
+```
+
+- *Type:* string
+
+Returns the id of the VPN Gateway (if enabled).
+
+---
+
+##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.defaultInstanceTenancy"></a>
+
+```typescript
+public readonly defaultInstanceTenancy: DefaultInstanceTenancy;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.DefaultInstanceTenancy
+
+---
+
+##### `enableDnsHostnames`<sup>Optional</sup> <a name="enableDnsHostnames" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.enableDnsHostnames"></a>
+
+```typescript
+public readonly enableDnsHostnames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `enableDnsSupport`<sup>Optional</sup> <a name="enableDnsSupport" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.enableDnsSupport"></a>
+
+```typescript
+public readonly enableDnsSupport: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.maxAzs"></a>
+
+```typescript
+public readonly maxAzs: number;
+```
+
+- *Type:* number
+
+---
+
+##### `vpcName`<sup>Optional</sup> <a name="vpcName" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcName"></a>
+
+```typescript
+public readonly vpcName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `sharing`<sup>Required</sup> <a name="sharing" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.sharing"></a>
+
+```typescript
+public readonly sharing: FourTierNetworkShareProperties;
+```
+
+- *Type:* cdk-extensions.ec2_patterns.FourTierNetworkShareProperties
+
+---
+
+##### `transitGateway`<sup>Optional</sup> <a name="transitGateway" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.DEFAULT_CIDR_RANGE">DEFAULT_CIDR_RANGE</a></code> | <code>string</code> | The default CIDR range used when creating VPCs. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.DEFAULT_SUBNETS">DEFAULT_SUBNETS</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetConfiguration[]</code> | The default subnet configuration. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.DEFAULT_SUBNETS_NO_NAT">DEFAULT_SUBNETS_NO_NAT</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetConfiguration[]</code> | The default subnet configuration if natGateways specified to be 0. |
+
+---
+
+##### `DEFAULT_CIDR_RANGE`<sup>Required</sup> <a name="DEFAULT_CIDR_RANGE" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.DEFAULT_CIDR_RANGE"></a>
+
+```typescript
+public readonly DEFAULT_CIDR_RANGE: string;
+```
+
+- *Type:* string
+
+The default CIDR range used when creating VPCs.
+
+This can be overridden using VpcProps when creating a VPCNetwork resource.
+e.g. new VpcResource(this, { cidr: '192.168.0.0./16' })
+
+---
+
+##### `DEFAULT_SUBNETS`<sup>Required</sup> <a name="DEFAULT_SUBNETS" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.DEFAULT_SUBNETS"></a>
+
+```typescript
+public readonly DEFAULT_SUBNETS: SubnetConfiguration[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetConfiguration[]
+
+The default subnet configuration.
+
+1 Public and 1 Private subnet per AZ evenly split
+
+---
+
+##### `DEFAULT_SUBNETS_NO_NAT`<sup>Required</sup> <a name="DEFAULT_SUBNETS_NO_NAT" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.DEFAULT_SUBNETS_NO_NAT"></a>
+
+```typescript
+public readonly DEFAULT_SUBNETS_NO_NAT: SubnetConfiguration[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetConfiguration[]
+
+The default subnet configuration if natGateways specified to be 0.
+
+1 Public and 1 Isolated Subnet per AZ evenly split
+
+---
+
+### FourTierNetworkSpoke <a name="FourTierNetworkSpoke" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+new ec2_patterns.FourTierNetworkSpoke(scope: IConstruct, id: string, props: FourTierNetworkSpokeProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addClientVpnEndpoint">addClientVpnEndpoint</a></code> | Adds a new client VPN endpoint to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addFlowLog">addFlowLog</a></code> | Adds a new flow log to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addGatewayEndpoint">addGatewayEndpoint</a></code> | Adds a new gateway endpoint to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addInterfaceEndpoint">addInterfaceEndpoint</a></code> | Adds a new interface endpoint to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addVpnConnection">addVpnConnection</a></code> | Adds a new VPN connection to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.enableVpnGateway">enableVpnGateway</a></code> | Adds a VPN Gateway to this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.selectSubnets">selectSubnets</a></code> | Returns IDs of selected subnets. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addVpcFlowLog">addVpcFlowLog</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addClientVpnEndpoint` <a name="addClientVpnEndpoint" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addClientVpnEndpoint"></a>
+
+```typescript
+public addClientVpnEndpoint(id: string, options: ClientVpnEndpointOptions): ClientVpnEndpoint
+```
+
+Adds a new client VPN endpoint to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addClientVpnEndpoint.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addClientVpnEndpoint.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.ClientVpnEndpointOptions
+
+---
+
+##### `addFlowLog` <a name="addFlowLog" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addFlowLog"></a>
+
+```typescript
+public addFlowLog(id: string, options?: FlowLogOptions): FlowLog
+```
+
+Adds a new flow log to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addFlowLog.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addFlowLog.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.FlowLogOptions
+
+---
+
+##### `addGatewayEndpoint` <a name="addGatewayEndpoint" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addGatewayEndpoint"></a>
+
+```typescript
+public addGatewayEndpoint(id: string, options: GatewayVpcEndpointOptions): GatewayVpcEndpoint
+```
+
+Adds a new gateway endpoint to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addGatewayEndpoint.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addGatewayEndpoint.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions
+
+---
+
+##### `addInterfaceEndpoint` <a name="addInterfaceEndpoint" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addInterfaceEndpoint"></a>
+
+```typescript
+public addInterfaceEndpoint(id: string, options: InterfaceVpcEndpointOptions): InterfaceVpcEndpoint
+```
+
+Adds a new interface endpoint to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addInterfaceEndpoint.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addInterfaceEndpoint.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.InterfaceVpcEndpointOptions
+
+---
+
+##### `addVpnConnection` <a name="addVpnConnection" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addVpnConnection"></a>
+
+```typescript
+public addVpnConnection(id: string, options: VpnConnectionOptions): VpnConnection
+```
+
+Adds a new VPN connection to this VPC.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addVpnConnection.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addVpnConnection.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.VpnConnectionOptions
+
+---
+
+##### `enableVpnGateway` <a name="enableVpnGateway" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.enableVpnGateway"></a>
+
+```typescript
+public enableVpnGateway(options: EnableVpnGatewayOptions): void
+```
+
+Adds a VPN Gateway to this VPC.
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.enableVpnGateway.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.EnableVpnGatewayOptions
+
+---
+
+##### `selectSubnets` <a name="selectSubnets" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.selectSubnets"></a>
+
+```typescript
+public selectSubnets(selection?: SubnetSelection): SelectedSubnets
+```
+
+Returns IDs of selected subnets.
+
+###### `selection`<sup>Optional</sup> <a name="selection" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.selectSubnets.parameter.selection"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+---
+
+##### `addVpcFlowLog` <a name="addVpcFlowLog" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addVpcFlowLog"></a>
+
+```typescript
+public addVpcFlowLog(id: string, options?: FlowLogOptions): FlowLog
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addVpcFlowLog.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addVpcFlowLog.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.FlowLogOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.fromLookup">fromLookup</a></code> | Import an existing VPC by querying the AWS environment this stack is deployed to. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.fromVpcAttributes">fromVpcAttributes</a></code> | Import a VPC by supplying all attributes directly. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.isConstruct"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetworkSpoke.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.isOwnedResource"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetworkSpoke.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.isResource"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetworkSpoke.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromLookup` <a name="fromLookup" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.fromLookup"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetworkSpoke.fromLookup(scope: Construct, id: string, options: VpcLookupOptions)
+```
+
+Import an existing VPC by querying the AWS environment this stack is deployed to.
+
+This function only needs to be used to use VPCs not defined in your CDK
+application. If you are looking to share a VPC between stacks, you can
+pass the `Vpc` object between stacks and use it as normal.
+
+Calling this method will lead to a lookup when the CDK CLI is executed.
+You can therefore not use any values that will only be available at
+CloudFormation execution time (i.e., Tokens).
+
+The VPC information will be cached in `cdk.context.json` and the same VPC
+will be used on future runs. To refresh the lookup, you will have to
+evict the value from the cache using the `cdk context` command. See
+https://docs.aws.amazon.com/cdk/latest/guide/context.html for more information.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.fromLookup.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.fromLookup.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.fromLookup.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.VpcLookupOptions
+
+---
+
+##### `fromVpcAttributes` <a name="fromVpcAttributes" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.fromVpcAttributes"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.FourTierNetworkSpoke.fromVpcAttributes(scope: Construct, id: string, attrs: VpcAttributes)
+```
+
+Import a VPC by supplying all attributes directly.
+
+NOTE: using `fromVpcAttributes()` with deploy-time parameters (like a `Fn.importValue()` or
+`CfnParameter` to represent a list of subnet IDs) sometimes accidentally works. It happens
+to work for constructs that need a list of subnets (like `AutoScalingGroup` and `eks.Cluster`)
+but it does not work for constructs that need individual subnets (like
+`Instance`). See https://github.com/aws/aws-cdk/issues/4118 for more
+information.
+
+Prefer to use `Vpc.fromLookup()` instead.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.fromVpcAttributes.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.fromVpcAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.fromVpcAttributes.parameter.attrs"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.VpcAttributes
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | AZs for this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.dnsHostnamesEnabled">dnsHostnamesEnabled</a></code> | <code>boolean</code> | Indicates if instances launched in this VPC will have public DNS hostnames. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.dnsSupportEnabled">dnsSupportEnabled</a></code> | <code>boolean</code> | Indicates if DNS support is enabled for this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.internetConnectivityEstablished">internetConnectivityEstablished</a></code> | <code>constructs.IDependable</code> | Dependencies for internet connectivity. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.isolatedSubnets">isolatedSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | List of isolated subnets in this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.privateSubnets">privateSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | List of private subnets in this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.publicSubnets">publicSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | List of public subnets in this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcArn">vpcArn</a></code> | <code>string</code> | Arn of this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcCidrBlock">vpcCidrBlock</a></code> | <code>string</code> | CIDR range for this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcCidrBlockAssociations">vpcCidrBlockAssociations</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcDefaultNetworkAcl">vpcDefaultNetworkAcl</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcDefaultSecurityGroup">vpcDefaultSecurityGroup</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcId">vpcId</a></code> | <code>string</code> | Identifier for this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcIpv6CidrBlocks">vpcIpv6CidrBlocks</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.internetGatewayId">internetGatewayId</a></code> | <code>string</code> | Internet Gateway for the VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | Returns the id of the VPN Gateway (if enabled). |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.transitGatewayAttachment">transitGatewayAttachment</a></code> | <code>cdk-extensions.ec2.ITransitGatewayAttachment</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `availabilityZones`<sup>Required</sup> <a name="availabilityZones" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.availabilityZones"></a>
+
+```typescript
+public readonly availabilityZones: string[];
+```
+
+- *Type:* string[]
+
+AZs for this VPC.
+
+---
+
+##### `dnsHostnamesEnabled`<sup>Required</sup> <a name="dnsHostnamesEnabled" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.dnsHostnamesEnabled"></a>
+
+```typescript
+public readonly dnsHostnamesEnabled: boolean;
+```
+
+- *Type:* boolean
+
+Indicates if instances launched in this VPC will have public DNS hostnames.
+
+---
+
+##### `dnsSupportEnabled`<sup>Required</sup> <a name="dnsSupportEnabled" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.dnsSupportEnabled"></a>
+
+```typescript
+public readonly dnsSupportEnabled: boolean;
+```
+
+- *Type:* boolean
+
+Indicates if DNS support is enabled for this VPC.
+
+---
+
+##### `internetConnectivityEstablished`<sup>Required</sup> <a name="internetConnectivityEstablished" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.internetConnectivityEstablished"></a>
+
+```typescript
+public readonly internetConnectivityEstablished: IDependable;
+```
+
+- *Type:* constructs.IDependable
+
+Dependencies for internet connectivity.
+
+---
+
+##### `isolatedSubnets`<sup>Required</sup> <a name="isolatedSubnets" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.isolatedSubnets"></a>
+
+```typescript
+public readonly isolatedSubnets: ISubnet[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
+
+List of isolated subnets in this VPC.
+
+---
+
+##### `privateSubnets`<sup>Required</sup> <a name="privateSubnets" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.privateSubnets"></a>
+
+```typescript
+public readonly privateSubnets: ISubnet[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
+
+List of private subnets in this VPC.
+
+---
+
+##### `publicSubnets`<sup>Required</sup> <a name="publicSubnets" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.publicSubnets"></a>
+
+```typescript
+public readonly publicSubnets: ISubnet[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
+
+List of public subnets in this VPC.
+
+---
+
+##### `vpcArn`<sup>Required</sup> <a name="vpcArn" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcArn"></a>
+
+```typescript
+public readonly vpcArn: string;
+```
+
+- *Type:* string
+
+Arn of this VPC.
+
+---
+
+##### `vpcCidrBlock`<sup>Required</sup> <a name="vpcCidrBlock" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcCidrBlock"></a>
+
+```typescript
+public readonly vpcCidrBlock: string;
+```
+
+- *Type:* string
+
+CIDR range for this VPC.
+
+---
+
+##### `vpcCidrBlockAssociations`<sup>Required</sup> <a name="vpcCidrBlockAssociations" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcCidrBlockAssociations"></a>
+
+```typescript
+public readonly vpcCidrBlockAssociations: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `vpcDefaultNetworkAcl`<sup>Required</sup> <a name="vpcDefaultNetworkAcl" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcDefaultNetworkAcl"></a>
+
+```typescript
+public readonly vpcDefaultNetworkAcl: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpcDefaultSecurityGroup`<sup>Required</sup> <a name="vpcDefaultSecurityGroup" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcDefaultSecurityGroup"></a>
+
+```typescript
+public readonly vpcDefaultSecurityGroup: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpcId`<sup>Required</sup> <a name="vpcId" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcId"></a>
+
+```typescript
+public readonly vpcId: string;
+```
+
+- *Type:* string
+
+Identifier for this VPC.
+
+---
+
+##### `vpcIpv6CidrBlocks`<sup>Required</sup> <a name="vpcIpv6CidrBlocks" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcIpv6CidrBlocks"></a>
+
+```typescript
+public readonly vpcIpv6CidrBlocks: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `internetGatewayId`<sup>Optional</sup> <a name="internetGatewayId" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.internetGatewayId"></a>
+
+```typescript
+public readonly internetGatewayId: string;
+```
+
+- *Type:* string
+
+Internet Gateway for the VPC.
+
+Note that in case the VPC is configured only
+with ISOLATED subnets, this attribute will be `undefined`.
+
+---
+
+##### `vpnGatewayId`<sup>Optional</sup> <a name="vpnGatewayId" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpnGatewayId"></a>
+
+```typescript
+public readonly vpnGatewayId: string;
+```
+
+- *Type:* string
+
+Returns the id of the VPN Gateway (if enabled).
+
+---
+
+##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.defaultInstanceTenancy"></a>
+
+```typescript
+public readonly defaultInstanceTenancy: DefaultInstanceTenancy;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.DefaultInstanceTenancy
+
+---
+
+##### `enableDnsHostnames`<sup>Optional</sup> <a name="enableDnsHostnames" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.enableDnsHostnames"></a>
+
+```typescript
+public readonly enableDnsHostnames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `enableDnsSupport`<sup>Optional</sup> <a name="enableDnsSupport" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.enableDnsSupport"></a>
+
+```typescript
+public readonly enableDnsSupport: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.maxAzs"></a>
+
+```typescript
+public readonly maxAzs: number;
+```
+
+- *Type:* number
+
+---
+
+##### `vpcName`<sup>Optional</sup> <a name="vpcName" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcName"></a>
+
+```typescript
+public readonly vpcName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `transitGatewayAttachment`<sup>Required</sup> <a name="transitGatewayAttachment" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.transitGatewayAttachment"></a>
+
+```typescript
+public readonly transitGatewayAttachment: ITransitGatewayAttachment;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayAttachment
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.DEFAULT_CIDR_RANGE">DEFAULT_CIDR_RANGE</a></code> | <code>string</code> | The default CIDR range used when creating VPCs. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.DEFAULT_SUBNETS">DEFAULT_SUBNETS</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetConfiguration[]</code> | The default subnet configuration. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.DEFAULT_SUBNETS_NO_NAT">DEFAULT_SUBNETS_NO_NAT</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetConfiguration[]</code> | The default subnet configuration if natGateways specified to be 0. |
+
+---
+
+##### `DEFAULT_CIDR_RANGE`<sup>Required</sup> <a name="DEFAULT_CIDR_RANGE" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.DEFAULT_CIDR_RANGE"></a>
+
+```typescript
+public readonly DEFAULT_CIDR_RANGE: string;
+```
+
+- *Type:* string
+
+The default CIDR range used when creating VPCs.
+
+This can be overridden using VpcProps when creating a VPCNetwork resource.
+e.g. new VpcResource(this, { cidr: '192.168.0.0./16' })
+
+---
+
+##### `DEFAULT_SUBNETS`<sup>Required</sup> <a name="DEFAULT_SUBNETS" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.DEFAULT_SUBNETS"></a>
+
+```typescript
+public readonly DEFAULT_SUBNETS: SubnetConfiguration[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetConfiguration[]
+
+The default subnet configuration.
+
+1 Public and 1 Private subnet per AZ evenly split
+
+---
+
+##### `DEFAULT_SUBNETS_NO_NAT`<sup>Required</sup> <a name="DEFAULT_SUBNETS_NO_NAT" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.DEFAULT_SUBNETS_NO_NAT"></a>
+
+```typescript
+public readonly DEFAULT_SUBNETS_NO_NAT: SubnetConfiguration[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetConfiguration[]
+
+The default subnet configuration if natGateways specified to be 0.
+
+1 Public and 1 Isolated Subnet per AZ evenly split
+
+---
 
 ### GroupBase <a name="GroupBase" id="cdk-extensions.sso.GroupBase"></a>
 
@@ -16206,25 +18918,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
 
 ---
 
@@ -16290,7 +19002,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -16313,7 +19025,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -16336,13 +19048,7 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
-
-Note that the policy statement may or may not be added to the policy.
-For example, when an `IBucket` is created from an existing bucket,
-it's not possible to tell whether the bucket already has a policy
-attached, let alone to re-use that policy to add more statements to it.
-So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.RawBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -16356,7 +19062,7 @@ So it's safest to do nothing in these cases.
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -16372,18 +19078,7 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:.
-
-Object Deleted (DeleteObject)
-- Object Deleted (Lifecycle expiration)
-- Object Restore Initiated
-- Object Restore Completed
-- Object Restore Expired
-- Object Storage Class Changed
-- Object Access Tier Changed
-- Object ACL Updated
-- Object Tags Added
-- Object Tags Deleted
+Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.RawBucket.grantDelete"></a>
 
@@ -16391,7 +19086,7 @@ Object Deleted (DeleteObject)
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.RawBucket.grantDelete.parameter._identity"></a>
 
@@ -16493,7 +19188,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -16516,7 +19211,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -16544,7 +19239,7 @@ use the `grantPutAcl` method.
 ##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3_buckets.RawBucket.grantWrite"></a>
 
 ```typescript
-public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any, _allowedActionPatterns?: string[]): Grant
 ```
 
 Grant write permissions to this bucket to an IAM principal.
@@ -16572,16 +19267,21 @@ use the `grantPutAcl` method.
 
 ---
 
+###### `_allowedActionPatterns`<sup>Optional</sup> <a name="_allowedActionPatterns" id="cdk-extensions.s3_buckets.RawBucket.grantWrite.parameter._allowedActionPatterns"></a>
+
+- *Type:* string[]
+
+---
+
 ##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3_buckets.RawBucket.onCloudTrailEvent"></a>
 
 ```typescript
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket.
+Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
 
-Requires that there exists at least one CloudTrail Trail in your account
-that captures the event. This method will not create the Trail.
+This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.RawBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -16601,7 +19301,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -16628,7 +19328,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -16702,9 +19402,11 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object. For example:.
+The https URL of an S3 object.
 
-`https://s3.us-west-1.amazonaws.com/onlybucket`
+For example:
+
+- `https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -16720,9 +19422,12 @@ The https URL of an S3 object. For example:.
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+The virtual hosted-style URL of an S3 object.
 
-`https://only-bucket.s3.us-west-1.amazonaws.com`
+Specify `regional: false` at
+the options for non-regional URL. For example:
+
+- `https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -17520,6 +20225,8 @@ Guide.
 
 ### ResourceShare <a name="ResourceShare" id="cdk-extensions.ram.ResourceShare"></a>
 
+- *Implements:* cdk-extensions.ram.IResourceShare
+
 Creates a resource share that can used to share AWS resources with other AWS accounts, organizations, or organizational units (OU's).
 
 > [[AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html)]([AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html))
@@ -17573,8 +20280,8 @@ Arguments related to the configuration of the resource.
 | --- | --- |
 | <code><a href="#cdk-extensions.ram.ResourceShare.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.ram.ResourceShare.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#cdk-extensions.ram.ResourceShare.addPrincipal">addPrincipal</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.ram.ResourceShare.addResource">addResource</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ram.ResourceShare.addPrincipal">addPrincipal</a></code> | {@inheritdoc IResourceShare.addPrincipal}. |
+| <code><a href="#cdk-extensions.ram.ResourceShare.addResource">addResource</a></code> | {@inheritdoc IResourceShare.addResource}. |
 | <code><a href="#cdk-extensions.ram.ResourceShare.enableAutoDiscovery">enableAutoDiscovery</a></code> | *No description.* |
 
 ---
@@ -17615,6 +20322,8 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 public addPrincipal(principal: ISharedPrincipal): void
 ```
 
+{@inheritdoc IResourceShare.addPrincipal}.
+
 ###### `principal`<sup>Required</sup> <a name="principal" id="cdk-extensions.ram.ResourceShare.addPrincipal.parameter.principal"></a>
 
 - *Type:* cdk-extensions.ram.ISharedPrincipal
@@ -17624,12 +20333,14 @@ public addPrincipal(principal: ISharedPrincipal): void
 ##### `addResource` <a name="addResource" id="cdk-extensions.ram.ResourceShare.addResource"></a>
 
 ```typescript
-public addResource(resource: ISharedResource): void
+public addResource(resource: ISharable): void
 ```
+
+{@inheritdoc IResourceShare.addResource}.
 
 ###### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ram.ResourceShare.addResource.parameter.resource"></a>
 
-- *Type:* cdk-extensions.ram.ISharedResource
+- *Type:* cdk-extensions.ram.ISharable
 
 ---
 
@@ -17646,6 +20357,9 @@ public enableAutoDiscovery(): void
 | <code><a href="#cdk-extensions.ram.ResourceShare.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#cdk-extensions.ram.ResourceShare.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#cdk-extensions.ram.ResourceShare.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ram.ResourceShare.fromResourceShareArn">fromResourceShareArn</a></code> | Imports an existing RAM resource share by specifying its Amazon Resource Name (ARN). |
+| <code><a href="#cdk-extensions.ram.ResourceShare.fromResourceShareAttributes">fromResourceShareAttributes</a></code> | Imports an existing RAM resource share by explicitly specifying its attributes. |
+| <code><a href="#cdk-extensions.ram.ResourceShare.fromResourceShareId">fromResourceShareId</a></code> | Imports an existing RAM resource share by specifying its AWS generated ID. |
 
 ---
 
@@ -17699,6 +20413,114 @@ Check whether the given construct is a Resource.
 
 ---
 
+##### `fromResourceShareArn` <a name="fromResourceShareArn" id="cdk-extensions.ram.ResourceShare.fromResourceShareArn"></a>
+
+```typescript
+import { ram } from 'cdk-extensions'
+
+ram.ResourceShare.fromResourceShareArn(scope: IConstruct, id: string, resourceShareArn: string)
+```
+
+Imports an existing RAM resource share by specifying its Amazon Resource Name (ARN).
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ram.ResourceShare.fromResourceShareArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ram.ResourceShare.fromResourceShareArn.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `resourceShareArn`<sup>Required</sup> <a name="resourceShareArn" id="cdk-extensions.ram.ResourceShare.fromResourceShareArn.parameter.resourceShareArn"></a>
+
+- *Type:* string
+
+The ARN of the existing RAM resource share to be imported.
+
+---
+
+##### `fromResourceShareAttributes` <a name="fromResourceShareAttributes" id="cdk-extensions.ram.ResourceShare.fromResourceShareAttributes"></a>
+
+```typescript
+import { ram } from 'cdk-extensions'
+
+ram.ResourceShare.fromResourceShareAttributes(scope: IConstruct, id: string, attrs: ResourceShareAttributes)
+```
+
+Imports an existing RAM resource share by explicitly specifying its attributes.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ram.ResourceShare.fromResourceShareAttributes.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ram.ResourceShare.fromResourceShareAttributes.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.ram.ResourceShare.fromResourceShareAttributes.parameter.attrs"></a>
+
+- *Type:* cdk-extensions.ram.ResourceShareAttributes
+
+The attributes of the existing RAM resource share to be imported.
+
+---
+
+##### `fromResourceShareId` <a name="fromResourceShareId" id="cdk-extensions.ram.ResourceShare.fromResourceShareId"></a>
+
+```typescript
+import { ram } from 'cdk-extensions'
+
+ram.ResourceShare.fromResourceShareId(scope: IConstruct, id: string, resourceShareId: string)
+```
+
+Imports an existing RAM resource share by specifying its AWS generated ID.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ram.ResourceShare.fromResourceShareId.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ram.ResourceShare.fromResourceShareId.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `resourceShareId`<sup>Required</sup> <a name="resourceShareId" id="cdk-extensions.ram.ResourceShare.fromResourceShareId.parameter.resourceShareId"></a>
+
+- *Type:* string
+
+The AWS generated ID of the existing APS workspace to be imported.
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
@@ -17709,6 +20531,8 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.ram.ResourceShare.property.autoDiscovery">autoDiscovery</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ram.ResourceShare.property.name">name</a></code> | <code>string</code> | Specifies the name of the resource share. |
 | <code><a href="#cdk-extensions.ram.ResourceShare.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ram.CfnResourceShare</code> | The underlying ResourceShare CloudFormation resource. |
+| <code><a href="#cdk-extensions.ram.ResourceShare.property.resourceShareArn">resourceShareArn</a></code> | <code>string</code> | {@inheritdoc IResourceShare.resourceShareArn}. |
+| <code><a href="#cdk-extensions.ram.ResourceShare.property.resourceShareId">resourceShareId</a></code> | <code>string</code> | {@inheritdoc IResourceShare.resourceShareId}. |
 | <code><a href="#cdk-extensions.ram.ResourceShare.property.allowExternalPrincipals">allowExternalPrincipals</a></code> | <code>boolean</code> | Specifies whether principals outside your organization in AWS Organizations can be associated with a resource share. |
 
 ---
@@ -17794,6 +20618,30 @@ The underlying ResourceShare CloudFormation resource.
 
 ---
 
+##### `resourceShareArn`<sup>Required</sup> <a name="resourceShareArn" id="cdk-extensions.ram.ResourceShare.property.resourceShareArn"></a>
+
+```typescript
+public readonly resourceShareArn: string;
+```
+
+- *Type:* string
+
+{@inheritdoc IResourceShare.resourceShareArn}.
+
+---
+
+##### `resourceShareId`<sup>Required</sup> <a name="resourceShareId" id="cdk-extensions.ram.ResourceShare.property.resourceShareId"></a>
+
+```typescript
+public readonly resourceShareId: string;
+```
+
+- *Type:* string
+
+{@inheritdoc IResourceShare.resourceShareId}.
+
+---
+
 ##### `allowExternalPrincipals`<sup>Optional</sup> <a name="allowExternalPrincipals" id="cdk-extensions.ram.ResourceShare.property.allowExternalPrincipals"></a>
 
 ```typescript
@@ -17817,6 +20665,23 @@ environment agnostic.
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ram.ResourceShare.property.ARN_FORMAT">ARN_FORMAT</a></code> | <code>aws-cdk-lib.ArnFormat</code> | *No description.* |
+
+---
+
+##### `ARN_FORMAT`<sup>Required</sup> <a name="ARN_FORMAT" id="cdk-extensions.ram.ResourceShare.property.ARN_FORMAT"></a>
+
+```typescript
+public readonly ARN_FORMAT: ArnFormat;
+```
+
+- *Type:* aws-cdk-lib.ArnFormat
+
+---
 
 ### Route53Dns <a name="Route53Dns" id="cdk-extensions.k8s_aws.Route53Dns"></a>
 
@@ -19238,25 +22103,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addLoggingAspect">addLoggingAspect</a></code> | *No description.* |
 
 ---
@@ -19323,7 +22188,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -19346,7 +22211,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -19369,13 +22234,7 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
-
-Note that the policy statement may or may not be added to the policy.
-For example, when an `IBucket` is created from an existing bucket,
-it's not possible to tell whether the bucket already has a policy
-attached, let alone to re-use that policy to add more statements to it.
-So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -19389,7 +22248,7 @@ So it's safest to do nothing in these cases.
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -19405,18 +22264,7 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:.
-
-Object Deleted (DeleteObject)
-- Object Deleted (Lifecycle expiration)
-- Object Restore Initiated
-- Object Restore Completed
-- Object Restore Expired
-- Object Storage Class Changed
-- Object Access Tier Changed
-- Object ACL Updated
-- Object Tags Added
-- Object Tags Deleted
+Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.grantDelete"></a>
 
@@ -19424,7 +22272,7 @@ Object Deleted (DeleteObject)
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.grantDelete.parameter._identity"></a>
 
@@ -19526,7 +22374,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -19549,7 +22397,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -19577,7 +22425,7 @@ use the `grantPutAcl` method.
 ##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.grantWrite"></a>
 
 ```typescript
-public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any, _allowedActionPatterns?: string[]): Grant
 ```
 
 Grant write permissions to this bucket to an IAM principal.
@@ -19605,16 +22453,21 @@ use the `grantPutAcl` method.
 
 ---
 
+###### `_allowedActionPatterns`<sup>Optional</sup> <a name="_allowedActionPatterns" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.grantWrite.parameter._allowedActionPatterns"></a>
+
+- *Type:* string[]
+
+---
+
 ##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailEvent"></a>
 
 ```typescript
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket.
+Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
 
-Requires that there exists at least one CloudTrail Trail in your account
-that captures the event. This method will not create the Trail.
+This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -19634,7 +22487,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -19661,7 +22514,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -19735,9 +22588,11 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object. For example:.
+The https URL of an S3 object.
 
-`https://s3.us-west-1.amazonaws.com/onlybucket`
+For example:
+
+- `https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -19753,9 +22608,12 @@ The https URL of an S3 object. For example:.
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+The virtual hosted-style URL of an S3 object.
 
-`https://only-bucket.s3.us-west-1.amazonaws.com`
+Specify `regional: false` at
+the options for non-regional URL. For example:
+
+- `https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -21298,25 +24156,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
 
 ---
 
@@ -21382,7 +24240,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -21405,7 +24263,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -21428,13 +24286,7 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
-
-Note that the policy statement may or may not be added to the policy.
-For example, when an `IBucket` is created from an existing bucket,
-it's not possible to tell whether the bucket already has a policy
-attached, let alone to re-use that policy to add more statements to it.
-So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.SesLogsBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -21448,7 +24300,7 @@ So it's safest to do nothing in these cases.
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -21464,18 +24316,7 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:.
-
-Object Deleted (DeleteObject)
-- Object Deleted (Lifecycle expiration)
-- Object Restore Initiated
-- Object Restore Completed
-- Object Restore Expired
-- Object Storage Class Changed
-- Object Access Tier Changed
-- Object ACL Updated
-- Object Tags Added
-- Object Tags Deleted
+Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.SesLogsBucket.grantDelete"></a>
 
@@ -21483,7 +24324,7 @@ Object Deleted (DeleteObject)
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.SesLogsBucket.grantDelete.parameter._identity"></a>
 
@@ -21585,7 +24426,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -21608,7 +24449,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -21636,7 +24477,7 @@ use the `grantPutAcl` method.
 ##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3_buckets.SesLogsBucket.grantWrite"></a>
 
 ```typescript
-public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any, _allowedActionPatterns?: string[]): Grant
 ```
 
 Grant write permissions to this bucket to an IAM principal.
@@ -21664,16 +24505,21 @@ use the `grantPutAcl` method.
 
 ---
 
+###### `_allowedActionPatterns`<sup>Optional</sup> <a name="_allowedActionPatterns" id="cdk-extensions.s3_buckets.SesLogsBucket.grantWrite.parameter._allowedActionPatterns"></a>
+
+- *Type:* string[]
+
+---
+
 ##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailEvent"></a>
 
 ```typescript
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket.
+Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
 
-Requires that there exists at least one CloudTrail Trail in your account
-that captures the event. This method will not create the Trail.
+This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -21693,7 +24539,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -21720,7 +24566,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -21794,9 +24640,11 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object. For example:.
+The https URL of an S3 object.
 
-`https://s3.us-west-1.amazonaws.com/onlybucket`
+For example:
+
+- `https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -21812,9 +24660,12 @@ The https URL of an S3 object. For example:.
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+The virtual hosted-style URL of an S3 object.
 
-`https://only-bucket.s3.us-west-1.amazonaws.com`
+Specify `regional: false` at
+the options for non-regional URL. For example:
+
+- `https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -23695,6 +26546,2814 @@ The name of the time interval as it will be referenced throught the rest of the 
 ---
 
 
+### TransitGateway <a name="TransitGateway" id="cdk-extensions.ec2.TransitGateway"></a>
+
+- *Implements:* cdk-extensions.ec2.ITransitGateway
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.TransitGateway.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.TransitGateway(scope: Construct, id: string, props?: TransitGatewayProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.TransitGatewayProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.TransitGateway.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGateway.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2.TransitGateway.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.TransitGatewayProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.addCidrBlock">addCidrBlock</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.addRouteTable">addRouteTable</a></code> | Creates a new Transit Gateway Route Table for this Transit Gateway. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.addVpn">addVpn</a></code> | Creates a new VPN connection that terminates on the AWS side at this Transit Gateway. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.attachPeer">attachPeer</a></code> | Creates a new transit gateway peering attachment for this transit gateway. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.attachVpc">attachVpc</a></code> | Creates a new VPC transit gateway attachment for this transit gateway. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.enableSharing">enableSharing</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.TransitGateway.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.TransitGateway.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.TransitGateway.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addCidrBlock` <a name="addCidrBlock" id="cdk-extensions.ec2.TransitGateway.addCidrBlock"></a>
+
+```typescript
+public addCidrBlock(cidr: string): void
+```
+
+###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.TransitGateway.addCidrBlock.parameter.cidr"></a>
+
+- *Type:* string
+
+---
+
+##### `addRouteTable` <a name="addRouteTable" id="cdk-extensions.ec2.TransitGateway.addRouteTable"></a>
+
+```typescript
+public addRouteTable(options?: TransitGatewayRouteTableOptions): TransitGatewayRouteTable
+```
+
+Creates a new Transit Gateway Route Table for this Transit Gateway.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.TransitGateway.addRouteTable.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.TransitGatewayRouteTableOptions
+
+Options used for configuring the Transit Gateway Route Table.
+
+---
+
+##### `addVpn` <a name="addVpn" id="cdk-extensions.ec2.TransitGateway.addVpn"></a>
+
+```typescript
+public addVpn(id: string, options: VpnAttachmentOptions): VpnConnection
+```
+
+Creates a new VPN connection that terminates on the AWS side at this Transit Gateway.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGateway.addVpn.parameter.id"></a>
+
+- *Type:* string
+
+A unique identifier for this VPN connection.
+
+Must be unique
+within the context of scope.
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.TransitGateway.addVpn.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.VpnAttachmentOptions
+
+The options for configuring the VPN connection.
+
+---
+
+##### `attachPeer` <a name="attachPeer" id="cdk-extensions.ec2.TransitGateway.attachPeer"></a>
+
+```typescript
+public attachPeer(peer: ITransitGateway, options?: TransitGatewayPeeringAttachmentOptions): TransitGatewayPeeringAttachment
+```
+
+Creates a new transit gateway peering attachment for this transit gateway.
+
+###### `peer`<sup>Required</sup> <a name="peer" id="cdk-extensions.ec2.TransitGateway.attachPeer.parameter.peer"></a>
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+The remote transit gateway to create the peering connection with.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.TransitGateway.attachPeer.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.TransitGatewayPeeringAttachmentOptions
+
+Options used to configure the peering connection.
+
+---
+
+##### `attachVpc` <a name="attachVpc" id="cdk-extensions.ec2.TransitGateway.attachVpc"></a>
+
+```typescript
+public attachVpc(vpc: IVpc, options?: VpcAttachmentOptions): TransitGatewayAttachment
+```
+
+Creates a new VPC transit gateway attachment for this transit gateway.
+
+###### `vpc`<sup>Required</sup> <a name="vpc" id="cdk-extensions.ec2.TransitGateway.attachVpc.parameter.vpc"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+The VPC to connect to this Transit Gateway.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.TransitGateway.attachVpc.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.VpcAttachmentOptions
+
+Options used for configuring the Transit Gateway Attachment.
+
+---
+
+##### `enableSharing` <a name="enableSharing" id="cdk-extensions.ec2.TransitGateway.enableSharing"></a>
+
+```typescript
+public enableSharing(options?: SharingOptions): ResourceShare
+```
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.TransitGateway.enableSharing.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.SharingOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.fromTransitGatewayId">fromTransitGatewayId</a></code> | *No description.* |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.TransitGateway.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGateway.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.TransitGateway.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.TransitGateway.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGateway.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.TransitGateway.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.TransitGateway.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGateway.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.TransitGateway.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromTransitGatewayId` <a name="fromTransitGatewayId" id="cdk-extensions.ec2.TransitGateway.fromTransitGatewayId"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGateway.fromTransitGatewayId(scope: IConstruct, id: string, transitGatewayId: string)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.TransitGateway.fromTransitGatewayId.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGateway.fromTransitGatewayId.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `transitGatewayId`<sup>Required</sup> <a name="transitGatewayId" id="cdk-extensions.ec2.TransitGateway.fromTransitGatewayId.parameter.transitGatewayId"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.autoAcceptSharedAttachments">autoAcceptSharedAttachments</a></code> | <code>boolean</code> | Enable or disable automatic acceptance of attachment requests. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.defaultRouteTableAssociation">defaultRouteTableAssociation</a></code> | <code>boolean</code> | Enable or disable automatic association with the default association route table. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.defaultRouteTablePropagation">defaultRouteTablePropagation</a></code> | <code>boolean</code> | Enable or disable automatic propagation of routes to the default propagation route table. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.dnsSupport">dnsSupport</a></code> | <code>boolean</code> | Enable or disable DNS support. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.multicastSupport">multicastSupport</a></code> | <code>boolean</code> | Indicates whether multicast is enabled on the transit gateway. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnTransitGateway</code> | The underlying TransitGateway CloudFormation resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.transitGatewayArn">transitGatewayArn</a></code> | <code>string</code> | The ARN of this Transit Gateway. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.transitGatewayId">transitGatewayId</a></code> | <code>string</code> | The ID of this Transit Gateway. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.amazonSideAsn">amazonSideAsn</a></code> | <code>number</code> | A private Autonomous System Number (ASN) for the Amazon side of a BGP session. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.defaultRouteTable">defaultRouteTable</a></code> | <code>cdk-extensions.ec2.ITransitGatewayRouteTable</code> | The default route table that got created along with the Transit Gateway. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.defaultRouteTableId">defaultRouteTableId</a></code> | <code>string</code> | The ID of the default route table that was created with the transit gateway. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.description">description</a></code> | <code>string</code> | The description of the transit gateway. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.name">name</a></code> | <code>string</code> | The name of the transit gateway. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.resourceShare">resourceShare</a></code> | <code>cdk-extensions.ram.ResourceShare</code> | The RAM resource share that is used for sharing the transit gateway with other accounts. |
+| <code><a href="#cdk-extensions.ec2.TransitGateway.property.vpnEcmpSupport">vpnEcmpSupport</a></code> | <code>boolean</code> | Enable or disable Equal Cost Multipath Protocol support. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.TransitGateway.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.TransitGateway.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.TransitGateway.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `autoAcceptSharedAttachments`<sup>Required</sup> <a name="autoAcceptSharedAttachments" id="cdk-extensions.ec2.TransitGateway.property.autoAcceptSharedAttachments"></a>
+
+```typescript
+public readonly autoAcceptSharedAttachments: boolean;
+```
+
+- *Type:* boolean
+
+Enable or disable automatic acceptance of attachment requests.
+
+When enabled any new transit gateway attachments that are created in other
+accounts via a resource share will be accepted automatically. Otherwise,
+manual intervention will be required to approve all new attachments.
+
+This is disabled by default to maintain the highest levels of security,
+however enabling should be strongly considered as without this full
+automation of infrastructure will not be possible for cross account
+setups.
+
+> [[Accept a shared attachment](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#tgw-accept-shared-attachment)]([Accept a shared attachment](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#tgw-accept-shared-attachment))
+
+---
+
+##### `defaultRouteTableAssociation`<sup>Required</sup> <a name="defaultRouteTableAssociation" id="cdk-extensions.ec2.TransitGateway.property.defaultRouteTableAssociation"></a>
+
+```typescript
+public readonly defaultRouteTableAssociation: boolean;
+```
+
+- *Type:* boolean
+
+Enable or disable automatic association with the default association route table.
+
+When enabled, all new attachments that are accepted will be automatically
+associated with the default association route table. By default this is
+the route table that is created automatically when the transit gateway is
+created.
+
+> [[TransitGateway.DefaultRouteTableAssociation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-defaultroutetableassociation)]([TransitGateway.DefaultRouteTableAssociation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-defaultroutetableassociation))
+
+---
+
+##### `defaultRouteTablePropagation`<sup>Required</sup> <a name="defaultRouteTablePropagation" id="cdk-extensions.ec2.TransitGateway.property.defaultRouteTablePropagation"></a>
+
+```typescript
+public readonly defaultRouteTablePropagation: boolean;
+```
+
+- *Type:* boolean
+
+Enable or disable automatic propagation of routes to the default propagation route table.
+
+When a new attachment is accepted, the routes associated with that
+attachment will automatically be added to the default propagation route
+table. By default this is the route table that is created automatically
+when the transit gateway is created.
+
+> [[Route propagation](https://docs.aws.amazon.com/vpc/latest/tgw/how-transit-gateways-work.html#tgw-route-propagation-overview)]([Route propagation](https://docs.aws.amazon.com/vpc/latest/tgw/how-transit-gateways-work.html#tgw-route-propagation-overview))
+
+---
+
+##### `dnsSupport`<sup>Required</sup> <a name="dnsSupport" id="cdk-extensions.ec2.TransitGateway.property.dnsSupport"></a>
+
+```typescript
+public readonly dnsSupport: boolean;
+```
+
+- *Type:* boolean
+
+Enable or disable DNS support.
+
+When DNS support is enabled on a transit gateway, VPC DNS resolution in
+attached VPC's will automatically resolve public IP addresses from other
+VPC's to their provate IP address equivalent.
+
+> [[Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw)]([Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw))
+
+---
+
+##### `multicastSupport`<sup>Required</sup> <a name="multicastSupport" id="cdk-extensions.ec2.TransitGateway.property.multicastSupport"></a>
+
+```typescript
+public readonly multicastSupport: boolean;
+```
+
+- *Type:* boolean
+
+Indicates whether multicast is enabled on the transit gateway.
+
+> [[Multicast reference architectures](https://d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/transitgateway_multicast_ra.pdf?did=wp_card&trk=wp_card)]([Multicast reference architectures](https://d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/transitgateway_multicast_ra.pdf?did=wp_card&trk=wp_card))
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.TransitGateway.property.resource"></a>
+
+```typescript
+public readonly resource: CfnTransitGateway;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnTransitGateway
+
+The underlying TransitGateway CloudFormation resource.
+
+> [[AWS::EC2::TransitGateway](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html)]([AWS::EC2::TransitGateway](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html))
+
+---
+
+##### `transitGatewayArn`<sup>Required</sup> <a name="transitGatewayArn" id="cdk-extensions.ec2.TransitGateway.property.transitGatewayArn"></a>
+
+```typescript
+public readonly transitGatewayArn: string;
+```
+
+- *Type:* string
+
+The ARN of this Transit Gateway.
+
+---
+
+##### `transitGatewayId`<sup>Required</sup> <a name="transitGatewayId" id="cdk-extensions.ec2.TransitGateway.property.transitGatewayId"></a>
+
+```typescript
+public readonly transitGatewayId: string;
+```
+
+- *Type:* string
+
+The ID of this Transit Gateway.
+
+---
+
+##### `amazonSideAsn`<sup>Optional</sup> <a name="amazonSideAsn" id="cdk-extensions.ec2.TransitGateway.property.amazonSideAsn"></a>
+
+```typescript
+public readonly amazonSideAsn: number;
+```
+
+- *Type:* number
+
+A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+
+The range is 64512 to 65534 for 16-bit ASNs.
+
+> [[TransitGateway.AmazonSideAsn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-amazonsideasn)]([TransitGateway.AmazonSideAsn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-amazonsideasn))
+
+---
+
+##### `defaultRouteTable`<sup>Optional</sup> <a name="defaultRouteTable" id="cdk-extensions.ec2.TransitGateway.property.defaultRouteTable"></a>
+
+```typescript
+public readonly defaultRouteTable: ITransitGatewayRouteTable;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayRouteTable
+
+The default route table that got created along with the Transit Gateway.
+
+This information is not exposed by CloudFormation. As such, this resource
+will only be available if the default reoute table ID is passed in.
+
+---
+
+##### `defaultRouteTableId`<sup>Optional</sup> <a name="defaultRouteTableId" id="cdk-extensions.ec2.TransitGateway.property.defaultRouteTableId"></a>
+
+```typescript
+public readonly defaultRouteTableId: string;
+```
+
+- *Type:* string
+
+The ID of the default route table that was created with the transit gateway.
+
+This route table is critical to some transit gateway architectures and is
+not exposed by CloudFormation.
+
+Passing in the ID of the default route table will make an object available
+that represents it and can be used for further operations.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.TransitGateway.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+The description of the transit gateway.
+
+> [[TransitGateway.Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-description)]([TransitGateway.Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-description))
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.TransitGateway.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the transit gateway.
+
+Used to tag the transit gateway with a name that will be displayed in the
+AWS VPC console.
+
+> [[TransitGateway.Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags)]([TransitGateway.Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags))
+
+---
+
+##### `resourceShare`<sup>Optional</sup> <a name="resourceShare" id="cdk-extensions.ec2.TransitGateway.property.resourceShare"></a>
+
+```typescript
+public readonly resourceShare: ResourceShare;
+```
+
+- *Type:* cdk-extensions.ram.ResourceShare
+
+The RAM resource share that is used for sharing the transit gateway with other accounts.
+
+---
+
+##### `vpnEcmpSupport`<sup>Optional</sup> <a name="vpnEcmpSupport" id="cdk-extensions.ec2.TransitGateway.property.vpnEcmpSupport"></a>
+
+```typescript
+public readonly vpnEcmpSupport: boolean;
+```
+
+- *Type:* boolean
+
+Enable or disable Equal Cost Multipath Protocol support.
+
+> [[Achieve ECMP with multiple VPN tunnels](https://aws.amazon.com/premiumsupport/knowledge-center/transit-gateway-ecmp-multiple-tunnels/)]([Achieve ECMP with multiple VPN tunnels](https://aws.amazon.com/premiumsupport/knowledge-center/transit-gateway-ecmp-multiple-tunnels/))
+
+---
+
+
+### TransitGatewayAttachment <a name="TransitGatewayAttachment" id="cdk-extensions.ec2.TransitGatewayAttachment"></a>
+
+Attaches a VPC to a transit gateway.
+
+If you attach a VPC with a CIDR range that overlaps the CIDR range of a VPC
+that is already attached, the new VPC CIDR range is not propagated to the
+default propagation route table.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.TransitGatewayAttachment.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.TransitGatewayAttachment(scope: Construct, id: string, props: TransitGatewayAttachmentProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resources's parent in the construct tree. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.TransitGatewayAttachmentProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.TransitGatewayAttachment.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayAttachment.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.TransitGatewayAttachment.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.TransitGatewayAttachmentProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.addRoute">addRoute</a></code> | Adds a route that directs traffic to this transit gateway attachment. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.TransitGatewayAttachment.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.TransitGatewayAttachment.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.TransitGatewayAttachment.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addRoute` <a name="addRoute" id="cdk-extensions.ec2.TransitGatewayAttachment.addRoute"></a>
+
+```typescript
+public addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
+```
+
+Adds a route that directs traffic to this transit gateway attachment.
+
+###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.TransitGatewayAttachment.addRoute.parameter.cidr"></a>
+
+- *Type:* string
+
+CIDR range that should be routed to this attachment.
+
+---
+
+###### `routeTable`<sup>Required</sup> <a name="routeTable" id="cdk-extensions.ec2.TransitGatewayAttachment.addRoute.parameter.routeTable"></a>
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayRouteTable
+
+The transit gateway route table where the route should be added.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.fromTransitGatewayAttachmentId">fromTransitGatewayAttachmentId</a></code> | Imports an existing Transit Gateway Attachment using its attachment ID. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.TransitGatewayAttachment.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayAttachment.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.TransitGatewayAttachment.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.TransitGatewayAttachment.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayAttachment.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.TransitGatewayAttachment.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.TransitGatewayAttachment.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayAttachment.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.TransitGatewayAttachment.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromTransitGatewayAttachmentId` <a name="fromTransitGatewayAttachmentId" id="cdk-extensions.ec2.TransitGatewayAttachment.fromTransitGatewayAttachmentId"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayAttachment.fromTransitGatewayAttachmentId(scope: IConstruct, id: string, transitGatewayAttachmentId: string)
+```
+
+Imports an existing Transit Gateway Attachment using its attachment ID.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.TransitGatewayAttachment.fromTransitGatewayAttachmentId.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayAttachment.fromTransitGatewayAttachmentId.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `transitGatewayAttachmentId`<sup>Required</sup> <a name="transitGatewayAttachmentId" id="cdk-extensions.ec2.TransitGatewayAttachment.fromTransitGatewayAttachmentId.parameter.transitGatewayAttachmentId"></a>
+
+- *Type:* string
+
+The attachment ID of the Transit Gateway attachment being imported.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.property.transitGatewayAttachmentArn">transitGatewayAttachmentArn</a></code> | <code>string</code> | The ARN of this Transit Gateway Attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.property.transitGatewayAttachmentId">transitGatewayAttachmentId</a></code> | <code>string</code> | The ID of this Transit Gateway Attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The subnets where the attachment should be created. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | The transit gateway for which the attachment should be created. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC where the attachment should be created. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.property.applianceModeSupport">applianceModeSupport</a></code> | <code>boolean</code> | Enables appliance mode on the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.property.dnsSupport">dnsSupport</a></code> | <code>boolean</code> | Enables DNS support for the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.property.ipv6Support">ipv6Support</a></code> | <code>boolean</code> | Enables DNS support for the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.property.name">name</a></code> | <code>string</code> | The name of the Transit Gateway Attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachment.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnTransitGatewayAttachment</code> | The underlying NamedQuery CloudFormation resource. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.TransitGatewayAttachment.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.TransitGatewayAttachment.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.TransitGatewayAttachment.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `transitGatewayAttachmentArn`<sup>Required</sup> <a name="transitGatewayAttachmentArn" id="cdk-extensions.ec2.TransitGatewayAttachment.property.transitGatewayAttachmentArn"></a>
+
+```typescript
+public readonly transitGatewayAttachmentArn: string;
+```
+
+- *Type:* string
+
+The ARN of this Transit Gateway Attachment.
+
+---
+
+##### `transitGatewayAttachmentId`<sup>Required</sup> <a name="transitGatewayAttachmentId" id="cdk-extensions.ec2.TransitGatewayAttachment.property.transitGatewayAttachmentId"></a>
+
+```typescript
+public readonly transitGatewayAttachmentId: string;
+```
+
+- *Type:* string
+
+The ID of this Transit Gateway Attachment.
+
+---
+
+##### `subnets`<sup>Required</sup> <a name="subnets" id="cdk-extensions.ec2.TransitGatewayAttachment.property.subnets"></a>
+
+```typescript
+public readonly subnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+The subnets where the attachment should be created.
+
+Can select up to one subnet per Availability Zone.
+
+> [[TransitGatewayVpcAttachment SubnetIds](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-subnetids)]([TransitGatewayVpcAttachment SubnetIds](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-subnetids))
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2.TransitGatewayAttachment.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+The transit gateway for which the attachment should be created.
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="cdk-extensions.ec2.TransitGatewayAttachment.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+The VPC where the attachment should be created.
+
+> [[TransitGatewayVpcAttachment VpcId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-vpcid)]([TransitGatewayVpcAttachment VpcId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-vpcid))
+
+---
+
+##### `applianceModeSupport`<sup>Optional</sup> <a name="applianceModeSupport" id="cdk-extensions.ec2.TransitGatewayAttachment.property.applianceModeSupport"></a>
+
+```typescript
+public readonly applianceModeSupport: boolean;
+```
+
+- *Type:* boolean
+
+Enables appliance mode on the attachment.
+
+When appliance mode is enabled, all traffic flowing between attachments is
+forwarded to an appliance in a shared VPC to be inspected and processed.
+
+> [[Appliance in a shared services VPC](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-appliance-scenario.html)]([Appliance in a shared services VPC](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-appliance-scenario.html))
+
+---
+
+##### `dnsSupport`<sup>Optional</sup> <a name="dnsSupport" id="cdk-extensions.ec2.TransitGatewayAttachment.property.dnsSupport"></a>
+
+```typescript
+public readonly dnsSupport: boolean;
+```
+
+- *Type:* boolean
+
+Enables DNS support for the attachment.
+
+With DNS Support enabled public DNS names that resolve to a connected VPC
+will be translated to private IP addresses when resolved in a connected VPC.
+
+> [[TransitGatewayVpcAttachment DnsSupport](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayvpcattachment-options.html#cfn-ec2-transitgatewayvpcattachment-options-dnssupport)]([TransitGatewayVpcAttachment DnsSupport](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayvpcattachment-options.html#cfn-ec2-transitgatewayvpcattachment-options-dnssupport))
+
+---
+
+##### `ipv6Support`<sup>Optional</sup> <a name="ipv6Support" id="cdk-extensions.ec2.TransitGatewayAttachment.property.ipv6Support"></a>
+
+```typescript
+public readonly ipv6Support: boolean;
+```
+
+- *Type:* boolean
+
+Enables DNS support for the attachment.
+
+With DNS Support enabled public DNS names that resolve to a connected VPC
+will be translated to private IP addresses when resolved in a connected VPC.
+
+> [[IPv6 connectivity with TransitGateway](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/amazon-vpc-connectivity-options-for-ipv6.html#ipv6-connectivity-with-transit-gateway)]([IPv6 connectivity with TransitGateway](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/amazon-vpc-connectivity-options-for-ipv6.html#ipv6-connectivity-with-transit-gateway))
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.TransitGatewayAttachment.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the Transit Gateway Attachment.
+
+Used to tag the attachment with a name that will be displayed in the AWS
+EC2 console.
+
+> [[TransitGatewayVpcAttachment Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-tags)]([TransitGatewayVpcAttachment Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-tags))
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.TransitGatewayAttachment.property.resource"></a>
+
+```typescript
+public readonly resource: CfnTransitGatewayAttachment;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnTransitGatewayAttachment
+
+The underlying NamedQuery CloudFormation resource.
+
+> [[AWS::EC2::TransitGatewayVpcAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html)]([AWS::EC2::TransitGatewayVpcAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html))
+
+---
+
+
+### TransitGatewayAttachmentBase <a name="TransitGatewayAttachmentBase" id="cdk-extensions.ec2.TransitGatewayAttachmentBase"></a>
+
+- *Implements:* cdk-extensions.ec2.ITransitGatewayAttachment
+
+A base class providing common functionality between created and imported Transit Gateway Attachments.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.TransitGatewayAttachmentBase(scope: Construct, id: string, props?: ResourceProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentBase.Initializer.parameter.props">props</a></code> | <code>aws-cdk-lib.ResourceProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.Initializer.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.ResourceProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentBase.addRoute">addRoute</a></code> | Adds a route that directs traffic to this transit gateway attachment. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addRoute` <a name="addRoute" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.addRoute"></a>
+
+```typescript
+public addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
+```
+
+Adds a route that directs traffic to this transit gateway attachment.
+
+###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.addRoute.parameter.cidr"></a>
+
+- *Type:* string
+
+CIDR range that should be routed to this attachment.
+
+---
+
+###### `routeTable`<sup>Required</sup> <a name="routeTable" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.addRoute.parameter.routeTable"></a>
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayRouteTable
+
+The transit gateway route table where the route should be added.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentBase.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentBase.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayAttachmentBase.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayAttachmentBase.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayAttachmentBase.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentBase.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentBase.property.transitGatewayAttachmentArn">transitGatewayAttachmentArn</a></code> | <code>string</code> | The ARN of this Transit Gateway Attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentBase.property.transitGatewayAttachmentId">transitGatewayAttachmentId</a></code> | <code>string</code> | The name of this Transit Gateway Attachment. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `transitGatewayAttachmentArn`<sup>Required</sup> <a name="transitGatewayAttachmentArn" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.property.transitGatewayAttachmentArn"></a>
+
+```typescript
+public readonly transitGatewayAttachmentArn: string;
+```
+
+- *Type:* string
+
+The ARN of this Transit Gateway Attachment.
+
+---
+
+##### `transitGatewayAttachmentId`<sup>Required</sup> <a name="transitGatewayAttachmentId" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.property.transitGatewayAttachmentId"></a>
+
+```typescript
+public readonly transitGatewayAttachmentId: string;
+```
+
+- *Type:* string
+
+The name of this Transit Gateway Attachment.
+
+---
+
+
+### TransitGatewayAttachmentResource <a name="TransitGatewayAttachmentResource" id="cdk-extensions.ec2.TransitGatewayAttachmentResource"></a>
+
+Attaches a VPC to a transit gateway.
+
+If you attach a VPC with a CIDR range that overlaps the CIDR range of a VPC
+that is already attached, the new VPC CIDR range is not propagated to the
+default propagation route table.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.TransitGatewayAttachmentResource(scope: Construct, id: string, props: TransitGatewayAttachmentResourceProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this resources's parent in the construct tree. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.TransitGatewayAttachmentResourceProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.TransitGatewayAttachmentResourceProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.addRoute">addRoute</a></code> | Adds a route that directs traffic to this transit gateway attachment. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addRoute` <a name="addRoute" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.addRoute"></a>
+
+```typescript
+public addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
+```
+
+Adds a route that directs traffic to this transit gateway attachment.
+
+###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.addRoute.parameter.cidr"></a>
+
+- *Type:* string
+
+CIDR range that should be routed to this attachment.
+
+---
+
+###### `routeTable`<sup>Required</sup> <a name="routeTable" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.addRoute.parameter.routeTable"></a>
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayRouteTable
+
+The transit gateway route table where the route should be added.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayAttachmentResource.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayAttachmentResource.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayAttachmentResource.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.property.transitGatewayAttachmentArn">transitGatewayAttachmentArn</a></code> | <code>string</code> | The ARN of this Transit Gateway Attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.property.transitGatewayAttachmentId">transitGatewayAttachmentId</a></code> | <code>string</code> | The ID of this Transit Gateway Attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The subnets where the attachment should be created. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | The transit gateway for which the attachment should be created. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC where the attachment should be created. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.property.applianceModeSupport">applianceModeSupport</a></code> | <code>boolean</code> | Enables appliance mode on the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.property.dnsSupport">dnsSupport</a></code> | <code>boolean</code> | Enables DNS support for the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.property.ipv6Support">ipv6Support</a></code> | <code>boolean</code> | Enables DNS support for the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResource.property.name">name</a></code> | <code>string</code> | The name of the Transit Gateway Attachment. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `transitGatewayAttachmentArn`<sup>Required</sup> <a name="transitGatewayAttachmentArn" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.property.transitGatewayAttachmentArn"></a>
+
+```typescript
+public readonly transitGatewayAttachmentArn: string;
+```
+
+- *Type:* string
+
+The ARN of this Transit Gateway Attachment.
+
+---
+
+##### `transitGatewayAttachmentId`<sup>Required</sup> <a name="transitGatewayAttachmentId" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.property.transitGatewayAttachmentId"></a>
+
+```typescript
+public readonly transitGatewayAttachmentId: string;
+```
+
+- *Type:* string
+
+The ID of this Transit Gateway Attachment.
+
+---
+
+##### `subnets`<sup>Required</sup> <a name="subnets" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.property.subnets"></a>
+
+```typescript
+public readonly subnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+The subnets where the attachment should be created.
+
+Can select up to one subnet per Availability Zone.
+
+> [[TransitGatewayVpcAttachment SubnetIds](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-subnetids)]([TransitGatewayVpcAttachment SubnetIds](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-subnetids))
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+The transit gateway for which the attachment should be created.
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+The VPC where the attachment should be created.
+
+> [[TransitGatewayVpcAttachment VpcId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-vpcid)]([TransitGatewayVpcAttachment VpcId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-vpcid))
+
+---
+
+##### `applianceModeSupport`<sup>Optional</sup> <a name="applianceModeSupport" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.property.applianceModeSupport"></a>
+
+```typescript
+public readonly applianceModeSupport: boolean;
+```
+
+- *Type:* boolean
+
+Enables appliance mode on the attachment.
+
+When appliance mode is enabled, all traffic flowing between attachments is
+forwarded to an appliance in a shared VPC to be inspected and processed.
+
+> [[Appliance in a shared services VPC](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-appliance-scenario.html)]([Appliance in a shared services VPC](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-appliance-scenario.html))
+
+---
+
+##### `dnsSupport`<sup>Optional</sup> <a name="dnsSupport" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.property.dnsSupport"></a>
+
+```typescript
+public readonly dnsSupport: boolean;
+```
+
+- *Type:* boolean
+
+Enables DNS support for the attachment.
+
+With DNS Support enabled public DNS names that resolve to a connected VPC
+will be translated to private IP addresses when resolved in a connected VPC.
+
+> [[TransitGatewayVpcAttachment DnsSupport](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayvpcattachment-options.html#cfn-ec2-transitgatewayvpcattachment-options-dnssupport)]([TransitGatewayVpcAttachment DnsSupport](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayvpcattachment-options.html#cfn-ec2-transitgatewayvpcattachment-options-dnssupport))
+
+---
+
+##### `ipv6Support`<sup>Optional</sup> <a name="ipv6Support" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.property.ipv6Support"></a>
+
+```typescript
+public readonly ipv6Support: boolean;
+```
+
+- *Type:* boolean
+
+Enables DNS support for the attachment.
+
+With DNS Support enabled public DNS names that resolve to a connected VPC
+will be translated to private IP addresses when resolved in a connected VPC.
+
+> [[IPv6 connectivity with TransitGateway](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/amazon-vpc-connectivity-options-for-ipv6.html#ipv6-connectivity-with-transit-gateway)]([IPv6 connectivity with TransitGateway](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/amazon-vpc-connectivity-options-for-ipv6.html#ipv6-connectivity-with-transit-gateway))
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the Transit Gateway Attachment.
+
+Used to tag the attachment with a name that will be displayed in the AWS
+EC2 console.
+
+> [[TransitGatewayVpcAttachment Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-tags)]([TransitGatewayVpcAttachment Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-tags))
+
+---
+
+
+### TransitGatewayPeeringAttachment <a name="TransitGatewayPeeringAttachment" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment"></a>
+
+- *Implements:* cdk-extensions.ec2.ITransitGatewayPeeringAttachment
+
+Requests a transit gateway peering attachment between the specified transit gateway (requester) and a peer transit gateway (accepter).
+
+The peer transit
+gateway can be in your account or a different AWS account.
+
+After you create the peering attachment, the owner of the accepter transit
+gateway must accept the attachment request.
+
+> [[AWS::EC2::TransitGatewayPeeringAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html)]([AWS::EC2::TransitGatewayPeeringAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.TransitGatewayPeeringAttachment(scope: Construct, id: string, props: TransitGatewayPeeringAttachmentProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.addRoute">addRoute</a></code> | Adds a route that directs traffic to this transit gateway attachment. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addRoute` <a name="addRoute" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.addRoute"></a>
+
+```typescript
+public addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
+```
+
+Adds a route that directs traffic to this transit gateway attachment.
+
+###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.addRoute.parameter.cidr"></a>
+
+- *Type:* string
+
+CIDR range that should be routed to this attachment.
+
+---
+
+###### `routeTable`<sup>Required</sup> <a name="routeTable" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.addRoute.parameter.routeTable"></a>
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayRouteTable
+
+The transit gateway route table where the route should be added.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentArn">fromTransitGatewayPeeringAttachmentArn</a></code> | Imports an existing transit gateway peering attachment using its ARN. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentAttributes">fromTransitGatewayPeeringAttachmentAttributes</a></code> | Imports an existing transit gateway peering attachment by defining its components. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentId">fromTransitGatewayPeeringAttachmentId</a></code> | Imports an existing transit gateway peering attachment using its attachment ID. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayPeeringAttachment.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayPeeringAttachment.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayPeeringAttachment.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromTransitGatewayPeeringAttachmentArn` <a name="fromTransitGatewayPeeringAttachmentArn" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentArn"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentArn(scope: IConstruct, id: string, arn: string)
+```
+
+Imports an existing transit gateway peering attachment using its ARN.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentArn.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `arn`<sup>Required</sup> <a name="arn" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentArn.parameter.arn"></a>
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the resource being imported.
+
+---
+
+##### `fromTransitGatewayPeeringAttachmentAttributes` <a name="fromTransitGatewayPeeringAttachmentAttributes" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentAttributes"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentAttributes(scope: IConstruct, id: string, attrs: TransitGatewayPeeringAttachmentImportAttributes)
+```
+
+Imports an existing transit gateway peering attachment by defining its components.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentAttributes.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentAttributes.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentAttributes.parameter.attrs"></a>
+
+- *Type:* cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes
+
+An object describing the details of the resource being imported.
+
+---
+
+##### `fromTransitGatewayPeeringAttachmentId` <a name="fromTransitGatewayPeeringAttachmentId" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentId"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentId(scope: IConstruct, id: string, attachmentId: string)
+```
+
+Imports an existing transit gateway peering attachment using its attachment ID.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentId.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentId.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `attachmentId`<sup>Required</sup> <a name="attachmentId" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.fromTransitGatewayPeeringAttachmentId.parameter.attachmentId"></a>
+
+- *Type:* string
+
+The ID of the resource being imported.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.transitGatewayAttachmentArn">transitGatewayAttachmentArn</a></code> | <code>string</code> | The ARN of this transit gateway peering attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.transitGatewayAttachmentId">transitGatewayAttachmentId</a></code> | <code>string</code> | The ID of this transit gateway peering attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.localTransitGateway">localTransitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | The local side of the transit gateway peering connection. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.peerTransitGateway">peerTransitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | The remote transit gateway being peered with. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachment</code> | The underlying TransitGatewayRouteTable CloudFormation resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.transitGatewayAttachmentCreationTime">transitGatewayAttachmentCreationTime</a></code> | <code>string</code> | The time the transit gateway peering attachment was created. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.transitGatewayAttachmentState">transitGatewayAttachmentState</a></code> | <code>string</code> | The state of the transit gateway peering attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.transitGatewayAttachmentStatus">transitGatewayAttachmentStatus</a></code> | <code>string</code> | The status of the transit gateway peering attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.transitGatewayAttachmentStatusCode">transitGatewayAttachmentStatusCode</a></code> | <code>string</code> | The status code for the current status of the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.transitGatewayAttachmentStatusMessage">transitGatewayAttachmentStatusMessage</a></code> | <code>string</code> | The status message for the current status of the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.name">name</a></code> | <code>string</code> | The name of the transit gateway peering attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.peerAccountId">peerAccountId</a></code> | <code>string</code> | The account that contains the transit gateway being peered with. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.peerRegion">peerRegion</a></code> | <code>string</code> | The region that contains the transit gateway being peered with. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `transitGatewayAttachmentArn`<sup>Required</sup> <a name="transitGatewayAttachmentArn" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.transitGatewayAttachmentArn"></a>
+
+```typescript
+public readonly transitGatewayAttachmentArn: string;
+```
+
+- *Type:* string
+
+The ARN of this transit gateway peering attachment.
+
+---
+
+##### `transitGatewayAttachmentId`<sup>Required</sup> <a name="transitGatewayAttachmentId" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.transitGatewayAttachmentId"></a>
+
+```typescript
+public readonly transitGatewayAttachmentId: string;
+```
+
+- *Type:* string
+
+The ID of this transit gateway peering attachment.
+
+---
+
+##### `localTransitGateway`<sup>Required</sup> <a name="localTransitGateway" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.localTransitGateway"></a>
+
+```typescript
+public readonly localTransitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+The local side of the transit gateway peering connection.
+
+> [[TransitGatewayPeeringAttachment TransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid)]([TransitGatewayPeeringAttachment TransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid))
+
+---
+
+##### `peerTransitGateway`<sup>Required</sup> <a name="peerTransitGateway" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.peerTransitGateway"></a>
+
+```typescript
+public readonly peerTransitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+The remote transit gateway being peered with.
+
+> [[TransitGatewayPeeringAttachment PeerTransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid)]([TransitGatewayPeeringAttachment PeerTransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid))
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.resource"></a>
+
+```typescript
+public readonly resource: CfnTransitGatewayPeeringAttachment;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachment
+
+The underlying TransitGatewayRouteTable CloudFormation resource.
+
+> [[AWS::EC2::TransitGatewayRouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html)]([AWS::EC2::TransitGatewayRouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html))
+
+---
+
+##### `transitGatewayAttachmentCreationTime`<sup>Required</sup> <a name="transitGatewayAttachmentCreationTime" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.transitGatewayAttachmentCreationTime"></a>
+
+```typescript
+public readonly transitGatewayAttachmentCreationTime: string;
+```
+
+- *Type:* string
+
+The time the transit gateway peering attachment was created.
+
+---
+
+##### `transitGatewayAttachmentState`<sup>Required</sup> <a name="transitGatewayAttachmentState" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.transitGatewayAttachmentState"></a>
+
+```typescript
+public readonly transitGatewayAttachmentState: string;
+```
+
+- *Type:* string
+
+The state of the transit gateway peering attachment.
+
+---
+
+##### `transitGatewayAttachmentStatus`<sup>Required</sup> <a name="transitGatewayAttachmentStatus" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.transitGatewayAttachmentStatus"></a>
+
+```typescript
+public readonly transitGatewayAttachmentStatus: string;
+```
+
+- *Type:* string
+
+The status of the transit gateway peering attachment.
+
+---
+
+##### `transitGatewayAttachmentStatusCode`<sup>Required</sup> <a name="transitGatewayAttachmentStatusCode" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.transitGatewayAttachmentStatusCode"></a>
+
+```typescript
+public readonly transitGatewayAttachmentStatusCode: string;
+```
+
+- *Type:* string
+
+The status code for the current status of the attachment.
+
+---
+
+##### `transitGatewayAttachmentStatusMessage`<sup>Required</sup> <a name="transitGatewayAttachmentStatusMessage" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.transitGatewayAttachmentStatusMessage"></a>
+
+```typescript
+public readonly transitGatewayAttachmentStatusMessage: string;
+```
+
+- *Type:* string
+
+The status message for the current status of the attachment.
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the transit gateway peering attachment.
+
+Used to tag the attachment with a name that will be displayed in the AWS
+EC2 console.
+
+> [[TransitGatewayPeeringAttachment Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags)]([TransitGatewayPeeringAttachment Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags))
+
+---
+
+##### `peerAccountId`<sup>Optional</sup> <a name="peerAccountId" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.peerAccountId"></a>
+
+```typescript
+public readonly peerAccountId: string;
+```
+
+- *Type:* string
+
+The account that contains the transit gateway being peered with.
+
+> [[TransitGatewayPeeringAttachment PeerAccountId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid)]([TransitGatewayPeeringAttachment PeerAccountId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid))
+
+---
+
+##### `peerRegion`<sup>Optional</sup> <a name="peerRegion" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.property.peerRegion"></a>
+
+```typescript
+public readonly peerRegion: string;
+```
+
+- *Type:* string
+
+The region that contains the transit gateway being peered with.
+
+> [[TransitGatewayPeeringAttachment PeerRegion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion)]([TransitGatewayPeeringAttachment PeerRegion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion))
+
+---
+
+
+### TransitGatewayRoute <a name="TransitGatewayRoute" id="cdk-extensions.ec2.TransitGatewayRoute"></a>
+
+Adds a routing rule for a transit gateway route table.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.TransitGatewayRoute.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.TransitGatewayRoute(scope: Construct, id: string, props: TransitGatewayRouteProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.TransitGatewayRouteProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.TransitGatewayRoute.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayRoute.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.TransitGatewayRoute.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.TransitGatewayRouteProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.TransitGatewayRoute.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.TransitGatewayRoute.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.TransitGatewayRoute.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.fromTransitGatewayRouteId">fromTransitGatewayRouteId</a></code> | Imports an existing Transit Gateway Route using its route ID. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.TransitGatewayRoute.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayRoute.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.TransitGatewayRoute.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.TransitGatewayRoute.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayRoute.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.TransitGatewayRoute.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.TransitGatewayRoute.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayRoute.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.TransitGatewayRoute.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromTransitGatewayRouteId` <a name="fromTransitGatewayRouteId" id="cdk-extensions.ec2.TransitGatewayRoute.fromTransitGatewayRouteId"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayRoute.fromTransitGatewayRouteId(scope: IConstruct, id: string, transitGatewayRouteId: string)
+```
+
+Imports an existing Transit Gateway Route using its route ID.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.TransitGatewayRoute.fromTransitGatewayRouteId.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayRoute.fromTransitGatewayRouteId.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `transitGatewayRouteId`<sup>Required</sup> <a name="transitGatewayRouteId" id="cdk-extensions.ec2.TransitGatewayRoute.fromTransitGatewayRouteId.parameter.transitGatewayRouteId"></a>
+
+- *Type:* string
+
+The ID of the Transit Gateway route being imported.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnTransitGatewayRoute</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.property.routeTable">routeTable</a></code> | <code>cdk-extensions.ec2.ITransitGatewayRouteTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.property.transitGatewayRouteId">transitGatewayRouteId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.property.attachment">attachment</a></code> | <code>cdk-extensions.ec2.ITransitGatewayAttachment</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRoute.property.blackhole">blackhole</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.TransitGatewayRoute.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.TransitGatewayRoute.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.TransitGatewayRoute.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.TransitGatewayRoute.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.TransitGatewayRoute.property.resource"></a>
+
+```typescript
+public readonly resource: CfnTransitGatewayRoute;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnTransitGatewayRoute
+
+---
+
+##### `routeTable`<sup>Required</sup> <a name="routeTable" id="cdk-extensions.ec2.TransitGatewayRoute.property.routeTable"></a>
+
+```typescript
+public readonly routeTable: ITransitGatewayRouteTable;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayRouteTable
+
+---
+
+##### `transitGatewayRouteId`<sup>Required</sup> <a name="transitGatewayRouteId" id="cdk-extensions.ec2.TransitGatewayRoute.property.transitGatewayRouteId"></a>
+
+```typescript
+public readonly transitGatewayRouteId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `attachment`<sup>Optional</sup> <a name="attachment" id="cdk-extensions.ec2.TransitGatewayRoute.property.attachment"></a>
+
+```typescript
+public readonly attachment: ITransitGatewayAttachment;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayAttachment
+
+---
+
+##### `blackhole`<sup>Optional</sup> <a name="blackhole" id="cdk-extensions.ec2.TransitGatewayRoute.property.blackhole"></a>
+
+```typescript
+public readonly blackhole: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+
+### TransitGatewayRouteTable <a name="TransitGatewayRouteTable" id="cdk-extensions.ec2.TransitGatewayRouteTable"></a>
+
+- *Implements:* cdk-extensions.ec2.ITransitGatewayRouteTable
+
+Creates a route table for traffic being processed by a transit gateway.
+
+When traffic is routed to a transit gateway via an attachment, the route
+table associated with that attachment is used when evaluating how the
+inbound traffic should be routed.
+
+> [[AWS::EC2::TransitGatewayRouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html)]([AWS::EC2::TransitGatewayRouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.TransitGatewayRouteTable.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.TransitGatewayRouteTable(scope: Construct, id: string, props: TransitGatewayRouteTableProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.TransitGatewayRouteTableProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.TransitGatewayRouteTable.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayRouteTable.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.TransitGatewayRouteTable.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.TransitGatewayRouteTableProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.addRoute">addRoute</a></code> | Adds a route to this transit gateway route table. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.TransitGatewayRouteTable.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.TransitGatewayRouteTable.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.TransitGatewayRouteTable.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addRoute` <a name="addRoute" id="cdk-extensions.ec2.TransitGatewayRouteTable.addRoute"></a>
+
+```typescript
+public addRoute(options: TransitGatewayRouteOptions): TransitGatewayRoute
+```
+
+Adds a route to this transit gateway route table.
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.TransitGatewayRouteTable.addRoute.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.TransitGatewayRouteOptions
+
+Configuration for the route being added.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.fromTransitGatewayRouteTableId">fromTransitGatewayRouteTableId</a></code> | Imports an existing transit gateway route table using its route table ID. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.TransitGatewayRouteTable.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayRouteTable.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.TransitGatewayRouteTable.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.TransitGatewayRouteTable.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayRouteTable.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.TransitGatewayRouteTable.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.TransitGatewayRouteTable.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayRouteTable.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.TransitGatewayRouteTable.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromTransitGatewayRouteTableId` <a name="fromTransitGatewayRouteTableId" id="cdk-extensions.ec2.TransitGatewayRouteTable.fromTransitGatewayRouteTableId"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayRouteTable.fromTransitGatewayRouteTableId(scope: IConstruct, id: string, transitGatewayRouteTableId: string)
+```
+
+Imports an existing transit gateway route table using its route table ID.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.TransitGatewayRouteTable.fromTransitGatewayRouteTableId.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayRouteTable.fromTransitGatewayRouteTableId.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `transitGatewayRouteTableId`<sup>Required</sup> <a name="transitGatewayRouteTableId" id="cdk-extensions.ec2.TransitGatewayRouteTable.fromTransitGatewayRouteTableId.parameter.transitGatewayRouteTableId"></a>
+
+- *Type:* string
+
+The attachment ID of the transit gateway route table being imported.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnTransitGatewayRouteTable</code> | The underlying TransitGatewayRouteTable CloudFormation resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | The transit gateway for which the route table should be created. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.property.transitGatewayRouteTableArn">transitGatewayRouteTableArn</a></code> | <code>string</code> | The ARN of this transit gateway route table. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.property.transitGatewayRouteTableId">transitGatewayRouteTableId</a></code> | <code>string</code> | The ID of this transit gateway route table. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTable.property.name">name</a></code> | <code>string</code> | The name of the transit gateway route table. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.TransitGatewayRouteTable.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.TransitGatewayRouteTable.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.TransitGatewayRouteTable.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.TransitGatewayRouteTable.property.resource"></a>
+
+```typescript
+public readonly resource: CfnTransitGatewayRouteTable;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnTransitGatewayRouteTable
+
+The underlying TransitGatewayRouteTable CloudFormation resource.
+
+> [[AWS::EC2::TransitGatewayRouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html)]([AWS::EC2::TransitGatewayRouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html))
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2.TransitGatewayRouteTable.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+The transit gateway for which the route table should be created.
+
+> [[TransitGatewayRouteTable TransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-transitgatewayid)]([TransitGatewayRouteTable TransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-transitgatewayid))
+
+---
+
+##### `transitGatewayRouteTableArn`<sup>Required</sup> <a name="transitGatewayRouteTableArn" id="cdk-extensions.ec2.TransitGatewayRouteTable.property.transitGatewayRouteTableArn"></a>
+
+```typescript
+public readonly transitGatewayRouteTableArn: string;
+```
+
+- *Type:* string
+
+The ARN of this transit gateway route table.
+
+---
+
+##### `transitGatewayRouteTableId`<sup>Required</sup> <a name="transitGatewayRouteTableId" id="cdk-extensions.ec2.TransitGatewayRouteTable.property.transitGatewayRouteTableId"></a>
+
+```typescript
+public readonly transitGatewayRouteTableId: string;
+```
+
+- *Type:* string
+
+The ID of this transit gateway route table.
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.TransitGatewayRouteTable.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the transit gateway route table.
+
+Used to tag the route table with a name that will be displayed in the AWS
+EC2 console.
+
+> [[TransitGatewayRouteTable Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-tags)]([TransitGatewayRouteTable Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-tags))
+
+---
+
+
 ### Trigger <a name="Trigger" id="cdk-extensions.glue.Trigger"></a>
 
 - *Implements:* cdk-extensions.glue.ITrigger
@@ -24387,6 +30046,413 @@ A GUID identifier for a user object in IAM Identity Center (For example, f81d4fa
 ---
 
 
+### VpnConnection <a name="VpnConnection" id="cdk-extensions.ec2.VpnConnection"></a>
+
+- *Implements:* aws-cdk-lib.aws_ec2.IVpnConnection
+
+Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.VpnConnection.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.VpnConnection(scope: Construct, id: string, props: VpnConnectionProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | A CDK Construct that will serve as this stack's parent in the construct tree. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.VpnConnectionProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.VpnConnection.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+A CDK Construct that will serve as this stack's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.VpnConnection.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique
+within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.VpnConnection.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.VpnConnectionProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.addTunnelConfiguration">addTunnelConfiguration</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.metric">metric</a></code> | Return the given named metric for this VPNConnection. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.metricTunnelDataIn">metricTunnelDataIn</a></code> | The bytes received through the VPN tunnel. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.metricTunnelDataOut">metricTunnelDataOut</a></code> | The bytes sent through the VPN tunnel. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.metricTunnelState">metricTunnelState</a></code> | The state of the tunnel. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.VpnConnection.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.VpnConnection.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.VpnConnection.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addTunnelConfiguration` <a name="addTunnelConfiguration" id="cdk-extensions.ec2.VpnConnection.addTunnelConfiguration"></a>
+
+```typescript
+public addTunnelConfiguration(options: TunnelOptions): void
+```
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.VpnConnection.addTunnelConfiguration.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.TunnelOptions
+
+---
+
+##### `metric` <a name="metric" id="cdk-extensions.ec2.VpnConnection.metric"></a>
+
+```typescript
+public metric(metricName: string, props?: MetricOptions): Metric
+```
+
+Return the given named metric for this VPNConnection.
+
+###### `metricName`<sup>Required</sup> <a name="metricName" id="cdk-extensions.ec2.VpnConnection.metric.parameter.metricName"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2.VpnConnection.metric.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricTunnelDataIn` <a name="metricTunnelDataIn" id="cdk-extensions.ec2.VpnConnection.metricTunnelDataIn"></a>
+
+```typescript
+public metricTunnelDataIn(props?: MetricOptions): Metric
+```
+
+The bytes received through the VPN tunnel.
+
+Sum over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2.VpnConnection.metricTunnelDataIn.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricTunnelDataOut` <a name="metricTunnelDataOut" id="cdk-extensions.ec2.VpnConnection.metricTunnelDataOut"></a>
+
+```typescript
+public metricTunnelDataOut(props?: MetricOptions): Metric
+```
+
+The bytes sent through the VPN tunnel.
+
+Sum over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2.VpnConnection.metricTunnelDataOut.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricTunnelState` <a name="metricTunnelState" id="cdk-extensions.ec2.VpnConnection.metricTunnelState"></a>
+
+```typescript
+public metricTunnelState(props?: MetricOptions): Metric
+```
+
+The state of the tunnel.
+
+0 indicates DOWN and 1 indicates UP.
+
+Average over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2.VpnConnection.metricTunnelState.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.VpnConnection.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.VpnConnection.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.VpnConnection.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.VpnConnection.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.VpnConnection.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.VpnConnection.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.VpnConnection.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.VpnConnection.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.VpnConnection.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.property.connectionType">connectionType</a></code> | <code>cdk-extensions.ec2.VpnConnectionType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.property.customerGatewayAsn">customerGatewayAsn</a></code> | <code>number</code> | The ASN of the customer gateway. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.property.customerGatewayId">customerGatewayId</a></code> | <code>string</code> | The id of the customer gateway. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.property.customerGatewayIp">customerGatewayIp</a></code> | <code>string</code> | The ip address of the customer gateway. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.property.localEndpoint">localEndpoint</a></code> | <code>cdk-extensions.ec2.ILocalVpnEndpoint</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.property.remoteEndpoint">remoteEndpoint</a></code> | <code>cdk-extensions.ec2.IRemoteVpnEndpoint</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnVPNConnection</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.property.tunnelConfigurations">tunnelConfigurations</a></code> | <code>cdk-extensions.ec2.TunnelOptions[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.property.vpnId">vpnId</a></code> | <code>string</code> | The id of the VPN connection. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.property.staticRoutesOnly">staticRoutesOnly</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.VpnConnection.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.VpnConnection.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.VpnConnection.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `connectionType`<sup>Required</sup> <a name="connectionType" id="cdk-extensions.ec2.VpnConnection.property.connectionType"></a>
+
+```typescript
+public readonly connectionType: VpnConnectionType;
+```
+
+- *Type:* cdk-extensions.ec2.VpnConnectionType
+
+---
+
+##### `customerGatewayAsn`<sup>Required</sup> <a name="customerGatewayAsn" id="cdk-extensions.ec2.VpnConnection.property.customerGatewayAsn"></a>
+
+```typescript
+public readonly customerGatewayAsn: number;
+```
+
+- *Type:* number
+
+The ASN of the customer gateway.
+
+---
+
+##### `customerGatewayId`<sup>Required</sup> <a name="customerGatewayId" id="cdk-extensions.ec2.VpnConnection.property.customerGatewayId"></a>
+
+```typescript
+public readonly customerGatewayId: string;
+```
+
+- *Type:* string
+
+The id of the customer gateway.
+
+---
+
+##### `customerGatewayIp`<sup>Required</sup> <a name="customerGatewayIp" id="cdk-extensions.ec2.VpnConnection.property.customerGatewayIp"></a>
+
+```typescript
+public readonly customerGatewayIp: string;
+```
+
+- *Type:* string
+
+The ip address of the customer gateway.
+
+---
+
+##### `localEndpoint`<sup>Required</sup> <a name="localEndpoint" id="cdk-extensions.ec2.VpnConnection.property.localEndpoint"></a>
+
+```typescript
+public readonly localEndpoint: ILocalVpnEndpoint;
+```
+
+- *Type:* cdk-extensions.ec2.ILocalVpnEndpoint
+
+---
+
+##### `remoteEndpoint`<sup>Required</sup> <a name="remoteEndpoint" id="cdk-extensions.ec2.VpnConnection.property.remoteEndpoint"></a>
+
+```typescript
+public readonly remoteEndpoint: IRemoteVpnEndpoint;
+```
+
+- *Type:* cdk-extensions.ec2.IRemoteVpnEndpoint
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.VpnConnection.property.resource"></a>
+
+```typescript
+public readonly resource: CfnVPNConnection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnVPNConnection
+
+---
+
+##### `tunnelConfigurations`<sup>Required</sup> <a name="tunnelConfigurations" id="cdk-extensions.ec2.VpnConnection.property.tunnelConfigurations"></a>
+
+```typescript
+public readonly tunnelConfigurations: TunnelOptions[];
+```
+
+- *Type:* cdk-extensions.ec2.TunnelOptions[]
+
+---
+
+##### `vpnId`<sup>Required</sup> <a name="vpnId" id="cdk-extensions.ec2.VpnConnection.property.vpnId"></a>
+
+```typescript
+public readonly vpnId: string;
+```
+
+- *Type:* string
+
+The id of the VPN connection.
+
+---
+
+##### `staticRoutesOnly`<sup>Optional</sup> <a name="staticRoutesOnly" id="cdk-extensions.ec2.VpnConnection.property.staticRoutesOnly"></a>
+
+```typescript
+public readonly staticRoutesOnly: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+
 ### WafLogsBucket <a name="WafLogsBucket" id="cdk-extensions.s3_buckets.WafLogsBucket"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.s3_buckets.WafLogsBucket.Initializer"></a>
@@ -24439,25 +30505,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
 
 ---
 
@@ -24523,7 +30589,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -24546,7 +30612,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -24569,13 +30635,7 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
-
-Note that the policy statement may or may not be added to the policy.
-For example, when an `IBucket` is created from an existing bucket,
-it's not possible to tell whether the bucket already has a policy
-attached, let alone to re-use that policy to add more statements to it.
-So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.WafLogsBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -24589,7 +30649,7 @@ So it's safest to do nothing in these cases.
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -24605,18 +30665,7 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:.
-
-Object Deleted (DeleteObject)
-- Object Deleted (Lifecycle expiration)
-- Object Restore Initiated
-- Object Restore Completed
-- Object Restore Expired
-- Object Storage Class Changed
-- Object Access Tier Changed
-- Object ACL Updated
-- Object Tags Added
-- Object Tags Deleted
+Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.WafLogsBucket.grantDelete"></a>
 
@@ -24624,7 +30673,7 @@ Object Deleted (DeleteObject)
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.WafLogsBucket.grantDelete.parameter._identity"></a>
 
@@ -24726,7 +30775,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -24749,7 +30798,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -24777,7 +30826,7 @@ use the `grantPutAcl` method.
 ##### `grantWrite` <a name="grantWrite" id="cdk-extensions.s3_buckets.WafLogsBucket.grantWrite"></a>
 
 ```typescript
-public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
+public grantWrite(_identity: IGrantable, _objectsKeyPattern?: any, _allowedActionPatterns?: string[]): Grant
 ```
 
 Grant write permissions to this bucket to an IAM principal.
@@ -24805,16 +30854,21 @@ use the `grantPutAcl` method.
 
 ---
 
+###### `_allowedActionPatterns`<sup>Optional</sup> <a name="_allowedActionPatterns" id="cdk-extensions.s3_buckets.WafLogsBucket.grantWrite.parameter._allowedActionPatterns"></a>
+
+- *Type:* string[]
+
+---
+
 ##### `onCloudTrailEvent` <a name="onCloudTrailEvent" id="cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailEvent"></a>
 
 ```typescript
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket.
+Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
 
-Requires that there exists at least one CloudTrail Trail in your account
-that captures the event. This method will not create the Trail.
+This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -24834,7 +30888,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -24861,7 +30915,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -24935,9 +30989,11 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object. For example:.
+The https URL of an S3 object.
 
-`https://s3.us-west-1.amazonaws.com/onlybucket`
+For example:
+
+- `https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -24953,9 +31009,12 @@ The https URL of an S3 object. For example:.
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
+The virtual hosted-style URL of an S3 object.
 
-`https://only-bucket.s3.us-west-1.amazonaws.com`
+Specify `regional: false` at
+the options for non-regional URL. For example:
+
+- `https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -26645,6 +32704,166 @@ A list of identity sources to use when mapping a specified attribute to IAM Iden
 
 ---
 
+### AddSpokeNetworkProps <a name="AddSpokeNetworkProps" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const addSpokeNetworkProps: ec2_patterns.AddSpokeNetworkProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.flowLogs">flowLogs</a></code> | <code>{[ key: string ]: cdk-extensions.ec2_patterns.FlowLogOptions}</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.gatewayEndpoints">gatewayEndpoints</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.vpnConnections">vpnConnections</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.VpnConnectionOptions}</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.vpnGateway">vpnGateway</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.vpnGatewayAsn">vpnGatewayAsn</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.vpnRoutePropagation">vpnRoutePropagation</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection[]</code> | *No description.* |
+
+---
+
+##### `availabilityZones`<sup>Optional</sup> <a name="availabilityZones" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.availabilityZones"></a>
+
+```typescript
+public readonly availabilityZones: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.defaultInstanceTenancy"></a>
+
+```typescript
+public readonly defaultInstanceTenancy: DefaultInstanceTenancy;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.DefaultInstanceTenancy
+
+---
+
+##### `enableDnsHostnames`<sup>Optional</sup> <a name="enableDnsHostnames" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.enableDnsHostnames"></a>
+
+```typescript
+public readonly enableDnsHostnames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `enableDnsSupport`<sup>Optional</sup> <a name="enableDnsSupport" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.enableDnsSupport"></a>
+
+```typescript
+public readonly enableDnsSupport: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `flowLogs`<sup>Optional</sup> <a name="flowLogs" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.flowLogs"></a>
+
+```typescript
+public readonly flowLogs: {[ key: string ]: FlowLogOptions};
+```
+
+- *Type:* {[ key: string ]: cdk-extensions.ec2_patterns.FlowLogOptions}
+
+---
+
+##### `gatewayEndpoints`<sup>Optional</sup> <a name="gatewayEndpoints" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.gatewayEndpoints"></a>
+
+```typescript
+public readonly gatewayEndpoints: {[ key: string ]: GatewayVpcEndpointOptions};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}
+
+---
+
+##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.maxAzs"></a>
+
+```typescript
+public readonly maxAzs: number;
+```
+
+- *Type:* number
+
+---
+
+##### `vpcName`<sup>Optional</sup> <a name="vpcName" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.vpcName"></a>
+
+```typescript
+public readonly vpcName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpnConnections`<sup>Optional</sup> <a name="vpnConnections" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.vpnConnections"></a>
+
+```typescript
+public readonly vpnConnections: {[ key: string ]: VpnConnectionOptions};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_ec2.VpnConnectionOptions}
+
+---
+
+##### `vpnGateway`<sup>Optional</sup> <a name="vpnGateway" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.vpnGateway"></a>
+
+```typescript
+public readonly vpnGateway: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `vpnGatewayAsn`<sup>Optional</sup> <a name="vpnGatewayAsn" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.vpnGatewayAsn"></a>
+
+```typescript
+public readonly vpnGatewayAsn: number;
+```
+
+- *Type:* number
+
+---
+
+##### `vpnRoutePropagation`<sup>Optional</sup> <a name="vpnRoutePropagation" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.vpnRoutePropagation"></a>
+
+```typescript
+public readonly vpnRoutePropagation: SubnetSelection[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection[]
+
+---
+
 ### AdotCollectorProps <a name="AdotCollectorProps" id="cdk-extensions.k8s_aws.AdotCollectorProps"></a>
 
 Condifuration for the AdorCollector resource.
@@ -26714,10 +32933,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -26843,10 +33062,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -26985,10 +33204,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -27887,10 +34106,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -28318,8 +34537,8 @@ To deploy the layer locally define it in your app as follows:
 
 ```ts
 const layer = new lambda.LayerVersion(this, 'proxy-agent-layer', {
-   code: lambda.Code.fromAsset(`${__dirname}/layer.zip`),
-   compatibleRuntimes: [lambda.Runtime.NODEJS_14_X],
+  code: lambda.Code.fromAsset(`${__dirname}/layer.zip`),
+  compatibleRuntimes: [lambda.Runtime.NODEJS_14_X],
 });
 ```
 
@@ -28880,10 +35099,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -29241,10 +35460,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -29383,10 +35602,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -29552,10 +35771,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -29694,10 +35913,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -30479,10 +36698,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -30882,10 +37101,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -31125,6 +37344,199 @@ public readonly s3Targets: S3TargetProperty[];
 
 ---
 
+### CustomerGatewayAttributes <a name="CustomerGatewayAttributes" id="cdk-extensions.ec2.CustomerGatewayAttributes"></a>
+
+Attributes used to import an existing customer gateway.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.CustomerGatewayAttributes.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const customerGatewayAttributes: ec2.CustomerGatewayAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayAttributes.property.customerGatewayId">customerGatewayId</a></code> | <code>string</code> | The ID of the existing customer gateway being imported. |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayAttributes.property.bgpAsn">bgpAsn</a></code> | <code>number</code> | For devices that support BGP, the customer gateway's BGP ASN. |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayAttributes.property.ipAddress">ipAddress</a></code> | <code>string</code> | The Internet-routable IP address for the customer gateway's outside interface. |
+
+---
+
+##### `customerGatewayId`<sup>Required</sup> <a name="customerGatewayId" id="cdk-extensions.ec2.CustomerGatewayAttributes.property.customerGatewayId"></a>
+
+```typescript
+public readonly customerGatewayId: string;
+```
+
+- *Type:* string
+
+The ID of the existing customer gateway being imported.
+
+---
+
+##### `bgpAsn`<sup>Optional</sup> <a name="bgpAsn" id="cdk-extensions.ec2.CustomerGatewayAttributes.property.bgpAsn"></a>
+
+```typescript
+public readonly bgpAsn: number;
+```
+
+- *Type:* number
+
+For devices that support BGP, the customer gateway's BGP ASN.
+
+---
+
+##### `ipAddress`<sup>Optional</sup> <a name="ipAddress" id="cdk-extensions.ec2.CustomerGatewayAttributes.property.ipAddress"></a>
+
+```typescript
+public readonly ipAddress: string;
+```
+
+- *Type:* string
+
+The Internet-routable IP address for the customer gateway's outside interface.
+
+The address must be static.
+
+---
+
+### CustomerGatewayProps <a name="CustomerGatewayProps" id="cdk-extensions.ec2.CustomerGatewayProps"></a>
+
+Configuration for the CustomerGateway resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.CustomerGatewayProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const customerGatewayProps: ec2.CustomerGatewayProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayProps.property.ipAddress">ipAddress</a></code> | <code>string</code> | The Internet-routable IP address for the customer gateway's outside interface. |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayProps.property.bgpAsn">bgpAsn</a></code> | <code>number</code> | For devices that support BGP, the customer gateway's BGP ASN. |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayProps.property.connectionType">connectionType</a></code> | <code>cdk-extensions.ec2.VpnConnectionType</code> | The type of VPN connection that this customer gateway supports. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.CustomerGatewayProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.CustomerGatewayProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.CustomerGatewayProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.CustomerGatewayProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `ipAddress`<sup>Required</sup> <a name="ipAddress" id="cdk-extensions.ec2.CustomerGatewayProps.property.ipAddress"></a>
+
+```typescript
+public readonly ipAddress: string;
+```
+
+- *Type:* string
+
+The Internet-routable IP address for the customer gateway's outside interface.
+
+The address must be static.
+
+> [[CustomerGateway IpAddress](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-ipaddress)]([CustomerGateway IpAddress](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-ipaddress))
+
+---
+
+##### `bgpAsn`<sup>Optional</sup> <a name="bgpAsn" id="cdk-extensions.ec2.CustomerGatewayProps.property.bgpAsn"></a>
+
+```typescript
+public readonly bgpAsn: number;
+```
+
+- *Type:* number
+
+For devices that support BGP, the customer gateway's BGP ASN.
+
+> [[CustomerGateway BgpAsn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-bgpasn)]([CustomerGateway BgpAsn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-bgpasn))
+
+---
+
+##### `connectionType`<sup>Optional</sup> <a name="connectionType" id="cdk-extensions.ec2.CustomerGatewayProps.property.connectionType"></a>
+
+```typescript
+public readonly connectionType: VpnConnectionType;
+```
+
+- *Type:* cdk-extensions.ec2.VpnConnectionType
+
+The type of VPN connection that this customer gateway supports.
+
+> [[CustomerGateway Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-type)]([CustomerGateway Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-type))
+
+---
+
 ### CustomProcessorOptions <a name="CustomProcessorOptions" id="cdk-extensions.kinesis_firehose.CustomProcessorOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.CustomProcessorOptions.Initializer"></a>
@@ -31233,10 +37645,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -31363,10 +37775,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -32065,10 +38477,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -32269,10 +38681,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -32884,10 +39296,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -33047,10 +39459,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -33394,10 +39806,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -33535,6 +39947,99 @@ If a custom prefix is being added the ARN should reflect that prefix.
 
 ---
 
+### FlowLogOptions <a name="FlowLogOptions" id="cdk-extensions.ec2_patterns.FlowLogOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.FlowLogOptions.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const flowLogOptions: ec2_patterns.FlowLogOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FlowLogOptions.property.destination">destination</a></code> | <code>aws-cdk-lib.aws_ec2.FlowLogDestination</code> | Specifies the type of destination to which the flow log data is to be published. |
+| <code><a href="#cdk-extensions.ec2_patterns.FlowLogOptions.property.logFormat">logFormat</a></code> | <code>aws-cdk-lib.aws_ec2.LogFormat[]</code> | The fields to include in the flow log record, in the order in which they should appear. |
+| <code><a href="#cdk-extensions.ec2_patterns.FlowLogOptions.property.maxAggregationInterval">maxAggregationInterval</a></code> | <code>aws-cdk-lib.aws_ec2.FlowLogMaxAggregationInterval</code> | The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. |
+| <code><a href="#cdk-extensions.ec2_patterns.FlowLogOptions.property.trafficType">trafficType</a></code> | <code>aws-cdk-lib.aws_ec2.FlowLogTrafficType</code> | The type of traffic to log. |
+| <code><a href="#cdk-extensions.ec2_patterns.FlowLogOptions.property.logFormatDefinition">logFormatDefinition</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
+
+---
+
+##### `destination`<sup>Optional</sup> <a name="destination" id="cdk-extensions.ec2_patterns.FlowLogOptions.property.destination"></a>
+
+```typescript
+public readonly destination: FlowLogDestination;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.FlowLogDestination
+- *Default:* FlowLogDestinationType.toCloudWatchLogs()
+
+Specifies the type of destination to which the flow log data is to be published.
+
+Flow log data can be published to CloudWatch Logs or Amazon S3
+
+---
+
+##### `logFormat`<sup>Optional</sup> <a name="logFormat" id="cdk-extensions.ec2_patterns.FlowLogOptions.property.logFormat"></a>
+
+```typescript
+public readonly logFormat: LogFormat[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.LogFormat[]
+- *Default:* default log format is used.
+
+The fields to include in the flow log record, in the order in which they should appear.
+
+If multiple fields are specified, they will be separated by spaces. For full control over the literal log format
+string, pass a single field constructed with `LogFormat.custom()`.
+
+See https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records
+
+---
+
+##### `maxAggregationInterval`<sup>Optional</sup> <a name="maxAggregationInterval" id="cdk-extensions.ec2_patterns.FlowLogOptions.property.maxAggregationInterval"></a>
+
+```typescript
+public readonly maxAggregationInterval: FlowLogMaxAggregationInterval;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.FlowLogMaxAggregationInterval
+- *Default:* FlowLogMaxAggregationInterval.TEN_MINUTES
+
+The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
+
+---
+
+##### `trafficType`<sup>Optional</sup> <a name="trafficType" id="cdk-extensions.ec2_patterns.FlowLogOptions.property.trafficType"></a>
+
+```typescript
+public readonly trafficType: FlowLogTrafficType;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.FlowLogTrafficType
+- *Default:* ALL
+
+The type of traffic to log.
+
+You can log traffic that the resource accepts or rejects, or all traffic.
+
+---
+
+##### `logFormatDefinition`<sup>Optional</sup> <a name="logFormatDefinition" id="cdk-extensions.ec2_patterns.FlowLogOptions.property.logFormatDefinition"></a>
+
+```typescript
+public readonly logFormatDefinition: FlowLogFormat;
+```
+
+- *Type:* cdk-extensions.ec2.FlowLogFormat
+
+---
+
 ### FlowLogProps <a name="FlowLogProps" id="cdk-extensions.ec2.FlowLogProps"></a>
 
 Configuration for the FlowLog class.
@@ -33556,9 +40061,10 @@ const flowLogProps: ec2.FlowLogProps = { ... }
 | <code><a href="#cdk-extensions.ec2.FlowLogProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.ec2.FlowLogProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
 | <code><a href="#cdk-extensions.ec2.FlowLogProps.property.resourceType">resourceType</a></code> | <code>aws-cdk-lib.aws_ec2.FlowLogResourceType</code> | Details for the resource from which flow logs will be captured. |
-| <code><a href="#cdk-extensions.ec2.FlowLogProps.property.destination">destination</a></code> | <code>cdk-extensions.ec2.FlowLogDestination</code> | The location where flow logs should be delivered. |
-| <code><a href="#cdk-extensions.ec2.FlowLogProps.property.format">format</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | The fields to include in the flow log record, in the order in which they should appear. |
-| <code><a href="#cdk-extensions.ec2.FlowLogProps.property.maxAggregationInterval">maxAggregationInterval</a></code> | <code>cdk-extensions.ec2.FlowLogAggregationInterval</code> | The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. |
+| <code><a href="#cdk-extensions.ec2.FlowLogProps.property.destination">destination</a></code> | <code>aws-cdk-lib.aws_ec2.FlowLogDestination</code> | The location where flow logs should be delivered. |
+| <code><a href="#cdk-extensions.ec2.FlowLogProps.property.flowLogName">flowLogName</a></code> | <code>string</code> | The name of the FlowLog. |
+| <code><a href="#cdk-extensions.ec2.FlowLogProps.property.logFormat">logFormat</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | The fields to include in the flow log record, in the order in which they should appear. |
+| <code><a href="#cdk-extensions.ec2.FlowLogProps.property.maxAggregationInterval">maxAggregationInterval</a></code> | <code>aws-cdk-lib.aws_ec2.FlowLogMaxAggregationInterval</code> | The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. |
 | <code><a href="#cdk-extensions.ec2.FlowLogProps.property.trafficType">trafficType</a></code> | <code>aws-cdk-lib.aws_ec2.FlowLogTrafficType</code> | The type of traffic to monitor (accepted traffic, rejected traffic, or all traffic). |
 
 ---
@@ -33606,10 +40112,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -33646,7 +40152,7 @@ Details for the resource from which flow logs will be captured.
 public readonly destination: FlowLogDestination;
 ```
 
-- *Type:* cdk-extensions.ec2.FlowLogDestination
+- *Type:* aws-cdk-lib.aws_ec2.FlowLogDestination
 
 The location where flow logs should be delivered.
 
@@ -33654,10 +40160,22 @@ The location where flow logs should be delivered.
 
 ---
 
-##### `format`<sup>Optional</sup> <a name="format" id="cdk-extensions.ec2.FlowLogProps.property.format"></a>
+##### `flowLogName`<sup>Optional</sup> <a name="flowLogName" id="cdk-extensions.ec2.FlowLogProps.property.flowLogName"></a>
 
 ```typescript
-public readonly format: FlowLogFormat;
+public readonly flowLogName: string;
+```
+
+- *Type:* string
+
+The name of the FlowLog.
+
+---
+
+##### `logFormat`<sup>Optional</sup> <a name="logFormat" id="cdk-extensions.ec2.FlowLogProps.property.logFormat"></a>
+
+```typescript
+public readonly logFormat: FlowLogFormat;
 ```
 
 - *Type:* cdk-extensions.ec2.FlowLogFormat
@@ -33673,10 +40191,10 @@ For a list of available fields, see {@link FlowLogField}.
 ##### `maxAggregationInterval`<sup>Optional</sup> <a name="maxAggregationInterval" id="cdk-extensions.ec2.FlowLogProps.property.maxAggregationInterval"></a>
 
 ```typescript
-public readonly maxAggregationInterval: FlowLogAggregationInterval;
+public readonly maxAggregationInterval: FlowLogMaxAggregationInterval;
 ```
 
-- *Type:* cdk-extensions.ec2.FlowLogAggregationInterval
+- *Type:* aws-cdk-lib.aws_ec2.FlowLogMaxAggregationInterval
 
 The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
 
@@ -33871,10 +40389,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -34034,10 +40552,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -37260,6 +43778,725 @@ Amount of intervals to calculate average over.
 
 ---
 
+### FourTierNetworkHubProps <a name="FourTierNetworkHubProps" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const fourTierNetworkHubProps: ec2_patterns.FourTierNetworkHubProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.flowLogs">flowLogs</a></code> | <code>{[ key: string ]: cdk-extensions.ec2_patterns.FlowLogOptions}</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.gatewayEndpoints">gatewayEndpoints</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.sharing">sharing</a></code> | <code>cdk-extensions.ec2_patterns.FourTierNetworkShareProperties</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.vpnConnections">vpnConnections</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.VpnConnectionOptions}</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.vpnGateway">vpnGateway</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.vpnGatewayAsn">vpnGatewayAsn</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.vpnRoutePropagation">vpnRoutePropagation</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection[]</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `availabilityZones`<sup>Optional</sup> <a name="availabilityZones" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.availabilityZones"></a>
+
+```typescript
+public readonly availabilityZones: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.defaultInstanceTenancy"></a>
+
+```typescript
+public readonly defaultInstanceTenancy: DefaultInstanceTenancy;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.DefaultInstanceTenancy
+
+---
+
+##### `enableDnsHostnames`<sup>Optional</sup> <a name="enableDnsHostnames" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.enableDnsHostnames"></a>
+
+```typescript
+public readonly enableDnsHostnames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `enableDnsSupport`<sup>Optional</sup> <a name="enableDnsSupport" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.enableDnsSupport"></a>
+
+```typescript
+public readonly enableDnsSupport: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `flowLogs`<sup>Optional</sup> <a name="flowLogs" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.flowLogs"></a>
+
+```typescript
+public readonly flowLogs: {[ key: string ]: FlowLogOptions};
+```
+
+- *Type:* {[ key: string ]: cdk-extensions.ec2_patterns.FlowLogOptions}
+
+---
+
+##### `gatewayEndpoints`<sup>Optional</sup> <a name="gatewayEndpoints" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.gatewayEndpoints"></a>
+
+```typescript
+public readonly gatewayEndpoints: {[ key: string ]: GatewayVpcEndpointOptions};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}
+
+---
+
+##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.maxAzs"></a>
+
+```typescript
+public readonly maxAzs: number;
+```
+
+- *Type:* number
+
+---
+
+##### `sharing`<sup>Optional</sup> <a name="sharing" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.sharing"></a>
+
+```typescript
+public readonly sharing: FourTierNetworkShareProperties;
+```
+
+- *Type:* cdk-extensions.ec2_patterns.FourTierNetworkShareProperties
+
+---
+
+##### `vpcName`<sup>Optional</sup> <a name="vpcName" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.vpcName"></a>
+
+```typescript
+public readonly vpcName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpnConnections`<sup>Optional</sup> <a name="vpnConnections" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.vpnConnections"></a>
+
+```typescript
+public readonly vpnConnections: {[ key: string ]: VpnConnectionOptions};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_ec2.VpnConnectionOptions}
+
+---
+
+##### `vpnGateway`<sup>Optional</sup> <a name="vpnGateway" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.vpnGateway"></a>
+
+```typescript
+public readonly vpnGateway: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `vpnGatewayAsn`<sup>Optional</sup> <a name="vpnGatewayAsn" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.vpnGatewayAsn"></a>
+
+```typescript
+public readonly vpnGatewayAsn: number;
+```
+
+- *Type:* number
+
+---
+
+##### `vpnRoutePropagation`<sup>Optional</sup> <a name="vpnRoutePropagation" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.vpnRoutePropagation"></a>
+
+```typescript
+public readonly vpnRoutePropagation: SubnetSelection[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection[]
+
+---
+
+### FourTierNetworkProps <a name="FourTierNetworkProps" id="cdk-extensions.ec2_patterns.FourTierNetworkProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const fourTierNetworkProps: ec2_patterns.FourTierNetworkProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.flowLogs">flowLogs</a></code> | <code>{[ key: string ]: cdk-extensions.ec2_patterns.FlowLogOptions}</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.gatewayEndpoints">gatewayEndpoints</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.natGatewayProvider">natGatewayProvider</a></code> | <code>aws-cdk-lib.aws_ec2.NatProvider</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.natGateways">natGateways</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.natGatewaySubnets">natGatewaySubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.vpnConnections">vpnConnections</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.VpnConnectionOptions}</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.vpnGateway">vpnGateway</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.vpnGatewayAsn">vpnGatewayAsn</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.vpnRoutePropagation">vpnRoutePropagation</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection[]</code> | *No description.* |
+
+---
+
+##### `availabilityZones`<sup>Optional</sup> <a name="availabilityZones" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.availabilityZones"></a>
+
+```typescript
+public readonly availabilityZones: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.defaultInstanceTenancy"></a>
+
+```typescript
+public readonly defaultInstanceTenancy: DefaultInstanceTenancy;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.DefaultInstanceTenancy
+
+---
+
+##### `enableDnsHostnames`<sup>Optional</sup> <a name="enableDnsHostnames" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.enableDnsHostnames"></a>
+
+```typescript
+public readonly enableDnsHostnames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `enableDnsSupport`<sup>Optional</sup> <a name="enableDnsSupport" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.enableDnsSupport"></a>
+
+```typescript
+public readonly enableDnsSupport: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `flowLogs`<sup>Optional</sup> <a name="flowLogs" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.flowLogs"></a>
+
+```typescript
+public readonly flowLogs: {[ key: string ]: FlowLogOptions};
+```
+
+- *Type:* {[ key: string ]: cdk-extensions.ec2_patterns.FlowLogOptions}
+
+---
+
+##### `gatewayEndpoints`<sup>Optional</sup> <a name="gatewayEndpoints" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.gatewayEndpoints"></a>
+
+```typescript
+public readonly gatewayEndpoints: {[ key: string ]: GatewayVpcEndpointOptions};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}
+
+---
+
+##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.maxAzs"></a>
+
+```typescript
+public readonly maxAzs: number;
+```
+
+- *Type:* number
+
+---
+
+##### `natGatewayProvider`<sup>Optional</sup> <a name="natGatewayProvider" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.natGatewayProvider"></a>
+
+```typescript
+public readonly natGatewayProvider: NatProvider;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.NatProvider
+
+---
+
+##### `natGateways`<sup>Optional</sup> <a name="natGateways" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.natGateways"></a>
+
+```typescript
+public readonly natGateways: number;
+```
+
+- *Type:* number
+
+---
+
+##### `natGatewaySubnets`<sup>Optional</sup> <a name="natGatewaySubnets" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.natGatewaySubnets"></a>
+
+```typescript
+public readonly natGatewaySubnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+---
+
+##### `vpcName`<sup>Optional</sup> <a name="vpcName" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.vpcName"></a>
+
+```typescript
+public readonly vpcName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpnConnections`<sup>Optional</sup> <a name="vpnConnections" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.vpnConnections"></a>
+
+```typescript
+public readonly vpnConnections: {[ key: string ]: VpnConnectionOptions};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_ec2.VpnConnectionOptions}
+
+---
+
+##### `vpnGateway`<sup>Optional</sup> <a name="vpnGateway" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.vpnGateway"></a>
+
+```typescript
+public readonly vpnGateway: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `vpnGatewayAsn`<sup>Optional</sup> <a name="vpnGatewayAsn" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.vpnGatewayAsn"></a>
+
+```typescript
+public readonly vpnGatewayAsn: number;
+```
+
+- *Type:* number
+
+---
+
+##### `vpnRoutePropagation`<sup>Optional</sup> <a name="vpnRoutePropagation" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.vpnRoutePropagation"></a>
+
+```typescript
+public readonly vpnRoutePropagation: SubnetSelection[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection[]
+
+---
+
+### FourTierNetworkShareProperties <a name="FourTierNetworkShareProperties" id="cdk-extensions.ec2_patterns.FourTierNetworkShareProperties"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.FourTierNetworkShareProperties.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const fourTierNetworkShareProperties: ec2_patterns.FourTierNetworkShareProperties = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkShareProperties.property.allowExternalPrincipals">allowExternalPrincipals</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkShareProperties.property.autoAddAccounts">autoAddAccounts</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkShareProperties.property.pricipals">pricipals</a></code> | <code>cdk-extensions.ram.ISharedPrincipal[]</code> | *No description.* |
+
+---
+
+##### `allowExternalPrincipals`<sup>Optional</sup> <a name="allowExternalPrincipals" id="cdk-extensions.ec2_patterns.FourTierNetworkShareProperties.property.allowExternalPrincipals"></a>
+
+```typescript
+public readonly allowExternalPrincipals: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `autoAddAccounts`<sup>Optional</sup> <a name="autoAddAccounts" id="cdk-extensions.ec2_patterns.FourTierNetworkShareProperties.property.autoAddAccounts"></a>
+
+```typescript
+public readonly autoAddAccounts: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `pricipals`<sup>Optional</sup> <a name="pricipals" id="cdk-extensions.ec2_patterns.FourTierNetworkShareProperties.property.pricipals"></a>
+
+```typescript
+public readonly pricipals: ISharedPrincipal[];
+```
+
+- *Type:* cdk-extensions.ram.ISharedPrincipal[]
+
+---
+
+### FourTierNetworkSpokeProps <a name="FourTierNetworkSpokeProps" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const fourTierNetworkSpokeProps: ec2_patterns.FourTierNetworkSpokeProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.flowLogs">flowLogs</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.FlowLogOptions}</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.gatewayEndpoints">gatewayEndpoints</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.vpnConnections">vpnConnections</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.VpnConnectionOptions}</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.vpnGateway">vpnGateway</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.vpnGatewayAsn">vpnGatewayAsn</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.vpnRoutePropagation">vpnRoutePropagation</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection[]</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+---
+
+##### `availabilityZones`<sup>Optional</sup> <a name="availabilityZones" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.availabilityZones"></a>
+
+```typescript
+public readonly availabilityZones: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.defaultInstanceTenancy"></a>
+
+```typescript
+public readonly defaultInstanceTenancy: DefaultInstanceTenancy;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.DefaultInstanceTenancy
+
+---
+
+##### `enableDnsHostnames`<sup>Optional</sup> <a name="enableDnsHostnames" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.enableDnsHostnames"></a>
+
+```typescript
+public readonly enableDnsHostnames: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `enableDnsSupport`<sup>Optional</sup> <a name="enableDnsSupport" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.enableDnsSupport"></a>
+
+```typescript
+public readonly enableDnsSupport: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `flowLogs`<sup>Optional</sup> <a name="flowLogs" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.flowLogs"></a>
+
+```typescript
+public readonly flowLogs: {[ key: string ]: FlowLogOptions};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_ec2.FlowLogOptions}
+
+---
+
+##### `gatewayEndpoints`<sup>Optional</sup> <a name="gatewayEndpoints" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.gatewayEndpoints"></a>
+
+```typescript
+public readonly gatewayEndpoints: {[ key: string ]: GatewayVpcEndpointOptions};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}
+
+---
+
+##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.maxAzs"></a>
+
+```typescript
+public readonly maxAzs: number;
+```
+
+- *Type:* number
+
+---
+
+##### `vpcName`<sup>Optional</sup> <a name="vpcName" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.vpcName"></a>
+
+```typescript
+public readonly vpcName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpnConnections`<sup>Optional</sup> <a name="vpnConnections" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.vpnConnections"></a>
+
+```typescript
+public readonly vpnConnections: {[ key: string ]: VpnConnectionOptions};
+```
+
+- *Type:* {[ key: string ]: aws-cdk-lib.aws_ec2.VpnConnectionOptions}
+
+---
+
+##### `vpnGateway`<sup>Optional</sup> <a name="vpnGateway" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.vpnGateway"></a>
+
+```typescript
+public readonly vpnGateway: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `vpnGatewayAsn`<sup>Optional</sup> <a name="vpnGatewayAsn" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.vpnGatewayAsn"></a>
+
+```typescript
+public readonly vpnGatewayAsn: number;
+```
+
+- *Type:* number
+
+---
+
+##### `vpnRoutePropagation`<sup>Optional</sup> <a name="vpnRoutePropagation" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.vpnRoutePropagation"></a>
+
+```typescript
+public readonly vpnRoutePropagation: SubnetSelection[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection[]
+
+---
+
 ### HiveJsonInputSerDeOptions <a name="HiveJsonInputSerDeOptions" id="cdk-extensions.kinesis_firehose.HiveJsonInputSerDeOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.HiveJsonInputSerDeOptions.Initializer"></a>
@@ -37472,10 +44709,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -37591,10 +44828,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -38082,10 +45319,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -38496,6 +45733,51 @@ Lift records nested under the this key.
 
 ---
 
+### LocalVpnEndpointConfiguration <a name="LocalVpnEndpointConfiguration" id="cdk-extensions.ec2.LocalVpnEndpointConfiguration"></a>
+
+Configuration object containing the vlues needed to configure the local end of a VPN connection.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.LocalVpnEndpointConfiguration.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const localVpnEndpointConfiguration: ec2.LocalVpnEndpointConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.LocalVpnEndpointConfiguration.property.transitGatewayId">transitGatewayId</a></code> | <code>string</code> | The ID of the transit gateway that serves as the local end of the VPN connection. |
+| <code><a href="#cdk-extensions.ec2.LocalVpnEndpointConfiguration.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | The ID of the VPN gateway that serves as the local end of the VPN connection. |
+
+---
+
+##### `transitGatewayId`<sup>Optional</sup> <a name="transitGatewayId" id="cdk-extensions.ec2.LocalVpnEndpointConfiguration.property.transitGatewayId"></a>
+
+```typescript
+public readonly transitGatewayId: string;
+```
+
+- *Type:* string
+
+The ID of the transit gateway that serves as the local end of the VPN connection.
+
+---
+
+##### `vpnGatewayId`<sup>Optional</sup> <a name="vpnGatewayId" id="cdk-extensions.ec2.LocalVpnEndpointConfiguration.property.vpnGatewayId"></a>
+
+```typescript
+public readonly vpnGatewayId: string;
+```
+
+- *Type:* string
+
+The ID of the VPN gateway that serves as the local end of the VPN connection.
+
+---
+
 ### LoggingAspectOptions <a name="LoggingAspectOptions" id="cdk-extensions.s3_buckets.LoggingAspectOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.s3_buckets.LoggingAspectOptions.Initializer"></a>
@@ -38614,10 +45896,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -38750,7 +46032,7 @@ The month at the end of the range if the range should cover multiple months (inc
 
 ### NamedQueryProps <a name="NamedQueryProps" id="cdk-extensions.athena.NamedQueryProps"></a>
 
-Configuration for Database.
+Configuration for a NamedQuery.
 
 #### Initializer <a name="Initializer" id="cdk-extensions.athena.NamedQueryProps.Initializer"></a>
 
@@ -38818,10 +46100,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -39332,10 +46614,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -39683,10 +46965,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -40067,36 +47349,36 @@ const rawBucketProps: s3_buckets.RawBucketProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.accelerateConfiguration">accelerateConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.AccelerateConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Configures the transfer acceleration state for an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.accelerateConfiguration">accelerateConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.AccelerateConfigurationProperty</code> | Configures the transfer acceleration state for an Amazon S3 bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.accessControl">accessControl</a></code> | <code>string</code> | A canned access control list (ACL) that grants predefined permissions to the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.analyticsConfigurations">analyticsConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty \| aws-cdk-lib.IResolvable[]</code> | Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.bucketEncryption">bucketEncryption</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty \| aws-cdk-lib.IResolvable</code> | Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS) bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.analyticsConfigurations">analyticsConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty[]</code> | Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.bucketEncryption">bucketEncryption</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty</code> | Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS) bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | A name for the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.corsConfiguration">corsConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.CorsConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Describes the cross-origin access configuration for objects in an Amazon S3 bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.intelligentTieringConfigurations">intelligentTieringConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.IntelligentTieringConfigurationProperty \| aws-cdk-lib.IResolvable[]</code> | Defines how Amazon S3 handles Intelligent-Tiering storage. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.inventoryConfigurations">inventoryConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.InventoryConfigurationProperty \| aws-cdk-lib.IResolvable[]</code> | Specifies the inventory configuration for an Amazon S3 bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.lifecycleConfiguration">lifecycleConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.LifecycleConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Specifies the lifecycle configuration for objects in an Amazon S3 bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.loggingConfiguration">loggingConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.LoggingConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Settings that define where logs are stored. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.metricsConfigurations">metricsConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.MetricsConfigurationProperty \| aws-cdk-lib.IResolvable[]</code> | Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.notificationConfiguration">notificationConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.NotificationConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Configuration that defines how Amazon S3 handles bucket notifications. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.objectLockConfiguration">objectLockConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.ObjectLockConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Places an Object Lock configuration on the specified bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.corsConfiguration">corsConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.CorsConfigurationProperty</code> | Describes the cross-origin access configuration for objects in an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.intelligentTieringConfigurations">intelligentTieringConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.IntelligentTieringConfigurationProperty[]</code> | Defines how Amazon S3 handles Intelligent-Tiering storage. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.inventoryConfigurations">inventoryConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.InventoryConfigurationProperty[]</code> | Specifies the inventory configuration for an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.lifecycleConfiguration">lifecycleConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.LifecycleConfigurationProperty</code> | Specifies the lifecycle configuration for objects in an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.loggingConfiguration">loggingConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.LoggingConfigurationProperty</code> | Settings that define where logs are stored. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.metricsConfigurations">metricsConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.MetricsConfigurationProperty[]</code> | Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.notificationConfiguration">notificationConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.NotificationConfigurationProperty</code> | Configuration that defines how Amazon S3 handles bucket notifications. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.objectLockConfiguration">objectLockConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.ObjectLockConfigurationProperty</code> | Places an Object Lock configuration on the specified bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.objectLockEnabled">objectLockEnabled</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | Indicates whether this bucket has an Object Lock configuration enabled. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.ownershipControls">ownershipControls</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.OwnershipControlsProperty \| aws-cdk-lib.IResolvable</code> | Configuration that defines how Amazon S3 handles Object Ownership rules. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.publicAccessBlockConfiguration">publicAccessBlockConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.PublicAccessBlockConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Configuration that defines how Amazon S3 handles public access. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.replicationConfiguration">replicationConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.ReplicationConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Configuration for replicating objects in an S3 bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.ownershipControls">ownershipControls</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.OwnershipControlsProperty</code> | Configuration that defines how Amazon S3 handles Object Ownership rules. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.publicAccessBlockConfiguration">publicAccessBlockConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.PublicAccessBlockConfigurationProperty</code> | Configuration that defines how Amazon S3 handles public access. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.replicationConfiguration">replicationConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.ReplicationConfigurationProperty</code> | Configuration for replicating objects in an S3 bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.tags">tags</a></code> | <code>aws-cdk-lib.CfnTag[]</code> | An arbitrary set of tags (key-value pairs) for this S3 bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.versioningConfiguration">versioningConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.VersioningConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Enables multiple versions of all objects in this bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.websiteConfiguration">websiteConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.WebsiteConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Information used to configure the bucket as a static website. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.versioningConfiguration">versioningConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.VersioningConfigurationProperty</code> | Enables multiple versions of all objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.websiteConfiguration">websiteConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.WebsiteConfigurationProperty</code> | Information used to configure the bucket as a static website. |
 
 ---
 
 ##### `accelerateConfiguration`<sup>Optional</sup> <a name="accelerateConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.accelerateConfiguration"></a>
 
 ```typescript
-public readonly accelerateConfiguration: AccelerateConfigurationProperty | IResolvable;
+public readonly accelerateConfiguration: IResolvable | AccelerateConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.AccelerateConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.AccelerateConfigurationProperty
 
 Configures the transfer acceleration state for an Amazon S3 bucket.
 
@@ -40127,10 +47409,10 @@ Be aware that the syntax for this property differs from the information provided
 ##### `analyticsConfigurations`<sup>Optional</sup> <a name="analyticsConfigurations" id="cdk-extensions.s3_buckets.RawBucketProps.property.analyticsConfigurations"></a>
 
 ```typescript
-public readonly analyticsConfigurations: IResolvable | AnalyticsConfigurationProperty | IResolvable[];
+public readonly analyticsConfigurations: IResolvable | IResolvable | AnalyticsConfigurationProperty[];
 ```
 
-- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty | aws-cdk-lib.IResolvable[]
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty[]
 
 Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
 
@@ -40141,10 +47423,10 @@ Specifies the configuration and any analyses for the analytics filter of an Amaz
 ##### `bucketEncryption`<sup>Optional</sup> <a name="bucketEncryption" id="cdk-extensions.s3_buckets.RawBucketProps.property.bucketEncryption"></a>
 
 ```typescript
-public readonly bucketEncryption: BucketEncryptionProperty | IResolvable;
+public readonly bucketEncryption: IResolvable | BucketEncryptionProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty
 
 Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS) bucket.
 
@@ -40175,10 +47457,10 @@ If you don't specify a name, AWS CloudFormation generates a unique ID and uses t
 ##### `corsConfiguration`<sup>Optional</sup> <a name="corsConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.corsConfiguration"></a>
 
 ```typescript
-public readonly corsConfiguration: CorsConfigurationProperty | IResolvable;
+public readonly corsConfiguration: IResolvable | CorsConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.CorsConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.CorsConfigurationProperty
 
 Describes the cross-origin access configuration for objects in an Amazon S3 bucket.
 
@@ -40191,10 +47473,10 @@ For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.
 ##### `intelligentTieringConfigurations`<sup>Optional</sup> <a name="intelligentTieringConfigurations" id="cdk-extensions.s3_buckets.RawBucketProps.property.intelligentTieringConfigurations"></a>
 
 ```typescript
-public readonly intelligentTieringConfigurations: IResolvable | IntelligentTieringConfigurationProperty | IResolvable[];
+public readonly intelligentTieringConfigurations: IResolvable | IResolvable | IntelligentTieringConfigurationProperty[];
 ```
 
-- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.IntelligentTieringConfigurationProperty | aws-cdk-lib.IResolvable[]
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.IntelligentTieringConfigurationProperty[]
 
 Defines how Amazon S3 handles Intelligent-Tiering storage.
 
@@ -40205,10 +47487,10 @@ Defines how Amazon S3 handles Intelligent-Tiering storage.
 ##### `inventoryConfigurations`<sup>Optional</sup> <a name="inventoryConfigurations" id="cdk-extensions.s3_buckets.RawBucketProps.property.inventoryConfigurations"></a>
 
 ```typescript
-public readonly inventoryConfigurations: IResolvable | InventoryConfigurationProperty | IResolvable[];
+public readonly inventoryConfigurations: IResolvable | IResolvable | InventoryConfigurationProperty[];
 ```
 
-- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.InventoryConfigurationProperty | aws-cdk-lib.IResolvable[]
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.InventoryConfigurationProperty[]
 
 Specifies the inventory configuration for an Amazon S3 bucket.
 
@@ -40221,10 +47503,10 @@ For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/Ama
 ##### `lifecycleConfiguration`<sup>Optional</sup> <a name="lifecycleConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.lifecycleConfiguration"></a>
 
 ```typescript
-public readonly lifecycleConfiguration: LifecycleConfigurationProperty | IResolvable;
+public readonly lifecycleConfiguration: IResolvable | LifecycleConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.LifecycleConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.LifecycleConfigurationProperty
 
 Specifies the lifecycle configuration for objects in an Amazon S3 bucket.
 
@@ -40237,10 +47519,10 @@ For more information, see [Object Lifecycle Management](https://docs.aws.amazon.
 ##### `loggingConfiguration`<sup>Optional</sup> <a name="loggingConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.loggingConfiguration"></a>
 
 ```typescript
-public readonly loggingConfiguration: LoggingConfigurationProperty | IResolvable;
+public readonly loggingConfiguration: IResolvable | LoggingConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.LoggingConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.LoggingConfigurationProperty
 
 Settings that define where logs are stored.
 
@@ -40251,10 +47533,10 @@ Settings that define where logs are stored.
 ##### `metricsConfigurations`<sup>Optional</sup> <a name="metricsConfigurations" id="cdk-extensions.s3_buckets.RawBucketProps.property.metricsConfigurations"></a>
 
 ```typescript
-public readonly metricsConfigurations: IResolvable | MetricsConfigurationProperty | IResolvable[];
+public readonly metricsConfigurations: IResolvable | IResolvable | MetricsConfigurationProperty[];
 ```
 
-- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.MetricsConfigurationProperty | aws-cdk-lib.IResolvable[]
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.MetricsConfigurationProperty[]
 
 Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket.
 
@@ -40267,10 +47549,10 @@ If you're updating an existing metrics configuration, note that this is a full r
 ##### `notificationConfiguration`<sup>Optional</sup> <a name="notificationConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.notificationConfiguration"></a>
 
 ```typescript
-public readonly notificationConfiguration: NotificationConfigurationProperty | IResolvable;
+public readonly notificationConfiguration: IResolvable | NotificationConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.NotificationConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.NotificationConfigurationProperty
 
 Configuration that defines how Amazon S3 handles bucket notifications.
 
@@ -40281,10 +47563,10 @@ Configuration that defines how Amazon S3 handles bucket notifications.
 ##### `objectLockConfiguration`<sup>Optional</sup> <a name="objectLockConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.objectLockConfiguration"></a>
 
 ```typescript
-public readonly objectLockConfiguration: ObjectLockConfigurationProperty | IResolvable;
+public readonly objectLockConfiguration: IResolvable | ObjectLockConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.ObjectLockConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.ObjectLockConfigurationProperty
 
 Places an Object Lock configuration on the specified bucket.
 
@@ -40317,10 +47599,10 @@ Enable `ObjectLockEnabled` when you apply `ObjectLockConfiguration` to a bucket.
 ##### `ownershipControls`<sup>Optional</sup> <a name="ownershipControls" id="cdk-extensions.s3_buckets.RawBucketProps.property.ownershipControls"></a>
 
 ```typescript
-public readonly ownershipControls: OwnershipControlsProperty | IResolvable;
+public readonly ownershipControls: IResolvable | OwnershipControlsProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.OwnershipControlsProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.OwnershipControlsProperty
 
 Configuration that defines how Amazon S3 handles Object Ownership rules.
 
@@ -40331,10 +47613,10 @@ Configuration that defines how Amazon S3 handles Object Ownership rules.
 ##### `publicAccessBlockConfiguration`<sup>Optional</sup> <a name="publicAccessBlockConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.publicAccessBlockConfiguration"></a>
 
 ```typescript
-public readonly publicAccessBlockConfiguration: PublicAccessBlockConfigurationProperty | IResolvable;
+public readonly publicAccessBlockConfiguration: IResolvable | PublicAccessBlockConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.PublicAccessBlockConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.PublicAccessBlockConfigurationProperty
 
 Configuration that defines how Amazon S3 handles public access.
 
@@ -40345,10 +47627,10 @@ Configuration that defines how Amazon S3 handles public access.
 ##### `replicationConfiguration`<sup>Optional</sup> <a name="replicationConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.replicationConfiguration"></a>
 
 ```typescript
-public readonly replicationConfiguration: ReplicationConfigurationProperty | IResolvable;
+public readonly replicationConfiguration: IResolvable | ReplicationConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.ReplicationConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.ReplicationConfigurationProperty
 
 Configuration for replicating objects in an S3 bucket.
 
@@ -40377,10 +47659,10 @@ An arbitrary set of tags (key-value pairs) for this S3 bucket.
 ##### `versioningConfiguration`<sup>Optional</sup> <a name="versioningConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.versioningConfiguration"></a>
 
 ```typescript
-public readonly versioningConfiguration: VersioningConfigurationProperty | IResolvable;
+public readonly versioningConfiguration: IResolvable | VersioningConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.VersioningConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.VersioningConfigurationProperty
 
 Enables multiple versions of all objects in this bucket.
 
@@ -40393,10 +47675,10 @@ You might enable versioning to prevent objects from being deleted or overwritten
 ##### `websiteConfiguration`<sup>Optional</sup> <a name="websiteConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.websiteConfiguration"></a>
 
 ```typescript
-public readonly websiteConfiguration: WebsiteConfigurationProperty | IResolvable;
+public readonly websiteConfiguration: IResolvable | WebsiteConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.WebsiteConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.WebsiteConfigurationProperty
 
 Information used to configure the bucket as a static website.
 
@@ -40686,6 +47968,64 @@ punctuation characters, digits, and upper and lowercased letters.
 
 ---
 
+### RemoteVpnEndpointConfiguration <a name="RemoteVpnEndpointConfiguration" id="cdk-extensions.ec2.RemoteVpnEndpointConfiguration"></a>
+
+Configuration object containing the vlues needed to configure the remote end of a VPN connection.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.RemoteVpnEndpointConfiguration.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const remoteVpnEndpointConfiguration: ec2.RemoteVpnEndpointConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.RemoteVpnEndpointConfiguration.property.customerGatewayAsn">customerGatewayAsn</a></code> | <code>number</code> | The BGP ASN of the customer gateway which is configured with the details of the remote endpoint device. |
+| <code><a href="#cdk-extensions.ec2.RemoteVpnEndpointConfiguration.property.customerGatewayId">customerGatewayId</a></code> | <code>string</code> | The ID of the customer gateway which is configured with the details of the remote endpoint device. |
+| <code><a href="#cdk-extensions.ec2.RemoteVpnEndpointConfiguration.property.customerGatewayIp">customerGatewayIp</a></code> | <code>string</code> | The IP address of the customer gateway which is configured with the details of the remote endpoint device. |
+
+---
+
+##### `customerGatewayAsn`<sup>Required</sup> <a name="customerGatewayAsn" id="cdk-extensions.ec2.RemoteVpnEndpointConfiguration.property.customerGatewayAsn"></a>
+
+```typescript
+public readonly customerGatewayAsn: number;
+```
+
+- *Type:* number
+
+The BGP ASN of the customer gateway which is configured with the details of the remote endpoint device.
+
+---
+
+##### `customerGatewayId`<sup>Required</sup> <a name="customerGatewayId" id="cdk-extensions.ec2.RemoteVpnEndpointConfiguration.property.customerGatewayId"></a>
+
+```typescript
+public readonly customerGatewayId: string;
+```
+
+- *Type:* string
+
+The ID of the customer gateway which is configured with the details of the remote endpoint device.
+
+---
+
+##### `customerGatewayIp`<sup>Required</sup> <a name="customerGatewayIp" id="cdk-extensions.ec2.RemoteVpnEndpointConfiguration.property.customerGatewayIp"></a>
+
+```typescript
+public readonly customerGatewayIp: string;
+```
+
+- *Type:* string
+
+The IP address of the customer gateway which is configured with the details of the remote endpoint device.
+
+---
+
 ### ResolvedFluentBitConfiguration <a name="ResolvedFluentBitConfiguration" id="cdk-extensions.k8s_aws.ResolvedFluentBitConfiguration"></a>
 
 The output of a Fluent Bit configuration object for consumption be the resource configuring Fluent Bit.
@@ -40744,6 +48084,51 @@ IAM permissions required by resources that will be using this plugin.
 
 ---
 
+### ResourceShareAttributes <a name="ResourceShareAttributes" id="cdk-extensions.ram.ResourceShareAttributes"></a>
+
+Configuration for importing an existing RAM resource share.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ram.ResourceShareAttributes.Initializer"></a>
+
+```typescript
+import { ram } from 'cdk-extensions'
+
+const resourceShareAttributes: ram.ResourceShareAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ram.ResourceShareAttributes.property.resourceShareArn">resourceShareArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the RAM resource share. |
+| <code><a href="#cdk-extensions.ram.ResourceShareAttributes.property.resourceShareId">resourceShareId</a></code> | <code>string</code> | The ID generated by AWS for the RAM resource share. |
+
+---
+
+##### `resourceShareArn`<sup>Optional</sup> <a name="resourceShareArn" id="cdk-extensions.ram.ResourceShareAttributes.property.resourceShareArn"></a>
+
+```typescript
+public readonly resourceShareArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the RAM resource share.
+
+---
+
+##### `resourceShareId`<sup>Optional</sup> <a name="resourceShareId" id="cdk-extensions.ram.ResourceShareAttributes.property.resourceShareId"></a>
+
+```typescript
+public readonly resourceShareId: string;
+```
+
+- *Type:* string
+
+The ID generated by AWS for the RAM resource share.
+
+---
+
 ### ResourceShareProps <a name="ResourceShareProps" id="cdk-extensions.ram.ResourceShareProps"></a>
 
 Configuration for ResourceShare resource.
@@ -40768,7 +48153,7 @@ const resourceShareProps: ram.ResourceShareProps = { ... }
 | <code><a href="#cdk-extensions.ram.ResourceShareProps.property.autoDiscoverAccounts">autoDiscoverAccounts</a></code> | <code>boolean</code> | Controls whether the resource share should attempt to search for AWS accounts that are part of the same CDK application. |
 | <code><a href="#cdk-extensions.ram.ResourceShareProps.property.name">name</a></code> | <code>string</code> | Specifies the name of the resource share. |
 | <code><a href="#cdk-extensions.ram.ResourceShareProps.property.principals">principals</a></code> | <code>cdk-extensions.ram.ISharedPrincipal[]</code> | Specifies a list of one or more principals to associate with the resource share. |
-| <code><a href="#cdk-extensions.ram.ResourceShareProps.property.resources">resources</a></code> | <code>cdk-extensions.ram.ISharedResource[]</code> | Specifies a list of AWS resources to share with the configured principal accounts and organizations. |
+| <code><a href="#cdk-extensions.ram.ResourceShareProps.property.resources">resources</a></code> | <code>cdk-extensions.ram.ISharable[]</code> | Specifies a list of AWS resources to share with the configured principal accounts and organizations. |
 
 ---
 
@@ -40815,10 +48200,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -40902,10 +48287,10 @@ Specifies a list of one or more principals to associate with the resource share.
 ##### `resources`<sup>Optional</sup> <a name="resources" id="cdk-extensions.ram.ResourceShareProps.property.resources"></a>
 
 ```typescript
-public readonly resources: ISharedResource[];
+public readonly resources: ISharable[];
 ```
 
-- *Type:* cdk-extensions.ram.ISharedResource[]
+- *Type:* cdk-extensions.ram.ISharable[]
 
 Specifies a list of AWS resources to share with the configured principal accounts and organizations.
 
@@ -41303,10 +48688,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -41700,10 +49085,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -41833,10 +49218,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -41975,10 +49360,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -42617,10 +50002,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -42743,10 +50128,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -42888,10 +50273,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -43030,10 +50415,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -43125,6 +50510,56 @@ public readonly s3Prefix: string;
 - *Type:* string
 
 Set a custom prefix for the S3 Bucket.
+
+---
+
+### SharingOptions <a name="SharingOptions" id="cdk-extensions.ec2.SharingOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.SharingOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const sharingOptions: ec2.SharingOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.SharingOptions.property.allowExternalPrincipals">allowExternalPrincipals</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.SharingOptions.property.autoDiscoverAccounts">autoDiscoverAccounts</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.SharingOptions.property.principals">principals</a></code> | <code>cdk-extensions.ram.ISharedPrincipal[]</code> | *No description.* |
+
+---
+
+##### `allowExternalPrincipals`<sup>Optional</sup> <a name="allowExternalPrincipals" id="cdk-extensions.ec2.SharingOptions.property.allowExternalPrincipals"></a>
+
+```typescript
+public readonly allowExternalPrincipals: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `autoDiscoverAccounts`<sup>Optional</sup> <a name="autoDiscoverAccounts" id="cdk-extensions.ec2.SharingOptions.property.autoDiscoverAccounts"></a>
+
+```typescript
+public readonly autoDiscoverAccounts: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `principals`<sup>Optional</sup> <a name="principals" id="cdk-extensions.ec2.SharingOptions.property.principals"></a>
+
+```typescript
+public readonly principals: ISharedPrincipal[];
+```
+
+- *Type:* cdk-extensions.ram.ISharedPrincipal[]
 
 ---
 
@@ -43229,10 +50664,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -43420,10 +50855,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -43907,6 +51342,1549 @@ The start time, specified in the format 'HH:MM' using 24 hour time.
 
 ---
 
+### TransitGatewayAttachmentProps <a name="TransitGatewayAttachmentProps" id="cdk-extensions.ec2.TransitGatewayAttachmentProps"></a>
+
+Configuration for TransitGatewayAttachment resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.TransitGatewayAttachmentProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const transitGatewayAttachmentProps: ec2.TransitGatewayAttachmentProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentProps.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | The transit gateway for which the attachment should be created. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC where the attachment should be created. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentProps.property.applianceModeSupport">applianceModeSupport</a></code> | <code>boolean</code> | Enables appliance mode on the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentProps.property.dnsSupport">dnsSupport</a></code> | <code>boolean</code> | Enables DNS support for the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentProps.property.ipv6Support">ipv6Support</a></code> | <code>boolean</code> | Enables DNS support for the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentProps.property.name">name</a></code> | <code>string</code> | The name of the Transit Gateway Attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentProps.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The subnets where the attachment should be created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.TransitGatewayAttachmentProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.TransitGatewayAttachmentProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.TransitGatewayAttachmentProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.TransitGatewayAttachmentProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2.TransitGatewayAttachmentProps.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+The transit gateway for which the attachment should be created.
+
+> [[TransitGatewayVpcAttachment TransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-transitgatewayid)]([TransitGatewayVpcAttachment TransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-transitgatewayid))
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="cdk-extensions.ec2.TransitGatewayAttachmentProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+The VPC where the attachment should be created.
+
+> [[TransitGatewayVpcAttachment VpcId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-vpcid)]([TransitGatewayVpcAttachment VpcId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-vpcid))
+
+---
+
+##### `applianceModeSupport`<sup>Optional</sup> <a name="applianceModeSupport" id="cdk-extensions.ec2.TransitGatewayAttachmentProps.property.applianceModeSupport"></a>
+
+```typescript
+public readonly applianceModeSupport: boolean;
+```
+
+- *Type:* boolean
+
+Enables appliance mode on the attachment.
+
+When appliance mode is enabled, all traffic flowing between attachments is
+forwarded to an appliance in a shared VPC to be inspected and processed.
+
+> [[Appliance in a shared services VPC](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-appliance-scenario.html)]([Appliance in a shared services VPC](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-appliance-scenario.html))
+
+---
+
+##### `dnsSupport`<sup>Optional</sup> <a name="dnsSupport" id="cdk-extensions.ec2.TransitGatewayAttachmentProps.property.dnsSupport"></a>
+
+```typescript
+public readonly dnsSupport: boolean;
+```
+
+- *Type:* boolean
+
+Enables DNS support for the attachment.
+
+With DNS Support enabled public DNS names that resolve to a connected VPC
+will be translated to private IP addresses when resolved in a connected VPC.
+
+> [[TransitGatewayVpcAttachment DnsSupport](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayvpcattachment-options.html#cfn-ec2-transitgatewayvpcattachment-options-dnssupport)]([TransitGatewayVpcAttachment DnsSupport](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayvpcattachment-options.html#cfn-ec2-transitgatewayvpcattachment-options-dnssupport))
+
+---
+
+##### `ipv6Support`<sup>Optional</sup> <a name="ipv6Support" id="cdk-extensions.ec2.TransitGatewayAttachmentProps.property.ipv6Support"></a>
+
+```typescript
+public readonly ipv6Support: boolean;
+```
+
+- *Type:* boolean
+
+Enables DNS support for the attachment.
+
+With DNS Support enabled public DNS names that resolve to a connected VPC
+will be translated to private IP addresses when resolved in a connected VPC.
+
+> [[IPv6 connectivity with TransitGateway](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/amazon-vpc-connectivity-options-for-ipv6.html#ipv6-connectivity-with-transit-gateway)]([IPv6 connectivity with TransitGateway](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/amazon-vpc-connectivity-options-for-ipv6.html#ipv6-connectivity-with-transit-gateway))
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.TransitGatewayAttachmentProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the Transit Gateway Attachment.
+
+Used to tag the attachment with a name that will be displayed in the AWS
+EC2 console.
+
+> [[TransitGatewayVpcAttachment Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-tags)]([TransitGatewayVpcAttachment Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-tags))
+
+---
+
+##### `subnets`<sup>Optional</sup> <a name="subnets" id="cdk-extensions.ec2.TransitGatewayAttachmentProps.property.subnets"></a>
+
+```typescript
+public readonly subnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+The subnets where the attachment should be created.
+
+Can select up to one subnet per Availability Zone.
+
+> [[TransitGatewayVpcAttachment SubnetIds](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-subnetids)]([TransitGatewayVpcAttachment SubnetIds](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-subnetids))
+
+---
+
+### TransitGatewayAttachmentResourceProps <a name="TransitGatewayAttachmentResourceProps" id="cdk-extensions.ec2.TransitGatewayAttachmentResourceProps"></a>
+
+Configuration for TransitGatewayAttachmentResource resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const transitGatewayAttachmentResourceProps: ec2.TransitGatewayAttachmentResourceProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | The transit gateway for which the attachment should be created. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC where the attachment should be created. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.applianceModeSupport">applianceModeSupport</a></code> | <code>boolean</code> | Enables appliance mode on the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.dnsSupport">dnsSupport</a></code> | <code>boolean</code> | Enables DNS support for the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.ipv6Support">ipv6Support</a></code> | <code>boolean</code> | Enables DNS support for the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.name">name</a></code> | <code>string</code> | The name of the Transit Gateway Attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | The subnets where the attachment should be created. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+The transit gateway for which the attachment should be created.
+
+> [[TransitGatewayVpcAttachment TransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-transitgatewayid)]([TransitGatewayVpcAttachment TransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-transitgatewayid))
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+The VPC where the attachment should be created.
+
+> [[TransitGatewayVpcAttachment VpcId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-vpcid)]([TransitGatewayVpcAttachment VpcId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-vpcid))
+
+---
+
+##### `applianceModeSupport`<sup>Optional</sup> <a name="applianceModeSupport" id="cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.applianceModeSupport"></a>
+
+```typescript
+public readonly applianceModeSupport: boolean;
+```
+
+- *Type:* boolean
+
+Enables appliance mode on the attachment.
+
+When appliance mode is enabled, all traffic flowing between attachments is
+forwarded to an appliance in a shared VPC to be inspected and processed.
+
+> [[Appliance in a shared services VPC](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-appliance-scenario.html)]([Appliance in a shared services VPC](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-appliance-scenario.html))
+
+---
+
+##### `dnsSupport`<sup>Optional</sup> <a name="dnsSupport" id="cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.dnsSupport"></a>
+
+```typescript
+public readonly dnsSupport: boolean;
+```
+
+- *Type:* boolean
+
+Enables DNS support for the attachment.
+
+With DNS Support enabled public DNS names that resolve to a connected VPC
+will be translated to private IP addresses when resolved in a connected VPC.
+
+> [[TransitGatewayVpcAttachment DnsSupport](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayvpcattachment-options.html#cfn-ec2-transitgatewayvpcattachment-options-dnssupport)]([TransitGatewayVpcAttachment DnsSupport](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayvpcattachment-options.html#cfn-ec2-transitgatewayvpcattachment-options-dnssupport))
+
+---
+
+##### `ipv6Support`<sup>Optional</sup> <a name="ipv6Support" id="cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.ipv6Support"></a>
+
+```typescript
+public readonly ipv6Support: boolean;
+```
+
+- *Type:* boolean
+
+Enables DNS support for the attachment.
+
+With DNS Support enabled public DNS names that resolve to a connected VPC
+will be translated to private IP addresses when resolved in a connected VPC.
+
+> [[IPv6 connectivity with TransitGateway](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/amazon-vpc-connectivity-options-for-ipv6.html#ipv6-connectivity-with-transit-gateway)]([IPv6 connectivity with TransitGateway](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/amazon-vpc-connectivity-options-for-ipv6.html#ipv6-connectivity-with-transit-gateway))
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the Transit Gateway Attachment.
+
+Used to tag the attachment with a name that will be displayed in the AWS
+EC2 console.
+
+> [[TransitGatewayVpcAttachment Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-tags)]([TransitGatewayVpcAttachment Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-tags))
+
+---
+
+##### `subnets`<sup>Optional</sup> <a name="subnets" id="cdk-extensions.ec2.TransitGatewayAttachmentResourceProps.property.subnets"></a>
+
+```typescript
+public readonly subnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+The subnets where the attachment should be created.
+
+Can select up to one subnet per Availability Zone.
+
+> [[TransitGatewayVpcAttachment SubnetIds](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-subnetids)]([TransitGatewayVpcAttachment SubnetIds](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html#cfn-ec2-transitgatewayvpcattachment-subnetids))
+
+---
+
+### TransitGatewayHubConfiguration <a name="TransitGatewayHubConfiguration" id="cdk-extensions.ec2_patterns.TransitGatewayHubConfiguration"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.TransitGatewayHubConfiguration.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const transitGatewayHubConfiguration: ec2_patterns.TransitGatewayHubConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.TransitGatewayHubConfiguration.property.allowExternal">allowExternal</a></code> | <code>boolean</code> | Allows Transit Gateway sharing with resources outside of the Transit Gateway owner account's AWS Organization. |
+| <code><a href="#cdk-extensions.ec2_patterns.TransitGatewayHubConfiguration.property.autoAcceptSharedAttachments">autoAcceptSharedAttachments</a></code> | <code>boolean</code> | Enable or disable automatic acceptance of attachment requests. |
+| <code><a href="#cdk-extensions.ec2_patterns.TransitGatewayHubConfiguration.property.autoDiscovery">autoDiscovery</a></code> | <code>boolean</code> | Enables auto-discovery of AWS accounts via CDK resources. |
+| <code><a href="#cdk-extensions.ec2_patterns.TransitGatewayHubConfiguration.property.defaultRouteTableId">defaultRouteTableId</a></code> | <code>string</code> | The ID of the default Transit Gateway Route Table that got created for the Transit Gateway associated with this VPC. |
+| <code><a href="#cdk-extensions.ec2_patterns.TransitGatewayHubConfiguration.property.principals">principals</a></code> | <code>cdk-extensions.ram.ISharedPrincipal[]</code> | A list of principals which allow other accounts access to the Transit Gateway. |
+
+---
+
+##### `allowExternal`<sup>Optional</sup> <a name="allowExternal" id="cdk-extensions.ec2_patterns.TransitGatewayHubConfiguration.property.allowExternal"></a>
+
+```typescript
+public readonly allowExternal: boolean;
+```
+
+- *Type:* boolean
+
+Allows Transit Gateway sharing with resources outside of the Transit Gateway owner account's AWS Organization.
+
+By default, resources cannot be shared with accounts outside of the organization.
+
+---
+
+##### `autoAcceptSharedAttachments`<sup>Optional</sup> <a name="autoAcceptSharedAttachments" id="cdk-extensions.ec2_patterns.TransitGatewayHubConfiguration.property.autoAcceptSharedAttachments"></a>
+
+```typescript
+public readonly autoAcceptSharedAttachments: boolean;
+```
+
+- *Type:* boolean
+
+Enable or disable automatic acceptance of attachment requests.
+
+When this is enabled, any transit gateway attachments created in other accounts where this
+transit gateway has been shared will be automatically created without manual intervention
+being needed in the account that did created the share.
+
+---
+
+##### `autoDiscovery`<sup>Optional</sup> <a name="autoDiscovery" id="cdk-extensions.ec2_patterns.TransitGatewayHubConfiguration.property.autoDiscovery"></a>
+
+```typescript
+public readonly autoDiscovery: boolean;
+```
+
+- *Type:* boolean
+
+Enables auto-discovery of AWS accounts via CDK resources.
+
+Account discovery uses stages
+and stacks to find all accounts that the CDK has resources for.
+
+Environment agnostic stages and stacks cannot be used for auto-discovery.
+
+With auto-discovery enabled, the stack containing the Transit Gateway will need to be
+updated before it will become available in newly added accounts. Because of this it is
+inferior to using grouping principals such as organizations or organizational units.
+
+If access to sharing via AWS OIrganizations is available, that should be preferred over
+auto-discovery.
+
+Transit gateway sharing will be anabled if either auto-discovery is enabled or principals
+are specified.
+
+---
+
+##### `defaultRouteTableId`<sup>Optional</sup> <a name="defaultRouteTableId" id="cdk-extensions.ec2_patterns.TransitGatewayHubConfiguration.property.defaultRouteTableId"></a>
+
+```typescript
+public readonly defaultRouteTableId: string;
+```
+
+- *Type:* string
+
+The ID of the default Transit Gateway Route Table that got created for the Transit Gateway associated with this VPC.
+
+This is needed because the default route table is used for handling routing of all traffic within
+the organization but not exposed directly via CloudFormation.
+
+See [feature request](https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/180)
+related to this in the AWS CloudFormation roadmap.
+
+This is only needed if the VPC is being configured to act as a hub for network traffic. Won't be
+available until after this stack has been deployed for the first time.
+
+---
+
+##### `principals`<sup>Optional</sup> <a name="principals" id="cdk-extensions.ec2_patterns.TransitGatewayHubConfiguration.property.principals"></a>
+
+```typescript
+public readonly principals: ISharedPrincipal[];
+```
+
+- *Type:* cdk-extensions.ram.ISharedPrincipal[]
+
+A list of principals which allow other accounts access to the Transit Gateway.
+
+With shared
+access, other accounts can create Attachments to facilitate cross account networking.
+
+Principals provided should not overlap with CDK resources if auto-discovery is enabled.
+
+Transit gateway sharing will be anabled if either auto-discovery is enabled or principals
+are specified.
+
+---
+
+### TransitGatewayNatProviderOptions <a name="TransitGatewayNatProviderOptions" id="cdk-extensions.ec2.TransitGatewayNatProviderOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.TransitGatewayNatProviderOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const transitGatewayNatProviderOptions: ec2.TransitGatewayNatProviderOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayNatProviderOptions.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2.TransitGatewayNatProviderOptions.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+---
+
+### TransitGatewayPeeringAttachmentImportAttributes <a name="TransitGatewayPeeringAttachmentImportAttributes" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes"></a>
+
+Configuration options for importing a transit gateway peering attachment.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const transitGatewayPeeringAttachmentImportAttributes: ec2.TransitGatewayPeeringAttachmentImportAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.property.arn">arn</a></code> | <code>string</code> | The ARN of this Transit Gateway Attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.property.attachmentId">attachmentId</a></code> | <code>string</code> | The ID of this Transit Gateway Attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.property.creationTime">creationTime</a></code> | <code>string</code> | The time the transit gateway peering attachment was created. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.property.state">state</a></code> | <code>string</code> | The state of the transit gateway peering attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.property.status">status</a></code> | <code>string</code> | The status of the transit gateway peering attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.property.statusCode">statusCode</a></code> | <code>string</code> | The status code for the current status of the attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.property.statusMessage">statusMessage</a></code> | <code>string</code> | The status message for the current status of the attachment. |
+
+---
+
+##### `arn`<sup>Optional</sup> <a name="arn" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.property.arn"></a>
+
+```typescript
+public readonly arn: string;
+```
+
+- *Type:* string
+
+The ARN of this Transit Gateway Attachment.
+
+---
+
+##### `attachmentId`<sup>Optional</sup> <a name="attachmentId" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.property.attachmentId"></a>
+
+```typescript
+public readonly attachmentId: string;
+```
+
+- *Type:* string
+
+The ID of this Transit Gateway Attachment.
+
+---
+
+##### `creationTime`<sup>Optional</sup> <a name="creationTime" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.property.creationTime"></a>
+
+```typescript
+public readonly creationTime: string;
+```
+
+- *Type:* string
+
+The time the transit gateway peering attachment was created.
+
+---
+
+##### `state`<sup>Optional</sup> <a name="state" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.property.state"></a>
+
+```typescript
+public readonly state: string;
+```
+
+- *Type:* string
+
+The state of the transit gateway peering attachment.
+
+---
+
+##### `status`<sup>Optional</sup> <a name="status" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.property.status"></a>
+
+```typescript
+public readonly status: string;
+```
+
+- *Type:* string
+
+The status of the transit gateway peering attachment.
+
+---
+
+##### `statusCode`<sup>Optional</sup> <a name="statusCode" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.property.statusCode"></a>
+
+```typescript
+public readonly statusCode: string;
+```
+
+- *Type:* string
+
+The status code for the current status of the attachment.
+
+---
+
+##### `statusMessage`<sup>Optional</sup> <a name="statusMessage" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentImportAttributes.property.statusMessage"></a>
+
+```typescript
+public readonly statusMessage: string;
+```
+
+- *Type:* string
+
+The status message for the current status of the attachment.
+
+---
+
+### TransitGatewayPeeringAttachmentOptions <a name="TransitGatewayPeeringAttachmentOptions" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentOptions"></a>
+
+Optional configuration for TransitGatewayPeeringAttachment resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const transitGatewayPeeringAttachmentOptions: ec2.TransitGatewayPeeringAttachmentOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentOptions.property.name">name</a></code> | <code>string</code> | The name of the transit gateway peering attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentOptions.property.peerAccountId">peerAccountId</a></code> | <code>string</code> | The account that contains the transit gateway being peered with. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentOptions.property.peerRegion">peerRegion</a></code> | <code>string</code> | The region that contains the transit gateway being peered with. |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentOptions.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the transit gateway peering attachment.
+
+Used to tag the attachment with a name that will be displayed in the AWS
+EC2 console.
+
+> [[TransitGatewayPeeringAttachment Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags)]([TransitGatewayPeeringAttachment Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags))
+
+---
+
+##### `peerAccountId`<sup>Optional</sup> <a name="peerAccountId" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentOptions.property.peerAccountId"></a>
+
+```typescript
+public readonly peerAccountId: string;
+```
+
+- *Type:* string
+
+The account that contains the transit gateway being peered with.
+
+> [[TransitGatewayPeeringAttachment PeerAccountId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid)]([TransitGatewayPeeringAttachment PeerAccountId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid))
+
+---
+
+##### `peerRegion`<sup>Optional</sup> <a name="peerRegion" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentOptions.property.peerRegion"></a>
+
+```typescript
+public readonly peerRegion: string;
+```
+
+- *Type:* string
+
+The region that contains the transit gateway being peered with.
+
+> [[TransitGatewayPeeringAttachment PeerRegion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion)]([TransitGatewayPeeringAttachment PeerRegion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion))
+
+---
+
+### TransitGatewayPeeringAttachmentProps <a name="TransitGatewayPeeringAttachmentProps" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps"></a>
+
+Configuration for TransitGatewayPeeringAttachment resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const transitGatewayPeeringAttachmentProps: ec2.TransitGatewayPeeringAttachmentProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.name">name</a></code> | <code>string</code> | The name of the transit gateway peering attachment. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.peerAccountId">peerAccountId</a></code> | <code>string</code> | The account that contains the transit gateway being peered with. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.peerRegion">peerRegion</a></code> | <code>string</code> | The region that contains the transit gateway being peered with. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.localTransitGateway">localTransitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | The local side of the transit gateway peering connection. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.peerTransitGateway">peerTransitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | The remote transit gateway being peered with. |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the transit gateway peering attachment.
+
+Used to tag the attachment with a name that will be displayed in the AWS
+EC2 console.
+
+> [[TransitGatewayPeeringAttachment Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags)]([TransitGatewayPeeringAttachment Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags))
+
+---
+
+##### `peerAccountId`<sup>Optional</sup> <a name="peerAccountId" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.peerAccountId"></a>
+
+```typescript
+public readonly peerAccountId: string;
+```
+
+- *Type:* string
+
+The account that contains the transit gateway being peered with.
+
+> [[TransitGatewayPeeringAttachment PeerAccountId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid)]([TransitGatewayPeeringAttachment PeerAccountId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid))
+
+---
+
+##### `peerRegion`<sup>Optional</sup> <a name="peerRegion" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.peerRegion"></a>
+
+```typescript
+public readonly peerRegion: string;
+```
+
+- *Type:* string
+
+The region that contains the transit gateway being peered with.
+
+> [[TransitGatewayPeeringAttachment PeerRegion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion)]([TransitGatewayPeeringAttachment PeerRegion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion))
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `localTransitGateway`<sup>Required</sup> <a name="localTransitGateway" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.localTransitGateway"></a>
+
+```typescript
+public readonly localTransitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+The local side of the transit gateway peering connection.
+
+> [[TransitGatewayPeeringAttachment TransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid)]([TransitGatewayPeeringAttachment TransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid))
+
+---
+
+##### `peerTransitGateway`<sup>Required</sup> <a name="peerTransitGateway" id="cdk-extensions.ec2.TransitGatewayPeeringAttachmentProps.property.peerTransitGateway"></a>
+
+```typescript
+public readonly peerTransitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+The remote transit gateway being peered with.
+
+> [[TransitGatewayPeeringAttachment PeerTransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid)]([TransitGatewayPeeringAttachment PeerTransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid))
+
+---
+
+### TransitGatewayProps <a name="TransitGatewayProps" id="cdk-extensions.ec2.TransitGatewayProps"></a>
+
+Configuration for TransitGateway resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.TransitGatewayProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const transitGatewayProps: ec2.TransitGatewayProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.amazonSideAsn">amazonSideAsn</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.autoAcceptSharedAttachments">autoAcceptSharedAttachments</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.cidrBlocks">cidrBlocks</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.defaultRouteTableAssociation">defaultRouteTableAssociation</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.defaultRouteTableId">defaultRouteTableId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.defaultRouteTablePropagation">defaultRouteTablePropagation</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.dnsSupport">dnsSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.multicastSupport">multicastSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayProps.property.vpnEcmpSupport">vpnEcmpSupport</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.TransitGatewayProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.TransitGatewayProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.TransitGatewayProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.TransitGatewayProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `amazonSideAsn`<sup>Optional</sup> <a name="amazonSideAsn" id="cdk-extensions.ec2.TransitGatewayProps.property.amazonSideAsn"></a>
+
+```typescript
+public readonly amazonSideAsn: number;
+```
+
+- *Type:* number
+
+---
+
+##### `autoAcceptSharedAttachments`<sup>Optional</sup> <a name="autoAcceptSharedAttachments" id="cdk-extensions.ec2.TransitGatewayProps.property.autoAcceptSharedAttachments"></a>
+
+```typescript
+public readonly autoAcceptSharedAttachments: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `cidrBlocks`<sup>Optional</sup> <a name="cidrBlocks" id="cdk-extensions.ec2.TransitGatewayProps.property.cidrBlocks"></a>
+
+```typescript
+public readonly cidrBlocks: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `defaultRouteTableAssociation`<sup>Optional</sup> <a name="defaultRouteTableAssociation" id="cdk-extensions.ec2.TransitGatewayProps.property.defaultRouteTableAssociation"></a>
+
+```typescript
+public readonly defaultRouteTableAssociation: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `defaultRouteTableId`<sup>Optional</sup> <a name="defaultRouteTableId" id="cdk-extensions.ec2.TransitGatewayProps.property.defaultRouteTableId"></a>
+
+```typescript
+public readonly defaultRouteTableId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `defaultRouteTablePropagation`<sup>Optional</sup> <a name="defaultRouteTablePropagation" id="cdk-extensions.ec2.TransitGatewayProps.property.defaultRouteTablePropagation"></a>
+
+```typescript
+public readonly defaultRouteTablePropagation: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.TransitGatewayProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `dnsSupport`<sup>Optional</sup> <a name="dnsSupport" id="cdk-extensions.ec2.TransitGatewayProps.property.dnsSupport"></a>
+
+```typescript
+public readonly dnsSupport: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `multicastSupport`<sup>Optional</sup> <a name="multicastSupport" id="cdk-extensions.ec2.TransitGatewayProps.property.multicastSupport"></a>
+
+```typescript
+public readonly multicastSupport: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.TransitGatewayProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpnEcmpSupport`<sup>Optional</sup> <a name="vpnEcmpSupport" id="cdk-extensions.ec2.TransitGatewayProps.property.vpnEcmpSupport"></a>
+
+```typescript
+public readonly vpnEcmpSupport: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+### TransitGatewayRouteOptions <a name="TransitGatewayRouteOptions" id="cdk-extensions.ec2.TransitGatewayRouteOptions"></a>
+
+Options for adding a route to a transit gateway route table.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.TransitGatewayRouteOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const transitGatewayRouteOptions: ec2.TransitGatewayRouteOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteOptions.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteOptions.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteOptions.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteOptions.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteOptions.property.cidr">cidr</a></code> | <code>string</code> | The CIDR range to match for the route. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteOptions.property.attachment">attachment</a></code> | <code>cdk-extensions.ec2.ITransitGatewayAttachment</code> | The transit gateway attachment where matched traffic should be routed. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteOptions.property.blackhole">blackhole</a></code> | <code>boolean</code> | Whether the traffic should be black holed (discarded) rather than being routed to an attachment. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.TransitGatewayRouteOptions.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.TransitGatewayRouteOptions.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.TransitGatewayRouteOptions.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.TransitGatewayRouteOptions.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.TransitGatewayRouteOptions.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+The CIDR range to match for the route.
+
+---
+
+##### `attachment`<sup>Optional</sup> <a name="attachment" id="cdk-extensions.ec2.TransitGatewayRouteOptions.property.attachment"></a>
+
+```typescript
+public readonly attachment: ITransitGatewayAttachment;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayAttachment
+
+The transit gateway attachment where matched traffic should be routed.
+
+---
+
+##### `blackhole`<sup>Optional</sup> <a name="blackhole" id="cdk-extensions.ec2.TransitGatewayRouteOptions.property.blackhole"></a>
+
+```typescript
+public readonly blackhole: boolean;
+```
+
+- *Type:* boolean
+
+Whether the traffic should be black holed (discarded) rather than being routed to an attachment.
+
+---
+
+### TransitGatewayRouteProps <a name="TransitGatewayRouteProps" id="cdk-extensions.ec2.TransitGatewayRouteProps"></a>
+
+Configuration for TransitGatewayRoute resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.TransitGatewayRouteProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const transitGatewayRouteProps: ec2.TransitGatewayRouteProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteProps.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteProps.property.routeTable">routeTable</a></code> | <code>cdk-extensions.ec2.ITransitGatewayRouteTable</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteProps.property.attachment">attachment</a></code> | <code>cdk-extensions.ec2.ITransitGatewayAttachment</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteProps.property.blackhole">blackhole</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.TransitGatewayRouteProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.TransitGatewayRouteProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.TransitGatewayRouteProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.TransitGatewayRouteProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.TransitGatewayRouteProps.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `routeTable`<sup>Required</sup> <a name="routeTable" id="cdk-extensions.ec2.TransitGatewayRouteProps.property.routeTable"></a>
+
+```typescript
+public readonly routeTable: ITransitGatewayRouteTable;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayRouteTable
+
+---
+
+##### `attachment`<sup>Optional</sup> <a name="attachment" id="cdk-extensions.ec2.TransitGatewayRouteProps.property.attachment"></a>
+
+```typescript
+public readonly attachment: ITransitGatewayAttachment;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayAttachment
+
+---
+
+##### `blackhole`<sup>Optional</sup> <a name="blackhole" id="cdk-extensions.ec2.TransitGatewayRouteProps.property.blackhole"></a>
+
+```typescript
+public readonly blackhole: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+### TransitGatewayRouteTableOptions <a name="TransitGatewayRouteTableOptions" id="cdk-extensions.ec2.TransitGatewayRouteTableOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.TransitGatewayRouteTableOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const transitGatewayRouteTableOptions: ec2.TransitGatewayRouteTableOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTableOptions.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.TransitGatewayRouteTableOptions.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+### TransitGatewayRouteTableProps <a name="TransitGatewayRouteTableProps" id="cdk-extensions.ec2.TransitGatewayRouteTableProps"></a>
+
+Configuration for TransitGatewayRouteTable resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.TransitGatewayRouteTableProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const transitGatewayRouteTableProps: ec2.TransitGatewayRouteTableProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTableProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTableProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTableProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTableProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTableProps.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | The transit gateway for which the route table should be created. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayRouteTableProps.property.name">name</a></code> | <code>string</code> | The name of the transit gateway route table. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.TransitGatewayRouteTableProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.TransitGatewayRouteTableProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.TransitGatewayRouteTableProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.TransitGatewayRouteTableProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2.TransitGatewayRouteTableProps.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+The transit gateway for which the route table should be created.
+
+> [[TransitGatewayRouteTable TransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-transitgatewayid)]([TransitGatewayRouteTable TransitGatewayId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-transitgatewayid))
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.TransitGatewayRouteTableProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the transit gateway route table.
+
+Used to tag the route table with a name that will be displayed in the AWS
+VPC console.
+
+> [[TransitGatewayRouteTable Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-tags)]([TransitGatewayRouteTable Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-tags))
+
+---
+
+### TransitGatewaySpokeConfiguration <a name="TransitGatewaySpokeConfiguration" id="cdk-extensions.ec2_patterns.TransitGatewaySpokeConfiguration"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.TransitGatewaySpokeConfiguration.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const transitGatewaySpokeConfiguration: ec2_patterns.TransitGatewaySpokeConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.TransitGatewaySpokeConfiguration.property.transitGatewayId">transitGatewayId</a></code> | <code>string</code> | The ID of a Transit Gateway. |
+
+---
+
+##### `transitGatewayId`<sup>Required</sup> <a name="transitGatewayId" id="cdk-extensions.ec2_patterns.TransitGatewaySpokeConfiguration.property.transitGatewayId"></a>
+
+```typescript
+public readonly transitGatewayId: string;
+```
+
+- *Type:* string
+
+The ID of a Transit Gateway.
+
+This Transit Gateway may have been created by another VPC in the
+same account or shared by a VPC in another account. If this is passed then a Transit Gateway
+Attachment will be created for the specified Transit Gateway and a new one will not be created
+even if {@link TransitGatewayHubConfiguration.principal | principals} are provided.
+
+---
+
 ### TriggerOptions <a name="TriggerOptions" id="cdk-extensions.glue.TriggerOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.glue.TriggerOptions.Initializer"></a>
@@ -43979,10 +52957,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -44154,10 +53132,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -44303,6 +53281,45 @@ The name of the workflow associated with the trigger.
 
 ---
 
+### TunnelOptions <a name="TunnelOptions" id="cdk-extensions.ec2.TunnelOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.TunnelOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const tunnelOptions: ec2.TunnelOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TunnelOptions.property.insideCidr">insideCidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TunnelOptions.property.preSharedKey">preSharedKey</a></code> | <code>aws-cdk-lib.SecretValue</code> | *No description.* |
+
+---
+
+##### `insideCidr`<sup>Optional</sup> <a name="insideCidr" id="cdk-extensions.ec2.TunnelOptions.property.insideCidr"></a>
+
+```typescript
+public readonly insideCidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `preSharedKey`<sup>Optional</sup> <a name="preSharedKey" id="cdk-extensions.ec2.TunnelOptions.property.preSharedKey"></a>
+
+```typescript
+public readonly preSharedKey: SecretValue;
+```
+
+- *Type:* aws-cdk-lib.SecretValue
+
+---
+
 ### TxtRegistryOptions <a name="TxtRegistryOptions" id="cdk-extensions.k8s_aws.TxtRegistryOptions"></a>
 
 Configuration options for setting up a TXT registry for ExternalDNS.
@@ -44356,6 +53373,247 @@ managed record that was created. This causes issues as some record types
 
 This prefix is used to prevent such name collissions while still allowing
 DNS ownership records to be created.
+
+---
+
+### VpcAttachmentOptions <a name="VpcAttachmentOptions" id="cdk-extensions.ec2.VpcAttachmentOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.VpcAttachmentOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const vpcAttachmentOptions: ec2.VpcAttachmentOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpcAttachmentOptions.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpcAttachmentOptions.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | *No description.* |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.VpcAttachmentOptions.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `subnets`<sup>Optional</sup> <a name="subnets" id="cdk-extensions.ec2.VpcAttachmentOptions.property.subnets"></a>
+
+```typescript
+public readonly subnets: SubnetSelection;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+---
+
+### VpnAttachmentOptions <a name="VpnAttachmentOptions" id="cdk-extensions.ec2.VpnAttachmentOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.VpnAttachmentOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const vpnAttachmentOptions: ec2.VpnAttachmentOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpnAttachmentOptions.property.remoteEndpoint">remoteEndpoint</a></code> | <code>cdk-extensions.ec2.IRemoteVpnEndpoint</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpnAttachmentOptions.property.connectionType">connectionType</a></code> | <code>cdk-extensions.ec2.VpnConnectionType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpnAttachmentOptions.property.staticRoutesOnly">staticRoutesOnly</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpnAttachmentOptions.property.tunnelConfigurations">tunnelConfigurations</a></code> | <code>cdk-extensions.ec2.TunnelOptions[]</code> | *No description.* |
+
+---
+
+##### `remoteEndpoint`<sup>Required</sup> <a name="remoteEndpoint" id="cdk-extensions.ec2.VpnAttachmentOptions.property.remoteEndpoint"></a>
+
+```typescript
+public readonly remoteEndpoint: IRemoteVpnEndpoint;
+```
+
+- *Type:* cdk-extensions.ec2.IRemoteVpnEndpoint
+
+---
+
+##### `connectionType`<sup>Optional</sup> <a name="connectionType" id="cdk-extensions.ec2.VpnAttachmentOptions.property.connectionType"></a>
+
+```typescript
+public readonly connectionType: VpnConnectionType;
+```
+
+- *Type:* cdk-extensions.ec2.VpnConnectionType
+
+---
+
+##### `staticRoutesOnly`<sup>Optional</sup> <a name="staticRoutesOnly" id="cdk-extensions.ec2.VpnAttachmentOptions.property.staticRoutesOnly"></a>
+
+```typescript
+public readonly staticRoutesOnly: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tunnelConfigurations`<sup>Optional</sup> <a name="tunnelConfigurations" id="cdk-extensions.ec2.VpnAttachmentOptions.property.tunnelConfigurations"></a>
+
+```typescript
+public readonly tunnelConfigurations: TunnelOptions[];
+```
+
+- *Type:* cdk-extensions.ec2.TunnelOptions[]
+
+---
+
+### VpnConnectionProps <a name="VpnConnectionProps" id="cdk-extensions.ec2.VpnConnectionProps"></a>
+
+Configuration for the VpnConnection resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.VpnConnectionProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const vpnConnectionProps: ec2.VpnConnectionProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionProps.property.localEndpoint">localEndpoint</a></code> | <code>cdk-extensions.ec2.ILocalVpnEndpoint</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionProps.property.remoteEndpoint">remoteEndpoint</a></code> | <code>cdk-extensions.ec2.IRemoteVpnEndpoint</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionProps.property.connectionType">connectionType</a></code> | <code>cdk-extensions.ec2.VpnConnectionType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionProps.property.staticRoutesOnly">staticRoutesOnly</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionProps.property.tunnelConfigurations">tunnelConfigurations</a></code> | <code>cdk-extensions.ec2.TunnelOptions[]</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.VpnConnectionProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.VpnConnectionProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.VpnConnectionProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.VpnConnectionProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `localEndpoint`<sup>Required</sup> <a name="localEndpoint" id="cdk-extensions.ec2.VpnConnectionProps.property.localEndpoint"></a>
+
+```typescript
+public readonly localEndpoint: ILocalVpnEndpoint;
+```
+
+- *Type:* cdk-extensions.ec2.ILocalVpnEndpoint
+
+---
+
+##### `remoteEndpoint`<sup>Required</sup> <a name="remoteEndpoint" id="cdk-extensions.ec2.VpnConnectionProps.property.remoteEndpoint"></a>
+
+```typescript
+public readonly remoteEndpoint: IRemoteVpnEndpoint;
+```
+
+- *Type:* cdk-extensions.ec2.IRemoteVpnEndpoint
+
+---
+
+##### `connectionType`<sup>Optional</sup> <a name="connectionType" id="cdk-extensions.ec2.VpnConnectionProps.property.connectionType"></a>
+
+```typescript
+public readonly connectionType: VpnConnectionType;
+```
+
+- *Type:* cdk-extensions.ec2.VpnConnectionType
+
+---
+
+##### `staticRoutesOnly`<sup>Optional</sup> <a name="staticRoutesOnly" id="cdk-extensions.ec2.VpnConnectionProps.property.staticRoutesOnly"></a>
+
+```typescript
+public readonly staticRoutesOnly: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tunnelConfigurations`<sup>Optional</sup> <a name="tunnelConfigurations" id="cdk-extensions.ec2.VpnConnectionProps.property.tunnelConfigurations"></a>
+
+```typescript
+public readonly tunnelConfigurations: TunnelOptions[];
+```
+
+- *Type:* cdk-extensions.ec2.TunnelOptions[]
 
 ---
 
@@ -44430,10 +53688,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -44572,10 +53830,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -44791,10 +54049,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -44948,10 +54206,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -45103,10 +54361,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -45224,10 +54482,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -45391,10 +54649,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -45507,10 +54765,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -45595,10 +54853,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -45902,10 +55160,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -48337,6 +57595,167 @@ The name of the Column.
 ---
 
 
+### CustomerGatewayConfigurationRemoteVpnEndpoint <a name="CustomerGatewayConfigurationRemoteVpnEndpoint" id="cdk-extensions.ec2.CustomerGatewayConfigurationRemoteVpnEndpoint"></a>
+
+- *Implements:* cdk-extensions.ec2.IRemoteVpnEndpoint
+
+Specifies a remote VPN endpoint device by directly specifyingits details.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.CustomerGatewayConfigurationRemoteVpnEndpoint.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.CustomerGatewayConfigurationRemoteVpnEndpoint(configuration: CustomerGatewayProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayConfigurationRemoteVpnEndpoint.Initializer.parameter.configuration">configuration</a></code> | <code>cdk-extensions.ec2.CustomerGatewayProps</code> | The details of the device on the remote end of the VPN connection. |
+
+---
+
+##### `configuration`<sup>Required</sup> <a name="configuration" id="cdk-extensions.ec2.CustomerGatewayConfigurationRemoteVpnEndpoint.Initializer.parameter.configuration"></a>
+
+- *Type:* cdk-extensions.ec2.CustomerGatewayProps
+
+The details of the device on the remote end of the VPN connection.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayConfigurationRemoteVpnEndpoint.bind">bind</a></code> | Produces a configuration that can be used when configuring the remote end of a VPN connection. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.ec2.CustomerGatewayConfigurationRemoteVpnEndpoint.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): RemoteVpnEndpointConfiguration
+```
+
+Produces a configuration that can be used when configuring the remote end of a VPN connection.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.CustomerGatewayConfigurationRemoteVpnEndpoint.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring the VPN connection that will be referencing the remote endpoint.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayConfigurationRemoteVpnEndpoint.property.configuration">configuration</a></code> | <code>cdk-extensions.ec2.CustomerGatewayProps</code> | The details of the device on the remote end of the VPN connection. |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayConfigurationRemoteVpnEndpoint.property.customerGateway">customerGateway</a></code> | <code>cdk-extensions.ec2.CustomerGateway</code> | The customer gateway that was created to represent the device on the remote end of the VPN connection. |
+
+---
+
+##### `configuration`<sup>Required</sup> <a name="configuration" id="cdk-extensions.ec2.CustomerGatewayConfigurationRemoteVpnEndpoint.property.configuration"></a>
+
+```typescript
+public readonly configuration: CustomerGatewayProps;
+```
+
+- *Type:* cdk-extensions.ec2.CustomerGatewayProps
+
+The details of the device on the remote end of the VPN connection.
+
+---
+
+##### `customerGateway`<sup>Optional</sup> <a name="customerGateway" id="cdk-extensions.ec2.CustomerGatewayConfigurationRemoteVpnEndpoint.property.customerGateway"></a>
+
+```typescript
+public readonly customerGateway: CustomerGateway;
+```
+
+- *Type:* cdk-extensions.ec2.CustomerGateway
+
+The customer gateway that was created to represent the device on the remote end of the VPN connection.
+
+---
+
+
+### CustomerGatewayRemoteVpnEndpoint <a name="CustomerGatewayRemoteVpnEndpoint" id="cdk-extensions.ec2.CustomerGatewayRemoteVpnEndpoint"></a>
+
+- *Implements:* cdk-extensions.ec2.IRemoteVpnEndpoint
+
+Specifies a remote VPN endpoint device that has its details configured in an existing customer gateway.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.CustomerGatewayRemoteVpnEndpoint.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.CustomerGatewayRemoteVpnEndpoint(customerGateway: ICustomerGateway)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayRemoteVpnEndpoint.Initializer.parameter.customerGateway">customerGateway</a></code> | <code>cdk-extensions.ec2.ICustomerGateway</code> | The customer gateway that is configured with the details of the remote endpoint device. |
+
+---
+
+##### `customerGateway`<sup>Required</sup> <a name="customerGateway" id="cdk-extensions.ec2.CustomerGatewayRemoteVpnEndpoint.Initializer.parameter.customerGateway"></a>
+
+- *Type:* cdk-extensions.ec2.ICustomerGateway
+
+The customer gateway that is configured with the details of the remote endpoint device.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayRemoteVpnEndpoint.bind">bind</a></code> | Produces a configuration that can be used when configuring the remote end of a VPN connection. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.ec2.CustomerGatewayRemoteVpnEndpoint.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): RemoteVpnEndpointConfiguration
+```
+
+Produces a configuration that can be used when configuring the remote end of a VPN connection.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.ec2.CustomerGatewayRemoteVpnEndpoint.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring the VPN connection that will be referencing the remote endpoint.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.CustomerGatewayRemoteVpnEndpoint.property.customerGateway">customerGateway</a></code> | <code>cdk-extensions.ec2.ICustomerGateway</code> | The customer gateway that is configured with the details of the remote endpoint device. |
+
+---
+
+##### `customerGateway`<sup>Required</sup> <a name="customerGateway" id="cdk-extensions.ec2.CustomerGatewayRemoteVpnEndpoint.property.customerGateway"></a>
+
+```typescript
+public readonly customerGateway: ICustomerGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ICustomerGateway
+
+The customer gateway that is configured with the details of the remote endpoint device.
+
+---
+
+
 ### CustomProcessor <a name="CustomProcessor" id="cdk-extensions.kinesis_firehose.CustomProcessor"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.CustomProcessor.Initializer"></a>
@@ -50357,6 +59776,33 @@ For information on the type for various files, see documentation on the
 ---
 
 
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.FlowLogField.lookupField">lookupField</a></code> | Tries to retieve full flow log field data for a log field based on name. |
+
+---
+
+##### `lookupField` <a name="lookupField" id="cdk-extensions.ec2.FlowLogField.lookupField"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.FlowLogField.lookupField(name: string)
+```
+
+Tries to retieve full flow log field data for a log field based on name.
+
+Returns undefined if the field name is not recognized.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.ec2.FlowLogField.lookupField.parameter.name"></a>
+
+- *Type:* string
+
+The name of the FlowLogField to look up.
+
+---
 
 #### Properties <a name="Properties" id="Properties"></a>
 
@@ -50970,6 +60416,31 @@ The field to add to the FlowLogFormat.
 
 ---
 
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.FlowLogFormat.fromTemplate">fromTemplate</a></code> | Parses a flow log format template string to create a new FlowLogFormat object. |
+
+---
+
+##### `fromTemplate` <a name="fromTemplate" id="cdk-extensions.ec2.FlowLogFormat.fromTemplate"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.FlowLogFormat.fromTemplate(template: string)
+```
+
+Parses a flow log format template string to create a new FlowLogFormat object.
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-extensions.ec2.FlowLogFormat.fromTemplate.parameter.template"></a>
+
+- *Type:* string
+
+A flow log template string to parse.
+
+---
 
 #### Properties <a name="Properties" id="Properties"></a>
 
@@ -59518,6 +68989,76 @@ The name of the operation being performed.
 ---
 
 
+### NatProvider <a name="NatProvider" id="cdk-extensions.ec2.NatProvider"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.NatProvider.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.NatProvider()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.NatProvider.gateway">gateway</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.NatProvider.instance">instance</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.NatProvider.transitGateway">transitGateway</a></code> | *No description.* |
+
+---
+
+##### `gateway` <a name="gateway" id="cdk-extensions.ec2.NatProvider.gateway"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.NatProvider.gateway(props?: NatGatewayProps)
+```
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2.NatProvider.gateway.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.NatGatewayProps
+
+---
+
+##### `instance` <a name="instance" id="cdk-extensions.ec2.NatProvider.instance"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.NatProvider.instance(props: NatInstanceProps)
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.NatProvider.instance.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.NatInstanceProps
+
+---
+
+##### `transitGateway` <a name="transitGateway" id="cdk-extensions.ec2.NatProvider.transitGateway"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.NatProvider.transitGateway(props: TransitGatewayNatProviderOptions)
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.NatProvider.transitGateway.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.TransitGatewayNatProviderOptions
+
+---
+
+
+
 ### NestFilterOperation <a name="NestFilterOperation" id="cdk-extensions.k8s_aws.NestFilterOperation"></a>
 
 - *Implements:* cdk-extensions.k8s_aws.INestFilterOperation
@@ -61684,6 +71225,64 @@ public readonly sampleSize: string;
 ---
 
 
+### SecretReference <a name="SecretReference" id="cdk-extensions.core.SecretReference"></a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.core.SecretReference.valueForScope">valueForScope</a></code> | *No description.* |
+
+---
+
+##### `valueForScope` <a name="valueForScope" id="cdk-extensions.core.SecretReference.valueForScope"></a>
+
+```typescript
+public valueForScope(scope: IConstruct): string
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.core.SecretReference.valueForScope.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.core.SecretReference.string">string</a></code> | *No description.* |
+
+---
+
+##### `string` <a name="string" id="cdk-extensions.core.SecretReference.string"></a>
+
+```typescript
+import { core } from 'cdk-extensions'
+
+core.SecretReference.string(scope: IConstruct, key: string, value: string)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.core.SecretReference.string.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.core.SecretReference.string.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.core.SecretReference.string.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+
+
 ### SecretsManagerReference <a name="SecretsManagerReference" id="cdk-extensions.k8s_aws.SecretsManagerReference"></a>
 
 - *Implements:* cdk-extensions.k8s_aws.ISecretReference
@@ -62118,25 +71717,27 @@ ram.SharedPrincipal.fromUser(user: IUser)
 
 
 
-### SharedResource <a name="SharedResource" id="cdk-extensions.ram.SharedResource"></a>
+### SharedResource <a name="SharedResource" id="cdk-extensions.ram_resources.SharedResource"></a>
 
-- *Implements:* cdk-extensions.ram.ISharedResource
+- *Implements:* cdk-extensions.ram.ISharable
 
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.ram.SharedResource.bind">bind</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ram_resources.SharedResource.share">share</a></code> | Configures resource sharing for the associated resource. |
 
 ---
 
-##### `bind` <a name="bind" id="cdk-extensions.ram.SharedResource.bind"></a>
+##### `share` <a name="share" id="cdk-extensions.ram_resources.SharedResource.share"></a>
 
 ```typescript
-public bind(_scope: IConstruct): string
+public share(_scope: IConstruct): string
 ```
 
-###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.ram.SharedResource.bind.parameter._scope"></a>
+Configures resource sharing for the associated resource.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.ram_resources.SharedResource.share.parameter._scope"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -62146,51 +71747,66 @@ public bind(_scope: IConstruct): string
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.ram.SharedResource.fromArn">fromArn</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.ram.SharedResource.fromProject">fromProject</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.ram.SharedResource.fromSubnet">fromSubnet</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ram_resources.SharedResource.fromArn">fromArn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ram_resources.SharedResource.fromProject">fromProject</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ram_resources.SharedResource.fromSubnet">fromSubnet</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ram_resources.SharedResource.fromTransitGateway">fromTransitGateway</a></code> | *No description.* |
 
 ---
 
-##### `fromArn` <a name="fromArn" id="cdk-extensions.ram.SharedResource.fromArn"></a>
+##### `fromArn` <a name="fromArn" id="cdk-extensions.ram_resources.SharedResource.fromArn"></a>
 
 ```typescript
-import { ram } from 'cdk-extensions'
+import { ram_resources } from 'cdk-extensions'
 
-ram.SharedResource.fromArn(arn: string)
+ram_resources.SharedResource.fromArn(arn: string)
 ```
 
-###### `arn`<sup>Required</sup> <a name="arn" id="cdk-extensions.ram.SharedResource.fromArn.parameter.arn"></a>
+###### `arn`<sup>Required</sup> <a name="arn" id="cdk-extensions.ram_resources.SharedResource.fromArn.parameter.arn"></a>
 
 - *Type:* string
 
 ---
 
-##### `fromProject` <a name="fromProject" id="cdk-extensions.ram.SharedResource.fromProject"></a>
+##### `fromProject` <a name="fromProject" id="cdk-extensions.ram_resources.SharedResource.fromProject"></a>
 
 ```typescript
-import { ram } from 'cdk-extensions'
+import { ram_resources } from 'cdk-extensions'
 
-ram.SharedResource.fromProject(project: IProject)
+ram_resources.SharedResource.fromProject(project: IProject)
 ```
 
-###### `project`<sup>Required</sup> <a name="project" id="cdk-extensions.ram.SharedResource.fromProject.parameter.project"></a>
+###### `project`<sup>Required</sup> <a name="project" id="cdk-extensions.ram_resources.SharedResource.fromProject.parameter.project"></a>
 
 - *Type:* aws-cdk-lib.aws_codebuild.IProject
 
 ---
 
-##### `fromSubnet` <a name="fromSubnet" id="cdk-extensions.ram.SharedResource.fromSubnet"></a>
+##### `fromSubnet` <a name="fromSubnet" id="cdk-extensions.ram_resources.SharedResource.fromSubnet"></a>
 
 ```typescript
-import { ram } from 'cdk-extensions'
+import { ram_resources } from 'cdk-extensions'
 
-ram.SharedResource.fromSubnet(subnet: ISubnet)
+ram_resources.SharedResource.fromSubnet(subnet: ISubnet)
 ```
 
-###### `subnet`<sup>Required</sup> <a name="subnet" id="cdk-extensions.ram.SharedResource.fromSubnet.parameter.subnet"></a>
+###### `subnet`<sup>Required</sup> <a name="subnet" id="cdk-extensions.ram_resources.SharedResource.fromSubnet.parameter.subnet"></a>
 
 - *Type:* aws-cdk-lib.aws_ec2.ISubnet
+
+---
+
+##### `fromTransitGateway` <a name="fromTransitGateway" id="cdk-extensions.ram_resources.SharedResource.fromTransitGateway"></a>
+
+```typescript
+import { ram_resources } from 'cdk-extensions'
+
+ram_resources.SharedResource.fromTransitGateway(transitGateway: ITransitGateway)
+```
+
+###### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ram_resources.SharedResource.fromTransitGateway.parameter.transitGateway"></a>
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
 
 ---
 
@@ -62634,6 +72250,139 @@ public readonly LATEST: TableVersion;
 
 ---
 
+### TieredSubnets <a name="TieredSubnets" id="cdk-extensions.ec2.TieredSubnets"></a>
+
+- *Implements:* aws-cdk-lib.aws_ec2.IIpAddresses
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.TieredSubnets.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.TieredSubnets(options: TieredSubnetsOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TieredSubnets.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.ec2.TieredSubnetsOptions</code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.TieredSubnets.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.TieredSubnetsOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TieredSubnets.allocateSubnetsCidr">allocateSubnetsCidr</a></code> | Called by the VPC to retrieve Subnet options from the Ipam  Don't call this directly, the VPC will call it automatically. |
+| <code><a href="#cdk-extensions.ec2.TieredSubnets.allocateVpcCidr">allocateVpcCidr</a></code> | Called by the VPC to retrieve VPC options from the Ipam  Don't call this directly, the VPC will call it automatically. |
+
+---
+
+##### `allocateSubnetsCidr` <a name="allocateSubnetsCidr" id="cdk-extensions.ec2.TieredSubnets.allocateSubnetsCidr"></a>
+
+```typescript
+public allocateSubnetsCidr(input: AllocateCidrRequest): SubnetIpamOptions
+```
+
+Called by the VPC to retrieve Subnet options from the Ipam  Don't call this directly, the VPC will call it automatically.
+
+###### `input`<sup>Required</sup> <a name="input" id="cdk-extensions.ec2.TieredSubnets.allocateSubnetsCidr.parameter.input"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.AllocateCidrRequest
+
+---
+
+##### `allocateVpcCidr` <a name="allocateVpcCidr" id="cdk-extensions.ec2.TieredSubnets.allocateVpcCidr"></a>
+
+```typescript
+public allocateVpcCidr(): VpcIpamOptions
+```
+
+Called by the VPC to retrieve VPC options from the Ipam  Don't call this directly, the VPC will call it automatically.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TieredSubnets.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TieredSubnets.property.tierMask">tierMask</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.TieredSubnets.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tierMask`<sup>Optional</sup> <a name="tierMask" id="cdk-extensions.ec2.TieredSubnets.property.tierMask"></a>
+
+```typescript
+public readonly tierMask: number;
+```
+
+- *Type:* number
+
+---
+
+
+### TieredSubnetsOptions <a name="TieredSubnetsOptions" id="cdk-extensions.ec2.TieredSubnetsOptions"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.TieredSubnetsOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.TieredSubnetsOptions()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TieredSubnetsOptions.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TieredSubnetsOptions.property.tierMask">tierMask</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2.TieredSubnetsOptions.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `tierMask`<sup>Optional</sup> <a name="tierMask" id="cdk-extensions.ec2.TieredSubnetsOptions.property.tierMask"></a>
+
+```typescript
+public readonly tierMask: number;
+```
+
+- *Type:* number
+
+---
+
+
 ### TimeIntervalEntry <a name="TimeIntervalEntry" id="cdk-extensions.aps.TimeIntervalEntry"></a>
 
 An object specifying a collection of ranges that together make up an interval of time.
@@ -62938,6 +72687,235 @@ timezone is provided, the time interval is taken to be in UTC time.
 ---
 
 
+### TransitGatewayLocalVpnEndpoint <a name="TransitGatewayLocalVpnEndpoint" id="cdk-extensions.ec2.TransitGatewayLocalVpnEndpoint"></a>
+
+- *Implements:* cdk-extensions.ec2.ILocalVpnEndpoint
+
+Specifies a VPN connection endpoint which routes to a transit gateway on the AWS side.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.TransitGatewayLocalVpnEndpoint.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.TransitGatewayLocalVpnEndpoint(transitGateway: ITransitGateway)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayLocalVpnEndpoint.Initializer.parameter.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | The transit gateway that serves as the local end of a VPN connection. |
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2.TransitGatewayLocalVpnEndpoint.Initializer.parameter.transitGateway"></a>
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+The transit gateway that serves as the local end of a VPN connection.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayLocalVpnEndpoint.bind">bind</a></code> | Produces a configuration that can be used when configuring the local end of a VPN connection. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.ec2.TransitGatewayLocalVpnEndpoint.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): LocalVpnEndpointConfiguration
+```
+
+Produces a configuration that can be used when configuring the local end of a VPN connection.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.ec2.TransitGatewayLocalVpnEndpoint.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring the VPN connection that will be referencing the local endpoint.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayLocalVpnEndpoint.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | The transit gateway that serves as the local end of a VPN connection. |
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2.TransitGatewayLocalVpnEndpoint.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+The transit gateway that serves as the local end of a VPN connection.
+
+---
+
+
+### TransitGatewayNatProvider <a name="TransitGatewayNatProvider" id="cdk-extensions.ec2.TransitGatewayNatProvider"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.TransitGatewayNatProvider.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.TransitGatewayNatProvider(options: TransitGatewayNatProviderOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayNatProvider.Initializer.parameter.options">options</a></code> | <code>cdk-extensions.ec2.TransitGatewayNatProviderOptions</code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.TransitGatewayNatProvider.Initializer.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.TransitGatewayNatProviderOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayNatProvider.configureNat">configureNat</a></code> | Called by the VPC to configure NAT  Don't call this directly, the VPC will call it automatically. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayNatProvider.configureSubnet">configureSubnet</a></code> | Configures subnet with the gateway  Don't call this directly, the VPC will call it automatically. |
+
+---
+
+##### `configureNat` <a name="configureNat" id="cdk-extensions.ec2.TransitGatewayNatProvider.configureNat"></a>
+
+```typescript
+public configureNat(options: ConfigureNatOptions): void
+```
+
+Called by the VPC to configure NAT  Don't call this directly, the VPC will call it automatically.
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.TransitGatewayNatProvider.configureNat.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.ConfigureNatOptions
+
+---
+
+##### `configureSubnet` <a name="configureSubnet" id="cdk-extensions.ec2.TransitGatewayNatProvider.configureSubnet"></a>
+
+```typescript
+public configureSubnet(subnet: PrivateSubnet): void
+```
+
+Configures subnet with the gateway  Don't call this directly, the VPC will call it automatically.
+
+###### `subnet`<sup>Required</sup> <a name="subnet" id="cdk-extensions.ec2.TransitGatewayNatProvider.configureSubnet.parameter.subnet"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.PrivateSubnet
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayNatProvider.gateway">gateway</a></code> | Use NAT Gateways to provide NAT services for your VPC. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayNatProvider.instance">instance</a></code> | Use NAT instances to provide NAT services for your VPC. |
+
+---
+
+##### `gateway` <a name="gateway" id="cdk-extensions.ec2.TransitGatewayNatProvider.gateway"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayNatProvider.gateway(props?: NatGatewayProps)
+```
+
+Use NAT Gateways to provide NAT services for your VPC.
+
+NAT gateways are managed by AWS.
+
+> [https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html)
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2.TransitGatewayNatProvider.gateway.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.NatGatewayProps
+
+---
+
+##### `instance` <a name="instance" id="cdk-extensions.ec2.TransitGatewayNatProvider.instance"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.TransitGatewayNatProvider.instance(props: NatInstanceProps)
+```
+
+Use NAT instances to provide NAT services for your VPC.
+
+NAT instances are managed by you, but in return allow more configuration.
+
+Be aware that instances created using this provider will not be
+automatically replaced if they are stopped for any reason. You should implement
+your own NatProvider based on AutoScaling groups if you need that.
+
+> [https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html)
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.TransitGatewayNatProvider.instance.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.NatInstanceProps
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayNatProvider.property.configuredGateways">configuredGateways</a></code> | <code>aws-cdk-lib.aws_ec2.GatewayConfig[]</code> | Return list of gateways spawned by the provider. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayNatProvider.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayNatProvider.property.transitGatewayAttachment">transitGatewayAttachment</a></code> | <code>cdk-extensions.ec2.TransitGatewayAttachment</code> | *No description.* |
+
+---
+
+##### `configuredGateways`<sup>Required</sup> <a name="configuredGateways" id="cdk-extensions.ec2.TransitGatewayNatProvider.property.configuredGateways"></a>
+
+```typescript
+public readonly configuredGateways: GatewayConfig[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.GatewayConfig[]
+
+Return list of gateways spawned by the provider.
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2.TransitGatewayNatProvider.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+---
+
+##### `transitGatewayAttachment`<sup>Optional</sup> <a name="transitGatewayAttachment" id="cdk-extensions.ec2.TransitGatewayNatProvider.property.transitGatewayAttachment"></a>
+
+```typescript
+public readonly transitGatewayAttachment: TransitGatewayAttachment;
+```
+
+- *Type:* cdk-extensions.ec2.TransitGatewayAttachment
+
+---
+
+
 ### TxtRegistry <a name="TxtRegistry" id="cdk-extensions.k8s_aws.TxtRegistry"></a>
 
 - *Implements:* cdk-extensions.k8s_aws.IExternalDnsRegistry
@@ -63139,6 +73117,273 @@ sso.User.fromUserId(scope: IConstruct, id: string, userId: string)
 
 ---
 
+
+
+### VpnConnectionLocalEndpoint <a name="VpnConnectionLocalEndpoint" id="cdk-extensions.ec2.VpnConnectionLocalEndpoint"></a>
+
+Provides options for specifying the local side of a VPN connection.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.VpnConnectionLocalEndpoint.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.VpnConnectionLocalEndpoint()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionLocalEndpoint.fromTransitGateway">fromTransitGateway</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionLocalEndpoint.fromVpnGateway">fromVpnGateway</a></code> | *No description.* |
+
+---
+
+##### `fromTransitGateway` <a name="fromTransitGateway" id="cdk-extensions.ec2.VpnConnectionLocalEndpoint.fromTransitGateway"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.VpnConnectionLocalEndpoint.fromTransitGateway(transitGateway: ITransitGateway)
+```
+
+###### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2.VpnConnectionLocalEndpoint.fromTransitGateway.parameter.transitGateway"></a>
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+---
+
+##### `fromVpnGateway` <a name="fromVpnGateway" id="cdk-extensions.ec2.VpnConnectionLocalEndpoint.fromVpnGateway"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.VpnConnectionLocalEndpoint.fromVpnGateway(vpnGateway: IVpnGateway)
+```
+
+###### `vpnGateway`<sup>Required</sup> <a name="vpnGateway" id="cdk-extensions.ec2.VpnConnectionLocalEndpoint.fromVpnGateway.parameter.vpnGateway"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpnGateway
+
+---
+
+
+
+### VpnConnectionRemoteEndpoint <a name="VpnConnectionRemoteEndpoint" id="cdk-extensions.ec2.VpnConnectionRemoteEndpoint"></a>
+
+Provides options for specifying the remote side of a VPN connection.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.VpnConnectionRemoteEndpoint.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.VpnConnectionRemoteEndpoint()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionRemoteEndpoint.fromConfiguration">fromConfiguration</a></code> | Creates a remote connection using the configuration details provided. |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionRemoteEndpoint.fromCustomerGateway">fromCustomerGateway</a></code> | Creates a remote connection using a customer gateway. |
+
+---
+
+##### `fromConfiguration` <a name="fromConfiguration" id="cdk-extensions.ec2.VpnConnectionRemoteEndpoint.fromConfiguration"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.VpnConnectionRemoteEndpoint.fromConfiguration(configuration: CustomerGatewayProps)
+```
+
+Creates a remote connection using the configuration details provided.
+
+###### `configuration`<sup>Required</sup> <a name="configuration" id="cdk-extensions.ec2.VpnConnectionRemoteEndpoint.fromConfiguration.parameter.configuration"></a>
+
+- *Type:* cdk-extensions.ec2.CustomerGatewayProps
+
+The configuration for the remote endpoint device.
+
+---
+
+##### `fromCustomerGateway` <a name="fromCustomerGateway" id="cdk-extensions.ec2.VpnConnectionRemoteEndpoint.fromCustomerGateway"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.VpnConnectionRemoteEndpoint.fromCustomerGateway(customerGateway: ICustomerGateway)
+```
+
+Creates a remote connection using a customer gateway.
+
+###### `customerGateway`<sup>Required</sup> <a name="customerGateway" id="cdk-extensions.ec2.VpnConnectionRemoteEndpoint.fromCustomerGateway.parameter.customerGateway"></a>
+
+- *Type:* cdk-extensions.ec2.ICustomerGateway
+
+The customer gateway that is configured for the remote endpoint device.
+
+---
+
+
+
+### VpnConnectionType <a name="VpnConnectionType" id="cdk-extensions.ec2.VpnConnectionType"></a>
+
+Represents a VPN protocol that can be used to establish a connection.
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionType.of">of</a></code> | An escape hatch method that allows defining custom VPN protocols. |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.ec2.VpnConnectionType.of"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.VpnConnectionType.of(name: string)
+```
+
+An escape hatch method that allows defining custom VPN protocols.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.ec2.VpnConnectionType.of.parameter.name"></a>
+
+- *Type:* string
+
+The name of the VPN protocol.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionType.property.name">name</a></code> | <code>string</code> | The name of the VPN protocol. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.ec2.VpnConnectionType.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The name of the VPN protocol.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpnConnectionType.property.IPSEC_1">IPSEC_1</a></code> | <code>cdk-extensions.ec2.VpnConnectionType</code> | The ipsec.1 VPN protocol. |
+
+---
+
+##### `IPSEC_1`<sup>Required</sup> <a name="IPSEC_1" id="cdk-extensions.ec2.VpnConnectionType.property.IPSEC_1"></a>
+
+```typescript
+public readonly IPSEC_1: VpnConnectionType;
+```
+
+- *Type:* cdk-extensions.ec2.VpnConnectionType
+
+The ipsec.1 VPN protocol.
+
+---
+
+### VpnGatewayLocalVpnEndpoint <a name="VpnGatewayLocalVpnEndpoint" id="cdk-extensions.ec2.VpnGatewayLocalVpnEndpoint"></a>
+
+- *Implements:* cdk-extensions.ec2.ILocalVpnEndpoint
+
+Specifies a VPN connection endpoint which routes to a VPN gateway on the AWS side.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.VpnGatewayLocalVpnEndpoint.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.VpnGatewayLocalVpnEndpoint(vpnGateway: IVpnGateway)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpnGatewayLocalVpnEndpoint.Initializer.parameter.vpnGateway">vpnGateway</a></code> | <code>aws-cdk-lib.aws_ec2.IVpnGateway</code> | The VPN gateway that serves as the local end of a VPN connection. |
+
+---
+
+##### `vpnGateway`<sup>Required</sup> <a name="vpnGateway" id="cdk-extensions.ec2.VpnGatewayLocalVpnEndpoint.Initializer.parameter.vpnGateway"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpnGateway
+
+The VPN gateway that serves as the local end of a VPN connection.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpnGatewayLocalVpnEndpoint.bind">bind</a></code> | Produces a configuration that can be used when configuring the local end of a VPN connection. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.ec2.VpnGatewayLocalVpnEndpoint.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): LocalVpnEndpointConfiguration
+```
+
+Produces a configuration that can be used when configuring the local end of a VPN connection.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.ec2.VpnGatewayLocalVpnEndpoint.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring the VPN connection that will be referencing the local endpoint.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpnGatewayLocalVpnEndpoint.property.vpnGateway">vpnGateway</a></code> | <code>aws-cdk-lib.aws_ec2.IVpnGateway</code> | The VPN gateway that serves as the local end of a VPN connection. |
+
+---
+
+##### `vpnGateway`<sup>Required</sup> <a name="vpnGateway" id="cdk-extensions.ec2.VpnGatewayLocalVpnEndpoint.property.vpnGateway"></a>
+
+```typescript
+public readonly vpnGateway: IVpnGateway;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpnGateway
+
+The VPN gateway that serves as the local end of a VPN connection.
+
+---
 
 
 ### WorkerType <a name="WorkerType" id="cdk-extensions.glue.WorkerType"></a>
@@ -64279,6 +74524,59 @@ public bind(crawler: Crawler): CrawlerTargetCollection
 ---
 
 
+### ICustomerGateway <a name="ICustomerGateway" id="cdk-extensions.ec2.ICustomerGateway"></a>
+
+- *Implemented By:* cdk-extensions.ec2.CustomerGateway, cdk-extensions.ec2.ICustomerGateway
+
+Represents a customer gateway in AWS.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.ICustomerGateway.property.customerGatewayAsn">customerGatewayAsn</a></code> | <code>number</code> | The BGP ASN of the customer gateway. |
+| <code><a href="#cdk-extensions.ec2.ICustomerGateway.property.customerGatewayId">customerGatewayId</a></code> | <code>string</code> | The ID of the customer gateway. |
+| <code><a href="#cdk-extensions.ec2.ICustomerGateway.property.customerGatewayIp">customerGatewayIp</a></code> | <code>string</code> | The IP address of the customer gateway. |
+
+---
+
+##### `customerGatewayAsn`<sup>Required</sup> <a name="customerGatewayAsn" id="cdk-extensions.ec2.ICustomerGateway.property.customerGatewayAsn"></a>
+
+```typescript
+public readonly customerGatewayAsn: number;
+```
+
+- *Type:* number
+
+The BGP ASN of the customer gateway.
+
+---
+
+##### `customerGatewayId`<sup>Required</sup> <a name="customerGatewayId" id="cdk-extensions.ec2.ICustomerGateway.property.customerGatewayId"></a>
+
+```typescript
+public readonly customerGatewayId: string;
+```
+
+- *Type:* string
+
+The ID of the customer gateway.
+
+---
+
+##### `customerGatewayIp`<sup>Required</sup> <a name="customerGatewayIp" id="cdk-extensions.ec2.ICustomerGateway.property.customerGatewayIp"></a>
+
+```typescript
+public readonly customerGatewayIp: string;
+```
+
+- *Type:* string
+
+The IP address of the customer gateway.
+
+---
+
 ### IDeliveryStream <a name="IDeliveryStream" id="cdk-extensions.kinesis_firehose.IDeliveryStream"></a>
 
 - *Extends:* aws-cdk-lib.IResource, aws-cdk-lib.aws_iam.IGrantable, aws-cdk-lib.aws_ec2.IConnectable
@@ -64999,6 +75297,35 @@ The name of the job.
 
 ---
 
+### ILocalVpnEndpoint <a name="ILocalVpnEndpoint" id="cdk-extensions.ec2.ILocalVpnEndpoint"></a>
+
+- *Implemented By:* cdk-extensions.ec2.TransitGatewayLocalVpnEndpoint, cdk-extensions.ec2.VpnGatewayLocalVpnEndpoint, cdk-extensions.ec2.ILocalVpnEndpoint
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.ILocalVpnEndpoint.bind">bind</a></code> | Produces a configuration that can be used when configuring the local end of a VPN connection. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.ec2.ILocalVpnEndpoint.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): LocalVpnEndpointConfiguration
+```
+
+Produces a configuration that can be used when configuring the local end of a VPN connection.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.ILocalVpnEndpoint.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring the VPN connection that will be referencing the local endpoint.
+
+---
+
+
 ### ILogDestination <a name="ILogDestination" id="cdk-extensions.ec2.ILogDestination"></a>
 
 - *Implemented By:* cdk-extensions.ec2.FlowLogDestination, cdk-extensions.ec2.ILogDestination
@@ -65117,6 +75444,171 @@ The construct handling the configuration of the APS rule groups namespace that w
 
 ---
 
+
+### IRemoteVpnEndpoint <a name="IRemoteVpnEndpoint" id="cdk-extensions.ec2.IRemoteVpnEndpoint"></a>
+
+- *Implemented By:* cdk-extensions.ec2.CustomerGatewayConfigurationRemoteVpnEndpoint, cdk-extensions.ec2.CustomerGatewayRemoteVpnEndpoint, cdk-extensions.ec2.IRemoteVpnEndpoint
+
+An object that can be used to retrieve the details for the remote end of a VPN connection.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IRemoteVpnEndpoint.bind">bind</a></code> | Produces a configuration that can be used when configuring the remote end of a VPN connection. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.ec2.IRemoteVpnEndpoint.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): RemoteVpnEndpointConfiguration
+```
+
+Produces a configuration that can be used when configuring the remote end of a VPN connection.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IRemoteVpnEndpoint.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct configuring the VPN connection that will be referencing the remote endpoint.
+
+---
+
+
+### IResourceShare <a name="IResourceShare" id="cdk-extensions.ram.IResourceShare"></a>
+
+- *Extends:* aws-cdk-lib.IResource
+
+- *Implemented By:* cdk-extensions.ram.ResourceShare, cdk-extensions.ram.IResourceShare
+
+Represents an AWS Resource Access Manager (RAM) resource share in AWS.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ram.IResourceShare.addPrincipal">addPrincipal</a></code> | Adds a new principal to the resource share. |
+| <code><a href="#cdk-extensions.ram.IResourceShare.addResource">addResource</a></code> | Adds a new resource to the resource share. |
+
+---
+
+##### `addPrincipal` <a name="addPrincipal" id="cdk-extensions.ram.IResourceShare.addPrincipal"></a>
+
+```typescript
+public addPrincipal(principal: ISharedPrincipal): void
+```
+
+Adds a new principal to the resource share.
+
+The principal will have access to all the resources associated with the
+resource share.
+
+###### `principal`<sup>Required</sup> <a name="principal" id="cdk-extensions.ram.IResourceShare.addPrincipal.parameter.principal"></a>
+
+- *Type:* cdk-extensions.ram.ISharedPrincipal
+
+The principal to with resources belonging to the resource share will be shared.
+
+---
+
+##### `addResource` <a name="addResource" id="cdk-extensions.ram.IResourceShare.addResource"></a>
+
+```typescript
+public addResource(resource: ISharable): void
+```
+
+Adds a new resource to the resource share.
+
+The resource will be accessible to all pricipals associated with the
+resource share.
+
+###### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ram.IResourceShare.addResource.parameter.resource"></a>
+
+- *Type:* cdk-extensions.ram.ISharable
+
+The resource to make accessible to the pricipals associated with the resource share.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ram.IResourceShare.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ram.IResourceShare.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ram.IResourceShare.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ram.IResourceShare.property.resourceShareArn">resourceShareArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the RAM resource share. |
+| <code><a href="#cdk-extensions.ram.IResourceShare.property.resourceShareId">resourceShareId</a></code> | <code>string</code> | The ID of the RAM resource share. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ram.IResourceShare.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ram.IResourceShare.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ram.IResourceShare.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `resourceShareArn`<sup>Required</sup> <a name="resourceShareArn" id="cdk-extensions.ram.IResourceShare.property.resourceShareArn"></a>
+
+```typescript
+public readonly resourceShareArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the RAM resource share.
+
+---
+
+##### `resourceShareId`<sup>Required</sup> <a name="resourceShareId" id="cdk-extensions.ram.IResourceShare.property.resourceShareId"></a>
+
+```typescript
+public readonly resourceShareId: string;
+```
+
+- *Type:* string
+
+The ID of the RAM resource share.
+
+---
 
 ### IRuleGroupConfiguration <a name="IRuleGroupConfiguration" id="cdk-extensions.aps.IRuleGroupConfiguration"></a>
 
@@ -65257,6 +75749,37 @@ The name of the secret store as it appears in Kubernetes.
 
 ---
 
+### ISharable <a name="ISharable" id="cdk-extensions.ram.ISharable"></a>
+
+- *Implemented By:* cdk-extensions.ram_resources.SharedResource, cdk-extensions.ram.ISharable
+
+Represents an AWS resource that can be shared via AWS Resource Access Manager (RAM).
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ram.ISharable.share">share</a></code> | Configures resource sharing for the associated resource. |
+
+---
+
+##### `share` <a name="share" id="cdk-extensions.ram.ISharable.share"></a>
+
+```typescript
+public share(scope: IConstruct): string
+```
+
+Configures resource sharing for the associated resource.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ram.ISharable.share.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct implementing the resource share that will be used to expose the associated resource to external principals.
+
+---
+
+
 ### ISharedPrincipal <a name="ISharedPrincipal" id="cdk-extensions.ram.ISharedPrincipal"></a>
 
 - *Implemented By:* cdk-extensions.ram.SharedPrincipal, cdk-extensions.ram.ISharedPrincipal
@@ -65282,30 +75805,381 @@ public bind(scope: IConstruct): string
 ---
 
 
-### ISharedResource <a name="ISharedResource" id="cdk-extensions.ram.ISharedResource"></a>
+### ITransitGateway <a name="ITransitGateway" id="cdk-extensions.ec2.ITransitGateway"></a>
 
-- *Implemented By:* cdk-extensions.ram.SharedResource, cdk-extensions.ram.ISharedResource
+- *Extends:* constructs.IConstruct
+
+- *Implemented By:* cdk-extensions.ec2.TransitGateway, cdk-extensions.ec2.ITransitGateway
+
+Represents a transit gateway in AWS.
 
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.ram.ISharedResource.bind">bind</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.ITransitGateway.addRouteTable">addRouteTable</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.ITransitGateway.addVpn">addVpn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.ITransitGateway.attachVpc">attachVpc</a></code> | *No description.* |
 
 ---
 
-##### `bind` <a name="bind" id="cdk-extensions.ram.ISharedResource.bind"></a>
+##### `addRouteTable` <a name="addRouteTable" id="cdk-extensions.ec2.ITransitGateway.addRouteTable"></a>
 
 ```typescript
-public bind(scope: IConstruct): string
+public addRouteTable(options?: TransitGatewayRouteTableOptions): TransitGatewayRouteTable
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ram.ISharedResource.bind.parameter.scope"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.ITransitGateway.addRouteTable.parameter.options"></a>
 
-- *Type:* constructs.IConstruct
+- *Type:* cdk-extensions.ec2.TransitGatewayRouteTableOptions
 
 ---
 
+##### `addVpn` <a name="addVpn" id="cdk-extensions.ec2.ITransitGateway.addVpn"></a>
+
+```typescript
+public addVpn(id: string, options: VpnAttachmentOptions): VpnConnection
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.ITransitGateway.addVpn.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.ITransitGateway.addVpn.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.VpnAttachmentOptions
+
+---
+
+##### `attachVpc` <a name="attachVpc" id="cdk-extensions.ec2.ITransitGateway.attachVpc"></a>
+
+```typescript
+public attachVpc(vpc: IVpc, options?: VpcAttachmentOptions): TransitGatewayAttachment
+```
+
+###### `vpc`<sup>Required</sup> <a name="vpc" id="cdk-extensions.ec2.ITransitGateway.attachVpc.parameter.vpc"></a>
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.ITransitGateway.attachVpc.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.VpcAttachmentOptions
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.ITransitGateway.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.ITransitGateway.property.transitGatewayArn">transitGatewayArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.ITransitGateway.property.transitGatewayId">transitGatewayId</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.ITransitGateway.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `transitGatewayArn`<sup>Required</sup> <a name="transitGatewayArn" id="cdk-extensions.ec2.ITransitGateway.property.transitGatewayArn"></a>
+
+```typescript
+public readonly transitGatewayArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `transitGatewayId`<sup>Required</sup> <a name="transitGatewayId" id="cdk-extensions.ec2.ITransitGateway.property.transitGatewayId"></a>
+
+```typescript
+public readonly transitGatewayId: string;
+```
+
+- *Type:* string
+
+---
+
+### ITransitGatewayAttachment <a name="ITransitGatewayAttachment" id="cdk-extensions.ec2.ITransitGatewayAttachment"></a>
+
+- *Implemented By:* cdk-extensions.ec2.TransitGatewayAttachment, cdk-extensions.ec2.TransitGatewayAttachmentBase, cdk-extensions.ec2.TransitGatewayAttachmentResource, cdk-extensions.ec2.TransitGatewayPeeringAttachment, cdk-extensions.ec2.ITransitGatewayAttachment, cdk-extensions.ec2.ITransitGatewayPeeringAttachment
+
+Represents a Transit Gateway Attachment in AWS.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.ITransitGatewayAttachment.addRoute">addRoute</a></code> | Adds a route that directs traffic to this transit gateway attachment. |
+
+---
+
+##### `addRoute` <a name="addRoute" id="cdk-extensions.ec2.ITransitGatewayAttachment.addRoute"></a>
+
+```typescript
+public addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
+```
+
+Adds a route that directs traffic to this transit gateway attachment.
+
+###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.ITransitGatewayAttachment.addRoute.parameter.cidr"></a>
+
+- *Type:* string
+
+CIDR range that should be routed to this attachment.
+
+---
+
+###### `routeTable`<sup>Required</sup> <a name="routeTable" id="cdk-extensions.ec2.ITransitGatewayAttachment.addRoute.parameter.routeTable"></a>
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayRouteTable
+
+The transit gateway route table where the route should be added.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.ITransitGatewayAttachment.property.transitGatewayAttachmentArn">transitGatewayAttachmentArn</a></code> | <code>string</code> | The ARN of the transit gateway attachment. |
+| <code><a href="#cdk-extensions.ec2.ITransitGatewayAttachment.property.transitGatewayAttachmentId">transitGatewayAttachmentId</a></code> | <code>string</code> | The ID of the transit gateway attachment. |
+
+---
+
+##### `transitGatewayAttachmentArn`<sup>Required</sup> <a name="transitGatewayAttachmentArn" id="cdk-extensions.ec2.ITransitGatewayAttachment.property.transitGatewayAttachmentArn"></a>
+
+```typescript
+public readonly transitGatewayAttachmentArn: string;
+```
+
+- *Type:* string
+
+The ARN of the transit gateway attachment.
+
+---
+
+##### `transitGatewayAttachmentId`<sup>Required</sup> <a name="transitGatewayAttachmentId" id="cdk-extensions.ec2.ITransitGatewayAttachment.property.transitGatewayAttachmentId"></a>
+
+```typescript
+public readonly transitGatewayAttachmentId: string;
+```
+
+- *Type:* string
+
+The ID of the transit gateway attachment.
+
+---
+
+### ITransitGatewayPeeringAttachment <a name="ITransitGatewayPeeringAttachment" id="cdk-extensions.ec2.ITransitGatewayPeeringAttachment"></a>
+
+- *Extends:* cdk-extensions.ec2.ITransitGatewayAttachment
+
+- *Implemented By:* cdk-extensions.ec2.TransitGatewayPeeringAttachment, cdk-extensions.ec2.ITransitGatewayPeeringAttachment
+
+Represents a transit gateway route table in AWS.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.ITransitGatewayPeeringAttachment.property.transitGatewayAttachmentArn">transitGatewayAttachmentArn</a></code> | <code>string</code> | The ARN of the transit gateway attachment. |
+| <code><a href="#cdk-extensions.ec2.ITransitGatewayPeeringAttachment.property.transitGatewayAttachmentId">transitGatewayAttachmentId</a></code> | <code>string</code> | The ID of the transit gateway attachment. |
+| <code><a href="#cdk-extensions.ec2.ITransitGatewayPeeringAttachment.property.transitGatewayAttachmentCreationTime">transitGatewayAttachmentCreationTime</a></code> | <code>string</code> | The time the transit gateway peering attachment was created. |
+| <code><a href="#cdk-extensions.ec2.ITransitGatewayPeeringAttachment.property.transitGatewayAttachmentState">transitGatewayAttachmentState</a></code> | <code>string</code> | The state of the transit gateway peering attachment. |
+| <code><a href="#cdk-extensions.ec2.ITransitGatewayPeeringAttachment.property.transitGatewayAttachmentStatus">transitGatewayAttachmentStatus</a></code> | <code>string</code> | The status of the transit gateway peering attachment. |
+| <code><a href="#cdk-extensions.ec2.ITransitGatewayPeeringAttachment.property.transitGatewayAttachmentStatusCode">transitGatewayAttachmentStatusCode</a></code> | <code>string</code> | The status code for the current status of the attachment. |
+| <code><a href="#cdk-extensions.ec2.ITransitGatewayPeeringAttachment.property.transitGatewayAttachmentStatusMessage">transitGatewayAttachmentStatusMessage</a></code> | <code>string</code> | The status message for the current status of the attachment. |
+
+---
+
+##### `transitGatewayAttachmentArn`<sup>Required</sup> <a name="transitGatewayAttachmentArn" id="cdk-extensions.ec2.ITransitGatewayPeeringAttachment.property.transitGatewayAttachmentArn"></a>
+
+```typescript
+public readonly transitGatewayAttachmentArn: string;
+```
+
+- *Type:* string
+
+The ARN of the transit gateway attachment.
+
+---
+
+##### `transitGatewayAttachmentId`<sup>Required</sup> <a name="transitGatewayAttachmentId" id="cdk-extensions.ec2.ITransitGatewayPeeringAttachment.property.transitGatewayAttachmentId"></a>
+
+```typescript
+public readonly transitGatewayAttachmentId: string;
+```
+
+- *Type:* string
+
+The ID of the transit gateway attachment.
+
+---
+
+##### `transitGatewayAttachmentCreationTime`<sup>Required</sup> <a name="transitGatewayAttachmentCreationTime" id="cdk-extensions.ec2.ITransitGatewayPeeringAttachment.property.transitGatewayAttachmentCreationTime"></a>
+
+```typescript
+public readonly transitGatewayAttachmentCreationTime: string;
+```
+
+- *Type:* string
+
+The time the transit gateway peering attachment was created.
+
+---
+
+##### `transitGatewayAttachmentState`<sup>Required</sup> <a name="transitGatewayAttachmentState" id="cdk-extensions.ec2.ITransitGatewayPeeringAttachment.property.transitGatewayAttachmentState"></a>
+
+```typescript
+public readonly transitGatewayAttachmentState: string;
+```
+
+- *Type:* string
+
+The state of the transit gateway peering attachment.
+
+---
+
+##### `transitGatewayAttachmentStatus`<sup>Required</sup> <a name="transitGatewayAttachmentStatus" id="cdk-extensions.ec2.ITransitGatewayPeeringAttachment.property.transitGatewayAttachmentStatus"></a>
+
+```typescript
+public readonly transitGatewayAttachmentStatus: string;
+```
+
+- *Type:* string
+
+The status of the transit gateway peering attachment.
+
+---
+
+##### `transitGatewayAttachmentStatusCode`<sup>Required</sup> <a name="transitGatewayAttachmentStatusCode" id="cdk-extensions.ec2.ITransitGatewayPeeringAttachment.property.transitGatewayAttachmentStatusCode"></a>
+
+```typescript
+public readonly transitGatewayAttachmentStatusCode: string;
+```
+
+- *Type:* string
+
+The status code for the current status of the attachment.
+
+---
+
+##### `transitGatewayAttachmentStatusMessage`<sup>Required</sup> <a name="transitGatewayAttachmentStatusMessage" id="cdk-extensions.ec2.ITransitGatewayPeeringAttachment.property.transitGatewayAttachmentStatusMessage"></a>
+
+```typescript
+public readonly transitGatewayAttachmentStatusMessage: string;
+```
+
+- *Type:* string
+
+The status message for the current status of the attachment.
+
+---
+
+### ITransitGatewayRoute <a name="ITransitGatewayRoute" id="cdk-extensions.ec2.ITransitGatewayRoute"></a>
+
+- *Implemented By:* cdk-extensions.ec2.ITransitGatewayRoute
+
+Represents a Transit Gateway Route in AWS.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.ITransitGatewayRoute.property.transitGatewayRouteId">transitGatewayRouteId</a></code> | <code>string</code> | The ID of the Transit Gateway Route. |
+
+---
+
+##### `transitGatewayRouteId`<sup>Required</sup> <a name="transitGatewayRouteId" id="cdk-extensions.ec2.ITransitGatewayRoute.property.transitGatewayRouteId"></a>
+
+```typescript
+public readonly transitGatewayRouteId: string;
+```
+
+- *Type:* string
+
+The ID of the Transit Gateway Route.
+
+---
+
+### ITransitGatewayRouteTable <a name="ITransitGatewayRouteTable" id="cdk-extensions.ec2.ITransitGatewayRouteTable"></a>
+
+- *Implemented By:* cdk-extensions.ec2.TransitGatewayRouteTable, cdk-extensions.ec2.ITransitGatewayRouteTable
+
+Represents a transit gateway route table in AWS.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.ITransitGatewayRouteTable.addRoute">addRoute</a></code> | Adds a route to this transit gateway route table. |
+
+---
+
+##### `addRoute` <a name="addRoute" id="cdk-extensions.ec2.ITransitGatewayRouteTable.addRoute"></a>
+
+```typescript
+public addRoute(options: TransitGatewayRouteOptions): TransitGatewayRoute
+```
+
+Adds a route to this transit gateway route table.
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.ITransitGatewayRouteTable.addRoute.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.TransitGatewayRouteOptions
+
+Configuration for the route being added.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.ITransitGatewayRouteTable.property.transitGatewayRouteTableArn">transitGatewayRouteTableArn</a></code> | <code>string</code> | The ARN of the transit gateway route table. |
+| <code><a href="#cdk-extensions.ec2.ITransitGatewayRouteTable.property.transitGatewayRouteTableId">transitGatewayRouteTableId</a></code> | <code>string</code> | The ID of the transit gateway route table. |
+
+---
+
+##### `transitGatewayRouteTableArn`<sup>Required</sup> <a name="transitGatewayRouteTableArn" id="cdk-extensions.ec2.ITransitGatewayRouteTable.property.transitGatewayRouteTableArn"></a>
+
+```typescript
+public readonly transitGatewayRouteTableArn: string;
+```
+
+- *Type:* string
+
+The ARN of the transit gateway route table.
+
+---
+
+##### `transitGatewayRouteTableId`<sup>Required</sup> <a name="transitGatewayRouteTableId" id="cdk-extensions.ec2.ITransitGatewayRouteTable.property.transitGatewayRouteTableId"></a>
+
+```typescript
+public readonly transitGatewayRouteTableId: string;
+```
+
+- *Type:* string
+
+The ID of the transit gateway route table.
+
+---
 
 ### ITrigger <a name="ITrigger" id="cdk-extensions.glue.ITrigger"></a>
 
@@ -65918,31 +76792,6 @@ Only create DNS records for private hosted zones.
 ##### `PUBLIC` <a name="PUBLIC" id="cdk-extensions.k8s_aws.ExternalDnsZoneType.PUBLIC"></a>
 
 Only create DNS records for public hosted zones.
-
----
-
-
-### FlowLogAggregationInterval <a name="FlowLogAggregationInterval" id="cdk-extensions.ec2.FlowLogAggregationInterval"></a>
-
-#### Members <a name="Members" id="Members"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdk-extensions.ec2.FlowLogAggregationInterval.ONE_MINUTE">ONE_MINUTE</a></code> | Flow logs will be written at least every 60 seconds. |
-| <code><a href="#cdk-extensions.ec2.FlowLogAggregationInterval.TEN_MINUTES">TEN_MINUTES</a></code> | Flow logs will be written at least every ten minutes. |
-
----
-
-##### `ONE_MINUTE` <a name="ONE_MINUTE" id="cdk-extensions.ec2.FlowLogAggregationInterval.ONE_MINUTE"></a>
-
-Flow logs will be written at least every 60 seconds.
-
----
-
-
-##### `TEN_MINUTES` <a name="TEN_MINUTES" id="cdk-extensions.ec2.FlowLogAggregationInterval.TEN_MINUTES"></a>
-
-Flow logs will be written at least every ten minutes.
 
 ---
 

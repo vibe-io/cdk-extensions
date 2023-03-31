@@ -1,8 +1,8 @@
 import { PhysicalName, ResourceProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import { RawBucket } from './private/raw-bucket';
 import { Database } from '../glue';
 import { CloudtrailTable } from '../glue-tables';
-import { RawBucket } from './private/raw-bucket';
 
 
 /**

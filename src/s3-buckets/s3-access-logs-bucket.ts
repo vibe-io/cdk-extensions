@@ -2,9 +2,9 @@ import { Aspects, Lazy, PhysicalName, ResourceProps, Token } from 'aws-cdk-lib';
 import { Effect, PolicyStatement, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct, IConstruct } from 'constructs';
+import { RawBucket } from './private/raw-bucket';
 import { Database } from '../glue';
 import { S3AccessLogsTable } from '../glue-tables';
-import { RawBucket } from './private/raw-bucket';
 
 
 export interface LoggingAspectOptions {

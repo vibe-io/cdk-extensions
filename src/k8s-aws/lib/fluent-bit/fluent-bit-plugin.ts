@@ -1,6 +1,6 @@
 import { IConstruct } from 'constructs';
-import { isArray } from '../../../utils/types';
 import { ResolvedFluentBitConfiguration } from './resolved-fluent-bit-configuration';
+import { isArray } from '../../../utils/types';
 
 
 /**

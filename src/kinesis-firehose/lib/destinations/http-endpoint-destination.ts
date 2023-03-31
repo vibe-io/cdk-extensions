@@ -3,14 +3,14 @@ import { Effect, IRole, PolicyStatement, PrincipalWithConditions, Role, ServiceP
 import { CfnDeliveryStream } from 'aws-cdk-lib/aws-kinesisfirehose';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { IConstruct } from 'constructs';
+import { DeliveryStreamDestination, DeliveryStreamDestinationConfiguration } from './delivery-stream-destination';
+import { S3CompressionFormat, S3Destination } from './s3-destination';
 import { definedFieldsOrUndefined, undefinedIfNoKeys } from '../../../utils/formatting';
 import { BackupConfiguration } from '../backup-configuration';
 import { BufferingConfiguration } from '../buffering-configuration';
 import { CloudWatchLoggingConfiguration } from '../cloudwatch-logging-configuration';
 import { ProcessorConfiguration } from '../processor-configuration';
 import { DeliveryStreamProcessor } from '../processors/delivery-stream-processor';
-import { DeliveryStreamDestination, DeliveryStreamDestinationConfiguration } from './delivery-stream-destination';
-import { S3CompressionFormat, S3Destination } from './s3-destination';
 
 
 export enum ContentEncoding {

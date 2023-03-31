@@ -1,7 +1,7 @@
 import { CfnTrigger } from 'aws-cdk-lib/aws-glue';
 import { IConstruct } from 'constructs';
-import { IJob, ITriggerPredicate } from '../..';
 import { WorkflowPredicateBase, PredicateLogicalOperator, WorkflowPredicateOptions } from './predicate-base';
+import { IJob, ITriggerPredicate } from '../..';
 
 
 /**

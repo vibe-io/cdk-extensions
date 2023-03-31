@@ -2,9 +2,9 @@ import { ArnFormat, Stack } from 'aws-cdk-lib';
 import { Effect, IRole, PolicyStatement, PrincipalWithConditions, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { CfnDeliveryStream } from 'aws-cdk-lib/aws-kinesisfirehose';
 import { IConstruct } from 'constructs';
-import { Database, Table } from '../../../glue';
 import { InputFormat } from './input-formats';
 import { OutputFormat } from './output-formats';
+import { Database, Table } from '../../../glue';
 
 
 export class TableVersion {

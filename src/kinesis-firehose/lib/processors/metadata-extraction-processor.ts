@@ -1,5 +1,5 @@
-import { MetaDataExtractionQuery } from '../metadata-extraction-query';
 import { DeliveryStreamProcessor, ProcessorType } from './delivery-stream-processor';
+import { MetaDataExtractionQuery } from '../metadata-extraction-query';
 
 
 export enum JsonParsingEngine {
