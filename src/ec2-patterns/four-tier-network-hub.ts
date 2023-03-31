@@ -6,7 +6,8 @@ import { FourTierNetworkSpoke } from './four-tier-network-spoke';
 import { TransitGateway, TransitGatewayProps } from '../ec2';
 import { NatProvider } from '../ec2/lib/nat-providers/nat-provider';
 import { ITransitGateway } from '../ec2/transit-gateway';
-import { IResourceShare, ISharedPrincipal, ResourceShare, SharedPrincipal, SharedResource } from '../ram';
+import { IResourceShare, ISharedPrincipal, ResourceShare, SharedPrincipal } from '../ram';
+import { SharedResource } from '../ram-resources';
 
 
 export interface FourTierNetworkShareProperties {

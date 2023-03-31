@@ -2,8 +2,21 @@ import { ArnFormat, Aspects, IResource, Lazy, Names, Resource, ResourceProps, St
 import { CfnResourceShare } from 'aws-cdk-lib/aws-ram';
 import { Construct, IConstruct } from 'constructs';
 import { ISharedPrincipal, SharedPrincipal } from './lib/shared-principal';
-import { ISharable } from './lib/shared-resource';
 
+
+/**
+ * Represents an AWS resource that can be shared via AWS Resource Access
+ * Manager (RAM).
+ */
+export interface ISharable {
+  /**
+   * Configures resource sharing for the associated resource.
+   *
+   * @param scope The construct implementing the resource share that will be
+   * used to expose the associated resource to external principals.
+   */
+  share(scope: IConstruct): string;
+}
 
 /**
  * Represents an AWS Resource Access Manager (RAM) resource share in AWS.

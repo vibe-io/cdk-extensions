@@ -71717,7 +71717,7 @@ ram.SharedPrincipal.fromUser(user: IUser)
 
 
 
-### SharedResource <a name="SharedResource" id="cdk-extensions.ram.SharedResource"></a>
+### SharedResource <a name="SharedResource" id="cdk-extensions.ram_resources.SharedResource"></a>
 
 - *Implements:* cdk-extensions.ram.ISharable
 
@@ -71725,17 +71725,19 @@ ram.SharedPrincipal.fromUser(user: IUser)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.ram.SharedResource.share">share</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ram_resources.SharedResource.share">share</a></code> | Configures resource sharing for the associated resource. |
 
 ---
 
-##### `share` <a name="share" id="cdk-extensions.ram.SharedResource.share"></a>
+##### `share` <a name="share" id="cdk-extensions.ram_resources.SharedResource.share"></a>
 
 ```typescript
 public share(_scope: IConstruct): string
 ```
 
-###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.ram.SharedResource.share.parameter._scope"></a>
+Configures resource sharing for the associated resource.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.ram_resources.SharedResource.share.parameter._scope"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -71745,64 +71747,64 @@ public share(_scope: IConstruct): string
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.ram.SharedResource.fromArn">fromArn</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.ram.SharedResource.fromProject">fromProject</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.ram.SharedResource.fromSubnet">fromSubnet</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.ram.SharedResource.fromTransitGateway">fromTransitGateway</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ram_resources.SharedResource.fromArn">fromArn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ram_resources.SharedResource.fromProject">fromProject</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ram_resources.SharedResource.fromSubnet">fromSubnet</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ram_resources.SharedResource.fromTransitGateway">fromTransitGateway</a></code> | *No description.* |
 
 ---
 
-##### `fromArn` <a name="fromArn" id="cdk-extensions.ram.SharedResource.fromArn"></a>
+##### `fromArn` <a name="fromArn" id="cdk-extensions.ram_resources.SharedResource.fromArn"></a>
 
 ```typescript
-import { ram } from 'cdk-extensions'
+import { ram_resources } from 'cdk-extensions'
 
-ram.SharedResource.fromArn(arn: string)
+ram_resources.SharedResource.fromArn(arn: string)
 ```
 
-###### `arn`<sup>Required</sup> <a name="arn" id="cdk-extensions.ram.SharedResource.fromArn.parameter.arn"></a>
+###### `arn`<sup>Required</sup> <a name="arn" id="cdk-extensions.ram_resources.SharedResource.fromArn.parameter.arn"></a>
 
 - *Type:* string
 
 ---
 
-##### `fromProject` <a name="fromProject" id="cdk-extensions.ram.SharedResource.fromProject"></a>
+##### `fromProject` <a name="fromProject" id="cdk-extensions.ram_resources.SharedResource.fromProject"></a>
 
 ```typescript
-import { ram } from 'cdk-extensions'
+import { ram_resources } from 'cdk-extensions'
 
-ram.SharedResource.fromProject(project: IProject)
+ram_resources.SharedResource.fromProject(project: IProject)
 ```
 
-###### `project`<sup>Required</sup> <a name="project" id="cdk-extensions.ram.SharedResource.fromProject.parameter.project"></a>
+###### `project`<sup>Required</sup> <a name="project" id="cdk-extensions.ram_resources.SharedResource.fromProject.parameter.project"></a>
 
 - *Type:* aws-cdk-lib.aws_codebuild.IProject
 
 ---
 
-##### `fromSubnet` <a name="fromSubnet" id="cdk-extensions.ram.SharedResource.fromSubnet"></a>
+##### `fromSubnet` <a name="fromSubnet" id="cdk-extensions.ram_resources.SharedResource.fromSubnet"></a>
 
 ```typescript
-import { ram } from 'cdk-extensions'
+import { ram_resources } from 'cdk-extensions'
 
-ram.SharedResource.fromSubnet(subnet: ISubnet)
+ram_resources.SharedResource.fromSubnet(subnet: ISubnet)
 ```
 
-###### `subnet`<sup>Required</sup> <a name="subnet" id="cdk-extensions.ram.SharedResource.fromSubnet.parameter.subnet"></a>
+###### `subnet`<sup>Required</sup> <a name="subnet" id="cdk-extensions.ram_resources.SharedResource.fromSubnet.parameter.subnet"></a>
 
 - *Type:* aws-cdk-lib.aws_ec2.ISubnet
 
 ---
 
-##### `fromTransitGateway` <a name="fromTransitGateway" id="cdk-extensions.ram.SharedResource.fromTransitGateway"></a>
+##### `fromTransitGateway` <a name="fromTransitGateway" id="cdk-extensions.ram_resources.SharedResource.fromTransitGateway"></a>
 
 ```typescript
-import { ram } from 'cdk-extensions'
+import { ram_resources } from 'cdk-extensions'
 
-ram.SharedResource.fromTransitGateway(transitGateway: ITransitGateway)
+ram_resources.SharedResource.fromTransitGateway(transitGateway: ITransitGateway)
 ```
 
-###### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ram.SharedResource.fromTransitGateway.parameter.transitGateway"></a>
+###### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ram_resources.SharedResource.fromTransitGateway.parameter.transitGateway"></a>
 
 - *Type:* cdk-extensions.ec2.ITransitGateway
 
@@ -75749,13 +75751,15 @@ The name of the secret store as it appears in Kubernetes.
 
 ### ISharable <a name="ISharable" id="cdk-extensions.ram.ISharable"></a>
 
-- *Implemented By:* cdk-extensions.ram.SharedResource, cdk-extensions.ram.ISharable
+- *Implemented By:* cdk-extensions.ram_resources.SharedResource, cdk-extensions.ram.ISharable
+
+Represents an AWS resource that can be shared via AWS Resource Access Manager (RAM).
 
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.ram.ISharable.share">share</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ram.ISharable.share">share</a></code> | Configures resource sharing for the associated resource. |
 
 ---
 
@@ -75765,9 +75769,13 @@ The name of the secret store as it appears in Kubernetes.
 public share(scope: IConstruct): string
 ```
 
+Configures resource sharing for the associated resource.
+
 ###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ram.ISharable.share.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
+
+The construct implementing the resource share that will be used to expose the associated resource to external principals.
 
 ---
 

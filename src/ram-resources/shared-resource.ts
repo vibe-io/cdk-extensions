@@ -1,12 +1,9 @@
 import { IProject } from 'aws-cdk-lib/aws-codebuild';
 import { ISubnet } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
-import { ITransitGateway } from '../../ec2/transit-gateway';
+import { ITransitGateway } from '../ec2';
+import { ISharable } from '../ram';
 
-
-export interface ISharable {
-  share(scope: IConstruct): string;
-}
 
 export class SharedResource implements ISharable {
   public static fromArn(arn: string): SharedResource {

@@ -18,6 +18,7 @@ export * as k8s_fargate from './k8s-fargate';
 export * as kinesis_firehose from './kinesis-firehose';
 export * as lambda from './lambda';
 export * as ram from './ram';
+export * as ram_resources from './ram-resources';
 export * as rds from './rds';
 export * as route53 from './route53';
 export * as s3_buckets from './s3-buckets';

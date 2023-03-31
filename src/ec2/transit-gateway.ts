@@ -8,7 +8,8 @@ import { TransitGatewayPeeringAttachment, TransitGatewayPeeringAttachmentOptions
 import { ITransitGatewayRouteTable, TransitGatewayRouteTable } from './transit-gateway-route-table';
 import { TunnelOptions, VpnConnection, VpnConnectionType } from './vpn-connection';
 import { SecretReference } from '../core';
-import { ISharedPrincipal, ResourceShare, SharedResource } from '../ram';
+import { ISharedPrincipal, ResourceShare } from '../ram';
+import { SharedResource } from '../ram-resources';
 
 
 export interface SharingOptions {
