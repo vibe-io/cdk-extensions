@@ -1,8 +1,8 @@
 import { ResourceProps } from 'aws-cdk-lib';
-import { DefaultInstanceTenancy, FlowLogOptions, GatewayVpcEndpointOptions, SubnetSelection, VpnConnectionOptions } from 'aws-cdk-lib/aws-ec2';
+import { DefaultInstanceTenancy, FlowLogOptions, GatewayVpcEndpointOptions, PrivateSubnet, RouterType, SubnetSelection, VpnConnectionOptions } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { FourTierNetwork } from '.';
-import { NatProvider } from '../ec2/lib/nat-providers/nat-provider';
+import { ITransitGatewayAttachment } from '../ec2';
 import { ITransitGateway } from '../ec2/transit-gateway';
 
 
@@ -24,16 +24,28 @@ export interface FourTierNetworkSpokeProps extends ResourceProps {
 }
 
 export class FourTierNetworkSpoke extends FourTierNetwork {
+  public readonly transitGatewayAttachment: ITransitGatewayAttachment;
+
+
   public constructor(scope: IConstruct, id: string, props: FourTierNetworkSpokeProps) {
     super(scope, id, {
       ...props,
-      natGatewayProvider: NatProvider.transitGateway({
-        transitGateway: props.transitGateway,
-      }),
-      natGatewaySubnets: {
+      natGateways: 0,
+    });
+
+    this.transitGatewayAttachment = props.transitGateway.attachVpc(this, {
+      subnets: {
         onePerAz: true,
         subnetGroupName: 'dmz',
       },
+    });
+
+    (this.privateSubnets as PrivateSubnet[]).forEach((x) => {
+      x.addRoute('DefaultRoute', {
+        routerId: props.transitGateway.transitGatewayId,
+        routerType: RouterType.TRANSIT_GATEWAY,
+        enablesInternetConnectivity: true,
+      });
     });
   }
 }

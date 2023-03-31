@@ -1,5 +1,5 @@
 import { Stack } from 'aws-cdk-lib';
-import { CfnTransitGatewayVpcAttachment } from 'aws-cdk-lib/aws-ec2';
+import { CfnTransitGatewayAttachment } from 'aws-cdk-lib/aws-ec2';
 import { Construct, IConstruct } from 'constructs';
 import { definedFieldsOrUndefined } from '../utils/formatting';
 import { ITransitGatewayAttachment, TransitGatewayAttachmentBase, TransitGatewayAttachmentResource, TransitGatewayAttachmentResourceProps } from './transit-gateway-attachment-base';
@@ -49,7 +49,7 @@ export class TransitGatewayAttachment extends TransitGatewayAttachmentResource {
    *
    * @group Resources
    */
-  public readonly resource: CfnTransitGatewayVpcAttachment;
+  public readonly resource: CfnTransitGatewayAttachment;
 
   /**
    * The ARN of this Transit Gateway Attachment.
@@ -73,7 +73,7 @@ export class TransitGatewayAttachment extends TransitGatewayAttachmentResource {
   public constructor(scope: Construct, id: string, props: TransitGatewayAttachmentProps) {
     super(scope, id, props);
 
-    this.resource = new CfnTransitGatewayVpcAttachment(this, 'Resource', {
+    this.resource = new CfnTransitGatewayAttachment(this, 'Resource', {
       options: definedFieldsOrUndefined({
         applianceModeSupport: this.translateBoolean(this.applianceModeSupport),
         dnsSupport: this.translateBoolean(this.dnsSupport),

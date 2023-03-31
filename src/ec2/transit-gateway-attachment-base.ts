@@ -47,7 +47,9 @@ export abstract class TransitGatewayAttachmentBase extends Resource implements I
   /**
    * Adds a route that directs traffic to this transit gateway attachment.
    *
-   * @param options Configuration for the route being added.
+   * @param cidr CIDR range that should be routed to this attachment.
+   * @param routeTable The transit gateway route table where the route should
+   * be added.
    * @returns The TransitGatewayRoute that was added.
    */
   public addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute {

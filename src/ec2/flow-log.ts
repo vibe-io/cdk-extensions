@@ -12,13 +12,13 @@ import { FlowLogsBucket } from '../s3-buckets';
  */
 export interface FlowLogProps extends ResourceProps {
   /**
-     * The location where flow logs should be delivered.
-     *
-     * @see [FlowLog LogDestination](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination)
-     * @see [FlowLog LogDestinationType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype)
-     *
-     * @group Inputs
-     */
+   * The location where flow logs should be delivered.
+   *
+   * @see [FlowLog LogDestination](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination)
+   * @see [FlowLog LogDestinationType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype)
+   *
+   * @group Inputs
+   */
   readonly destination?: FlowLogDestination;
 
   /**
@@ -29,55 +29,55 @@ export interface FlowLogProps extends ResourceProps {
   readonly flowLogName?: string;
 
   /**
-     * The fields to include in the flow log record, in the order in which they
-     * should appear. For a list of available fields, see {@link FlowLogField}.
-     *
-     * @see [FlowLog LogFormat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat)
-     *
-     * @group Inputs
-     */
+   * The fields to include in the flow log record, in the order in which they
+   * should appear. For a list of available fields, see {@link FlowLogField}.
+   *
+   * @see [FlowLog LogFormat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat)
+   *
+   * @group Inputs
+   */
   readonly logFormat?: FlowLogFormat;
 
   /**
-     * The maximum interval of time during which a flow of packets is captured
-     * and aggregated into a flow log record.
-     *
-     * @see [FlowLog MaxAggregationInterval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval)
-     *
-     * @group Inputs
-     */
+   * The maximum interval of time during which a flow of packets is captured
+   * and aggregated into a flow log record.
+   *
+   * @see [FlowLog MaxAggregationInterval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval)
+   *
+   * @group Inputs
+   */
   readonly maxAggregationInterval?: FlowLogMaxAggregationInterval;
 
   /**
-     * Details for the resource from which flow logs will be captured.
-     *
-     * @see [FlowLog ResourceId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid)
-     * @see [FlowLog ResourceType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype)
-     *
-     * @group Inputs
-     */
+   * Details for the resource from which flow logs will be captured.
+   *
+   * @see [FlowLog ResourceId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid)
+   * @see [FlowLog ResourceType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype)
+   *
+   * @group Inputs
+   */
   readonly resourceType: FlowLogResourceType;
 
   /**
-     * The type of traffic to monitor (accepted traffic, rejected traffic, or
-     * all traffic).
-     *
-     * @see [FlowLog TrafficType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype)
-     *
-     * @group Inputs
-     */
+   * The type of traffic to monitor (accepted traffic, rejected traffic, or
+   * all traffic).
+   *
+   * @see [FlowLog TrafficType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype)
+   *
+   * @group Inputs
+   */
   readonly trafficType?: FlowLogTrafficType;
 }
 
 export class FlowLog extends ec2.FlowLog {
   /**
-     * The location where flow logs should be delivered.
-     *
-     * @see [FlowLog LogDestination](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination)
-     * @see [FlowLog LogDestinationType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype)
-     *
-     * @group Inputs
-     */
+   * The location where flow logs should be delivered.
+   *
+   * @see [FlowLog LogDestination](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination)
+   * @see [FlowLog LogDestinationType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype)
+   *
+   * @group Inputs
+   */
   public readonly destination: FlowLogDestination;
 
   /**
@@ -88,64 +88,64 @@ export class FlowLog extends ec2.FlowLog {
   public readonly flowLogName?: string;
 
   /**
-     * The fields to include in the flow log record, in the order in which they
-     * should appear. For a list of available fields, see {@link FlowLogField}.
-     *
-     * @see [FlowLog LogFormat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat)
-     *
-     * @group Inputs
-     */
+   * The fields to include in the flow log record, in the order in which they
+   * should appear. For a list of available fields, see {@link FlowLogField}.
+   *
+   * @see [FlowLog LogFormat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat)
+   *
+   * @group Inputs
+   */
   public readonly logFormat: FlowLogFormat;
 
   /**
-     * The maximum interval of time during which a flow of packets is captured
-     * and aggregated into a flow log record.
-     *
-     * @see [FlowLog MaxAggregationInterval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval)
-     *
-     * @group Inputs
-     */
+   * The maximum interval of time during which a flow of packets is captured
+   * and aggregated into a flow log record.
+   *
+   * @see [FlowLog MaxAggregationInterval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval)
+   *
+   * @group Inputs
+   */
   public readonly maxAggregationInterval?: FlowLogMaxAggregationInterval;
 
   /**
-     * Details for the resource from which flow logs will be captured.
-     *
-     * @see [FlowLog ResourceId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid)
-     * @see [FlowLog ResourceType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype)
-     *
-     * @group Inputs
-     */
+   * Details for the resource from which flow logs will be captured.
+   *
+   * @see [FlowLog ResourceId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourceid)
+   * @see [FlowLog ResourceType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-resourcetype)
+   *
+   * @group Inputs
+   */
   public readonly resourceType: FlowLogResourceType;
 
   /**
-     * The type of traffic to monitor (accepted traffic, rejected traffic, or
-     * all traffic).
-     *
-     * @see [FlowLog TrafficType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype)
-     *
-     * @group Inputs
-     */
+   * The type of traffic to monitor (accepted traffic, rejected traffic, or
+   * all traffic).
+   *
+   * @see [FlowLog TrafficType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-traffictype)
+   *
+   * @group Inputs
+   */
   public readonly trafficType: FlowLogTrafficType;
 
 
   /**
-     * The underlying FlowLog CloudFormation resource.
-     *
-     * @see [AWS::EC2::FlowLog](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html)
-     *
-     * @group Resources
-     */
+   * The underlying FlowLog CloudFormation resource.
+   *
+   * @see [AWS::EC2::FlowLog](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html)
+   *
+   * @group Resources
+   */
   public readonly resource: CfnFlowLog;
 
 
   /**
-     * Creates a new instance of the FlowLog class.
-     *
-     * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
-     * @param id A name to be associated with the stack and used in resource naming. Must be unique
-     * within the context of 'scope'.
-     * @param props Arguments related to the configuration of the resource.
-     */
+   * Creates a new instance of the FlowLog class.
+   *
+   * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
+   * @param id A name to be associated with the stack and used in resource naming. Must be unique
+   * within the context of 'scope'.
+   * @param props Arguments related to the configuration of the resource.
+   */
   constructor(scope: IConstruct, id: string, props: FlowLogProps) {
     const makeProxyBucket = () => {
       const proxyId = `bucket-proxy::${scope.node.addr}::${id}`;

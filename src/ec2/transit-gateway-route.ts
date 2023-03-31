@@ -47,11 +47,11 @@ export class TransitGatewayRoute extends Resource {
    * the construct tree.
    * @param id A name to be associated with the stack and used in resource
    * naming. Must be unique within the context of 'scope'.
-   * @param transitGatewayAttachmentId The attachment ID of the Transit Gateway
-   * attachment being imported.
+   * @param transitGatewayRouteId The ID of the Transit Gateway route being
+   * imported.
    * @returns An object representing the imported Transit Gateway route.
    */
-  public static fromTransitGatewayAttachmentId(scope: IConstruct, id: string, transitGatewayRouteId: string): ITransitGatewayRoute {
+  public static fromTransitGatewayRouteId(scope: IConstruct, id: string, transitGatewayRouteId: string): ITransitGatewayRoute {
     class Import extends TransitGatewayRouteBase {
       public readonly transitGatewayRouteId = transitGatewayRouteId;
     }

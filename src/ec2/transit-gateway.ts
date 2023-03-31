@@ -1,6 +1,7 @@
 import { Annotations, Lazy, Resource, ResourceProps, Stack, Tags } from 'aws-cdk-lib';
 import { CfnTransitGateway, IVpc, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
 import { Construct, IConstruct } from 'constructs';
+import { SecretReference } from '../core';
 import { ISharedPrincipal, ResourceShare, SharedResource } from '../ram';
 import { VpnConnectionLocalEndpoint } from './lib/local-vpn-endpoint/local-endpoint';
 import { IRemoteVpnEndpoint } from './lib/remote-vpn-endpoint/remote-endpoint-base';
@@ -115,7 +116,7 @@ abstract class TransitGatewayBase extends Resource implements ITransitGateway {
    * @returns The newly created TransitGatewayAttachment.
    */
   public attachVpc(vpc: IVpc, options?: VpcAttachmentOptions): TransitGatewayAttachment {
-    return new TransitGatewayAttachment(this, `attachment-vpc-${vpc.node.addr}`, {
+    return new TransitGatewayAttachment(vpc, `transit-gateway-attachment-${this.node.addr}`, {
       ...options,
       transitGateway: this,
       vpc: vpc,
@@ -395,12 +396,19 @@ export class TransitGateway extends TransitGatewayBase {
       vpnEcmpSupport: !!this.vpnEcmpSupport ? 'enable' : 'disable',
     });
 
-    this.transitGatewayArn = this.stack.formatArn({
+    this.transitGatewayArn = SecretReference.string(this, 'transit-gateway-arn', this.stack.formatArn({
+      resource: 'transit-gateway',
+      resourceName: this.resource.ref,
+      service: 'ec2',
+    }));
+    this.transitGatewayId = SecretReference.string(this, 'transit-gateway-id', this.resource.ref);
+
+    /*this.stack.formatArn({
       resource: 'transit-gateway',
       resourceName: this.resource.ref,
       service: 'ec2',
     });
-    this.transitGatewayId = this.resource.ref;
+    this.transitGatewayId = this.resource.ref;*/
   }
 
   public addCidrBlock(cidr: string): void {

@@ -18,6 +18,7 @@ export interface FourTierNetworkProps {
   readonly flowLogs?: {[id: string]: FlowLogOptions};
   readonly gatewayEndpoints?: {[id: string]: GatewayVpcEndpointOptions};
   readonly maxAzs?: number;
+  readonly natGateways?: number;
   readonly natGatewayProvider?: NatProvider;
   readonly natGatewaySubnets?: SubnetSelection;
   readonly vpcName?: string;
@@ -28,6 +29,13 @@ export interface FourTierNetworkProps {
 }
 
 export class FourTierNetwork extends Vpc {
+  public readonly defaultInstanceTenancy?: DefaultInstanceTenancy;
+  public readonly enableDnsHostnames?: boolean;
+  public readonly enableDnsSupport?: boolean;
+  public readonly maxAzs?: number;
+  public readonly vpcName?: string;
+
+
   public constructor(scope: IConstruct, id: string, props?: FourTierNetworkProps) {
     super(scope, id, {
       availabilityZones: props?.availabilityZones,
@@ -39,6 +47,7 @@ export class FourTierNetwork extends Vpc {
         cidr: props?.cidr,
       }),
       maxAzs: props?.maxAzs,
+      natGateways: props?.natGateways,
       natGatewayProvider: props?.natGatewayProvider,
       natGatewaySubnets: props?.natGatewaySubnets,
       subnetConfiguration: [
@@ -65,6 +74,12 @@ export class FourTierNetwork extends Vpc {
       vpnGatewayAsn: props?.vpnGatewayAsn,
       vpnRoutePropagation: props?.vpnRoutePropagation,
     });
+
+    this.defaultInstanceTenancy = props?.defaultInstanceTenancy;
+    this.enableDnsHostnames = props?.enableDnsHostnames;
+    this.enableDnsSupport = props?.enableDnsSupport;
+    this.maxAzs = props?.maxAzs;
+    this.vpcName = props?.vpcName;
 
     if (props?.flowLogs === undefined || Object.keys(props.flowLogs).length > 0) {
       const flowLogs = props?.flowLogs ?? {
