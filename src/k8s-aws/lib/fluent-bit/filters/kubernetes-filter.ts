@@ -1,9 +1,9 @@
 import { Duration } from 'aws-cdk-lib';
 import { IConstruct } from 'constructs';
+import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from './filter-plugin-base';
 import { ResolvedFluentBitConfiguration } from '..';
 import { DataSize } from '../../../../core';
 import { convertBool } from '../utils';
-import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from './filter-plugin-base';
 
 
 /**

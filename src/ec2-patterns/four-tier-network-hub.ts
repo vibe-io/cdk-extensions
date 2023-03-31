@@ -2,11 +2,11 @@ import { ResourceProps, Stack, Token } from 'aws-cdk-lib';
 import { DefaultInstanceTenancy, GatewayVpcEndpointOptions, SubnetSelection, VpnConnectionOptions } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { FlowLogOptions, FourTierNetwork } from '.';
+import { FourTierNetworkSpoke } from './four-tier-network-spoke';
 import { TransitGateway, TransitGatewayProps } from '../ec2';
 import { NatProvider } from '../ec2/lib/nat-providers/nat-provider';
 import { ITransitGateway } from '../ec2/transit-gateway';
 import { IResourceShare, ISharedPrincipal, ResourceShare, SharedPrincipal, SharedResource } from '../ram';
-import { FourTierNetworkSpoke } from './four-tier-network-spoke';
 
 
 export interface FourTierNetworkShareProperties {

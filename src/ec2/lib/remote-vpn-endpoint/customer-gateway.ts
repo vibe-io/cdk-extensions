@@ -1,6 +1,6 @@
 import { IConstruct } from 'constructs';
-import { ICustomerGateway } from '../../customer-gateway';
 import { IRemoteVpnEndpoint, RemoteVpnEndpointConfiguration } from './remote-endpoint-base';
+import { ICustomerGateway } from '../../customer-gateway';
 
 
 /**

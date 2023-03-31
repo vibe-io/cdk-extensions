@@ -1,7 +1,7 @@
 import { Names } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
-import { PrometheusRule } from '..';
 import { defaultRecordingRuleProps, getDefaultRuleGroup } from './default-values';
+import { PrometheusRule } from '..';
 
 
 test('recording rule renders properly with minimum config', () => {

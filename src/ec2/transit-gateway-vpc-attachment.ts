@@ -1,7 +1,7 @@
 import { CfnTransitGatewayVpcAttachment } from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
-import { definedFieldsOrUndefined } from '../utils/formatting';
 import { TransitGatewayAttachmentResource, TransitGatewayAttachmentResourceProps } from './transit-gateway-attachment-base';
+import { definedFieldsOrUndefined } from '../utils/formatting';
 
 
 /**

@@ -1,6 +1,6 @@
 import { IConstruct } from 'constructs';
-import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
 import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from './filter-plugin-base';
+import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
 
 
 export interface LiftOptions {

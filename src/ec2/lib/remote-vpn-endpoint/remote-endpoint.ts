@@ -1,6 +1,6 @@
-import { CustomerGatewayProps, ICustomerGateway } from '../../customer-gateway';
 import { CustomerGatewayRemoteVpnEndpoint } from './customer-gateway';
 import { CustomerGatewayConfigurationRemoteVpnEndpoint } from './customer-gateway-configuration';
+import { CustomerGatewayProps, ICustomerGateway } from '../../customer-gateway';
 
 
 /**

@@ -1,14 +1,14 @@
 import { Annotations, Lazy, Resource, ResourceProps, Stack, Tags } from 'aws-cdk-lib';
 import { CfnTransitGateway, IVpc, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
 import { Construct, IConstruct } from 'constructs';
-import { SecretReference } from '../core';
-import { ISharedPrincipal, ResourceShare, SharedResource } from '../ram';
 import { VpnConnectionLocalEndpoint } from './lib/local-vpn-endpoint/local-endpoint';
 import { IRemoteVpnEndpoint } from './lib/remote-vpn-endpoint/remote-endpoint-base';
 import { TransitGatewayAttachment } from './transit-gateway-attachment';
 import { TransitGatewayPeeringAttachment, TransitGatewayPeeringAttachmentOptions } from './transit-gateway-peering-attachment';
 import { ITransitGatewayRouteTable, TransitGatewayRouteTable } from './transit-gateway-route-table';
 import { TunnelOptions, VpnConnection, VpnConnectionType } from './vpn-connection';
+import { SecretReference } from '../core';
+import { ISharedPrincipal, ResourceShare, SharedResource } from '../ram';
 
 
 export interface SharingOptions {

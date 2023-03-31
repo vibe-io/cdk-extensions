@@ -1,8 +1,8 @@
 import { ArnFormat, Lazy, Stack } from 'aws-cdk-lib';
 import { ITopic } from 'aws-cdk-lib/aws-sns';
 import { IConstruct } from 'constructs';
-import { definedFieldsOrUndefined } from '../../../../utils/formatting';
 import { AlertManagerDestinationCategory, IAlertManagerDestination } from './destination-base';
+import { definedFieldsOrUndefined } from '../../../../utils/formatting';
 
 
 /**

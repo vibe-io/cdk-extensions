@@ -1,9 +1,9 @@
 import { IRole } from 'aws-cdk-lib/aws-iam';
 import { IConstruct } from 'constructs';
+import { FluentBitOutputPluginBase, FluentBitOutputPluginCommonOptions } from './output-plugin-base';
 import { DataSize } from '../../../../core';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
 import { convertBool } from '../utils';
-import { FluentBitOutputPluginBase, FluentBitOutputPluginCommonOptions } from './output-plugin-base';
 
 
 export enum ElasticsearchCompressionFormat {

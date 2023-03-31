@@ -1,7 +1,7 @@
 import { ArnFormat, Names, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
-import { PrometheusRule, RuleGroupConfiguration, RuleGroupsNamespace, Workspace } from '..';
 import { defaultRecordingRuleProps, rulesContent, rulesFilePath } from './default-values';
+import { PrometheusRule, RuleGroupConfiguration, RuleGroupsNamespace, Workspace } from '..';
 
 
 test('creating an APS rule groups namespace should add it to the CloudFormation stack', () => {

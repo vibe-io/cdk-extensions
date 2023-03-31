@@ -2,9 +2,9 @@ import { Duration, Stack } from 'aws-cdk-lib';
 import { Effect, IRole, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { Bucket, BucketEncryption, IBucket, StorageClass } from 'aws-cdk-lib/aws-s3';
 import { IConstruct } from 'constructs';
+import { FluentBitOutputPluginBase, FluentBitOutputPluginCommonOptions } from './output-plugin-base';
 import { DeliveryStream, ExtendedS3Destination, IDeliveryStream } from '../../../../kinesis-firehose';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
-import { FluentBitOutputPluginBase, FluentBitOutputPluginCommonOptions } from './output-plugin-base';
 
 
 export enum KinesisFirehoseCompressionFormat {

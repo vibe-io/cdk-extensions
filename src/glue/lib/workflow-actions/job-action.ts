@@ -1,7 +1,7 @@
 import { CfnTrigger } from 'aws-cdk-lib/aws-glue';
 import { IConstruct } from 'constructs';
-import { IJob, ITriggerAction } from '../..';
 import { WorkflowActionBase, WorkflowActionOptions } from './action-base';
+import { IJob, ITriggerAction } from '../..';
 
 
 /**

@@ -1,8 +1,8 @@
 import { Stack } from 'aws-cdk-lib';
 import { CfnTransitGatewayAttachment } from 'aws-cdk-lib/aws-ec2';
 import { Construct, IConstruct } from 'constructs';
-import { definedFieldsOrUndefined } from '../utils/formatting';
 import { ITransitGatewayAttachment, TransitGatewayAttachmentBase, TransitGatewayAttachmentResource, TransitGatewayAttachmentResourceProps } from './transit-gateway-attachment-base';
+import { definedFieldsOrUndefined } from '../utils/formatting';
 
 
 /**

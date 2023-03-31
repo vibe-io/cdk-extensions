@@ -4,11 +4,11 @@ import { CfnDeliveryStream } from 'aws-cdk-lib/aws-kinesisfirehose';
 import { IKey } from 'aws-cdk-lib/aws-kms';
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { IConstruct } from 'constructs';
+import { DeliveryStreamDestination, DeliveryStreamDestinationConfiguration } from './delivery-stream-destination';
 import { definedFieldsOrUndefined } from '../../../utils/formatting';
 import { BackupConfigurationResult, IDeliveryStreamBackupDestination } from '../backup-configuration';
 import { BufferingConfiguration } from '../buffering-configuration';
 import { CloudWatchLoggingConfiguration } from '../cloudwatch-logging-configuration';
-import { DeliveryStreamDestination, DeliveryStreamDestinationConfiguration } from './delivery-stream-destination';
 
 
 export enum S3CompressionFormat {
