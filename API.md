@@ -3754,6 +3754,7 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.resolve">resolve</a></code> | Resolve a tokenized value in the context of the current stack. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.splitArn">splitArn</a></code> | Splits the provided ARN into its components. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStack.toJsonString">toJsonString</a></code> | Convert an object, potentially containing tokens, to a JSON string. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStack.toYamlString">toYamlString</a></code> | Convert an object, potentially containing tokens, to a YAML string. |
 
 ---
 
@@ -3917,11 +3918,11 @@ Instead, the process takes two deployments:
 ### Deployment 1: break the relationship
 
 - Make sure `consumerStack` no longer references `bucket.bucketName` (maybe the consumer
-   stack now uses its own bucket, or it writes to an AWS DynamoDB table, or maybe you just
-   remove the Lambda Function altogether).
+  stack now uses its own bucket, or it writes to an AWS DynamoDB table, or maybe you just
+  remove the Lambda Function altogether).
 - In the `ProducerStack` class, call `this.exportValue(this.bucket.bucketName)`. This
-   will make sure the CloudFormation Export continues to exist while the relationship
-   between the two stacks is being broken.
+  will make sure the CloudFormation Export continues to exist while the relationship
+  between the two stacks is being broken.
 - Deploy (this will effectively only change the `consumerStack`, but it's safe to deploy both).
 
 ### Deployment 2: remove the bucket resource
@@ -3958,7 +3959,7 @@ into the generated ARN at the location that component corresponds to.
 
 The ARN will be formatted as follows:
 
-   arn:{partition}:{service}:{region}:{account}:{resource}{sep}{resource-name}
+  arn:{partition}:{service}:{region}:{account}:{resource}{sep}{resource-name}
 
 The required ARN pieces that are omitted will be taken from the stack that
 the 'scope' is attached to. If all ARN pieces are supplied, the supplied scope
@@ -4135,6 +4136,20 @@ Convert an object, potentially containing tokens, to a JSON string.
 
 ---
 
+##### `toYamlString` <a name="toYamlString" id="cdk-extensions.stacks.AwsLoggingStack.toYamlString"></a>
+
+```typescript
+public toYamlString(obj: any): string
+```
+
+Convert an object, potentially containing tokens, to a YAML string.
+
+###### `obj`<sup>Required</sup> <a name="obj" id="cdk-extensions.stacks.AwsLoggingStack.toYamlString.parameter.obj"></a>
+
+- *Type:* any
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -4266,10 +4281,10 @@ The AWS account into which this stack will be deployed.
 This value is resolved according to the following rules:
 
 1. The value provided to `env.account` when the stack is defined. This can
-    either be a concrete account (e.g. `585695031111`) or the
-    `Aws.ACCOUNT_ID` token.
+   either be a concrete account (e.g. `585695031111`) or the
+   `Aws.ACCOUNT_ID` token.
 3. `Aws.ACCOUNT_ID`, which represents the CloudFormation intrinsic reference
-    `{ "Ref": "AWS::AccountId" }` encoded as a string token.
+   `{ "Ref": "AWS::AccountId" }` encoded as a string token.
 
 Preferably, you should use the return value as an opaque string and not
 attempt to parse it to implement your logic. If you do, you must first
@@ -4414,10 +4429,10 @@ The AWS region into which this stack will be deployed (e.g. `us-west-2`).
 This value is resolved according to the following rules:
 
 1. The value provided to `env.region` when the stack is defined. This can
-    either be a concrete region (e.g. `us-west-2`) or the `Aws.REGION`
-    token.
+   either be a concrete region (e.g. `us-west-2`) or the `Aws.REGION`
+   token.
 3. `Aws.REGION`, which is represents the CloudFormation intrinsic reference
-    `{ "Ref": "AWS::Region" }` encoded as a string token.
+   `{ "Ref": "AWS::Region" }` encoded as a string token.
 
 Preferably, you should use the return value as an opaque string and not
 attempt to parse it to implement your logic. If you do, you must first
@@ -32972,10 +32987,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -33101,10 +33116,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -33243,10 +33258,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -34145,10 +34160,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -34576,8 +34591,8 @@ To deploy the layer locally define it in your app as follows:
 
 ```ts
 const layer = new lambda.LayerVersion(this, 'proxy-agent-layer', {
-   code: lambda.Code.fromAsset(`${__dirname}/layer.zip`),
-   compatibleRuntimes: [lambda.Runtime.NODEJS_14_X],
+  code: lambda.Code.fromAsset(`${__dirname}/layer.zip`),
+  compatibleRuntimes: [lambda.Runtime.NODEJS_14_X],
 });
 ```
 
@@ -35138,10 +35153,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -35499,10 +35514,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -35641,10 +35656,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -35810,10 +35825,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -35952,10 +35967,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -36737,10 +36752,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -37140,10 +37155,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -37512,10 +37527,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -37684,10 +37699,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -37814,10 +37829,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -38516,10 +38531,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -38720,10 +38735,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -39335,10 +39350,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -39498,10 +39513,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -39845,10 +39860,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -40151,10 +40166,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -40428,10 +40443,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -40591,10 +40606,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -43895,10 +43910,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -44376,10 +44391,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -44748,10 +44763,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -44867,10 +44882,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -45358,10 +45373,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -45935,10 +45950,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -46139,10 +46154,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -46653,10 +46668,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -47004,10 +47019,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -47388,36 +47403,36 @@ const rawBucketProps: s3_buckets.RawBucketProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.accelerateConfiguration">accelerateConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.AccelerateConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Configures the transfer acceleration state for an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.accelerateConfiguration">accelerateConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.AccelerateConfigurationProperty</code> | Configures the transfer acceleration state for an Amazon S3 bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.accessControl">accessControl</a></code> | <code>string</code> | A canned access control list (ACL) that grants predefined permissions to the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.analyticsConfigurations">analyticsConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty \| aws-cdk-lib.IResolvable[]</code> | Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.bucketEncryption">bucketEncryption</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty \| aws-cdk-lib.IResolvable</code> | Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS) bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.analyticsConfigurations">analyticsConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty[]</code> | Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.bucketEncryption">bucketEncryption</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty</code> | Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS) bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | A name for the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.corsConfiguration">corsConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.CorsConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Describes the cross-origin access configuration for objects in an Amazon S3 bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.intelligentTieringConfigurations">intelligentTieringConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.IntelligentTieringConfigurationProperty \| aws-cdk-lib.IResolvable[]</code> | Defines how Amazon S3 handles Intelligent-Tiering storage. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.inventoryConfigurations">inventoryConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.InventoryConfigurationProperty \| aws-cdk-lib.IResolvable[]</code> | Specifies the inventory configuration for an Amazon S3 bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.lifecycleConfiguration">lifecycleConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.LifecycleConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Specifies the lifecycle configuration for objects in an Amazon S3 bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.loggingConfiguration">loggingConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.LoggingConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Settings that define where logs are stored. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.metricsConfigurations">metricsConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.MetricsConfigurationProperty \| aws-cdk-lib.IResolvable[]</code> | Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.notificationConfiguration">notificationConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.NotificationConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Configuration that defines how Amazon S3 handles bucket notifications. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.objectLockConfiguration">objectLockConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.ObjectLockConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Places an Object Lock configuration on the specified bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.corsConfiguration">corsConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.CorsConfigurationProperty</code> | Describes the cross-origin access configuration for objects in an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.intelligentTieringConfigurations">intelligentTieringConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.IntelligentTieringConfigurationProperty[]</code> | Defines how Amazon S3 handles Intelligent-Tiering storage. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.inventoryConfigurations">inventoryConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.InventoryConfigurationProperty[]</code> | Specifies the inventory configuration for an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.lifecycleConfiguration">lifecycleConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.LifecycleConfigurationProperty</code> | Specifies the lifecycle configuration for objects in an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.loggingConfiguration">loggingConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.LoggingConfigurationProperty</code> | Settings that define where logs are stored. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.metricsConfigurations">metricsConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.MetricsConfigurationProperty[]</code> | Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.notificationConfiguration">notificationConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.NotificationConfigurationProperty</code> | Configuration that defines how Amazon S3 handles bucket notifications. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.objectLockConfiguration">objectLockConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.ObjectLockConfigurationProperty</code> | Places an Object Lock configuration on the specified bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.objectLockEnabled">objectLockEnabled</a></code> | <code>boolean \| aws-cdk-lib.IResolvable</code> | Indicates whether this bucket has an Object Lock configuration enabled. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.ownershipControls">ownershipControls</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.OwnershipControlsProperty \| aws-cdk-lib.IResolvable</code> | Configuration that defines how Amazon S3 handles Object Ownership rules. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.publicAccessBlockConfiguration">publicAccessBlockConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.PublicAccessBlockConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Configuration that defines how Amazon S3 handles public access. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.replicationConfiguration">replicationConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.ReplicationConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Configuration for replicating objects in an S3 bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.ownershipControls">ownershipControls</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.OwnershipControlsProperty</code> | Configuration that defines how Amazon S3 handles Object Ownership rules. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.publicAccessBlockConfiguration">publicAccessBlockConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.PublicAccessBlockConfigurationProperty</code> | Configuration that defines how Amazon S3 handles public access. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.replicationConfiguration">replicationConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.ReplicationConfigurationProperty</code> | Configuration for replicating objects in an S3 bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.tags">tags</a></code> | <code>aws-cdk-lib.CfnTag[]</code> | An arbitrary set of tags (key-value pairs) for this S3 bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.versioningConfiguration">versioningConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.VersioningConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Enables multiple versions of all objects in this bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.websiteConfiguration">websiteConfiguration</a></code> | <code>aws-cdk-lib.aws_s3.CfnBucket.WebsiteConfigurationProperty \| aws-cdk-lib.IResolvable</code> | Information used to configure the bucket as a static website. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.versioningConfiguration">versioningConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.VersioningConfigurationProperty</code> | Enables multiple versions of all objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.websiteConfiguration">websiteConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.WebsiteConfigurationProperty</code> | Information used to configure the bucket as a static website. |
 
 ---
 
 ##### `accelerateConfiguration`<sup>Optional</sup> <a name="accelerateConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.accelerateConfiguration"></a>
 
 ```typescript
-public readonly accelerateConfiguration: AccelerateConfigurationProperty | IResolvable;
+public readonly accelerateConfiguration: IResolvable | AccelerateConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.AccelerateConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.AccelerateConfigurationProperty
 
 Configures the transfer acceleration state for an Amazon S3 bucket.
 
@@ -47448,10 +47463,10 @@ Be aware that the syntax for this property differs from the information provided
 ##### `analyticsConfigurations`<sup>Optional</sup> <a name="analyticsConfigurations" id="cdk-extensions.s3_buckets.RawBucketProps.property.analyticsConfigurations"></a>
 
 ```typescript
-public readonly analyticsConfigurations: IResolvable | AnalyticsConfigurationProperty | IResolvable[];
+public readonly analyticsConfigurations: IResolvable | IResolvable | AnalyticsConfigurationProperty[];
 ```
 
-- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty | aws-cdk-lib.IResolvable[]
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty[]
 
 Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
 
@@ -47462,10 +47477,10 @@ Specifies the configuration and any analyses for the analytics filter of an Amaz
 ##### `bucketEncryption`<sup>Optional</sup> <a name="bucketEncryption" id="cdk-extensions.s3_buckets.RawBucketProps.property.bucketEncryption"></a>
 
 ```typescript
-public readonly bucketEncryption: BucketEncryptionProperty | IResolvable;
+public readonly bucketEncryption: IResolvable | BucketEncryptionProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty
 
 Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS) bucket.
 
@@ -47496,10 +47511,10 @@ If you don't specify a name, AWS CloudFormation generates a unique ID and uses t
 ##### `corsConfiguration`<sup>Optional</sup> <a name="corsConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.corsConfiguration"></a>
 
 ```typescript
-public readonly corsConfiguration: CorsConfigurationProperty | IResolvable;
+public readonly corsConfiguration: IResolvable | CorsConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.CorsConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.CorsConfigurationProperty
 
 Describes the cross-origin access configuration for objects in an Amazon S3 bucket.
 
@@ -47512,10 +47527,10 @@ For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.
 ##### `intelligentTieringConfigurations`<sup>Optional</sup> <a name="intelligentTieringConfigurations" id="cdk-extensions.s3_buckets.RawBucketProps.property.intelligentTieringConfigurations"></a>
 
 ```typescript
-public readonly intelligentTieringConfigurations: IResolvable | IntelligentTieringConfigurationProperty | IResolvable[];
+public readonly intelligentTieringConfigurations: IResolvable | IResolvable | IntelligentTieringConfigurationProperty[];
 ```
 
-- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.IntelligentTieringConfigurationProperty | aws-cdk-lib.IResolvable[]
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.IntelligentTieringConfigurationProperty[]
 
 Defines how Amazon S3 handles Intelligent-Tiering storage.
 
@@ -47526,10 +47541,10 @@ Defines how Amazon S3 handles Intelligent-Tiering storage.
 ##### `inventoryConfigurations`<sup>Optional</sup> <a name="inventoryConfigurations" id="cdk-extensions.s3_buckets.RawBucketProps.property.inventoryConfigurations"></a>
 
 ```typescript
-public readonly inventoryConfigurations: IResolvable | InventoryConfigurationProperty | IResolvable[];
+public readonly inventoryConfigurations: IResolvable | IResolvable | InventoryConfigurationProperty[];
 ```
 
-- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.InventoryConfigurationProperty | aws-cdk-lib.IResolvable[]
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.InventoryConfigurationProperty[]
 
 Specifies the inventory configuration for an Amazon S3 bucket.
 
@@ -47542,10 +47557,10 @@ For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/Ama
 ##### `lifecycleConfiguration`<sup>Optional</sup> <a name="lifecycleConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.lifecycleConfiguration"></a>
 
 ```typescript
-public readonly lifecycleConfiguration: LifecycleConfigurationProperty | IResolvable;
+public readonly lifecycleConfiguration: IResolvable | LifecycleConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.LifecycleConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.LifecycleConfigurationProperty
 
 Specifies the lifecycle configuration for objects in an Amazon S3 bucket.
 
@@ -47558,10 +47573,10 @@ For more information, see [Object Lifecycle Management](https://docs.aws.amazon.
 ##### `loggingConfiguration`<sup>Optional</sup> <a name="loggingConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.loggingConfiguration"></a>
 
 ```typescript
-public readonly loggingConfiguration: LoggingConfigurationProperty | IResolvable;
+public readonly loggingConfiguration: IResolvable | LoggingConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.LoggingConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.LoggingConfigurationProperty
 
 Settings that define where logs are stored.
 
@@ -47572,10 +47587,10 @@ Settings that define where logs are stored.
 ##### `metricsConfigurations`<sup>Optional</sup> <a name="metricsConfigurations" id="cdk-extensions.s3_buckets.RawBucketProps.property.metricsConfigurations"></a>
 
 ```typescript
-public readonly metricsConfigurations: IResolvable | MetricsConfigurationProperty | IResolvable[];
+public readonly metricsConfigurations: IResolvable | IResolvable | MetricsConfigurationProperty[];
 ```
 
-- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.MetricsConfigurationProperty | aws-cdk-lib.IResolvable[]
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.MetricsConfigurationProperty[]
 
 Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket.
 
@@ -47588,10 +47603,10 @@ If you're updating an existing metrics configuration, note that this is a full r
 ##### `notificationConfiguration`<sup>Optional</sup> <a name="notificationConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.notificationConfiguration"></a>
 
 ```typescript
-public readonly notificationConfiguration: NotificationConfigurationProperty | IResolvable;
+public readonly notificationConfiguration: IResolvable | NotificationConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.NotificationConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.NotificationConfigurationProperty
 
 Configuration that defines how Amazon S3 handles bucket notifications.
 
@@ -47602,10 +47617,10 @@ Configuration that defines how Amazon S3 handles bucket notifications.
 ##### `objectLockConfiguration`<sup>Optional</sup> <a name="objectLockConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.objectLockConfiguration"></a>
 
 ```typescript
-public readonly objectLockConfiguration: ObjectLockConfigurationProperty | IResolvable;
+public readonly objectLockConfiguration: IResolvable | ObjectLockConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.ObjectLockConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.ObjectLockConfigurationProperty
 
 Places an Object Lock configuration on the specified bucket.
 
@@ -47638,10 +47653,10 @@ Enable `ObjectLockEnabled` when you apply `ObjectLockConfiguration` to a bucket.
 ##### `ownershipControls`<sup>Optional</sup> <a name="ownershipControls" id="cdk-extensions.s3_buckets.RawBucketProps.property.ownershipControls"></a>
 
 ```typescript
-public readonly ownershipControls: OwnershipControlsProperty | IResolvable;
+public readonly ownershipControls: IResolvable | OwnershipControlsProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.OwnershipControlsProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.OwnershipControlsProperty
 
 Configuration that defines how Amazon S3 handles Object Ownership rules.
 
@@ -47652,10 +47667,10 @@ Configuration that defines how Amazon S3 handles Object Ownership rules.
 ##### `publicAccessBlockConfiguration`<sup>Optional</sup> <a name="publicAccessBlockConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.publicAccessBlockConfiguration"></a>
 
 ```typescript
-public readonly publicAccessBlockConfiguration: PublicAccessBlockConfigurationProperty | IResolvable;
+public readonly publicAccessBlockConfiguration: IResolvable | PublicAccessBlockConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.PublicAccessBlockConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.PublicAccessBlockConfigurationProperty
 
 Configuration that defines how Amazon S3 handles public access.
 
@@ -47666,10 +47681,10 @@ Configuration that defines how Amazon S3 handles public access.
 ##### `replicationConfiguration`<sup>Optional</sup> <a name="replicationConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.replicationConfiguration"></a>
 
 ```typescript
-public readonly replicationConfiguration: ReplicationConfigurationProperty | IResolvable;
+public readonly replicationConfiguration: IResolvable | ReplicationConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.ReplicationConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.ReplicationConfigurationProperty
 
 Configuration for replicating objects in an S3 bucket.
 
@@ -47698,10 +47713,10 @@ An arbitrary set of tags (key-value pairs) for this S3 bucket.
 ##### `versioningConfiguration`<sup>Optional</sup> <a name="versioningConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.versioningConfiguration"></a>
 
 ```typescript
-public readonly versioningConfiguration: VersioningConfigurationProperty | IResolvable;
+public readonly versioningConfiguration: IResolvable | VersioningConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.VersioningConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.VersioningConfigurationProperty
 
 Enables multiple versions of all objects in this bucket.
 
@@ -47714,10 +47729,10 @@ You might enable versioning to prevent objects from being deleted or overwritten
 ##### `websiteConfiguration`<sup>Optional</sup> <a name="websiteConfiguration" id="cdk-extensions.s3_buckets.RawBucketProps.property.websiteConfiguration"></a>
 
 ```typescript
-public readonly websiteConfiguration: WebsiteConfigurationProperty | IResolvable;
+public readonly websiteConfiguration: IResolvable | WebsiteConfigurationProperty;
 ```
 
-- *Type:* aws-cdk-lib.aws_s3.CfnBucket.WebsiteConfigurationProperty | aws-cdk-lib.IResolvable
+- *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.WebsiteConfigurationProperty
 
 Information used to configure the bucket as a static website.
 
@@ -48239,10 +48254,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -48727,10 +48742,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -49124,10 +49139,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -49257,10 +49272,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -49399,10 +49414,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -50041,10 +50056,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -50167,10 +50182,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -50312,10 +50327,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -50454,10 +50469,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -50703,10 +50718,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -50894,10 +50909,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -51454,10 +51469,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -51659,10 +51674,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -52232,10 +52247,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -52357,10 +52372,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -52556,10 +52571,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -52682,10 +52697,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -52838,10 +52853,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -52996,10 +53011,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -53171,10 +53186,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -53586,10 +53601,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -53727,10 +53742,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -53869,10 +53884,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -54088,10 +54103,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -54245,10 +54260,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -54400,10 +54415,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -54521,10 +54536,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -54688,10 +54703,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -54804,10 +54819,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -54892,10 +54907,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
@@ -55199,10 +55214,10 @@ public readonly physicalName: string;
 The value passed in by users to the physical name prop of the resource.
 
 `undefined` implies that a physical name will be allocated by
-   CloudFormation during deployment.
+  CloudFormation during deployment.
 - a concrete value implies a specific physical name
 - `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
-   by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
 
 ---
 
