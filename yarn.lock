@@ -1327,9 +1327,9 @@ aws-cdk-lib@2.66.0:
   resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.66.0.tgz#531c3446e0763588b0b7aafd9c0745e3b91c7456"
   integrity sha512-Qmw+lB8uFO+wJX8czw05ciUJObB5gJ5euOXYXXC9BuFPMy1WTA+HYqgSRvgv2mIEnjQb1zlG05oNalvH24Ha7Q==
   dependencies:
-    "@aws-cdk/asset-awscli-v1" "^2.2.69"
+    "@aws-cdk/asset-awscli-v1" "^2.2.97"
     "@aws-cdk/asset-kubectl-v20" "^2.1.1"
-    "@aws-cdk/asset-node-proxy-agent-v5" "^2.0.58"
+    "@aws-cdk/asset-node-proxy-agent-v5" "^2.0.77"
     "@balena/dockerignore" "^1.0.2"
     case "1.6.3"
     fs-extra "^9.1.0"
