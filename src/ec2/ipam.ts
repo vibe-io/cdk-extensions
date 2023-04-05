@@ -263,8 +263,7 @@ export class Ipam extends IpamBase {
    * the construct tree.
    * @param id A name to be associated with the stack and used in resource
    * naming. Must be unique within the context of 'scope'.
-   * @param workspaceId The AWS generated ID of the existing IPAM to be
-   * imported.
+   * @param ipamId The AWS generated ID of the existing IPAM to be imported.
    * @returns An object representing the imported IPAM.
    */
   public static fromIpamId(scope: IConstruct, id: string, ipamId: string): IIpam {

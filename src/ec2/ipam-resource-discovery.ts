@@ -170,8 +170,8 @@ export class IpamResourceDiscovery extends IpamResourceDiscoveryBase {
    * the construct tree.
    * @param id A name to be associated with the stack and used in resource
    * naming. Must be unique within the context of 'scope'.
-   * @param workspaceId The AWS generated ID of the existing IPAM resource
-   * discovery to be imported.
+   * @param ipamResourceDiscoveryId The AWS generated ID of the existing IPAM
+   * resource discovery to be imported.
    * @returns An object representing the imported IPAM resource discovery.
    */
   public static fromIpamResourceDiscoveryId(scope: IConstruct, id: string, ipamResourceDiscoveryId: string): IIpamResourceDiscovery {
