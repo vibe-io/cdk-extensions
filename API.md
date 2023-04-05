@@ -32704,6 +32704,78 @@ A list of identity sources to use when mapping a specified attribute to IAM Iden
 
 ---
 
+### AddressConfigurationProps <a name="AddressConfigurationProps" id="cdk-extensions.ec2.AddressConfigurationProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.AddressConfigurationProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const addressConfigurationProps: ec2.AddressConfigurationProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.AddressConfigurationProps.property.defaultNetmaskLength">defaultNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfigurationProps.property.maxNetmaskLength">maxNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfigurationProps.property.minNetmaskLength">minNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfigurationProps.property.family">family</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfigurationProps.property.publiclyAdvertisable">publiclyAdvertisable</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `defaultNetmaskLength`<sup>Optional</sup> <a name="defaultNetmaskLength" id="cdk-extensions.ec2.AddressConfigurationProps.property.defaultNetmaskLength"></a>
+
+```typescript
+public readonly defaultNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `maxNetmaskLength`<sup>Optional</sup> <a name="maxNetmaskLength" id="cdk-extensions.ec2.AddressConfigurationProps.property.maxNetmaskLength"></a>
+
+```typescript
+public readonly maxNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `minNetmaskLength`<sup>Optional</sup> <a name="minNetmaskLength" id="cdk-extensions.ec2.AddressConfigurationProps.property.minNetmaskLength"></a>
+
+```typescript
+public readonly minNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `family`<sup>Required</sup> <a name="family" id="cdk-extensions.ec2.AddressConfigurationProps.property.family"></a>
+
+```typescript
+public readonly family: string;
+```
+
+- *Type:* string
+
+---
+
+##### `publiclyAdvertisable`<sup>Optional</sup> <a name="publiclyAdvertisable" id="cdk-extensions.ec2.AddressConfigurationProps.property.publiclyAdvertisable"></a>
+
+```typescript
+public readonly publiclyAdvertisable: boolean;
+```
+
+- *Type:* boolean
+
+---
+
 ### AddSpokeNetworkProps <a name="AddSpokeNetworkProps" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.Initializer"></a>
@@ -44753,6 +44825,117 @@ Lists the attributes that are configured for ABAC in the specified IAM Identity 
 
 ---
 
+### Ipv4ConfigurationOptions <a name="Ipv4ConfigurationOptions" id="cdk-extensions.ec2.Ipv4ConfigurationOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.Ipv4ConfigurationOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipv4ConfigurationOptions: ec2.Ipv4ConfigurationOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipv4ConfigurationOptions.property.defaultNetmaskLength">defaultNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv4ConfigurationOptions.property.maxNetmaskLength">maxNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv4ConfigurationOptions.property.minNetmaskLength">minNetmaskLength</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `defaultNetmaskLength`<sup>Optional</sup> <a name="defaultNetmaskLength" id="cdk-extensions.ec2.Ipv4ConfigurationOptions.property.defaultNetmaskLength"></a>
+
+```typescript
+public readonly defaultNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `maxNetmaskLength`<sup>Optional</sup> <a name="maxNetmaskLength" id="cdk-extensions.ec2.Ipv4ConfigurationOptions.property.maxNetmaskLength"></a>
+
+```typescript
+public readonly maxNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `minNetmaskLength`<sup>Optional</sup> <a name="minNetmaskLength" id="cdk-extensions.ec2.Ipv4ConfigurationOptions.property.minNetmaskLength"></a>
+
+```typescript
+public readonly minNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+### Ipv6ConfigurationOptions <a name="Ipv6ConfigurationOptions" id="cdk-extensions.ec2.Ipv6ConfigurationOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.Ipv6ConfigurationOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipv6ConfigurationOptions: ec2.Ipv6ConfigurationOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipv6ConfigurationOptions.property.defaultNetmaskLength">defaultNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv6ConfigurationOptions.property.maxNetmaskLength">maxNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv6ConfigurationOptions.property.minNetmaskLength">minNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv6ConfigurationOptions.property.publiclyAdvertisable">publiclyAdvertisable</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `defaultNetmaskLength`<sup>Optional</sup> <a name="defaultNetmaskLength" id="cdk-extensions.ec2.Ipv6ConfigurationOptions.property.defaultNetmaskLength"></a>
+
+```typescript
+public readonly defaultNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `maxNetmaskLength`<sup>Optional</sup> <a name="maxNetmaskLength" id="cdk-extensions.ec2.Ipv6ConfigurationOptions.property.maxNetmaskLength"></a>
+
+```typescript
+public readonly maxNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `minNetmaskLength`<sup>Optional</sup> <a name="minNetmaskLength" id="cdk-extensions.ec2.Ipv6ConfigurationOptions.property.minNetmaskLength"></a>
+
+```typescript
+public readonly minNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `publiclyAdvertisable`<sup>Optional</sup> <a name="publiclyAdvertisable" id="cdk-extensions.ec2.Ipv6ConfigurationOptions.property.publiclyAdvertisable"></a>
+
+```typescript
+public readonly publiclyAdvertisable: boolean;
+```
+
+- *Type:* boolean
+
+---
+
 ### JdbcConnectionProps <a name="JdbcConnectionProps" id="cdk-extensions.glue.JdbcConnectionProps"></a>
 
 Configuration for the Glue Workflow resource.
@@ -46277,6 +46460,56 @@ public readonly wildcards: string[];
 - *Type:* string[]
 
 Nest records which field matches this wildcard,.
+
+---
+
+### NetmaskLengthOptions <a name="NetmaskLengthOptions" id="cdk-extensions.ec2.NetmaskLengthOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.NetmaskLengthOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const netmaskLengthOptions: ec2.NetmaskLengthOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.NetmaskLengthOptions.property.defaultNetmaskLength">defaultNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.NetmaskLengthOptions.property.maxNetmaskLength">maxNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.NetmaskLengthOptions.property.minNetmaskLength">minNetmaskLength</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `defaultNetmaskLength`<sup>Optional</sup> <a name="defaultNetmaskLength" id="cdk-extensions.ec2.NetmaskLengthOptions.property.defaultNetmaskLength"></a>
+
+```typescript
+public readonly defaultNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `maxNetmaskLength`<sup>Optional</sup> <a name="maxNetmaskLength" id="cdk-extensions.ec2.NetmaskLengthOptions.property.maxNetmaskLength"></a>
+
+```typescript
+public readonly maxNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `minNetmaskLength`<sup>Optional</sup> <a name="minNetmaskLength" id="cdk-extensions.ec2.NetmaskLengthOptions.property.minNetmaskLength"></a>
+
+```typescript
+public readonly minNetmaskLength: number;
+```
+
+- *Type:* number
 
 ---
 
@@ -55393,6 +55626,124 @@ Note that the array is readonly and changes made
 to it will not be reflected when generating ABAC attribute
 configuration. To add a source to the attribute use the {@link addSource}
 method.
+
+---
+
+
+### AddressConfiguration <a name="AddressConfiguration" id="cdk-extensions.ec2.AddressConfiguration"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.ipv4">ipv4</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.ipv6">ipv6</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.of">of</a></code> | *No description.* |
+
+---
+
+##### `ipv4` <a name="ipv4" id="cdk-extensions.ec2.AddressConfiguration.ipv4"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.AddressConfiguration.ipv4(options?: Ipv4ConfigurationOptions)
+```
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.AddressConfiguration.ipv4.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.Ipv4ConfigurationOptions
+
+---
+
+##### `ipv6` <a name="ipv6" id="cdk-extensions.ec2.AddressConfiguration.ipv6"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.AddressConfiguration.ipv6(options?: Ipv6ConfigurationOptions)
+```
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.AddressConfiguration.ipv6.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.Ipv6ConfigurationOptions
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.ec2.AddressConfiguration.of"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.AddressConfiguration.of(props: AddressConfigurationProps)
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.AddressConfiguration.of.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.AddressConfigurationProps
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.property.family">family</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.property.defaultNetmaskLength">defaultNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.property.maxNetmaskLength">maxNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.property.minNetmaskLength">minNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.property.publiclyAdvertisable">publiclyAdvertisable</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `family`<sup>Required</sup> <a name="family" id="cdk-extensions.ec2.AddressConfiguration.property.family"></a>
+
+```typescript
+public readonly family: string;
+```
+
+- *Type:* string
+
+---
+
+##### `defaultNetmaskLength`<sup>Optional</sup> <a name="defaultNetmaskLength" id="cdk-extensions.ec2.AddressConfiguration.property.defaultNetmaskLength"></a>
+
+```typescript
+public readonly defaultNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `maxNetmaskLength`<sup>Optional</sup> <a name="maxNetmaskLength" id="cdk-extensions.ec2.AddressConfiguration.property.maxNetmaskLength"></a>
+
+```typescript
+public readonly maxNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `minNetmaskLength`<sup>Optional</sup> <a name="minNetmaskLength" id="cdk-extensions.ec2.AddressConfiguration.property.minNetmaskLength"></a>
+
+```typescript
+public readonly minNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `publiclyAdvertisable`<sup>Optional</sup> <a name="publiclyAdvertisable" id="cdk-extensions.ec2.AddressConfiguration.property.publiclyAdvertisable"></a>
+
+```typescript
+public readonly publiclyAdvertisable: boolean;
+```
+
+- *Type:* boolean
 
 ---
 
@@ -74362,6 +74713,40 @@ Options specifying the conditions the predicate must meet to trigger the next st
 
 
 ## Protocols <a name="Protocols" id="Protocols"></a>
+
+### IAddressConfiguration <a name="IAddressConfiguration" id="cdk-extensions.ec2.IAddressConfiguration"></a>
+
+- *Implemented By:* cdk-extensions.ec2.IAddressConfiguration
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IAddressConfiguration.property.family">family</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IAddressConfiguration.property.publiclyAdvertisable">publiclyAdvertisable</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `family`<sup>Required</sup> <a name="family" id="cdk-extensions.ec2.IAddressConfiguration.property.family"></a>
+
+```typescript
+public readonly family: string;
+```
+
+- *Type:* string
+
+---
+
+##### `publiclyAdvertisable`<sup>Optional</sup> <a name="publiclyAdvertisable" id="cdk-extensions.ec2.IAddressConfiguration.property.publiclyAdvertisable"></a>
+
+```typescript
+public readonly publiclyAdvertisable: boolean;
+```
+
+- *Type:* boolean
+
+---
 
 ### IAlertManagerConfiguration <a name="IAlertManagerConfiguration" id="cdk-extensions.aps.IAlertManagerConfiguration"></a>
 
