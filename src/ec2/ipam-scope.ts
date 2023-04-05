@@ -54,7 +54,7 @@ export interface IIpamScope {
    * @param options Arguments specifying the details of the pool being added.
    * @returns The pool that was added to the scope.
    */
-  addPool(id: string, options: IpamPoolOptions): IIpamPool;
+  addPool(id: string, options?: IpamPoolOptions): IIpamPool;
 }
 
 /**
@@ -106,7 +106,7 @@ abstract class IpamScopeBase extends Resource implements IIpamScope {
    * @param options Arguments specifying the details of the pool being added.
    * @returns The pool that was added to the scope.
    */
-  public addPool(id: string, options: IpamPoolOptions): IIpamPool {
+  public addPool(id: string, options: IpamPoolOptions = {}): IIpamPool {
     return new IpamPool(this, `pool-${id}`, {
       ...options,
       ipamScope: this,
