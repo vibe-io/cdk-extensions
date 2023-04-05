@@ -16909,6 +16909,8 @@ The AWS generated ID of the existing IPAM to be imported.
 | <code><a href="#cdk-extensions.ec2.Ipam.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.ec2.Ipam.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.ec2.Ipam.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.defaultPrivateScope">defaultPrivateScope</a></code> | <code>cdk-extensions.ec2.IIpamScope</code> | The IPAM's default private scope. |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.defaultPublicScope">defaultPublicScope</a></code> | <code>cdk-extensions.ec2.IIpamScope</code> | The IPAM's default public scope. |
 | <code><a href="#cdk-extensions.ec2.Ipam.property.ipamArn">ipamArn</a></code> | <code>string</code> | The ARN of the IPAM. |
 | <code><a href="#cdk-extensions.ec2.Ipam.property.ipamId">ipamId</a></code> | <code>string</code> | The ID of the IPAM. |
 | <code><a href="#cdk-extensions.ec2.Ipam.property.ipamPrivateDefaultScopeId">ipamPrivateDefaultScopeId</a></code> | <code>string</code> | The ID of the IPAM's default private scope. |
@@ -16960,6 +16962,30 @@ public readonly stack: Stack;
 - *Type:* aws-cdk-lib.Stack
 
 The stack in which this resource is defined.
+
+---
+
+##### `defaultPrivateScope`<sup>Required</sup> <a name="defaultPrivateScope" id="cdk-extensions.ec2.Ipam.property.defaultPrivateScope"></a>
+
+```typescript
+public readonly defaultPrivateScope: IIpamScope;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamScope
+
+The IPAM's default private scope.
+
+---
+
+##### `defaultPublicScope`<sup>Required</sup> <a name="defaultPublicScope" id="cdk-extensions.ec2.Ipam.property.defaultPublicScope"></a>
+
+```typescript
+public readonly defaultPublicScope: IIpamScope;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamScope
+
+The IPAM's default public scope.
 
 ---
 

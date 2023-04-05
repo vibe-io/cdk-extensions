@@ -318,6 +318,16 @@ export class Ipam extends IpamBase {
   public readonly resource: CfnIPAM;
 
   /**
+   * The IPAM's default private scope.
+   */
+  public readonly defaultPrivateScope: IIpamScope;
+
+  /**
+   * The IPAM's default public scope.
+   */
+  public readonly defaultPublicScope: IIpamScope;
+
+  /**
    * The ARN of the IPAM.
    */
   public readonly ipamArn: string;
@@ -385,6 +395,20 @@ export class Ipam extends IpamBase {
     this.ipamPrivateDefaultScopeId = this.resource.attrPrivateDefaultScopeId;
     this.ipamPublicDefaultScopeId = this.resource.attrPublicDefaultScopeId;
     this.ipamScopeCount = this.resource.attrScopeCount;
+
+    this.defaultPrivateScope = IpamScope.fromIpamScopeAttributes(this, 'default-private-scope', {
+      ipam: this,
+      ipamScopeId: this.ipamPrivateDefaultScopeId,
+      isDefault: true,
+      scopeType: 'private',
+    });
+
+    this.defaultPublicScope = IpamScope.fromIpamScopeAttributes(this, 'default-public-scope', {
+      ipam: this,
+      ipamScopeId: this.ipamPublicDefaultScopeId,
+      isDefault: true,
+      scopeType: 'public',
+    });
 
     props.regions?.forEach((x) => {
       this.addRegion(x);
