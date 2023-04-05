@@ -39,6 +39,10 @@ export interface IIpamPool {
   readonly ipamPoolScopeType: string;
   readonly ipamPoolState: string;
   readonly ipamPoolStateMessage: string;
+
+  addCidrToPool(id: string, options: AddCidrToPoolOptions): AddCidrToPoolResult;
+  addChildPool(id: string, options?: AddChildPoolOptions): IIpamPool;
+  allocateCidrFromPool(id: string, options?: IpamAllocationOptions): IIpamAllocation;
 }
 
 export interface AddChildPoolOptions {

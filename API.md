@@ -18982,7 +18982,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addPool` <a name="addPool" id="cdk-extensions.ec2.IpamScope.addPool"></a>
 
 ```typescript
-public addPool(id: string, options: IpamPoolOptions): IIpamPool
+public addPool(id: string, options?: IpamPoolOptions): IIpamPool
 ```
 
 Adds an IPAM pool to the IPAM scope.
@@ -19004,7 +19004,7 @@ must be used each time the method is invoked.
 
 ---
 
-###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.IpamScope.addPool.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.IpamScope.addPool.parameter.options"></a>
 
 - *Type:* cdk-extensions.ec2.IpamPoolOptions
 
@@ -80457,6 +80457,69 @@ public bind(scope: IConstruct): ResolvedIpamAllocationConfiguration
 
 - *Implemented By:* cdk-extensions.ec2.IpamPool, cdk-extensions.ec2.IIpamPool
 
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.addChildPool">addChildPool</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.addCidrToPool">addCidrToPool</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.allocateCidrFromPool">allocateCidrFromPool</a></code> | *No description.* |
+
+---
+
+##### `addChildPool` <a name="addChildPool" id="cdk-extensions.ec2.IIpamPool.addChildPool"></a>
+
+```typescript
+public addChildPool(id: string, options?: AddChildPoolOptions): IIpamPool
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IIpamPool.addChildPool.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.IIpamPool.addChildPool.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.AddChildPoolOptions
+
+---
+
+##### `addCidrToPool` <a name="addCidrToPool" id="cdk-extensions.ec2.IIpamPool.addCidrToPool"></a>
+
+```typescript
+public addCidrToPool(id: string, options: AddCidrToPoolOptions): AddCidrToPoolResult
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IIpamPool.addCidrToPool.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.IIpamPool.addCidrToPool.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.AddCidrToPoolOptions
+
+---
+
+##### `allocateCidrFromPool` <a name="allocateCidrFromPool" id="cdk-extensions.ec2.IIpamPool.allocateCidrFromPool"></a>
+
+```typescript
+public allocateCidrFromPool(id: string, options?: IpamAllocationOptions): IIpamAllocation
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IIpamPool.allocateCidrFromPool.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.IIpamPool.allocateCidrFromPool.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.IpamAllocationOptions
+
+---
 
 #### Properties <a name="Properties" id="Properties"></a>
 
@@ -80954,7 +81017,7 @@ Represents an IPAM scope in AWS.
 ##### `addPool` <a name="addPool" id="cdk-extensions.ec2.IIpamScope.addPool"></a>
 
 ```typescript
-public addPool(id: string, options: IpamPoolOptions): IIpamPool
+public addPool(id: string, options?: IpamPoolOptions): IIpamPool
 ```
 
 Adds an IPAM pool to the IPAM scope.
@@ -80976,7 +81039,7 @@ must be used each time the method is invoked.
 
 ---
 
-###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.IIpamScope.addPool.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.IIpamScope.addPool.parameter.options"></a>
 
 - *Type:* cdk-extensions.ec2.IpamPoolOptions
 
