@@ -13,6 +13,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   gitignore: [
     '/docs/generated/',
     '/.vscode/',
+    '/tmp/',
   ],
   publishToGo: {
     gitBranch: 'master',

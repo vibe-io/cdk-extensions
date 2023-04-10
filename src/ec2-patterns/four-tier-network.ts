@@ -1,8 +1,11 @@
+import { Stack } from 'aws-cdk-lib';
 import { DefaultInstanceTenancy, FlowLogResourceType, GatewayVpcEndpointOptions, NatProvider, SubnetSelection, SubnetType, Vpc, VpnConnectionOptions } from 'aws-cdk-lib/aws-ec2';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
+import { IpAddressManager } from '.';
 import { FlowLog, FlowLogFormat } from '../ec2';
 import { TieredSubnets } from '../ec2/lib';
+import { INetworkProvider, NetworkProvider } from '../ec2/lib/ip-addresses/network-provider';
 
 
 export interface FlowLogOptions extends ec2.FlowLogOptions {
@@ -11,7 +14,6 @@ export interface FlowLogOptions extends ec2.FlowLogOptions {
 
 export interface FourTierNetworkProps {
   readonly availabilityZones?: string[];
-  readonly cidr?: string;
   readonly defaultInstanceTenancy?: DefaultInstanceTenancy;
   readonly enableDnsHostnames?: boolean;
   readonly enableDnsSupport?: boolean;
@@ -21,6 +23,7 @@ export interface FourTierNetworkProps {
   readonly natGateways?: number;
   readonly natGatewayProvider?: NatProvider;
   readonly natGatewaySubnets?: SubnetSelection;
+  readonly networkProvider?: INetworkProvider;
   readonly vpcName?: string;
   readonly vpnConnections?: {[id: string]: VpnConnectionOptions};
   readonly vpnGateway?: boolean;
@@ -37,6 +40,14 @@ export class FourTierNetwork extends Vpc {
 
 
   public constructor(scope: IConstruct, id: string, props?: FourTierNetworkProps) {
+    const allocatePool = () => {
+      const scopeStack = Stack.of(scope);
+      const addressManager = new IpAddressManager(scopeStack, 'address-manager');
+      return addressManager.allocatePrivateNetwork(scopeStack, `${scope.node.addr}-${id}`);
+    };
+
+    const provider = props?.networkProvider ?? NetworkProvider.ipamPool(allocatePool(), 16);
+
     super(scope, id, {
       availabilityZones: props?.availabilityZones,
       defaultInstanceTenancy: props?.defaultInstanceTenancy,
@@ -44,7 +55,7 @@ export class FourTierNetwork extends Vpc {
       enableDnsSupport: props?.enableDnsSupport ?? true,
       gatewayEndpoints: props?.gatewayEndpoints,
       ipAddresses: new TieredSubnets({
-        cidr: props?.cidr,
+        provider: provider,
       }),
       maxAzs: props?.maxAzs,
       natGateways: props?.natGateways,

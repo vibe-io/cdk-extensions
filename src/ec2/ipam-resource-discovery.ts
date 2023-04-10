@@ -1,5 +1,6 @@
 import { ArnFormat, IResolvable, IResource, Lazy, Resource, ResourceProps, Token } from 'aws-cdk-lib';
 import { CfnIPAM, CfnIPAMResourceDiscovery } from 'aws-cdk-lib/aws-ec2';
+import { RegionInfo } from 'aws-cdk-lib/region-info';
 import { IConstruct } from 'constructs';
 import { IIpam, Ipam, IpamProps } from './ipam';
 import { IIpamResourceDiscoveryAssociation } from './ipam-resource-discovery-association';
@@ -92,6 +93,7 @@ export interface IpamResourceDiscoveryAttributes {
 
 export interface IpamResourceDiscoveryProps extends ResourceProps {
   readonly description?: string;
+  readonly regions?: string[];
 }
 
 export class IpamResourceDiscovery extends IpamResourceDiscoveryBase {
@@ -232,6 +234,13 @@ export class IpamResourceDiscovery extends IpamResourceDiscoveryBase {
     this.ipamResourceDiscoveryOwnerId = this.resource.attrOwnerId;
     this.ipamResourceDiscoveryRegion = this.resource.attrIpamResourceDiscoveryRegion;
     this.ipamResourceDiscoveryState = this.resource.attrState;
+
+    const regions = props.regions ?? RegionInfo.regions.map((x) => {
+      return x.name;
+    });
+    regions.forEach((x) => {
+      this.addRegion(x);
+    });
   }
 
   public addRegion(region: string): void {

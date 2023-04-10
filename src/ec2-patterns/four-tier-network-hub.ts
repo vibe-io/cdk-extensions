@@ -4,8 +4,10 @@ import { IConstruct } from 'constructs';
 import { FlowLogOptions, FourTierNetwork } from '.';
 import { FourTierNetworkSpoke } from './four-tier-network-spoke';
 import { TransitGateway, TransitGatewayProps } from '../ec2';
+import { INetworkProvider } from '../ec2/lib/ip-addresses/network-provider';
 import { NatProvider } from '../ec2/lib/nat-providers/nat-provider';
 import { ITransitGateway } from '../ec2/transit-gateway';
+import { GlobalNetwork } from '../networkmanager/global-network';
 import { IResourceShare, ISharedPrincipal, ResourceShare, SharedPrincipal } from '../ram';
 import { SharedResource } from '../ram-resources';
 
@@ -18,13 +20,13 @@ export interface FourTierNetworkShareProperties {
 
 export interface AddSpokeNetworkProps {
   readonly availabilityZones?: string[];
-  readonly cidr?: string;
   readonly defaultInstanceTenancy?: DefaultInstanceTenancy;
   readonly enableDnsHostnames?: boolean;
   readonly enableDnsSupport?: boolean;
-  readonly flowLogs?: {[id: string]: FlowLogOptions};
-  readonly gatewayEndpoints?: {[id: string]: GatewayVpcEndpointOptions};
+  readonly flowLogs?: { [id: string]: FlowLogOptions };
+  readonly gatewayEndpoints?: { [id: string]: GatewayVpcEndpointOptions };
   readonly maxAzs?: number;
+  readonly networkProvider?: INetworkProvider;
   readonly vpcName?: string;
   readonly vpnConnections?: {[id: string]: VpnConnectionOptions};
   readonly vpnGateway?: boolean;
@@ -34,13 +36,14 @@ export interface AddSpokeNetworkProps {
 
 export interface FourTierNetworkHubProps extends ResourceProps {
   readonly availabilityZones?: string[];
-  readonly cidr?: string;
   readonly defaultInstanceTenancy?: DefaultInstanceTenancy;
   readonly enableDnsHostnames?: boolean;
   readonly enableDnsSupport?: boolean;
-  readonly flowLogs?: {[id: string]: FlowLogOptions};
-  readonly gatewayEndpoints?: {[id: string]: GatewayVpcEndpointOptions};
+  readonly flowLogs?: { [id: string]: FlowLogOptions };
+  readonly gatewayEndpoints?: { [id: string]: GatewayVpcEndpointOptions };
+  readonly globalNetwork?: GlobalNetwork;
   readonly maxAzs?: number;
+  readonly networkProvider?: INetworkProvider;
   readonly sharing?: FourTierNetworkShareProperties;
   readonly vpcName?: string;
   readonly vpnConnections?: {[id: string]: VpnConnectionOptions};
@@ -50,12 +53,13 @@ export interface FourTierNetworkHubProps extends ResourceProps {
 }
 
 export class FourTierNetworkHub extends FourTierNetwork {
-  private readonly _flowLogConfiguration?: {[id: string]: FlowLogOptions};
+  private readonly _flowLogConfiguration?: { [id: string]: FlowLogOptions };
   private readonly _sharedAccounts: string[];
 
   private _resourceShare?: IResourceShare;
   private _transitGateway?: ITransitGateway;
 
+  public readonly globalNetwork?: GlobalNetwork;
   public readonly sharing: FourTierNetworkShareProperties;
 
   public get transitGateway(): ITransitGateway | undefined {
@@ -75,6 +79,7 @@ export class FourTierNetworkHub extends FourTierNetwork {
 
     this._flowLogConfiguration = props.flowLogs;
 
+    this.globalNetwork = props.globalNetwork;
     this.sharing = props.sharing ?? {
       autoAddAccounts: true,
     };
@@ -136,24 +141,28 @@ export class FourTierNetworkHub extends FourTierNetwork {
   }
 
   public enableTransitGateway(props: TransitGatewayProps = {}): ITransitGateway {
-    if (!this._transitGateway) {
-      this._transitGateway = new TransitGateway(this, 'transit-gateway', {
-        autoAcceptSharedAttachments: true,
-        ...props,
-      });
-
-      this._transitGateway.attachVpc(this, {
-        subnets: {
-          onePerAz: true,
-          subnetGroupName: 'dmz',
-        },
-      });
-
-      return this._transitGateway;
+    if (this._transitGateway) {
+      throw new Error([
+        `Transit gateway is already enabled for VPC ${this.node.path}`,
+      ].join(' '));
     }
 
-    throw new Error([
-      `Transit gateway is already enabled for VPC ${this.node.path}`,
-    ].join(' '));
+    this._transitGateway = new TransitGateway(this, 'transit-gateway', {
+      autoAcceptSharedAttachments: true,
+      ...props,
+    });
+
+    this._transitGateway.attachVpc(this, {
+      subnets: {
+        onePerAz: true,
+        subnetGroupName: 'dmz',
+      },
+    });
+
+    this.globalNetwork?.registerTransitGateway(this._transitGateway.node.addr, {
+      transitGateway: this._transitGateway,
+    });
+
+    return this._transitGateway;
   }
 }

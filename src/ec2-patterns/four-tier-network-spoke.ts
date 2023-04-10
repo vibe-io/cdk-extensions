@@ -3,18 +3,19 @@ import { DefaultInstanceTenancy, FlowLogOptions, GatewayVpcEndpointOptions, Priv
 import { IConstruct } from 'constructs';
 import { FourTierNetwork } from '.';
 import { ITransitGatewayAttachment } from '../ec2';
+import { INetworkProvider } from '../ec2/lib/ip-addresses/network-provider';
 import { ITransitGateway } from '../ec2/transit-gateway';
 
 
 export interface FourTierNetworkSpokeProps extends ResourceProps {
   readonly availabilityZones?: string[];
-  readonly cidr?: string;
   readonly defaultInstanceTenancy?: DefaultInstanceTenancy;
   readonly enableDnsHostnames?: boolean;
   readonly enableDnsSupport?: boolean;
   readonly flowLogs?: {[id: string]: FlowLogOptions};
   readonly gatewayEndpoints?: {[id: string]: GatewayVpcEndpointOptions};
   readonly maxAzs?: number;
+  readonly networkProvider?: INetworkProvider;
   readonly vpcName?: string;
   readonly vpnConnections?: {[id: string]: VpnConnectionOptions};
   readonly vpnGateway?: boolean;

@@ -1,4 +1,4 @@
-import { Resource, ResourceProps } from 'aws-cdk-lib';
+import { Fn, Resource, ResourceProps } from 'aws-cdk-lib';
 import { CfnIPAMAllocation } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { IIpamPool } from './ipam-pool';
@@ -44,10 +44,12 @@ export class IpamAllocationConfiguration {
 }
 
 export interface IIpamAllocation {
+  readonly ipamAllocationCidr: string;
   readonly ipamAllocationId: string;
 }
 
 abstract class IpamAllocationBase extends Resource implements IIpamAllocation {
+  public abstract readonly ipamAllocationCidr: string;
   public abstract readonly ipamAllocationId: string;
 }
 
@@ -69,6 +71,7 @@ export class IpamAllocation extends IpamAllocationBase {
   // Resource properties
   public readonly resource: CfnIPAMAllocation;
 
+  public readonly ipamAllocationCidr: string;
   public readonly ipamAllocationId: string;
 
 
@@ -88,6 +91,7 @@ export class IpamAllocation extends IpamAllocationBase {
       netmaskLength: resolvedConfiguration.netmaskLength,
     });
 
+    this.ipamAllocationCidr = Fn.select(2, Fn.split('|', this.resource.ref, 3));
     this.ipamAllocationId = this.resource.attrIpamPoolAllocationId;
   }
 }

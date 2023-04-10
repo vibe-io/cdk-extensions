@@ -1,7 +1,7 @@
-import { Annotations, CfnTag, Lazy, Resource, ResourceProps } from 'aws-cdk-lib';
+import { Annotations, CfnTag, IResource, Lazy, Resource, ResourceProps, Tags } from 'aws-cdk-lib';
 import { CfnIPAMPool } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
-import { AddressConfiguration } from '.';
+import { AddressConfiguration, IpamPoolCidrConfiguration } from '.';
 import { IIpamAllocation, IpamAllocation, IpamAllocationOptions } from './ipam-allocation';
 import { IIpamPoolCidr, IIpamPoolCidrConfiguration, IpamPoolCidr } from './ipam-pool-cidr';
 import { IIpamScope, IpamScope } from './ipam-scope';
@@ -30,7 +30,7 @@ export class PublicIpSource {
   private constructor(public readonly name: string) {}
 }
 
-export interface IIpamPool {
+export interface IIpamPool extends IResource {
   readonly ipamPoolArn: string;
   readonly ipamPoolDepth: number;
   readonly ipamPoolIpamArn: string;
@@ -42,7 +42,7 @@ export interface IIpamPool {
 
   addCidrToPool(id: string, options: AddCidrToPoolOptions): AddCidrToPoolResult;
   addChildPool(id: string, options?: AddChildPoolOptions): IIpamPool;
-  allocateCidrFromPool(id: string, options?: IpamAllocationOptions): IIpamAllocation;
+  allocateCidrFromPool(id: string, options?: AllocateCidrFromPoolOptions): IIpamAllocation;
 }
 
 export interface AddChildPoolOptions {
@@ -51,6 +51,7 @@ export interface AddChildPoolOptions {
   readonly consumer?: IpamConsumer;
   readonly description?: string;
   readonly locale?: string;
+  readonly name?: string;
   readonly provisionedCidrs?: string[];
   readonly publicIpSource?: PublicIpSource;
   readonly tagRestrictions?: { [key: string]: string };
@@ -64,6 +65,10 @@ export interface AddCidrToPoolOptions {
 export interface AddCidrToPoolResult {
   readonly cidr?: IIpamPoolCidr;
   readonly inline: boolean;
+}
+
+export interface AllocateCidrFromPoolOptions extends IpamAllocationOptions {
+  readonly scope?: IConstruct;
 }
 
 abstract class IpamPoolBase extends Resource implements IIpamPool {
@@ -98,8 +103,9 @@ abstract class IpamPoolBase extends Resource implements IIpamPool {
     });
   }
 
-  public allocateCidrFromPool(id: string, options: IpamAllocationOptions = {}): IIpamAllocation {
-    return new IpamAllocation(this, `allocation-${id}`, {
+  public allocateCidrFromPool(id: string, options: AllocateCidrFromPoolOptions = {}): IIpamAllocation {
+    const scope = options.scope ?? this;
+    return new IpamAllocation(scope, `allocation-${id}`, {
       ...options,
       ipamPool: this,
     });
@@ -112,6 +118,7 @@ export interface IpamPoolOptions {
   readonly consumer?: IpamConsumer;
   readonly description?: string;
   readonly locale?: string;
+  readonly name?: string;
   readonly parentPool?: IIpamPool;
   readonly provisionedCidrs?: string[];
   readonly publicIpSource?: PublicIpSource;
@@ -134,6 +141,7 @@ export class IpamPool extends IpamPoolBase {
   public readonly description?: string;
   public readonly ipamScope: IIpamScope;
   public readonly locale?: string;
+  public readonly name?: string;
   public readonly parentPool?: IIpamPool;
   public readonly publicIpSource?: PublicIpSource;
 
@@ -162,6 +170,7 @@ export class IpamPool extends IpamPoolBase {
     this.description = props.description;
     this.ipamScope = props.ipamScope;
     this.locale = props.locale;
+    this.name = props.name;
     this.parentPool = props.parentPool;
     this.publicIpSource = props.publicIpSource;
 
@@ -217,6 +226,17 @@ export class IpamPool extends IpamPoolBase {
     this.ipamPoolScopeType = this.resource.attrIpamScopeType;
     this.ipamPoolState = this.resource.attrState;
     this.ipamPoolStateMessage = this.resource.attrStateMessage;
+
+    if (this.name) {
+      Tags.of(this.resource).add('Name', this.name);
+    }
+
+    props.provisionedCidrs?.forEach((x, idx) => {
+      this.addCidrToPool(`provisioned-${idx.toString().padStart(3, '0')}`, {
+        allowInline: true,
+        configuration: IpamPoolCidrConfiguration.cidr(x),
+      });
+    });
   }
 
   public addCidrToPool(id: string, options: AddCidrToPoolOptions): AddCidrToPoolResult {
