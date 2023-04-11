@@ -21600,6 +21600,300 @@ The name of the query.
 ---
 
 
+### NetworkController <a name="NetworkController" id="cdk-extensions.ec2_patterns.NetworkController"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2_patterns.NetworkController.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+new ec2_patterns.NetworkController(scope: IConstruct, id: string, props?: NetworkControllerProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2_patterns.NetworkControllerProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.NetworkController.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.NetworkController.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2_patterns.NetworkController.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.NetworkControllerProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.addHub">addHub</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.addSpoke">addSpoke</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2_patterns.NetworkController.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2_patterns.NetworkController.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2_patterns.NetworkController.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addHub` <a name="addHub" id="cdk-extensions.ec2_patterns.NetworkController.addHub"></a>
+
+```typescript
+public addHub(scope: IConstruct, id: string, options?: AddNetworkOptions): FourTierNetworkHub
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.NetworkController.addHub.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.NetworkController.addHub.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.NetworkController.addHub.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.AddNetworkOptions
+
+---
+
+##### `addSpoke` <a name="addSpoke" id="cdk-extensions.ec2_patterns.NetworkController.addSpoke"></a>
+
+```typescript
+public addSpoke(scope: IConstruct, id: string, options: AddNetworkOptions): FourTierNetworkSpoke
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.NetworkController.addSpoke.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.NetworkController.addSpoke.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.NetworkController.addSpoke.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.AddNetworkOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2_patterns.NetworkController.isConstruct"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.NetworkController.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2_patterns.NetworkController.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2_patterns.NetworkController.isOwnedResource"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.NetworkController.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2_patterns.NetworkController.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2_patterns.NetworkController.isResource"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.NetworkController.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2_patterns.NetworkController.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.addressManager">addressManager</a></code> | <code>cdk-extensions.ec2_patterns.IpAddressManager</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.defaultNetmask">defaultNetmask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.globalNetwork">globalNetwork</a></code> | <code>cdk-extensions.networkmanager.GlobalNetwork</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.registeredAccounts">registeredAccounts</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.registeredRegions">registeredRegions</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2_patterns.NetworkController.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2_patterns.NetworkController.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2_patterns.NetworkController.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `addressManager`<sup>Required</sup> <a name="addressManager" id="cdk-extensions.ec2_patterns.NetworkController.property.addressManager"></a>
+
+```typescript
+public readonly addressManager: IpAddressManager;
+```
+
+- *Type:* cdk-extensions.ec2_patterns.IpAddressManager
+
+---
+
+##### `defaultNetmask`<sup>Required</sup> <a name="defaultNetmask" id="cdk-extensions.ec2_patterns.NetworkController.property.defaultNetmask"></a>
+
+```typescript
+public readonly defaultNetmask: number;
+```
+
+- *Type:* number
+
+---
+
+##### `globalNetwork`<sup>Required</sup> <a name="globalNetwork" id="cdk-extensions.ec2_patterns.NetworkController.property.globalNetwork"></a>
+
+```typescript
+public readonly globalNetwork: GlobalNetwork;
+```
+
+- *Type:* cdk-extensions.networkmanager.GlobalNetwork
+
+---
+
+##### `registeredAccounts`<sup>Required</sup> <a name="registeredAccounts" id="cdk-extensions.ec2_patterns.NetworkController.property.registeredAccounts"></a>
+
+```typescript
+public readonly registeredAccounts: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `registeredRegions`<sup>Required</sup> <a name="registeredRegions" id="cdk-extensions.ec2_patterns.NetworkController.property.registeredRegions"></a>
+
+```typescript
+public readonly registeredRegions: string[];
+```
+
+- *Type:* string[]
+
+---
+
+
 ### PermissionSet <a name="PermissionSet" id="cdk-extensions.sso.PermissionSet"></a>
 
 - *Implements:* cdk-extensions.sso.IPermissionSet
@@ -36897,6 +37191,34 @@ public readonly cidr: IIpamPoolCidr;
 ```
 
 - *Type:* cdk-extensions.ec2.IIpamPoolCidr
+
+---
+
+### AddNetworkOptions <a name="AddNetworkOptions" id="cdk-extensions.ec2_patterns.AddNetworkOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.AddNetworkOptions.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const addNetworkOptions: ec2_patterns.AddNetworkOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.AddNetworkOptions.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `netmask`<sup>Optional</sup> <a name="netmask" id="cdk-extensions.ec2_patterns.AddNetworkOptions.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
 
 ---
 
@@ -52444,6 +52766,101 @@ public readonly maxNetmaskLength: number;
 
 ```typescript
 public readonly minNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+### NetworkControllerProps <a name="NetworkControllerProps" id="cdk-extensions.ec2_patterns.NetworkControllerProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.NetworkControllerProps.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const networkControllerProps: ec2_patterns.NetworkControllerProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkControllerProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkControllerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkControllerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkControllerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkControllerProps.property.defaultNetmask">defaultNetmask</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2_patterns.NetworkControllerProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2_patterns.NetworkControllerProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2_patterns.NetworkControllerProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2_patterns.NetworkControllerProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `defaultNetmask`<sup>Optional</sup> <a name="defaultNetmask" id="cdk-extensions.ec2_patterns.NetworkControllerProps.property.defaultNetmask"></a>
+
+```typescript
+public readonly defaultNetmask: number;
 ```
 
 - *Type:* number
