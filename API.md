@@ -21704,7 +21704,7 @@ public addHub(scope: IConstruct, id: string, options?: AddNetworkOptions): FourT
 ##### `addSpoke` <a name="addSpoke" id="cdk-extensions.ec2_patterns.NetworkController.addSpoke"></a>
 
 ```typescript
-public addSpoke(scope: IConstruct, id: string, options: AddNetworkOptions): FourTierNetworkSpoke
+public addSpoke(scope: IConstruct, id: string, options?: AddNetworkOptions): FourTierNetworkSpoke
 ```
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.NetworkController.addSpoke.parameter.scope"></a>
@@ -21719,7 +21719,7 @@ public addSpoke(scope: IConstruct, id: string, options: AddNetworkOptions): Four
 
 ---
 
-###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.NetworkController.addSpoke.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.NetworkController.addSpoke.parameter.options"></a>
 
 - *Type:* cdk-extensions.ec2_patterns.AddNetworkOptions
 

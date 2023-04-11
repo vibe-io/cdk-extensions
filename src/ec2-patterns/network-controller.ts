@@ -81,12 +81,14 @@ export class NetworkController extends Resource {
       netmask: netmask,
     });
 
-    return new FourTierNetworkHub(scope, id, {
+    const hub = new FourTierNetworkHub(scope, id, {
       cidr: CidrProvider.ipamPool(pool, netmask),
     });
+    this._hubs[scopeRegion] = hub;
+    return hub;
   }
 
-  public addSpoke(scope: IConstruct, id: string, options: AddNetworkOptions): FourTierNetworkSpoke {
+  public addSpoke(scope: IConstruct, id: string, options: AddNetworkOptions = {}): FourTierNetworkSpoke {
     const scopeStack = Stack.of(scope);
     const scopeAccount = scopeStack.account;
     const scopeRegion = scopeStack.region;
