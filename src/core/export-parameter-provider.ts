@@ -29,6 +29,9 @@ class ParameterReference {
 
     if (relation === ConstructRelation.LOCAL) {
       return this._value;
+    } else if (relation === ConstructRelation.CROSS_STAGE) {
+      const producerStack = Stack.of(this._producer);
+      return producerStack.exportValue(this._value);
     } else {
       const consumerStack = Stack.of(scope);
       const producerStack = Stack.of(this._producer);

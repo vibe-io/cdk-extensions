@@ -1,10 +1,14 @@
-import { App, Stack } from 'aws-cdk-lib';
+import { App, Environment, Stack, Stage } from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
 import { NetworkController } from '../network-controller';
 
 
 const defaultAccount = '123456789012';
 const defaultRegion = 'us-east-1';
+const defaultEnv: Environment = {
+  account: defaultAccount,
+  region: defaultRegion,
+};
 
 test('network controller should have standard defaults', () => {
   const resources = getCommonResources();
@@ -115,7 +119,35 @@ test('adding a spoke in the same account should create one with sane defaults an
   });
 });
 
-function createStack(app: App, id: string, account: string, region: string): Stack {
+test('adding a spokes in different stages should properly provision CIDR ranges', () => {
+  const resources = getCommonResources();
+  const app = resources.app;
+  const controllerStack = resources.stack;
+  const hubStack = createStack(app, 'hub-stack', defaultAccount, defaultRegion);
+
+  const spokeStage1 = new Stage(app, 'stage-1', { env: defaultEnv });
+  const spokeStage2 = new Stage(app, 'stage-2', { env: defaultEnv });
+  const spokeStack1 = createStack(spokeStage1, 'spoke-stack', defaultAccount, defaultRegion);
+  const spokeStack2 = createStack(spokeStage2, 'spoke-stack', defaultAccount, defaultRegion);
+
+  const controller = new NetworkController(controllerStack, 'network-controller');
+  controller.addHub(hubStack, 'hub');
+  const spoke1 = controller.addSpoke(spokeStack1, 'spoke-stack');
+  const spoke2 = controller.addSpoke(spokeStack2, 'spoke-stack');
+
+  const spokeTemplate1 = Template.fromStack(spokeStack1);
+  const spokeTemplate2 = Template.fromStack(spokeStack2);
+
+  spokeTemplate1.hasResourceProperties('AWS::EC2::VPC', {
+    Ipv4IpamPoolId: spokeStack1.resolve(spoke1.ipamPool?.ipamPoolId),
+  });
+
+  spokeTemplate2.hasResourceProperties('AWS::EC2::VPC', {
+    Ipv4IpamPoolId: spokeStack2.resolve(spoke2.ipamPool?.ipamPoolId),
+  });
+});
+
+function createStack(app: Stage, id: string, account: string, region: string): Stack {
   return new Stack(app, id, {
     env: {
       account,
