@@ -7,7 +7,7 @@ import { TransitGatewayAttachment } from './transit-gateway-attachment';
 import { TransitGatewayPeeringAttachment, TransitGatewayPeeringAttachmentOptions } from './transit-gateway-peering-attachment';
 import { ITransitGatewayRouteTable, TransitGatewayRouteTable } from './transit-gateway-route-table';
 import { TunnelOptions, VpnConnection, VpnConnectionType } from './vpn-connection';
-import { SecretReference } from '../core';
+import { DynamicReference } from '../core/dynamic-reference';
 import { ISharedPrincipal, ResourceShare } from '../ram';
 import { SharedResource } from '../ram-resources';
 
@@ -397,12 +397,12 @@ export class TransitGateway extends TransitGatewayBase {
       vpnEcmpSupport: !!this.vpnEcmpSupport ? 'enable' : 'disable',
     });
 
-    this.transitGatewayArn = SecretReference.string(this, 'transit-gateway-arn', this.stack.formatArn({
+    this.transitGatewayArn = DynamicReference.string(this, this.stack.formatArn({
       resource: 'transit-gateway',
       resourceName: this.resource.ref,
       service: 'ec2',
     }));
-    this.transitGatewayId = SecretReference.string(this, 'transit-gateway-id', this.resource.ref);
+    this.transitGatewayId = DynamicReference.string(this, this.resource.ref);
 
     /*this.stack.formatArn({
       resource: 'transit-gateway',

@@ -110,7 +110,7 @@ export class NetworkController extends Resource {
     this.registerRegion(scopeRegion);
 
     const netmask = options.netmask ?? this.defaultNetmask;
-    const pool = this.addressManager.allocatePrivateNetwork(scope, id, {
+    const pool = this.addressManager.allocatePrivateNetwork(scope, `${id}-${scope.node.addr}`, {
       netmask: netmask,
     });
 
