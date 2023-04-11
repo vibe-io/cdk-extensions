@@ -2,6 +2,7 @@ import { Resource, ResourceProps, Token } from 'aws-cdk-lib';
 import { CfnIPAMPoolCidr } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { IIpamPool } from './ipam-pool';
+import { DynamicReference } from '../core/dynamic-reference';
 
 
 export interface ResolvedIpamPoolCidrConfiguration {
@@ -80,7 +81,7 @@ export class IpamPoolCidr extends IpamPoolCidrBase {
       netmaskLength: resolvedConfiguration.netmaskLength,
     });
 
-    this.ipamPoolCidrId = this.resource.attrIpamPoolCidrId;
-    this.ipamPoolCidrState = this.resource.attrState;
+    this.ipamPoolCidrId = DynamicReference.string(this, this.resource.attrIpamPoolCidrId);
+    this.ipamPoolCidrState = DynamicReference.string(this, this.resource.attrState);
   }
 }

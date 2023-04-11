@@ -3,6 +3,7 @@ import { CfnIPAMResourceDiscoveryAssociation } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { IIpam } from './ipam';
 import { IIpamResourceDiscovery } from './ipam-resource-discovery';
+import { DynamicReference } from '../core/dynamic-reference';
 
 
 export interface IIpamResourceDiscoveryAssociation {
@@ -64,14 +65,14 @@ export class IpamResourceDiscoveryAssociation extends IpamResourceDiscoveryAssoc
       ipamResourceDiscoveryId: this.ipamResourceDiscovery.ipamResourceDiscoveryId,
     });
 
-    this.ipamResourceDiscoveryAssociationArn = this.resource.attrIpamResourceDiscoveryAssociationArn;
-    this.ipamResourceDiscoveryAssociationId = this.resource.attrIpamResourceDiscoveryAssociationId;
-    this.ipamResourceDiscoveryAssociationIpamArn = this.resource.attrIpamArn;
-    this.ipamResourceDiscoveryAssociationIpamRegion = this.resource.attrIpamRegion;
-    this.ipamResourceDiscoveryAssociationIsDefault = this.resource.attrIsDefault;
-    this.ipamResourceDiscoveryAssociationOwnerId = this.resource.attrOwnerId;
-    this.ipamResourceDiscoveryAssociationResourceDiscoveryId = this.resource.ref;
-    this.ipamResourceDiscoveryAssociationResourceDiscoveryStatus = this.resource.attrResourceDiscoveryStatus;
-    this.ipamResourceDiscoveryAssociationState = this.resource.attrState;
+    this.ipamResourceDiscoveryAssociationArn = DynamicReference.string(this, this.resource.attrIpamResourceDiscoveryAssociationArn);
+    this.ipamResourceDiscoveryAssociationId = DynamicReference.string(this, this.resource.attrIpamResourceDiscoveryAssociationId);
+    this.ipamResourceDiscoveryAssociationIpamArn = DynamicReference.string(this, this.resource.attrIpamArn);
+    this.ipamResourceDiscoveryAssociationIpamRegion = DynamicReference.string(this, this.resource.attrIpamRegion);
+    this.ipamResourceDiscoveryAssociationIsDefault = DynamicReference.any(this, this.resource.attrIsDefault);
+    this.ipamResourceDiscoveryAssociationOwnerId = DynamicReference.string(this, this.resource.attrOwnerId);
+    this.ipamResourceDiscoveryAssociationResourceDiscoveryId = DynamicReference.string(this, this.resource.ref);
+    this.ipamResourceDiscoveryAssociationResourceDiscoveryStatus = DynamicReference.string(this, this.resource.attrResourceDiscoveryStatus);
+    this.ipamResourceDiscoveryAssociationState = DynamicReference.string(this, this.resource.attrState);
   }
 }

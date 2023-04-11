@@ -4,6 +4,7 @@ import { IConstruct } from 'constructs';
 import { IIpamResourceDiscovery } from './ipam-resource-discovery';
 import { IIpamResourceDiscoveryAssociation, IpamResourceDiscoveryAssociation } from './ipam-resource-discovery-association';
 import { IIpamScope, IpamScope, IpamScopeOptions } from './ipam-scope';
+import { DynamicReference } from '../core/dynamic-reference';
 import { ResourceImporter } from '../utils/importer';
 
 
@@ -390,11 +391,11 @@ export class Ipam extends IpamBase {
       //resourceDiscoveryAssociationCount:
     });
 
-    this.ipamArn = this.resource.attrArn;
-    this.ipamId = this.resource.ref;
-    this.ipamPrivateDefaultScopeId = this.resource.attrPrivateDefaultScopeId;
-    this.ipamPublicDefaultScopeId = this.resource.attrPublicDefaultScopeId;
-    this.ipamScopeCount = this.resource.attrScopeCount;
+    this.ipamArn = DynamicReference.string(this, this.resource.attrArn);
+    this.ipamId = DynamicReference.string(this, this.resource.ref);
+    this.ipamPrivateDefaultScopeId = DynamicReference.string(this, this.resource.attrPrivateDefaultScopeId);
+    this.ipamPublicDefaultScopeId = DynamicReference.string(this, this.resource.attrPublicDefaultScopeId);
+    this.ipamScopeCount = DynamicReference.number(this, this.resource.attrScopeCount);
 
     this.defaultPrivateScope = IpamScope.fromIpamScopeAttributes(this, 'default-private-scope', {
       ipam: this,

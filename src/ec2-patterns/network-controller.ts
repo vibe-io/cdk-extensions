@@ -2,7 +2,7 @@ import { Resource, ResourceProps, Stack, Token } from 'aws-cdk-lib';
 import { IConstruct } from 'constructs';
 import { FourTierNetworkHub, IpAddressManager } from '.';
 import { FourTierNetworkSpoke } from './four-tier-network-spoke';
-import { NetworkProvider } from '../ec2';
+import { CidrProvider } from '../ec2';
 import { GlobalNetwork } from '../networkmanager/global-network';
 
 
@@ -57,7 +57,7 @@ export class NetworkController extends Resource {
     this.globalNetwork = new GlobalNetwork(this, 'global-network');
   }
 
-  public addHub(scope: IConstruct, id: string, options: AddNetworkOptions): FourTierNetworkHub {
+  public addHub(scope: IConstruct, id: string, options: AddNetworkOptions = {}): FourTierNetworkHub {
     const scopeStack = Stack.of(scope);
     const scopeAccount = scopeStack.account;
     const scopeRegion = scopeStack.region;
@@ -82,7 +82,7 @@ export class NetworkController extends Resource {
     });
 
     return new FourTierNetworkHub(scope, id, {
-      networkProvider: NetworkProvider.ipamPool(pool, netmask),
+      cidr: CidrProvider.ipamPool(pool, netmask),
     });
   }
 
@@ -113,7 +113,7 @@ export class NetworkController extends Resource {
     });
 
     return hub.addSpoke(scope, id, {
-      networkProvider: NetworkProvider.ipamPool(pool, netmask),
+      cidr: CidrProvider.ipamPool(pool, netmask),
     });
   }
 

@@ -2,13 +2,14 @@ import { VpcIpamOptions } from 'aws-cdk-lib/aws-ec2';
 import { IIpamPool } from '../..';
 
 
-export interface INetworkProvider {
+export interface ICidrProvider {
   readonly ipamOptions: VpcIpamOptions;
+  readonly ipamPool?: IIpamPool;
   readonly netmask: number;
 }
 
-export class NetworkProvider {
-  public static cidr(cidr: string): INetworkProvider {
+export class CidrProvider {
+  public static cidr(cidr: string): ICidrProvider {
     return {
       ipamOptions: {
         cidrBlock: cidr,
@@ -17,12 +18,13 @@ export class NetworkProvider {
     };
   }
 
-  public static ipamPool(pool: IIpamPool, netmask: number): INetworkProvider {
+  public static ipamPool(pool: IIpamPool, netmask: number): ICidrProvider {
     return {
       ipamOptions: {
         ipv4IpamPoolId: pool.ipamPoolId,
         ipv4NetmaskLength: netmask,
       },
+      ipamPool: pool,
       netmask: netmask,
     };
   }

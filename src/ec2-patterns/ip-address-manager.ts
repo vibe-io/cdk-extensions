@@ -1,4 +1,4 @@
-import { Resource, ResourceProps, Stack } from 'aws-cdk-lib';
+import { Resource, ResourceProps, Stack, Token } from 'aws-cdk-lib';
 import { Fact, RegionInfo } from 'aws-cdk-lib/region-info';
 import { IConstruct } from 'constructs';
 import { IIpamPool, Ipam, IpamPool, IpamPoolCidrConfiguration, IPAM_ENABLED_FACT } from '../ec2';
@@ -67,12 +67,14 @@ export class IpAddressManager extends Resource {
       defaultNetmaskLength: props.defaultPoolAllocationMask ?? IpAddressManager.DEFAULT_POOL_ALLOCATION_MASK,
     });
 
+    const localRegion = RegionInfo.get(this.stack.region);
+    const localPartition = Token.isUnresolved(this.stack.partition) ? localRegion.partition : this.stack.partition;
     const regions = props.regions ?? RegionInfo.regions.filter((x) => {
       return !x.isOptInRegion;
     }).filter((x) => {
       return Fact.find(x.name, IPAM_ENABLED_FACT) === 'ENABLED';
     }).filter((x) => {
-      return x.partition === this.stack.partition;
+      return x.partition === localPartition;
     }).map((x) => {
       return x.name;
     });

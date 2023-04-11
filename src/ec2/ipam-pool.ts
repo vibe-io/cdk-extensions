@@ -5,6 +5,7 @@ import { AddressConfiguration, IpamPoolCidrConfiguration } from '.';
 import { IIpamAllocation, IpamAllocation, IpamAllocationOptions } from './ipam-allocation';
 import { IIpamPoolCidr, IIpamPoolCidrConfiguration, IpamPoolCidr } from './ipam-pool-cidr';
 import { IIpamScope, IpamScope } from './ipam-scope';
+import { DynamicReference } from '../core/dynamic-reference';
 
 
 export class IpamConsumer {
@@ -218,14 +219,14 @@ export class IpamPool extends IpamPoolBase {
       sourceIpamPoolId: this.parentPool?.ipamPoolId,
     });
 
-    this.ipamPoolArn = this.resource.attrArn;
-    this.ipamPoolDepth = this.resource.attrPoolDepth;
-    this.ipamPoolId = this.resource.ref;
-    this.ipamPoolIpamArn = this.resource.attrIpamArn;
-    this.ipamPoolScopeArn = this.resource.attrIpamScopeArn;
-    this.ipamPoolScopeType = this.resource.attrIpamScopeType;
-    this.ipamPoolState = this.resource.attrState;
-    this.ipamPoolStateMessage = this.resource.attrStateMessage;
+    this.ipamPoolArn = DynamicReference.string(this, this.resource.attrArn);
+    this.ipamPoolDepth = DynamicReference.number(this, this.resource.attrPoolDepth);
+    this.ipamPoolId = DynamicReference.string(this, this.resource.ref);
+    this.ipamPoolIpamArn = DynamicReference.string(this, this.resource.attrIpamArn);
+    this.ipamPoolScopeArn = DynamicReference.string(this, this.resource.attrIpamScopeArn);
+    this.ipamPoolScopeType = DynamicReference.string(this, this.resource.attrIpamScopeType);
+    this.ipamPoolState = DynamicReference.string(this, this.resource.attrState);
+    this.ipamPoolStateMessage = DynamicReference.string(this, this.resource.attrStateMessage);
 
     if (this.name) {
       Tags.of(this.resource).add('Name', this.name);

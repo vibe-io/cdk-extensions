@@ -1,16 +1,16 @@
 import { Fn } from 'aws-cdk-lib';
 import { AllocateCidrRequest, IIpAddresses, SubnetIpamOptions, VpcIpamOptions } from 'aws-cdk-lib/aws-ec2';
-import { INetworkProvider } from './network-provider';
+import { ICidrProvider } from './network-provider';
 import { divideCidr, getBiggestMask } from '../../../utils/networking';
 
 
 export interface TieredSubnetsOptions {
-  readonly provider: INetworkProvider;
+  readonly provider: ICidrProvider;
   readonly tierMask?: number;
 }
 
 export class TieredSubnets implements IIpAddresses {
-  public readonly provider: INetworkProvider;
+  public readonly provider: ICidrProvider;
   public readonly tierMask?: number;
 
   public constructor(options: TieredSubnetsOptions) {

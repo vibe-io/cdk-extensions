@@ -1,30 +1,31 @@
 import { ResourceProps } from 'aws-cdk-lib';
 import { DefaultInstanceTenancy, FlowLogOptions, GatewayVpcEndpointOptions, PrivateSubnet, RouterType, SubnetSelection, VpnConnectionOptions } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
-import { FourTierNetwork } from '.';
+import { FourTierNetwork, FourTierNetworkHub } from '.';
 import { ITransitGatewayAttachment } from '../ec2';
-import { INetworkProvider } from '../ec2/lib/ip-addresses/network-provider';
+import { ICidrProvider } from '../ec2/lib/ip-addresses/network-provider';
 import { ITransitGateway } from '../ec2/transit-gateway';
 
 
 export interface FourTierNetworkSpokeProps extends ResourceProps {
   readonly availabilityZones?: string[];
+  readonly cidr?: ICidrProvider;
   readonly defaultInstanceTenancy?: DefaultInstanceTenancy;
   readonly enableDnsHostnames?: boolean;
   readonly enableDnsSupport?: boolean;
   readonly flowLogs?: {[id: string]: FlowLogOptions};
   readonly gatewayEndpoints?: {[id: string]: GatewayVpcEndpointOptions};
+  readonly hub: FourTierNetworkHub;
   readonly maxAzs?: number;
-  readonly networkProvider?: INetworkProvider;
   readonly vpcName?: string;
   readonly vpnConnections?: {[id: string]: VpnConnectionOptions};
   readonly vpnGateway?: boolean;
   readonly vpnGatewayAsn?: number;
   readonly vpnRoutePropagation?: SubnetSelection[];
-  readonly transitGateway: ITransitGateway;
 }
 
 export class FourTierNetworkSpoke extends FourTierNetwork {
+  public readonly transitGateway: ITransitGateway;
   public readonly transitGatewayAttachment: ITransitGatewayAttachment;
 
 
@@ -34,7 +35,8 @@ export class FourTierNetworkSpoke extends FourTierNetwork {
       natGateways: 0,
     });
 
-    this.transitGatewayAttachment = props.transitGateway.attachVpc(this, {
+    this.transitGateway = props.hub.transitGateway ?? props.hub.enableTransitGateway();
+    this.transitGatewayAttachment = this.transitGateway.attachVpc(this, {
       subnets: {
         onePerAz: true,
         subnetGroupName: 'dmz',
@@ -43,7 +45,7 @@ export class FourTierNetworkSpoke extends FourTierNetwork {
 
     (this.privateSubnets as PrivateSubnet[]).forEach((x) => {
       x.addRoute('DefaultRoute', {
-        routerId: props.transitGateway.transitGatewayId,
+        routerId: this.transitGateway.transitGatewayId,
         routerType: RouterType.TRANSIT_GATEWAY,
         enablesInternetConnectivity: true,
       });

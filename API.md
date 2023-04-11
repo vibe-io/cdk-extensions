@@ -13959,9 +13959,11 @@ Prefer to use `Vpc.fromLookup()` instead.
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcIpv6CidrBlocks">vpcIpv6CidrBlocks</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.internetGatewayId">internetGatewayId</a></code> | <code>string</code> | Internet Gateway for the VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | Returns the id of the VPN Gateway (if enabled). |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
 
@@ -14197,6 +14199,16 @@ Returns the id of the VPN Gateway (if enabled).
 
 ---
 
+##### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
 ##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.defaultInstanceTenancy"></a>
 
 ```typescript
@@ -14224,6 +14236,16 @@ public readonly enableDnsSupport: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+##### `ipamPool`<sup>Optional</sup> <a name="ipamPool" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.ipamPool"></a>
+
+```typescript
+public readonly ipamPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
 
 ---
 
@@ -14730,9 +14752,11 @@ Prefer to use `Vpc.fromLookup()` instead.
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcIpv6CidrBlocks">vpcIpv6CidrBlocks</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.internetGatewayId">internetGatewayId</a></code> | <code>string</code> | Internet Gateway for the VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | Returns the id of the VPN Gateway (if enabled). |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.sharing">sharing</a></code> | <code>cdk-extensions.ec2_patterns.FourTierNetworkShareProperties</code> | *No description.* |
@@ -14971,6 +14995,16 @@ Returns the id of the VPN Gateway (if enabled).
 
 ---
 
+##### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
 ##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.defaultInstanceTenancy"></a>
 
 ```typescript
@@ -14998,6 +15032,16 @@ public readonly enableDnsSupport: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+##### `ipamPool`<sup>Optional</sup> <a name="ipamPool" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.ipamPool"></a>
+
+```typescript
+public readonly ipamPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
 
 ---
 
@@ -15496,11 +15540,14 @@ Prefer to use `Vpc.fromLookup()` instead.
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcIpv6CidrBlocks">vpcIpv6CidrBlocks</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.internetGatewayId">internetGatewayId</a></code> | <code>string</code> | Internet Gateway for the VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | Returns the id of the VPN Gateway (if enabled). |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.transitGatewayAttachment">transitGatewayAttachment</a></code> | <code>cdk-extensions.ec2.ITransitGatewayAttachment</code> | *No description.* |
 
 ---
@@ -15735,6 +15782,16 @@ Returns the id of the VPN Gateway (if enabled).
 
 ---
 
+##### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
 ##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.defaultInstanceTenancy"></a>
 
 ```typescript
@@ -15765,6 +15822,16 @@ public readonly enableDnsSupport: boolean;
 
 ---
 
+##### `ipamPool`<sup>Optional</sup> <a name="ipamPool" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.ipamPool"></a>
+
+```typescript
+public readonly ipamPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
+
+---
+
 ##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.maxAzs"></a>
 
 ```typescript
@@ -15782,6 +15849,16 @@ public readonly vpcName: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
 
 ---
 
@@ -36949,13 +37026,13 @@ const addSpokeNetworkProps: ec2_patterns.AddSpokeNetworkProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.flowLogs">flowLogs</a></code> | <code>{[ key: string ]: cdk-extensions.ec2_patterns.FlowLogOptions}</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.gatewayEndpoints">gatewayEndpoints</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.networkProvider">networkProvider</a></code> | <code>cdk-extensions.ec2.INetworkProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.vpnConnections">vpnConnections</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.VpnConnectionOptions}</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.vpnGateway">vpnGateway</a></code> | <code>boolean</code> | *No description.* |
@@ -36971,6 +37048,16 @@ public readonly availabilityZones: string[];
 ```
 
 - *Type:* string[]
+
+---
+
+##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.cidr"></a>
+
+```typescript
+public readonly cidr: ICidrProvider;
+```
+
+- *Type:* cdk-extensions.ec2.ICidrProvider
 
 ---
 
@@ -37031,16 +37118,6 @@ public readonly maxAzs: number;
 ```
 
 - *Type:* number
-
----
-
-##### `networkProvider`<sup>Optional</sup> <a name="networkProvider" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.networkProvider"></a>
-
-```typescript
-public readonly networkProvider: INetworkProvider;
-```
-
-- *Type:* cdk-extensions.ec2.INetworkProvider
 
 ---
 
@@ -48116,6 +48193,7 @@ const fourTierNetworkHubProps: ec2_patterns.FourTierNetworkHubProps = { ... }
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
@@ -48123,7 +48201,6 @@ const fourTierNetworkHubProps: ec2_patterns.FourTierNetworkHubProps = { ... }
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.gatewayEndpoints">gatewayEndpoints</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.globalNetwork">globalNetwork</a></code> | <code>cdk-extensions.networkmanager.GlobalNetwork</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.networkProvider">networkProvider</a></code> | <code>cdk-extensions.ec2.INetworkProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.sharing">sharing</a></code> | <code>cdk-extensions.ec2_patterns.FourTierNetworkShareProperties</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.vpnConnections">vpnConnections</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.VpnConnectionOptions}</code> | *No description.* |
@@ -48206,6 +48283,16 @@ public readonly availabilityZones: string[];
 
 ---
 
+##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.cidr"></a>
+
+```typescript
+public readonly cidr: ICidrProvider;
+```
+
+- *Type:* cdk-extensions.ec2.ICidrProvider
+
+---
+
 ##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.defaultInstanceTenancy"></a>
 
 ```typescript
@@ -48273,16 +48360,6 @@ public readonly maxAzs: number;
 ```
 
 - *Type:* number
-
----
-
-##### `networkProvider`<sup>Optional</sup> <a name="networkProvider" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.networkProvider"></a>
-
-```typescript
-public readonly networkProvider: INetworkProvider;
-```
-
-- *Type:* cdk-extensions.ec2.INetworkProvider
 
 ---
 
@@ -48361,6 +48438,7 @@ const fourTierNetworkProps: ec2_patterns.FourTierNetworkProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
@@ -48370,7 +48448,6 @@ const fourTierNetworkProps: ec2_patterns.FourTierNetworkProps = { ... }
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.natGatewayProvider">natGatewayProvider</a></code> | <code>aws-cdk-lib.aws_ec2.NatProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.natGateways">natGateways</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.natGatewaySubnets">natGatewaySubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.networkProvider">networkProvider</a></code> | <code>cdk-extensions.ec2.INetworkProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.vpnConnections">vpnConnections</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.VpnConnectionOptions}</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.vpnGateway">vpnGateway</a></code> | <code>boolean</code> | *No description.* |
@@ -48386,6 +48463,16 @@ public readonly availabilityZones: string[];
 ```
 
 - *Type:* string[]
+
+---
+
+##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.cidr"></a>
+
+```typescript
+public readonly cidr: ICidrProvider;
+```
+
+- *Type:* cdk-extensions.ec2.ICidrProvider
 
 ---
 
@@ -48476,16 +48563,6 @@ public readonly natGatewaySubnets: SubnetSelection;
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
-
----
-
-##### `networkProvider`<sup>Optional</sup> <a name="networkProvider" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.networkProvider"></a>
-
-```typescript
-public readonly networkProvider: INetworkProvider;
-```
-
-- *Type:* cdk-extensions.ec2.INetworkProvider
 
 ---
 
@@ -48607,15 +48684,15 @@ const fourTierNetworkSpokeProps: ec2_patterns.FourTierNetworkSpokeProps = { ... 
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.hub">hub</a></code> | <code>cdk-extensions.ec2_patterns.FourTierNetworkHub</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.flowLogs">flowLogs</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.FlowLogOptions}</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.gatewayEndpoints">gatewayEndpoints</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.networkProvider">networkProvider</a></code> | <code>cdk-extensions.ec2.INetworkProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.vpnConnections">vpnConnections</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.VpnConnectionOptions}</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.vpnGateway">vpnGateway</a></code> | <code>boolean</code> | *No description.* |
@@ -48687,13 +48764,13 @@ The AWS region this resource belongs to.
 
 ---
 
-##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.transitGateway"></a>
+##### `hub`<sup>Required</sup> <a name="hub" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.hub"></a>
 
 ```typescript
-public readonly transitGateway: ITransitGateway;
+public readonly hub: FourTierNetworkHub;
 ```
 
-- *Type:* cdk-extensions.ec2.ITransitGateway
+- *Type:* cdk-extensions.ec2_patterns.FourTierNetworkHub
 
 ---
 
@@ -48704,6 +48781,16 @@ public readonly availabilityZones: string[];
 ```
 
 - *Type:* string[]
+
+---
+
+##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.cidr"></a>
+
+```typescript
+public readonly cidr: ICidrProvider;
+```
+
+- *Type:* cdk-extensions.ec2.ICidrProvider
 
 ---
 
@@ -48764,16 +48851,6 @@ public readonly maxAzs: number;
 ```
 
 - *Type:* number
-
----
-
-##### `networkProvider`<sup>Optional</sup> <a name="networkProvider" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.networkProvider"></a>
-
-```typescript
-public readonly networkProvider: INetworkProvider;
-```
-
-- *Type:* cdk-extensions.ec2.INetworkProvider
 
 ---
 
@@ -57497,7 +57574,7 @@ const tieredSubnetsOptions: ec2.TieredSubnetsOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.ec2.TieredSubnetsOptions.property.provider">provider</a></code> | <code>cdk-extensions.ec2.INetworkProvider</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TieredSubnetsOptions.property.provider">provider</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2.TieredSubnetsOptions.property.tierMask">tierMask</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -57505,10 +57582,10 @@ const tieredSubnetsOptions: ec2.TieredSubnetsOptions = { ... }
 ##### `provider`<sup>Required</sup> <a name="provider" id="cdk-extensions.ec2.TieredSubnetsOptions.property.provider"></a>
 
 ```typescript
-public readonly provider: INetworkProvider;
+public readonly provider: ICidrProvider;
 ```
 
-- *Type:* cdk-extensions.ec2.INetworkProvider
+- *Type:* cdk-extensions.ec2.ICidrProvider
 
 ---
 
@@ -63781,6 +63858,67 @@ public readonly sizeInMb: number;
 - *Type:* number
 
 ---
+
+
+### CidrProvider <a name="CidrProvider" id="cdk-extensions.ec2.CidrProvider"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.CidrProvider.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.CidrProvider()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.CidrProvider.cidr">cidr</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.CidrProvider.ipamPool">ipamPool</a></code> | *No description.* |
+
+---
+
+##### `cidr` <a name="cidr" id="cdk-extensions.ec2.CidrProvider.cidr"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.CidrProvider.cidr(cidr: string)
+```
+
+###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.CidrProvider.cidr.parameter.cidr"></a>
+
+- *Type:* string
+
+---
+
+##### `ipamPool` <a name="ipamPool" id="cdk-extensions.ec2.CidrProvider.ipamPool"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.CidrProvider.ipamPool(pool: IIpamPool, netmask: number)
+```
+
+###### `pool`<sup>Required</sup> <a name="pool" id="cdk-extensions.ec2.CidrProvider.ipamPool.parameter.pool"></a>
+
+- *Type:* cdk-extensions.ec2.IIpamPool
+
+---
+
+###### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2.CidrProvider.ipamPool.parameter.netmask"></a>
+
+- *Type:* number
+
+---
+
 
 
 ### ClassificationString <a name="ClassificationString" id="cdk-extensions.glue.ClassificationString"></a>
@@ -75918,67 +76056,6 @@ The type of operation to be performed.
 ---
 
 
-### NetworkProvider <a name="NetworkProvider" id="cdk-extensions.ec2.NetworkProvider"></a>
-
-#### Initializers <a name="Initializers" id="cdk-extensions.ec2.NetworkProvider.Initializer"></a>
-
-```typescript
-import { ec2 } from 'cdk-extensions'
-
-new ec2.NetworkProvider()
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-
----
-
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdk-extensions.ec2.NetworkProvider.cidr">cidr</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2.NetworkProvider.ipamPool">ipamPool</a></code> | *No description.* |
-
----
-
-##### `cidr` <a name="cidr" id="cdk-extensions.ec2.NetworkProvider.cidr"></a>
-
-```typescript
-import { ec2 } from 'cdk-extensions'
-
-ec2.NetworkProvider.cidr(cidr: string)
-```
-
-###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.NetworkProvider.cidr.parameter.cidr"></a>
-
-- *Type:* string
-
----
-
-##### `ipamPool` <a name="ipamPool" id="cdk-extensions.ec2.NetworkProvider.ipamPool"></a>
-
-```typescript
-import { ec2 } from 'cdk-extensions'
-
-ec2.NetworkProvider.ipamPool(pool: IIpamPool, netmask: number)
-```
-
-###### `pool`<sup>Required</sup> <a name="pool" id="cdk-extensions.ec2.NetworkProvider.ipamPool.parameter.pool"></a>
-
-- *Type:* cdk-extensions.ec2.IIpamPool
-
----
-
-###### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2.NetworkProvider.ipamPool.parameter.netmask"></a>
-
-- *Type:* number
-
----
-
-
-
 ### NoopRegistry <a name="NoopRegistry" id="cdk-extensions.k8s_aws.NoopRegistry"></a>
 
 - *Implements:* cdk-extensions.k8s_aws.IExternalDnsRegistry
@@ -79239,7 +79316,7 @@ Called by the VPC to retrieve VPC options from the Ipam  Don't call this direc
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.ec2.TieredSubnets.property.provider">provider</a></code> | <code>cdk-extensions.ec2.INetworkProvider</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TieredSubnets.property.provider">provider</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2.TieredSubnets.property.tierMask">tierMask</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -79247,10 +79324,10 @@ Called by the VPC to retrieve VPC options from the Ipam  Don't call this direc
 ##### `provider`<sup>Required</sup> <a name="provider" id="cdk-extensions.ec2.TieredSubnets.property.provider"></a>
 
 ```typescript
-public readonly provider: INetworkProvider;
+public readonly provider: ICidrProvider;
 ```
 
-- *Type:* cdk-extensions.ec2.INetworkProvider
+- *Type:* cdk-extensions.ec2.ICidrProvider
 
 ---
 
@@ -81362,6 +81439,51 @@ Represents a config block in an alert manager receiver configuration.
 
 ---
 
+### ICidrProvider <a name="ICidrProvider" id="cdk-extensions.ec2.ICidrProvider"></a>
+
+- *Implemented By:* cdk-extensions.ec2.ICidrProvider
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.ICidrProvider.property.ipamOptions">ipamOptions</a></code> | <code>aws-cdk-lib.aws_ec2.VpcIpamOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.ICidrProvider.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.ICidrProvider.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
+
+---
+
+##### `ipamOptions`<sup>Required</sup> <a name="ipamOptions" id="cdk-extensions.ec2.ICidrProvider.property.ipamOptions"></a>
+
+```typescript
+public readonly ipamOptions: VpcIpamOptions;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.VpcIpamOptions
+
+---
+
+##### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2.ICidrProvider.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
+##### `ipamPool`<sup>Optional</sup> <a name="ipamPool" id="cdk-extensions.ec2.ICidrProvider.property.ipamPool"></a>
+
+```typescript
+public readonly ipamPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
+
+---
+
 ### ICrawler <a name="ICrawler" id="cdk-extensions.glue.ICrawler"></a>
 
 - *Extends:* constructs.IConstruct
@@ -83263,40 +83385,6 @@ public readonly operation: NestFilterOperationType;
 ```
 
 - *Type:* cdk-extensions.k8s_aws.NestFilterOperationType
-
----
-
-### INetworkProvider <a name="INetworkProvider" id="cdk-extensions.ec2.INetworkProvider"></a>
-
-- *Implemented By:* cdk-extensions.ec2.INetworkProvider
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.ec2.INetworkProvider.property.ipamOptions">ipamOptions</a></code> | <code>aws-cdk-lib.aws_ec2.VpcIpamOptions</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2.INetworkProvider.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
-
----
-
-##### `ipamOptions`<sup>Required</sup> <a name="ipamOptions" id="cdk-extensions.ec2.INetworkProvider.property.ipamOptions"></a>
-
-```typescript
-public readonly ipamOptions: VpcIpamOptions;
-```
-
-- *Type:* aws-cdk-lib.aws_ec2.VpcIpamOptions
-
----
-
-##### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2.INetworkProvider.property.netmask"></a>
-
-```typescript
-public readonly netmask: number;
-```
-
-- *Type:* number
 
 ---
 

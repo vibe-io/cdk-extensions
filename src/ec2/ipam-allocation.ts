@@ -2,6 +2,7 @@ import { Fn, Resource, ResourceProps } from 'aws-cdk-lib';
 import { CfnIPAMAllocation } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { IIpamPool } from './ipam-pool';
+import { DynamicReference } from '../core/dynamic-reference';
 
 
 export interface ResolvedIpamAllocationConfiguration {
@@ -91,7 +92,7 @@ export class IpamAllocation extends IpamAllocationBase {
       netmaskLength: resolvedConfiguration.netmaskLength,
     });
 
-    this.ipamAllocationCidr = Fn.select(2, Fn.split('|', this.resource.ref, 3));
-    this.ipamAllocationId = this.resource.attrIpamPoolAllocationId;
+    this.ipamAllocationCidr = DynamicReference.string(this, Fn.select(2, Fn.split('|', this.resource.ref, 3)));
+    this.ipamAllocationId = DynamicReference.string(this, this.resource.attrIpamPoolAllocationId);
   }
 }

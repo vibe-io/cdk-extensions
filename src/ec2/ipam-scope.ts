@@ -3,6 +3,7 @@ import { CfnIPAMScope } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { IIpam } from './ipam';
 import { IIpamPool, IpamPool, IpamPoolOptions } from './ipam-pool';
+import { DynamicReference } from '../core/dynamic-reference';
 import { ResourceImporter } from '../utils/importer';
 
 
@@ -341,11 +342,11 @@ export class IpamScope extends IpamScopeBase {
       ipamId: this.ipam.ipamId,
     });
 
-    this.ipamScopeArn = this.resource.attrArn;
-    this.ipamScopeId = this.resource.ref;
-    this.ipamScopeIpamArn = this.resource.attrIpamArn;
-    this.ipamScopeIsDefault = this.resource.attrIsDefault;
-    this.ipamScopePoolCount = this.resource.attrPoolCount;
-    this.ipamScopeType = this.resource.attrIpamScopeType;
+    this.ipamScopeArn = DynamicReference.string(this, this.resource.attrArn);
+    this.ipamScopeId = DynamicReference.string(this, this.resource.ref);
+    this.ipamScopeIpamArn = DynamicReference.string(this, this.resource.attrIpamArn);
+    this.ipamScopeIsDefault = DynamicReference.any(this, this.resource.attrIsDefault);
+    this.ipamScopePoolCount = DynamicReference.number(this, this.resource.attrPoolCount);
+    this.ipamScopeType = DynamicReference.string(this, this.resource.attrIpamScopeType);
   }
 }

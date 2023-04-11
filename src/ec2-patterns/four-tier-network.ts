@@ -3,9 +3,9 @@ import { DefaultInstanceTenancy, FlowLogResourceType, GatewayVpcEndpointOptions,
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { IpAddressManager } from '.';
-import { FlowLog, FlowLogFormat } from '../ec2';
+import { FlowLog, FlowLogFormat, IIpamPool } from '../ec2';
 import { TieredSubnets } from '../ec2/lib';
-import { INetworkProvider, NetworkProvider } from '../ec2/lib/ip-addresses/network-provider';
+import { ICidrProvider, CidrProvider } from '../ec2/lib/ip-addresses/network-provider';
 
 
 export interface FlowLogOptions extends ec2.FlowLogOptions {
@@ -14,6 +14,7 @@ export interface FlowLogOptions extends ec2.FlowLogOptions {
 
 export interface FourTierNetworkProps {
   readonly availabilityZones?: string[];
+  readonly cidr?: ICidrProvider;
   readonly defaultInstanceTenancy?: DefaultInstanceTenancy;
   readonly enableDnsHostnames?: boolean;
   readonly enableDnsSupport?: boolean;
@@ -23,7 +24,6 @@ export interface FourTierNetworkProps {
   readonly natGateways?: number;
   readonly natGatewayProvider?: NatProvider;
   readonly natGatewaySubnets?: SubnetSelection;
-  readonly networkProvider?: INetworkProvider;
   readonly vpcName?: string;
   readonly vpnConnections?: {[id: string]: VpnConnectionOptions};
   readonly vpnGateway?: boolean;
@@ -32,10 +32,13 @@ export interface FourTierNetworkProps {
 }
 
 export class FourTierNetwork extends Vpc {
+  // Input properties
   public readonly defaultInstanceTenancy?: DefaultInstanceTenancy;
   public readonly enableDnsHostnames?: boolean;
   public readonly enableDnsSupport?: boolean;
+  public readonly ipamPool?: IIpamPool;
   public readonly maxAzs?: number;
+  public readonly netmask: number;
   public readonly vpcName?: string;
 
 
@@ -46,7 +49,7 @@ export class FourTierNetwork extends Vpc {
       return addressManager.allocatePrivateNetwork(scopeStack, `${scope.node.addr}-${id}`);
     };
 
-    const provider = props?.networkProvider ?? NetworkProvider.ipamPool(allocatePool(), 16);
+    const provider = props?.cidr ?? CidrProvider.ipamPool(allocatePool(), 16);
 
     super(scope, id, {
       availabilityZones: props?.availabilityZones,
@@ -85,6 +88,9 @@ export class FourTierNetwork extends Vpc {
       vpnGatewayAsn: props?.vpnGatewayAsn,
       vpnRoutePropagation: props?.vpnRoutePropagation,
     });
+
+    this.ipamPool = provider.ipamPool;
+    this.netmask = provider.netmask;
 
     this.defaultInstanceTenancy = props?.defaultInstanceTenancy;
     this.enableDnsHostnames = props?.enableDnsHostnames;

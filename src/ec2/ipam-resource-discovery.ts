@@ -4,6 +4,7 @@ import { RegionInfo } from 'aws-cdk-lib/region-info';
 import { IConstruct } from 'constructs';
 import { IIpam, Ipam, IpamProps } from './ipam';
 import { IIpamResourceDiscoveryAssociation } from './ipam-resource-discovery-association';
+import { DynamicReference } from '../core/dynamic-reference';
 import { ResourceImporter } from '../utils/importer';
 
 
@@ -228,12 +229,12 @@ export class IpamResourceDiscovery extends IpamResourceDiscoveryBase {
       ),
     });
 
-    this.ipamResourceDiscoveryArn = this.resource.attrIpamResourceDiscoveryArn;
-    this.ipamResourceDiscoveryId = this.resource.ref;
-    this.ipamResourceDiscoveryIsDefault = this.resource.attrIsDefault;
-    this.ipamResourceDiscoveryOwnerId = this.resource.attrOwnerId;
-    this.ipamResourceDiscoveryRegion = this.resource.attrIpamResourceDiscoveryRegion;
-    this.ipamResourceDiscoveryState = this.resource.attrState;
+    this.ipamResourceDiscoveryArn = DynamicReference.string(this, this.resource.attrIpamResourceDiscoveryArn);
+    this.ipamResourceDiscoveryId = DynamicReference.string(this, this.resource.ref);
+    this.ipamResourceDiscoveryIsDefault = DynamicReference.any(this, this.resource.attrIsDefault);
+    this.ipamResourceDiscoveryOwnerId = DynamicReference.string(this, this.resource.attrOwnerId);
+    this.ipamResourceDiscoveryRegion = DynamicReference.string(this, this.resource.attrIpamResourceDiscoveryRegion);
+    this.ipamResourceDiscoveryState = DynamicReference.string(this, this.resource.attrState);
 
     const regions = props.regions ?? RegionInfo.regions.map((x) => {
       return x.name;

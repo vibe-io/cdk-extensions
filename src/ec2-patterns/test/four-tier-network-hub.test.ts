@@ -1,8 +1,8 @@
-/*import { App, Stack } from 'aws-cdk-lib';
+import { App, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { DefaultInstanceTenancy, FlowLogDestination, FlowLogMaxAggregationInterval, FlowLogTrafficType } from 'aws-cdk-lib/aws-ec2';
-import { FourTierNetwork, FourTierNetworkHub } from '..';
-import { FlowLogFormat } from '../../ec2';
+import { FourTierNetworkHub } from '..';
+import { FlowLogFormat, CidrProvider } from '../../ec2';
 import { SharedPrincipal } from '../../ram';
 
 
@@ -15,9 +15,10 @@ test('default hub network should have standard defaults', () => {
   const template = Template.fromStack(stack);
 
   template.hasResourceProperties('AWS::EC2::VPC', {
-    CidrBlock: FourTierNetwork.DEFAULT_CIDR_RANGE,
     EnableDnsHostnames: true,
     EnableDnsSupport: true,
+    Ipv4IpamPoolId: stack.resolve(hub.ipamPool?.ipamPoolId),
+    Ipv4NetmaskLength: 16,
   });
 
   template.hasResourceProperties('AWS::EC2::FlowLog', {
@@ -51,10 +52,11 @@ test('property values should be reflected in generated resources', () => {
   const template = Template.fromStack(stack);
 
   template.hasResourceProperties('AWS::EC2::VPC', {
-    CidrBlock: '192.168.0.0/16',
     EnableDnsHostnames: false,
     EnableDnsSupport: false,
     InstanceTenancy: 'dedicated',
+    Ipv4IpamPoolId: stack.resolve(hub.ipamPool?.ipamPoolId),
+    Ipv4NetmaskLength: 16,
     Tags: [
       {
         Key: 'Name',
@@ -147,16 +149,9 @@ describe('transit gateway', () => {
 
 describe('spoke networks', () => {
   test('spoke networks in the same account should produce reasonable defaults', () => {
-    const stackProps = {
-      env: {
-        account: '123456789012',
-        region: 'us-east-1',
-      },
-    };
-
     const app = new App();
-    const hubStack = new Stack(app, 'hub-stack', stackProps);
-    const spokeStack = new Stack(app, 'spoke-stack', stackProps);
+    const hubStack = createStack(app, 'hub-stack', '123456789012', 'us-east-1');
+    const spokeStack = createStack(app, 'spoke-stack', '123456789012', 'us-east-1');
 
     const hub = new FourTierNetworkHub(hubStack, 'hub');
     const spoke = hub.addSpoke(spokeStack, 'spoke');
@@ -164,9 +159,10 @@ describe('spoke networks', () => {
     const template = Template.fromStack(spokeStack);
 
     template.hasResourceProperties('AWS::EC2::VPC', {
-      CidrBlock: FourTierNetwork.DEFAULT_CIDR_RANGE,
       EnableDnsHostnames: true,
       EnableDnsSupport: true,
+      Ipv4IpamPoolId: spokeStack.resolve(spoke.ipamPool?.ipamPoolId),
+      Ipv4NetmaskLength: 16,
     });
 
     template.hasResourceProperties('AWS::EC2::TransitGatewayAttachment', {
@@ -180,20 +176,13 @@ describe('spoke networks', () => {
   });
 
   test('spoke networks in the same account should respect passed properties', () => {
-    const stackProps = {
-      env: {
-        account: '123456789012',
-        region: 'us-east-1',
-      },
-    };
-
     const app = new App();
-    const hubStack = new Stack(app, 'hub-stack', stackProps);
-    const spokeStack = new Stack(app, 'spoke-stack', stackProps);
+    const hubStack = createStack(app, 'hub-stack', '123456789012', 'us-east-1');
+    const spokeStack = createStack(app, 'spoke-stack', '123456789012', 'us-east-1');
 
     const hub = new FourTierNetworkHub(hubStack, 'hub');
     const spoke = hub.addSpoke(spokeStack, 'spoke', {
-      cidr: '192.168.0.0/16',
+      cidr: CidrProvider.cidr('192.168.0.0/16'),
       defaultInstanceTenancy: DefaultInstanceTenancy.DEDICATED,
       enableDnsSupport: false,
       enableDnsHostnames: false,
@@ -268,7 +257,7 @@ describe('spoke networks', () => {
       },
     });
     const spoke = hub.addSpoke(spokeStack, 'spoke', {
-      cidr: '192.168.0.0/16',
+      cidr: CidrProvider.cidr('192.168.0.0/16'),
     });
 
     const template = Template.fromStack(spokeStack);
@@ -291,18 +280,8 @@ describe('spoke networks', () => {
 
   test('spoke networks in a different account should produce reasonable defaults', () => {
     const app = new App();
-    const hubStack = new Stack(app, 'hub-stack', {
-      env: {
-        account: '123456789012',
-        region: 'us-east-1',
-      },
-    });
-    const spokeStack = new Stack(app, 'spoke-stack', {
-      env: {
-        account: '234567890123',
-        region: 'us-east-1',
-      },
-    });
+    const hubStack = createStack(app, 'hub-stack', '123456789012', 'us-east-1');
+    const spokeStack = createStack(app, 'spoke-stack', '234567890123', 'us-east-1');
 
     const hub = new FourTierNetworkHub(hubStack, 'hub');
     const spoke = hub.addSpoke(spokeStack, 'spoke');
@@ -320,9 +299,10 @@ describe('spoke networks', () => {
     });
 
     spokeTemplate.hasResourceProperties('AWS::EC2::VPC', {
-      CidrBlock: FourTierNetwork.DEFAULT_CIDR_RANGE,
       EnableDnsHostnames: true,
       EnableDnsSupport: true,
+      Ipv4IpamPoolId: spokeStack.resolve(hub.ipamPool?.ipamPoolId),
+      Ipv4NetmaskLength: 16,
     });
 
     spokeTemplate.hasResourceProperties('AWS::EC2::TransitGatewayAttachment', {
@@ -335,20 +315,33 @@ describe('spoke networks', () => {
     });
   });
 
+  test('multiple shared spoke accounts should produce a single resource share', () => {
+    const app = new App();
+    const hubStack = createStack(app, 'hub-stack', '123456789012', 'us-east-1');
+    const spokeStack1 = createStack(app, 'spoke-stack-1', '234567890123', 'us-east-1');
+    const spokeStack2 = createStack(app, 'spoke-stack-2', '345678901234', 'us-east-1');
+
+    const hub = new FourTierNetworkHub(hubStack, 'hub');
+    hub.addSpoke(spokeStack1, 'spoke');
+    hub.addSpoke(spokeStack2, 'spoke');
+
+    const hubTemplate = Template.fromStack(hubStack);
+
+    hubTemplate.hasResourceProperties('AWS::RAM::ResourceShare', {
+      Principals: [
+        '234567890123',
+        '345678901234',
+      ],
+      ResourceArns: [
+        hubStack.resolve(hub.transitGateway?.transitGatewayArn),
+      ],
+    });
+  });
+
   test('customer sharing settings should be respected in the ram share', () => {
     const app = new App();
-    const hubStack = new Stack(app, 'hub-stack', {
-      env: {
-        account: '123456789012',
-        region: 'us-east-1',
-      },
-    });
-    const spokeStack = new Stack(app, 'spoke-stack', {
-      env: {
-        account: '234567890123',
-        region: 'us-east-1',
-      },
-    });
+    const hubStack = createStack(app, 'hub-stack', '123456789012', 'us-east-1');
+    const spokeStack = createStack(app, 'spoke-stack', '234567890123', 'us-east-1');
 
     const hub = new FourTierNetworkHub(hubStack, 'hub', {
       sharing: {
@@ -373,16 +366,21 @@ describe('spoke networks', () => {
   });
 });
 
-
-function getCommonResources() {
-  const stack = new Stack(undefined, 'stack', {
+function createStack(app: App, id: string, account: string, region: string): Stack {
+  return new Stack(app, id, {
     env: {
-      account: '123456789012',
-      region: 'us-east-1',
+      account,
+      region,
     },
   });
+}
+
+function getCommonResources() {
+  const app = new App();
+  const stack = createStack(app, 'stack', '123456789012', 'us-east-1');
 
   return {
+    app,
     stack,
   };
-}*/
+}
