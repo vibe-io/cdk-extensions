@@ -74,7 +74,7 @@ test('adding a spoke in the same account should create one with sane defaults an
 
   const controller = new NetworkController(controllerStack, 'network-controller');
   const hub = controller.addHub(hubStack, 'hub');
-  const spoke = hub.addSpoke(spokeStack, 'spoke-stack');
+  const spoke = controller.addSpoke(spokeStack, 'spoke-stack');
 
   const hubTemplate = Template.fromStack(hubStack);
   const spokeTemplate = Template.fromStack(spokeStack);
