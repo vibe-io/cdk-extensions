@@ -17,6 +17,7 @@ export * as k8s_aws from './k8s-aws';
 export * as k8s_fargate from './k8s-fargate';
 export * as kinesis_firehose from './kinesis-firehose';
 export * as lambda from './lambda';
+export * as networkmanager from './networkmanager';
 export * as ram from './ram';
 export * as ram_resources from './ram-resources';
 export * as rds from './rds';

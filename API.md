@@ -13959,9 +13959,11 @@ Prefer to use `Vpc.fromLookup()` instead.
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcIpv6CidrBlocks">vpcIpv6CidrBlocks</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.internetGatewayId">internetGatewayId</a></code> | <code>string</code> | Internet Gateway for the VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | Returns the id of the VPN Gateway (if enabled). |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
 
@@ -14197,6 +14199,16 @@ Returns the id of the VPN Gateway (if enabled).
 
 ---
 
+##### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
 ##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.defaultInstanceTenancy"></a>
 
 ```typescript
@@ -14224,6 +14236,16 @@ public readonly enableDnsSupport: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+##### `ipamPool`<sup>Optional</sup> <a name="ipamPool" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.ipamPool"></a>
+
+```typescript
+public readonly ipamPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
 
 ---
 
@@ -14730,12 +14752,15 @@ Prefer to use `Vpc.fromLookup()` instead.
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcIpv6CidrBlocks">vpcIpv6CidrBlocks</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.internetGatewayId">internetGatewayId</a></code> | <code>string</code> | Internet Gateway for the VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | Returns the id of the VPN Gateway (if enabled). |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.sharing">sharing</a></code> | <code>cdk-extensions.ec2_patterns.FourTierNetworkShareProperties</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.globalNetwork">globalNetwork</a></code> | <code>cdk-extensions.networkmanager.GlobalNetwork</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
 
 ---
@@ -14970,6 +14995,16 @@ Returns the id of the VPN Gateway (if enabled).
 
 ---
 
+##### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
 ##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.defaultInstanceTenancy"></a>
 
 ```typescript
@@ -15000,6 +15035,16 @@ public readonly enableDnsSupport: boolean;
 
 ---
 
+##### `ipamPool`<sup>Optional</sup> <a name="ipamPool" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.ipamPool"></a>
+
+```typescript
+public readonly ipamPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
+
+---
+
 ##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.maxAzs"></a>
 
 ```typescript
@@ -15027,6 +15072,16 @@ public readonly sharing: FourTierNetworkShareProperties;
 ```
 
 - *Type:* cdk-extensions.ec2_patterns.FourTierNetworkShareProperties
+
+---
+
+##### `globalNetwork`<sup>Optional</sup> <a name="globalNetwork" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.globalNetwork"></a>
+
+```typescript
+public readonly globalNetwork: GlobalNetwork;
+```
+
+- *Type:* cdk-extensions.networkmanager.GlobalNetwork
 
 ---
 
@@ -15485,11 +15540,14 @@ Prefer to use `Vpc.fromLookup()` instead.
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcIpv6CidrBlocks">vpcIpv6CidrBlocks</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.internetGatewayId">internetGatewayId</a></code> | <code>string</code> | Internet Gateway for the VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | Returns the id of the VPN Gateway (if enabled). |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.transitGatewayAttachment">transitGatewayAttachment</a></code> | <code>cdk-extensions.ec2.ITransitGatewayAttachment</code> | *No description.* |
 
 ---
@@ -15724,6 +15782,16 @@ Returns the id of the VPN Gateway (if enabled).
 
 ---
 
+##### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
 ##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.defaultInstanceTenancy"></a>
 
 ```typescript
@@ -15754,6 +15822,16 @@ public readonly enableDnsSupport: boolean;
 
 ---
 
+##### `ipamPool`<sup>Optional</sup> <a name="ipamPool" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.ipamPool"></a>
+
+```typescript
+public readonly ipamPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
+
+---
+
 ##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.maxAzs"></a>
 
 ```typescript
@@ -15771,6 +15849,16 @@ public readonly vpcName: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
 
 ---
 
@@ -15836,6 +15924,260 @@ The default subnet configuration if natGateways specified to be 0.
 1 Public and 1 Isolated Subnet per AZ evenly split
 
 ---
+
+### GlobalNetwork <a name="GlobalNetwork" id="cdk-extensions.networkmanager.GlobalNetwork"></a>
+
+- *Implements:* cdk-extensions.networkmanager.IGlobalNetwork
+
+#### Initializers <a name="Initializers" id="cdk-extensions.networkmanager.GlobalNetwork.Initializer"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+new networkmanager.GlobalNetwork(scope: IConstruct, id: string, props?: GlobalNetworkProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.networkmanager.GlobalNetworkProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.networkmanager.GlobalNetwork.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.networkmanager.GlobalNetwork.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.networkmanager.GlobalNetwork.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.networkmanager.GlobalNetworkProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.registerTransitGateway">registerTransitGateway</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.networkmanager.GlobalNetwork.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.networkmanager.GlobalNetwork.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.networkmanager.GlobalNetwork.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `registerTransitGateway` <a name="registerTransitGateway" id="cdk-extensions.networkmanager.GlobalNetwork.registerTransitGateway"></a>
+
+```typescript
+public registerTransitGateway(id: string, options: RegisterTransitGatewayProps): ITransitGatewayRegistration
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.networkmanager.GlobalNetwork.registerTransitGateway.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.networkmanager.GlobalNetwork.registerTransitGateway.parameter.options"></a>
+
+- *Type:* cdk-extensions.networkmanager.RegisterTransitGatewayProps
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.networkmanager.GlobalNetwork.isConstruct"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+networkmanager.GlobalNetwork.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.networkmanager.GlobalNetwork.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.networkmanager.GlobalNetwork.isOwnedResource"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+networkmanager.GlobalNetwork.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.networkmanager.GlobalNetwork.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.networkmanager.GlobalNetwork.isResource"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+networkmanager.GlobalNetwork.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.networkmanager.GlobalNetwork.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.property.globalNetworkArn">globalNetworkArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.property.globalNetworkId">globalNetworkId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetwork.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_networkmanager.CfnGlobalNetwork</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.networkmanager.GlobalNetwork.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.networkmanager.GlobalNetwork.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.networkmanager.GlobalNetwork.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `globalNetworkArn`<sup>Required</sup> <a name="globalNetworkArn" id="cdk-extensions.networkmanager.GlobalNetwork.property.globalNetworkArn"></a>
+
+```typescript
+public readonly globalNetworkArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `globalNetworkId`<sup>Required</sup> <a name="globalNetworkId" id="cdk-extensions.networkmanager.GlobalNetwork.property.globalNetworkId"></a>
+
+```typescript
+public readonly globalNetworkId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.networkmanager.GlobalNetwork.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resource`<sup>Optional</sup> <a name="resource" id="cdk-extensions.networkmanager.GlobalNetwork.property.resource"></a>
+
+```typescript
+public readonly resource: CfnGlobalNetwork;
+```
+
+- *Type:* aws-cdk-lib.aws_networkmanager.CfnGlobalNetwork
+
+---
+
 
 ### GroupBase <a name="GroupBase" id="cdk-extensions.sso.GroupBase"></a>
 
@@ -16561,6 +16903,3163 @@ The ID of the IAM Identity Center instance under which the operation will be exe
 
 ---
 
+
+### IpAddressManager <a name="IpAddressManager" id="cdk-extensions.ec2_patterns.IpAddressManager"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2_patterns.IpAddressManager.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+new ec2_patterns.IpAddressManager(scope: IConstruct, id: string, props?: IpAddressManagerProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2_patterns.IpAddressManagerProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.IpAddressManager.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.IpAddressManager.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2_patterns.IpAddressManager.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.IpAddressManagerProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.addPrivatePool">addPrivatePool</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.addRegion">addRegion</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.allocatePrivateNetwork">allocatePrivateNetwork</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2_patterns.IpAddressManager.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2_patterns.IpAddressManager.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2_patterns.IpAddressManager.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addPrivatePool` <a name="addPrivatePool" id="cdk-extensions.ec2_patterns.IpAddressManager.addPrivatePool"></a>
+
+```typescript
+public addPrivatePool(name: string, options?: AddPoolOptions): IIpamPool
+```
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.ec2_patterns.IpAddressManager.addPrivatePool.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.IpAddressManager.addPrivatePool.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.AddPoolOptions
+
+---
+
+##### `addRegion` <a name="addRegion" id="cdk-extensions.ec2_patterns.IpAddressManager.addRegion"></a>
+
+```typescript
+public addRegion(region: string): void
+```
+
+###### `region`<sup>Required</sup> <a name="region" id="cdk-extensions.ec2_patterns.IpAddressManager.addRegion.parameter.region"></a>
+
+- *Type:* string
+
+---
+
+##### `allocatePrivateNetwork` <a name="allocatePrivateNetwork" id="cdk-extensions.ec2_patterns.IpAddressManager.allocatePrivateNetwork"></a>
+
+```typescript
+public allocatePrivateNetwork(scope: IConstruct, id: string, options?: AllocatePrivateNetworkOptions): IpamPool
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.IpAddressManager.allocatePrivateNetwork.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.IpAddressManager.allocatePrivateNetwork.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.IpAddressManager.allocatePrivateNetwork.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.AllocatePrivateNetworkOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2_patterns.IpAddressManager.isConstruct"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.IpAddressManager.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2_patterns.IpAddressManager.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2_patterns.IpAddressManager.isOwnedResource"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.IpAddressManager.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2_patterns.IpAddressManager.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2_patterns.IpAddressManager.isResource"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.IpAddressManager.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2_patterns.IpAddressManager.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.allowExternalPricipals">allowExternalPricipals</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.ipam">ipam</a></code> | <code>cdk-extensions.ec2.Ipam</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.sharingEnabled">sharingEnabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.resourceShare">resourceShare</a></code> | <code>cdk-extensions.ram.ResourceShare</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2_patterns.IpAddressManager.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2_patterns.IpAddressManager.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2_patterns.IpAddressManager.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `allowExternalPricipals`<sup>Required</sup> <a name="allowExternalPricipals" id="cdk-extensions.ec2_patterns.IpAddressManager.property.allowExternalPricipals"></a>
+
+```typescript
+public readonly allowExternalPricipals: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `ipam`<sup>Required</sup> <a name="ipam" id="cdk-extensions.ec2_patterns.IpAddressManager.property.ipam"></a>
+
+```typescript
+public readonly ipam: Ipam;
+```
+
+- *Type:* cdk-extensions.ec2.Ipam
+
+---
+
+##### `sharingEnabled`<sup>Required</sup> <a name="sharingEnabled" id="cdk-extensions.ec2_patterns.IpAddressManager.property.sharingEnabled"></a>
+
+```typescript
+public readonly sharingEnabled: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `resourceShare`<sup>Optional</sup> <a name="resourceShare" id="cdk-extensions.ec2_patterns.IpAddressManager.property.resourceShare"></a>
+
+```typescript
+public readonly resourceShare: ResourceShare;
+```
+
+- *Type:* cdk-extensions.ram.ResourceShare
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_CIDR">DEFAULT_CIDR</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_POOL_ALLOCATION_MASK">DEFAULT_POOL_ALLOCATION_MASK</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `DEFAULT_CIDR`<sup>Required</sup> <a name="DEFAULT_CIDR" id="cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_CIDR"></a>
+
+```typescript
+public readonly DEFAULT_CIDR: string;
+```
+
+- *Type:* string
+
+---
+
+##### `DEFAULT_POOL_ALLOCATION_MASK`<sup>Required</sup> <a name="DEFAULT_POOL_ALLOCATION_MASK" id="cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_POOL_ALLOCATION_MASK"></a>
+
+```typescript
+public readonly DEFAULT_POOL_ALLOCATION_MASK: number;
+```
+
+- *Type:* number
+
+---
+
+### Ipam <a name="Ipam" id="cdk-extensions.ec2.Ipam"></a>
+
+- *Implements:* cdk-extensions.ec2.IIpam
+
+Represents an AWS IP Address Manager.
+
+IPAM is a VPC feature that you can use to automate your IP address
+management workflows including assigning, tracking, troubleshooting, and
+auditing IP addresses across AWS Regions and accounts throughout your AWS
+Organization.
+
+> [[AWS::EC2::IPAM](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html)]([AWS::EC2::IPAM](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.Ipam.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.Ipam(scope: IConstruct, id: string, props?: IpamProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipam.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.ec2.Ipam.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.ec2.Ipam.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.IpamProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.Ipam.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.Ipam.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2.Ipam.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.IpamProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipam.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.Ipam.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2.Ipam.addRegion">addRegion</a></code> | Adds an operating region to the IPAM. |
+| <code><a href="#cdk-extensions.ec2.Ipam.addScope">addScope</a></code> | Adds an IPAM scope to the IPAM. |
+| <code><a href="#cdk-extensions.ec2.Ipam.associateResourceDiscovery">associateResourceDiscovery</a></code> | Associates an existing IPAM resource discovery with the IPAM. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.Ipam.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.Ipam.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.Ipam.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addRegion` <a name="addRegion" id="cdk-extensions.ec2.Ipam.addRegion"></a>
+
+```typescript
+public addRegion(region: string): void
+```
+
+Adds an operating region to the IPAM.
+
+The operating Regions for an IPAM. Operating Regions are AWS Regions where
+the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and
+monitors resources in the AWS Regions you select as operating Regions.
+
+###### `region`<sup>Required</sup> <a name="region" id="cdk-extensions.ec2.Ipam.addRegion.parameter.region"></a>
+
+- *Type:* string
+
+The region to add to the IPAM.
+
+---
+
+##### `addScope` <a name="addScope" id="cdk-extensions.ec2.Ipam.addScope"></a>
+
+```typescript
+public addScope(id: string, options: IpamScopeOptions): IIpamScope
+```
+
+Adds an IPAM scope to the IPAM.
+
+In IPAM, a scope is the highest-level container within IPAM. Scopes enable
+you to reuse IP addresses across multiple unconnected networks without
+causing IP address overlap or conflict.
+
+> [[How IPAM works](https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html)]([How IPAM works](https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html))
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.Ipam.addScope.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated to the scope being added.
+
+A unique id
+must be used each time this method is invoked.
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.Ipam.addScope.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.IpamScopeOptions
+
+Arguments specifying the details of the scope being added.
+
+---
+
+##### `associateResourceDiscovery` <a name="associateResourceDiscovery" id="cdk-extensions.ec2.Ipam.associateResourceDiscovery"></a>
+
+```typescript
+public associateResourceDiscovery(resourceDiscovery: IIpamResourceDiscovery): IIpamResourceDiscoveryAssociation
+```
+
+Associates an existing IPAM resource discovery with the IPAM.
+
+IPAM aggregates the resource CIDRs discovered by the associated resource
+discovery.
+
+###### `resourceDiscovery`<sup>Required</sup> <a name="resourceDiscovery" id="cdk-extensions.ec2.Ipam.associateResourceDiscovery.parameter.resourceDiscovery"></a>
+
+- *Type:* cdk-extensions.ec2.IIpamResourceDiscovery
+
+The IPAM resource discovery to associate with the IPAM.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipam.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.Ipam.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.Ipam.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ec2.Ipam.fromIpamArn">fromIpamArn</a></code> | Imports an existing IPAM by specifying its Amazon Resource Name (ARN). |
+| <code><a href="#cdk-extensions.ec2.Ipam.fromIpamAttributes">fromIpamAttributes</a></code> | Imports an existing IAPM by explicitly specifying its attributes. |
+| <code><a href="#cdk-extensions.ec2.Ipam.fromIpamId">fromIpamId</a></code> | Imports an existing IPAM by explicitly specifying its AWS generated ID. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.Ipam.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.Ipam.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.Ipam.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.Ipam.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.Ipam.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.Ipam.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.Ipam.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.Ipam.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.Ipam.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromIpamArn` <a name="fromIpamArn" id="cdk-extensions.ec2.Ipam.fromIpamArn"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.Ipam.fromIpamArn(scope: IConstruct, id: string, ipamArn: string)
+```
+
+Imports an existing IPAM by specifying its Amazon Resource Name (ARN).
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.Ipam.fromIpamArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.Ipam.fromIpamArn.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `ipamArn`<sup>Required</sup> <a name="ipamArn" id="cdk-extensions.ec2.Ipam.fromIpamArn.parameter.ipamArn"></a>
+
+- *Type:* string
+
+The ARN of the existing IPAM to be imported.
+
+---
+
+##### `fromIpamAttributes` <a name="fromIpamAttributes" id="cdk-extensions.ec2.Ipam.fromIpamAttributes"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.Ipam.fromIpamAttributes(scope: IConstruct, id: string, attrs: IpamAttributes)
+```
+
+Imports an existing IAPM by explicitly specifying its attributes.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.Ipam.fromIpamAttributes.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.Ipam.fromIpamAttributes.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.ec2.Ipam.fromIpamAttributes.parameter.attrs"></a>
+
+- *Type:* cdk-extensions.ec2.IpamAttributes
+
+The attributes of the existing IPAM to be imported.
+
+---
+
+##### `fromIpamId` <a name="fromIpamId" id="cdk-extensions.ec2.Ipam.fromIpamId"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.Ipam.fromIpamId(scope: IConstruct, id: string, ipamId: string)
+```
+
+Imports an existing IPAM by explicitly specifying its AWS generated ID.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.Ipam.fromIpamId.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.Ipam.fromIpamId.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `ipamId`<sup>Required</sup> <a name="ipamId" id="cdk-extensions.ec2.Ipam.fromIpamId.parameter.ipamId"></a>
+
+- *Type:* string
+
+The AWS generated ID of the existing IPAM to be imported.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.defaultPrivateScope">defaultPrivateScope</a></code> | <code>cdk-extensions.ec2.IIpamScope</code> | The IPAM's default private scope. |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.defaultPublicScope">defaultPublicScope</a></code> | <code>cdk-extensions.ec2.IIpamScope</code> | The IPAM's default public scope. |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.ipamArn">ipamArn</a></code> | <code>string</code> | The ARN of the IPAM. |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.ipamId">ipamId</a></code> | <code>string</code> | The ID of the IPAM. |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.ipamPrivateDefaultScopeId">ipamPrivateDefaultScopeId</a></code> | <code>string</code> | The ID of the IPAM's default private scope. |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.ipamPublicDefaultScopeId">ipamPublicDefaultScopeId</a></code> | <code>string</code> | The ID of the IPAM's default public scope. |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.ipamScopeCount">ipamScopeCount</a></code> | <code>number</code> | The number of scopes in the IPAM. |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.regions">regions</a></code> | <code>string[]</code> | An immutable collection of operating Regions for an IPAM. |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnIPAM</code> | The underlying IPAM CloudFormation resource. |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.description">description</a></code> | <code>string</code> | The description for the IPAM. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.Ipam.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.Ipam.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.Ipam.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `defaultPrivateScope`<sup>Required</sup> <a name="defaultPrivateScope" id="cdk-extensions.ec2.Ipam.property.defaultPrivateScope"></a>
+
+```typescript
+public readonly defaultPrivateScope: IIpamScope;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamScope
+
+The IPAM's default private scope.
+
+---
+
+##### `defaultPublicScope`<sup>Required</sup> <a name="defaultPublicScope" id="cdk-extensions.ec2.Ipam.property.defaultPublicScope"></a>
+
+```typescript
+public readonly defaultPublicScope: IIpamScope;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamScope
+
+The IPAM's default public scope.
+
+---
+
+##### `ipamArn`<sup>Required</sup> <a name="ipamArn" id="cdk-extensions.ec2.Ipam.property.ipamArn"></a>
+
+```typescript
+public readonly ipamArn: string;
+```
+
+- *Type:* string
+
+The ARN of the IPAM.
+
+---
+
+##### `ipamId`<sup>Required</sup> <a name="ipamId" id="cdk-extensions.ec2.Ipam.property.ipamId"></a>
+
+```typescript
+public readonly ipamId: string;
+```
+
+- *Type:* string
+
+The ID of the IPAM.
+
+---
+
+##### `ipamPrivateDefaultScopeId`<sup>Required</sup> <a name="ipamPrivateDefaultScopeId" id="cdk-extensions.ec2.Ipam.property.ipamPrivateDefaultScopeId"></a>
+
+```typescript
+public readonly ipamPrivateDefaultScopeId: string;
+```
+
+- *Type:* string
+
+The ID of the IPAM's default private scope.
+
+---
+
+##### `ipamPublicDefaultScopeId`<sup>Required</sup> <a name="ipamPublicDefaultScopeId" id="cdk-extensions.ec2.Ipam.property.ipamPublicDefaultScopeId"></a>
+
+```typescript
+public readonly ipamPublicDefaultScopeId: string;
+```
+
+- *Type:* string
+
+The ID of the IPAM's default public scope.
+
+---
+
+##### `ipamScopeCount`<sup>Required</sup> <a name="ipamScopeCount" id="cdk-extensions.ec2.Ipam.property.ipamScopeCount"></a>
+
+```typescript
+public readonly ipamScopeCount: number;
+```
+
+- *Type:* number
+
+The number of scopes in the IPAM.
+
+The scope quota is 5.
+
+---
+
+##### `regions`<sup>Required</sup> <a name="regions" id="cdk-extensions.ec2.Ipam.property.regions"></a>
+
+```typescript
+public readonly regions: string[];
+```
+
+- *Type:* string[]
+
+An immutable collection of operating Regions for an IPAM.
+
+Operating Regions are AWS Regions where the IPAM is allowed to manage IP
+address CIDRs. IPAM only discovers and monitors resources in the AWS
+Regions you select as operating Regions.
+
+> [[Create an IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html)]([Create an IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html))
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.Ipam.property.resource"></a>
+
+```typescript
+public readonly resource: CfnIPAM;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnIPAM
+
+The underlying IPAM CloudFormation resource.
+
+> [[AWS::EC2::IPAM](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html)]([AWS::EC2::IPAM](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html))
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.Ipam.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+The description for the IPAM.
+
+> [[IPAM Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-description)]([IPAM Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-description))
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipam.property.ARN_FORMAT">ARN_FORMAT</a></code> | <code>aws-cdk-lib.ArnFormat</code> | The format for Amazon Resource Names (ARN's) for IPAM resources. |
+
+---
+
+##### `ARN_FORMAT`<sup>Required</sup> <a name="ARN_FORMAT" id="cdk-extensions.ec2.Ipam.property.ARN_FORMAT"></a>
+
+```typescript
+public readonly ARN_FORMAT: ArnFormat;
+```
+
+- *Type:* aws-cdk-lib.ArnFormat
+
+The format for Amazon Resource Names (ARN's) for IPAM resources.
+
+---
+
+### IpamAllocation <a name="IpamAllocation" id="cdk-extensions.ec2.IpamAllocation"></a>
+
+- *Implements:* cdk-extensions.ec2.IIpamAllocation
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.IpamAllocation.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.IpamAllocation(scope: IConstruct, id: string, props: IpamAllocationProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.IpamAllocationProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IpamAllocation.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamAllocation.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.IpamAllocation.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.IpamAllocationProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.IpamAllocation.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.IpamAllocation.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.IpamAllocation.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.IpamAllocation.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamAllocation.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.IpamAllocation.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.IpamAllocation.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamAllocation.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.IpamAllocation.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.IpamAllocation.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamAllocation.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.IpamAllocation.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.property.allocation">allocation</a></code> | <code>cdk-extensions.ec2.IIpamAllocationConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.property.ipamAllocationCidr">ipamAllocationCidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.property.ipamAllocationId">ipamAllocationId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnIPAMAllocation</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamAllocation.property.description">description</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.IpamAllocation.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.IpamAllocation.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.IpamAllocation.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `allocation`<sup>Required</sup> <a name="allocation" id="cdk-extensions.ec2.IpamAllocation.property.allocation"></a>
+
+```typescript
+public readonly allocation: IIpamAllocationConfiguration;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamAllocationConfiguration
+
+---
+
+##### `ipamAllocationCidr`<sup>Required</sup> <a name="ipamAllocationCidr" id="cdk-extensions.ec2.IpamAllocation.property.ipamAllocationCidr"></a>
+
+```typescript
+public readonly ipamAllocationCidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamAllocationId`<sup>Required</sup> <a name="ipamAllocationId" id="cdk-extensions.ec2.IpamAllocation.property.ipamAllocationId"></a>
+
+```typescript
+public readonly ipamAllocationId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPool`<sup>Required</sup> <a name="ipamPool" id="cdk-extensions.ec2.IpamAllocation.property.ipamPool"></a>
+
+```typescript
+public readonly ipamPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.IpamAllocation.property.resource"></a>
+
+```typescript
+public readonly resource: CfnIPAMAllocation;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnIPAMAllocation
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.IpamAllocation.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+
+### IpamPool <a name="IpamPool" id="cdk-extensions.ec2.IpamPool"></a>
+
+- *Implements:* cdk-extensions.ec2.IIpamPool
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.IpamPool.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.IpamPool(scope: IConstruct, id: string, props: IpamPoolProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamPool.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.IpamPoolProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IpamPool.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamPool.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.IpamPool.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.IpamPoolProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamPool.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.IpamPool.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2.IpamPool.addChildPool">addChildPool</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.addCidrToPool">addCidrToPool</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.addTagRestriction">addTagRestriction</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.allocateCidrFromPool">allocateCidrFromPool</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.IpamPool.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.IpamPool.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.IpamPool.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addChildPool` <a name="addChildPool" id="cdk-extensions.ec2.IpamPool.addChildPool"></a>
+
+```typescript
+public addChildPool(id: string, options?: AddChildPoolOptions): IIpamPool
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamPool.addChildPool.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.IpamPool.addChildPool.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.AddChildPoolOptions
+
+---
+
+##### `addCidrToPool` <a name="addCidrToPool" id="cdk-extensions.ec2.IpamPool.addCidrToPool"></a>
+
+```typescript
+public addCidrToPool(id: string, options: AddCidrToPoolOptions): AddCidrToPoolResult
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamPool.addCidrToPool.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.IpamPool.addCidrToPool.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.AddCidrToPoolOptions
+
+---
+
+##### `addTagRestriction` <a name="addTagRestriction" id="cdk-extensions.ec2.IpamPool.addTagRestriction"></a>
+
+```typescript
+public addTagRestriction(key: string, value: string): IIpamPool
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.ec2.IpamPool.addTagRestriction.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.ec2.IpamPool.addTagRestriction.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `allocateCidrFromPool` <a name="allocateCidrFromPool" id="cdk-extensions.ec2.IpamPool.allocateCidrFromPool"></a>
+
+```typescript
+public allocateCidrFromPool(id: string, options?: AllocateCidrFromPoolOptions): IIpamAllocation
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamPool.allocateCidrFromPool.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.IpamPool.allocateCidrFromPool.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.AllocateCidrFromPoolOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamPool.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.IpamPool.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.IpamPool.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.IpamPool.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamPool.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.IpamPool.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.IpamPool.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamPool.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.IpamPool.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.IpamPool.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamPool.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.IpamPool.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.ipamPoolArn">ipamPoolArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.ipamPoolDepth">ipamPoolDepth</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.ipamPoolId">ipamPoolId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.ipamPoolIpamArn">ipamPoolIpamArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.ipamPoolScopeArn">ipamPoolScopeArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.ipamPoolScopeType">ipamPoolScopeType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.ipamPoolState">ipamPoolState</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.ipamPoolStateMessage">ipamPoolStateMessage</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.ipamScope">ipamScope</a></code> | <code>cdk-extensions.ec2.IIpamScope</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnIPAMPool</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.addressConfiguration">addressConfiguration</a></code> | <code>cdk-extensions.ec2.AddressConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.autoImport">autoImport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.consumer">consumer</a></code> | <code>cdk-extensions.ec2.IpamConsumer</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.locale">locale</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.parentPool">parentPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPool.property.publicIpSource">publicIpSource</a></code> | <code>cdk-extensions.ec2.PublicIpSource</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.IpamPool.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.IpamPool.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.IpamPool.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `ipamPoolArn`<sup>Required</sup> <a name="ipamPoolArn" id="cdk-extensions.ec2.IpamPool.property.ipamPoolArn"></a>
+
+```typescript
+public readonly ipamPoolArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPoolDepth`<sup>Required</sup> <a name="ipamPoolDepth" id="cdk-extensions.ec2.IpamPool.property.ipamPoolDepth"></a>
+
+```typescript
+public readonly ipamPoolDepth: number;
+```
+
+- *Type:* number
+
+---
+
+##### `ipamPoolId`<sup>Required</sup> <a name="ipamPoolId" id="cdk-extensions.ec2.IpamPool.property.ipamPoolId"></a>
+
+```typescript
+public readonly ipamPoolId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPoolIpamArn`<sup>Required</sup> <a name="ipamPoolIpamArn" id="cdk-extensions.ec2.IpamPool.property.ipamPoolIpamArn"></a>
+
+```typescript
+public readonly ipamPoolIpamArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPoolScopeArn`<sup>Required</sup> <a name="ipamPoolScopeArn" id="cdk-extensions.ec2.IpamPool.property.ipamPoolScopeArn"></a>
+
+```typescript
+public readonly ipamPoolScopeArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPoolScopeType`<sup>Required</sup> <a name="ipamPoolScopeType" id="cdk-extensions.ec2.IpamPool.property.ipamPoolScopeType"></a>
+
+```typescript
+public readonly ipamPoolScopeType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPoolState`<sup>Required</sup> <a name="ipamPoolState" id="cdk-extensions.ec2.IpamPool.property.ipamPoolState"></a>
+
+```typescript
+public readonly ipamPoolState: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPoolStateMessage`<sup>Required</sup> <a name="ipamPoolStateMessage" id="cdk-extensions.ec2.IpamPool.property.ipamPoolStateMessage"></a>
+
+```typescript
+public readonly ipamPoolStateMessage: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamScope`<sup>Required</sup> <a name="ipamScope" id="cdk-extensions.ec2.IpamPool.property.ipamScope"></a>
+
+```typescript
+public readonly ipamScope: IIpamScope;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamScope
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.IpamPool.property.resource"></a>
+
+```typescript
+public readonly resource: CfnIPAMPool;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnIPAMPool
+
+---
+
+##### `addressConfiguration`<sup>Optional</sup> <a name="addressConfiguration" id="cdk-extensions.ec2.IpamPool.property.addressConfiguration"></a>
+
+```typescript
+public readonly addressConfiguration: AddressConfiguration;
+```
+
+- *Type:* cdk-extensions.ec2.AddressConfiguration
+
+---
+
+##### `autoImport`<sup>Optional</sup> <a name="autoImport" id="cdk-extensions.ec2.IpamPool.property.autoImport"></a>
+
+```typescript
+public readonly autoImport: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `consumer`<sup>Optional</sup> <a name="consumer" id="cdk-extensions.ec2.IpamPool.property.consumer"></a>
+
+```typescript
+public readonly consumer: IpamConsumer;
+```
+
+- *Type:* cdk-extensions.ec2.IpamConsumer
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.IpamPool.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `locale`<sup>Optional</sup> <a name="locale" id="cdk-extensions.ec2.IpamPool.property.locale"></a>
+
+```typescript
+public readonly locale: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.IpamPool.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `parentPool`<sup>Optional</sup> <a name="parentPool" id="cdk-extensions.ec2.IpamPool.property.parentPool"></a>
+
+```typescript
+public readonly parentPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
+
+---
+
+##### `publicIpSource`<sup>Optional</sup> <a name="publicIpSource" id="cdk-extensions.ec2.IpamPool.property.publicIpSource"></a>
+
+```typescript
+public readonly publicIpSource: PublicIpSource;
+```
+
+- *Type:* cdk-extensions.ec2.PublicIpSource
+
+---
+
+
+### IpamPoolCidr <a name="IpamPoolCidr" id="cdk-extensions.ec2.IpamPoolCidr"></a>
+
+- *Implements:* cdk-extensions.ec2.IIpamPoolCidr
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.IpamPoolCidr.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.IpamPoolCidr(scope: IConstruct, id: string, props: IpamPoolCidrProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.IpamPoolCidrProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IpamPoolCidr.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamPoolCidr.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.IpamPoolCidr.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.IpamPoolCidrProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.IpamPoolCidr.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.IpamPoolCidr.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.IpamPoolCidr.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.IpamPoolCidr.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamPoolCidr.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.IpamPoolCidr.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.IpamPoolCidr.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamPoolCidr.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.IpamPoolCidr.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.IpamPoolCidr.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamPoolCidr.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.IpamPoolCidr.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.property.configuration">configuration</a></code> | <code>cdk-extensions.ec2.IIpamPoolCidrConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.property.ipamPoolCidrId">ipamPoolCidrId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.property.ipamPoolCidrState">ipamPoolCidrState</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidr.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnIPAMPoolCidr</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.IpamPoolCidr.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.IpamPoolCidr.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.IpamPoolCidr.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `configuration`<sup>Required</sup> <a name="configuration" id="cdk-extensions.ec2.IpamPoolCidr.property.configuration"></a>
+
+```typescript
+public readonly configuration: IIpamPoolCidrConfiguration;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPoolCidrConfiguration
+
+---
+
+##### `ipamPool`<sup>Required</sup> <a name="ipamPool" id="cdk-extensions.ec2.IpamPoolCidr.property.ipamPool"></a>
+
+```typescript
+public readonly ipamPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
+
+---
+
+##### `ipamPoolCidrId`<sup>Required</sup> <a name="ipamPoolCidrId" id="cdk-extensions.ec2.IpamPoolCidr.property.ipamPoolCidrId"></a>
+
+```typescript
+public readonly ipamPoolCidrId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPoolCidrState`<sup>Required</sup> <a name="ipamPoolCidrState" id="cdk-extensions.ec2.IpamPoolCidr.property.ipamPoolCidrState"></a>
+
+```typescript
+public readonly ipamPoolCidrState: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.IpamPoolCidr.property.resource"></a>
+
+```typescript
+public readonly resource: CfnIPAMPoolCidr;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnIPAMPoolCidr
+
+---
+
+
+### IpamResourceDiscovery <a name="IpamResourceDiscovery" id="cdk-extensions.ec2.IpamResourceDiscovery"></a>
+
+- *Implements:* cdk-extensions.ec2.IIpamResourceDiscovery
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.IpamResourceDiscovery.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.IpamResourceDiscovery(scope: IConstruct, id: string, props?: IpamResourceDiscoveryProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.IpamResourceDiscoveryProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IpamResourceDiscovery.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamResourceDiscovery.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.ec2.IpamResourceDiscovery.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.IpamResourceDiscoveryProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.addIpam">addIpam</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.addRegion">addRegion</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.associateIpam">associateIpam</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.IpamResourceDiscovery.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.IpamResourceDiscovery.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.IpamResourceDiscovery.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addIpam` <a name="addIpam" id="cdk-extensions.ec2.IpamResourceDiscovery.addIpam"></a>
+
+```typescript
+public addIpam(id: string, options: IpamProps): IIpam
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamResourceDiscovery.addIpam.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.IpamResourceDiscovery.addIpam.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.IpamProps
+
+---
+
+##### `addRegion` <a name="addRegion" id="cdk-extensions.ec2.IpamResourceDiscovery.addRegion"></a>
+
+```typescript
+public addRegion(region: string): void
+```
+
+###### `region`<sup>Required</sup> <a name="region" id="cdk-extensions.ec2.IpamResourceDiscovery.addRegion.parameter.region"></a>
+
+- *Type:* string
+
+---
+
+##### `associateIpam` <a name="associateIpam" id="cdk-extensions.ec2.IpamResourceDiscovery.associateIpam"></a>
+
+```typescript
+public associateIpam(ipam: IIpam): IIpamResourceDiscoveryAssociation
+```
+
+###### `ipam`<sup>Required</sup> <a name="ipam" id="cdk-extensions.ec2.IpamResourceDiscovery.associateIpam.parameter.ipam"></a>
+
+- *Type:* cdk-extensions.ec2.IIpam
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryArn">fromIpamResourceDiscoveryArn</a></code> | Imports an existing IPAM resource discovery by specifying its Amazon Resource Name (ARN). |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryAttributes">fromIpamResourceDiscoveryAttributes</a></code> | Imports an existing IPAM resource discovery by explicitly specifying its attributes. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryId">fromIpamResourceDiscoveryId</a></code> | Imports an existing IPAM resource discovery by explicitly specifying its AWS generated ID. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.IpamResourceDiscovery.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamResourceDiscovery.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.IpamResourceDiscovery.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.IpamResourceDiscovery.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamResourceDiscovery.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.IpamResourceDiscovery.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.IpamResourceDiscovery.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamResourceDiscovery.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.IpamResourceDiscovery.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromIpamResourceDiscoveryArn` <a name="fromIpamResourceDiscoveryArn" id="cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryArn"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryArn(scope: IConstruct, id: string, ipamResourceDiscoveryArn: string)
+```
+
+Imports an existing IPAM resource discovery by specifying its Amazon Resource Name (ARN).
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryArn.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `ipamResourceDiscoveryArn`<sup>Required</sup> <a name="ipamResourceDiscoveryArn" id="cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryArn.parameter.ipamResourceDiscoveryArn"></a>
+
+- *Type:* string
+
+The ARN of the existing IPAM resource discovery to be imported.
+
+---
+
+##### `fromIpamResourceDiscoveryAttributes` <a name="fromIpamResourceDiscoveryAttributes" id="cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryAttributes"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryAttributes(scope: IConstruct, id: string, attrs: IpamResourceDiscoveryAttributes)
+```
+
+Imports an existing IPAM resource discovery by explicitly specifying its attributes.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryAttributes.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryAttributes.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryAttributes.parameter.attrs"></a>
+
+- *Type:* cdk-extensions.ec2.IpamResourceDiscoveryAttributes
+
+The attributes of the existing IPAM resource discovery to be imported.
+
+---
+
+##### `fromIpamResourceDiscoveryId` <a name="fromIpamResourceDiscoveryId" id="cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryId"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryId(scope: IConstruct, id: string, ipamResourceDiscoveryId: string)
+```
+
+Imports an existing IPAM resource discovery by explicitly specifying its AWS generated ID.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryId.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryId.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `ipamResourceDiscoveryId`<sup>Required</sup> <a name="ipamResourceDiscoveryId" id="cdk-extensions.ec2.IpamResourceDiscovery.fromIpamResourceDiscoveryId.parameter.ipamResourceDiscoveryId"></a>
+
+- *Type:* string
+
+The AWS generated ID of the existing IPAM resource discovery to be imported.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.property.ipamResourceDiscoveryArn">ipamResourceDiscoveryArn</a></code> | <code>string</code> | The resource discovery ARN. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.property.ipamResourceDiscoveryId">ipamResourceDiscoveryId</a></code> | <code>string</code> | The resource discovery ID. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.property.ipamResourceDiscoveryIsDefault">ipamResourceDiscoveryIsDefault</a></code> | <code>aws-cdk-lib.IResolvable</code> | Defines if the resource discovery is the default. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.property.ipamResourceDiscoveryOwnerId">ipamResourceDiscoveryOwnerId</a></code> | <code>string</code> | The owner ID. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.property.ipamResourceDiscoveryRegion">ipamResourceDiscoveryRegion</a></code> | <code>string</code> | The resource discovery Region. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.property.ipamResourceDiscoveryState">ipamResourceDiscoveryState</a></code> | <code>string</code> | The resource discovery's state. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.property.regions">regions</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnIPAMResourceDiscovery</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.property.description">description</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.IpamResourceDiscovery.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.IpamResourceDiscovery.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.IpamResourceDiscovery.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `ipamResourceDiscoveryArn`<sup>Required</sup> <a name="ipamResourceDiscoveryArn" id="cdk-extensions.ec2.IpamResourceDiscovery.property.ipamResourceDiscoveryArn"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryArn: string;
+```
+
+- *Type:* string
+
+The resource discovery ARN.
+
+---
+
+##### `ipamResourceDiscoveryId`<sup>Required</sup> <a name="ipamResourceDiscoveryId" id="cdk-extensions.ec2.IpamResourceDiscovery.property.ipamResourceDiscoveryId"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryId: string;
+```
+
+- *Type:* string
+
+The resource discovery ID.
+
+---
+
+##### `ipamResourceDiscoveryIsDefault`<sup>Required</sup> <a name="ipamResourceDiscoveryIsDefault" id="cdk-extensions.ec2.IpamResourceDiscovery.property.ipamResourceDiscoveryIsDefault"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryIsDefault: IResolvable;
+```
+
+- *Type:* aws-cdk-lib.IResolvable
+
+Defines if the resource discovery is the default.
+
+The default resource
+discovery is the resource discovery automatically created when you create
+an IPAM.
+
+---
+
+##### `ipamResourceDiscoveryOwnerId`<sup>Required</sup> <a name="ipamResourceDiscoveryOwnerId" id="cdk-extensions.ec2.IpamResourceDiscovery.property.ipamResourceDiscoveryOwnerId"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryOwnerId: string;
+```
+
+- *Type:* string
+
+The owner ID.
+
+---
+
+##### `ipamResourceDiscoveryRegion`<sup>Required</sup> <a name="ipamResourceDiscoveryRegion" id="cdk-extensions.ec2.IpamResourceDiscovery.property.ipamResourceDiscoveryRegion"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryRegion: string;
+```
+
+- *Type:* string
+
+The resource discovery Region.
+
+---
+
+##### `ipamResourceDiscoveryState`<sup>Required</sup> <a name="ipamResourceDiscoveryState" id="cdk-extensions.ec2.IpamResourceDiscovery.property.ipamResourceDiscoveryState"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryState: string;
+```
+
+- *Type:* string
+
+The resource discovery's state.
+
+create-in-progress - Resource discovery is being created.
+- create-complete - Resource discovery creation is complete.
+- create-failed - Resource discovery creation has failed.
+- modify-in-progress - Resource discovery is being modified.
+- modify-complete - Resource discovery modification is complete.
+- modify-failed - Resource discovery modification has failed.
+- delete-in-progress - Resource discovery is being deleted.
+- delete-complete - Resource discovery deletion is complete.
+- delete-failed - Resource discovery deletion has failed.
+- isolate-in-progress - AWS account that created the resource discovery
+has been removed and the resource discovery is being isolated.
+- isolate-complete - Resource discovery isolation is complete.
+- restore-in-progress - AWS account that created the resource discovery
+and was isolated has been restored.
+
+---
+
+##### `regions`<sup>Required</sup> <a name="regions" id="cdk-extensions.ec2.IpamResourceDiscovery.property.regions"></a>
+
+```typescript
+public readonly regions: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.IpamResourceDiscovery.property.resource"></a>
+
+```typescript
+public readonly resource: CfnIPAMResourceDiscovery;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnIPAMResourceDiscovery
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.IpamResourceDiscovery.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscovery.property.ARN_FORMAT">ARN_FORMAT</a></code> | <code>aws-cdk-lib.ArnFormat</code> | The format for Amazon Resource Names (ARN's) for IPAM resource discovery resources. |
+
+---
+
+##### `ARN_FORMAT`<sup>Required</sup> <a name="ARN_FORMAT" id="cdk-extensions.ec2.IpamResourceDiscovery.property.ARN_FORMAT"></a>
+
+```typescript
+public readonly ARN_FORMAT: ArnFormat;
+```
+
+- *Type:* aws-cdk-lib.ArnFormat
+
+The format for Amazon Resource Names (ARN's) for IPAM resource discovery resources.
+
+---
+
+### IpamResourceDiscoveryAssociation <a name="IpamResourceDiscoveryAssociation" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation"></a>
+
+- *Implements:* cdk-extensions.ec2.IIpamResourceDiscoveryAssociation
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.IpamResourceDiscoveryAssociation(scope: IConstruct, id: string, props: IpamResourceDiscoveryAssociationProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamResourceDiscoveryAssociation.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamResourceDiscoveryAssociation.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamResourceDiscoveryAssociation.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipam">ipam</a></code> | <code>cdk-extensions.ec2.IIpam</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscovery">ipamResourceDiscovery</a></code> | <code>cdk-extensions.ec2.IIpamResourceDiscovery</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationArn">ipamResourceDiscoveryAssociationArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationId">ipamResourceDiscoveryAssociationId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationIpamArn">ipamResourceDiscoveryAssociationIpamArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationIpamRegion">ipamResourceDiscoveryAssociationIpamRegion</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationIsDefault">ipamResourceDiscoveryAssociationIsDefault</a></code> | <code>aws-cdk-lib.IResolvable</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationOwnerId">ipamResourceDiscoveryAssociationOwnerId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationResourceDiscoveryId">ipamResourceDiscoveryAssociationResourceDiscoveryId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationResourceDiscoveryStatus">ipamResourceDiscoveryAssociationResourceDiscoveryStatus</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationState">ipamResourceDiscoveryAssociationState</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnIPAMResourceDiscoveryAssociation</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `ipam`<sup>Required</sup> <a name="ipam" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipam"></a>
+
+```typescript
+public readonly ipam: IIpam;
+```
+
+- *Type:* cdk-extensions.ec2.IIpam
+
+---
+
+##### `ipamResourceDiscovery`<sup>Required</sup> <a name="ipamResourceDiscovery" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscovery"></a>
+
+```typescript
+public readonly ipamResourceDiscovery: IIpamResourceDiscovery;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamResourceDiscovery
+
+---
+
+##### `ipamResourceDiscoveryAssociationArn`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationArn" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationArn"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamResourceDiscoveryAssociationId`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationId" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationId"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamResourceDiscoveryAssociationIpamArn`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationIpamArn" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationIpamArn"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationIpamArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamResourceDiscoveryAssociationIpamRegion`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationIpamRegion" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationIpamRegion"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationIpamRegion: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamResourceDiscoveryAssociationIsDefault`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationIsDefault" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationIsDefault"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationIsDefault: IResolvable;
+```
+
+- *Type:* aws-cdk-lib.IResolvable
+
+---
+
+##### `ipamResourceDiscoveryAssociationOwnerId`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationOwnerId" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationOwnerId"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationOwnerId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamResourceDiscoveryAssociationResourceDiscoveryId`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationResourceDiscoveryId" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationResourceDiscoveryId"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationResourceDiscoveryId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamResourceDiscoveryAssociationResourceDiscoveryStatus`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationResourceDiscoveryStatus" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationResourceDiscoveryStatus"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationResourceDiscoveryStatus: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamResourceDiscoveryAssociationState`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationState" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationState"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationState: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociation.property.resource"></a>
+
+```typescript
+public readonly resource: CfnIPAMResourceDiscoveryAssociation;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnIPAMResourceDiscoveryAssociation
+
+---
+
+
+### IpamScope <a name="IpamScope" id="cdk-extensions.ec2.IpamScope"></a>
+
+- *Implements:* cdk-extensions.ec2.IIpamScope
+
+Represents an IPAM scope.
+
+In IPAM, a scope is the highest-level container within IPAM. An IPAM
+contains two default scopes. Each scope represents the IP space for a single
+network. The private scope is intended for all private IP address space. The
+public scope is intended for all public IP address space. Scopes enable you
+to reuse IP addresses across multiple unconnected networks without causing
+IP address overlap or conflict.
+
+> [[AWS::EC2::IPAMScope](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html)]([AWS::EC2::IPAMScope](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.IpamScope.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.IpamScope(scope: IConstruct, id: string, props: IpamScopeProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamScope.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.IpamScopeProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IpamScope.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamScope.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.IpamScope.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.IpamScopeProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamScope.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.addPool">addPool</a></code> | Adds an IPAM pool to the IPAM scope. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.IpamScope.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.IpamScope.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.IpamScope.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addPool` <a name="addPool" id="cdk-extensions.ec2.IpamScope.addPool"></a>
+
+```typescript
+public addPool(id: string, options?: IpamPoolOptions): IIpamPool
+```
+
+Adds an IPAM pool to the IPAM scope.
+
+A pool is a collection of contiguous IP address ranges (or CIDRs). IPAM
+pools enable you to organize your IP addresses according to your routing
+and security needs.
+
+> [[How IPAM works](https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html)]([How IPAM works](https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html))
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamScope.addPool.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the pool bing added.
+
+A unique id
+must be used each time the method is invoked.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.IpamScope.addPool.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.IpamPoolOptions
+
+Arguments specifying the details of the pool being added.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamScope.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.fromIpamScopeArn">fromIpamScopeArn</a></code> | Imports an existing IPAM scope by specifying its Amazon Resource Name (ARN). |
+| <code><a href="#cdk-extensions.ec2.IpamScope.fromIpamScopeAttributes">fromIpamScopeAttributes</a></code> | Imports an existing IAPM scope by explicitly specifying its attributes. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.fromIpamScopeId">fromIpamScopeId</a></code> | Imports an existing IPAM scope by explicitly specifying its AWS generated ID. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.IpamScope.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamScope.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.IpamScope.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.IpamScope.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamScope.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.IpamScope.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.IpamScope.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamScope.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.IpamScope.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromIpamScopeArn` <a name="fromIpamScopeArn" id="cdk-extensions.ec2.IpamScope.fromIpamScopeArn"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamScope.fromIpamScopeArn(scope: IConstruct, id: string, ipamScopeArn: string)
+```
+
+Imports an existing IPAM scope by specifying its Amazon Resource Name (ARN).
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IpamScope.fromIpamScopeArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamScope.fromIpamScopeArn.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `ipamScopeArn`<sup>Required</sup> <a name="ipamScopeArn" id="cdk-extensions.ec2.IpamScope.fromIpamScopeArn.parameter.ipamScopeArn"></a>
+
+- *Type:* string
+
+The ARN of the existing IPAM scope to be imported.
+
+---
+
+##### `fromIpamScopeAttributes` <a name="fromIpamScopeAttributes" id="cdk-extensions.ec2.IpamScope.fromIpamScopeAttributes"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamScope.fromIpamScopeAttributes(scope: IConstruct, id: string, attrs: IpamScopeAttributes)
+```
+
+Imports an existing IAPM scope by explicitly specifying its attributes.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IpamScope.fromIpamScopeAttributes.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamScope.fromIpamScopeAttributes.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.ec2.IpamScope.fromIpamScopeAttributes.parameter.attrs"></a>
+
+- *Type:* cdk-extensions.ec2.IpamScopeAttributes
+
+The attributes of the existing IPAM scope to be imported.
+
+---
+
+##### `fromIpamScopeId` <a name="fromIpamScopeId" id="cdk-extensions.ec2.IpamScope.fromIpamScopeId"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamScope.fromIpamScopeId(scope: IConstruct, id: string, ipamScopeId: string)
+```
+
+Imports an existing IPAM scope by explicitly specifying its AWS generated ID.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IpamScope.fromIpamScopeId.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IpamScope.fromIpamScopeId.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `ipamScopeId`<sup>Required</sup> <a name="ipamScopeId" id="cdk-extensions.ec2.IpamScope.fromIpamScopeId.parameter.ipamScopeId"></a>
+
+- *Type:* string
+
+The AWS generated ID of the existing IPAM scope to be imported.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamScope.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.property.ipam">ipam</a></code> | <code>cdk-extensions.ec2.IIpam</code> | The IPAM for which you're creating this scope. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.property.ipamScopeArn">ipamScopeArn</a></code> | <code>string</code> | The ARN of the scope. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.property.ipamScopeId">ipamScopeId</a></code> | <code>string</code> | The ID of an IPAM scope. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.property.ipamScopeIpamArn">ipamScopeIpamArn</a></code> | <code>string</code> | The ARN of an IPAM. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.property.ipamScopeIsDefault">ipamScopeIsDefault</a></code> | <code>aws-cdk-lib.IResolvable</code> | Defines if the scope is the default scope or not. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.property.ipamScopePoolCount">ipamScopePoolCount</a></code> | <code>number</code> | The number of pools in a scope. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.property.ipamScopeType">ipamScopeType</a></code> | <code>string</code> | The type of the scope. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnIPAMScope</code> | The underlying IPAM scope CloudFormation resource. |
+| <code><a href="#cdk-extensions.ec2.IpamScope.property.description">description</a></code> | <code>string</code> | The description of the scope. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.IpamScope.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.IpamScope.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.IpamScope.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `ipam`<sup>Required</sup> <a name="ipam" id="cdk-extensions.ec2.IpamScope.property.ipam"></a>
+
+```typescript
+public readonly ipam: IIpam;
+```
+
+- *Type:* cdk-extensions.ec2.IIpam
+
+The IPAM for which you're creating this scope.
+
+> [[IPAMScope IpamId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-ipamid)]([IPAMScope IpamId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-ipamid))
+
+---
+
+##### `ipamScopeArn`<sup>Required</sup> <a name="ipamScopeArn" id="cdk-extensions.ec2.IpamScope.property.ipamScopeArn"></a>
+
+```typescript
+public readonly ipamScopeArn: string;
+```
+
+- *Type:* string
+
+The ARN of the scope.
+
+---
+
+##### `ipamScopeId`<sup>Required</sup> <a name="ipamScopeId" id="cdk-extensions.ec2.IpamScope.property.ipamScopeId"></a>
+
+```typescript
+public readonly ipamScopeId: string;
+```
+
+- *Type:* string
+
+The ID of an IPAM scope.
+
+---
+
+##### `ipamScopeIpamArn`<sup>Required</sup> <a name="ipamScopeIpamArn" id="cdk-extensions.ec2.IpamScope.property.ipamScopeIpamArn"></a>
+
+```typescript
+public readonly ipamScopeIpamArn: string;
+```
+
+- *Type:* string
+
+The ARN of an IPAM.
+
+---
+
+##### `ipamScopeIsDefault`<sup>Required</sup> <a name="ipamScopeIsDefault" id="cdk-extensions.ec2.IpamScope.property.ipamScopeIsDefault"></a>
+
+```typescript
+public readonly ipamScopeIsDefault: IResolvable;
+```
+
+- *Type:* aws-cdk-lib.IResolvable
+
+Defines if the scope is the default scope or not.
+
+---
+
+##### `ipamScopePoolCount`<sup>Required</sup> <a name="ipamScopePoolCount" id="cdk-extensions.ec2.IpamScope.property.ipamScopePoolCount"></a>
+
+```typescript
+public readonly ipamScopePoolCount: number;
+```
+
+- *Type:* number
+
+The number of pools in a scope.
+
+---
+
+##### `ipamScopeType`<sup>Required</sup> <a name="ipamScopeType" id="cdk-extensions.ec2.IpamScope.property.ipamScopeType"></a>
+
+```typescript
+public readonly ipamScopeType: string;
+```
+
+- *Type:* string
+
+The type of the scope.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.IpamScope.property.resource"></a>
+
+```typescript
+public readonly resource: CfnIPAMScope;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnIPAMScope
+
+The underlying IPAM scope CloudFormation resource.
+
+> [[AWS::EC2::IPAMScope](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html)]([AWS::EC2::IPAMScope](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html))
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.IpamScope.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+The description of the scope.
+
+> [[IPAMScope Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-description)]([IPAMScope Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-description))
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamScope.property.ARN_FORMAT">ARN_FORMAT</a></code> | <code>aws-cdk-lib.ArnFormat</code> | The format for Amazon Resource Names (ARN's) for IPAM scope resources. |
+
+---
+
+##### `ARN_FORMAT`<sup>Required</sup> <a name="ARN_FORMAT" id="cdk-extensions.ec2.IpamScope.property.ARN_FORMAT"></a>
+
+```typescript
+public readonly ARN_FORMAT: ArnFormat;
+```
+
+- *Type:* aws-cdk-lib.ArnFormat
+
+The format for Amazon Resource Names (ARN's) for IPAM scope resources.
+
+---
 
 ### JdbcConnection <a name="JdbcConnection" id="cdk-extensions.glue.JdbcConnection"></a>
 
@@ -25530,6 +29029,285 @@ public readonly complaintsQuery: NamedQuery;
 ---
 
 
+### Site <a name="Site" id="cdk-extensions.networkmanager.Site"></a>
+
+- *Implements:* cdk-extensions.networkmanager.ISite
+
+#### Initializers <a name="Initializers" id="cdk-extensions.networkmanager.Site.Initializer"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+new networkmanager.Site(scope: IConstruct, id: string, props: SiteProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.Site.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.Site.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.Site.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.networkmanager.SiteProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.networkmanager.Site.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.networkmanager.Site.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.networkmanager.Site.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.networkmanager.SiteProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.Site.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.networkmanager.Site.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.networkmanager.Site.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.networkmanager.Site.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.networkmanager.Site.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.Site.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.networkmanager.Site.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.networkmanager.Site.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.networkmanager.Site.isConstruct"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+networkmanager.Site.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.networkmanager.Site.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.networkmanager.Site.isOwnedResource"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+networkmanager.Site.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.networkmanager.Site.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.networkmanager.Site.isResource"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+networkmanager.Site.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.networkmanager.Site.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.Site.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.networkmanager.Site.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.networkmanager.Site.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.networkmanager.Site.property.globalNetwork">globalNetwork</a></code> | <code>cdk-extensions.networkmanager.IGlobalNetwork</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.Site.property.siteArn">siteArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.Site.property.siteId">siteId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.Site.property.address">address</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.Site.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.Site.property.latitude">latitude</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.Site.property.longitude">longitude</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.Site.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_networkmanager.CfnSite</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.networkmanager.Site.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.networkmanager.Site.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.networkmanager.Site.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `globalNetwork`<sup>Required</sup> <a name="globalNetwork" id="cdk-extensions.networkmanager.Site.property.globalNetwork"></a>
+
+```typescript
+public readonly globalNetwork: IGlobalNetwork;
+```
+
+- *Type:* cdk-extensions.networkmanager.IGlobalNetwork
+
+---
+
+##### `siteArn`<sup>Required</sup> <a name="siteArn" id="cdk-extensions.networkmanager.Site.property.siteArn"></a>
+
+```typescript
+public readonly siteArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `siteId`<sup>Required</sup> <a name="siteId" id="cdk-extensions.networkmanager.Site.property.siteId"></a>
+
+```typescript
+public readonly siteId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `address`<sup>Optional</sup> <a name="address" id="cdk-extensions.networkmanager.Site.property.address"></a>
+
+```typescript
+public readonly address: string;
+```
+
+- *Type:* string
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.networkmanager.Site.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `latitude`<sup>Optional</sup> <a name="latitude" id="cdk-extensions.networkmanager.Site.property.latitude"></a>
+
+```typescript
+public readonly latitude: string;
+```
+
+- *Type:* string
+
+---
+
+##### `longitude`<sup>Optional</sup> <a name="longitude" id="cdk-extensions.networkmanager.Site.property.longitude"></a>
+
+```typescript
+public readonly longitude: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resource`<sup>Optional</sup> <a name="resource" id="cdk-extensions.networkmanager.Site.property.resource"></a>
+
+```typescript
+public readonly resource: CfnSite;
+```
+
+- *Type:* aws-cdk-lib.aws_networkmanager.CfnSite
+
+---
+
+
 ### SsmParameterSecretStore <a name="SsmParameterSecretStore" id="cdk-extensions.k8s_aws.SsmParameterSecretStore"></a>
 
 A secret store that allows parameters from Systems Manager to be synchronized into Kubernetes as Kubernetes secrets.
@@ -28711,6 +32489,230 @@ public readonly peerRegion: string;
 The region that contains the transit gateway being peered with.
 
 > [[TransitGatewayPeeringAttachment PeerRegion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion)]([TransitGatewayPeeringAttachment PeerRegion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion))
+
+---
+
+
+### TransitGatewayRegistration <a name="TransitGatewayRegistration" id="cdk-extensions.networkmanager.TransitGatewayRegistration"></a>
+
+- *Implements:* cdk-extensions.networkmanager.ITransitGatewayRegistration
+
+#### Initializers <a name="Initializers" id="cdk-extensions.networkmanager.TransitGatewayRegistration.Initializer"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+new networkmanager.TransitGatewayRegistration(scope: IConstruct, id: string, props: TransitGatewayRegistrationProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistration.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistration.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistration.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.networkmanager.TransitGatewayRegistrationProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.networkmanager.TransitGatewayRegistration.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.networkmanager.TransitGatewayRegistration.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.networkmanager.TransitGatewayRegistration.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.networkmanager.TransitGatewayRegistrationProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistration.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistration.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.networkmanager.TransitGatewayRegistration.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.networkmanager.TransitGatewayRegistration.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.networkmanager.TransitGatewayRegistration.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistration.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistration.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistration.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.networkmanager.TransitGatewayRegistration.isConstruct"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+networkmanager.TransitGatewayRegistration.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.networkmanager.TransitGatewayRegistration.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.networkmanager.TransitGatewayRegistration.isOwnedResource"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+networkmanager.TransitGatewayRegistration.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.networkmanager.TransitGatewayRegistration.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.networkmanager.TransitGatewayRegistration.isResource"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+networkmanager.TransitGatewayRegistration.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.networkmanager.TransitGatewayRegistration.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistration.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistration.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistration.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistration.property.globalNetwork">globalNetwork</a></code> | <code>cdk-extensions.networkmanager.IGlobalNetwork</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistration.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistration.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_networkmanager.CfnTransitGatewayRegistration</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.networkmanager.TransitGatewayRegistration.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.networkmanager.TransitGatewayRegistration.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.networkmanager.TransitGatewayRegistration.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `globalNetwork`<sup>Required</sup> <a name="globalNetwork" id="cdk-extensions.networkmanager.TransitGatewayRegistration.property.globalNetwork"></a>
+
+```typescript
+public readonly globalNetwork: IGlobalNetwork;
+```
+
+- *Type:* cdk-extensions.networkmanager.IGlobalNetwork
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.networkmanager.TransitGatewayRegistration.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+---
+
+##### `resource`<sup>Optional</sup> <a name="resource" id="cdk-extensions.networkmanager.TransitGatewayRegistration.property.resource"></a>
+
+```typescript
+public readonly resource: CfnTransitGatewayRegistration;
+```
+
+- *Type:* aws-cdk-lib.aws_networkmanager.CfnTransitGatewayRegistration
 
 ---
 
@@ -32704,6 +36706,311 @@ A list of identity sources to use when mapping a specified attribute to IAM Iden
 
 ---
 
+### AddChildPoolOptions <a name="AddChildPoolOptions" id="cdk-extensions.ec2.AddChildPoolOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.AddChildPoolOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const addChildPoolOptions: ec2.AddChildPoolOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.AddChildPoolOptions.property.addressConfiguration">addressConfiguration</a></code> | <code>cdk-extensions.ec2.AddressConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddChildPoolOptions.property.autoImport">autoImport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddChildPoolOptions.property.consumer">consumer</a></code> | <code>cdk-extensions.ec2.IpamConsumer</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddChildPoolOptions.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddChildPoolOptions.property.locale">locale</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddChildPoolOptions.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddChildPoolOptions.property.provisionedCidrs">provisionedCidrs</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddChildPoolOptions.property.publicIpSource">publicIpSource</a></code> | <code>cdk-extensions.ec2.PublicIpSource</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddChildPoolOptions.property.tagRestrictions">tagRestrictions</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
+
+---
+
+##### `addressConfiguration`<sup>Optional</sup> <a name="addressConfiguration" id="cdk-extensions.ec2.AddChildPoolOptions.property.addressConfiguration"></a>
+
+```typescript
+public readonly addressConfiguration: AddressConfiguration;
+```
+
+- *Type:* cdk-extensions.ec2.AddressConfiguration
+
+---
+
+##### `autoImport`<sup>Optional</sup> <a name="autoImport" id="cdk-extensions.ec2.AddChildPoolOptions.property.autoImport"></a>
+
+```typescript
+public readonly autoImport: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `consumer`<sup>Optional</sup> <a name="consumer" id="cdk-extensions.ec2.AddChildPoolOptions.property.consumer"></a>
+
+```typescript
+public readonly consumer: IpamConsumer;
+```
+
+- *Type:* cdk-extensions.ec2.IpamConsumer
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.AddChildPoolOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `locale`<sup>Optional</sup> <a name="locale" id="cdk-extensions.ec2.AddChildPoolOptions.property.locale"></a>
+
+```typescript
+public readonly locale: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.AddChildPoolOptions.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `provisionedCidrs`<sup>Optional</sup> <a name="provisionedCidrs" id="cdk-extensions.ec2.AddChildPoolOptions.property.provisionedCidrs"></a>
+
+```typescript
+public readonly provisionedCidrs: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `publicIpSource`<sup>Optional</sup> <a name="publicIpSource" id="cdk-extensions.ec2.AddChildPoolOptions.property.publicIpSource"></a>
+
+```typescript
+public readonly publicIpSource: PublicIpSource;
+```
+
+- *Type:* cdk-extensions.ec2.PublicIpSource
+
+---
+
+##### `tagRestrictions`<sup>Optional</sup> <a name="tagRestrictions" id="cdk-extensions.ec2.AddChildPoolOptions.property.tagRestrictions"></a>
+
+```typescript
+public readonly tagRestrictions: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+### AddCidrToPoolOptions <a name="AddCidrToPoolOptions" id="cdk-extensions.ec2.AddCidrToPoolOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.AddCidrToPoolOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const addCidrToPoolOptions: ec2.AddCidrToPoolOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.AddCidrToPoolOptions.property.configuration">configuration</a></code> | <code>cdk-extensions.ec2.IIpamPoolCidrConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddCidrToPoolOptions.property.allowInline">allowInline</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `configuration`<sup>Required</sup> <a name="configuration" id="cdk-extensions.ec2.AddCidrToPoolOptions.property.configuration"></a>
+
+```typescript
+public readonly configuration: IIpamPoolCidrConfiguration;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPoolCidrConfiguration
+
+---
+
+##### `allowInline`<sup>Optional</sup> <a name="allowInline" id="cdk-extensions.ec2.AddCidrToPoolOptions.property.allowInline"></a>
+
+```typescript
+public readonly allowInline: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+### AddCidrToPoolResult <a name="AddCidrToPoolResult" id="cdk-extensions.ec2.AddCidrToPoolResult"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.AddCidrToPoolResult.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const addCidrToPoolResult: ec2.AddCidrToPoolResult = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.AddCidrToPoolResult.property.inline">inline</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddCidrToPoolResult.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.IIpamPoolCidr</code> | *No description.* |
+
+---
+
+##### `inline`<sup>Required</sup> <a name="inline" id="cdk-extensions.ec2.AddCidrToPoolResult.property.inline"></a>
+
+```typescript
+public readonly inline: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2.AddCidrToPoolResult.property.cidr"></a>
+
+```typescript
+public readonly cidr: IIpamPoolCidr;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPoolCidr
+
+---
+
+### AddPoolOptions <a name="AddPoolOptions" id="cdk-extensions.ec2_patterns.AddPoolOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.AddPoolOptions.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const addPoolOptions: ec2_patterns.AddPoolOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.AddPoolOptions.property.cidrs">cidrs</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddPoolOptions.property.defaultNetmaskLength">defaultNetmaskLength</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `cidrs`<sup>Optional</sup> <a name="cidrs" id="cdk-extensions.ec2_patterns.AddPoolOptions.property.cidrs"></a>
+
+```typescript
+public readonly cidrs: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `defaultNetmaskLength`<sup>Optional</sup> <a name="defaultNetmaskLength" id="cdk-extensions.ec2_patterns.AddPoolOptions.property.defaultNetmaskLength"></a>
+
+```typescript
+public readonly defaultNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+### AddressConfigurationProps <a name="AddressConfigurationProps" id="cdk-extensions.ec2.AddressConfigurationProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.AddressConfigurationProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const addressConfigurationProps: ec2.AddressConfigurationProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.AddressConfigurationProps.property.defaultNetmaskLength">defaultNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfigurationProps.property.maxNetmaskLength">maxNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfigurationProps.property.minNetmaskLength">minNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfigurationProps.property.family">family</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfigurationProps.property.publiclyAdvertisable">publiclyAdvertisable</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `defaultNetmaskLength`<sup>Optional</sup> <a name="defaultNetmaskLength" id="cdk-extensions.ec2.AddressConfigurationProps.property.defaultNetmaskLength"></a>
+
+```typescript
+public readonly defaultNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `maxNetmaskLength`<sup>Optional</sup> <a name="maxNetmaskLength" id="cdk-extensions.ec2.AddressConfigurationProps.property.maxNetmaskLength"></a>
+
+```typescript
+public readonly maxNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `minNetmaskLength`<sup>Optional</sup> <a name="minNetmaskLength" id="cdk-extensions.ec2.AddressConfigurationProps.property.minNetmaskLength"></a>
+
+```typescript
+public readonly minNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `family`<sup>Required</sup> <a name="family" id="cdk-extensions.ec2.AddressConfigurationProps.property.family"></a>
+
+```typescript
+public readonly family: string;
+```
+
+- *Type:* string
+
+---
+
+##### `publiclyAdvertisable`<sup>Optional</sup> <a name="publiclyAdvertisable" id="cdk-extensions.ec2.AddressConfigurationProps.property.publiclyAdvertisable"></a>
+
+```typescript
+public readonly publiclyAdvertisable: boolean;
+```
+
+- *Type:* boolean
+
+---
+
 ### AddSpokeNetworkProps <a name="AddSpokeNetworkProps" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.Initializer"></a>
@@ -32719,7 +37026,7 @@ const addSpokeNetworkProps: ec2_patterns.AddSpokeNetworkProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
@@ -32747,10 +37054,10 @@ public readonly availabilityZones: string[];
 ##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.cidr"></a>
 
 ```typescript
-public readonly cidr: string;
+public readonly cidr: ICidrProvider;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.ec2.ICidrProvider
 
 ---
 
@@ -33910,6 +38217,95 @@ SNS topic where alerts will be sent.
 If you are using a FIFO SNS topic you should set a message group interval
 longer than 5 minutes to prevent messages with the same group key being
 deduplicated by the SNS default deduplication window.
+
+---
+
+### AllocateCidrFromPoolOptions <a name="AllocateCidrFromPoolOptions" id="cdk-extensions.ec2.AllocateCidrFromPoolOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.AllocateCidrFromPoolOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const allocateCidrFromPoolOptions: ec2.AllocateCidrFromPoolOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.AllocateCidrFromPoolOptions.property.allocation">allocation</a></code> | <code>cdk-extensions.ec2.IIpamAllocationConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AllocateCidrFromPoolOptions.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AllocateCidrFromPoolOptions.property.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+
+---
+
+##### `allocation`<sup>Optional</sup> <a name="allocation" id="cdk-extensions.ec2.AllocateCidrFromPoolOptions.property.allocation"></a>
+
+```typescript
+public readonly allocation: IIpamAllocationConfiguration;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamAllocationConfiguration
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.AllocateCidrFromPoolOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `scope`<sup>Optional</sup> <a name="scope" id="cdk-extensions.ec2.AllocateCidrFromPoolOptions.property.scope"></a>
+
+```typescript
+public readonly scope: IConstruct;
+```
+
+- *Type:* constructs.IConstruct
+
+---
+
+### AllocatePrivateNetworkOptions <a name="AllocatePrivateNetworkOptions" id="cdk-extensions.ec2_patterns.AllocatePrivateNetworkOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.AllocatePrivateNetworkOptions.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const allocatePrivateNetworkOptions: ec2_patterns.AllocatePrivateNetworkOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.AllocatePrivateNetworkOptions.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AllocatePrivateNetworkOptions.property.pool">pool</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `netmask`<sup>Optional</sup> <a name="netmask" id="cdk-extensions.ec2_patterns.AllocatePrivateNetworkOptions.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
+##### `pool`<sup>Optional</sup> <a name="pool" id="cdk-extensions.ec2_patterns.AllocatePrivateNetworkOptions.property.pool"></a>
+
+```typescript
+public readonly pool: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -43797,12 +48193,13 @@ const fourTierNetworkHubProps: ec2_patterns.FourTierNetworkHubProps = { ... }
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.flowLogs">flowLogs</a></code> | <code>{[ key: string ]: cdk-extensions.ec2_patterns.FlowLogOptions}</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.gatewayEndpoints">gatewayEndpoints</a></code> | <code>{[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.globalNetwork">globalNetwork</a></code> | <code>cdk-extensions.networkmanager.GlobalNetwork</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.sharing">sharing</a></code> | <code>cdk-extensions.ec2_patterns.FourTierNetworkShareProperties</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
@@ -43889,10 +48286,10 @@ public readonly availabilityZones: string[];
 ##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.cidr"></a>
 
 ```typescript
-public readonly cidr: string;
+public readonly cidr: ICidrProvider;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.ec2.ICidrProvider
 
 ---
 
@@ -43943,6 +48340,16 @@ public readonly gatewayEndpoints: {[ key: string ]: GatewayVpcEndpointOptions};
 ```
 
 - *Type:* {[ key: string ]: aws-cdk-lib.aws_ec2.GatewayVpcEndpointOptions}
+
+---
+
+##### `globalNetwork`<sup>Optional</sup> <a name="globalNetwork" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.globalNetwork"></a>
+
+```typescript
+public readonly globalNetwork: GlobalNetwork;
+```
+
+- *Type:* cdk-extensions.networkmanager.GlobalNetwork
 
 ---
 
@@ -44031,7 +48438,7 @@ const fourTierNetworkProps: ec2_patterns.FourTierNetworkProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
@@ -44062,10 +48469,10 @@ public readonly availabilityZones: string[];
 ##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.cidr"></a>
 
 ```typescript
-public readonly cidr: string;
+public readonly cidr: ICidrProvider;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.ec2.ICidrProvider
 
 ---
 
@@ -44277,9 +48684,9 @@ const fourTierNetworkSpokeProps: ec2_patterns.FourTierNetworkSpokeProps = { ... 
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.hub">hub</a></code> | <code>cdk-extensions.ec2_patterns.FourTierNetworkHub</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
@@ -44357,13 +48764,13 @@ The AWS region this resource belongs to.
 
 ---
 
-##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.transitGateway"></a>
+##### `hub`<sup>Required</sup> <a name="hub" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.hub"></a>
 
 ```typescript
-public readonly transitGateway: ITransitGateway;
+public readonly hub: FourTierNetworkHub;
 ```
 
-- *Type:* cdk-extensions.ec2.ITransitGateway
+- *Type:* cdk-extensions.ec2_patterns.FourTierNetworkHub
 
 ---
 
@@ -44380,10 +48787,10 @@ public readonly availabilityZones: string[];
 ##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.cidr"></a>
 
 ```typescript
-public readonly cidr: string;
+public readonly cidr: ICidrProvider;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.ec2.ICidrProvider
 
 ---
 
@@ -44494,6 +48901,101 @@ public readonly vpnRoutePropagation: SubnetSelection[];
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection[]
+
+---
+
+### GlobalNetworkProps <a name="GlobalNetworkProps" id="cdk-extensions.networkmanager.GlobalNetworkProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.networkmanager.GlobalNetworkProps.Initializer"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+const globalNetworkProps: networkmanager.GlobalNetworkProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetworkProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetworkProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetworkProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetworkProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.networkmanager.GlobalNetworkProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.networkmanager.GlobalNetworkProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.networkmanager.GlobalNetworkProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.networkmanager.GlobalNetworkProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.networkmanager.GlobalNetworkProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.networkmanager.GlobalNetworkProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -44750,6 +49252,1624 @@ public readonly attributeMapping: {[ key: string ]: string[]};
 - *Type:* {[ key: string ]: string[]}
 
 Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+
+---
+
+### IpAddressManagerProps <a name="IpAddressManagerProps" id="cdk-extensions.ec2_patterns.IpAddressManagerProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const ipAddressManagerProps: ec2_patterns.IpAddressManagerProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.defaultPoolAllocationMask">defaultPoolAllocationMask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.defaultPoolCidrs">defaultPoolCidrs</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.regions">regions</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.sharing">sharing</a></code> | <code>cdk-extensions.ec2_patterns.IpAddressManagerSharingProps</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `defaultPoolAllocationMask`<sup>Optional</sup> <a name="defaultPoolAllocationMask" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.defaultPoolAllocationMask"></a>
+
+```typescript
+public readonly defaultPoolAllocationMask: number;
+```
+
+- *Type:* number
+
+---
+
+##### `defaultPoolCidrs`<sup>Optional</sup> <a name="defaultPoolCidrs" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.defaultPoolCidrs"></a>
+
+```typescript
+public readonly defaultPoolCidrs: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `regions`<sup>Optional</sup> <a name="regions" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.regions"></a>
+
+```typescript
+public readonly regions: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `sharing`<sup>Optional</sup> <a name="sharing" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.sharing"></a>
+
+```typescript
+public readonly sharing: IpAddressManagerSharingProps;
+```
+
+- *Type:* cdk-extensions.ec2_patterns.IpAddressManagerSharingProps
+
+---
+
+### IpAddressManagerSharingProps <a name="IpAddressManagerSharingProps" id="cdk-extensions.ec2_patterns.IpAddressManagerSharingProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.IpAddressManagerSharingProps.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const ipAddressManagerSharingProps: ec2_patterns.IpAddressManagerSharingProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerSharingProps.property.allowExternalPricipals">allowExternalPricipals</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerSharingProps.property.enabled">enabled</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `allowExternalPricipals`<sup>Optional</sup> <a name="allowExternalPricipals" id="cdk-extensions.ec2_patterns.IpAddressManagerSharingProps.property.allowExternalPricipals"></a>
+
+```typescript
+public readonly allowExternalPricipals: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.ec2_patterns.IpAddressManagerSharingProps.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+### IpamAllocationOptions <a name="IpamAllocationOptions" id="cdk-extensions.ec2.IpamAllocationOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.IpamAllocationOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipamAllocationOptions: ec2.IpamAllocationOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamAllocationOptions.property.allocation">allocation</a></code> | <code>cdk-extensions.ec2.IIpamAllocationConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamAllocationOptions.property.description">description</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `allocation`<sup>Optional</sup> <a name="allocation" id="cdk-extensions.ec2.IpamAllocationOptions.property.allocation"></a>
+
+```typescript
+public readonly allocation: IIpamAllocationConfiguration;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamAllocationConfiguration
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.IpamAllocationOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+### IpamAllocationProps <a name="IpamAllocationProps" id="cdk-extensions.ec2.IpamAllocationProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.IpamAllocationProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipamAllocationProps: ec2.IpamAllocationProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamAllocationProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamAllocationProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.IpamAllocationProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.IpamAllocationProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamAllocationProps.property.allocation">allocation</a></code> | <code>cdk-extensions.ec2.IIpamAllocationConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamAllocationProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamAllocationProps.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.IpamAllocationProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.IpamAllocationProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.IpamAllocationProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.IpamAllocationProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `allocation`<sup>Optional</sup> <a name="allocation" id="cdk-extensions.ec2.IpamAllocationProps.property.allocation"></a>
+
+```typescript
+public readonly allocation: IIpamAllocationConfiguration;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamAllocationConfiguration
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.IpamAllocationProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPool`<sup>Required</sup> <a name="ipamPool" id="cdk-extensions.ec2.IpamAllocationProps.property.ipamPool"></a>
+
+```typescript
+public readonly ipamPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
+
+---
+
+### IpamAttributes <a name="IpamAttributes" id="cdk-extensions.ec2.IpamAttributes"></a>
+
+Configuration for importing an existing IPAM.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.IpamAttributes.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipamAttributes: ec2.IpamAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamAttributes.property.ipamArn">ipamArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the IPAM. |
+| <code><a href="#cdk-extensions.ec2.IpamAttributes.property.ipamId">ipamId</a></code> | <code>string</code> | The ID generated by AWS for the IPAM. |
+| <code><a href="#cdk-extensions.ec2.IpamAttributes.property.privateDefaultScope">privateDefaultScope</a></code> | <code>cdk-extensions.ec2.IIpamScope</code> | The IPAM's default private scope. |
+| <code><a href="#cdk-extensions.ec2.IpamAttributes.property.publicDefaultScope">publicDefaultScope</a></code> | <code>cdk-extensions.ec2.IIpamScope</code> | The IPAM's default public scope. |
+| <code><a href="#cdk-extensions.ec2.IpamAttributes.property.scopeCount">scopeCount</a></code> | <code>number</code> | The number of scopes in the IPAM. |
+
+---
+
+##### `ipamArn`<sup>Optional</sup> <a name="ipamArn" id="cdk-extensions.ec2.IpamAttributes.property.ipamArn"></a>
+
+```typescript
+public readonly ipamArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the IPAM.
+
+---
+
+##### `ipamId`<sup>Optional</sup> <a name="ipamId" id="cdk-extensions.ec2.IpamAttributes.property.ipamId"></a>
+
+```typescript
+public readonly ipamId: string;
+```
+
+- *Type:* string
+
+The ID generated by AWS for the IPAM.
+
+---
+
+##### `privateDefaultScope`<sup>Optional</sup> <a name="privateDefaultScope" id="cdk-extensions.ec2.IpamAttributes.property.privateDefaultScope"></a>
+
+```typescript
+public readonly privateDefaultScope: IIpamScope;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamScope
+
+The IPAM's default private scope.
+
+---
+
+##### `publicDefaultScope`<sup>Optional</sup> <a name="publicDefaultScope" id="cdk-extensions.ec2.IpamAttributes.property.publicDefaultScope"></a>
+
+```typescript
+public readonly publicDefaultScope: IIpamScope;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamScope
+
+The IPAM's default public scope.
+
+---
+
+##### `scopeCount`<sup>Optional</sup> <a name="scopeCount" id="cdk-extensions.ec2.IpamAttributes.property.scopeCount"></a>
+
+```typescript
+public readonly scopeCount: number;
+```
+
+- *Type:* number
+
+The number of scopes in the IPAM.
+
+---
+
+### IpamPoolCidrProps <a name="IpamPoolCidrProps" id="cdk-extensions.ec2.IpamPoolCidrProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.IpamPoolCidrProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipamPoolCidrProps: ec2.IpamPoolCidrProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidrProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidrProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidrProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidrProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidrProps.property.configuration">configuration</a></code> | <code>cdk-extensions.ec2.IIpamPoolCidrConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidrProps.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.IpamPoolCidrProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.IpamPoolCidrProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.IpamPoolCidrProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.IpamPoolCidrProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `configuration`<sup>Required</sup> <a name="configuration" id="cdk-extensions.ec2.IpamPoolCidrProps.property.configuration"></a>
+
+```typescript
+public readonly configuration: IIpamPoolCidrConfiguration;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPoolCidrConfiguration
+
+---
+
+##### `ipamPool`<sup>Required</sup> <a name="ipamPool" id="cdk-extensions.ec2.IpamPoolCidrProps.property.ipamPool"></a>
+
+```typescript
+public readonly ipamPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
+
+---
+
+### IpamPoolOptions <a name="IpamPoolOptions" id="cdk-extensions.ec2.IpamPoolOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.IpamPoolOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipamPoolOptions: ec2.IpamPoolOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamPoolOptions.property.addressConfiguration">addressConfiguration</a></code> | <code>cdk-extensions.ec2.AddressConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolOptions.property.autoImport">autoImport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolOptions.property.consumer">consumer</a></code> | <code>cdk-extensions.ec2.IpamConsumer</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolOptions.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolOptions.property.locale">locale</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolOptions.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolOptions.property.parentPool">parentPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolOptions.property.provisionedCidrs">provisionedCidrs</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolOptions.property.publicIpSource">publicIpSource</a></code> | <code>cdk-extensions.ec2.PublicIpSource</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolOptions.property.tagRestrictions">tagRestrictions</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
+
+---
+
+##### `addressConfiguration`<sup>Optional</sup> <a name="addressConfiguration" id="cdk-extensions.ec2.IpamPoolOptions.property.addressConfiguration"></a>
+
+```typescript
+public readonly addressConfiguration: AddressConfiguration;
+```
+
+- *Type:* cdk-extensions.ec2.AddressConfiguration
+
+---
+
+##### `autoImport`<sup>Optional</sup> <a name="autoImport" id="cdk-extensions.ec2.IpamPoolOptions.property.autoImport"></a>
+
+```typescript
+public readonly autoImport: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `consumer`<sup>Optional</sup> <a name="consumer" id="cdk-extensions.ec2.IpamPoolOptions.property.consumer"></a>
+
+```typescript
+public readonly consumer: IpamConsumer;
+```
+
+- *Type:* cdk-extensions.ec2.IpamConsumer
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.IpamPoolOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `locale`<sup>Optional</sup> <a name="locale" id="cdk-extensions.ec2.IpamPoolOptions.property.locale"></a>
+
+```typescript
+public readonly locale: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.IpamPoolOptions.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `parentPool`<sup>Optional</sup> <a name="parentPool" id="cdk-extensions.ec2.IpamPoolOptions.property.parentPool"></a>
+
+```typescript
+public readonly parentPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
+
+---
+
+##### `provisionedCidrs`<sup>Optional</sup> <a name="provisionedCidrs" id="cdk-extensions.ec2.IpamPoolOptions.property.provisionedCidrs"></a>
+
+```typescript
+public readonly provisionedCidrs: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `publicIpSource`<sup>Optional</sup> <a name="publicIpSource" id="cdk-extensions.ec2.IpamPoolOptions.property.publicIpSource"></a>
+
+```typescript
+public readonly publicIpSource: PublicIpSource;
+```
+
+- *Type:* cdk-extensions.ec2.PublicIpSource
+
+---
+
+##### `tagRestrictions`<sup>Optional</sup> <a name="tagRestrictions" id="cdk-extensions.ec2.IpamPoolOptions.property.tagRestrictions"></a>
+
+```typescript
+public readonly tagRestrictions: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+### IpamPoolProps <a name="IpamPoolProps" id="cdk-extensions.ec2.IpamPoolProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.IpamPoolProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipamPoolProps: ec2.IpamPoolProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.addressConfiguration">addressConfiguration</a></code> | <code>cdk-extensions.ec2.AddressConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.autoImport">autoImport</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.consumer">consumer</a></code> | <code>cdk-extensions.ec2.IpamConsumer</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.locale">locale</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.parentPool">parentPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.provisionedCidrs">provisionedCidrs</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.publicIpSource">publicIpSource</a></code> | <code>cdk-extensions.ec2.PublicIpSource</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.tagRestrictions">tagRestrictions</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolProps.property.ipamScope">ipamScope</a></code> | <code>cdk-extensions.ec2.IIpamScope</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.IpamPoolProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.IpamPoolProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.IpamPoolProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.IpamPoolProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `addressConfiguration`<sup>Optional</sup> <a name="addressConfiguration" id="cdk-extensions.ec2.IpamPoolProps.property.addressConfiguration"></a>
+
+```typescript
+public readonly addressConfiguration: AddressConfiguration;
+```
+
+- *Type:* cdk-extensions.ec2.AddressConfiguration
+
+---
+
+##### `autoImport`<sup>Optional</sup> <a name="autoImport" id="cdk-extensions.ec2.IpamPoolProps.property.autoImport"></a>
+
+```typescript
+public readonly autoImport: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `consumer`<sup>Optional</sup> <a name="consumer" id="cdk-extensions.ec2.IpamPoolProps.property.consumer"></a>
+
+```typescript
+public readonly consumer: IpamConsumer;
+```
+
+- *Type:* cdk-extensions.ec2.IpamConsumer
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.IpamPoolProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `locale`<sup>Optional</sup> <a name="locale" id="cdk-extensions.ec2.IpamPoolProps.property.locale"></a>
+
+```typescript
+public readonly locale: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.IpamPoolProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `parentPool`<sup>Optional</sup> <a name="parentPool" id="cdk-extensions.ec2.IpamPoolProps.property.parentPool"></a>
+
+```typescript
+public readonly parentPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
+
+---
+
+##### `provisionedCidrs`<sup>Optional</sup> <a name="provisionedCidrs" id="cdk-extensions.ec2.IpamPoolProps.property.provisionedCidrs"></a>
+
+```typescript
+public readonly provisionedCidrs: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `publicIpSource`<sup>Optional</sup> <a name="publicIpSource" id="cdk-extensions.ec2.IpamPoolProps.property.publicIpSource"></a>
+
+```typescript
+public readonly publicIpSource: PublicIpSource;
+```
+
+- *Type:* cdk-extensions.ec2.PublicIpSource
+
+---
+
+##### `tagRestrictions`<sup>Optional</sup> <a name="tagRestrictions" id="cdk-extensions.ec2.IpamPoolProps.property.tagRestrictions"></a>
+
+```typescript
+public readonly tagRestrictions: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `ipamScope`<sup>Required</sup> <a name="ipamScope" id="cdk-extensions.ec2.IpamPoolProps.property.ipamScope"></a>
+
+```typescript
+public readonly ipamScope: IIpamScope;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamScope
+
+---
+
+### IpamProps <a name="IpamProps" id="cdk-extensions.ec2.IpamProps"></a>
+
+Configuration for the IPAM resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.IpamProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipamProps: ec2.IpamProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.IpamProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.IpamProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamProps.property.description">description</a></code> | <code>string</code> | The description for the IPAM. |
+| <code><a href="#cdk-extensions.ec2.IpamProps.property.regions">regions</a></code> | <code>string[]</code> | The operating Regions for an IPAM. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.IpamProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.IpamProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.IpamProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.IpamProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.IpamProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+The description for the IPAM.
+
+> [[IPAM Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-description)]([IPAM Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-description))
+
+---
+
+##### `regions`<sup>Optional</sup> <a name="regions" id="cdk-extensions.ec2.IpamProps.property.regions"></a>
+
+```typescript
+public readonly regions: string[];
+```
+
+- *Type:* string[]
+
+The operating Regions for an IPAM.
+
+Operating Regions are AWS Regions where
+the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and
+monitors resources in the AWS Regions you select as operating Regions.
+
+> [[Create an IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html)]([Create an IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html))
+
+---
+
+### IpamResourceDiscoveryAssociationProps <a name="IpamResourceDiscoveryAssociationProps" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipamResourceDiscoveryAssociationProps: ec2.IpamResourceDiscoveryAssociationProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps.property.ipam">ipam</a></code> | <code>cdk-extensions.ec2.IIpam</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps.property.ipamResourceDiscovery">ipamResourceDiscovery</a></code> | <code>cdk-extensions.ec2.IIpamResourceDiscovery</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `ipam`<sup>Required</sup> <a name="ipam" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps.property.ipam"></a>
+
+```typescript
+public readonly ipam: IIpam;
+```
+
+- *Type:* cdk-extensions.ec2.IIpam
+
+---
+
+##### `ipamResourceDiscovery`<sup>Required</sup> <a name="ipamResourceDiscovery" id="cdk-extensions.ec2.IpamResourceDiscoveryAssociationProps.property.ipamResourceDiscovery"></a>
+
+```typescript
+public readonly ipamResourceDiscovery: IIpamResourceDiscovery;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamResourceDiscovery
+
+---
+
+### IpamResourceDiscoveryAttributes <a name="IpamResourceDiscoveryAttributes" id="cdk-extensions.ec2.IpamResourceDiscoveryAttributes"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.IpamResourceDiscoveryAttributes.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipamResourceDiscoveryAttributes: ec2.IpamResourceDiscoveryAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAttributes.property.isDefault">isDefault</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAttributes.property.ownerId">ownerId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAttributes.property.region">region</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAttributes.property.resourceDiscoveryArn">resourceDiscoveryArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAttributes.property.resourceDiscoveryId">resourceDiscoveryId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryAttributes.property.state">state</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `isDefault`<sup>Optional</sup> <a name="isDefault" id="cdk-extensions.ec2.IpamResourceDiscoveryAttributes.property.isDefault"></a>
+
+```typescript
+public readonly isDefault: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `ownerId`<sup>Optional</sup> <a name="ownerId" id="cdk-extensions.ec2.IpamResourceDiscoveryAttributes.property.ownerId"></a>
+
+```typescript
+public readonly ownerId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.IpamResourceDiscoveryAttributes.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resourceDiscoveryArn`<sup>Optional</sup> <a name="resourceDiscoveryArn" id="cdk-extensions.ec2.IpamResourceDiscoveryAttributes.property.resourceDiscoveryArn"></a>
+
+```typescript
+public readonly resourceDiscoveryArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resourceDiscoveryId`<sup>Optional</sup> <a name="resourceDiscoveryId" id="cdk-extensions.ec2.IpamResourceDiscoveryAttributes.property.resourceDiscoveryId"></a>
+
+```typescript
+public readonly resourceDiscoveryId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `state`<sup>Optional</sup> <a name="state" id="cdk-extensions.ec2.IpamResourceDiscoveryAttributes.property.state"></a>
+
+```typescript
+public readonly state: string;
+```
+
+- *Type:* string
+
+---
+
+### IpamResourceDiscoveryProps <a name="IpamResourceDiscoveryProps" id="cdk-extensions.ec2.IpamResourceDiscoveryProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.IpamResourceDiscoveryProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipamResourceDiscoveryProps: ec2.IpamResourceDiscoveryProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamResourceDiscoveryProps.property.regions">regions</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.IpamResourceDiscoveryProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.IpamResourceDiscoveryProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.IpamResourceDiscoveryProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.IpamResourceDiscoveryProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.IpamResourceDiscoveryProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `regions`<sup>Optional</sup> <a name="regions" id="cdk-extensions.ec2.IpamResourceDiscoveryProps.property.regions"></a>
+
+```typescript
+public readonly regions: string[];
+```
+
+- *Type:* string[]
+
+---
+
+### IpamScopeAttributes <a name="IpamScopeAttributes" id="cdk-extensions.ec2.IpamScopeAttributes"></a>
+
+Configuration for importing an existing IPAM scope.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.IpamScopeAttributes.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipamScopeAttributes: ec2.IpamScopeAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamScopeAttributes.property.ipam">ipam</a></code> | <code>cdk-extensions.ec2.IIpam</code> | The IPAM to which the scope belongs. |
+| <code><a href="#cdk-extensions.ec2.IpamScopeAttributes.property.ipamScopeArn">ipamScopeArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the IPAM scope. |
+| <code><a href="#cdk-extensions.ec2.IpamScopeAttributes.property.ipamScopeId">ipamScopeId</a></code> | <code>string</code> | The ID generated by AWS for the IPAM scope. |
+| <code><a href="#cdk-extensions.ec2.IpamScopeAttributes.property.isDefault">isDefault</a></code> | <code>boolean</code> | Defines if the scope is the default scope or not. |
+| <code><a href="#cdk-extensions.ec2.IpamScopeAttributes.property.poolCount">poolCount</a></code> | <code>number</code> | The number of pools in a scope. |
+| <code><a href="#cdk-extensions.ec2.IpamScopeAttributes.property.scopeType">scopeType</a></code> | <code>string</code> | The type of the scope. |
+
+---
+
+##### `ipam`<sup>Optional</sup> <a name="ipam" id="cdk-extensions.ec2.IpamScopeAttributes.property.ipam"></a>
+
+```typescript
+public readonly ipam: IIpam;
+```
+
+- *Type:* cdk-extensions.ec2.IIpam
+
+The IPAM to which the scope belongs.
+
+---
+
+##### `ipamScopeArn`<sup>Optional</sup> <a name="ipamScopeArn" id="cdk-extensions.ec2.IpamScopeAttributes.property.ipamScopeArn"></a>
+
+```typescript
+public readonly ipamScopeArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the IPAM scope.
+
+---
+
+##### `ipamScopeId`<sup>Optional</sup> <a name="ipamScopeId" id="cdk-extensions.ec2.IpamScopeAttributes.property.ipamScopeId"></a>
+
+```typescript
+public readonly ipamScopeId: string;
+```
+
+- *Type:* string
+
+The ID generated by AWS for the IPAM scope.
+
+---
+
+##### `isDefault`<sup>Optional</sup> <a name="isDefault" id="cdk-extensions.ec2.IpamScopeAttributes.property.isDefault"></a>
+
+```typescript
+public readonly isDefault: boolean;
+```
+
+- *Type:* boolean
+
+Defines if the scope is the default scope or not.
+
+---
+
+##### `poolCount`<sup>Optional</sup> <a name="poolCount" id="cdk-extensions.ec2.IpamScopeAttributes.property.poolCount"></a>
+
+```typescript
+public readonly poolCount: number;
+```
+
+- *Type:* number
+
+The number of pools in a scope.
+
+---
+
+##### `scopeType`<sup>Optional</sup> <a name="scopeType" id="cdk-extensions.ec2.IpamScopeAttributes.property.scopeType"></a>
+
+```typescript
+public readonly scopeType: string;
+```
+
+- *Type:* string
+
+The type of the scope.
+
+---
+
+### IpamScopeOptions <a name="IpamScopeOptions" id="cdk-extensions.ec2.IpamScopeOptions"></a>
+
+Optional configuration for the IPAM scope resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.IpamScopeOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipamScopeOptions: ec2.IpamScopeOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamScopeOptions.property.description">description</a></code> | <code>string</code> | The description of the scope. |
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.IpamScopeOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+The description of the scope.
+
+> [[IPAMScope Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-description)]([IPAMScope Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-description))
+
+---
+
+### IpamScopeProps <a name="IpamScopeProps" id="cdk-extensions.ec2.IpamScopeProps"></a>
+
+Configuration for the IPAM scope resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.IpamScopeProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipamScopeProps: ec2.IpamScopeProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamScopeProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamScopeProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.IpamScopeProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.IpamScopeProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IpamScopeProps.property.description">description</a></code> | <code>string</code> | The description of the scope. |
+| <code><a href="#cdk-extensions.ec2.IpamScopeProps.property.ipam">ipam</a></code> | <code>cdk-extensions.ec2.IIpam</code> | The IPAM for which you're creating this scope. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.IpamScopeProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.IpamScopeProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.IpamScopeProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.IpamScopeProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2.IpamScopeProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+The description of the scope.
+
+> [[IPAMScope Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-description)]([IPAMScope Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-description))
+
+---
+
+##### `ipam`<sup>Required</sup> <a name="ipam" id="cdk-extensions.ec2.IpamScopeProps.property.ipam"></a>
+
+```typescript
+public readonly ipam: IIpam;
+```
+
+- *Type:* cdk-extensions.ec2.IIpam
+
+The IPAM for which you're creating this scope.
+
+> [[IPAMScope IpamId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-ipamid)]([IPAMScope IpamId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-ipamid))
+
+---
+
+### Ipv4ConfigurationOptions <a name="Ipv4ConfigurationOptions" id="cdk-extensions.ec2.Ipv4ConfigurationOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.Ipv4ConfigurationOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipv4ConfigurationOptions: ec2.Ipv4ConfigurationOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipv4ConfigurationOptions.property.defaultNetmaskLength">defaultNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv4ConfigurationOptions.property.maxNetmaskLength">maxNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv4ConfigurationOptions.property.minNetmaskLength">minNetmaskLength</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `defaultNetmaskLength`<sup>Optional</sup> <a name="defaultNetmaskLength" id="cdk-extensions.ec2.Ipv4ConfigurationOptions.property.defaultNetmaskLength"></a>
+
+```typescript
+public readonly defaultNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `maxNetmaskLength`<sup>Optional</sup> <a name="maxNetmaskLength" id="cdk-extensions.ec2.Ipv4ConfigurationOptions.property.maxNetmaskLength"></a>
+
+```typescript
+public readonly maxNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `minNetmaskLength`<sup>Optional</sup> <a name="minNetmaskLength" id="cdk-extensions.ec2.Ipv4ConfigurationOptions.property.minNetmaskLength"></a>
+
+```typescript
+public readonly minNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+### Ipv6ConfigurationOptions <a name="Ipv6ConfigurationOptions" id="cdk-extensions.ec2.Ipv6ConfigurationOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.Ipv6ConfigurationOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipv6ConfigurationOptions: ec2.Ipv6ConfigurationOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipv6ConfigurationOptions.property.defaultNetmaskLength">defaultNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv6ConfigurationOptions.property.maxNetmaskLength">maxNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv6ConfigurationOptions.property.minNetmaskLength">minNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv6ConfigurationOptions.property.publiclyAdvertisable">publiclyAdvertisable</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `defaultNetmaskLength`<sup>Optional</sup> <a name="defaultNetmaskLength" id="cdk-extensions.ec2.Ipv6ConfigurationOptions.property.defaultNetmaskLength"></a>
+
+```typescript
+public readonly defaultNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `maxNetmaskLength`<sup>Optional</sup> <a name="maxNetmaskLength" id="cdk-extensions.ec2.Ipv6ConfigurationOptions.property.maxNetmaskLength"></a>
+
+```typescript
+public readonly maxNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `minNetmaskLength`<sup>Optional</sup> <a name="minNetmaskLength" id="cdk-extensions.ec2.Ipv6ConfigurationOptions.property.minNetmaskLength"></a>
+
+```typescript
+public readonly minNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `publiclyAdvertisable`<sup>Optional</sup> <a name="publiclyAdvertisable" id="cdk-extensions.ec2.Ipv6ConfigurationOptions.property.publiclyAdvertisable"></a>
+
+```typescript
+public readonly publiclyAdvertisable: boolean;
+```
+
+- *Type:* boolean
 
 ---
 
@@ -46277,6 +52397,56 @@ public readonly wildcards: string[];
 - *Type:* string[]
 
 Nest records which field matches this wildcard,.
+
+---
+
+### NetmaskLengthOptions <a name="NetmaskLengthOptions" id="cdk-extensions.ec2.NetmaskLengthOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.NetmaskLengthOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const netmaskLengthOptions: ec2.NetmaskLengthOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.NetmaskLengthOptions.property.defaultNetmaskLength">defaultNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.NetmaskLengthOptions.property.maxNetmaskLength">maxNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.NetmaskLengthOptions.property.minNetmaskLength">minNetmaskLength</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `defaultNetmaskLength`<sup>Optional</sup> <a name="defaultNetmaskLength" id="cdk-extensions.ec2.NetmaskLengthOptions.property.defaultNetmaskLength"></a>
+
+```typescript
+public readonly defaultNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `maxNetmaskLength`<sup>Optional</sup> <a name="maxNetmaskLength" id="cdk-extensions.ec2.NetmaskLengthOptions.property.maxNetmaskLength"></a>
+
+```typescript
+public readonly maxNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `minNetmaskLength`<sup>Optional</sup> <a name="minNetmaskLength" id="cdk-extensions.ec2.NetmaskLengthOptions.property.minNetmaskLength"></a>
+
+```typescript
+public readonly minNetmaskLength: number;
+```
+
+- *Type:* number
 
 ---
 
@@ -47968,6 +54138,34 @@ punctuation characters, digits, and upper and lowercased letters.
 
 ---
 
+### RegisterTransitGatewayProps <a name="RegisterTransitGatewayProps" id="cdk-extensions.networkmanager.RegisterTransitGatewayProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.networkmanager.RegisterTransitGatewayProps.Initializer"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+const registerTransitGatewayProps: networkmanager.RegisterTransitGatewayProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.RegisterTransitGatewayProps.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.networkmanager.RegisterTransitGatewayProps.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+---
+
 ### RemoteVpnEndpointConfiguration <a name="RemoteVpnEndpointConfiguration" id="cdk-extensions.ec2.RemoteVpnEndpointConfiguration"></a>
 
 Configuration object containing the vlues needed to configure the remote end of a VPN connection.
@@ -48081,6 +54279,84 @@ public readonly permissions: PolicyStatement[];
 - *Type:* aws-cdk-lib.aws_iam.PolicyStatement[]
 
 IAM permissions required by resources that will be using this plugin.
+
+---
+
+### ResolvedIpamAllocationConfiguration <a name="ResolvedIpamAllocationConfiguration" id="cdk-extensions.ec2.ResolvedIpamAllocationConfiguration"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.ResolvedIpamAllocationConfiguration.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const resolvedIpamAllocationConfiguration: ec2.ResolvedIpamAllocationConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.ResolvedIpamAllocationConfiguration.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.ResolvedIpamAllocationConfiguration.property.netmaskLength">netmaskLength</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2.ResolvedIpamAllocationConfiguration.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `netmaskLength`<sup>Optional</sup> <a name="netmaskLength" id="cdk-extensions.ec2.ResolvedIpamAllocationConfiguration.property.netmaskLength"></a>
+
+```typescript
+public readonly netmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+### ResolvedIpamPoolCidrConfiguration <a name="ResolvedIpamPoolCidrConfiguration" id="cdk-extensions.ec2.ResolvedIpamPoolCidrConfiguration"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.ResolvedIpamPoolCidrConfiguration.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const resolvedIpamPoolCidrConfiguration: ec2.ResolvedIpamPoolCidrConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.ResolvedIpamPoolCidrConfiguration.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.ResolvedIpamPoolCidrConfiguration.property.netmaskLength">netmaskLength</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2.ResolvedIpamPoolCidrConfiguration.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `netmaskLength`<sup>Optional</sup> <a name="netmaskLength" id="cdk-extensions.ec2.ResolvedIpamPoolCidrConfiguration.property.netmaskLength"></a>
+
+```typescript
+public readonly netmaskLength: number;
+```
+
+- *Type:* number
 
 ---
 
@@ -50563,6 +56839,145 @@ public readonly principals: ISharedPrincipal[];
 
 ---
 
+### SiteProps <a name="SiteProps" id="cdk-extensions.networkmanager.SiteProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.networkmanager.SiteProps.Initializer"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+const siteProps: networkmanager.SiteProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.SiteProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.networkmanager.SiteProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.networkmanager.SiteProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.networkmanager.SiteProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.networkmanager.SiteProps.property.globalNetwork">globalNetwork</a></code> | <code>cdk-extensions.networkmanager.IGlobalNetwork</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.SiteProps.property.address">address</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.SiteProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.SiteProps.property.latitude">latitude</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.SiteProps.property.longitude">longitude</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.networkmanager.SiteProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.networkmanager.SiteProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.networkmanager.SiteProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.networkmanager.SiteProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `globalNetwork`<sup>Required</sup> <a name="globalNetwork" id="cdk-extensions.networkmanager.SiteProps.property.globalNetwork"></a>
+
+```typescript
+public readonly globalNetwork: IGlobalNetwork;
+```
+
+- *Type:* cdk-extensions.networkmanager.IGlobalNetwork
+
+---
+
+##### `address`<sup>Optional</sup> <a name="address" id="cdk-extensions.networkmanager.SiteProps.property.address"></a>
+
+```typescript
+public readonly address: string;
+```
+
+- *Type:* string
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.networkmanager.SiteProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `latitude`<sup>Optional</sup> <a name="latitude" id="cdk-extensions.networkmanager.SiteProps.property.latitude"></a>
+
+```typescript
+public readonly latitude: string;
+```
+
+- *Type:* string
+
+---
+
+##### `longitude`<sup>Optional</sup> <a name="longitude" id="cdk-extensions.networkmanager.SiteProps.property.longitude"></a>
+
+```typescript
+public readonly longitude: string;
+```
+
+- *Type:* string
+
+---
+
 ### SsmParameterReferenceOptions <a name="SsmParameterReferenceOptions" id="cdk-extensions.k8s_aws.SsmParameterReferenceOptions"></a>
 
 Configuration options for referencing an SSM parameter as a Kubernetes secret.
@@ -51142,6 +57557,45 @@ Included for Apache Hive compatibility.
 Not used in the normal course of AWS Glue operations. If the table is a VIRTUAL_VIEW, certain Athena configuration encoded in base64.
 
 > [[AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext)]([AWS::Glue::Table TableInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext))
+
+---
+
+### TieredSubnetsOptions <a name="TieredSubnetsOptions" id="cdk-extensions.ec2.TieredSubnetsOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.TieredSubnetsOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const tieredSubnetsOptions: ec2.TieredSubnetsOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.TieredSubnetsOptions.property.provider">provider</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TieredSubnetsOptions.property.tierMask">tierMask</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `provider`<sup>Required</sup> <a name="provider" id="cdk-extensions.ec2.TieredSubnetsOptions.property.provider"></a>
+
+```typescript
+public readonly provider: ICidrProvider;
+```
+
+- *Type:* cdk-extensions.ec2.ICidrProvider
+
+---
+
+##### `tierMask`<sup>Optional</sup> <a name="tierMask" id="cdk-extensions.ec2.TieredSubnetsOptions.property.tierMask"></a>
+
+```typescript
+public readonly tierMask: number;
+```
+
+- *Type:* number
 
 ---
 
@@ -52445,6 +58899,112 @@ public readonly vpnEcmpSupport: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+### TransitGatewayRegistrationProps <a name="TransitGatewayRegistrationProps" id="cdk-extensions.networkmanager.TransitGatewayRegistrationProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.networkmanager.TransitGatewayRegistrationProps.Initializer"></a>
+
+```typescript
+import { networkmanager } from 'cdk-extensions'
+
+const transitGatewayRegistrationProps: networkmanager.TransitGatewayRegistrationProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistrationProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistrationProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistrationProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistrationProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistrationProps.property.globalNetwork">globalNetwork</a></code> | <code>cdk-extensions.networkmanager.IGlobalNetwork</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.TransitGatewayRegistrationProps.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.networkmanager.TransitGatewayRegistrationProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.networkmanager.TransitGatewayRegistrationProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.networkmanager.TransitGatewayRegistrationProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.networkmanager.TransitGatewayRegistrationProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `globalNetwork`<sup>Required</sup> <a name="globalNetwork" id="cdk-extensions.networkmanager.TransitGatewayRegistrationProps.property.globalNetwork"></a>
+
+```typescript
+public readonly globalNetwork: IGlobalNetwork;
+```
+
+- *Type:* cdk-extensions.networkmanager.IGlobalNetwork
+
+---
+
+##### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.networkmanager.TransitGatewayRegistrationProps.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
 
 ---
 
@@ -55397,6 +61957,124 @@ method.
 ---
 
 
+### AddressConfiguration <a name="AddressConfiguration" id="cdk-extensions.ec2.AddressConfiguration"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.ipv4">ipv4</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.ipv6">ipv6</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.of">of</a></code> | *No description.* |
+
+---
+
+##### `ipv4` <a name="ipv4" id="cdk-extensions.ec2.AddressConfiguration.ipv4"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.AddressConfiguration.ipv4(options?: Ipv4ConfigurationOptions)
+```
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.AddressConfiguration.ipv4.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.Ipv4ConfigurationOptions
+
+---
+
+##### `ipv6` <a name="ipv6" id="cdk-extensions.ec2.AddressConfiguration.ipv6"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.AddressConfiguration.ipv6(options?: Ipv6ConfigurationOptions)
+```
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.AddressConfiguration.ipv6.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.Ipv6ConfigurationOptions
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.ec2.AddressConfiguration.of"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.AddressConfiguration.of(props: AddressConfigurationProps)
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.AddressConfiguration.of.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.AddressConfigurationProps
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.property.family">family</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.property.defaultNetmaskLength">defaultNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.property.maxNetmaskLength">maxNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.property.minNetmaskLength">minNetmaskLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressConfiguration.property.publiclyAdvertisable">publiclyAdvertisable</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `family`<sup>Required</sup> <a name="family" id="cdk-extensions.ec2.AddressConfiguration.property.family"></a>
+
+```typescript
+public readonly family: string;
+```
+
+- *Type:* string
+
+---
+
+##### `defaultNetmaskLength`<sup>Optional</sup> <a name="defaultNetmaskLength" id="cdk-extensions.ec2.AddressConfiguration.property.defaultNetmaskLength"></a>
+
+```typescript
+public readonly defaultNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `maxNetmaskLength`<sup>Optional</sup> <a name="maxNetmaskLength" id="cdk-extensions.ec2.AddressConfiguration.property.maxNetmaskLength"></a>
+
+```typescript
+public readonly maxNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `minNetmaskLength`<sup>Optional</sup> <a name="minNetmaskLength" id="cdk-extensions.ec2.AddressConfiguration.property.minNetmaskLength"></a>
+
+```typescript
+public readonly minNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `publiclyAdvertisable`<sup>Optional</sup> <a name="publiclyAdvertisable" id="cdk-extensions.ec2.AddressConfiguration.property.publiclyAdvertisable"></a>
+
+```typescript
+public readonly publiclyAdvertisable: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+
 ### AlertingRule <a name="AlertingRule" id="cdk-extensions.aps.AlertingRule"></a>
 
 - *Implements:* cdk-extensions.aps.IPrometheusRule
@@ -57180,6 +63858,67 @@ public readonly sizeInMb: number;
 - *Type:* number
 
 ---
+
+
+### CidrProvider <a name="CidrProvider" id="cdk-extensions.ec2.CidrProvider"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.CidrProvider.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.CidrProvider()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.CidrProvider.cidr">cidr</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.CidrProvider.ipamPool">ipamPool</a></code> | *No description.* |
+
+---
+
+##### `cidr` <a name="cidr" id="cdk-extensions.ec2.CidrProvider.cidr"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.CidrProvider.cidr(cidr: string)
+```
+
+###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.CidrProvider.cidr.parameter.cidr"></a>
+
+- *Type:* string
+
+---
+
+##### `ipamPool` <a name="ipamPool" id="cdk-extensions.ec2.CidrProvider.ipamPool"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.CidrProvider.ipamPool(pool: IIpamPool, netmask: number)
+```
+
+###### `pool`<sup>Required</sup> <a name="pool" id="cdk-extensions.ec2.CidrProvider.ipamPool.parameter.pool"></a>
+
+- *Type:* cdk-extensions.ec2.IIpamPool
+
+---
+
+###### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2.CidrProvider.ipamPool.parameter.netmask"></a>
+
+- *Type:* number
+
+---
+
 
 
 ### ClassificationString <a name="ClassificationString" id="cdk-extensions.glue.ClassificationString"></a>
@@ -66987,6 +73726,186 @@ sso.Instance.fromInstanceId(scope: IConstruct, id: string, instanceId: string)
 
 
 
+### IpamAllocationConfiguration <a name="IpamAllocationConfiguration" id="cdk-extensions.ec2.IpamAllocationConfiguration"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.IpamAllocationConfiguration.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.IpamAllocationConfiguration()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamAllocationConfiguration.auto">auto</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamAllocationConfiguration.cidr">cidr</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamAllocationConfiguration.netmask">netmask</a></code> | *No description.* |
+
+---
+
+##### `auto` <a name="auto" id="cdk-extensions.ec2.IpamAllocationConfiguration.auto"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamAllocationConfiguration.auto()
+```
+
+##### `cidr` <a name="cidr" id="cdk-extensions.ec2.IpamAllocationConfiguration.cidr"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamAllocationConfiguration.cidr(cidr: string)
+```
+
+###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.IpamAllocationConfiguration.cidr.parameter.cidr"></a>
+
+- *Type:* string
+
+---
+
+##### `netmask` <a name="netmask" id="cdk-extensions.ec2.IpamAllocationConfiguration.netmask"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamAllocationConfiguration.netmask(length: number)
+```
+
+###### `length`<sup>Required</sup> <a name="length" id="cdk-extensions.ec2.IpamAllocationConfiguration.netmask.parameter.length"></a>
+
+- *Type:* number
+
+---
+
+
+
+### IpamConsumer <a name="IpamConsumer" id="cdk-extensions.ec2.IpamConsumer"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamConsumer.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.ec2.IpamConsumer.of"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamConsumer.of(name: string)
+```
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.ec2.IpamConsumer.of.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamConsumer.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.ec2.IpamConsumer.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamConsumer.property.EC2">EC2</a></code> | <code>cdk-extensions.ec2.IpamConsumer</code> | *No description.* |
+
+---
+
+##### `EC2`<sup>Required</sup> <a name="EC2" id="cdk-extensions.ec2.IpamConsumer.property.EC2"></a>
+
+```typescript
+public readonly EC2: IpamConsumer;
+```
+
+- *Type:* cdk-extensions.ec2.IpamConsumer
+
+---
+
+### IpamPoolCidrConfiguration <a name="IpamPoolCidrConfiguration" id="cdk-extensions.ec2.IpamPoolCidrConfiguration"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.IpamPoolCidrConfiguration.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.IpamPoolCidrConfiguration()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidrConfiguration.cidr">cidr</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamPoolCidrConfiguration.netmask">netmask</a></code> | *No description.* |
+
+---
+
+##### `cidr` <a name="cidr" id="cdk-extensions.ec2.IpamPoolCidrConfiguration.cidr"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamPoolCidrConfiguration.cidr(cidr: string)
+```
+
+###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.IpamPoolCidrConfiguration.cidr.parameter.cidr"></a>
+
+- *Type:* string
+
+---
+
+##### `netmask` <a name="netmask" id="cdk-extensions.ec2.IpamPoolCidrConfiguration.netmask"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.IpamPoolCidrConfiguration.netmask(length: number)
+```
+
+###### `length`<sup>Required</sup> <a name="length" id="cdk-extensions.ec2.IpamPoolCidrConfiguration.netmask.parameter.length"></a>
+
+- *Type:* number
+
+---
+
+
+
 ### JdbcTarget <a name="JdbcTarget" id="cdk-extensions.glue.JdbcTarget"></a>
 
 - *Implements:* cdk-extensions.glue.ICrawlerTarget
@@ -70437,6 +77356,78 @@ aps.PrometheusRule.recordingRule(options: RecordingRuleProps)
 
 
 
+### PublicIpSource <a name="PublicIpSource" id="cdk-extensions.ec2.PublicIpSource"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.PublicIpSource.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.ec2.PublicIpSource.of"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.PublicIpSource.of(name: string)
+```
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.ec2.PublicIpSource.of.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.PublicIpSource.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.ec2.PublicIpSource.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.PublicIpSource.property.AMAZON">AMAZON</a></code> | <code>cdk-extensions.ec2.PublicIpSource</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.PublicIpSource.property.BYOIP">BYOIP</a></code> | <code>cdk-extensions.ec2.PublicIpSource</code> | *No description.* |
+
+---
+
+##### `AMAZON`<sup>Required</sup> <a name="AMAZON" id="cdk-extensions.ec2.PublicIpSource.property.AMAZON"></a>
+
+```typescript
+public readonly AMAZON: PublicIpSource;
+```
+
+- *Type:* cdk-extensions.ec2.PublicIpSource
+
+---
+
+##### `BYOIP`<sup>Required</sup> <a name="BYOIP" id="cdk-extensions.ec2.PublicIpSource.property.BYOIP"></a>
+
+```typescript
+public readonly BYOIP: PublicIpSource;
+```
+
+- *Type:* cdk-extensions.ec2.PublicIpSource
+
+---
+
 ### RecordDeaggregationProcessor <a name="RecordDeaggregationProcessor" id="cdk-extensions.kinesis_firehose.RecordDeaggregationProcessor"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.RecordDeaggregationProcessor.Initializer"></a>
@@ -71748,6 +78739,7 @@ Configures resource sharing for the associated resource.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-extensions.ram_resources.SharedResource.fromArn">fromArn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ram_resources.SharedResource.fromIpamPool">fromIpamPool</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ram_resources.SharedResource.fromProject">fromProject</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ram_resources.SharedResource.fromSubnet">fromSubnet</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ram_resources.SharedResource.fromTransitGateway">fromTransitGateway</a></code> | *No description.* |
@@ -71765,6 +78757,20 @@ ram_resources.SharedResource.fromArn(arn: string)
 ###### `arn`<sup>Required</sup> <a name="arn" id="cdk-extensions.ram_resources.SharedResource.fromArn.parameter.arn"></a>
 
 - *Type:* string
+
+---
+
+##### `fromIpamPool` <a name="fromIpamPool" id="cdk-extensions.ram_resources.SharedResource.fromIpamPool"></a>
+
+```typescript
+import { ram_resources } from 'cdk-extensions'
+
+ram_resources.SharedResource.fromIpamPool(pool: IIpamPool)
+```
+
+###### `pool`<sup>Required</sup> <a name="pool" id="cdk-extensions.ram_resources.SharedResource.fromIpamPool.parameter.pool"></a>
+
+- *Type:* cdk-extensions.ec2.IIpamPool
 
 ---
 
@@ -72310,69 +79316,22 @@ Called by the VPC to retrieve VPC options from the Ipam  Don't call this direc
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.ec2.TieredSubnets.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TieredSubnets.property.provider">provider</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2.TieredSubnets.property.tierMask">tierMask</a></code> | <code>number</code> | *No description.* |
 
 ---
 
-##### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.TieredSubnets.property.cidr"></a>
+##### `provider`<sup>Required</sup> <a name="provider" id="cdk-extensions.ec2.TieredSubnets.property.provider"></a>
 
 ```typescript
-public readonly cidr: string;
+public readonly provider: ICidrProvider;
 ```
 
-- *Type:* string
+- *Type:* cdk-extensions.ec2.ICidrProvider
 
 ---
 
 ##### `tierMask`<sup>Optional</sup> <a name="tierMask" id="cdk-extensions.ec2.TieredSubnets.property.tierMask"></a>
-
-```typescript
-public readonly tierMask: number;
-```
-
-- *Type:* number
-
----
-
-
-### TieredSubnetsOptions <a name="TieredSubnetsOptions" id="cdk-extensions.ec2.TieredSubnetsOptions"></a>
-
-#### Initializers <a name="Initializers" id="cdk-extensions.ec2.TieredSubnetsOptions.Initializer"></a>
-
-```typescript
-import { ec2 } from 'cdk-extensions'
-
-new ec2.TieredSubnetsOptions()
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-
----
-
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.ec2.TieredSubnetsOptions.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2.TieredSubnetsOptions.property.tierMask">tierMask</a></code> | <code>number</code> | *No description.* |
-
----
-
-##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2.TieredSubnetsOptions.property.cidr"></a>
-
-```typescript
-public readonly cidr: string;
-```
-
-- *Type:* string
-
----
-
-##### `tierMask`<sup>Optional</sup> <a name="tierMask" id="cdk-extensions.ec2.TieredSubnetsOptions.property.tierMask"></a>
 
 ```typescript
 public readonly tierMask: number;
@@ -74363,6 +81322,40 @@ Options specifying the conditions the predicate must meet to trigger the next st
 
 ## Protocols <a name="Protocols" id="Protocols"></a>
 
+### IAddressConfiguration <a name="IAddressConfiguration" id="cdk-extensions.ec2.IAddressConfiguration"></a>
+
+- *Implemented By:* cdk-extensions.ec2.IAddressConfiguration
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IAddressConfiguration.property.family">family</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IAddressConfiguration.property.publiclyAdvertisable">publiclyAdvertisable</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `family`<sup>Required</sup> <a name="family" id="cdk-extensions.ec2.IAddressConfiguration.property.family"></a>
+
+```typescript
+public readonly family: string;
+```
+
+- *Type:* string
+
+---
+
+##### `publiclyAdvertisable`<sup>Optional</sup> <a name="publiclyAdvertisable" id="cdk-extensions.ec2.IAddressConfiguration.property.publiclyAdvertisable"></a>
+
+```typescript
+public readonly publiclyAdvertisable: boolean;
+```
+
+- *Type:* boolean
+
+---
+
 ### IAlertManagerConfiguration <a name="IAlertManagerConfiguration" id="cdk-extensions.aps.IAlertManagerConfiguration"></a>
 
 - *Implemented By:* cdk-extensions.aps.AlertManagerConfiguration, cdk-extensions.aps.IAlertManagerConfiguration
@@ -74443,6 +81436,51 @@ public readonly category: AlertManagerDestinationCategory;
 The destination type being configured.
 
 Represents a config block in an alert manager receiver configuration.
+
+---
+
+### ICidrProvider <a name="ICidrProvider" id="cdk-extensions.ec2.ICidrProvider"></a>
+
+- *Implemented By:* cdk-extensions.ec2.ICidrProvider
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.ICidrProvider.property.ipamOptions">ipamOptions</a></code> | <code>aws-cdk-lib.aws_ec2.VpcIpamOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.ICidrProvider.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.ICidrProvider.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
+
+---
+
+##### `ipamOptions`<sup>Required</sup> <a name="ipamOptions" id="cdk-extensions.ec2.ICidrProvider.property.ipamOptions"></a>
+
+```typescript
+public readonly ipamOptions: VpcIpamOptions;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.VpcIpamOptions
+
+---
+
+##### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2.ICidrProvider.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
+##### `ipamPool`<sup>Optional</sup> <a name="ipamPool" id="cdk-extensions.ec2.ICidrProvider.property.ipamPool"></a>
+
+```typescript
+public readonly ipamPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
 
 ---
 
@@ -75135,6 +82173,40 @@ The type of fluent bit plugin.
 
 ---
 
+### IGlobalNetwork <a name="IGlobalNetwork" id="cdk-extensions.networkmanager.IGlobalNetwork"></a>
+
+- *Implemented By:* cdk-extensions.networkmanager.GlobalNetwork, cdk-extensions.networkmanager.IGlobalNetwork
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.IGlobalNetwork.property.globalNetworkArn">globalNetworkArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.IGlobalNetwork.property.globalNetworkId">globalNetworkId</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `globalNetworkArn`<sup>Required</sup> <a name="globalNetworkArn" id="cdk-extensions.networkmanager.IGlobalNetwork.property.globalNetworkArn"></a>
+
+```typescript
+public readonly globalNetworkArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `globalNetworkId`<sup>Required</sup> <a name="globalNetworkId" id="cdk-extensions.networkmanager.IGlobalNetwork.property.globalNetworkId"></a>
+
+```typescript
+public readonly globalNetworkId: string;
+```
+
+- *Type:* string
+
+---
+
 ### IGroup <a name="IGroup" id="cdk-extensions.sso.IGroup"></a>
 
 - *Implemented By:* cdk-extensions.sso.GroupBase, cdk-extensions.sso.IGroup
@@ -75239,6 +82311,933 @@ public readonly instanceId: string;
 - *Type:* string
 
 The ID of the IAM Identity Center instance under which the operation will be executed.
+
+---
+
+### IIpam <a name="IIpam" id="cdk-extensions.ec2.IIpam"></a>
+
+- *Implemented By:* cdk-extensions.ec2.Ipam, cdk-extensions.ec2.IIpam
+
+Represents an IPAM in AWS.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpam.addScope">addScope</a></code> | Adds an IPAM scope to the IPAM. |
+| <code><a href="#cdk-extensions.ec2.IIpam.associateResourceDiscovery">associateResourceDiscovery</a></code> | Associates an existing IPAM resource discovery with the IPAM. |
+
+---
+
+##### `addScope` <a name="addScope" id="cdk-extensions.ec2.IIpam.addScope"></a>
+
+```typescript
+public addScope(id: string, options: IpamScopeOptions): IIpamScope
+```
+
+Adds an IPAM scope to the IPAM.
+
+In IPAM, a scope is the highest-level container within IPAM. Scopes enable
+you to reuse IP addresses across multiple unconnected networks without
+causing IP address overlap or conflict.
+
+> [[How IPAM works](https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html)]([How IPAM works](https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html))
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IIpam.addScope.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated to the scope being added.
+
+A unique id
+must be used each time this method is invoked.
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.IIpam.addScope.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.IpamScopeOptions
+
+Arguments specifying the details of the scope being added.
+
+---
+
+##### `associateResourceDiscovery` <a name="associateResourceDiscovery" id="cdk-extensions.ec2.IIpam.associateResourceDiscovery"></a>
+
+```typescript
+public associateResourceDiscovery(resourceDiscovery: IIpamResourceDiscovery): IIpamResourceDiscoveryAssociation
+```
+
+Associates an existing IPAM resource discovery with the IPAM.
+
+IPAM aggregates the resource CIDRs discovered by the associated resource
+discovery.
+
+###### `resourceDiscovery`<sup>Required</sup> <a name="resourceDiscovery" id="cdk-extensions.ec2.IIpam.associateResourceDiscovery.parameter.resourceDiscovery"></a>
+
+- *Type:* cdk-extensions.ec2.IIpamResourceDiscovery
+
+The IPAM resource discovery to associate with the IPAM.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpam.property.ipamArn">ipamArn</a></code> | <code>string</code> | The ARN of the IPAM. |
+| <code><a href="#cdk-extensions.ec2.IIpam.property.ipamId">ipamId</a></code> | <code>string</code> | The ID of the IPAM. |
+| <code><a href="#cdk-extensions.ec2.IIpam.property.ipamPrivateDefaultScopeId">ipamPrivateDefaultScopeId</a></code> | <code>string</code> | The ID of the IPAM's default private scope. |
+| <code><a href="#cdk-extensions.ec2.IIpam.property.ipamPublicDefaultScopeId">ipamPublicDefaultScopeId</a></code> | <code>string</code> | The ID of the IPAM's default public scope. |
+| <code><a href="#cdk-extensions.ec2.IIpam.property.ipamScopeCount">ipamScopeCount</a></code> | <code>number</code> | The number of scopes in the IPAM. |
+
+---
+
+##### `ipamArn`<sup>Required</sup> <a name="ipamArn" id="cdk-extensions.ec2.IIpam.property.ipamArn"></a>
+
+```typescript
+public readonly ipamArn: string;
+```
+
+- *Type:* string
+
+The ARN of the IPAM.
+
+---
+
+##### `ipamId`<sup>Required</sup> <a name="ipamId" id="cdk-extensions.ec2.IIpam.property.ipamId"></a>
+
+```typescript
+public readonly ipamId: string;
+```
+
+- *Type:* string
+
+The ID of the IPAM.
+
+---
+
+##### `ipamPrivateDefaultScopeId`<sup>Required</sup> <a name="ipamPrivateDefaultScopeId" id="cdk-extensions.ec2.IIpam.property.ipamPrivateDefaultScopeId"></a>
+
+```typescript
+public readonly ipamPrivateDefaultScopeId: string;
+```
+
+- *Type:* string
+
+The ID of the IPAM's default private scope.
+
+---
+
+##### `ipamPublicDefaultScopeId`<sup>Required</sup> <a name="ipamPublicDefaultScopeId" id="cdk-extensions.ec2.IIpam.property.ipamPublicDefaultScopeId"></a>
+
+```typescript
+public readonly ipamPublicDefaultScopeId: string;
+```
+
+- *Type:* string
+
+The ID of the IPAM's default public scope.
+
+---
+
+##### `ipamScopeCount`<sup>Required</sup> <a name="ipamScopeCount" id="cdk-extensions.ec2.IIpam.property.ipamScopeCount"></a>
+
+```typescript
+public readonly ipamScopeCount: number;
+```
+
+- *Type:* number
+
+The number of scopes in the IPAM.
+
+The scope quota is 5.
+
+---
+
+### IIpamAllocation <a name="IIpamAllocation" id="cdk-extensions.ec2.IIpamAllocation"></a>
+
+- *Implemented By:* cdk-extensions.ec2.IpamAllocation, cdk-extensions.ec2.IIpamAllocation
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamAllocation.property.ipamAllocationCidr">ipamAllocationCidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamAllocation.property.ipamAllocationId">ipamAllocationId</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `ipamAllocationCidr`<sup>Required</sup> <a name="ipamAllocationCidr" id="cdk-extensions.ec2.IIpamAllocation.property.ipamAllocationCidr"></a>
+
+```typescript
+public readonly ipamAllocationCidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamAllocationId`<sup>Required</sup> <a name="ipamAllocationId" id="cdk-extensions.ec2.IIpamAllocation.property.ipamAllocationId"></a>
+
+```typescript
+public readonly ipamAllocationId: string;
+```
+
+- *Type:* string
+
+---
+
+### IIpamAllocationConfiguration <a name="IIpamAllocationConfiguration" id="cdk-extensions.ec2.IIpamAllocationConfiguration"></a>
+
+- *Implemented By:* cdk-extensions.ec2.IIpamAllocationConfiguration
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamAllocationConfiguration.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.ec2.IIpamAllocationConfiguration.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ResolvedIpamAllocationConfiguration
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IIpamAllocationConfiguration.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+### IIpamPool <a name="IIpamPool" id="cdk-extensions.ec2.IIpamPool"></a>
+
+- *Extends:* aws-cdk-lib.IResource
+
+- *Implemented By:* cdk-extensions.ec2.IpamPool, cdk-extensions.ec2.IIpamPool
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.addChildPool">addChildPool</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.addCidrToPool">addCidrToPool</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.allocateCidrFromPool">allocateCidrFromPool</a></code> | *No description.* |
+
+---
+
+##### `addChildPool` <a name="addChildPool" id="cdk-extensions.ec2.IIpamPool.addChildPool"></a>
+
+```typescript
+public addChildPool(id: string, options?: AddChildPoolOptions): IIpamPool
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IIpamPool.addChildPool.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.IIpamPool.addChildPool.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.AddChildPoolOptions
+
+---
+
+##### `addCidrToPool` <a name="addCidrToPool" id="cdk-extensions.ec2.IIpamPool.addCidrToPool"></a>
+
+```typescript
+public addCidrToPool(id: string, options: AddCidrToPoolOptions): AddCidrToPoolResult
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IIpamPool.addCidrToPool.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.IIpamPool.addCidrToPool.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.AddCidrToPoolOptions
+
+---
+
+##### `allocateCidrFromPool` <a name="allocateCidrFromPool" id="cdk-extensions.ec2.IIpamPool.allocateCidrFromPool"></a>
+
+```typescript
+public allocateCidrFromPool(id: string, options?: AllocateCidrFromPoolOptions): IIpamAllocation
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IIpamPool.allocateCidrFromPool.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.IIpamPool.allocateCidrFromPool.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.AllocateCidrFromPoolOptions
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.property.ipamPoolArn">ipamPoolArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.property.ipamPoolDepth">ipamPoolDepth</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.property.ipamPoolId">ipamPoolId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.property.ipamPoolIpamArn">ipamPoolIpamArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.property.ipamPoolScopeArn">ipamPoolScopeArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.property.ipamPoolScopeType">ipamPoolScopeType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.property.ipamPoolState">ipamPoolState</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.property.ipamPoolStateMessage">ipamPoolStateMessage</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.IIpamPool.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.IIpamPool.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.IIpamPool.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `ipamPoolArn`<sup>Required</sup> <a name="ipamPoolArn" id="cdk-extensions.ec2.IIpamPool.property.ipamPoolArn"></a>
+
+```typescript
+public readonly ipamPoolArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPoolDepth`<sup>Required</sup> <a name="ipamPoolDepth" id="cdk-extensions.ec2.IIpamPool.property.ipamPoolDepth"></a>
+
+```typescript
+public readonly ipamPoolDepth: number;
+```
+
+- *Type:* number
+
+---
+
+##### `ipamPoolId`<sup>Required</sup> <a name="ipamPoolId" id="cdk-extensions.ec2.IIpamPool.property.ipamPoolId"></a>
+
+```typescript
+public readonly ipamPoolId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPoolIpamArn`<sup>Required</sup> <a name="ipamPoolIpamArn" id="cdk-extensions.ec2.IIpamPool.property.ipamPoolIpamArn"></a>
+
+```typescript
+public readonly ipamPoolIpamArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPoolScopeArn`<sup>Required</sup> <a name="ipamPoolScopeArn" id="cdk-extensions.ec2.IIpamPool.property.ipamPoolScopeArn"></a>
+
+```typescript
+public readonly ipamPoolScopeArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPoolScopeType`<sup>Required</sup> <a name="ipamPoolScopeType" id="cdk-extensions.ec2.IIpamPool.property.ipamPoolScopeType"></a>
+
+```typescript
+public readonly ipamPoolScopeType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPoolState`<sup>Required</sup> <a name="ipamPoolState" id="cdk-extensions.ec2.IIpamPool.property.ipamPoolState"></a>
+
+```typescript
+public readonly ipamPoolState: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPoolStateMessage`<sup>Required</sup> <a name="ipamPoolStateMessage" id="cdk-extensions.ec2.IIpamPool.property.ipamPoolStateMessage"></a>
+
+```typescript
+public readonly ipamPoolStateMessage: string;
+```
+
+- *Type:* string
+
+---
+
+### IIpamPoolCidr <a name="IIpamPoolCidr" id="cdk-extensions.ec2.IIpamPoolCidr"></a>
+
+- *Implemented By:* cdk-extensions.ec2.IpamPoolCidr, cdk-extensions.ec2.IIpamPoolCidr
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamPoolCidr.property.ipamPoolCidrId">ipamPoolCidrId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamPoolCidr.property.ipamPoolCidrState">ipamPoolCidrState</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `ipamPoolCidrId`<sup>Required</sup> <a name="ipamPoolCidrId" id="cdk-extensions.ec2.IIpamPoolCidr.property.ipamPoolCidrId"></a>
+
+```typescript
+public readonly ipamPoolCidrId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamPoolCidrState`<sup>Required</sup> <a name="ipamPoolCidrState" id="cdk-extensions.ec2.IIpamPoolCidr.property.ipamPoolCidrState"></a>
+
+```typescript
+public readonly ipamPoolCidrState: string;
+```
+
+- *Type:* string
+
+---
+
+### IIpamPoolCidrConfiguration <a name="IIpamPoolCidrConfiguration" id="cdk-extensions.ec2.IIpamPoolCidrConfiguration"></a>
+
+- *Implemented By:* cdk-extensions.ec2.IIpamPoolCidrConfiguration
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamPoolCidrConfiguration.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.ec2.IIpamPoolCidrConfiguration.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ResolvedIpamPoolCidrConfiguration
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.IIpamPoolCidrConfiguration.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamPoolCidrConfiguration.property.inline">inline</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `inline`<sup>Required</sup> <a name="inline" id="cdk-extensions.ec2.IIpamPoolCidrConfiguration.property.inline"></a>
+
+```typescript
+public readonly inline: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+### IIpamResourceDiscovery <a name="IIpamResourceDiscovery" id="cdk-extensions.ec2.IIpamResourceDiscovery"></a>
+
+- *Extends:* aws-cdk-lib.IResource
+
+- *Implemented By:* cdk-extensions.ec2.IpamResourceDiscovery, cdk-extensions.ec2.IIpamResourceDiscovery
+
+Represents an IPAM resource discovery in AWS.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscovery.addIpam">addIpam</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscovery.associateIpam">associateIpam</a></code> | *No description.* |
+
+---
+
+##### `addIpam` <a name="addIpam" id="cdk-extensions.ec2.IIpamResourceDiscovery.addIpam"></a>
+
+```typescript
+public addIpam(id: string, options: IpamProps): IIpam
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IIpamResourceDiscovery.addIpam.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.IIpamResourceDiscovery.addIpam.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.IpamProps
+
+---
+
+##### `associateIpam` <a name="associateIpam" id="cdk-extensions.ec2.IIpamResourceDiscovery.associateIpam"></a>
+
+```typescript
+public associateIpam(ipam: IIpam): IIpamResourceDiscoveryAssociation
+```
+
+###### `ipam`<sup>Required</sup> <a name="ipam" id="cdk-extensions.ec2.IIpamResourceDiscovery.associateIpam.parameter.ipam"></a>
+
+- *Type:* cdk-extensions.ec2.IIpam
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscovery.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscovery.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscovery.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscovery.property.ipamResourceDiscoveryArn">ipamResourceDiscoveryArn</a></code> | <code>string</code> | The resource discovery ARN. |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscovery.property.ipamResourceDiscoveryId">ipamResourceDiscoveryId</a></code> | <code>string</code> | The resource discovery ID. |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscovery.property.ipamResourceDiscoveryIsDefault">ipamResourceDiscoveryIsDefault</a></code> | <code>aws-cdk-lib.IResolvable</code> | Defines if the resource discovery is the default. |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscovery.property.ipamResourceDiscoveryOwnerId">ipamResourceDiscoveryOwnerId</a></code> | <code>string</code> | The owner ID. |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscovery.property.ipamResourceDiscoveryRegion">ipamResourceDiscoveryRegion</a></code> | <code>string</code> | The resource discovery Region. |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscovery.property.ipamResourceDiscoveryState">ipamResourceDiscoveryState</a></code> | <code>string</code> | The resource discovery's state. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.IIpamResourceDiscovery.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.IIpamResourceDiscovery.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.IIpamResourceDiscovery.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `ipamResourceDiscoveryArn`<sup>Required</sup> <a name="ipamResourceDiscoveryArn" id="cdk-extensions.ec2.IIpamResourceDiscovery.property.ipamResourceDiscoveryArn"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryArn: string;
+```
+
+- *Type:* string
+
+The resource discovery ARN.
+
+---
+
+##### `ipamResourceDiscoveryId`<sup>Required</sup> <a name="ipamResourceDiscoveryId" id="cdk-extensions.ec2.IIpamResourceDiscovery.property.ipamResourceDiscoveryId"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryId: string;
+```
+
+- *Type:* string
+
+The resource discovery ID.
+
+---
+
+##### `ipamResourceDiscoveryIsDefault`<sup>Required</sup> <a name="ipamResourceDiscoveryIsDefault" id="cdk-extensions.ec2.IIpamResourceDiscovery.property.ipamResourceDiscoveryIsDefault"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryIsDefault: IResolvable;
+```
+
+- *Type:* aws-cdk-lib.IResolvable
+
+Defines if the resource discovery is the default.
+
+The default resource
+discovery is the resource discovery automatically created when you create
+an IPAM.
+
+---
+
+##### `ipamResourceDiscoveryOwnerId`<sup>Required</sup> <a name="ipamResourceDiscoveryOwnerId" id="cdk-extensions.ec2.IIpamResourceDiscovery.property.ipamResourceDiscoveryOwnerId"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryOwnerId: string;
+```
+
+- *Type:* string
+
+The owner ID.
+
+---
+
+##### `ipamResourceDiscoveryRegion`<sup>Required</sup> <a name="ipamResourceDiscoveryRegion" id="cdk-extensions.ec2.IIpamResourceDiscovery.property.ipamResourceDiscoveryRegion"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryRegion: string;
+```
+
+- *Type:* string
+
+The resource discovery Region.
+
+---
+
+##### `ipamResourceDiscoveryState`<sup>Required</sup> <a name="ipamResourceDiscoveryState" id="cdk-extensions.ec2.IIpamResourceDiscovery.property.ipamResourceDiscoveryState"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryState: string;
+```
+
+- *Type:* string
+
+The resource discovery's state.
+
+create-in-progress - Resource discovery is being created.
+- create-complete - Resource discovery creation is complete.
+- create-failed - Resource discovery creation has failed.
+- modify-in-progress - Resource discovery is being modified.
+- modify-complete - Resource discovery modification is complete.
+- modify-failed - Resource discovery modification has failed.
+- delete-in-progress - Resource discovery is being deleted.
+- delete-complete - Resource discovery deletion is complete.
+- delete-failed - Resource discovery deletion has failed.
+- isolate-in-progress - AWS account that created the resource discovery
+has been removed and the resource discovery is being isolated.
+- isolate-complete - Resource discovery isolation is complete.
+- restore-in-progress - AWS account that created the resource discovery
+and was isolated has been restored.
+
+---
+
+### IIpamResourceDiscoveryAssociation <a name="IIpamResourceDiscoveryAssociation" id="cdk-extensions.ec2.IIpamResourceDiscoveryAssociation"></a>
+
+- *Implemented By:* cdk-extensions.ec2.IpamResourceDiscoveryAssociation, cdk-extensions.ec2.IIpamResourceDiscoveryAssociation
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationArn">ipamResourceDiscoveryAssociationArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationId">ipamResourceDiscoveryAssociationId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationIpamArn">ipamResourceDiscoveryAssociationIpamArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationIpamRegion">ipamResourceDiscoveryAssociationIpamRegion</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationIsDefault">ipamResourceDiscoveryAssociationIsDefault</a></code> | <code>aws-cdk-lib.IResolvable</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationOwnerId">ipamResourceDiscoveryAssociationOwnerId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationResourceDiscoveryId">ipamResourceDiscoveryAssociationResourceDiscoveryId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationResourceDiscoveryStatus">ipamResourceDiscoveryAssociationResourceDiscoveryStatus</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationState">ipamResourceDiscoveryAssociationState</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `ipamResourceDiscoveryAssociationArn`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationArn" id="cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationArn"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamResourceDiscoveryAssociationId`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationId" id="cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationId"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamResourceDiscoveryAssociationIpamArn`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationIpamArn" id="cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationIpamArn"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationIpamArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamResourceDiscoveryAssociationIpamRegion`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationIpamRegion" id="cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationIpamRegion"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationIpamRegion: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamResourceDiscoveryAssociationIsDefault`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationIsDefault" id="cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationIsDefault"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationIsDefault: IResolvable;
+```
+
+- *Type:* aws-cdk-lib.IResolvable
+
+---
+
+##### `ipamResourceDiscoveryAssociationOwnerId`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationOwnerId" id="cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationOwnerId"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationOwnerId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamResourceDiscoveryAssociationResourceDiscoveryId`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationResourceDiscoveryId" id="cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationResourceDiscoveryId"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationResourceDiscoveryId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamResourceDiscoveryAssociationResourceDiscoveryStatus`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationResourceDiscoveryStatus" id="cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationResourceDiscoveryStatus"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationResourceDiscoveryStatus: string;
+```
+
+- *Type:* string
+
+---
+
+##### `ipamResourceDiscoveryAssociationState`<sup>Required</sup> <a name="ipamResourceDiscoveryAssociationState" id="cdk-extensions.ec2.IIpamResourceDiscoveryAssociation.property.ipamResourceDiscoveryAssociationState"></a>
+
+```typescript
+public readonly ipamResourceDiscoveryAssociationState: string;
+```
+
+- *Type:* string
+
+---
+
+### IIpamScope <a name="IIpamScope" id="cdk-extensions.ec2.IIpamScope"></a>
+
+- *Implemented By:* cdk-extensions.ec2.IpamScope, cdk-extensions.ec2.IIpamScope
+
+Represents an IPAM scope in AWS.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamScope.addPool">addPool</a></code> | Adds an IPAM pool to the IPAM scope. |
+
+---
+
+##### `addPool` <a name="addPool" id="cdk-extensions.ec2.IIpamScope.addPool"></a>
+
+```typescript
+public addPool(id: string, options?: IpamPoolOptions): IIpamPool
+```
+
+Adds an IPAM pool to the IPAM scope.
+
+A pool is a collection of contiguous IP address ranges (or CIDRs). IPAM
+pools enable you to organize your IP addresses according to your routing
+and security needs.
+
+> [[How IPAM works](https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html)]([How IPAM works](https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html))
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.IIpamScope.addPool.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the pool bing added.
+
+A unique id
+must be used each time the method is invoked.
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2.IIpamScope.addPool.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.IpamPoolOptions
+
+Arguments specifying the details of the pool being added.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamScope.property.ipamScopeArn">ipamScopeArn</a></code> | <code>string</code> | The ARN of the scope. |
+| <code><a href="#cdk-extensions.ec2.IIpamScope.property.ipamScopeId">ipamScopeId</a></code> | <code>string</code> | The ID of an IPAM scope. |
+| <code><a href="#cdk-extensions.ec2.IIpamScope.property.ipamScopeIpamArn">ipamScopeIpamArn</a></code> | <code>string</code> | The ARN of an IPAM. |
+| <code><a href="#cdk-extensions.ec2.IIpamScope.property.ipamScopeIsDefault">ipamScopeIsDefault</a></code> | <code>aws-cdk-lib.IResolvable</code> | Defines if the scope is the default scope or not. |
+| <code><a href="#cdk-extensions.ec2.IIpamScope.property.ipamScopePoolCount">ipamScopePoolCount</a></code> | <code>number</code> | The number of pools in a scope. |
+| <code><a href="#cdk-extensions.ec2.IIpamScope.property.ipamScopeType">ipamScopeType</a></code> | <code>string</code> | The type of the scope. |
+
+---
+
+##### `ipamScopeArn`<sup>Required</sup> <a name="ipamScopeArn" id="cdk-extensions.ec2.IIpamScope.property.ipamScopeArn"></a>
+
+```typescript
+public readonly ipamScopeArn: string;
+```
+
+- *Type:* string
+
+The ARN of the scope.
+
+---
+
+##### `ipamScopeId`<sup>Required</sup> <a name="ipamScopeId" id="cdk-extensions.ec2.IIpamScope.property.ipamScopeId"></a>
+
+```typescript
+public readonly ipamScopeId: string;
+```
+
+- *Type:* string
+
+The ID of an IPAM scope.
+
+---
+
+##### `ipamScopeIpamArn`<sup>Required</sup> <a name="ipamScopeIpamArn" id="cdk-extensions.ec2.IIpamScope.property.ipamScopeIpamArn"></a>
+
+```typescript
+public readonly ipamScopeIpamArn: string;
+```
+
+- *Type:* string
+
+The ARN of an IPAM.
+
+---
+
+##### `ipamScopeIsDefault`<sup>Required</sup> <a name="ipamScopeIsDefault" id="cdk-extensions.ec2.IIpamScope.property.ipamScopeIsDefault"></a>
+
+```typescript
+public readonly ipamScopeIsDefault: IResolvable;
+```
+
+- *Type:* aws-cdk-lib.IResolvable
+
+Defines if the scope is the default scope or not.
+
+---
+
+##### `ipamScopePoolCount`<sup>Required</sup> <a name="ipamScopePoolCount" id="cdk-extensions.ec2.IIpamScope.property.ipamScopePoolCount"></a>
+
+```typescript
+public readonly ipamScopePoolCount: number;
+```
+
+- *Type:* number
+
+The number of pools in a scope.
+
+---
+
+##### `ipamScopeType`<sup>Required</sup> <a name="ipamScopeType" id="cdk-extensions.ec2.IIpamScope.property.ipamScopeType"></a>
+
+```typescript
+public readonly ipamScopeType: string;
+```
+
+- *Type:* string
+
+The type of the scope.
 
 ---
 
@@ -75805,6 +83804,40 @@ public bind(scope: IConstruct): string
 ---
 
 
+### ISite <a name="ISite" id="cdk-extensions.networkmanager.ISite"></a>
+
+- *Implemented By:* cdk-extensions.networkmanager.Site, cdk-extensions.networkmanager.ISite
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.networkmanager.ISite.property.siteArn">siteArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.networkmanager.ISite.property.siteId">siteId</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `siteArn`<sup>Required</sup> <a name="siteArn" id="cdk-extensions.networkmanager.ISite.property.siteArn"></a>
+
+```typescript
+public readonly siteArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `siteId`<sup>Required</sup> <a name="siteId" id="cdk-extensions.networkmanager.ISite.property.siteId"></a>
+
+```typescript
+public readonly siteId: string;
+```
+
+- *Type:* string
+
+---
+
 ### ITransitGateway <a name="ITransitGateway" id="cdk-extensions.ec2.ITransitGateway"></a>
 
 - *Extends:* constructs.IConstruct
@@ -76090,6 +84123,12 @@ public readonly transitGatewayAttachmentStatusMessage: string;
 The status message for the current status of the attachment.
 
 ---
+
+### ITransitGatewayRegistration <a name="ITransitGatewayRegistration" id="cdk-extensions.networkmanager.ITransitGatewayRegistration"></a>
+
+- *Implemented By:* cdk-extensions.networkmanager.TransitGatewayRegistration, cdk-extensions.networkmanager.ITransitGatewayRegistration
+
+
 
 ### ITransitGatewayRoute <a name="ITransitGatewayRoute" id="cdk-extensions.ec2.ITransitGatewayRoute"></a>
 

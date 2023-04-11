@@ -4,6 +4,13 @@
 
 export * from './customer-gateway';
 export * from './flow-log';
+export * from './ipam';
+export * from './ipam-allocation';
+export * from './ipam-pool';
+export * from './ipam-pool-cidr';
+export * from './ipam-resource-discovery';
+export * from './ipam-resource-discovery-association';
+export * from './ipam-scope';
 export * from './transit-gateway';
 export * from './transit-gateway-attachment';
 export * from './transit-gateway-attachment-base';

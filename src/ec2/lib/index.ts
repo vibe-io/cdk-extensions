@@ -1,6 +1,8 @@
+export * from './address-configuration';
 export * from './flow-log-destination';
 export * from './flow-log-field';
 export * from './flow-log-format';
+export * from './ipam-region-info';
 
 export * from './ip-addresses';
 export * from './local-vpn-endpoint';

@@ -1,13 +1,17 @@
 import { IProject } from 'aws-cdk-lib/aws-codebuild';
 import { ISubnet } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
-import { ITransitGateway } from '../ec2';
+import { IIpamPool, ITransitGateway } from '../ec2';
 import { ISharable } from '../ram';
 
 
 export class SharedResource implements ISharable {
   public static fromArn(arn: string): SharedResource {
     return new SharedResource(arn);
+  }
+
+  public static fromIpamPool(pool: IIpamPool): SharedResource {
+    return new SharedResource(pool.ipamPoolArn);
   }
 
   public static fromProject(project: IProject): SharedResource {

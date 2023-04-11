@@ -1,8 +1,11 @@
+import { Stack } from 'aws-cdk-lib';
 import { DefaultInstanceTenancy, FlowLogResourceType, GatewayVpcEndpointOptions, NatProvider, SubnetSelection, SubnetType, Vpc, VpnConnectionOptions } from 'aws-cdk-lib/aws-ec2';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
-import { FlowLog, FlowLogFormat } from '../ec2';
+import { IpAddressManager } from '.';
+import { FlowLog, FlowLogFormat, IIpamPool } from '../ec2';
 import { TieredSubnets } from '../ec2/lib';
+import { ICidrProvider, CidrProvider } from '../ec2/lib/ip-addresses/network-provider';
 
 
 export interface FlowLogOptions extends ec2.FlowLogOptions {
@@ -11,7 +14,7 @@ export interface FlowLogOptions extends ec2.FlowLogOptions {
 
 export interface FourTierNetworkProps {
   readonly availabilityZones?: string[];
-  readonly cidr?: string;
+  readonly cidr?: ICidrProvider;
   readonly defaultInstanceTenancy?: DefaultInstanceTenancy;
   readonly enableDnsHostnames?: boolean;
   readonly enableDnsSupport?: boolean;
@@ -29,14 +32,25 @@ export interface FourTierNetworkProps {
 }
 
 export class FourTierNetwork extends Vpc {
+  // Input properties
   public readonly defaultInstanceTenancy?: DefaultInstanceTenancy;
   public readonly enableDnsHostnames?: boolean;
   public readonly enableDnsSupport?: boolean;
+  public readonly ipamPool?: IIpamPool;
   public readonly maxAzs?: number;
+  public readonly netmask: number;
   public readonly vpcName?: string;
 
 
   public constructor(scope: IConstruct, id: string, props?: FourTierNetworkProps) {
+    const allocatePool = () => {
+      const scopeStack = Stack.of(scope);
+      const addressManager = new IpAddressManager(scopeStack, 'address-manager');
+      return addressManager.allocatePrivateNetwork(scopeStack, `${scope.node.addr}-${id}`);
+    };
+
+    const provider = props?.cidr ?? CidrProvider.ipamPool(allocatePool(), 16);
+
     super(scope, id, {
       availabilityZones: props?.availabilityZones,
       defaultInstanceTenancy: props?.defaultInstanceTenancy,
@@ -44,7 +58,7 @@ export class FourTierNetwork extends Vpc {
       enableDnsSupport: props?.enableDnsSupport ?? true,
       gatewayEndpoints: props?.gatewayEndpoints,
       ipAddresses: new TieredSubnets({
-        cidr: props?.cidr,
+        provider: provider,
       }),
       maxAzs: props?.maxAzs,
       natGateways: props?.natGateways,
@@ -74,6 +88,9 @@ export class FourTierNetwork extends Vpc {
       vpnGatewayAsn: props?.vpnGatewayAsn,
       vpnRoutePropagation: props?.vpnRoutePropagation,
     });
+
+    this.ipamPool = provider.ipamPool;
+    this.netmask = provider.netmask;
 
     this.defaultInstanceTenancy = props?.defaultInstanceTenancy;
     this.enableDnsHostnames = props?.enableDnsHostnames;

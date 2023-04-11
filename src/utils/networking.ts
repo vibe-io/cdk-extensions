@@ -40,14 +40,13 @@ export const isValidCidr = (cidr: string): boolean => {
  * Gets the largest netmask which a CIDR can be divided into in order to break
  * the CIDR range into a given number of subnets.
  *
- * @param cidr The CIDR range being divided.
+ * @param mask The netmask of the network being divided.
  * @param parts The number of subnets the CIDR will be divided into.
  * @returns The maximum netmask that can be used to get the requested number of
  * subnets from the CIDR range.
  */
-export const getBiggestMask = (cidr: string, parts: number): number => {
-  const inMask = parseInt(cidr.split('/')[1]);
-  return inMask + Math.ceil(Math.log2(parts));
+export const getBiggestMask = (mask: number, parts: number): number => {
+  return mask + Math.ceil(Math.log2(parts));
 };
 
 /**
@@ -73,8 +72,12 @@ export const getNetworkSize = (mask: number): number => {
  * @returns CIDR ranges for the requested number of subnets.
  */
 export const divideCidr = (cidr: string, parts: number, mask?: number): string[] => {
-  const addr = dot2num(cidr.split('/')[0]);
-  const limit = getBiggestMask(cidr, parts);
+  const netParts = cidr.split('/');
+  const networkId = netParts[0];
+  const netmask = parseInt(netParts[1]);
+
+  const addr = dot2num(networkId);
+  const limit = getBiggestMask(netmask, parts);
   const inMask = mask ?? limit;
 
   if (inMask < limit) {

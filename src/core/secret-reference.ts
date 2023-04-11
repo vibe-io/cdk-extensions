@@ -1,13 +1,8 @@
 import { IResolveContext, Lazy, Resource, SecretValue, Stack } from 'aws-cdk-lib';
 import { Secret } from 'aws-cdk-lib/aws-secretsmanager';
 import { IConstruct } from 'constructs';
+import { ConstructRelation, getRelation } from './relations';
 
-
-enum ConstructRelation {
-  LOCAL,
-  CROSS_REGION,
-  CROSS_ACCOUNT,
-}
 
 class SecretReferenceSecret extends Resource {
   public static of(scope: IConstruct): SecretReferenceSecret {
@@ -120,28 +115,12 @@ export class SecretReference {
   }
 
   public valueForScope(scope: IConstruct) {
-    const relation = this.getRelation(scope);
+    const relation = getRelation(scope, this._producer);
 
     if (relation === ConstructRelation.LOCAL) {
       return this._value;
     } else {
       return this._secret.getField(this._producer, scope, this._key);
-    }
-  }
-
-  private getRelation(consumer: IConstruct): ConstructRelation {
-    const consumerStack = Stack.of(consumer);
-    const consumerAccount = consumerStack.account;
-    const consumerRegion = consumerStack.region;
-    const producerAccount = this._secret.stack.account;
-    const producerRegion = this._secret.stack.region;
-
-    if (producerAccount === consumerAccount && producerRegion === consumerRegion) {
-      return ConstructRelation.LOCAL;
-    } else if (producerAccount === consumerAccount) {
-      return ConstructRelation.CROSS_REGION;
-    } else {
-      return ConstructRelation.CROSS_ACCOUNT;
     }
   }
 }
