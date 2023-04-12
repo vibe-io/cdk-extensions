@@ -38606,8 +38606,19 @@ const allocatePrivateNetworkOptions: ec2_patterns.AllocatePrivateNetworkOptions 
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.AllocatePrivateNetworkOptions.property.consumer">consumer</a></code> | <code>cdk-extensions.ec2.IpamConsumer</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AllocatePrivateNetworkOptions.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AllocatePrivateNetworkOptions.property.pool">pool</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `consumer`<sup>Optional</sup> <a name="consumer" id="cdk-extensions.ec2_patterns.AllocatePrivateNetworkOptions.property.consumer"></a>
+
+```typescript
+public readonly consumer: IpamConsumer;
+```
+
+- *Type:* cdk-extensions.ec2.IpamConsumer
 
 ---
 
@@ -74240,7 +74251,7 @@ ec2.IpamConsumer.of(name: string)
 
 ---
 
-##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.ec2.IpamConsumer.property.name"></a>
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ec2.IpamConsumer.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -74255,6 +74266,7 @@ public readonly name: string;
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.ec2.IpamConsumer.property.EC2">EC2</a></code> | <code>cdk-extensions.ec2.IpamConsumer</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IpamConsumer.property.NONE">NONE</a></code> | <code>cdk-extensions.ec2.IpamConsumer</code> | *No description.* |
 
 ---
 
@@ -74262,6 +74274,16 @@ public readonly name: string;
 
 ```typescript
 public readonly EC2: IpamConsumer;
+```
+
+- *Type:* cdk-extensions.ec2.IpamConsumer
+
+---
+
+##### `NONE`<sup>Required</sup> <a name="NONE" id="cdk-extensions.ec2.IpamConsumer.property.NONE"></a>
+
+```typescript
+public readonly NONE: IpamConsumer;
 ```
 
 - *Type:* cdk-extensions.ec2.IpamConsumer
@@ -83016,6 +83038,7 @@ public allocateCidrFromPool(id: string, options?: AllocateCidrFromPoolOptions): 
 | <code><a href="#cdk-extensions.ec2.IIpamPool.property.ipamPoolScopeType">ipamPoolScopeType</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2.IIpamPool.property.ipamPoolState">ipamPoolState</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2.IIpamPool.property.ipamPoolStateMessage">ipamPoolStateMessage</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IIpamPool.property.consumer">consumer</a></code> | <code>cdk-extensions.ec2.IpamConsumer</code> | *No description.* |
 
 ---
 
@@ -83139,6 +83162,16 @@ public readonly ipamPoolStateMessage: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `consumer`<sup>Optional</sup> <a name="consumer" id="cdk-extensions.ec2.IIpamPool.property.consumer"></a>
+
+```typescript
+public readonly consumer: IpamConsumer;
+```
+
+- *Type:* cdk-extensions.ec2.IpamConsumer
 
 ---
 
