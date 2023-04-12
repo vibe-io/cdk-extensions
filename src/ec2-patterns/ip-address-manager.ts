@@ -1,7 +1,7 @@
 import { Resource, ResourceProps, Stack, Token } from 'aws-cdk-lib';
 import { Fact, RegionInfo } from 'aws-cdk-lib/region-info';
 import { IConstruct } from 'constructs';
-import { IIpamPool, Ipam, IpamPool, IpamPoolCidrConfiguration, IPAM_ENABLED_FACT } from '../ec2';
+import { IIpamPool, Ipam, IpamConsumer, IpamPool, IpamPoolCidrConfiguration, IPAM_ENABLED_FACT } from '../ec2';
 import { AddressConfiguration } from '../ec2/lib';
 import { ResourceShare, SharedPrincipal } from '../ram';
 import { SharedResource } from '../ram-resources';
@@ -25,6 +25,7 @@ export interface AddPoolOptions {
 }
 
 export interface AllocatePrivateNetworkOptions {
+  readonly consumer?: IpamConsumer;
   readonly netmask?: number;
   readonly pool?: string;
 }
@@ -108,9 +109,10 @@ export class IpAddressManager extends Resource {
     this.ipam.addRegion(region);
   }
 
-  protected addStagePool(scope: IConstruct, parent: IIpamPool): IpamPool {
+  protected addStagePool(scope: IConstruct, parent: IIpamPool, consumer?: IpamConsumer): IpamPool {
     const scopeStack = Stack.of(scope);
-    const scopeName = `${scopeStack.account}-${scopeStack.region}`;
+    const scopeService = consumer?.name ?? 'generic';
+    const scopeName = `${scopeService}-${scopeStack.account}-${scopeStack.region}`;
 
     const existingPool = parent.node.tryFindChild(`pool-${scopeName}`) as IpamPool;
     if (existingPool) {
@@ -136,7 +138,7 @@ export class IpAddressManager extends Resource {
       ].join(' '));
     }
 
-    const scopePool = this.addStagePool(scope, pool);
+    const scopePool = this.addStagePool(scope, pool, options.consumer);
 
     const mask = options.netmask ?? scopePool.addressConfiguration?.defaultNetmaskLength ?? 16;
     scopePool.addCidrToPool(id, {

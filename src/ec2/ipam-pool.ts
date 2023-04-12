@@ -10,13 +10,14 @@ import { DynamicReference } from '../core/dynamic-reference';
 
 export class IpamConsumer {
   public static readonly EC2: IpamConsumer = IpamConsumer.of('ec2');
+  public static readonly NONE: IpamConsumer = new IpamConsumer();
 
   public static of(name: string): IpamConsumer {
     return new IpamConsumer(name);
   }
 
 
-  private constructor(public readonly name: string) {}
+  private constructor(public readonly name?: string) {}
 }
 
 export class PublicIpSource {
@@ -40,6 +41,8 @@ export interface IIpamPool extends IResource {
   readonly ipamPoolScopeType: string;
   readonly ipamPoolState: string;
   readonly ipamPoolStateMessage: string;
+
+  readonly consumer?: IpamConsumer;
 
   addCidrToPool(id: string, options: AddCidrToPoolOptions): AddCidrToPoolResult;
   addChildPool(id: string, options?: AddChildPoolOptions): IIpamPool;
@@ -138,7 +141,6 @@ export class IpamPool extends IpamPoolBase {
   // Input properties
   public readonly addressConfiguration?: AddressConfiguration;
   public readonly autoImport?: boolean;
-  public readonly consumer?: IpamConsumer;
   public readonly description?: string;
   public readonly ipamScope: IIpamScope;
   public readonly locale?: string;
@@ -149,6 +151,7 @@ export class IpamPool extends IpamPoolBase {
   // Resource properties
   public readonly resource: CfnIPAMPool;
 
+  public readonly consumer?: IpamConsumer;
   public readonly ipamPoolArn: string;
   public readonly ipamPoolDepth: number;
   public readonly ipamPoolIpamArn: string;
@@ -167,7 +170,7 @@ export class IpamPool extends IpamPoolBase {
 
     this.addressConfiguration = props.addressConfiguration ?? AddressConfiguration.ipv4();
     this.autoImport = props.autoImport;
-    this.consumer = props.consumer;
+    this.consumer = props.consumer ?? IpamConsumer.EC2;
     this.description = props.description;
     this.ipamScope = props.ipamScope;
     this.locale = props.locale;
