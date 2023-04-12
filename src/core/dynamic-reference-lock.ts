@@ -3,22 +3,6 @@ import { Construct, IConstruct } from 'constructs';
 
 
 export class DynamicReferenceLock extends Construct implements IAspect {
-  private static readonly DEFAULT_ID: string = 'dynamic-reference-lock';
-
-  private static getLockForScope(scope: IConstruct): DynamicReferenceLock {
-    const stage = Stage.of(scope);
-
-    if (!stage) {
-      throw Error([
-        'Cannot register a dynamic reference lock for constructs that do not',
-        'belong to a CDK stage construct.',
-      ].join(' '));
-    } else {
-      const id = DynamicReferenceLock.DEFAULT_ID;
-      return stage.node.tryFindChild(id) as DynamicReferenceLock ?? new DynamicReferenceLock(stage, id);
-    }
-  }
-
   public static registerAny(scope: IConstruct, token: any): void {
     const lock = DynamicReferenceLock.getLockForScope(scope);
     lock.registerStringToken(Token.asString(token));
@@ -39,6 +23,24 @@ export class DynamicReferenceLock extends Construct implements IAspect {
     const lock = DynamicReferenceLock.getLockForScope(scope);
     lock.registerStringToken(Token.asString(token));
   }
+
+
+  private static readonly DEFAULT_ID: string = 'dynamic-reference-lock';
+
+  private static getLockForScope(scope: IConstruct): DynamicReferenceLock {
+    const stage = Stage.of(scope);
+
+    if (!stage) {
+      throw Error([
+        'Cannot register a dynamic reference lock for constructs that do not',
+        'belong to a CDK stage construct.',
+      ].join(' '));
+    } else {
+      const id = DynamicReferenceLock.DEFAULT_ID;
+      return stage.node.tryFindChild(id) as DynamicReferenceLock ?? new DynamicReferenceLock(stage, id);
+    }
+  }
+
 
   private _locked: boolean;
   private readonly _scope: Stage;
