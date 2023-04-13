@@ -3,9 +3,9 @@ import { DefaultInstanceTenancy, FlowLogResourceType, GatewayVpcEndpointOptions,
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { IpAddressManager } from '.';
-import { FlowLog, FlowLogFormat, IIpamPool, IpamConsumer } from '../ec2';
+import { FlowLog, FlowLogFormat, IIpamPool } from '../ec2';
 import { TieredSubnets } from '../ec2/lib';
-import { ICidrProvider, CidrProvider } from '../ec2/lib/ip-addresses/network-provider';
+import { ICidrProvider } from '../ec2/lib/ip-addresses/network-provider';
 
 
 export interface FlowLogOptions extends ec2.FlowLogOptions {
@@ -46,10 +46,10 @@ export class FourTierNetwork extends Vpc {
     const allocatePool = () => {
       const scopeStack = Stack.of(scope);
       const addressManager = new IpAddressManager(scopeStack, 'address-manager');
-      return addressManager.allocatePrivateNetwork(scopeStack, `${scope.node.addr}-${id}`);
+      return addressManager.getVpcConfiguration(scopeStack, `${scope.node.addr}-${id}`);
     };
 
-    const provider = props?.cidr ?? CidrProvider.ipamPool(allocatePool(), 16);
+    const provider = props?.cidr ?? allocatePool();
 
     super(scope, id, {
       availabilityZones: props?.availabilityZones,
@@ -97,14 +97,6 @@ export class FourTierNetwork extends Vpc {
     this.enableDnsSupport = props?.enableDnsSupport;
     this.maxAzs = props?.maxAzs;
     this.vpcName = props?.vpcName;
-
-    const ipamService = this.ipamPool?.consumer?.name;
-    if (this.ipamPool?.consumer && ipamService !== IpamConsumer.EC2.name) {
-      throw new Error([
-        'When using an IPAM pool to allocate a CIDR for a VPC the pool needs',
-        `to have '${IpamConsumer.EC2.name}' set as its consumer.`,
-      ].join(' '));
-    }
 
     if (props?.flowLogs === undefined || Object.keys(props.flowLogs).length > 0) {
       const flowLogs = props?.flowLogs ?? {

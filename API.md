@@ -16946,9 +16946,8 @@ new ec2_patterns.IpAddressManager(scope: IConstruct, id: string, props?: IpAddre
 | --- | --- |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
-| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.addPrivatePool">addPrivatePool</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.addRegion">addRegion</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.allocatePrivateNetwork">allocatePrivateNetwork</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.getVpcConfiguration">getVpcConfiguration</a></code> | *No description.* |
 
 ---
 
@@ -16982,24 +16981,6 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 ---
 
-##### `addPrivatePool` <a name="addPrivatePool" id="cdk-extensions.ec2_patterns.IpAddressManager.addPrivatePool"></a>
-
-```typescript
-public addPrivatePool(name: string, options?: AddPoolOptions): IIpamPool
-```
-
-###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.ec2_patterns.IpAddressManager.addPrivatePool.parameter.name"></a>
-
-- *Type:* string
-
----
-
-###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.IpAddressManager.addPrivatePool.parameter.options"></a>
-
-- *Type:* cdk-extensions.ec2_patterns.AddPoolOptions
-
----
-
 ##### `addRegion` <a name="addRegion" id="cdk-extensions.ec2_patterns.IpAddressManager.addRegion"></a>
 
 ```typescript
@@ -17012,27 +16993,27 @@ public addRegion(region: string): void
 
 ---
 
-##### `allocatePrivateNetwork` <a name="allocatePrivateNetwork" id="cdk-extensions.ec2_patterns.IpAddressManager.allocatePrivateNetwork"></a>
+##### `getVpcConfiguration` <a name="getVpcConfiguration" id="cdk-extensions.ec2_patterns.IpAddressManager.getVpcConfiguration"></a>
 
 ```typescript
-public allocatePrivateNetwork(scope: IConstruct, id: string, options?: AllocatePrivateNetworkOptions): IpamPool
+public getVpcConfiguration(scope: IConstruct, id: string, options?: GetVpcConfigurationOptions): ICidrProvider
 ```
 
-###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.IpAddressManager.allocatePrivateNetwork.parameter.scope"></a>
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.IpAddressManager.getVpcConfiguration.parameter.scope"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.IpAddressManager.allocatePrivateNetwork.parameter.id"></a>
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.IpAddressManager.getVpcConfiguration.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.IpAddressManager.allocatePrivateNetwork.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.IpAddressManager.getVpcConfiguration.parameter.options"></a>
 
-- *Type:* cdk-extensions.ec2_patterns.AllocatePrivateNetworkOptions
+- *Type:* cdk-extensions.ec2_patterns.GetVpcConfigurationOptions
 
 ---
 
@@ -17106,6 +17087,7 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.allowExternalPricipals">allowExternalPricipals</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.ipam">ipam</a></code> | <code>cdk-extensions.ec2.Ipam</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.sharingEnabled">sharingEnabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.vpcAllocationMask">vpcAllocationMask</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.resourceShare">resourceShare</a></code> | <code>cdk-extensions.ram.ResourceShare</code> | *No description.* |
 
 ---
@@ -17183,6 +17165,16 @@ public readonly sharingEnabled: boolean;
 
 ---
 
+##### `vpcAllocationMask`<sup>Required</sup> <a name="vpcAllocationMask" id="cdk-extensions.ec2_patterns.IpAddressManager.property.vpcAllocationMask"></a>
+
+```typescript
+public readonly vpcAllocationMask: number;
+```
+
+- *Type:* number
+
+---
+
 ##### `resourceShare`<sup>Optional</sup> <a name="resourceShare" id="cdk-extensions.ec2_patterns.IpAddressManager.property.resourceShare"></a>
 
 ```typescript
@@ -17197,25 +17189,36 @@ public readonly resourceShare: ResourceShare;
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_CIDR">DEFAULT_CIDR</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_POOL_ALLOCATION_MASK">DEFAULT_POOL_ALLOCATION_MASK</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_VPC_ALLOCATION_MASK">DEFAULT_VPC_ALLOCATION_MASK</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_VPC_POOL_CIDRS">DEFAULT_VPC_POOL_CIDRS</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_VPC_REGION_MASK">DEFAULT_VPC_REGION_MASK</a></code> | <code>number</code> | *No description.* |
 
 ---
 
-##### `DEFAULT_CIDR`<sup>Required</sup> <a name="DEFAULT_CIDR" id="cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_CIDR"></a>
+##### `DEFAULT_VPC_ALLOCATION_MASK`<sup>Required</sup> <a name="DEFAULT_VPC_ALLOCATION_MASK" id="cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_VPC_ALLOCATION_MASK"></a>
 
 ```typescript
-public readonly DEFAULT_CIDR: string;
+public readonly DEFAULT_VPC_ALLOCATION_MASK: number;
 ```
 
-- *Type:* string
+- *Type:* number
 
 ---
 
-##### `DEFAULT_POOL_ALLOCATION_MASK`<sup>Required</sup> <a name="DEFAULT_POOL_ALLOCATION_MASK" id="cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_POOL_ALLOCATION_MASK"></a>
+##### `DEFAULT_VPC_POOL_CIDRS`<sup>Required</sup> <a name="DEFAULT_VPC_POOL_CIDRS" id="cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_VPC_POOL_CIDRS"></a>
 
 ```typescript
-public readonly DEFAULT_POOL_ALLOCATION_MASK: number;
+public readonly DEFAULT_VPC_POOL_CIDRS: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `DEFAULT_VPC_REGION_MASK`<sup>Required</sup> <a name="DEFAULT_VPC_REGION_MASK" id="cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_VPC_REGION_MASK"></a>
+
+```typescript
+public readonly DEFAULT_VPC_REGION_MASK: number;
 ```
 
 - *Type:* number
@@ -49237,6 +49240,34 @@ public readonly vpnRoutePropagation: SubnetSelection[];
 
 ---
 
+### GetVpcConfigurationOptions <a name="GetVpcConfigurationOptions" id="cdk-extensions.ec2_patterns.GetVpcConfigurationOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.GetVpcConfigurationOptions.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const getVpcConfigurationOptions: ec2_patterns.GetVpcConfigurationOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.GetVpcConfigurationOptions.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `netmask`<sup>Optional</sup> <a name="netmask" id="cdk-extensions.ec2_patterns.GetVpcConfigurationOptions.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
 ### GlobalNetworkProps <a name="GlobalNetworkProps" id="cdk-extensions.networkmanager.GlobalNetworkProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.networkmanager.GlobalNetworkProps.Initializer"></a>
@@ -49606,10 +49637,11 @@ const ipAddressManagerProps: ec2_patterns.IpAddressManagerProps = { ... }
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.defaultPoolAllocationMask">defaultPoolAllocationMask</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.defaultPoolCidrs">defaultPoolCidrs</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.regions">regions</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.sharing">sharing</a></code> | <code>cdk-extensions.ec2_patterns.IpAddressManagerSharingProps</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.vpcAllocationMask">vpcAllocationMask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.vpcPoolCidrs">vpcPoolCidrs</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.vpcRegionMask">vpcRegionMask</a></code> | <code>number</code> | *No description.* |
 
 ---
 
@@ -49676,26 +49708,6 @@ The AWS region this resource belongs to.
 
 ---
 
-##### `defaultPoolAllocationMask`<sup>Optional</sup> <a name="defaultPoolAllocationMask" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.defaultPoolAllocationMask"></a>
-
-```typescript
-public readonly defaultPoolAllocationMask: number;
-```
-
-- *Type:* number
-
----
-
-##### `defaultPoolCidrs`<sup>Optional</sup> <a name="defaultPoolCidrs" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.defaultPoolCidrs"></a>
-
-```typescript
-public readonly defaultPoolCidrs: string[];
-```
-
-- *Type:* string[]
-
----
-
 ##### `regions`<sup>Optional</sup> <a name="regions" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.regions"></a>
 
 ```typescript
@@ -49713,6 +49725,36 @@ public readonly sharing: IpAddressManagerSharingProps;
 ```
 
 - *Type:* cdk-extensions.ec2_patterns.IpAddressManagerSharingProps
+
+---
+
+##### `vpcAllocationMask`<sup>Optional</sup> <a name="vpcAllocationMask" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.vpcAllocationMask"></a>
+
+```typescript
+public readonly vpcAllocationMask: number;
+```
+
+- *Type:* number
+
+---
+
+##### `vpcPoolCidrs`<sup>Optional</sup> <a name="vpcPoolCidrs" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.vpcPoolCidrs"></a>
+
+```typescript
+public readonly vpcPoolCidrs: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `vpcRegionMask`<sup>Optional</sup> <a name="vpcRegionMask" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.vpcRegionMask"></a>
+
+```typescript
+public readonly vpcRegionMask: number;
+```
+
+- *Type:* number
 
 ---
 
@@ -83038,7 +83080,6 @@ public allocateCidrFromPool(id: string, options?: AllocateCidrFromPoolOptions): 
 | <code><a href="#cdk-extensions.ec2.IIpamPool.property.ipamPoolScopeType">ipamPoolScopeType</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2.IIpamPool.property.ipamPoolState">ipamPoolState</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2.IIpamPool.property.ipamPoolStateMessage">ipamPoolStateMessage</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2.IIpamPool.property.consumer">consumer</a></code> | <code>cdk-extensions.ec2.IpamConsumer</code> | *No description.* |
 
 ---
 
@@ -83165,17 +83206,9 @@ public readonly ipamPoolStateMessage: string;
 
 ---
 
-##### `consumer`<sup>Optional</sup> <a name="consumer" id="cdk-extensions.ec2.IIpamPool.property.consumer"></a>
-
-```typescript
-public readonly consumer: IpamConsumer;
-```
-
-- *Type:* cdk-extensions.ec2.IpamConsumer
-
----
-
 ### IIpamPoolCidr <a name="IIpamPoolCidr" id="cdk-extensions.ec2.IIpamPoolCidr"></a>
+
+- *Extends:* aws-cdk-lib.IResource
 
 - *Implemented By:* cdk-extensions.ec2.IpamPoolCidr, cdk-extensions.ec2.IIpamPoolCidr
 
@@ -83184,8 +83217,54 @@ public readonly consumer: IpamConsumer;
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamPoolCidr.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.IIpamPoolCidr.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IIpamPoolCidr.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.ec2.IIpamPoolCidr.property.ipamPoolCidrId">ipamPoolCidrId</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2.IIpamPoolCidr.property.ipamPoolCidrState">ipamPoolCidrState</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.IIpamPoolCidr.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.IIpamPoolCidr.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.IIpamPoolCidr.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
 
 ---
 
@@ -83561,6 +83640,8 @@ public readonly ipamResourceDiscoveryAssociationState: string;
 
 ### IIpamScope <a name="IIpamScope" id="cdk-extensions.ec2.IIpamScope"></a>
 
+- *Extends:* aws-cdk-lib.IResource
+
 - *Implemented By:* cdk-extensions.ec2.IpamScope, cdk-extensions.ec2.IIpamScope
 
 Represents an IPAM scope in AWS.
@@ -83610,12 +83691,58 @@ Arguments specifying the details of the pool being added.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IIpamScope.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.IIpamScope.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IIpamScope.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.ec2.IIpamScope.property.ipamScopeArn">ipamScopeArn</a></code> | <code>string</code> | The ARN of the scope. |
 | <code><a href="#cdk-extensions.ec2.IIpamScope.property.ipamScopeId">ipamScopeId</a></code> | <code>string</code> | The ID of an IPAM scope. |
 | <code><a href="#cdk-extensions.ec2.IIpamScope.property.ipamScopeIpamArn">ipamScopeIpamArn</a></code> | <code>string</code> | The ARN of an IPAM. |
 | <code><a href="#cdk-extensions.ec2.IIpamScope.property.ipamScopeIsDefault">ipamScopeIsDefault</a></code> | <code>aws-cdk-lib.IResolvable</code> | Defines if the scope is the default scope or not. |
 | <code><a href="#cdk-extensions.ec2.IIpamScope.property.ipamScopePoolCount">ipamScopePoolCount</a></code> | <code>number</code> | The number of pools in a scope. |
 | <code><a href="#cdk-extensions.ec2.IIpamScope.property.ipamScopeType">ipamScopeType</a></code> | <code>string</code> | The type of the scope. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.IIpamScope.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.IIpamScope.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.IIpamScope.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
 
 ---
 

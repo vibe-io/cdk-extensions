@@ -1,4 +1,4 @@
-import { ArnFormat, IResolvable, Resource, ResourceProps, Token } from 'aws-cdk-lib';
+import { ArnFormat, IResolvable, IResource, Resource, ResourceProps, Token } from 'aws-cdk-lib';
 import { CfnIPAMScope } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { IIpam } from './ipam';
@@ -10,7 +10,7 @@ import { ResourceImporter } from '../utils/importer';
 /**
  * Represents an IPAM scope in AWS.
  */
-export interface IIpamScope {
+export interface IIpamScope extends IResource {
   /**
    * The ARN of the scope.
    */

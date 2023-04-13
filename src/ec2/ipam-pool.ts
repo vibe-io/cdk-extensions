@@ -1,4 +1,4 @@
-import { Annotations, CfnTag, IResource, Lazy, Resource, ResourceProps, Tags } from 'aws-cdk-lib';
+import { Annotations, CfnTag, IResource, Lazy, Resource, ResourceProps, Tags, Token } from 'aws-cdk-lib';
 import { CfnIPAMPool } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { AddressConfiguration, IpamPoolCidrConfiguration } from '.';
@@ -41,8 +41,6 @@ export interface IIpamPool extends IResource {
   readonly ipamPoolScopeType: string;
   readonly ipamPoolState: string;
   readonly ipamPoolStateMessage: string;
-
-  readonly consumer?: IpamConsumer;
 
   addCidrToPool(id: string, options: AddCidrToPoolOptions): AddCidrToPoolResult;
   addChildPool(id: string, options?: AddChildPoolOptions): IIpamPool;
@@ -141,6 +139,7 @@ export class IpamPool extends IpamPoolBase {
   // Input properties
   public readonly addressConfiguration?: AddressConfiguration;
   public readonly autoImport?: boolean;
+  public readonly consumer?: IpamConsumer;
   public readonly description?: string;
   public readonly ipamScope: IIpamScope;
   public readonly locale?: string;
@@ -151,7 +150,6 @@ export class IpamPool extends IpamPoolBase {
   // Resource properties
   public readonly resource: CfnIPAMPool;
 
-  public readonly consumer?: IpamConsumer;
   public readonly ipamPoolArn: string;
   public readonly ipamPoolDepth: number;
   public readonly ipamPoolIpamArn: string;
@@ -170,7 +168,7 @@ export class IpamPool extends IpamPoolBase {
 
     this.addressConfiguration = props.addressConfiguration ?? AddressConfiguration.ipv4();
     this.autoImport = props.autoImport;
-    this.consumer = props.consumer ?? IpamConsumer.EC2;
+    this.consumer = props.consumer;
     this.description = props.description;
     this.ipamScope = props.ipamScope;
     this.locale = props.locale;
@@ -278,6 +276,20 @@ export class IpamPool extends IpamPoolBase {
     }
   }
 
+  public addChildPool(id: string, options?: AddChildPoolOptions): IIpamPool {
+    if (!this.validateChildLocale(options?.locale)) {
+      throw new Error([
+        `Cannot add IPAM pool with a locale of '${options!.locale}' to IPAM`,
+        `pool '${this.node.path}' with the locale '${this.locale}'.`,
+      ].join(' '));
+    }
+
+    return super.addChildPool(id, {
+      locale: this.locale,
+      ...options,
+    });
+  }
+
   public addTagRestriction(key: string, value: string): IIpamPool {
     if (key in this._tagRestrictions) {
       throw new Error([
@@ -288,5 +300,26 @@ export class IpamPool extends IpamPoolBase {
 
     this._tagRestrictions[key] = value;
     return this;
+  }
+
+  protected validateChildLocale(locale?: string): boolean {
+    if (this.locale && Token.isUnresolved(this.locale)) {
+      if (locale === undefined) {
+        // Child can inherit out locale.
+        return true;
+      } else if (Token.isUnresolved(locale)) {
+        // We give the benefit of the doubt if either the requested locale or
+        // our locale are tokens.
+        return true;
+      } else {
+        // Both the requested locale and our locale are fully resolved and must
+        // match.
+        return this.locale === locale;
+      }
+    } else {
+      // If our locale is undefined any child locale is permissable and if our
+      // locale is unresolved we give the benefit of the doubt.
+      return true;
+    }
   }
 }

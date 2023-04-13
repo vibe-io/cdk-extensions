@@ -2,7 +2,6 @@ import { Resource, ResourceProps, Stack, Token } from 'aws-cdk-lib';
 import { IConstruct } from 'constructs';
 import { FourTierNetworkHub, IpAddressManager } from '.';
 import { FourTierNetworkSpoke } from './four-tier-network-spoke';
-import { CidrProvider } from '../ec2';
 import { GlobalNetwork } from '../networkmanager/global-network';
 
 
@@ -77,12 +76,12 @@ export class NetworkController extends Resource {
     this.registerRegion(scopeRegion);
 
     const netmask = options.netmask ?? this.defaultNetmask;
-    const pool = this.addressManager.allocatePrivateNetwork(scope, id, {
+    const provider = this.addressManager.getVpcConfiguration(scope, id, {
       netmask: netmask,
     });
 
     const hub = new FourTierNetworkHub(scope, id, {
-      cidr: CidrProvider.ipamPool(pool, netmask),
+      cidr: provider,
     });
     this._hubs[scopeRegion] = hub;
     return hub;
@@ -110,12 +109,12 @@ export class NetworkController extends Resource {
     this.registerRegion(scopeRegion);
 
     const netmask = options.netmask ?? this.defaultNetmask;
-    const pool = this.addressManager.allocatePrivateNetwork(scope, `${id}-${scope.node.addr}`, {
+    const provider = this.addressManager.getVpcConfiguration(scope, `${id}-${scope.node.addr}`, {
       netmask: netmask,
     });
 
     return hub.addSpoke(scope, id, {
-      cidr: CidrProvider.ipamPool(pool, netmask),
+      cidr: provider,
     });
   }
 

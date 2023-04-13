@@ -1,4 +1,4 @@
-import { Resource, ResourceProps, Token } from 'aws-cdk-lib';
+import { IResource, Resource, ResourceProps, Token } from 'aws-cdk-lib';
 import { CfnIPAMPoolCidr } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { IIpamPool } from './ipam-pool';
@@ -40,7 +40,7 @@ export class IpamPoolCidrConfiguration {
   }
 }
 
-export interface IIpamPoolCidr {
+export interface IIpamPoolCidr extends IResource {
   readonly ipamPoolCidrId: string;
   readonly ipamPoolCidrState: string;
 }
