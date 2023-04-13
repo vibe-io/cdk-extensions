@@ -1,9 +1,6 @@
-import { ArnFormat, IResolvable, IResource, Resource, ResourceProps, Token } from 'aws-cdk-lib';
-import { CfnIPAMScope } from 'aws-cdk-lib/aws-ec2';
+import { ArnFormat, IResolvable, IResource, Resource, Token } from 'aws-cdk-lib';
 import { IConstruct } from 'constructs';
 import { IIpam } from './ipam';
-import { IIpamPool, IpamPool, IpamPoolOptions } from './ipam-pool';
-import { DynamicReference } from '../core/dynamic-reference';
 import { ResourceImporter } from '../utils/importer';
 
 
@@ -40,79 +37,6 @@ export interface IIpamScope extends IResource {
    * The type of the scope.
    */
   readonly ipamScopeType: string;
-
-  /**
-   * Adds an IPAM pool to the IPAM scope.
-   *
-   * A pool is a collection of contiguous IP address ranges (or CIDRs). IPAM
-   * pools enable you to organize your IP addresses according to your routing
-   * and security needs.
-   *
-   * @see [How IPAM works](https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html)
-   *
-   * @param id A name to be associated with the pool bing added. A unique id
-   * must be used each time the method is invoked.
-   * @param options Arguments specifying the details of the pool being added.
-   * @returns The pool that was added to the scope.
-   */
-  addPool(id: string, options?: IpamPoolOptions): IIpamPool;
-}
-
-/**
- * A base class providing common functionality between created and imported
- * IPAM scopes.
- */
-abstract class IpamScopeBase extends Resource implements IIpamScope {
-  /**
-   * The ARN of the scope.
-   */
-  public abstract readonly ipamScopeArn: string;
-
-  /**
-   * The ID of an IPAM scope.
-   */
-  public abstract readonly ipamScopeId: string;
-
-  /**
-   * The ARN of an IPAM.
-   */
-  public abstract readonly ipamScopeIpamArn: string;
-
-  /**
-   * Defines if the scope is the default scope or not.
-   */
-  public abstract readonly ipamScopeIsDefault: IResolvable;
-
-  /**
-   * The number of pools in a scope.
-   */
-  public abstract readonly ipamScopePoolCount: number;
-
-  /**
-   * The type of the scope.
-   */
-  public abstract readonly ipamScopeType: string;
-
-  /**
-   * Adds an IPAM pool to the IPAM scope.
-   *
-   * A pool is a collection of contiguous IP address ranges (or CIDRs). IPAM
-   * pools enable you to organize your IP addresses according to your routing
-   * and security needs.
-   *
-   * @see [How IPAM works](https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html)
-   *
-   * @param id A name to be associated with the pool bing added. A unique id
-   * must be used each time the method is invoked.
-   * @param options Arguments specifying the details of the pool being added.
-   * @returns The pool that was added to the scope.
-   */
-  public addPool(id: string, options: IpamPoolOptions = {}): IIpamPool {
-    return new IpamPool(this, `pool-${id}`, {
-      ...options,
-      ipamScope: this,
-    });
-  }
 }
 
 /**
@@ -150,43 +74,8 @@ export interface IpamScopeAttributes {
   readonly scopeType?: string;
 }
 
-/**
- * Optional configuration for the IPAM scope resource.
- */
-export interface IpamScopeOptions {
-  /**
-   * The description of the scope.
-   *
-   * @see [IPAMScope Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-description)
-   */
-  readonly description?: string;
-}
 
-/**
- * Configuration for the IPAM scope resource.
- */
-export interface IpamScopeProps extends ResourceProps, IpamScopeOptions {
-  /**
-   * The IPAM for which you're creating this scope.
-   *
-   * @see [IPAMScope IpamId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-ipamid)
-   */
-  readonly ipam: IIpam;
-}
-
-/**
- * Represents an IPAM scope.
- *
- * In IPAM, a scope is the highest-level container within IPAM. An IPAM
- * contains two default scopes. Each scope represents the IP space for a single
- * network. The private scope is intended for all private IP address space. The
- * public scope is intended for all public IP address space. Scopes enable you
- * to reuse IP addresses across multiple unconnected networks without causing
- * IP address overlap or conflict.
- *
- * @see [AWS::EC2::IPAMScope](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html)
- */
-export class IpamScope extends IpamScopeBase {
+export class IpamScope {
   /**
    * The format for Amazon Resource Names (ARN's) for IPAM scope resources.
    */
@@ -234,7 +123,7 @@ export class IpamScope extends IpamScopeBase {
       ipamScopeType: attrs.scopeType,
     });
 
-    class Import extends IpamScopeBase {
+    class Import extends Resource implements IIpamScope {
       public readonly ipamScopeArn: string = identities.arn;
       public readonly ipamScopeId: string = identities.id;
       public readonly ipamScopeIpamArn: string = Token.asString(props.ipamScopeIpamArn);
@@ -262,91 +151,5 @@ export class IpamScope extends IpamScopeBase {
     return IpamScope.fromIpamScopeAttributes(scope, id, {
       ipamScopeId: ipamScopeId,
     });
-  }
-
-  /**
-   * The description of the scope.
-   *
-   * @see [IPAMScope Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-description)
-   *
-   * @group Inputs
-   */
-  public readonly description?: string;
-
-  /**
-   * The IPAM for which you're creating this scope.
-   *
-   * @see [IPAMScope IpamId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html#cfn-ec2-ipamscope-ipamid)
-   *
-   * @group Inputs
-   */
-  public readonly ipam: IIpam;
-
-  /**
-   * The underlying IPAM scope CloudFormation resource.
-   *
-   * @see [AWS::EC2::IPAMScope](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html)
-   *
-   * @group Resources
-   */
-  public readonly resource: CfnIPAMScope;
-
-  /**
-   * The ARN of the scope.
-   */
-  public readonly ipamScopeArn: string;
-
-  /**
-   * The ID of an IPAM scope.
-   */
-  public readonly ipamScopeId: string;
-
-  /**
-   * The ARN of an IPAM.
-   */
-  public readonly ipamScopeIpamArn: string;
-
-  /**
-   * Defines if the scope is the default scope or not.
-   */
-  public readonly ipamScopeIsDefault: IResolvable;
-
-  /**
-   * The number of pools in a scope.
-   */
-  public readonly ipamScopePoolCount: number;
-
-  /**
-   * The type of the scope.
-   */
-  public readonly ipamScopeType: string;
-
-
-  /**
-   * Creates a new instance of the IpamScope class.
-   *
-   * @param scope A CDK Construct that will serve as this resource's parent in
-   * the construct tree.
-   * @param id A name to be associated with the stack and used in resource
-   * naming. Must be unique within the context of 'scope'.
-   * @param props Arguments related to the configuration of the resource.
-   */
-  public constructor(scope: IConstruct, id: string, props: IpamScopeProps) {
-    super(scope, id, props);
-
-    this.description = props.description;
-    this.ipam = props.ipam;
-
-    this.resource = new CfnIPAMScope(this, 'Resource', {
-      description: this.description,
-      ipamId: this.ipam.ipamId,
-    });
-
-    this.ipamScopeArn = DynamicReference.string(this, this.resource.attrArn);
-    this.ipamScopeId = DynamicReference.string(this, this.resource.ref);
-    this.ipamScopeIpamArn = DynamicReference.string(this, this.resource.attrIpamArn);
-    this.ipamScopeIsDefault = DynamicReference.any(this, this.resource.attrIsDefault);
-    this.ipamScopePoolCount = DynamicReference.number(this, this.resource.attrPoolCount);
-    this.ipamScopeType = DynamicReference.string(this, this.resource.attrIpamScopeType);
   }
 }

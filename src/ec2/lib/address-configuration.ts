@@ -1,3 +1,15 @@
+export class AdvertiseService {
+  public static readonly EC2: AdvertiseService = AdvertiseService.of('ec2');
+  public static readonly NONE: AdvertiseService = new AdvertiseService();
+
+  public static of(name: string): AdvertiseService {
+    return new AdvertiseService(name);
+  }
+
+
+  private constructor(public readonly name?: string) {}
+}
+
 export interface NetmaskLengthOptions {
   readonly defaultNetmaskLength?: number;
   readonly maxNetmaskLength?: number;
@@ -7,15 +19,12 @@ export interface NetmaskLengthOptions {
 export interface Ipv4ConfigurationOptions extends NetmaskLengthOptions {}
 
 export interface Ipv6ConfigurationOptions extends NetmaskLengthOptions {
+  readonly advertiseService?: AdvertiseService;
   readonly publiclyAdvertisable?: boolean;
 }
 
 export interface AddressConfigurationProps extends NetmaskLengthOptions {
-  readonly family: string;
-  readonly publiclyAdvertisable?: boolean;
-}
-
-export interface IAddressConfiguration {
+  readonly advertiseService?: AdvertiseService;
   readonly family: string;
   readonly publiclyAdvertisable?: boolean;
 }
@@ -66,6 +75,7 @@ export class AddressConfiguration {
   }
 
 
+  public readonly advertiseService?: AdvertiseService;
   public readonly defaultNetmaskLength?: number;
   public readonly family: string;
   public readonly publiclyAdvertisable?: boolean;
@@ -73,6 +83,7 @@ export class AddressConfiguration {
   public readonly minNetmaskLength?: number;
 
   private constructor(props: AddressConfigurationProps) {
+    this.advertiseService = props.advertiseService;
     this.defaultNetmaskLength = props.defaultNetmaskLength;
     this.family = props.family;
     this.publiclyAdvertisable = props.publiclyAdvertisable;

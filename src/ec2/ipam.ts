@@ -3,7 +3,8 @@ import { CfnIPAM } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { IIpamResourceDiscovery } from './ipam-resource-discovery';
 import { IIpamResourceDiscoveryAssociation, IpamResourceDiscoveryAssociation } from './ipam-resource-discovery-association';
-import { IIpamScope, IpamScope, IpamScopeOptions } from './ipam-scope';
+import { IPrivateIpamScope, PrivateIpamScope, PrivateIpamScopeOptions } from './private-ipam-scope';
+import { IPublicIpamScope, PublicIpamScope } from './public-ipam-scope';
 import { DynamicReference } from '../core/dynamic-reference';
 import { ResourceImporter } from '../utils/importer';
 
@@ -51,7 +52,7 @@ export interface IIpam {
    * @param options Arguments specifying the details of the scope being added.
    * @returns The scope that was added to the IPAM.
    */
-  addScope(id: string, options: IpamScopeOptions): IIpamScope;
+  addScope(id: string, options: PrivateIpamScopeOptions): IPrivateIpamScope;
 
   /**
    * Associates an existing IPAM resource discovery with the IPAM.
@@ -112,8 +113,8 @@ abstract class IpamBase extends Resource implements IIpam {
    * @param options Arguments specifying the details of the scope being added.
    * @returns The scope that was added to the IPAM.
    */
-  public addScope(id: string, options: IpamScopeOptions): IIpamScope {
-    return new IpamScope(this, `scope-${id}`, {
+  public addScope(id: string, options: PrivateIpamScopeOptions): PrivateIpamScope {
+    return new PrivateIpamScope(this, `scope-${id}`, {
       ...options,
       ipam: this,
     });
@@ -155,12 +156,12 @@ export interface IpamAttributes {
   /**
    * The IPAM's default private scope.
    */
-  readonly privateDefaultScope?: IIpamScope;
+  readonly privateDefaultScope?: IPrivateIpamScope;
 
   /**
    * The IPAM's default public scope.
    */
-  readonly publicDefaultScope?: IIpamScope;
+  readonly publicDefaultScope?: IPublicIpamScope;
 
   /**
    * The number of scopes in the IPAM.
@@ -321,12 +322,12 @@ export class Ipam extends IpamBase {
   /**
    * The IPAM's default private scope.
    */
-  public readonly defaultPrivateScope: IIpamScope;
+  public readonly defaultPrivateScope: IPrivateIpamScope;
 
   /**
    * The IPAM's default public scope.
    */
-  public readonly defaultPublicScope: IIpamScope;
+  public readonly defaultPublicScope: IPublicIpamScope;
 
   /**
    * The ARN of the IPAM.
@@ -397,14 +398,14 @@ export class Ipam extends IpamBase {
     this.ipamPublicDefaultScopeId = DynamicReference.string(this, this.resource.attrPublicDefaultScopeId);
     this.ipamScopeCount = DynamicReference.number(this, this.resource.attrScopeCount);
 
-    this.defaultPrivateScope = IpamScope.fromIpamScopeAttributes(this, 'default-private-scope', {
+    this.defaultPrivateScope = PrivateIpamScope.fromIpamScopeAttributes(this, 'default-private-scope', {
       ipam: this,
       ipamScopeId: this.ipamPrivateDefaultScopeId,
       isDefault: true,
       scopeType: 'private',
     });
 
-    this.defaultPublicScope = IpamScope.fromIpamScopeAttributes(this, 'default-public-scope', {
+    this.defaultPublicScope = PublicIpamScope.fromIpamScopeAttributes(this, 'default-public-scope', {
       ipam: this,
       ipamScopeId: this.ipamPublicDefaultScopeId,
       isDefault: true,
