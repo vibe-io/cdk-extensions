@@ -1,7 +1,7 @@
 import { ResourceProps } from 'aws-cdk-lib';
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
-import { NamedQuery } from '../athena';
+import { IWorkGroup, NamedQuery } from '../athena';
 import { BasicColumn, Database, InputFormat, OutputFormat, SerializationLibrary, Table, TableType } from '../glue';
 
 
@@ -15,44 +15,65 @@ export interface CloudfrontLogsTableProps extends ResourceProps {
    * @see [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
    */
   readonly bucket: IBucket;
+
   /**
    * Boolean indicating whether to create default Athena queries for the Cloudfront Logs
    *
    * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
    */
   readonly createQueries?: boolean;
+
   /**
    * A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
    *
    * @see [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
    */
   readonly database: Database;
+
   /**
    * Boolean for adding "friendly names" for the created Athena queries.
    */
   readonly friendlyQueryNames?: boolean;
+
   /**
    * Name for Cloudfront Logs Table
    */
   readonly name?: string;
+
   /**
    * Set a custom prefix for the S3 Bucket
    */
   readonly s3Prefix?: string;
+
+  /**
+   * The name of the workgroup where namedqueries should be created.
+   *
+   * @see [NamedQuery WorkGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup)
+   * @see [Setting up workgroups](https://docs.aws.amazon.com/athena/latest/ug/workgroups-procedure.html)
+   */
+  readonly workGroup?: IWorkGroup;
 }
 
 export class CloudfrontLogsTable extends Table {
-  // Input properties
   /**
    * Boolean indicating whether to create default Athena queries for the Cloudfront Logs
    *
    * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
    */
   public readonly createQueries: boolean;
+
   /**
    * Boolean for adding "friendly names" for the created Athena queries.
    */
   public readonly friendlyQueryNames: boolean;
+
+  /**
+   * The name of the workgroup where namedqueries should be created.
+   *
+   * @see [NamedQuery WorkGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup)
+   * @see [Setting up workgroups](https://docs.aws.amazon.com/athena/latest/ug/workgroups-procedure.html)
+   */
+  readonly workGroup?: IWorkGroup;
 
   // Resource properties
   public readonly distributionStatisticsNamedQuery?: NamedQuery;
@@ -230,6 +251,7 @@ export class CloudfrontLogsTable extends Table {
 
     this.createQueries = props.createQueries ?? true;
     this.friendlyQueryNames = props.friendlyQueryNames ?? false;
+    this.workGroup = props.workGroup;
 
     if (this.createQueries) {
       this.distributionStatisticsNamedQuery = new NamedQuery(this, 'distribution-statistics-named-query', {
@@ -249,6 +271,7 @@ export class CloudfrontLogsTable extends Table {
           'GROUP BY distribution',
           'ORDER BY distribution ASC LIMIT 100;',
         ].join('\n'),
+        workGroup: this.workGroup,
       });
 
       this.requestErrorsNamedQuery = new NamedQuery(this, 'request-errors-named-query', {
@@ -272,6 +295,7 @@ export class CloudfrontLogsTable extends Table {
           '    )',
           'ORDER BY "date", time DESC LIMIT 100;',
         ].join('\n'),
+        workGroup: this.workGroup,
       });
 
       this.topIpsNamedQuery = new NamedQuery(this, 'top-ips-named-query', {
@@ -294,6 +318,7 @@ export class CloudfrontLogsTable extends Table {
           'GROUP BY request_ip',
           'ORDER BY requests DESC LIMIT 100;',
         ].join('\n'),
+        workGroup: this.workGroup,
       });
 
       this.topObjectsNamedQuery = new NamedQuery(this, 'top-objects-named-query', {
@@ -316,6 +341,7 @@ export class CloudfrontLogsTable extends Table {
           "GROUP BY CONCAT(request_protocol, '://', distribution, uri)",
           'ORDER BY requests DESC LIMIT 100;',
         ].join('\n'),
+        workGroup: this.workGroup,
       });
     }
   }

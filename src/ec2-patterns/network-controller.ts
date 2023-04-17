@@ -1,12 +1,18 @@
-import { Resource, ResourceProps, Stack, Token } from 'aws-cdk-lib';
+import { Names, Resource, ResourceProps, Stack, Token } from 'aws-cdk-lib';
+import { FlowLogDestination } from 'aws-cdk-lib/aws-ec2';
+import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { IConstruct } from 'constructs';
 import { FourTierNetworkHub, IpAddressManager } from '.';
 import { FourTierNetworkSpoke } from './four-tier-network-spoke';
+import { FlowLogFormat } from '../ec2';
 import { GlobalNetwork } from '../networkmanager/global-network';
+import { FlowLogsBucket } from '../s3-buckets';
 
 
 export interface NetworkControllerProps extends ResourceProps {
   readonly defaultNetmask?: number;
+  readonly flowLogBucket?: IBucket;
+  readonly flowLogFormat?: FlowLogFormat;
 }
 
 export interface AddNetworkOptions {
@@ -21,9 +27,11 @@ export class NetworkController extends Resource {
 
   // Input properties
   public readonly defaultNetmask: number;
+  public readonly flowLogFormat: FlowLogFormat;
 
   // Resource properties
   public readonly addressManager: IpAddressManager;
+  public readonly flowLogBucket: IBucket;
   public readonly globalNetwork: GlobalNetwork;
 
   // Standard propertioes
@@ -51,9 +59,14 @@ export class NetworkController extends Resource {
     this._registeredRegions = new Set<string>();
 
     this.defaultNetmask = props.defaultNetmask ?? 16;
+    this.flowLogFormat = props.flowLogFormat ?? FlowLogFormat.V5;
 
     this.addressManager = new IpAddressManager(this, 'address-manager');
     this.globalNetwork = new GlobalNetwork(this, 'global-network');
+    this.flowLogBucket = props.flowLogBucket ?? new FlowLogsBucket(this, 'flow-log-bucket', {
+      bucketName: Names.uniqueId(this).toLowerCase(),
+      format: this.flowLogFormat,
+    });
   }
 
   public addHub(scope: IConstruct, id: string, options: AddNetworkOptions = {}): FourTierNetworkHub {
@@ -82,6 +95,12 @@ export class NetworkController extends Resource {
 
     const hub = new FourTierNetworkHub(scope, id, {
       cidr: provider,
+      flowLogs: {
+        'flow-log-default': {
+          destination: FlowLogDestination.toS3(this.flowLogBucket),
+          logFormatDefinition: this.flowLogFormat,
+        },
+      },
     });
     this._hubs[scopeRegion] = hub;
     return hub;
@@ -115,7 +134,17 @@ export class NetworkController extends Resource {
 
     return hub.addSpoke(scope, id, {
       cidr: provider,
+      flowLogs: {
+        'flow-log-default': {
+          destination: FlowLogDestination.toS3(this.flowLogBucket),
+          logFormatDefinition: this.flowLogFormat,
+        },
+      },
     });
+  }
+
+  public registerCidr(scope: IConstruct, id: string, cidr: string): void {
+    this.addressManager.registerCidr(scope, id, cidr);
   }
 
   protected registerAccount(account: string): void {

@@ -1,6 +1,7 @@
 import { Names, Resource, ResourceProps } from 'aws-cdk-lib';
 import { CfnNamedQuery } from 'aws-cdk-lib/aws-athena';
 import { Construct } from 'constructs';
+import { IWorkGroup } from '.';
 import { Database } from '../glue';
 
 
@@ -9,72 +10,90 @@ import { Database } from '../glue';
  */
 export interface NamedQueryProps extends ResourceProps {
   /**
-     * The Glue database to which the query belongs.
-     *
-     * @see [NamedQuery Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database)
-     */
+   * The Glue database to which the query belongs.
+   *
+   * @see [NamedQuery Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database)
+   */
   readonly database: Database;
 
   /**
-     * A human friendly description explaining the functionality of the query.
-     *
-     * @see [NamedQuery Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description)
-     */
+   * A human friendly description explaining the functionality of the query.
+   *
+   * @see [NamedQuery Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description)
+   */
   readonly description?: string;
 
   /**
-     * The name of the query.
-     *
-     * @see [NamedQuery Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name)
-     */
+   * The name of the query.
+   *
+   * @see [NamedQuery Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name)
+   */
   readonly name?: string;
 
   /**
-     * The SQL statements that make up the query.
-     *
-     * @see [NamedQuery QueryString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring)
-     * @see [Athena SQL reference](https://docs.aws.amazon.com/athena/latest/ug/ddl-sql-reference.html)
-     */
+   * The SQL statements that make up the query.
+   *
+   * @see [NamedQuery QueryString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring)
+   * @see [Athena SQL reference](https://docs.aws.amazon.com/athena/latest/ug/ddl-sql-reference.html)
+   */
   readonly queryString: string;
+
+  /**
+   * The name of the workgroup that contains the named query.
+   *
+   * @see [NamedQuery WorkGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup)
+   * @see [Setting up workgroups](https://docs.aws.amazon.com/athena/latest/ug/workgroups-procedure.html)
+   */
+  readonly workGroup?: IWorkGroup;
 }
 
 export class NamedQuery extends Resource {
   /**
-     * The Glue database to which the query belongs.
-     *
-     * @see [NamedQuery Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database)
-     *
-     * @group Inputs
-     */
+   * The Glue database to which the query belongs.
+   *
+   * @see [NamedQuery Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database)
+   *
+   * @group Inputs
+   */
   public readonly database: Database;
 
   /**
-     * A human friendly description explaining the functionality of the query.
-     *
-     * @see [NamedQuery Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description)
-     *
-     * @group Inputs
-     */
+   * A human friendly description explaining the functionality of the query.
+   *
+   * @see [NamedQuery Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description)
+   *
+   * @group Inputs
+   */
   public readonly description?: string;
 
   /**
-     * The name of the query.
-     *
-     * @see [NamedQuery Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name)
-     *
-     * @group Inputs
-     */
+   * The name of the query.
+   *
+   * @see [NamedQuery Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name)
+   *
+   * @group Inputs
+   */
   public readonly name?: string;
 
   /**
-     * The SQL statements that make up the query.
-     *
-     * @see [NamedQuery QueryString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring)
-     * @see [Athena SQL reference](https://docs.aws.amazon.com/athena/latest/ug/ddl-sql-reference.html)
-     *
-     * @group Inputs
-     */
+   * The SQL statements that make up the query.
+   *
+   * @see [NamedQuery QueryString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring)
+   * @see [Athena SQL reference](https://docs.aws.amazon.com/athena/latest/ug/ddl-sql-reference.html)
+   *
+   * @group Inputs
+   */
   public readonly queryString: string;
+
+  /**
+   * The name of the workgroup that contains the named query.
+   *
+   * @see [NamedQuery WorkGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup)
+   * @see [Setting up workgroups](https://docs.aws.amazon.com/athena/latest/ug/workgroups-procedure.html)
+   *
+   * @group Inputs
+   */
+  readonly workGroup?: IWorkGroup;
 
 
   /**
@@ -114,12 +133,14 @@ export class NamedQuery extends Resource {
     this.description = props.description;
     this.name = props.name ?? Names.nodeUniqueId(this.node);
     this.queryString = props.queryString;
+    this.workGroup = props.workGroup;
 
     this.resource = new CfnNamedQuery(this, 'Resource', {
       database: this.database.databaseName,
       description: this.description,
       name: this.name,
       queryString: this.queryString,
+      workGroup: this.workGroup?.workGroupName,
     });
 
     this.namedQueryId = this.resource.attrNamedQueryId;

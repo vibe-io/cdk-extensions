@@ -1,4 +1,4 @@
-import { Lazy, Names, ResourceProps, Stack } from 'aws-cdk-lib';
+import { CfnResource, Lazy, Names, ResourceProps, Stack, Stage } from 'aws-cdk-lib';
 import { CfnFlowLog, FlowLogDestination, FlowLogMaxAggregationInterval, FlowLogResourceType, FlowLogTrafficType, LogFormat } from 'aws-cdk-lib/aws-ec2';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { Bucket, IBucket } from 'aws-cdk-lib/aws-s3';
@@ -190,5 +190,14 @@ export class FlowLog extends ec2.FlowLog {
     this.trafficType = props.trafficType ?? FlowLogTrafficType.ALL;
 
     this.resource = this.node.defaultChild as CfnFlowLog;
+
+    // The CDK implementation of flow logs adds dependencies that could be
+    // invalid when references are made across stages. We need to remove them
+    // to prevent errors.
+    this.resource.obtainDependencies().forEach((x) => {
+      if (Stage.of(x) !== Stage.of(this) && CfnResource.isCfnResource(x)) {
+        this.resource.removeDependency(x);
+      }
+    });
   }
 }

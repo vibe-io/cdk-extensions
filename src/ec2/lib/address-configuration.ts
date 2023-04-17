@@ -1,3 +1,15 @@
+export class IpFamily {
+  public static readonly IPV4: IpFamily = IpFamily.of('ipv4');
+  public static readonly IPV6: IpFamily = IpFamily.of('ipv6');
+
+  public static of(name: string): IpFamily {
+    return new IpFamily(name);
+  }
+
+
+  private constructor(public readonly name: string) {}
+}
+
 export class AdvertiseService {
   public static readonly EC2: AdvertiseService = AdvertiseService.of('ec2');
   public static readonly NONE: AdvertiseService = new AdvertiseService();
@@ -25,7 +37,7 @@ export interface Ipv6ConfigurationOptions extends NetmaskLengthOptions {
 
 export interface AddressConfigurationProps extends NetmaskLengthOptions {
   readonly advertiseService?: AdvertiseService;
-  readonly family: string;
+  readonly family: IpFamily;
   readonly publiclyAdvertisable?: boolean;
 }
 
@@ -46,7 +58,7 @@ export class AddressConfiguration {
 
     return AddressConfiguration.of({
       ...options,
-      family: 'ipv4',
+      family: IpFamily.IPV4,
     });
   }
 
@@ -66,7 +78,7 @@ export class AddressConfiguration {
 
     return AddressConfiguration.of({
       ...options,
-      family: 'ipv6',
+      family: IpFamily.IPV6,
     });
   }
 
@@ -77,7 +89,7 @@ export class AddressConfiguration {
 
   public readonly advertiseService?: AdvertiseService;
   public readonly defaultNetmaskLength?: number;
-  public readonly family: string;
+  public readonly family: IpFamily;
   public readonly publiclyAdvertisable?: boolean;
   public readonly maxNetmaskLength?: number;
   public readonly minNetmaskLength?: number;

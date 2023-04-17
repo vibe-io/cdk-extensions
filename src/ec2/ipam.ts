@@ -113,7 +113,7 @@ abstract class IpamBase extends Resource implements IIpam {
    * @param options Arguments specifying the details of the scope being added.
    * @returns The scope that was added to the IPAM.
    */
-  public addScope(id: string, options: PrivateIpamScopeOptions): PrivateIpamScope {
+  public addScope(id: string, options: PrivateIpamScopeOptions): IPrivateIpamScope {
     return new PrivateIpamScope(this, `scope-${id}`, {
       ...options,
       ipam: this,

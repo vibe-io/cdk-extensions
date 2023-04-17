@@ -2,7 +2,7 @@ import { ArnFormat, IResolvable, Resource, ResourceProps, Token } from 'aws-cdk-
 import { CfnIPAMScope } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { IIpam } from '.';
-import { IIpamPool } from './ipam-pool-base';
+import { IIpamPool } from './ipam-pool';
 import { IIpamScope, IpamScopeAttributes } from './ipam-scope';
 import { DynamicReference } from '../core/dynamic-reference';
 import { ResourceImporter } from '../utils/importer';

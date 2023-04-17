@@ -1,7 +1,7 @@
 import { IResource, Resource, ResourceProps, Token } from 'aws-cdk-lib';
 import { CfnIPAMPoolCidr } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
-import { IIpamPool } from './ipam-pool-base';
+import { IIpamPool } from './ipam-pool';
 import { DynamicReference } from '../core/dynamic-reference';
 
 

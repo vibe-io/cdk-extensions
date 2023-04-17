@@ -1,7 +1,7 @@
 import { Resource, ResourceProps, Stack, Token } from 'aws-cdk-lib';
 import { Fact, RegionInfo } from 'aws-cdk-lib/region-info';
 import { IConstruct } from 'constructs';
-import { IIpamPool, Ipam, IpamConsumer, IpamPool, IpamPoolCidrConfiguration, IpamPoolProps, IpamScope, IPAM_ENABLED_FACT } from '../ec2';
+import { IIpamPool, Ipam, IpamPool, IpamPoolCidrConfiguration, IpamPoolProps, IpamScope, IPAM_ENABLED_FACT } from '../ec2';
 import { AddChildPoolOptions, AddCidrToPoolOptions, AddCidrToPoolResult } from '../ec2/ipam-pool';
 import { AddressConfiguration } from '../ec2/lib';
 import { ICidrProvider, CidrProvider } from '../ec2/lib/ip-addresses/network-provider';
@@ -79,7 +79,6 @@ export interface AddPoolOptions {
 }
 
 export interface AllocatePrivateNetworkOptions {
-  readonly consumer?: IpamConsumer;
   readonly netmask?: number;
   readonly pool?: string;
 }
@@ -181,6 +180,7 @@ export class IpAddressManager extends Resource {
     } else {
       const newPool = regional.addChildPool(account, {
         addressConfiguration: AddressConfiguration.ipv4(),
+        autoImport: true,
         name: account,
       });
 
@@ -223,5 +223,17 @@ export class IpAddressManager extends Resource {
     });
 
     resourceShare.addResource(SharedResource.fromIpamPool(pool));
+  }
+
+  public registerCidr(scope: IConstruct, id: string, cidr: string): void {
+    const scopeStack = Stack.of(scope);
+    const scopeAccount = scopeStack.account;
+    const scopeRegion = scopeStack.region;
+
+    const scopePool = this.privateVpcPoolForEnvironment(scopeAccount, scopeRegion);
+    scopePool.addCidrToPool(id, {
+      configuration: IpamPoolCidrConfiguration.cidr(cidr),
+      allowInline: true,
+    });
   }
 }

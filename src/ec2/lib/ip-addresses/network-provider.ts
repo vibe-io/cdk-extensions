@@ -1,5 +1,5 @@
 import { VpcIpamOptions } from 'aws-cdk-lib/aws-ec2';
-import { IIpamPool } from '../../ipam-pool-base';
+import { IIpamPool } from '../../ipam-pool';
 
 
 export interface ICidrProvider {

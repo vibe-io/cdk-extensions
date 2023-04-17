@@ -1,6 +1,7 @@
 import { PhysicalName, ResourceProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { RawBucket } from './private/raw-bucket';
+import { IWorkGroup } from '../athena';
 import { Database } from '../glue';
 import { AlbLogsTable } from '../glue-tables';
 
@@ -14,27 +15,30 @@ export interface AlbLogsBucketProps extends ResourceProps {
   readonly database?: Database;
   readonly friendlyQueryNames?: boolean;
   readonly tableName?: string;
+  readonly workGroup?: IWorkGroup;
 }
 
 export class AlbLogsBucket extends RawBucket {
+  // Input properties
+  public readonly createQueries?: boolean;
+  public readonly friendlyQueryNames?: boolean;
+  public readonly workGroup?: IWorkGroup;
+
   // Resource properties
   public readonly database: Database;
   public readonly table: AlbLogsTable;
 
-  // Input properties
-  public readonly createQueries?: boolean;
-  public readonly friendlyQueryNames?: boolean;
-
 
   /**
-     * Creates a new instance of the ElbLogsBucket class.
-     *
-     * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
-     * @param id A name to be associated with the stack and used in resource naming. Must be unique
-     * within the context of 'scope'.
-     * @param props Arguments related to the configuration of the resource.
-     */
-  constructor(scope: Construct, id: string, props: AlbLogsBucketProps = {}) {
+   * Creates a new instance of the ElbLogsBucket class.
+   *
+   * @param scope A CDK Construct that will serve as this stack's parent in the
+   * construct tree.
+   * @param id A name to be associated with the stack and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param props Arguments related to the configuration of the resource.
+   */
+  public constructor(scope: Construct, id: string, props: AlbLogsBucketProps = {}) {
     super(scope, id, {
       ...props,
       bucketEncryption: {
@@ -60,6 +64,7 @@ export class AlbLogsBucket extends RawBucket {
 
     this.createQueries = props.createQueries;
     this.friendlyQueryNames = props.friendlyQueryNames;
+    this.workGroup = props.workGroup;
 
     this.database = props.database ?? new Database(this, 'database', {
       description: 'Database for storing ELB access logs',
@@ -71,6 +76,7 @@ export class AlbLogsBucket extends RawBucket {
       database: this.database,
       friendlyQueryNames: this.friendlyQueryNames,
       name: props.tableName,
+      workGroup: this.workGroup,
     });
   }
 }

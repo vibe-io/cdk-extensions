@@ -2,7 +2,7 @@ import { Annotations, Lazy, ResourceProps, Stack, Stage, Token } from 'aws-cdk-l
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { RegionInfo } from 'aws-cdk-lib/region-info';
 import { Construct } from 'constructs';
-import { NamedQuery } from '../athena';
+import { IWorkGroup, NamedQuery } from '../athena';
 import { ArrayColumn, BasicColumn, Database, InputFormat, OutputFormat, SerializationLibrary, StructColumn, Table, TableType } from '../glue';
 
 
@@ -16,44 +16,65 @@ export interface WafLogsTableProps extends ResourceProps {
    * @see [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
    */
   readonly bucket: IBucket;
+
   /**
-    * Boolean indicating whether to create default Athena queries for the WAF Logs
-    *
-    * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
-    */
+   * Boolean indicating whether to create default Athena queries for the WAF Logs
+   *
+   * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
+   */
   readonly createQueries?: boolean;
+
   /**
    * A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
    *
    * @see [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
    */
   readonly database: Database;
+
   /**
-    * Boolean for adding "friendly names" for the created Athena queries.
-    */
+   * Boolean for adding "friendly names" for the created Athena queries.
+   */
   readonly friendlyQueryNames?: boolean;
+
   /**
-    * Name for WAF Logs Table
-    */
+   * Name for WAF Logs Table
+   */
   readonly name?: string;
+
   /**
-    * Set a custom prefix for the S3 Bucket
-    */
+   * Set a custom prefix for the S3 Bucket
+   */
   readonly s3Prefix?: string;
+
+  /**
+   * The name of the workgroup where namedqueries should be created.
+   *
+   * @see [NamedQuery WorkGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup)
+   * @see [Setting up workgroups](https://docs.aws.amazon.com/athena/latest/ug/workgroups-procedure.html)
+   */
+  readonly workGroup?: IWorkGroup;
 }
 
 export class WafLogsTable extends Table {
-  // Input properties
   /**
    * Boolean indicating whether to create default Athena queries for the WAF Logs
    *
    * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
    */
   public readonly createQueries: boolean;
+
   /**
-    * Boolean for adding "friendly names" for the created Athena queries.
-    */
+   * Boolean for adding "friendly names" for the created Athena queries.
+   */
   public readonly friendlyQueryNames: boolean;
+
+  /**
+   * The name of the workgroup where namedqueries should be created.
+   *
+   * @see [NamedQuery WorkGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup)
+   * @see [Setting up workgroups](https://docs.aws.amazon.com/athena/latest/ug/workgroups-procedure.html)
+   */
+  public readonly workGroup?: IWorkGroup;
 
   // Resource properties
   public readonly status5xxNamedQuery?: NamedQuery;
@@ -339,5 +360,6 @@ export class WafLogsTable extends Table {
 
     this.createQueries = props.createQueries ?? true;
     this.friendlyQueryNames = props.friendlyQueryNames ?? false;
+    this.workGroup = props.workGroup;
   }
 }

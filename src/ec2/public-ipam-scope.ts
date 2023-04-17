@@ -1,8 +1,7 @@
 import { ArnFormat, IResolvable, Resource, Token } from 'aws-cdk-lib';
 import { IConstruct } from 'constructs';
 import { AddressConfiguration, AdvertiseService } from '.';
-import { IpamPool, PublicIpSource } from './ipam-pool';
-import { IIpamPool } from './ipam-pool-base';
+import { IIpamPool, IpamPool, PublicIpSource } from './ipam-pool';
 import { IIpamScope, IpamScopeAttributes } from './ipam-scope';
 import { ResourceImporter } from '../utils/importer';
 
