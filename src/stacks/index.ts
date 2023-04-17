@@ -3,6 +3,6 @@
  */
 
 /**
-   * @category Stacks
-   */
+ * @category Stacks
+ */
 export * from './aws-logging-stack';

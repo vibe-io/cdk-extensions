@@ -127,8 +127,8 @@ test('adding a spokes in different stages should properly provision CIDR ranges'
 
   const spokeStage1 = new Stage(app, 'stage-1', { env: defaultEnv });
   const spokeStage2 = new Stage(app, 'stage-2', { env: defaultEnv });
-  const spokeStack1 = createStack(spokeStage1, 'spoke-stack', defaultAccount, defaultRegion);
-  const spokeStack2 = createStack(spokeStage2, 'spoke-stack', defaultAccount, defaultRegion);
+  const spokeStack1 = createStack(spokeStage1, 'spoke-stack', '234567890123', defaultRegion);
+  const spokeStack2 = createStack(spokeStage2, 'spoke-stack', '345678901234', defaultRegion);
 
   const controller = new NetworkController(controllerStack, 'network-controller');
   controller.addHub(hubStack, 'hub');

@@ -1,24 +1,12 @@
-import { Annotations, CfnTag, IResource, Lazy, Resource, ResourceProps, Tags } from 'aws-cdk-lib';
+import { Annotations, CfnTag, IResource, Lazy, Resource, ResourceProps, Tags, Token } from 'aws-cdk-lib';
 import { CfnIPAMPool } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
-import { AddressConfiguration, IpamPoolCidrConfiguration } from '.';
+import { AddressConfiguration, IpamPoolCidrConfiguration, IpFamily } from '.';
 import { IIpamAllocation, IpamAllocation, IpamAllocationOptions } from './ipam-allocation';
 import { IIpamPoolCidr, IIpamPoolCidrConfiguration, IpamPoolCidr } from './ipam-pool-cidr';
 import { IIpamScope, IpamScope } from './ipam-scope';
 import { DynamicReference } from '../core/dynamic-reference';
 
-
-export class IpamConsumer {
-  public static readonly EC2: IpamConsumer = IpamConsumer.of('ec2');
-  public static readonly NONE: IpamConsumer = new IpamConsumer();
-
-  public static of(name: string): IpamConsumer {
-    return new IpamConsumer(name);
-  }
-
-
-  private constructor(public readonly name?: string) {}
-}
 
 export class PublicIpSource {
   public static readonly AMAZON: PublicIpSource = PublicIpSource.of('amazon');
@@ -41,23 +29,26 @@ export interface IIpamPool extends IResource {
   readonly ipamPoolScopeType: string;
   readonly ipamPoolState: string;
   readonly ipamPoolStateMessage: string;
-
-  readonly consumer?: IpamConsumer;
+  readonly ipFamily: IpFamily;
 
   addCidrToPool(id: string, options: AddCidrToPoolOptions): AddCidrToPoolResult;
   addChildPool(id: string, options?: AddChildPoolOptions): IIpamPool;
   allocateCidrFromPool(id: string, options?: AllocateCidrFromPoolOptions): IIpamAllocation;
 }
 
+export interface IIpv4IpamPool extends IIpamPool {}
+export interface IIpv6IpamPool extends IIpamPool {}
+
 export interface AddChildPoolOptions {
   readonly addressConfiguration?: AddressConfiguration;
   readonly autoImport?: boolean;
-  readonly consumer?: IpamConsumer;
+  readonly defaultNetmaskLength?: number;
+  readonly maxNetmaskLength?: number;
+  readonly minNetmaskLength?: number;
   readonly description?: string;
   readonly locale?: string;
   readonly name?: string;
   readonly provisionedCidrs?: string[];
-  readonly publicIpSource?: PublicIpSource;
   readonly tagRestrictions?: { [key: string]: string };
 }
 
@@ -84,6 +75,7 @@ abstract class IpamPoolBase extends Resource implements IIpamPool {
   public abstract readonly ipamPoolScopeType: string;
   public abstract readonly ipamPoolState: string;
   public abstract readonly ipamPoolStateMessage: string;
+  public abstract readonly ipFamily: IpFamily;
 
 
   public addCidrToPool(id: string, options: AddCidrToPoolOptions): AddCidrToPoolResult {
@@ -99,6 +91,12 @@ abstract class IpamPoolBase extends Resource implements IIpamPool {
   public addChildPool(id: string, options: AddChildPoolOptions = {}): IIpamPool {
     return new IpamPool(this, `pool-${id}`, {
       ...options,
+      addressConfiguration: AddressConfiguration.of({
+        defaultNetmaskLength: options.defaultNetmaskLength,
+        family: this.ipFamily,
+        maxNetmaskLength: options.maxNetmaskLength,
+        minNetmaskLength: options.minNetmaskLength,
+      }),
       ipamScope: IpamScope.fromIpamScopeAttributes(this, `import-scope-${id}`, {
         ipamScopeArn: this.ipamPoolScopeArn,
         scopeType: this.ipamPoolScopeType,
@@ -119,7 +117,6 @@ abstract class IpamPoolBase extends Resource implements IIpamPool {
 export interface IpamPoolOptions {
   readonly addressConfiguration?: AddressConfiguration;
   readonly autoImport?: boolean;
-  readonly consumer?: IpamConsumer;
   readonly description?: string;
   readonly locale?: string;
   readonly name?: string;
@@ -139,7 +136,7 @@ export class IpamPool extends IpamPoolBase {
   private readonly _tagRestrictions: { [key: string]: string };
 
   // Input properties
-  public readonly addressConfiguration?: AddressConfiguration;
+  public readonly addressConfiguration: AddressConfiguration;
   public readonly autoImport?: boolean;
   public readonly description?: string;
   public readonly ipamScope: IIpamScope;
@@ -151,7 +148,6 @@ export class IpamPool extends IpamPoolBase {
   // Resource properties
   public readonly resource: CfnIPAMPool;
 
-  public readonly consumer?: IpamConsumer;
   public readonly ipamPoolArn: string;
   public readonly ipamPoolDepth: number;
   public readonly ipamPoolIpamArn: string;
@@ -160,6 +156,7 @@ export class IpamPool extends IpamPoolBase {
   public readonly ipamPoolScopeType: string;
   public readonly ipamPoolState: string;
   public readonly ipamPoolStateMessage: string;
+  public readonly ipFamily: IpFamily;
 
 
   public constructor(scope: IConstruct, id: string, props: IpamPoolProps) {
@@ -170,7 +167,6 @@ export class IpamPool extends IpamPoolBase {
 
     this.addressConfiguration = props.addressConfiguration ?? AddressConfiguration.ipv4();
     this.autoImport = props.autoImport;
-    this.consumer = props.consumer ?? IpamConsumer.EC2;
     this.description = props.description;
     this.ipamScope = props.ipamScope;
     this.locale = props.locale;
@@ -179,7 +175,7 @@ export class IpamPool extends IpamPoolBase {
     this.publicIpSource = props.publicIpSource;
 
     this.resource = new CfnIPAMPool(this, 'Resource', {
-      addressFamily: this.addressConfiguration.family,
+      addressFamily: this.addressConfiguration.family.name,
       allocationDefaultNetmaskLength: this.addressConfiguration.defaultNetmaskLength,
       allocationMaxNetmaskLength: this.addressConfiguration.maxNetmaskLength,
       allocationMinNetmaskLength: this.addressConfiguration.minNetmaskLength,
@@ -199,7 +195,7 @@ export class IpamPool extends IpamPoolBase {
         },
       ),
       autoImport: this.autoImport,
-      awsService: this.consumer?.name,
+      awsService: this.addressConfiguration?.advertiseService?.name,
       description: this.description,
       ipamScopeId: this.ipamScope.ipamScopeId,
       locale: this.locale,
@@ -230,6 +226,7 @@ export class IpamPool extends IpamPoolBase {
     this.ipamPoolScopeType = DynamicReference.string(this, this.resource.attrIpamScopeType);
     this.ipamPoolState = DynamicReference.string(this, this.resource.attrState);
     this.ipamPoolStateMessage = DynamicReference.string(this, this.resource.attrStateMessage);
+    this.ipFamily = this.addressConfiguration.family;
 
     if (this.name) {
       Tags.of(this.resource).add('Name', this.name);
@@ -278,6 +275,28 @@ export class IpamPool extends IpamPoolBase {
     }
   }
 
+  public addChildPool(id: string, options?: AddChildPoolOptions): IIpamPool {
+    if (!this.validateChildLocale(options?.locale)) {
+      throw new Error([
+        `Cannot add IPAM pool with a locale of '${options!.locale}' to IPAM`,
+        `pool '${this.node.path}' with the locale '${this.locale}'.`,
+      ].join(' '));
+    }
+
+    if (this.validateNestingSupport()) {
+      throw new Error([
+        'Adding child pools to an IPAM pool with an advertising service of',
+        `'${this.addressConfiguration?.advertiseService?.name}' and a public`,
+        `IP source of '${this.publicIpSource?.name}' is not supported.`,
+      ].join(' '));
+    }
+
+    return super.addChildPool(id, {
+      locale: this.locale,
+      ...options,
+    });
+  }
+
   public addTagRestriction(key: string, value: string): IIpamPool {
     if (key in this._tagRestrictions) {
       throw new Error([
@@ -288,5 +307,33 @@ export class IpamPool extends IpamPoolBase {
 
     this._tagRestrictions[key] = value;
     return this;
+  }
+
+  protected validateChildLocale(locale?: string): boolean {
+    if (this.locale && Token.isUnresolved(this.locale)) {
+      if (locale === undefined) {
+        // Child can inherit out locale.
+        return true;
+      } else if (Token.isUnresolved(locale)) {
+        // We give the benefit of the doubt if either the requested locale or
+        // our locale are tokens.
+        return true;
+      } else {
+        // Both the requested locale and our locale are fully resolved and must
+        // match.
+        return this.locale === locale;
+      }
+    } else {
+      // If our locale is undefined any child locale is permissable and if our
+      // locale is unresolved we give the benefit of the doubt.
+      return true;
+    }
+  }
+
+  protected validateNestingSupport(): boolean {
+    const service = this.addressConfiguration?.advertiseService?.name;
+    const ipSource = this.publicIpSource?.name;
+
+    return !(!!service && ipSource === PublicIpSource.BYOIP.name);
   }
 }

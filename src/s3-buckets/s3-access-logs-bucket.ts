@@ -3,6 +3,7 @@ import { Effect, PolicyStatement, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { CfnBucket } from 'aws-cdk-lib/aws-s3';
 import { Construct, IConstruct } from 'constructs';
 import { RawBucket } from './private/raw-bucket';
+import { IWorkGroup } from '../athena';
 import { Database } from '../glue';
 import { S3AccessLogsTable } from '../glue-tables';
 
@@ -22,27 +23,30 @@ export interface S3AccessLogsBucketProps extends ResourceProps {
   readonly database?: Database;
   readonly friendlyQueryNames?: boolean;
   readonly tableName?: string;
+  readonly workGroup?: IWorkGroup;
 }
 
 export class S3AccessLogsBucket extends RawBucket {
+  // Input properties
+  public readonly createQueries?: boolean;
+  public readonly friendlyQueryNames?: boolean;
+  public readonly workGroup?: IWorkGroup;
+
   // Resource properties
   public readonly database: Database;
   public readonly table: S3AccessLogsTable;
 
-  // Input properties
-  public readonly createQueries?: boolean;
-  public readonly friendlyQueryNames?: boolean;
-
 
   /**
-     * Creates a new instance of the S3AccessLogsBucket class.
-     *
-     * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
-     * @param id A name to be associated with the stack and used in resource naming. Must be unique
-     * within the context of 'scope'.
-     * @param props Arguments related to the configuration of the resource.
-     */
-  constructor(scope: Construct, id: string, props: S3AccessLogsBucketProps = {}) {
+   * Creates a new instance of the S3AccessLogsBucket class.
+   *
+   * @param scope A CDK Construct that will serve as this stack's parent in the
+   * construct tree.
+   * @param id A name to be associated with the stack and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param props Arguments related to the configuration of the resource.
+   */
+  public constructor(scope: Construct, id: string, props: S3AccessLogsBucketProps = {}) {
     super(scope, id, {
       ...props,
       bucketEncryption: {
@@ -68,6 +72,7 @@ export class S3AccessLogsBucket extends RawBucket {
 
     this.createQueries = props.createQueries;
     this.friendlyQueryNames = props.friendlyQueryNames;
+    this.workGroup = props.workGroup;
 
     this.database = props.database ?? new Database(this, 'database', {
       description: 'Database for storing S3 access logs',
@@ -79,6 +84,7 @@ export class S3AccessLogsBucket extends RawBucket {
       database: this.database,
       friendlyQueryNames: this.friendlyQueryNames,
       name: props.tableName,
+      workGroup: this.workGroup,
     });
   }
 

@@ -1,5 +1,5 @@
-import { ResourceProps } from 'aws-cdk-lib';
-import { DefaultInstanceTenancy, FlowLogOptions, GatewayVpcEndpointOptions, PrivateSubnet, RouterType, SubnetSelection, VpnConnectionOptions } from 'aws-cdk-lib/aws-ec2';
+import { Aspects, ResourceProps } from 'aws-cdk-lib';
+import { CfnRoute, DefaultInstanceTenancy, FlowLogOptions, GatewayVpcEndpointOptions, PrivateSubnet, RouterType, SubnetSelection, VpnConnectionOptions } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { FourTierNetwork, FourTierNetworkHub } from '.';
 import { ITransitGatewayAttachment } from '../ec2';
@@ -45,10 +45,18 @@ export class FourTierNetworkSpoke extends FourTierNetwork {
 
     (this.privateSubnets as PrivateSubnet[]).forEach((x) => {
       x.addRoute('DefaultRoute', {
+        enablesInternetConnectivity: true,
         routerId: this.transitGateway.transitGatewayId,
         routerType: RouterType.TRANSIT_GATEWAY,
-        enablesInternetConnectivity: true,
       });
+    });
+
+    Aspects.of(this).add({
+      visit: (node: IConstruct) => {
+        if (node instanceof CfnRoute) {
+          node.node.addDependency(this.transitGatewayAttachment);
+        }
+      },
     });
   }
 }

@@ -11,6 +11,8 @@ export * from './ipam-pool-cidr';
 export * from './ipam-resource-discovery';
 export * from './ipam-resource-discovery-association';
 export * from './ipam-scope';
+export * from './private-ipam-scope';
+export * from './public-ipam-scope';
 export * from './transit-gateway';
 export * from './transit-gateway-attachment';
 export * from './transit-gateway-attachment-base';
