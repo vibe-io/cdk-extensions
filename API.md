@@ -38351,7 +38351,29 @@ const addNetworkOptions: ec2_patterns.AddNetworkOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.AddNetworkOptions.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddNetworkOptions.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddNetworkOptions.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `availabilityZones`<sup>Optional</sup> <a name="availabilityZones" id="cdk-extensions.ec2_patterns.AddNetworkOptions.property.availabilityZones"></a>
+
+```typescript
+public readonly availabilityZones: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.AddNetworkOptions.property.maxAzs"></a>
+
+```typescript
+public readonly maxAzs: number;
+```
+
+- *Type:* number
 
 ---
 

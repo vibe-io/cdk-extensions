@@ -16,6 +16,8 @@ export interface NetworkControllerProps extends ResourceProps {
 }
 
 export interface AddNetworkOptions {
+  readonly availabilityZones?: string[];
+  readonly maxAzs?: number;
   readonly netmask?: number;
 }
 
@@ -94,6 +96,7 @@ export class NetworkController extends Resource {
     });
 
     const hub = new FourTierNetworkHub(scope, id, {
+      availabilityZones: options.availabilityZones,
       cidr: provider,
       flowLogs: {
         'flow-log-default': {
@@ -101,6 +104,7 @@ export class NetworkController extends Resource {
           logFormatDefinition: this.flowLogFormat,
         },
       },
+      maxAzs: options.maxAzs,
     });
     this._hubs[scopeRegion] = hub;
     return hub;
@@ -133,6 +137,7 @@ export class NetworkController extends Resource {
     });
 
     return hub.addSpoke(scope, id, {
+      availabilityZones: options.availabilityZones,
       cidr: provider,
       flowLogs: {
         'flow-log-default': {
@@ -140,6 +145,7 @@ export class NetworkController extends Resource {
           logFormatDefinition: this.flowLogFormat,
         },
       },
+      maxAzs: options.maxAzs,
     });
   }
 
