@@ -1,9 +1,9 @@
 import { ResourceProps, Stack, Token } from 'aws-cdk-lib';
-import { DefaultInstanceTenancy, GatewayVpcEndpointOptions, SubnetSelection, VpnConnectionOptions } from 'aws-cdk-lib/aws-ec2';
+import { DefaultInstanceTenancy, GatewayVpcEndpointOptions, RouterType, Subnet, SubnetSelection, VpnConnectionOptions } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { FlowLogOptions, FourTierNetwork } from '.';
 import { FourTierNetworkSpoke } from './four-tier-network-spoke';
-import { TransitGateway, TransitGatewayProps } from '../ec2';
+import { ITransitGatewayRouteTable, TransitGateway, TransitGatewayProps } from '../ec2';
 import { CidrProvider, ICidrProvider } from '../ec2/lib/ip-addresses/network-provider';
 import { NatProvider } from '../ec2/lib/nat-providers/nat-provider';
 import { ITransitGateway } from '../ec2/transit-gateway';
@@ -38,6 +38,7 @@ export interface FourTierNetworkHubProps extends ResourceProps {
   readonly availabilityZones?: string[];
   readonly cidr?: ICidrProvider;
   readonly defaultInstanceTenancy?: DefaultInstanceTenancy;
+  readonly defaultTransitGatewayRouteTable?: ITransitGatewayRouteTable;
   readonly enableDnsHostnames?: boolean;
   readonly enableDnsSupport?: boolean;
   readonly flowLogs?: { [id: string]: FlowLogOptions };
@@ -59,6 +60,7 @@ export class FourTierNetworkHub extends FourTierNetwork {
   private _resourceShare?: IResourceShare;
   private _transitGateway?: ITransitGateway;
 
+  public readonly defaultTransitGatewayRouteTable?: ITransitGatewayRouteTable;
   public readonly globalNetwork?: GlobalNetwork;
   public readonly sharing: FourTierNetworkShareProperties;
 
@@ -79,6 +81,7 @@ export class FourTierNetworkHub extends FourTierNetwork {
 
     this._flowLogConfiguration = props.flowLogs;
 
+    this.defaultTransitGatewayRouteTable = props.defaultTransitGatewayRouteTable;
     this.globalNetwork = props.globalNetwork;
     this.sharing = props.sharing ?? {
       autoAddAccounts: true,
@@ -154,14 +157,41 @@ export class FourTierNetworkHub extends FourTierNetwork {
 
     this._transitGateway = new TransitGateway(this, 'transit-gateway', {
       autoAcceptSharedAttachments: true,
+      defaultRouteTableId: this.defaultTransitGatewayRouteTable?.transitGatewayRouteTableId,
       ...props,
     });
 
-    this._transitGateway.attachVpc(this, {
+    const attachment = this._transitGateway.attachVpc(this, {
       subnets: {
         onePerAz: true,
         subnetGroupName: 'dmz',
       },
+    });
+
+    this._transitGateway.defaultRouteTable?.addRoute('default', {
+      attachment: attachment,
+      cidr: '0.0.0.0/0',
+    });
+
+    const tgw = this._transitGateway;
+    [this.publicSubnets, this.privateSubnets, this.isolatedSubnets].forEach((group) => {
+      group.forEach((subnet) => {
+        (subnet as Subnet).addRoute('rfc1918-10-0-0-0--8', {
+          routerId: tgw.transitGatewayId,
+          routerType: RouterType.TRANSIT_GATEWAY,
+          destinationCidrBlock: '10.0.0.0/8',
+        });
+        (subnet as Subnet).addRoute('rfc1918-172-16-0-0--12', {
+          routerId: tgw.transitGatewayId,
+          routerType: RouterType.TRANSIT_GATEWAY,
+          destinationCidrBlock: '172.16.0.0/12',
+        });
+        (subnet as Subnet).addRoute('rfc1918-192-168-0-0--16', {
+          routerId: tgw.transitGatewayId,
+          routerType: RouterType.TRANSIT_GATEWAY,
+          destinationCidrBlock: '192.168.0.0/16',
+        });
+      });
     });
 
     this.globalNetwork?.registerTransitGateway(this._transitGateway.node.addr, {
