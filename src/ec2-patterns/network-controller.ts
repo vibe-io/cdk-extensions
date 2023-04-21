@@ -4,7 +4,7 @@ import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { IConstruct } from 'constructs';
 import { FourTierNetworkHub, IpAddressManager } from '.';
 import { FourTierNetworkSpoke } from './four-tier-network-spoke';
-import { FlowLogFormat } from '../ec2';
+import { FlowLogFormat, ITransitGatewayRouteTable } from '../ec2';
 import { GlobalNetwork } from '../networkmanager/global-network';
 import { FlowLogsBucket } from '../s3-buckets';
 
@@ -19,6 +19,10 @@ export interface AddNetworkOptions {
   readonly availabilityZones?: string[];
   readonly maxAzs?: number;
   readonly netmask?: number;
+}
+
+export interface AddHubOptions extends AddNetworkOptions {
+  readonly defaultTransitGatewayRouteTable?: ITransitGatewayRouteTable;
 }
 
 export class NetworkController extends Resource {
@@ -71,7 +75,7 @@ export class NetworkController extends Resource {
     });
   }
 
-  public addHub(scope: IConstruct, id: string, options: AddNetworkOptions = {}): FourTierNetworkHub {
+  public addHub(scope: IConstruct, id: string, options: AddHubOptions = {}): FourTierNetworkHub {
     const scopeStack = Stack.of(scope);
     const scopeAccount = scopeStack.account;
     const scopeRegion = scopeStack.region;
@@ -98,6 +102,7 @@ export class NetworkController extends Resource {
     const hub = new FourTierNetworkHub(scope, id, {
       availabilityZones: options.availabilityZones,
       cidr: provider,
+      defaultTransitGatewayRouteTable: options.defaultTransitGatewayRouteTable,
       flowLogs: {
         'flow-log-default': {
           destination: FlowLogDestination.toS3(this.flowLogBucket),
@@ -105,6 +110,7 @@ export class NetworkController extends Resource {
         },
       },
       maxAzs: options.maxAzs,
+
     });
     this._hubs[scopeRegion] = hub;
     return hub;

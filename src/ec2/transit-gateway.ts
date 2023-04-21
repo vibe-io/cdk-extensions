@@ -38,6 +38,7 @@ export interface VpnAttachmentOptions {
  * Represents a transit gateway in AWS.
  */
 export interface ITransitGateway extends IConstruct {
+  readonly defaultRouteTable?: ITransitGatewayRouteTable;
   readonly transitGatewayArn: string;
   readonly transitGatewayId: string;
   addRouteTable(options?: TransitGatewayRouteTableOptions): TransitGatewayRouteTable;

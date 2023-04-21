@@ -44,9 +44,11 @@ export interface ITransitGatewayRouteTable {
   /**
    * Adds a route to this transit gateway route table.
    *
+   * @param id Unique identifier for the route being added. Must be unique for
+   * each call to `addRoute`.
    * @param options Configuration for the route being added.
    */
-  addRoute(options: TransitGatewayRouteOptions): TransitGatewayRoute;
+  addRoute(id: string, options: TransitGatewayRouteOptions): TransitGatewayRoute;
 }
 
 /**
@@ -67,11 +69,13 @@ abstract class TransitGatewayRouteTableBase extends Resource implements ITransit
   /**
    * Adds a route to this transit gateway route table.
    *
+   * @param id Unique identifier for the route being added. Must be unique for
+   * each call to `addRoute`.
    * @param options Configuration for the route being added.
    * @returns The TransitGatewayRoute that was added.
    */
-  public addRoute(options: TransitGatewayRouteOptions): TransitGatewayRoute {
-    return new TransitGatewayRoute(this, `transit-gateway-route-${options.cidr}`, {
+  public addRoute(id: string, options: TransitGatewayRouteOptions): TransitGatewayRoute {
+    return new TransitGatewayRoute(this, `transit-gateway-route-${id}`, {
       attachment: options.attachment,
       blackhole: options.blackhole,
       cidr: options.cidr,

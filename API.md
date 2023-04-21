@@ -14883,6 +14883,7 @@ Prefer to use `Vpc.fromLookup()` instead.
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpcName">vpcName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.sharing">sharing</a></code> | <code>cdk-extensions.ec2_patterns.FourTierNetworkShareProperties</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.defaultTransitGatewayRouteTable">defaultTransitGatewayRouteTable</a></code> | <code>cdk-extensions.ec2.ITransitGatewayRouteTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.globalNetwork">globalNetwork</a></code> | <code>cdk-extensions.networkmanager.GlobalNetwork</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
 
@@ -15195,6 +15196,16 @@ public readonly sharing: FourTierNetworkShareProperties;
 ```
 
 - *Type:* cdk-extensions.ec2_patterns.FourTierNetworkShareProperties
+
+---
+
+##### `defaultTransitGatewayRouteTable`<sup>Optional</sup> <a name="defaultTransitGatewayRouteTable" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.defaultTransitGatewayRouteTable"></a>
+
+```typescript
+public readonly defaultTransitGatewayRouteTable: ITransitGatewayRouteTable;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayRouteTable
 
 ---
 
@@ -21350,7 +21361,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addHub` <a name="addHub" id="cdk-extensions.ec2_patterns.NetworkController.addHub"></a>
 
 ```typescript
-public addHub(scope: IConstruct, id: string, options?: AddNetworkOptions): FourTierNetworkHub
+public addHub(scope: IConstruct, id: string, options?: AddHubOptions): FourTierNetworkHub
 ```
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.NetworkController.addHub.parameter.scope"></a>
@@ -21367,7 +21378,7 @@ public addHub(scope: IConstruct, id: string, options?: AddNetworkOptions): FourT
 
 ###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.NetworkController.addHub.parameter.options"></a>
 
-- *Type:* cdk-extensions.ec2_patterns.AddNetworkOptions
+- *Type:* cdk-extensions.ec2_patterns.AddHubOptions
 
 ---
 
@@ -31529,10 +31540,16 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addRoute` <a name="addRoute" id="cdk-extensions.ec2.TransitGatewayAttachment.addRoute"></a>
 
 ```typescript
-public addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
+public addRoute(id: string, cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
 ```
 
 Adds a route that directs traffic to this transit gateway attachment.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayAttachment.addRoute.parameter.id"></a>
+
+- *Type:* string
+
+---
 
 ###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.TransitGatewayAttachment.addRoute.parameter.cidr"></a>
 
@@ -31942,10 +31959,16 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addRoute` <a name="addRoute" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.addRoute"></a>
 
 ```typescript
-public addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
+public addRoute(id: string, cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
 ```
 
 Adds a route that directs traffic to this transit gateway attachment.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.addRoute.parameter.id"></a>
+
+- *Type:* string
+
+---
 
 ###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.TransitGatewayAttachmentBase.addRoute.parameter.cidr"></a>
 
@@ -32197,10 +32220,16 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addRoute` <a name="addRoute" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.addRoute"></a>
 
 ```typescript
-public addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
+public addRoute(id: string, cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
 ```
 
 Adds a route that directs traffic to this transit gateway attachment.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.addRoute.parameter.id"></a>
+
+- *Type:* string
+
+---
 
 ###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.TransitGatewayAttachmentResource.addRoute.parameter.cidr"></a>
 
@@ -32574,10 +32603,16 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addRoute` <a name="addRoute" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.addRoute"></a>
 
 ```typescript
-public addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
+public addRoute(id: string, cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
 ```
 
 Adds a route that directs traffic to this transit gateway attachment.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.addRoute.parameter.id"></a>
+
+- *Type:* string
+
+---
 
 ###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.TransitGatewayPeeringAttachment.addRoute.parameter.cidr"></a>
 
@@ -33629,10 +33664,21 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addRoute` <a name="addRoute" id="cdk-extensions.ec2.TransitGatewayRouteTable.addRoute"></a>
 
 ```typescript
-public addRoute(options: TransitGatewayRouteOptions): TransitGatewayRoute
+public addRoute(id: string, options: TransitGatewayRouteOptions): TransitGatewayRoute
 ```
 
 Adds a route to this transit gateway route table.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.TransitGatewayRouteTable.addRoute.parameter.id"></a>
+
+- *Type:* string
+
+Unique identifier for the route being added.
+
+Must be unique for
+each call to `addRoute`.
+
+---
 
 ###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.TransitGatewayRouteTable.addRoute.parameter.options"></a>
 
@@ -38188,6 +38234,67 @@ public readonly cidr: IIpamPoolCidr;
 ```
 
 - *Type:* cdk-extensions.ec2.IIpamPoolCidr
+
+---
+
+### AddHubOptions <a name="AddHubOptions" id="cdk-extensions.ec2_patterns.AddHubOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.AddHubOptions.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const addHubOptions: ec2_patterns.AddHubOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.AddHubOptions.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddHubOptions.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddHubOptions.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddHubOptions.property.defaultTransitGatewayRouteTable">defaultTransitGatewayRouteTable</a></code> | <code>cdk-extensions.ec2.ITransitGatewayRouteTable</code> | *No description.* |
+
+---
+
+##### `availabilityZones`<sup>Optional</sup> <a name="availabilityZones" id="cdk-extensions.ec2_patterns.AddHubOptions.property.availabilityZones"></a>
+
+```typescript
+public readonly availabilityZones: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.AddHubOptions.property.maxAzs"></a>
+
+```typescript
+public readonly maxAzs: number;
+```
+
+- *Type:* number
+
+---
+
+##### `netmask`<sup>Optional</sup> <a name="netmask" id="cdk-extensions.ec2_patterns.AddHubOptions.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
+##### `defaultTransitGatewayRouteTable`<sup>Optional</sup> <a name="defaultTransitGatewayRouteTable" id="cdk-extensions.ec2_patterns.AddHubOptions.property.defaultTransitGatewayRouteTable"></a>
+
+```typescript
+public readonly defaultTransitGatewayRouteTable: ITransitGatewayRouteTable;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayRouteTable
 
 ---
 
@@ -50209,6 +50316,7 @@ const fourTierNetworkHubProps: ec2_patterns.FourTierNetworkHubProps = { ... }
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.defaultTransitGatewayRouteTable">defaultTransitGatewayRouteTable</a></code> | <code>cdk-extensions.ec2.ITransitGatewayRouteTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.flowLogs">flowLogs</a></code> | <code>{[ key: string ]: cdk-extensions.ec2_patterns.FlowLogOptions}</code> | *No description.* |
@@ -50314,6 +50422,16 @@ public readonly defaultInstanceTenancy: DefaultInstanceTenancy;
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.DefaultInstanceTenancy
+
+---
+
+##### `defaultTransitGatewayRouteTable`<sup>Optional</sup> <a name="defaultTransitGatewayRouteTable" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.defaultTransitGatewayRouteTable"></a>
+
+```typescript
+public readonly defaultTransitGatewayRouteTable: ITransitGatewayRouteTable;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayRouteTable
 
 ---
 
@@ -88148,6 +88266,7 @@ public attachVpc(vpc: IVpc, options?: VpcAttachmentOptions): TransitGatewayAttac
 | <code><a href="#cdk-extensions.ec2.ITransitGateway.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-extensions.ec2.ITransitGateway.property.transitGatewayArn">transitGatewayArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2.ITransitGateway.property.transitGatewayId">transitGatewayId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.ITransitGateway.property.defaultRouteTable">defaultRouteTable</a></code> | <code>cdk-extensions.ec2.ITransitGatewayRouteTable</code> | *No description.* |
 
 ---
 
@@ -88183,6 +88302,16 @@ public readonly transitGatewayId: string;
 
 ---
 
+##### `defaultRouteTable`<sup>Optional</sup> <a name="defaultRouteTable" id="cdk-extensions.ec2.ITransitGateway.property.defaultRouteTable"></a>
+
+```typescript
+public readonly defaultRouteTable: ITransitGatewayRouteTable;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGatewayRouteTable
+
+---
+
 ### ITransitGatewayAttachment <a name="ITransitGatewayAttachment" id="cdk-extensions.ec2.ITransitGatewayAttachment"></a>
 
 - *Implemented By:* cdk-extensions.ec2.TransitGatewayAttachment, cdk-extensions.ec2.TransitGatewayAttachmentBase, cdk-extensions.ec2.TransitGatewayAttachmentResource, cdk-extensions.ec2.TransitGatewayPeeringAttachment, cdk-extensions.ec2.ITransitGatewayAttachment, cdk-extensions.ec2.ITransitGatewayPeeringAttachment
@@ -88200,10 +88329,21 @@ Represents a Transit Gateway Attachment in AWS.
 ##### `addRoute` <a name="addRoute" id="cdk-extensions.ec2.ITransitGatewayAttachment.addRoute"></a>
 
 ```typescript
-public addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
+public addRoute(id: string, cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute
 ```
 
 Adds a route that directs traffic to this transit gateway attachment.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.ITransitGatewayAttachment.addRoute.parameter.id"></a>
+
+- *Type:* string
+
+Unique identifier for the route being added.
+
+Must be unique for
+each call to `addRoute`.
+
+---
 
 ###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.ITransitGatewayAttachment.addRoute.parameter.cidr"></a>
 
@@ -88411,10 +88551,21 @@ Represents a transit gateway route table in AWS.
 ##### `addRoute` <a name="addRoute" id="cdk-extensions.ec2.ITransitGatewayRouteTable.addRoute"></a>
 
 ```typescript
-public addRoute(options: TransitGatewayRouteOptions): TransitGatewayRoute
+public addRoute(id: string, options: TransitGatewayRouteOptions): TransitGatewayRoute
 ```
 
 Adds a route to this transit gateway route table.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.ITransitGatewayRouteTable.addRoute.parameter.id"></a>
+
+- *Type:* string
+
+Unique identifier for the route being added.
+
+Must be unique for
+each call to `addRoute`.
+
+---
 
 ###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.ITransitGatewayRouteTable.addRoute.parameter.options"></a>
 

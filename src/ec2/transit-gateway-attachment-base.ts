@@ -23,12 +23,14 @@ export interface ITransitGatewayAttachment {
   /**
    * Adds a route that directs traffic to this transit gateway attachment.
    *
+   * @param id Unique identifier for the route being added. Must be unique for
+   * each call to `addRoute`.
    * @param cidr CIDR range that should be routed to this attachment.
    * @param routeTable The transit gateway route table where the route should
    * be added.
    * @returns The TransitGatewayRoute that was added.
    */
-  addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute;
+  addRoute(id: string, cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute;
 }
 
 /**
@@ -54,8 +56,8 @@ export abstract class TransitGatewayAttachmentBase extends Resource implements I
    * be added.
    * @returns The TransitGatewayRoute that was added.
    */
-  public addRoute(cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute {
-    return routeTable.addRoute({
+  public addRoute(id: string, cidr: string, routeTable: ITransitGatewayRouteTable): ITransitGatewayRoute {
+    return routeTable.addRoute(id, {
       cidr: cidr,
       attachment: this,
     });
