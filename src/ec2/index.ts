@@ -19,6 +19,7 @@ export * from './transit-gateway-attachment-base';
 export * from './transit-gateway-peering-attachment';
 export * from './transit-gateway-route';
 export * from './transit-gateway-route-table';
+export * from './vpc-cidr-block';
 export * from './vpn-connection';
 
 export * from './lib';

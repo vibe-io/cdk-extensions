@@ -1,18 +1,44 @@
 import { Names, Resource, ResourceProps, Stack, Token } from 'aws-cdk-lib';
-import { FlowLogDestination } from 'aws-cdk-lib/aws-ec2';
+import { ICertificate } from 'aws-cdk-lib/aws-certificatemanager';
+import { ClientVpnUserBasedAuthentication, FlowLogDestination, IClientVpnConnectionHandler, TransportProtocol, VpnPort } from 'aws-cdk-lib/aws-ec2';
+import { ILogGroup, ILogStream } from 'aws-cdk-lib/aws-logs';
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { IConstruct } from 'constructs';
 import { FourTierNetworkHub, IpAddressManager } from '.';
 import { FourTierNetworkSpoke } from './four-tier-network-spoke';
+import { NetworkIsolatedClientVpnEndpoint } from './network-isolated-client-vpn-endpoint';
 import { FlowLogFormat, ITransitGatewayRouteTable } from '../ec2';
+import { IIpv4CidrAssignment } from '../ec2/lib/cidr-assignment';
 import { GlobalNetwork } from '../networkmanager/global-network';
 import { FlowLogsBucket } from '../s3-buckets';
 
 
 export interface NetworkControllerProps extends ResourceProps {
-  readonly defaultNetmask?: number;
+  readonly defaultClientVpnNetmask?: number;
+  readonly defaultVpcNetmask?: number;
   readonly flowLogBucket?: IBucket;
   readonly flowLogFormat?: FlowLogFormat;
+}
+
+export interface AddClientVpnEndpointOptions {
+  readonly authorizeAllUsersToVpcCidr?: boolean;
+  readonly clientCertificate?: ICertificate;
+  readonly clientConnectionHandler?: IClientVpnConnectionHandler;
+  readonly clientLoginBanner?: string;
+  readonly description?: string;
+  readonly dnsServers?: string[];
+  readonly logGroup?: ILogGroup;
+  readonly logStream?: ILogStream;
+  readonly logging?: boolean;
+  readonly maxAzs?: number;
+  readonly port?: VpnPort;
+  readonly selfServicePortal?: boolean;
+  readonly serverCertificate: ICertificate;
+  readonly splitTunnel?: boolean;
+  readonly subnetCidr?: IIpv4CidrAssignment;
+  readonly transportProtocol?: TransportProtocol;
+  readonly userBasedAuthentication?: ClientVpnUserBasedAuthentication;
+  readonly vpnCidr?: IIpv4CidrAssignment;
 }
 
 export interface AddNetworkOptions {
@@ -26,12 +52,16 @@ export interface AddHubOptions extends AddNetworkOptions {
 }
 
 export class NetworkController extends Resource {
+  // Static properties
+  public static readonly DEFAULT_CLIENT_VPN_NETMASK: number = 22;
+
   // Internal properties
   private readonly _hubs: { [region: string]: FourTierNetworkHub };
   private readonly _registeredAccounts: Set<string>;
   private readonly _registeredRegions: Set<string>;
 
   // Input properties
+  public readonly defaultClientVpnNetmask: number;
   public readonly defaultNetmask: number;
   public readonly flowLogFormat: FlowLogFormat;
 
@@ -64,14 +94,40 @@ export class NetworkController extends Resource {
     this._registeredAccounts = new Set<string>();
     this._registeredRegions = new Set<string>();
 
-    this.defaultNetmask = props.defaultNetmask ?? 16;
+    this.defaultClientVpnNetmask = props.defaultClientVpnNetmask ?? NetworkController.DEFAULT_CLIENT_VPN_NETMASK;
+    this.defaultNetmask = props.defaultVpcNetmask ?? 16;
     this.flowLogFormat = props.flowLogFormat ?? FlowLogFormat.V5;
 
-    this.addressManager = new IpAddressManager(this, 'address-manager');
+    this.addressManager = new IpAddressManager(this, 'address-manager', {
+      clientVpnAllocationMask: this.defaultClientVpnNetmask,
+    });
     this.globalNetwork = new GlobalNetwork(this, 'global-network');
     this.flowLogBucket = props.flowLogBucket ?? new FlowLogsBucket(this, 'flow-log-bucket', {
       bucketName: Names.uniqueId(this).toLowerCase(),
       format: this.flowLogFormat,
+    });
+  }
+
+  public addClientVpnEndpoint(scope: IConstruct, id: string, options: AddClientVpnEndpointOptions) {
+    const scopeStack = Stack.of(scope);
+    const scopeRegion = scopeStack.region;
+    const hub = this._hubs[scopeRegion];
+
+    if (hub == undefined) {
+      throw new Error([
+        `A hub network must be registered for the '${scopeRegion}' before a`,
+        'client VPN endpoint can be added for that region.',
+      ].join(' '));
+    }
+
+    const netmask = 28 - Math.ceil(Math.log2(options.maxAzs ?? hub.availabilityZones.length));
+    new NetworkIsolatedClientVpnEndpoint(scope, `isolated-client-vpn-${id}`, {
+      ...options,
+      subnetCidr: options.subnetCidr ?? this.addressManager.getVpcConfiguration(hub, id, {
+        netmask: netmask,
+      }),
+      vpc: hub,
+      vpnCidr: options.vpnCidr ?? this.addressManager.getClientVpnConfiguration(hub, id),
     });
   }
 
@@ -100,9 +156,9 @@ export class NetworkController extends Resource {
     });
 
     const hub = new FourTierNetworkHub(scope, id, {
+      addressManager: this.addressManager,
       availabilityZones: options.availabilityZones,
       cidr: provider,
-      defaultTransitGatewayRouteTable: options.defaultTransitGatewayRouteTable,
       flowLogs: {
         'flow-log-default': {
           destination: FlowLogDestination.toS3(this.flowLogBucket),
@@ -110,7 +166,6 @@ export class NetworkController extends Resource {
         },
       },
       maxAzs: options.maxAzs,
-
     });
     this._hubs[scopeRegion] = hub;
     return hub;

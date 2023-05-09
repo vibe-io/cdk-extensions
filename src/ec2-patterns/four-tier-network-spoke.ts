@@ -1,15 +1,17 @@
 import { Aspects, ResourceProps } from 'aws-cdk-lib';
 import { CfnRoute, DefaultInstanceTenancy, FlowLogOptions, GatewayVpcEndpointOptions, PrivateSubnet, RouterType, SubnetSelection, VpnConnectionOptions } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
-import { FourTierNetwork, FourTierNetworkHub } from '.';
-import { ITransitGatewayAttachment } from '../ec2';
-import { ICidrProvider } from '../ec2/lib/ip-addresses/network-provider';
+import { FourTierNetwork, FourTierNetworkHub, IpAddressManager } from '.';
+import { IIpamPool, ITransitGatewayAttachment } from '../ec2';
+import { IIpv4CidrAssignment } from '../ec2/lib/cidr-assignment';
 import { ITransitGateway } from '../ec2/transit-gateway';
 
 
 export interface FourTierNetworkSpokeProps extends ResourceProps {
+  readonly addressManager?: IpAddressManager;
   readonly availabilityZones?: string[];
-  readonly cidr?: ICidrProvider;
+  readonly cidr?: IIpv4CidrAssignment;
+  readonly clientVpnPool?: IIpamPool;
   readonly defaultInstanceTenancy?: DefaultInstanceTenancy;
   readonly enableDnsHostnames?: boolean;
   readonly enableDnsSupport?: boolean;

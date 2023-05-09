@@ -1,6 +1,7 @@
 import { Annotations, Lazy, Resource, ResourceProps, Stack, Tags } from 'aws-cdk-lib';
 import { CfnTransitGateway, IVpc, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
 import { Construct, IConstruct } from 'constructs';
+import { TransitGatewayResolver } from './lib/custom-resources/transit-gateway-resolver';
 import { VpnConnectionLocalEndpoint } from './lib/local-vpn-endpoint/local-endpoint';
 import { IRemoteVpnEndpoint } from './lib/remote-vpn-endpoint/remote-endpoint-base';
 import { TransitGatewayAttachment } from './transit-gateway-attachment';
@@ -363,18 +364,6 @@ export class TransitGateway extends TransitGatewayBase {
       this.addCidrBlock(x);
     });
 
-    if (!this.defaultRouteTableId) {
-      Annotations.of(this).addWarning([
-        `No transit gateway default route table ID provided for ${this.node.path}. If this is your first time deploying this is expected.`,
-        'CloudFormation provides no means of getting the route table ID so it must be manually specified after the fact.',
-        'Once the first deploy is finished you should provide the default route table ID and do an update.',
-        `You can find the default route table ID in the AWS console, selecting the ${this.stack.region} region region, and going to: Services > VPC > Transit Gateway Route Tables.`,
-        'Routing may not work properly until the default route table has been provided and another update has been ran.',
-      ].join(' '));
-    } else {
-      this.defaultRouteTable = TransitGatewayRouteTable.fromTransitGatewayRouteTableId(this, 'default-route-table', this.defaultRouteTableId);
-    }
-
     Tags.of(this).add('Name', this.name ?? this.node.path);
 
     this.resource = new CfnTransitGateway(this, 'Resource', {
@@ -398,19 +387,15 @@ export class TransitGateway extends TransitGatewayBase {
       vpnEcmpSupport: !!this.vpnEcmpSupport ? 'enable' : 'disable',
     });
 
+    const routeTableId = props.defaultRouteTableId ?? this.lookupDefaultRouteTable();
+
+    this.defaultRouteTable = TransitGatewayRouteTable.fromTransitGatewayRouteTableId(this, 'default-route-table', routeTableId);
     this.transitGatewayArn = DynamicReference.string(this, this.stack.formatArn({
       resource: 'transit-gateway',
       resourceName: this.resource.ref,
       service: 'ec2',
     }));
     this.transitGatewayId = DynamicReference.string(this, this.resource.ref);
-
-    /*this.stack.formatArn({
-      resource: 'transit-gateway',
-      resourceName: this.resource.ref,
-      service: 'ec2',
-    });
-    this.transitGatewayId = this.resource.ref;*/
   }
 
   public addCidrBlock(cidr: string): void {
@@ -436,5 +421,14 @@ export class TransitGateway extends TransitGatewayBase {
       });
       return this._resourceShare;
     }
+  }
+
+  private lookupDefaultRouteTable(): string {
+    const uid = 'resolver';
+    const resolver = this.node.tryFindChild(uid) as TransitGatewayResolver ?? new TransitGatewayResolver(this, uid, {
+      transitGatewayId: this.resource.ref,
+    });
+
+    return resolver.defaultAssociationRouteTableId;
   }
 }

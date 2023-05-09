@@ -2,7 +2,8 @@ import { App, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { DefaultInstanceTenancy, FlowLogDestination, FlowLogMaxAggregationInterval, FlowLogTrafficType } from 'aws-cdk-lib/aws-ec2';
 import { FourTierNetworkHub } from '..';
-import { FlowLogFormat, CidrProvider } from '../../ec2';
+import { FlowLogFormat } from '../../ec2';
+import { Ipv4CidrAssignment } from '../../ec2/lib';
 import { SharedPrincipal } from '../../ram';
 
 
@@ -182,7 +183,9 @@ describe('spoke networks', () => {
 
     const hub = new FourTierNetworkHub(hubStack, 'hub');
     const spoke = hub.addSpoke(spokeStack, 'spoke', {
-      cidr: CidrProvider.cidr('192.168.0.0/16'),
+      cidr: Ipv4CidrAssignment.custom({
+        cidr: '192.168.0.0/16',
+      }),
       defaultInstanceTenancy: DefaultInstanceTenancy.DEDICATED,
       enableDnsSupport: false,
       enableDnsHostnames: false,
@@ -257,7 +260,9 @@ describe('spoke networks', () => {
       },
     });
     const spoke = hub.addSpoke(spokeStack, 'spoke', {
-      cidr: CidrProvider.cidr('192.168.0.0/16'),
+      cidr: Ipv4CidrAssignment.custom({
+        cidr: '192.168.0.0/16',
+      }),
     });
 
     const template = Template.fromStack(spokeStack);

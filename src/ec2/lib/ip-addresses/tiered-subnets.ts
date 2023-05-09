@@ -1,29 +1,54 @@
 import { Fn } from 'aws-cdk-lib';
 import { AllocateCidrRequest, IIpAddresses, SubnetIpamOptions, VpcIpamOptions } from 'aws-cdk-lib/aws-ec2';
-import { ICidrProvider } from './network-provider';
+import { IIpamPool } from '../..';
 import { divideCidr, getBiggestMask } from '../../../utils/networking';
+import { IIpv4CidrAssignment } from '../cidr-assignment';
 
 
 export interface TieredSubnetsOptions {
-  readonly provider: ICidrProvider;
+  readonly provider: IIpv4CidrAssignment;
   readonly tierMask?: number;
 }
 
 export class TieredSubnets implements IIpAddresses {
-  public readonly provider: ICidrProvider;
+  public readonly ipamOptions: VpcIpamOptions;
+  public readonly ipamPool?: IIpamPool;
+  public readonly netmask: number;
   public readonly tierMask?: number;
 
   public constructor(options: TieredSubnetsOptions) {
-    this.provider = options.provider;
+    const config = options.provider.getCidrOrIpamConfiguration({});
+
+    if (config.cidrDetails) {
+      this.ipamOptions = {
+        cidrBlock: config.cidrDetails.cidr,
+      };
+
+      this.netmask = config.cidrDetails.netmask;
+    } else if (config.ipamDetails) {
+      this.ipamOptions = {
+        ipv4IpamPoolId: config.ipamDetails.ipamPool?.ipamPoolId,
+        ipv4NetmaskLength: config.ipamDetails.netmask,
+      };
+
+      this.ipamPool = config.ipamDetails.ipamPool;
+      this.netmask = config.ipamDetails.netmask;
+    } else {
+      throw new Error([
+        'Provided CIDR assignment failed to provide either CIDR or IPAM',
+        'details when building tiered subnets.',
+      ].join(' '));
+    }
+
     this.tierMask = options.tierMask;
   }
 
   public allocateVpcCidr(): VpcIpamOptions {
-    return this.provider.ipamOptions;
+    return this.ipamOptions;
   }
 
   public allocateSubnetsCidr(input: AllocateCidrRequest): SubnetIpamOptions {
-    if (this.provider.ipamOptions.cidrBlock) {
+    if (this.ipamOptions.cidrBlock) {
       return this.allocateSubnetsCidrNoIpam(input);
     } else {
       return this.allocateSubnetsCidrIpam(input);
@@ -39,8 +64,15 @@ export class TieredSubnets implements IIpAddresses {
       return x.availabilityZone;
     })));
 
+    if (this.ipamOptions.ipv4NetmaskLength === undefined) {
+      throw new Error([
+        'When creating tiered subnets using IPAM an explicit netmask must be',
+        'provided.',
+      ].join(' '));
+    }
+
     const networkMap: {[tier: string]: {[az: string]: string}} = {};
-    const biggestMaskTier = getBiggestMask(this.provider.netmask, tiers.length);
+    const biggestMaskTier = getBiggestMask(this.ipamOptions.ipv4NetmaskLength, tiers.length);
 
     if (this.tierMask && this.tierMask > biggestMaskTier) {
       throw new Error([
