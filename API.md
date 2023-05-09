@@ -13739,6 +13739,8 @@ new ec2_patterns.FourTierNetwork(scope: IConstruct, id: string, props?: FourTier
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.addVpnConnection">addVpnConnection</a></code> | Adds a new VPN connection to this VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.enableVpnGateway">enableVpnGateway</a></code> | Adds a VPN Gateway to this VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.selectSubnets">selectSubnets</a></code> | Returns IDs of selected subnets. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.addCidrBlock">addCidrBlock</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.addIsolatedClientVpnEndpoint">addIsolatedClientVpnEndpoint</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.addVpcFlowLog">addVpcFlowLog</a></code> | *No description.* |
 
 ---
@@ -13898,6 +13900,42 @@ Returns IDs of selected subnets.
 ###### `selection`<sup>Optional</sup> <a name="selection" id="cdk-extensions.ec2_patterns.FourTierNetwork.selectSubnets.parameter.selection"></a>
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+---
+
+##### `addCidrBlock` <a name="addCidrBlock" id="cdk-extensions.ec2_patterns.FourTierNetwork.addCidrBlock"></a>
+
+```typescript
+public addCidrBlock(id: string, options: AddCidrBlockOptions): IVpcCidrBlock
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetwork.addCidrBlock.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetwork.addCidrBlock.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.AddCidrBlockOptions
+
+---
+
+##### `addIsolatedClientVpnEndpoint` <a name="addIsolatedClientVpnEndpoint" id="cdk-extensions.ec2_patterns.FourTierNetwork.addIsolatedClientVpnEndpoint"></a>
+
+```typescript
+public addIsolatedClientVpnEndpoint(id: string, options: AddIsolatedClientVpnEndpointOptions): NetworkIsolatedClientVpnEndpoint
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetwork.addIsolatedClientVpnEndpoint.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetwork.addIsolatedClientVpnEndpoint.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions
 
 ---
 
@@ -14083,6 +14121,7 @@ Prefer to use `Vpc.fromLookup()` instead.
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.internetGatewayId">internetGatewayId</a></code> | <code>string</code> | Internet Gateway for the VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | Returns the id of the VPN Gateway (if enabled). |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.addressManager">addressManager</a></code> | <code>cdk-extensions.ec2_patterns.IpAddressManager</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetwork.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
@@ -14332,6 +14371,16 @@ public readonly netmask: number;
 
 ---
 
+##### `addressManager`<sup>Optional</sup> <a name="addressManager" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.addressManager"></a>
+
+```typescript
+public readonly addressManager: IpAddressManager;
+```
+
+- *Type:* cdk-extensions.ec2_patterns.IpAddressManager
+
+---
+
 ##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetwork.property.defaultInstanceTenancy"></a>
 
 ```typescript
@@ -14494,6 +14543,8 @@ new ec2_patterns.FourTierNetworkHub(scope: IConstruct, id: string, props?: FourT
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.addVpnConnection">addVpnConnection</a></code> | Adds a new VPN connection to this VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.enableVpnGateway">enableVpnGateway</a></code> | Adds a VPN Gateway to this VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.selectSubnets">selectSubnets</a></code> | Returns IDs of selected subnets. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.addCidrBlock">addCidrBlock</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.addIsolatedClientVpnEndpoint">addIsolatedClientVpnEndpoint</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.addVpcFlowLog">addVpcFlowLog</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.addSpoke">addSpoke</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.enableTransitGateway">enableTransitGateway</a></code> | *No description.* |
@@ -14655,6 +14706,42 @@ Returns IDs of selected subnets.
 ###### `selection`<sup>Optional</sup> <a name="selection" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.selectSubnets.parameter.selection"></a>
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+---
+
+##### `addCidrBlock` <a name="addCidrBlock" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addCidrBlock"></a>
+
+```typescript
+public addCidrBlock(id: string, options: AddCidrBlockOptions): IVpcCidrBlock
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addCidrBlock.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addCidrBlock.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.AddCidrBlockOptions
+
+---
+
+##### `addIsolatedClientVpnEndpoint` <a name="addIsolatedClientVpnEndpoint" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addIsolatedClientVpnEndpoint"></a>
+
+```typescript
+public addIsolatedClientVpnEndpoint(id: string, options: AddIsolatedClientVpnEndpointOptions): NetworkIsolatedClientVpnEndpoint
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addIsolatedClientVpnEndpoint.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.addIsolatedClientVpnEndpoint.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions
 
 ---
 
@@ -14876,6 +14963,7 @@ Prefer to use `Vpc.fromLookup()` instead.
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.internetGatewayId">internetGatewayId</a></code> | <code>string</code> | Internet Gateway for the VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | Returns the id of the VPN Gateway (if enabled). |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.addressManager">addressManager</a></code> | <code>cdk-extensions.ec2_patterns.IpAddressManager</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHub.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
@@ -15129,6 +15217,16 @@ public readonly netmask: number;
 
 ---
 
+##### `addressManager`<sup>Optional</sup> <a name="addressManager" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.addressManager"></a>
+
+```typescript
+public readonly addressManager: IpAddressManager;
+```
+
+- *Type:* cdk-extensions.ec2_patterns.IpAddressManager
+
+---
+
 ##### `defaultInstanceTenancy`<sup>Optional</sup> <a name="defaultInstanceTenancy" id="cdk-extensions.ec2_patterns.FourTierNetworkHub.property.defaultInstanceTenancy"></a>
 
 ```typescript
@@ -15331,6 +15429,8 @@ new ec2_patterns.FourTierNetworkSpoke(scope: IConstruct, id: string, props: Four
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addVpnConnection">addVpnConnection</a></code> | Adds a new VPN connection to this VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.enableVpnGateway">enableVpnGateway</a></code> | Adds a VPN Gateway to this VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.selectSubnets">selectSubnets</a></code> | Returns IDs of selected subnets. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addCidrBlock">addCidrBlock</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addIsolatedClientVpnEndpoint">addIsolatedClientVpnEndpoint</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addVpcFlowLog">addVpcFlowLog</a></code> | *No description.* |
 
 ---
@@ -15490,6 +15590,42 @@ Returns IDs of selected subnets.
 ###### `selection`<sup>Optional</sup> <a name="selection" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.selectSubnets.parameter.selection"></a>
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+---
+
+##### `addCidrBlock` <a name="addCidrBlock" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addCidrBlock"></a>
+
+```typescript
+public addCidrBlock(id: string, options: AddCidrBlockOptions): IVpcCidrBlock
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addCidrBlock.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addCidrBlock.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.AddCidrBlockOptions
+
+---
+
+##### `addIsolatedClientVpnEndpoint` <a name="addIsolatedClientVpnEndpoint" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addIsolatedClientVpnEndpoint"></a>
+
+```typescript
+public addIsolatedClientVpnEndpoint(id: string, options: AddIsolatedClientVpnEndpointOptions): NetworkIsolatedClientVpnEndpoint
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addIsolatedClientVpnEndpoint.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.addIsolatedClientVpnEndpoint.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions
 
 ---
 
@@ -15675,6 +15811,7 @@ Prefer to use `Vpc.fromLookup()` instead.
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.internetGatewayId">internetGatewayId</a></code> | <code>string</code> | Internet Gateway for the VPC. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.vpnGatewayId">vpnGatewayId</a></code> | <code>string</code> | Returns the id of the VPN Gateway (if enabled). |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.addressManager">addressManager</a></code> | <code>cdk-extensions.ec2_patterns.IpAddressManager</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
@@ -15923,6 +16060,16 @@ public readonly netmask: number;
 ```
 
 - *Type:* number
+
+---
+
+##### `addressManager`<sup>Optional</sup> <a name="addressManager" id="cdk-extensions.ec2_patterns.FourTierNetworkSpoke.property.addressManager"></a>
+
+```typescript
+public readonly addressManager: IpAddressManager;
+```
+
+- *Type:* cdk-extensions.ec2_patterns.IpAddressManager
 
 ---
 
@@ -17081,6 +17228,7 @@ new ec2_patterns.IpAddressManager(scope: IConstruct, id: string, props?: IpAddre
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.addRegion">addRegion</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.getClientVpnConfiguration">getClientVpnConfiguration</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.getVpcConfiguration">getVpcConfiguration</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.registerCidr">registerCidr</a></code> | *No description.* |
 
@@ -17128,10 +17276,34 @@ public addRegion(region: string): void
 
 ---
 
+##### `getClientVpnConfiguration` <a name="getClientVpnConfiguration" id="cdk-extensions.ec2_patterns.IpAddressManager.getClientVpnConfiguration"></a>
+
+```typescript
+public getClientVpnConfiguration(scope: IConstruct, id: string, options?: GetClientVpnConfigurationOptions): IIpv4CidrAssignment
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.IpAddressManager.getClientVpnConfiguration.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.IpAddressManager.getClientVpnConfiguration.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.ec2_patterns.IpAddressManager.getClientVpnConfiguration.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.GetClientVpnConfigurationOptions
+
+---
+
 ##### `getVpcConfiguration` <a name="getVpcConfiguration" id="cdk-extensions.ec2_patterns.IpAddressManager.getVpcConfiguration"></a>
 
 ```typescript
-public getVpcConfiguration(scope: IConstruct, id: string, options?: GetVpcConfigurationOptions): ICidrProvider
+public getVpcConfiguration(scope: IConstruct, id: string, options?: GetVpcConfigurationOptions): IIpv4CidrAssignment
 ```
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.IpAddressManager.getVpcConfiguration.parameter.scope"></a>
@@ -17244,6 +17416,7 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.allowExternalPricipals">allowExternalPricipals</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.clientVpnAllocationMask">clientVpnAllocationMask</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.ipam">ipam</a></code> | <code>cdk-extensions.ec2.Ipam</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.sharingEnabled">sharingEnabled</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.vpcAllocationMask">vpcAllocationMask</a></code> | <code>number</code> | *No description.* |
@@ -17304,6 +17477,16 @@ public readonly allowExternalPricipals: boolean;
 
 ---
 
+##### `clientVpnAllocationMask`<sup>Required</sup> <a name="clientVpnAllocationMask" id="cdk-extensions.ec2_patterns.IpAddressManager.property.clientVpnAllocationMask"></a>
+
+```typescript
+public readonly clientVpnAllocationMask: number;
+```
+
+- *Type:* number
+
+---
+
 ##### `ipam`<sup>Required</sup> <a name="ipam" id="cdk-extensions.ec2_patterns.IpAddressManager.property.ipam"></a>
 
 ```typescript
@@ -17348,9 +17531,20 @@ public readonly resourceShare: ResourceShare;
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_CLIENT_VPN_ALLOCATION_MASK">DEFAULT_CLIENT_VPN_ALLOCATION_MASK</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_VPC_ALLOCATION_MASK">DEFAULT_VPC_ALLOCATION_MASK</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_VPC_POOL_CIDRS">DEFAULT_VPC_POOL_CIDRS</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_VPC_REGION_MASK">DEFAULT_VPC_REGION_MASK</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_VPN_POOL_CIDRS">DEFAULT_VPN_POOL_CIDRS</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `DEFAULT_CLIENT_VPN_ALLOCATION_MASK`<sup>Required</sup> <a name="DEFAULT_CLIENT_VPN_ALLOCATION_MASK" id="cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_CLIENT_VPN_ALLOCATION_MASK"></a>
+
+```typescript
+public readonly DEFAULT_CLIENT_VPN_ALLOCATION_MASK: number;
+```
+
+- *Type:* number
 
 ---
 
@@ -17374,13 +17568,13 @@ public readonly DEFAULT_VPC_POOL_CIDRS: string[];
 
 ---
 
-##### `DEFAULT_VPC_REGION_MASK`<sup>Required</sup> <a name="DEFAULT_VPC_REGION_MASK" id="cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_VPC_REGION_MASK"></a>
+##### `DEFAULT_VPN_POOL_CIDRS`<sup>Required</sup> <a name="DEFAULT_VPN_POOL_CIDRS" id="cdk-extensions.ec2_patterns.IpAddressManager.property.DEFAULT_VPN_POOL_CIDRS"></a>
 
 ```typescript
-public readonly DEFAULT_VPC_REGION_MASK: number;
+public readonly DEFAULT_VPN_POOL_CIDRS: string[];
 ```
 
-- *Type:* number
+- *Type:* string[]
 
 ---
 
@@ -21322,6 +21516,7 @@ new ec2_patterns.NetworkController(scope: IConstruct, id: string, props?: Networ
 | --- | --- |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkController.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkController.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.addClientVpnEndpoint">addClientVpnEndpoint</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkController.addHub">addHub</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkController.addSpoke">addSpoke</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkController.registerCidr">registerCidr</a></code> | *No description.* |
@@ -21355,6 +21550,30 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2_patterns.NetworkController.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addClientVpnEndpoint` <a name="addClientVpnEndpoint" id="cdk-extensions.ec2_patterns.NetworkController.addClientVpnEndpoint"></a>
+
+```typescript
+public addClientVpnEndpoint(scope: IConstruct, id: string, options: AddClientVpnEndpointOptions): void
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.NetworkController.addClientVpnEndpoint.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.NetworkController.addClientVpnEndpoint.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.NetworkController.addClientVpnEndpoint.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions
 
 ---
 
@@ -21498,6 +21717,7 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.addressManager">addressManager</a></code> | <code>cdk-extensions.ec2_patterns.IpAddressManager</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.defaultClientVpnNetmask">defaultClientVpnNetmask</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.defaultNetmask">defaultNetmask</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.flowLogBucket">flowLogBucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.flowLogFormat">flowLogFormat</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
@@ -21557,6 +21777,16 @@ public readonly addressManager: IpAddressManager;
 ```
 
 - *Type:* cdk-extensions.ec2_patterns.IpAddressManager
+
+---
+
+##### `defaultClientVpnNetmask`<sup>Required</sup> <a name="defaultClientVpnNetmask" id="cdk-extensions.ec2_patterns.NetworkController.property.defaultClientVpnNetmask"></a>
+
+```typescript
+public readonly defaultClientVpnNetmask: number;
+```
+
+- *Type:* number
 
 ---
 
@@ -21620,6 +21850,497 @@ public readonly registeredRegions: string[];
 
 ---
 
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkController.property.DEFAULT_CLIENT_VPN_NETMASK">DEFAULT_CLIENT_VPN_NETMASK</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `DEFAULT_CLIENT_VPN_NETMASK`<sup>Required</sup> <a name="DEFAULT_CLIENT_VPN_NETMASK" id="cdk-extensions.ec2_patterns.NetworkController.property.DEFAULT_CLIENT_VPN_NETMASK"></a>
+
+```typescript
+public readonly DEFAULT_CLIENT_VPN_NETMASK: number;
+```
+
+- *Type:* number
+
+---
+
+### NetworkIsolatedClientVpnEndpoint <a name="NetworkIsolatedClientVpnEndpoint" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint"></a>
+
+- *Implements:* aws-cdk-lib.aws_ec2.IConnectable
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+new ec2_patterns.NetworkIsolatedClientVpnEndpoint(scope: IConstruct, id: string, props: NetworkIsolatedClientVpnEndpointProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.isConstruct"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.NetworkIsolatedClientVpnEndpoint.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.isOwnedResource"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.NetworkIsolatedClientVpnEndpoint.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.isResource"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+ec2_patterns.NetworkIsolatedClientVpnEndpoint.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.clientVpnEndpoint">clientVpnEndpoint</a></code> | <code>aws-cdk-lib.aws_ec2.ClientVpnEndpoint</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The network connections associated with this resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.serverCertificate">serverCertificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.vpcCidrBlock">vpcCidrBlock</a></code> | <code>cdk-extensions.ec2.VpcCidrBlock</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.vpnCidr">vpnCidr</a></code> | <code>cdk-extensions.ec2.IIpv4CidrAssignment</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.authorizeAllUsersToVpcCidr">authorizeAllUsersToVpcCidr</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.clientCertificate">clientCertificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.clientConnectionHandler">clientConnectionHandler</a></code> | <code>aws-cdk-lib.aws_ec2.IClientVpnConnectionHandler</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.clientLoginBanner">clientLoginBanner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.dnsServers">dnsServers</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.logging">logging</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.logStream">logStream</a></code> | <code>aws-cdk-lib.aws_logs.ILogStream</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.port">port</a></code> | <code>aws-cdk-lib.aws_ec2.VpnPort</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.selfServicePortal">selfServicePortal</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.splitTunnel">splitTunnel</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.transportProtocol">transportProtocol</a></code> | <code>aws-cdk-lib.aws_ec2.TransportProtocol</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.userBasedAuthentication">userBasedAuthentication</a></code> | <code>aws-cdk-lib.aws_ec2.ClientVpnUserBasedAuthentication</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `clientVpnEndpoint`<sup>Required</sup> <a name="clientVpnEndpoint" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.clientVpnEndpoint"></a>
+
+```typescript
+public readonly clientVpnEndpoint: ClientVpnEndpoint;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ClientVpnEndpoint
+
+---
+
+##### `connections`<sup>Required</sup> <a name="connections" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.connections"></a>
+
+```typescript
+public readonly connections: Connections;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.Connections
+
+The network connections associated with this resource.
+
+---
+
+##### `maxAzs`<sup>Required</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.maxAzs"></a>
+
+```typescript
+public readonly maxAzs: number;
+```
+
+- *Type:* number
+
+---
+
+##### `serverCertificate`<sup>Required</sup> <a name="serverCertificate" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.serverCertificate"></a>
+
+```typescript
+public readonly serverCertificate: ICertificate;
+```
+
+- *Type:* aws-cdk-lib.aws_certificatemanager.ICertificate
+
+---
+
+##### `subnets`<sup>Required</sup> <a name="subnets" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.subnets"></a>
+
+```typescript
+public readonly subnets: ISubnet[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+---
+
+##### `vpcCidrBlock`<sup>Required</sup> <a name="vpcCidrBlock" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.vpcCidrBlock"></a>
+
+```typescript
+public readonly vpcCidrBlock: VpcCidrBlock;
+```
+
+- *Type:* cdk-extensions.ec2.VpcCidrBlock
+
+---
+
+##### `vpnCidr`<sup>Required</sup> <a name="vpnCidr" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.vpnCidr"></a>
+
+```typescript
+public readonly vpnCidr: IIpv4CidrAssignment;
+```
+
+- *Type:* cdk-extensions.ec2.IIpv4CidrAssignment
+
+---
+
+##### `authorizeAllUsersToVpcCidr`<sup>Optional</sup> <a name="authorizeAllUsersToVpcCidr" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.authorizeAllUsersToVpcCidr"></a>
+
+```typescript
+public readonly authorizeAllUsersToVpcCidr: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `clientCertificate`<sup>Optional</sup> <a name="clientCertificate" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.clientCertificate"></a>
+
+```typescript
+public readonly clientCertificate: ICertificate;
+```
+
+- *Type:* aws-cdk-lib.aws_certificatemanager.ICertificate
+
+---
+
+##### `clientConnectionHandler`<sup>Optional</sup> <a name="clientConnectionHandler" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.clientConnectionHandler"></a>
+
+```typescript
+public readonly clientConnectionHandler: IClientVpnConnectionHandler;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IClientVpnConnectionHandler
+
+---
+
+##### `clientLoginBanner`<sup>Optional</sup> <a name="clientLoginBanner" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.clientLoginBanner"></a>
+
+```typescript
+public readonly clientLoginBanner: string;
+```
+
+- *Type:* string
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `dnsServers`<sup>Optional</sup> <a name="dnsServers" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.dnsServers"></a>
+
+```typescript
+public readonly dnsServers: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.logging"></a>
+
+```typescript
+public readonly logging: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+---
+
+##### `logStream`<sup>Optional</sup> <a name="logStream" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.logStream"></a>
+
+```typescript
+public readonly logStream: ILogStream;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogStream
+
+---
+
+##### `port`<sup>Optional</sup> <a name="port" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.port"></a>
+
+```typescript
+public readonly port: VpnPort;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.VpnPort
+
+---
+
+##### `securityGroups`<sup>Optional</sup> <a name="securityGroups" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.securityGroups"></a>
+
+```typescript
+public readonly securityGroups: ISecurityGroup[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
+
+---
+
+##### `selfServicePortal`<sup>Optional</sup> <a name="selfServicePortal" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.selfServicePortal"></a>
+
+```typescript
+public readonly selfServicePortal: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `splitTunnel`<sup>Optional</sup> <a name="splitTunnel" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.splitTunnel"></a>
+
+```typescript
+public readonly splitTunnel: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `transitGateway`<sup>Optional</sup> <a name="transitGateway" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+---
+
+##### `transportProtocol`<sup>Optional</sup> <a name="transportProtocol" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.transportProtocol"></a>
+
+```typescript
+public readonly transportProtocol: TransportProtocol;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.TransportProtocol
+
+---
+
+##### `userBasedAuthentication`<sup>Optional</sup> <a name="userBasedAuthentication" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.userBasedAuthentication"></a>
+
+```typescript
+public readonly userBasedAuthentication: ClientVpnUserBasedAuthentication;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ClientVpnUserBasedAuthentication
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.DEFAULT_VPN_CIDR">DEFAULT_VPN_CIDR</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `DEFAULT_VPN_CIDR`<sup>Required</sup> <a name="DEFAULT_VPN_CIDR" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.DEFAULT_VPN_CIDR"></a>
+
+```typescript
+public readonly DEFAULT_VPN_CIDR: string;
+```
+
+- *Type:* string
+
+---
 
 ### PermissionSet <a name="PermissionSet" id="cdk-extensions.sso.PermissionSet"></a>
 
@@ -34605,6 +35326,279 @@ A GUID identifier for a user object in IAM Identity Center (For example, f81d4fa
 ---
 
 
+### VpcCidrBlock <a name="VpcCidrBlock" id="cdk-extensions.ec2.VpcCidrBlock"></a>
+
+- *Implements:* cdk-extensions.ec2.IVpcCidrBlock
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.VpcCidrBlock.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.VpcCidrBlock(scope: IConstruct, id: string, props: VpcCidrBlockProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ec2.VpcCidrBlockProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.VpcCidrBlock.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.VpcCidrBlock.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ec2.VpcCidrBlock.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ec2.VpcCidrBlockProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ec2.VpcCidrBlock.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ec2.VpcCidrBlock.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2.VpcCidrBlock.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.fromVpcCidrBlockAttributes">fromVpcCidrBlockAttributes</a></code> | *No description.* |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ec2.VpcCidrBlock.isConstruct"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.VpcCidrBlock.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ec2.VpcCidrBlock.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ec2.VpcCidrBlock.isOwnedResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.VpcCidrBlock.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.VpcCidrBlock.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ec2.VpcCidrBlock.isResource"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.VpcCidrBlock.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ec2.VpcCidrBlock.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromVpcCidrBlockAttributes` <a name="fromVpcCidrBlockAttributes" id="cdk-extensions.ec2.VpcCidrBlock.fromVpcCidrBlockAttributes"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.VpcCidrBlock.fromVpcCidrBlockAttributes(scope: IConstruct, id: string, attrs: VpcCidrBlockAttributes)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.VpcCidrBlock.fromVpcCidrBlockAttributes.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.VpcCidrBlock.fromVpcCidrBlockAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.ec2.VpcCidrBlock.fromVpcCidrBlockAttributes.parameter.attrs"></a>
+
+- *Type:* cdk-extensions.ec2.VpcCidrBlockAttributes
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ec2.CfnVPCCidrBlock</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.property.vpcCidrBlockAddressFamily">vpcCidrBlockAddressFamily</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.property.vpcCidrBlockAssociationId">vpcCidrBlockAssociationId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlock.property.vpcCidrBlockCidr">vpcCidrBlockCidr</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.VpcCidrBlock.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.VpcCidrBlock.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.VpcCidrBlock.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ec2.VpcCidrBlock.property.resource"></a>
+
+```typescript
+public readonly resource: CfnVPCCidrBlock;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.CfnVPCCidrBlock
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="cdk-extensions.ec2.VpcCidrBlock.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+---
+
+##### `vpcCidrBlockAddressFamily`<sup>Required</sup> <a name="vpcCidrBlockAddressFamily" id="cdk-extensions.ec2.VpcCidrBlock.property.vpcCidrBlockAddressFamily"></a>
+
+```typescript
+public readonly vpcCidrBlockAddressFamily: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpcCidrBlockAssociationId`<sup>Required</sup> <a name="vpcCidrBlockAssociationId" id="cdk-extensions.ec2.VpcCidrBlock.property.vpcCidrBlockAssociationId"></a>
+
+```typescript
+public readonly vpcCidrBlockAssociationId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpcCidrBlockCidr`<sup>Required</sup> <a name="vpcCidrBlockCidr" id="cdk-extensions.ec2.VpcCidrBlock.property.vpcCidrBlockCidr"></a>
+
+```typescript
+public readonly vpcCidrBlockCidr: string;
+```
+
+- *Type:* string
+
+---
+
+
 ### VpnConnection <a name="VpnConnection" id="cdk-extensions.ec2.VpnConnection"></a>
 
 - *Implements:* aws-cdk-lib.aws_ec2.IVpnConnection
@@ -38159,6 +39153,34 @@ public readonly tagRestrictions: {[ key: string ]: string};
 
 ---
 
+### AddCidrBlockOptions <a name="AddCidrBlockOptions" id="cdk-extensions.ec2_patterns.AddCidrBlockOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.AddCidrBlockOptions.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const addCidrBlockOptions: ec2_patterns.AddCidrBlockOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.AddCidrBlockOptions.property.cidrAssignment">cidrAssignment</a></code> | <code>cdk-extensions.ec2.ICidrAssignment</code> | *No description.* |
+
+---
+
+##### `cidrAssignment`<sup>Required</sup> <a name="cidrAssignment" id="cdk-extensions.ec2_patterns.AddCidrBlockOptions.property.cidrAssignment"></a>
+
+```typescript
+public readonly cidrAssignment: ICidrAssignment;
+```
+
+- *Type:* cdk-extensions.ec2.ICidrAssignment
+
+---
+
 ### AddCidrToPoolOptions <a name="AddCidrToPoolOptions" id="cdk-extensions.ec2.AddCidrToPoolOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.ec2.AddCidrToPoolOptions.Initializer"></a>
@@ -38237,6 +39259,221 @@ public readonly cidr: IIpamPoolCidr;
 
 ---
 
+### AddClientVpnEndpointOptions <a name="AddClientVpnEndpointOptions" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const addClientVpnEndpointOptions: ec2_patterns.AddClientVpnEndpointOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.serverCertificate">serverCertificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.authorizeAllUsersToVpcCidr">authorizeAllUsersToVpcCidr</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.clientCertificate">clientCertificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.clientConnectionHandler">clientConnectionHandler</a></code> | <code>aws-cdk-lib.aws_ec2.IClientVpnConnectionHandler</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.clientLoginBanner">clientLoginBanner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.dnsServers">dnsServers</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.logging">logging</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.logStream">logStream</a></code> | <code>aws-cdk-lib.aws_logs.ILogStream</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.port">port</a></code> | <code>aws-cdk-lib.aws_ec2.VpnPort</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.selfServicePortal">selfServicePortal</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.splitTunnel">splitTunnel</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.subnetCidr">subnetCidr</a></code> | <code>cdk-extensions.ec2.IIpv4CidrAssignment</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.transportProtocol">transportProtocol</a></code> | <code>aws-cdk-lib.aws_ec2.TransportProtocol</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.userBasedAuthentication">userBasedAuthentication</a></code> | <code>aws-cdk-lib.aws_ec2.ClientVpnUserBasedAuthentication</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.vpnCidr">vpnCidr</a></code> | <code>cdk-extensions.ec2.IIpv4CidrAssignment</code> | *No description.* |
+
+---
+
+##### `serverCertificate`<sup>Required</sup> <a name="serverCertificate" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.serverCertificate"></a>
+
+```typescript
+public readonly serverCertificate: ICertificate;
+```
+
+- *Type:* aws-cdk-lib.aws_certificatemanager.ICertificate
+
+---
+
+##### `authorizeAllUsersToVpcCidr`<sup>Optional</sup> <a name="authorizeAllUsersToVpcCidr" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.authorizeAllUsersToVpcCidr"></a>
+
+```typescript
+public readonly authorizeAllUsersToVpcCidr: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `clientCertificate`<sup>Optional</sup> <a name="clientCertificate" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.clientCertificate"></a>
+
+```typescript
+public readonly clientCertificate: ICertificate;
+```
+
+- *Type:* aws-cdk-lib.aws_certificatemanager.ICertificate
+
+---
+
+##### `clientConnectionHandler`<sup>Optional</sup> <a name="clientConnectionHandler" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.clientConnectionHandler"></a>
+
+```typescript
+public readonly clientConnectionHandler: IClientVpnConnectionHandler;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IClientVpnConnectionHandler
+
+---
+
+##### `clientLoginBanner`<sup>Optional</sup> <a name="clientLoginBanner" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.clientLoginBanner"></a>
+
+```typescript
+public readonly clientLoginBanner: string;
+```
+
+- *Type:* string
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `dnsServers`<sup>Optional</sup> <a name="dnsServers" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.dnsServers"></a>
+
+```typescript
+public readonly dnsServers: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.logging"></a>
+
+```typescript
+public readonly logging: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+---
+
+##### `logStream`<sup>Optional</sup> <a name="logStream" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.logStream"></a>
+
+```typescript
+public readonly logStream: ILogStream;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogStream
+
+---
+
+##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.maxAzs"></a>
+
+```typescript
+public readonly maxAzs: number;
+```
+
+- *Type:* number
+
+---
+
+##### `port`<sup>Optional</sup> <a name="port" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.port"></a>
+
+```typescript
+public readonly port: VpnPort;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.VpnPort
+
+---
+
+##### `selfServicePortal`<sup>Optional</sup> <a name="selfServicePortal" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.selfServicePortal"></a>
+
+```typescript
+public readonly selfServicePortal: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `splitTunnel`<sup>Optional</sup> <a name="splitTunnel" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.splitTunnel"></a>
+
+```typescript
+public readonly splitTunnel: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `subnetCidr`<sup>Optional</sup> <a name="subnetCidr" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.subnetCidr"></a>
+
+```typescript
+public readonly subnetCidr: IIpv4CidrAssignment;
+```
+
+- *Type:* cdk-extensions.ec2.IIpv4CidrAssignment
+
+---
+
+##### `transportProtocol`<sup>Optional</sup> <a name="transportProtocol" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.transportProtocol"></a>
+
+```typescript
+public readonly transportProtocol: TransportProtocol;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.TransportProtocol
+
+---
+
+##### `userBasedAuthentication`<sup>Optional</sup> <a name="userBasedAuthentication" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.userBasedAuthentication"></a>
+
+```typescript
+public readonly userBasedAuthentication: ClientVpnUserBasedAuthentication;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ClientVpnUserBasedAuthentication
+
+---
+
+##### `vpnCidr`<sup>Optional</sup> <a name="vpnCidr" id="cdk-extensions.ec2_patterns.AddClientVpnEndpointOptions.property.vpnCidr"></a>
+
+```typescript
+public readonly vpnCidr: IIpv4CidrAssignment;
+```
+
+- *Type:* cdk-extensions.ec2.IIpv4CidrAssignment
+
+---
+
 ### AddHubOptions <a name="AddHubOptions" id="cdk-extensions.ec2_patterns.AddHubOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.AddHubOptions.Initializer"></a>
@@ -38295,6 +39532,221 @@ public readonly defaultTransitGatewayRouteTable: ITransitGatewayRouteTable;
 ```
 
 - *Type:* cdk-extensions.ec2.ITransitGatewayRouteTable
+
+---
+
+### AddIsolatedClientVpnEndpointOptions <a name="AddIsolatedClientVpnEndpointOptions" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const addIsolatedClientVpnEndpointOptions: ec2_patterns.AddIsolatedClientVpnEndpointOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.serverCertificate">serverCertificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.authorizeAllUsersToVpcCidr">authorizeAllUsersToVpcCidr</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.clientCertificate">clientCertificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.clientConnectionHandler">clientConnectionHandler</a></code> | <code>aws-cdk-lib.aws_ec2.IClientVpnConnectionHandler</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.clientLoginBanner">clientLoginBanner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.dnsServers">dnsServers</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.logging">logging</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.logStream">logStream</a></code> | <code>aws-cdk-lib.aws_logs.ILogStream</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.port">port</a></code> | <code>aws-cdk-lib.aws_ec2.VpnPort</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.selfServicePortal">selfServicePortal</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.splitTunnel">splitTunnel</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.subnetCidr">subnetCidr</a></code> | <code>cdk-extensions.ec2.IIpv4CidrAssignment</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.transportProtocol">transportProtocol</a></code> | <code>aws-cdk-lib.aws_ec2.TransportProtocol</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.userBasedAuthentication">userBasedAuthentication</a></code> | <code>aws-cdk-lib.aws_ec2.ClientVpnUserBasedAuthentication</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.vpnCidr">vpnCidr</a></code> | <code>cdk-extensions.ec2.IIpv4CidrAssignment</code> | *No description.* |
+
+---
+
+##### `serverCertificate`<sup>Required</sup> <a name="serverCertificate" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.serverCertificate"></a>
+
+```typescript
+public readonly serverCertificate: ICertificate;
+```
+
+- *Type:* aws-cdk-lib.aws_certificatemanager.ICertificate
+
+---
+
+##### `authorizeAllUsersToVpcCidr`<sup>Optional</sup> <a name="authorizeAllUsersToVpcCidr" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.authorizeAllUsersToVpcCidr"></a>
+
+```typescript
+public readonly authorizeAllUsersToVpcCidr: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `clientCertificate`<sup>Optional</sup> <a name="clientCertificate" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.clientCertificate"></a>
+
+```typescript
+public readonly clientCertificate: ICertificate;
+```
+
+- *Type:* aws-cdk-lib.aws_certificatemanager.ICertificate
+
+---
+
+##### `clientConnectionHandler`<sup>Optional</sup> <a name="clientConnectionHandler" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.clientConnectionHandler"></a>
+
+```typescript
+public readonly clientConnectionHandler: IClientVpnConnectionHandler;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IClientVpnConnectionHandler
+
+---
+
+##### `clientLoginBanner`<sup>Optional</sup> <a name="clientLoginBanner" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.clientLoginBanner"></a>
+
+```typescript
+public readonly clientLoginBanner: string;
+```
+
+- *Type:* string
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `dnsServers`<sup>Optional</sup> <a name="dnsServers" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.dnsServers"></a>
+
+```typescript
+public readonly dnsServers: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.logging"></a>
+
+```typescript
+public readonly logging: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+---
+
+##### `logStream`<sup>Optional</sup> <a name="logStream" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.logStream"></a>
+
+```typescript
+public readonly logStream: ILogStream;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogStream
+
+---
+
+##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.maxAzs"></a>
+
+```typescript
+public readonly maxAzs: number;
+```
+
+- *Type:* number
+
+---
+
+##### `port`<sup>Optional</sup> <a name="port" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.port"></a>
+
+```typescript
+public readonly port: VpnPort;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.VpnPort
+
+---
+
+##### `selfServicePortal`<sup>Optional</sup> <a name="selfServicePortal" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.selfServicePortal"></a>
+
+```typescript
+public readonly selfServicePortal: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `splitTunnel`<sup>Optional</sup> <a name="splitTunnel" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.splitTunnel"></a>
+
+```typescript
+public readonly splitTunnel: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `subnetCidr`<sup>Optional</sup> <a name="subnetCidr" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.subnetCidr"></a>
+
+```typescript
+public readonly subnetCidr: IIpv4CidrAssignment;
+```
+
+- *Type:* cdk-extensions.ec2.IIpv4CidrAssignment
+
+---
+
+##### `transportProtocol`<sup>Optional</sup> <a name="transportProtocol" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.transportProtocol"></a>
+
+```typescript
+public readonly transportProtocol: TransportProtocol;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.TransportProtocol
+
+---
+
+##### `userBasedAuthentication`<sup>Optional</sup> <a name="userBasedAuthentication" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.userBasedAuthentication"></a>
+
+```typescript
+public readonly userBasedAuthentication: ClientVpnUserBasedAuthentication;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ClientVpnUserBasedAuthentication
+
+---
+
+##### `vpnCidr`<sup>Optional</sup> <a name="vpnCidr" id="cdk-extensions.ec2_patterns.AddIsolatedClientVpnEndpointOptions.property.vpnCidr"></a>
+
+```typescript
+public readonly vpnCidr: IIpv4CidrAssignment;
+```
+
+- *Type:* cdk-extensions.ec2.IIpv4CidrAssignment
 
 ---
 
@@ -38631,7 +40083,7 @@ const addSpokeNetworkProps: ec2_patterns.AddSpokeNetworkProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.IIpv4CidrAssignment</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
@@ -38659,10 +40111,10 @@ public readonly availabilityZones: string[];
 ##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.AddSpokeNetworkProps.property.cidr"></a>
 
 ```typescript
-public readonly cidr: ICidrProvider;
+public readonly cidr: IIpv4CidrAssignment;
 ```
 
-- *Type:* cdk-extensions.ec2.ICidrProvider
+- *Type:* cdk-extensions.ec2.IIpv4CidrAssignment
 
 ---
 
@@ -41825,6 +43277,195 @@ public readonly sizeInMb: number;
 ```
 
 - *Type:* number
+
+---
+
+### CidrAssignmentBindOptions <a name="CidrAssignmentBindOptions" id="cdk-extensions.ec2.CidrAssignmentBindOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.CidrAssignmentBindOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const cidrAssignmentBindOptions: ec2.CidrAssignmentBindOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.CidrAssignmentBindOptions.property.maxNetmask">maxNetmask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.CidrAssignmentBindOptions.property.minNetmask">minNetmask</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `maxNetmask`<sup>Optional</sup> <a name="maxNetmask" id="cdk-extensions.ec2.CidrAssignmentBindOptions.property.maxNetmask"></a>
+
+```typescript
+public readonly maxNetmask: number;
+```
+
+- *Type:* number
+
+---
+
+##### `minNetmask`<sup>Optional</sup> <a name="minNetmask" id="cdk-extensions.ec2.CidrAssignmentBindOptions.property.minNetmask"></a>
+
+```typescript
+public readonly minNetmask: number;
+```
+
+- *Type:* number
+
+---
+
+### CidrAssignmentCidrDetails <a name="CidrAssignmentCidrDetails" id="cdk-extensions.ec2.CidrAssignmentCidrDetails"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.CidrAssignmentCidrDetails.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const cidrAssignmentCidrDetails: ec2.CidrAssignmentCidrDetails = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.CidrAssignmentCidrDetails.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.CidrAssignmentCidrDetails.property.family">family</a></code> | <code>cdk-extensions.ec2.AddressFamily</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.CidrAssignmentCidrDetails.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.CidrAssignmentCidrDetails.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `family`<sup>Required</sup> <a name="family" id="cdk-extensions.ec2.CidrAssignmentCidrDetails.property.family"></a>
+
+```typescript
+public readonly family: AddressFamily;
+```
+
+- *Type:* cdk-extensions.ec2.AddressFamily
+
+---
+
+##### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2.CidrAssignmentCidrDetails.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
+### CidrAssignmentDetails <a name="CidrAssignmentDetails" id="cdk-extensions.ec2.CidrAssignmentDetails"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.CidrAssignmentDetails.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const cidrAssignmentDetails: ec2.CidrAssignmentDetails = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.CidrAssignmentDetails.property.cidrDetails">cidrDetails</a></code> | <code>cdk-extensions.ec2.CidrAssignmentCidrDetails</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.CidrAssignmentDetails.property.ipamDetails">ipamDetails</a></code> | <code>cdk-extensions.ec2.CidrAssignmentIpamDetails</code> | *No description.* |
+
+---
+
+##### `cidrDetails`<sup>Optional</sup> <a name="cidrDetails" id="cdk-extensions.ec2.CidrAssignmentDetails.property.cidrDetails"></a>
+
+```typescript
+public readonly cidrDetails: CidrAssignmentCidrDetails;
+```
+
+- *Type:* cdk-extensions.ec2.CidrAssignmentCidrDetails
+
+---
+
+##### `ipamDetails`<sup>Optional</sup> <a name="ipamDetails" id="cdk-extensions.ec2.CidrAssignmentDetails.property.ipamDetails"></a>
+
+```typescript
+public readonly ipamDetails: CidrAssignmentIpamDetails;
+```
+
+- *Type:* cdk-extensions.ec2.CidrAssignmentIpamDetails
+
+---
+
+### CidrAssignmentIpamDetails <a name="CidrAssignmentIpamDetails" id="cdk-extensions.ec2.CidrAssignmentIpamDetails"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.CidrAssignmentIpamDetails.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const cidrAssignmentIpamDetails: ec2.CidrAssignmentIpamDetails = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.CidrAssignmentIpamDetails.property.family">family</a></code> | <code>cdk-extensions.ec2.AddressFamily</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.CidrAssignmentIpamDetails.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.CidrAssignmentIpamDetails.property.amazonAllocated">amazonAllocated</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.CidrAssignmentIpamDetails.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
+
+---
+
+##### `family`<sup>Required</sup> <a name="family" id="cdk-extensions.ec2.CidrAssignmentIpamDetails.property.family"></a>
+
+```typescript
+public readonly family: AddressFamily;
+```
+
+- *Type:* cdk-extensions.ec2.AddressFamily
+
+---
+
+##### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2.CidrAssignmentIpamDetails.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
+##### `amazonAllocated`<sup>Optional</sup> <a name="amazonAllocated" id="cdk-extensions.ec2.CidrAssignmentIpamDetails.property.amazonAllocated"></a>
+
+```typescript
+public readonly amazonAllocated: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `ipamPool`<sup>Optional</sup> <a name="ipamPool" id="cdk-extensions.ec2.CidrAssignmentIpamDetails.property.ipamPool"></a>
+
+```typescript
+public readonly ipamPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
 
 ---
 
@@ -50313,8 +51954,10 @@ const fourTierNetworkHubProps: ec2_patterns.FourTierNetworkHubProps = { ... }
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.addressManager">addressManager</a></code> | <code>cdk-extensions.ec2_patterns.IpAddressManager</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.IIpv4CidrAssignment</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.clientVpnPool">clientVpnPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.defaultTransitGatewayRouteTable">defaultTransitGatewayRouteTable</a></code> | <code>cdk-extensions.ec2.ITransitGatewayRouteTable</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
@@ -50395,6 +52038,16 @@ The AWS region this resource belongs to.
 
 ---
 
+##### `addressManager`<sup>Optional</sup> <a name="addressManager" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.addressManager"></a>
+
+```typescript
+public readonly addressManager: IpAddressManager;
+```
+
+- *Type:* cdk-extensions.ec2_patterns.IpAddressManager
+
+---
+
 ##### `availabilityZones`<sup>Optional</sup> <a name="availabilityZones" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.availabilityZones"></a>
 
 ```typescript
@@ -50408,10 +52061,20 @@ public readonly availabilityZones: string[];
 ##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.cidr"></a>
 
 ```typescript
-public readonly cidr: ICidrProvider;
+public readonly cidr: IIpv4CidrAssignment;
 ```
 
-- *Type:* cdk-extensions.ec2.ICidrProvider
+- *Type:* cdk-extensions.ec2.IIpv4CidrAssignment
+
+---
+
+##### `clientVpnPool`<sup>Optional</sup> <a name="clientVpnPool" id="cdk-extensions.ec2_patterns.FourTierNetworkHubProps.property.clientVpnPool"></a>
+
+```typescript
+public readonly clientVpnPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
 
 ---
 
@@ -50569,8 +52232,9 @@ const fourTierNetworkProps: ec2_patterns.FourTierNetworkProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.addressManager">addressManager</a></code> | <code>cdk-extensions.ec2_patterns.IpAddressManager</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.IIpv4CidrAssignment</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
@@ -50588,6 +52252,16 @@ const fourTierNetworkProps: ec2_patterns.FourTierNetworkProps = { ... }
 
 ---
 
+##### `addressManager`<sup>Optional</sup> <a name="addressManager" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.addressManager"></a>
+
+```typescript
+public readonly addressManager: IpAddressManager;
+```
+
+- *Type:* cdk-extensions.ec2_patterns.IpAddressManager
+
+---
+
 ##### `availabilityZones`<sup>Optional</sup> <a name="availabilityZones" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.availabilityZones"></a>
 
 ```typescript
@@ -50601,10 +52275,10 @@ public readonly availabilityZones: string[];
 ##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.FourTierNetworkProps.property.cidr"></a>
 
 ```typescript
-public readonly cidr: ICidrProvider;
+public readonly cidr: IIpv4CidrAssignment;
 ```
 
-- *Type:* cdk-extensions.ec2.ICidrProvider
+- *Type:* cdk-extensions.ec2.IIpv4CidrAssignment
 
 ---
 
@@ -50817,8 +52491,10 @@ const fourTierNetworkSpokeProps: ec2_patterns.FourTierNetworkSpokeProps = { ... 
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.hub">hub</a></code> | <code>cdk-extensions.ec2_patterns.FourTierNetworkHub</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.addressManager">addressManager</a></code> | <code>cdk-extensions.ec2_patterns.IpAddressManager</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.cidr">cidr</a></code> | <code>cdk-extensions.ec2.IIpv4CidrAssignment</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.clientVpnPool">clientVpnPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.defaultInstanceTenancy">defaultInstanceTenancy</a></code> | <code>aws-cdk-lib.aws_ec2.DefaultInstanceTenancy</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.enableDnsHostnames">enableDnsHostnames</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.enableDnsSupport">enableDnsSupport</a></code> | <code>boolean</code> | *No description.* |
@@ -50906,6 +52582,16 @@ public readonly hub: FourTierNetworkHub;
 
 ---
 
+##### `addressManager`<sup>Optional</sup> <a name="addressManager" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.addressManager"></a>
+
+```typescript
+public readonly addressManager: IpAddressManager;
+```
+
+- *Type:* cdk-extensions.ec2_patterns.IpAddressManager
+
+---
+
 ##### `availabilityZones`<sup>Optional</sup> <a name="availabilityZones" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.availabilityZones"></a>
 
 ```typescript
@@ -50919,10 +52605,20 @@ public readonly availabilityZones: string[];
 ##### `cidr`<sup>Optional</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.cidr"></a>
 
 ```typescript
-public readonly cidr: ICidrProvider;
+public readonly cidr: IIpv4CidrAssignment;
 ```
 
-- *Type:* cdk-extensions.ec2.ICidrProvider
+- *Type:* cdk-extensions.ec2.IIpv4CidrAssignment
+
+---
+
+##### `clientVpnPool`<sup>Optional</sup> <a name="clientVpnPool" id="cdk-extensions.ec2_patterns.FourTierNetworkSpokeProps.property.clientVpnPool"></a>
+
+```typescript
+public readonly clientVpnPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
 
 ---
 
@@ -51033,6 +52729,62 @@ public readonly vpnRoutePropagation: SubnetSelection[];
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection[]
+
+---
+
+### GetClientVpnConfigurationOptions <a name="GetClientVpnConfigurationOptions" id="cdk-extensions.ec2_patterns.GetClientVpnConfigurationOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.GetClientVpnConfigurationOptions.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const getClientVpnConfigurationOptions: ec2_patterns.GetClientVpnConfigurationOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.GetClientVpnConfigurationOptions.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `netmask`<sup>Optional</sup> <a name="netmask" id="cdk-extensions.ec2_patterns.GetClientVpnConfigurationOptions.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
+### GetClientVpnConfigurationResult <a name="GetClientVpnConfigurationResult" id="cdk-extensions.ec2_patterns.GetClientVpnConfigurationResult"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.GetClientVpnConfigurationResult.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const getClientVpnConfigurationResult: ec2_patterns.GetClientVpnConfigurationResult = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.GetClientVpnConfigurationResult.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.GetClientVpnConfigurationResult.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -51433,11 +53185,13 @@ const ipAddressManagerProps: ec2_patterns.IpAddressManagerProps = { ... }
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.clientVpnAllocationMask">clientVpnAllocationMask</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.regions">regions</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.sharing">sharing</a></code> | <code>cdk-extensions.ec2_patterns.IpAddressManagerSharingProps</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.vpcAllocationMask">vpcAllocationMask</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.vpcPoolCidrs">vpcPoolCidrs</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.vpcRegionMask">vpcRegionMask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.IpAddressManagerProps.property.vpnPoolCidrs">vpnPoolCidrs</a></code> | <code>string[]</code> | *No description.* |
 
 ---
 
@@ -51504,6 +53258,16 @@ The AWS region this resource belongs to.
 
 ---
 
+##### `clientVpnAllocationMask`<sup>Optional</sup> <a name="clientVpnAllocationMask" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.clientVpnAllocationMask"></a>
+
+```typescript
+public readonly clientVpnAllocationMask: number;
+```
+
+- *Type:* number
+
+---
+
 ##### `regions`<sup>Optional</sup> <a name="regions" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.regions"></a>
 
 ```typescript
@@ -51551,6 +53315,16 @@ public readonly vpcRegionMask: number;
 ```
 
 - *Type:* number
+
+---
+
+##### `vpnPoolCidrs`<sup>Optional</sup> <a name="vpnPoolCidrs" id="cdk-extensions.ec2_patterns.IpAddressManagerProps.property.vpnPoolCidrs"></a>
+
+```typescript
+public readonly vpnPoolCidrs: string[];
+```
+
+- *Type:* string[]
 
 ---
 
@@ -52761,6 +54535,84 @@ The type of the scope.
 
 ---
 
+### Ipv4CidrAssignmentCustomOptions <a name="Ipv4CidrAssignmentCustomOptions" id="cdk-extensions.ec2.Ipv4CidrAssignmentCustomOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.Ipv4CidrAssignmentCustomOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipv4CidrAssignmentCustomOptions: ec2.Ipv4CidrAssignmentCustomOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipv4CidrAssignmentCustomOptions.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.Ipv4CidrAssignmentCustomOptions.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+### Ipv4CidrAssignmentIpamPoolOptions <a name="Ipv4CidrAssignmentIpamPoolOptions" id="cdk-extensions.ec2.Ipv4CidrAssignmentIpamPoolOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.Ipv4CidrAssignmentIpamPoolOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipv4CidrAssignmentIpamPoolOptions: ec2.Ipv4CidrAssignmentIpamPoolOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipv4CidrAssignmentIpamPoolOptions.property.pool">pool</a></code> | <code>cdk-extensions.ec2.IIpv4IpamPool</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv4CidrAssignmentIpamPoolOptions.property.allocationId">allocationId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv4CidrAssignmentIpamPoolOptions.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `pool`<sup>Required</sup> <a name="pool" id="cdk-extensions.ec2.Ipv4CidrAssignmentIpamPoolOptions.property.pool"></a>
+
+```typescript
+public readonly pool: IIpv4IpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpv4IpamPool
+
+---
+
+##### `allocationId`<sup>Optional</sup> <a name="allocationId" id="cdk-extensions.ec2.Ipv4CidrAssignmentIpamPoolOptions.property.allocationId"></a>
+
+```typescript
+public readonly allocationId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `netmask`<sup>Optional</sup> <a name="netmask" id="cdk-extensions.ec2.Ipv4CidrAssignmentIpamPoolOptions.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
 ### Ipv4ConfigurationOptions <a name="Ipv4ConfigurationOptions" id="cdk-extensions.ec2.Ipv4ConfigurationOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.ec2.Ipv4ConfigurationOptions.Initializer"></a>
@@ -52805,6 +54657,84 @@ public readonly maxNetmaskLength: number;
 
 ```typescript
 public readonly minNetmaskLength: number;
+```
+
+- *Type:* number
+
+---
+
+### Ipv6CidrAssignmentCustomOptions <a name="Ipv6CidrAssignmentCustomOptions" id="cdk-extensions.ec2.Ipv6CidrAssignmentCustomOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.Ipv6CidrAssignmentCustomOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipv6CidrAssignmentCustomOptions: ec2.Ipv6CidrAssignmentCustomOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipv6CidrAssignmentCustomOptions.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.Ipv6CidrAssignmentCustomOptions.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+### Ipv6CidrAssignmentIpamPoolOptions <a name="Ipv6CidrAssignmentIpamPoolOptions" id="cdk-extensions.ec2.Ipv6CidrAssignmentIpamPoolOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.Ipv6CidrAssignmentIpamPoolOptions.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const ipv6CidrAssignmentIpamPoolOptions: ec2.Ipv6CidrAssignmentIpamPoolOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipv6CidrAssignmentIpamPoolOptions.property.pool">pool</a></code> | <code>cdk-extensions.ec2.IIpv6IpamPool</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv6CidrAssignmentIpamPoolOptions.property.allocationId">allocationId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv6CidrAssignmentIpamPoolOptions.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `pool`<sup>Required</sup> <a name="pool" id="cdk-extensions.ec2.Ipv6CidrAssignmentIpamPoolOptions.property.pool"></a>
+
+```typescript
+public readonly pool: IIpv6IpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpv6IpamPool
+
+---
+
+##### `allocationId`<sup>Optional</sup> <a name="allocationId" id="cdk-extensions.ec2.Ipv6CidrAssignmentIpamPoolOptions.property.allocationId"></a>
+
+```typescript
+public readonly allocationId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `netmask`<sup>Optional</sup> <a name="netmask" id="cdk-extensions.ec2.Ipv6CidrAssignmentIpamPoolOptions.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
 ```
 
 - *Type:* number
@@ -54532,7 +56462,8 @@ const networkControllerProps: ec2_patterns.NetworkControllerProps = { ... }
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkControllerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkControllerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkControllerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
-| <code><a href="#cdk-extensions.ec2_patterns.NetworkControllerProps.property.defaultNetmask">defaultNetmask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkControllerProps.property.defaultClientVpnNetmask">defaultClientVpnNetmask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkControllerProps.property.defaultVpcNetmask">defaultVpcNetmask</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkControllerProps.property.flowLogBucket">flowLogBucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkControllerProps.property.flowLogFormat">flowLogFormat</a></code> | <code>cdk-extensions.ec2.FlowLogFormat</code> | *No description.* |
 
@@ -54601,10 +56532,20 @@ The AWS region this resource belongs to.
 
 ---
 
-##### `defaultNetmask`<sup>Optional</sup> <a name="defaultNetmask" id="cdk-extensions.ec2_patterns.NetworkControllerProps.property.defaultNetmask"></a>
+##### `defaultClientVpnNetmask`<sup>Optional</sup> <a name="defaultClientVpnNetmask" id="cdk-extensions.ec2_patterns.NetworkControllerProps.property.defaultClientVpnNetmask"></a>
 
 ```typescript
-public readonly defaultNetmask: number;
+public readonly defaultClientVpnNetmask: number;
+```
+
+- *Type:* number
+
+---
+
+##### `defaultVpcNetmask`<sup>Optional</sup> <a name="defaultVpcNetmask" id="cdk-extensions.ec2_patterns.NetworkControllerProps.property.defaultVpcNetmask"></a>
+
+```typescript
+public readonly defaultVpcNetmask: number;
 ```
 
 - *Type:* number
@@ -54628,6 +56569,321 @@ public readonly flowLogFormat: FlowLogFormat;
 ```
 
 - *Type:* cdk-extensions.ec2.FlowLogFormat
+
+---
+
+### NetworkIsolatedClientVpnEndpointProps <a name="NetworkIsolatedClientVpnEndpointProps" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const networkIsolatedClientVpnEndpointProps: ec2_patterns.NetworkIsolatedClientVpnEndpointProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.serverCertificate">serverCertificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.subnetCidr">subnetCidr</a></code> | <code>cdk-extensions.ec2.IIpv4CidrAssignment</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.authorizeAllUsersToVpcCidr">authorizeAllUsersToVpcCidr</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.clientCertificate">clientCertificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.clientConnectionHandler">clientConnectionHandler</a></code> | <code>aws-cdk-lib.aws_ec2.IClientVpnConnectionHandler</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.clientLoginBanner">clientLoginBanner</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.dnsServers">dnsServers</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.logging">logging</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.logStream">logStream</a></code> | <code>aws-cdk-lib.aws_logs.ILogStream</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.port">port</a></code> | <code>aws-cdk-lib.aws_ec2.VpnPort</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.securityGroups">securityGroups</a></code> | <code>aws-cdk-lib.aws_ec2.ISecurityGroup[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.selfServicePortal">selfServicePortal</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.splitTunnel">splitTunnel</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.transitGateway">transitGateway</a></code> | <code>cdk-extensions.ec2.ITransitGateway</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.transportProtocol">transportProtocol</a></code> | <code>aws-cdk-lib.aws_ec2.TransportProtocol</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.userBasedAuthentication">userBasedAuthentication</a></code> | <code>aws-cdk-lib.aws_ec2.ClientVpnUserBasedAuthentication</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.vpnCidr">vpnCidr</a></code> | <code>cdk-extensions.ec2.IIpv4CidrAssignment</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `serverCertificate`<sup>Required</sup> <a name="serverCertificate" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.serverCertificate"></a>
+
+```typescript
+public readonly serverCertificate: ICertificate;
+```
+
+- *Type:* aws-cdk-lib.aws_certificatemanager.ICertificate
+
+---
+
+##### `subnetCidr`<sup>Required</sup> <a name="subnetCidr" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.subnetCidr"></a>
+
+```typescript
+public readonly subnetCidr: IIpv4CidrAssignment;
+```
+
+- *Type:* cdk-extensions.ec2.IIpv4CidrAssignment
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+---
+
+##### `authorizeAllUsersToVpcCidr`<sup>Optional</sup> <a name="authorizeAllUsersToVpcCidr" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.authorizeAllUsersToVpcCidr"></a>
+
+```typescript
+public readonly authorizeAllUsersToVpcCidr: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `clientCertificate`<sup>Optional</sup> <a name="clientCertificate" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.clientCertificate"></a>
+
+```typescript
+public readonly clientCertificate: ICertificate;
+```
+
+- *Type:* aws-cdk-lib.aws_certificatemanager.ICertificate
+
+---
+
+##### `clientConnectionHandler`<sup>Optional</sup> <a name="clientConnectionHandler" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.clientConnectionHandler"></a>
+
+```typescript
+public readonly clientConnectionHandler: IClientVpnConnectionHandler;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IClientVpnConnectionHandler
+
+---
+
+##### `clientLoginBanner`<sup>Optional</sup> <a name="clientLoginBanner" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.clientLoginBanner"></a>
+
+```typescript
+public readonly clientLoginBanner: string;
+```
+
+- *Type:* string
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `dnsServers`<sup>Optional</sup> <a name="dnsServers" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.dnsServers"></a>
+
+```typescript
+public readonly dnsServers: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.logging"></a>
+
+```typescript
+public readonly logging: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `logGroup`<sup>Optional</sup> <a name="logGroup" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.logGroup"></a>
+
+```typescript
+public readonly logGroup: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+---
+
+##### `logStream`<sup>Optional</sup> <a name="logStream" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.logStream"></a>
+
+```typescript
+public readonly logStream: ILogStream;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogStream
+
+---
+
+##### `maxAzs`<sup>Optional</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.maxAzs"></a>
+
+```typescript
+public readonly maxAzs: number;
+```
+
+- *Type:* number
+
+---
+
+##### `port`<sup>Optional</sup> <a name="port" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.port"></a>
+
+```typescript
+public readonly port: VpnPort;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.VpnPort
+
+---
+
+##### `securityGroups`<sup>Optional</sup> <a name="securityGroups" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.securityGroups"></a>
+
+```typescript
+public readonly securityGroups: ISecurityGroup[];
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ISecurityGroup[]
+
+---
+
+##### `selfServicePortal`<sup>Optional</sup> <a name="selfServicePortal" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.selfServicePortal"></a>
+
+```typescript
+public readonly selfServicePortal: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `splitTunnel`<sup>Optional</sup> <a name="splitTunnel" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.splitTunnel"></a>
+
+```typescript
+public readonly splitTunnel: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `transitGateway`<sup>Optional</sup> <a name="transitGateway" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.transitGateway"></a>
+
+```typescript
+public readonly transitGateway: ITransitGateway;
+```
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
+
+---
+
+##### `transportProtocol`<sup>Optional</sup> <a name="transportProtocol" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.transportProtocol"></a>
+
+```typescript
+public readonly transportProtocol: TransportProtocol;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.TransportProtocol
+
+---
+
+##### `userBasedAuthentication`<sup>Optional</sup> <a name="userBasedAuthentication" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.userBasedAuthentication"></a>
+
+```typescript
+public readonly userBasedAuthentication: ClientVpnUserBasedAuthentication;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.ClientVpnUserBasedAuthentication
+
+---
+
+##### `vpnCidr`<sup>Optional</sup> <a name="vpnCidr" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpointProps.property.vpnCidr"></a>
+
+```typescript
+public readonly vpnCidr: IIpv4CidrAssignment;
+```
+
+- *Type:* cdk-extensions.ec2.IIpv4CidrAssignment
 
 ---
 
@@ -59957,7 +62213,7 @@ const tieredSubnetsOptions: ec2.TieredSubnetsOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.ec2.TieredSubnetsOptions.property.provider">provider</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TieredSubnetsOptions.property.provider">provider</a></code> | <code>cdk-extensions.ec2.IIpv4CidrAssignment</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2.TieredSubnetsOptions.property.tierMask">tierMask</a></code> | <code>number</code> | *No description.* |
 
 ---
@@ -59965,10 +62221,10 @@ const tieredSubnetsOptions: ec2.TieredSubnetsOptions = { ... }
 ##### `provider`<sup>Required</sup> <a name="provider" id="cdk-extensions.ec2.TieredSubnetsOptions.property.provider"></a>
 
 ```typescript
-public readonly provider: ICidrProvider;
+public readonly provider: IIpv4CidrAssignment;
 ```
 
-- *Type:* cdk-extensions.ec2.ICidrProvider
+- *Type:* cdk-extensions.ec2.IIpv4CidrAssignment
 
 ---
 
@@ -62355,6 +64611,151 @@ public readonly subnets: SubnetSelection;
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.SubnetSelection
+
+---
+
+### VpcCidrBlockAttributes <a name="VpcCidrBlockAttributes" id="cdk-extensions.ec2.VpcCidrBlockAttributes"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.VpcCidrBlockAttributes.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const vpcCidrBlockAttributes: ec2.VpcCidrBlockAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlockAttributes.property.associationId">associationId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlockAttributes.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `associationId`<sup>Required</sup> <a name="associationId" id="cdk-extensions.ec2.VpcCidrBlockAttributes.property.associationId"></a>
+
+```typescript
+public readonly associationId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.VpcCidrBlockAttributes.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+### VpcCidrBlockProps <a name="VpcCidrBlockProps" id="cdk-extensions.ec2.VpcCidrBlockProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2.VpcCidrBlockProps.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+const vpcCidrBlockProps: ec2.VpcCidrBlockProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlockProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlockProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlockProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlockProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlockProps.property.cidrAssignment">cidrAssignment</a></code> | <code>cdk-extensions.ec2.ICidrAssignment</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.VpcCidrBlockProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ec2.VpcCidrBlockProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ec2.VpcCidrBlockProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ec2.VpcCidrBlockProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ec2.VpcCidrBlockProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `cidrAssignment`<sup>Required</sup> <a name="cidrAssignment" id="cdk-extensions.ec2.VpcCidrBlockProps.property.cidrAssignment"></a>
+
+```typescript
+public readonly cidrAssignment: ICidrAssignment;
+```
+
+- *Type:* cdk-extensions.ec2.ICidrAssignment
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="cdk-extensions.ec2.VpcCidrBlockProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
 
 ---
 
@@ -67061,67 +69462,6 @@ public readonly sizeInMb: number;
 - *Type:* number
 
 ---
-
-
-### CidrProvider <a name="CidrProvider" id="cdk-extensions.ec2.CidrProvider"></a>
-
-#### Initializers <a name="Initializers" id="cdk-extensions.ec2.CidrProvider.Initializer"></a>
-
-```typescript
-import { ec2 } from 'cdk-extensions'
-
-new ec2.CidrProvider()
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-
----
-
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdk-extensions.ec2.CidrProvider.cidr">cidr</a></code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2.CidrProvider.ipamPool">ipamPool</a></code> | *No description.* |
-
----
-
-##### `cidr` <a name="cidr" id="cdk-extensions.ec2.CidrProvider.cidr"></a>
-
-```typescript
-import { ec2 } from 'cdk-extensions'
-
-ec2.CidrProvider.cidr(cidr: string)
-```
-
-###### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2.CidrProvider.cidr.parameter.cidr"></a>
-
-- *Type:* string
-
----
-
-##### `ipamPool` <a name="ipamPool" id="cdk-extensions.ec2.CidrProvider.ipamPool"></a>
-
-```typescript
-import { ec2 } from 'cdk-extensions'
-
-ec2.CidrProvider.ipamPool(pool: IIpamPool, netmask: number)
-```
-
-###### `pool`<sup>Required</sup> <a name="pool" id="cdk-extensions.ec2.CidrProvider.ipamPool.parameter.pool"></a>
-
-- *Type:* cdk-extensions.ec2.IIpamPool
-
----
-
-###### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2.CidrProvider.ipamPool.parameter.netmask"></a>
-
-- *Type:* number
-
----
-
 
 
 ### ClassificationString <a name="ClassificationString" id="cdk-extensions.glue.ClassificationString"></a>
@@ -77275,6 +79615,116 @@ public readonly IPV6: IpFamily;
 
 ---
 
+### Ipv4CidrAssignment <a name="Ipv4CidrAssignment" id="cdk-extensions.ec2.Ipv4CidrAssignment"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.Ipv4CidrAssignment.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.Ipv4CidrAssignment()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipv4CidrAssignment.custom">custom</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv4CidrAssignment.ipamPool">ipamPool</a></code> | *No description.* |
+
+---
+
+##### `custom` <a name="custom" id="cdk-extensions.ec2.Ipv4CidrAssignment.custom"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.Ipv4CidrAssignment.custom(options: Ipv4CidrAssignmentCustomOptions)
+```
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.Ipv4CidrAssignment.custom.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.Ipv4CidrAssignmentCustomOptions
+
+---
+
+##### `ipamPool` <a name="ipamPool" id="cdk-extensions.ec2.Ipv4CidrAssignment.ipamPool"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.Ipv4CidrAssignment.ipamPool(options: Ipv4CidrAssignmentIpamPoolOptions)
+```
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.Ipv4CidrAssignment.ipamPool.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.Ipv4CidrAssignmentIpamPoolOptions
+
+---
+
+
+
+### Ipv6CidrAssignment <a name="Ipv6CidrAssignment" id="cdk-extensions.ec2.Ipv6CidrAssignment"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ec2.Ipv6CidrAssignment.Initializer"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+new ec2.Ipv6CidrAssignment()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.Ipv6CidrAssignment.custom">custom</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.Ipv6CidrAssignment.ipamPool">ipamPool</a></code> | *No description.* |
+
+---
+
+##### `custom` <a name="custom" id="cdk-extensions.ec2.Ipv6CidrAssignment.custom"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.Ipv6CidrAssignment.custom(options: Ipv4CidrAssignmentCustomOptions)
+```
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.Ipv6CidrAssignment.custom.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.Ipv4CidrAssignmentCustomOptions
+
+---
+
+##### `ipamPool` <a name="ipamPool" id="cdk-extensions.ec2.Ipv6CidrAssignment.ipamPool"></a>
+
+```typescript
+import { ec2 } from 'cdk-extensions'
+
+ec2.Ipv6CidrAssignment.ipamPool(options: Ipv6CidrAssignmentIpamPoolOptions)
+```
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.Ipv6CidrAssignment.ipamPool.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.Ipv6CidrAssignmentIpamPoolOptions
+
+---
+
+
+
 ### JdbcTarget <a name="JdbcTarget" id="cdk-extensions.glue.JdbcTarget"></a>
 
 - *Implements:* cdk-extensions.glue.ICrawlerTarget
@@ -82840,18 +85290,40 @@ Called by the VPC to retrieve VPC options from the Ipam  Don't call this direc
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-extensions.ec2.TieredSubnets.property.provider">provider</a></code> | <code>cdk-extensions.ec2.ICidrProvider</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TieredSubnets.property.ipamOptions">ipamOptions</a></code> | <code>aws-cdk-lib.aws_ec2.VpcIpamOptions</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TieredSubnets.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.TieredSubnets.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2.TieredSubnets.property.tierMask">tierMask</a></code> | <code>number</code> | *No description.* |
 
 ---
 
-##### `provider`<sup>Required</sup> <a name="provider" id="cdk-extensions.ec2.TieredSubnets.property.provider"></a>
+##### `ipamOptions`<sup>Required</sup> <a name="ipamOptions" id="cdk-extensions.ec2.TieredSubnets.property.ipamOptions"></a>
 
 ```typescript
-public readonly provider: ICidrProvider;
+public readonly ipamOptions: VpcIpamOptions;
 ```
 
-- *Type:* cdk-extensions.ec2.ICidrProvider
+- *Type:* aws-cdk-lib.aws_ec2.VpcIpamOptions
+
+---
+
+##### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2.TieredSubnets.property.netmask"></a>
+
+```typescript
+public readonly netmask: number;
+```
+
+- *Type:* number
+
+---
+
+##### `ipamPool`<sup>Optional</sup> <a name="ipamPool" id="cdk-extensions.ec2.TieredSubnets.property.ipamPool"></a>
+
+```typescript
+public readonly ipamPool: IIpamPool;
+```
+
+- *Type:* cdk-extensions.ec2.IIpamPool
 
 ---
 
@@ -85057,50 +87529,55 @@ public bind(scope: IConstruct): AthenaResultEncryptionConfiguration
 ---
 
 
-### ICidrProvider <a name="ICidrProvider" id="cdk-extensions.ec2.ICidrProvider"></a>
+### ICidrAssignment <a name="ICidrAssignment" id="cdk-extensions.ec2.ICidrAssignment"></a>
 
-- *Implemented By:* cdk-extensions.ec2.ICidrProvider
+- *Implemented By:* cdk-extensions.ec2.ICidrAssignment, cdk-extensions.ec2.IIpv4CidrAssignment, cdk-extensions.ec2.IIpv6CidrAssignment
 
+#### Methods <a name="Methods" id="Methods"></a>
 
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-extensions.ec2.ICidrProvider.property.ipamOptions">ipamOptions</a></code> | <code>aws-cdk-lib.aws_ec2.VpcIpamOptions</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2.ICidrProvider.property.netmask">netmask</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-extensions.ec2.ICidrProvider.property.ipamPool">ipamPool</a></code> | <code>cdk-extensions.ec2.IIpamPool</code> | *No description.* |
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.ICidrAssignment.getCidr">getCidr</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.ICidrAssignment.getCidrOrIpamConfiguration">getCidrOrIpamConfiguration</a></code> | *No description.* |
 
 ---
 
-##### `ipamOptions`<sup>Required</sup> <a name="ipamOptions" id="cdk-extensions.ec2.ICidrProvider.property.ipamOptions"></a>
+##### `getCidr` <a name="getCidr" id="cdk-extensions.ec2.ICidrAssignment.getCidr"></a>
 
 ```typescript
-public readonly ipamOptions: VpcIpamOptions;
+public getCidr(scope: IConstruct, id: string, options: CidrAssignmentBindOptions): CidrAssignmentCidrDetails
 ```
 
-- *Type:* aws-cdk-lib.aws_ec2.VpcIpamOptions
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ec2.ICidrAssignment.getCidr.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
 
 ---
 
-##### `netmask`<sup>Required</sup> <a name="netmask" id="cdk-extensions.ec2.ICidrProvider.property.netmask"></a>
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2.ICidrAssignment.getCidr.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.ICidrAssignment.getCidr.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.CidrAssignmentBindOptions
+
+---
+
+##### `getCidrOrIpamConfiguration` <a name="getCidrOrIpamConfiguration" id="cdk-extensions.ec2.ICidrAssignment.getCidrOrIpamConfiguration"></a>
 
 ```typescript
-public readonly netmask: number;
+public getCidrOrIpamConfiguration(options: CidrAssignmentBindOptions): CidrAssignmentDetails
 ```
 
-- *Type:* number
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.ICidrAssignment.getCidrOrIpamConfiguration.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2.CidrAssignmentBindOptions
 
 ---
 
-##### `ipamPool`<sup>Optional</sup> <a name="ipamPool" id="cdk-extensions.ec2.ICidrProvider.property.ipamPool"></a>
-
-```typescript
-public readonly ipamPool: IIpamPool;
-```
-
-- *Type:* cdk-extensions.ec2.IIpamPool
-
----
 
 ### ICrawler <a name="ICrawler" id="cdk-extensions.glue.ICrawler"></a>
 
@@ -86926,6 +89403,14 @@ The type of the scope.
 
 ---
 
+### IIpv4CidrAssignment <a name="IIpv4CidrAssignment" id="cdk-extensions.ec2.IIpv4CidrAssignment"></a>
+
+- *Extends:* cdk-extensions.ec2.ICidrAssignment
+
+- *Implemented By:* cdk-extensions.ec2.IIpv4CidrAssignment
+
+
+
 ### IIpv4IpamPool <a name="IIpv4IpamPool" id="cdk-extensions.ec2.IIpv4IpamPool"></a>
 
 - *Extends:* cdk-extensions.ec2.IIpamPool
@@ -87084,6 +89569,14 @@ public readonly ipFamily: IpFamily;
 - *Type:* cdk-extensions.ec2.IpFamily
 
 ---
+
+### IIpv6CidrAssignment <a name="IIpv6CidrAssignment" id="cdk-extensions.ec2.IIpv6CidrAssignment"></a>
+
+- *Extends:* cdk-extensions.ec2.ICidrAssignment
+
+- *Implemented By:* cdk-extensions.ec2.IIpv6CidrAssignment
+
+
 
 ### IIpv6IpamPool <a name="IIpv6IpamPool" id="cdk-extensions.ec2.IIpv6IpamPool"></a>
 
@@ -88742,6 +91235,88 @@ A GUID identifier for a user object in IAM Identity Center (For example, f81d4fa
 
 ---
 
+### IVpcCidrBlock <a name="IVpcCidrBlock" id="cdk-extensions.ec2.IVpcCidrBlock"></a>
+
+- *Extends:* aws-cdk-lib.IResource
+
+- *Implemented By:* cdk-extensions.ec2.VpcCidrBlock, cdk-extensions.ec2.IVpcCidrBlock
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2.IVpcCidrBlock.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ec2.IVpcCidrBlock.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ec2.IVpcCidrBlock.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ec2.IVpcCidrBlock.property.vpcCidrBlockAssociationId">vpcCidrBlockAssociationId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.IVpcCidrBlock.property.vpcCidrBlockCidr">vpcCidrBlockCidr</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ec2.IVpcCidrBlock.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ec2.IVpcCidrBlock.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ec2.IVpcCidrBlock.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `vpcCidrBlockAssociationId`<sup>Required</sup> <a name="vpcCidrBlockAssociationId" id="cdk-extensions.ec2.IVpcCidrBlock.property.vpcCidrBlockAssociationId"></a>
+
+```typescript
+public readonly vpcCidrBlockAssociationId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `vpcCidrBlockCidr`<sup>Required</sup> <a name="vpcCidrBlockCidr" id="cdk-extensions.ec2.IVpcCidrBlock.property.vpcCidrBlockCidr"></a>
+
+```typescript
+public readonly vpcCidrBlockCidr: string;
+```
+
+- *Type:* string
+
+---
+
 ### IWorkGroup <a name="IWorkGroup" id="cdk-extensions.athena.IWorkGroup"></a>
 
 - *Implemented By:* cdk-extensions.athena.WorkGroup, cdk-extensions.athena.IWorkGroup
@@ -88881,6 +91456,27 @@ The URL of the endpoint that other services can use to query the workspace.
 ---
 
 ## Enums <a name="Enums" id="Enums"></a>
+
+### AddressFamily <a name="AddressFamily" id="cdk-extensions.ec2.AddressFamily"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ec2.AddressFamily.IPV4">IPV4</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2.AddressFamily.IPV6">IPV6</a></code> | *No description.* |
+
+---
+
+##### `IPV4` <a name="IPV4" id="cdk-extensions.ec2.AddressFamily.IPV4"></a>
+
+---
+
+
+##### `IPV6` <a name="IPV6" id="cdk-extensions.ec2.AddressFamily.IPV6"></a>
+
+---
+
 
 ### CloudWatchEncryptionMode <a name="CloudWatchEncryptionMode" id="cdk-extensions.glue.CloudWatchEncryptionMode"></a>
 

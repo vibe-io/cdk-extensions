@@ -1,10 +1,10 @@
 import { ResourceProps, Stack, Token } from 'aws-cdk-lib';
 import { DefaultInstanceTenancy, GatewayVpcEndpointOptions, RouterType, Subnet, SubnetSelection, VpnConnectionOptions } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
-import { FlowLogOptions, FourTierNetwork } from '.';
+import { FlowLogOptions, FourTierNetwork, IpAddressManager } from '.';
 import { FourTierNetworkSpoke } from './four-tier-network-spoke';
-import { ITransitGatewayRouteTable, TransitGateway, TransitGatewayProps } from '../ec2';
-import { CidrProvider, ICidrProvider } from '../ec2/lib/ip-addresses/network-provider';
+import { IIpamPool, ITransitGatewayRouteTable, TransitGateway, TransitGatewayProps } from '../ec2';
+import { IIpv4CidrAssignment, Ipv4CidrAssignment } from '../ec2/lib/cidr-assignment';
 import { NatProvider } from '../ec2/lib/nat-providers/nat-provider';
 import { ITransitGateway } from '../ec2/transit-gateway';
 import { GlobalNetwork } from '../networkmanager/global-network';
@@ -20,7 +20,7 @@ export interface FourTierNetworkShareProperties {
 
 export interface AddSpokeNetworkProps {
   readonly availabilityZones?: string[];
-  readonly cidr?: ICidrProvider;
+  readonly cidr?: IIpv4CidrAssignment;
   readonly defaultInstanceTenancy?: DefaultInstanceTenancy;
   readonly enableDnsHostnames?: boolean;
   readonly enableDnsSupport?: boolean;
@@ -35,8 +35,10 @@ export interface AddSpokeNetworkProps {
 }
 
 export interface FourTierNetworkHubProps extends ResourceProps {
+  readonly addressManager?: IpAddressManager;
   readonly availabilityZones?: string[];
-  readonly cidr?: ICidrProvider;
+  readonly cidr?: IIpv4CidrAssignment;
+  readonly clientVpnPool?: IIpamPool;
   readonly defaultInstanceTenancy?: DefaultInstanceTenancy;
   readonly defaultTransitGatewayRouteTable?: ITransitGatewayRouteTable;
   readonly enableDnsHostnames?: boolean;
@@ -135,9 +137,13 @@ export class FourTierNetworkHub extends FourTierNetwork {
       }
     }
 
-    const provider = (!props.cidr && this.ipamPool) ? CidrProvider.ipamPool(this.ipamPool, this.netmask) : props.cidr;
+    const provider = (!props.cidr && this.ipamPool) ? Ipv4CidrAssignment.ipamPool({
+      pool: this.ipamPool,
+      netmask: this.netmask,
+    }) : props.cidr;
 
     return new FourTierNetworkSpoke(scope, id, {
+      addressManager: this.addressManager,
       cidr: provider,
       defaultInstanceTenancy: this.defaultInstanceTenancy,
       enableDnsHostnames: this.enableDnsHostnames,
