@@ -98,8 +98,6 @@ export interface GetVpcConfigurationOptions {
 }
 
 export class IpAddressManager extends Resource {
-  private static readonly PRIVATE_VPN_POOL_ID: string = 'private-vpn-pool';
-
   public static readonly DEFAULT_CLIENT_VPN_ALLOCATION_MASK: number = 22;
   public static readonly DEFAULT_VPC_ALLOCATION_MASK: number = 16;
   public static readonly DEFAULT_VPC_POOL_CIDRS: string[] = [
@@ -108,6 +106,8 @@ export class IpAddressManager extends Resource {
   public static readonly DEFAULT_VPN_POOL_CIDRS: string[] = [
     '172.24.0.0/13',
   ];
+
+  private static readonly PRIVATE_VPN_POOL_ID: string = 'private-vpn-pool';
 
   // Internal properties
   private readonly privateVpcPool: CascadingIpamPool;
