@@ -1,4 +1,4 @@
-import path = require('path');
+import { join } from 'path';
 import { CustomResource, Duration, NestedStack, Resource, Stack } from 'aws-cdk-lib';
 import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { Code, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
@@ -24,7 +24,7 @@ class VpcCidrBlockResolverProvider extends NestedStack {
 
     this.provider = new Provider(this, 'provider', {
       onEventHandler: new Function(this, 'event-handler', {
-        code: Code.fromAsset(path.join(__dirname, 'vpc-cidr-block-resolver')),
+        code: Code.fromAsset(join(__dirname, 'vpc-cidr-block-resolver')),
         description: 'Used to fetch VPC CIDR block information for CDK.',
         handler: 'index.onEventHandler',
         initialPolicy: [
