@@ -21987,6 +21987,7 @@ new ec2_patterns.NetworkIsolatedClientVpnEndpoint(scope: IConstruct, id: string,
 | --- | --- |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.addMultiSubnetRoute">addMultiSubnetRoute</a></code> | *No description.* |
 
 ---
 
@@ -22017,6 +22018,24 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addMultiSubnetRoute` <a name="addMultiSubnetRoute" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.addMultiSubnetRoute"></a>
+
+```typescript
+public addMultiSubnetRoute(id: string, options: AddMultiSubnetRouteOptions): any
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.addMultiSubnetRoute.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.addMultiSubnetRoute.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.AddMultiSubnetRouteOptions
 
 ---
 
@@ -39822,6 +39841,56 @@ public readonly vpnCidr: IIpv4CidrAssignment;
 ```
 
 - *Type:* cdk-extensions.ec2.IIpv4CidrAssignment
+
+---
+
+### AddMultiSubnetRouteOptions <a name="AddMultiSubnetRouteOptions" id="cdk-extensions.ec2_patterns.AddMultiSubnetRouteOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.AddMultiSubnetRouteOptions.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const addMultiSubnetRouteOptions: ec2_patterns.AddMultiSubnetRouteOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.AddMultiSubnetRouteOptions.property.cidr">cidr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddMultiSubnetRouteOptions.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.AddMultiSubnetRouteOptions.property.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+
+---
+
+##### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.AddMultiSubnetRouteOptions.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2_patterns.AddMultiSubnetRouteOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `scope`<sup>Optional</sup> <a name="scope" id="cdk-extensions.ec2_patterns.AddMultiSubnetRouteOptions.property.scope"></a>
+
+```typescript
+public readonly scope: IConstruct;
+```
+
+- *Type:* constructs.IConstruct
 
 ---
 
