@@ -1,12 +1,18 @@
 import { Fn, Resource, ResourceProps } from 'aws-cdk-lib';
 import { ICertificate } from 'aws-cdk-lib/aws-certificatemanager';
-import { ClientVpnEndpoint, ClientVpnUserBasedAuthentication, Connections, IClientVpnConnectionHandler, IConnectable, ISecurityGroup, ISubnet, IVpc, Peer, RouterType, Subnet, TransportProtocol, VpnPort } from 'aws-cdk-lib/aws-ec2';
+import { ClientVpnEndpoint, ClientVpnRoute, ClientVpnRouteTarget, ClientVpnUserBasedAuthentication, Connections, IClientVpnConnectionHandler, IConnectable, ISecurityGroup, ISubnet, IVpc, Peer, RouterType, Subnet, TransportProtocol, VpnPort } from 'aws-cdk-lib/aws-ec2';
 import { ILogGroup, ILogStream } from 'aws-cdk-lib/aws-logs';
 import { IConstruct } from 'constructs';
 import { ITransitGateway } from '../ec2';
 import { IIpv4CidrAssignment, Ipv4CidrAssignment } from '../ec2/lib/cidr-assignment';
 import { VpcCidrBlock } from '../ec2/vpc-cidr-block';
 
+
+export interface AddMultiSubnetRouteOptions {
+  readonly cidr: string;
+  readonly description?: string;
+  readonly scope?: IConstruct;
+}
 
 export interface NetworkIsolatedClientVpnEndpointProps extends ResourceProps {
   readonly authorizeAllUsersToVpcCidr?: boolean;
@@ -171,6 +177,26 @@ export class NetworkIsolatedClientVpnEndpoint extends Resource implements IConne
 
     this.connections = new Connections({
       peer: Peer.ipv4(this.vpcCidrBlock.vpcCidrBlockCidr),
+    });
+  }
+
+  public addMultiSubnetRoute(id: string, options: AddMultiSubnetRouteOptions): any {
+    this.subnets.forEach((x, idx) => {
+      const uid = `vpc-${id}-${(idx + 1).toString().padStart(1, '0')}`;
+      if (!options.scope) {
+        this.clientVpnEndpoint.addRoute(uid, {
+          cidr: options.cidr,
+          description: options.description,
+          target: ClientVpnRouteTarget.subnet(x),
+        });
+      } else {
+        new ClientVpnRoute(options.scope, uid, {
+          cidr: options.cidr,
+          clientVpnEndpoint: this.clientVpnEndpoint,
+          description: options.description,
+          target: ClientVpnRouteTarget.subnet(x),
+        });
+      }
     });
   }
 }
