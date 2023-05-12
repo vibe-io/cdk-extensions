@@ -1,10 +1,9 @@
-import { join } from 'path';
 import { CustomResource, Duration, NestedStack, Resource, Stack } from 'aws-cdk-lib';
 import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
-import { Code, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { Provider } from 'aws-cdk-lib/custom-resources';
 import { IConstruct } from 'constructs';
+import { TransitGatewayResolverFunction } from './transit-gateway-resolver-function';
 
 
 class TransitGatewayResolverProvider extends NestedStack {
@@ -23,10 +22,8 @@ class TransitGatewayResolverProvider extends NestedStack {
     super(scope, id);
 
     this.provider = new Provider(this, 'provider', {
-      onEventHandler: new Function(this, 'event-handler', {
-        code: Code.fromAsset(join(__dirname, 'transit-gateway-resolver')),
+      onEventHandler: new TransitGatewayResolverFunction(this, 'event-handler', {
         description: 'Used to fetch Transit Gateway information for CDK.',
-        handler: 'index.onEventHandler',
         initialPolicy: [
           new PolicyStatement({
             actions: [
@@ -38,7 +35,6 @@ class TransitGatewayResolverProvider extends NestedStack {
             ],
           }),
         ],
-        runtime: Runtime.NODEJS_18_X,
         timeout: Duration.minutes(5),
       }),
       logRetention: RetentionDays.TWO_WEEKS,

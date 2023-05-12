@@ -146,7 +146,9 @@
       {
         "devDependencies": [
           "**/test/**",
-          "**/build-tools/**"
+          "**/build-tools/**",
+          "src/ec2/lib/custom-resources/transit-gateway-resolver.lambda.ts",
+          "src/ec2/lib/custom-resources/vpc-cidr-block-resolver.lambda.ts"
         ],
         "optionalDependencies": false,
         "peerDependencies": true
