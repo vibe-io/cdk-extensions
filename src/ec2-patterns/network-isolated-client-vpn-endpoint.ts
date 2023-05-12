@@ -182,7 +182,7 @@ export class NetworkIsolatedClientVpnEndpoint extends Resource implements IConne
 
   public addMultiSubnetRoute(id: string, options: AddMultiSubnetRouteOptions): any {
     this.subnets.forEach((x, idx) => {
-      const uid = `vpc-${id}-${(idx + 1).toString().padStart(1, '0')}`;
+      const uid = `vpc-${id}-${(idx + 1).toString().padStart(2, '0')}`;
       if (!options.scope) {
         this.clientVpnEndpoint.addRoute(uid, {
           cidr: options.cidr,
