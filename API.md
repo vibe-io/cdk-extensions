@@ -21989,6 +21989,7 @@ new ec2_patterns.NetworkIsolatedClientVpnEndpoint(scope: IConstruct, id: string,
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.addAuthorizationRule">addAuthorizationRule</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.addMultiSubnetRoute">addMultiSubnetRoute</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.registerTransitGateway">registerTransitGateway</a></code> | *No description.* |
 
 ---
 
@@ -22055,6 +22056,18 @@ public addMultiSubnetRoute(id: string, options: AddMultiSubnetRouteOptions): any
 ###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.addMultiSubnetRoute.parameter.options"></a>
 
 - *Type:* cdk-extensions.ec2_patterns.AddMultiSubnetRouteOptions
+
+---
+
+##### `registerTransitGateway` <a name="registerTransitGateway" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.registerTransitGateway"></a>
+
+```typescript
+public registerTransitGateway(transitGateway: ITransitGateway): void
+```
+
+###### `transitGateway`<sup>Required</sup> <a name="transitGateway" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.registerTransitGateway.parameter.transitGateway"></a>
+
+- *Type:* cdk-extensions.ec2.ITransitGateway
 
 ---
 
