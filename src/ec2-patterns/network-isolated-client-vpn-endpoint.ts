@@ -192,9 +192,12 @@ export class NetworkIsolatedClientVpnEndpoint extends Resource implements IClien
   }
 
   public addAuthorizationRule(id: string, options: AddAuthorizationRuleOptions): ClientVpnAuthorizationRule {
-    return options.scope ?
-      new ClientVpnAuthorizationRule(options.scope, id, options) :
-      this.clientVpnEndpoint.addAuthorizationRule(id, options);
+    return !options.scope ?
+      this.clientVpnEndpoint.addAuthorizationRule(id, options) :
+      new ClientVpnAuthorizationRule(options.scope, id, {
+        ...options,
+        clientVpnEndpoint: this.clientVpnEndpoint,
+      });
   }
 
   public addMultiSubnetRoute(id: string, options: AddMultiSubnetRouteOptions): any {
