@@ -2,7 +2,9 @@ import { ResourceProps, Stack, Token } from 'aws-cdk-lib';
 import { DefaultInstanceTenancy, GatewayVpcEndpointOptions, RouterType, Subnet, SubnetSelection, VpnConnectionOptions } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { FlowLogOptions, FourTierNetwork, IpAddressManager } from '.';
+import { AddIsolatedClientVpnEndpointOptions } from './four-tier-network';
 import { FourTierNetworkSpoke } from './four-tier-network-spoke';
+import { NetworkIsolatedClientVpnEndpoint } from './network-isolated-client-vpn-endpoint';
 import { IIpamPool, ITransitGatewayRouteTable, TransitGateway, TransitGatewayProps } from '../ec2';
 import { IIpv4CidrAssignment, Ipv4CidrAssignment } from '../ec2/lib/cidr-assignment';
 import { NatProvider } from '../ec2/lib/nat-providers/nat-provider';
@@ -59,6 +61,7 @@ export class FourTierNetworkHub extends FourTierNetwork {
   private readonly _flowLogConfiguration?: { [id: string]: FlowLogOptions };
   private readonly _sharedAccounts: string[];
 
+  private _clientVpns: NetworkIsolatedClientVpnEndpoint[];
   private _resourceShare?: IResourceShare;
   private _transitGateway?: ITransitGateway;
 
@@ -81,6 +84,7 @@ export class FourTierNetworkHub extends FourTierNetwork {
       },
     });
 
+    this._clientVpns = [];
     this._flowLogConfiguration = props.flowLogs;
 
     this.defaultTransitGatewayRouteTable = props.defaultTransitGatewayRouteTable;
@@ -124,6 +128,16 @@ export class FourTierNetworkHub extends FourTierNetwork {
     }
   }
 
+  public addIsolatedClientVpnEndpoint(id: string, options: AddIsolatedClientVpnEndpointOptions): NetworkIsolatedClientVpnEndpoint {
+    const vpn = super.addIsolatedClientVpnEndpoint(id, options);
+
+    if (this.transitGateway) {
+      vpn.registerTransitGateway(this.transitGateway);
+    }
+
+    return vpn;
+  }
+
   public addSpoke(scope: IConstruct, id: string, props: AddSpokeNetworkProps = {}): FourTierNetworkSpoke {
     if (this.transitGateway === undefined) {
       this.enableTransitGateway();
@@ -161,49 +175,53 @@ export class FourTierNetworkHub extends FourTierNetwork {
       ].join(' '));
     }
 
-    this._transitGateway = new TransitGateway(this, 'transit-gateway', {
+    const transitGateway = new TransitGateway(this, 'transit-gateway', {
       autoAcceptSharedAttachments: true,
       defaultRouteTableId: this.defaultTransitGatewayRouteTable?.transitGatewayRouteTableId,
       ...props,
     });
 
-    const attachment = this._transitGateway.attachVpc(this, {
+    const attachment = transitGateway.attachVpc(this, {
       subnets: {
         onePerAz: true,
         subnetGroupName: 'dmz',
       },
     });
 
-    this._transitGateway.defaultRouteTable?.addRoute('default', {
+    transitGateway.defaultRouteTable?.addRoute('default', {
       attachment: attachment,
       cidr: '0.0.0.0/0',
     });
 
-    const tgw = this._transitGateway;
     [this.publicSubnets, this.privateSubnets, this.isolatedSubnets].forEach((group) => {
       group.forEach((subnet) => {
         (subnet as Subnet).addRoute('rfc1918-10-0-0-0--8', {
-          routerId: tgw.transitGatewayId,
+          routerId: transitGateway.transitGatewayId,
           routerType: RouterType.TRANSIT_GATEWAY,
           destinationCidrBlock: '10.0.0.0/8',
         });
         (subnet as Subnet).addRoute('rfc1918-172-16-0-0--12', {
-          routerId: tgw.transitGatewayId,
+          routerId: transitGateway.transitGatewayId,
           routerType: RouterType.TRANSIT_GATEWAY,
           destinationCidrBlock: '172.16.0.0/12',
         });
         (subnet as Subnet).addRoute('rfc1918-192-168-0-0--16', {
-          routerId: tgw.transitGatewayId,
+          routerId: transitGateway.transitGatewayId,
           routerType: RouterType.TRANSIT_GATEWAY,
           destinationCidrBlock: '192.168.0.0/16',
         });
       });
     });
 
-    this.globalNetwork?.registerTransitGateway(this._transitGateway.node.addr, {
-      transitGateway: this._transitGateway,
+    this.globalNetwork?.registerTransitGateway(transitGateway.node.addr, {
+      transitGateway: transitGateway,
     });
 
+    this._clientVpns.forEach((x) => {
+      x.registerTransitGateway(transitGateway);
+    });
+
+    this._transitGateway = transitGateway;
     return this._transitGateway;
   }
 }

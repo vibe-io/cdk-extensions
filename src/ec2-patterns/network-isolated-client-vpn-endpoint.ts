@@ -1,6 +1,6 @@
 import { Fn, Resource, ResourceProps } from 'aws-cdk-lib';
 import { ICertificate } from 'aws-cdk-lib/aws-certificatemanager';
-import { ClientVpnAuthorizationRule, ClientVpnAuthorizationRuleOptions, ClientVpnEndpoint, ClientVpnRoute, ClientVpnRouteTarget, ClientVpnUserBasedAuthentication, Connections, IClientVpnConnectionHandler, IClientVpnEndpoint, IConnectable, ISecurityGroup, ISubnet, IVpc, Peer, RouterType, Subnet, TransportProtocol, VpnPort } from 'aws-cdk-lib/aws-ec2';
+import { ClientVpnAuthorizationRule, ClientVpnAuthorizationRuleOptions, ClientVpnEndpoint, ClientVpnRoute, ClientVpnRouteTarget, ClientVpnUserBasedAuthentication, Connections, IClientVpnConnectionHandler, IClientVpnEndpoint, IConnectable, ISecurityGroup, ISubnet, IVpc, Peer, PrivateSubnet, RouterType, Subnet, TransportProtocol, VpnPort } from 'aws-cdk-lib/aws-ec2';
 import { ILogGroup, ILogStream } from 'aws-cdk-lib/aws-logs';
 import { IConstruct, IDependable } from 'constructs';
 import { ITransitGateway } from '../ec2';
@@ -48,6 +48,7 @@ export class NetworkIsolatedClientVpnEndpoint extends Resource implements IClien
 
   // Internal properties
   private readonly _subnets: Subnet[];
+  private _transitGateway?: ITransitGateway;
 
   // Input properties
   public readonly authorizeAllUsersToVpcCidr?: boolean;
@@ -65,11 +66,14 @@ export class NetworkIsolatedClientVpnEndpoint extends Resource implements IClien
   public readonly selfServicePortal?: boolean;
   public readonly serverCertificate: ICertificate;
   public readonly splitTunnel?: boolean;
-  public readonly transitGateway?: ITransitGateway;
   public readonly transportProtocol?: TransportProtocol;
   public readonly userBasedAuthentication?: ClientVpnUserBasedAuthentication;
   public readonly vpc: IVpc;
   public readonly vpnCidr: IIpv4CidrAssignment;
+
+  public get transitGateway(): ITransitGateway | undefined {
+    return this._transitGateway;
+  }
 
   // Resource properties
   public readonly clientVpnEndpoint: ClientVpnEndpoint;
@@ -107,7 +111,6 @@ export class NetworkIsolatedClientVpnEndpoint extends Resource implements IClien
     this.selfServicePortal = props.selfServicePortal;
     this.serverCertificate = props.serverCertificate;
     this.splitTunnel = props.splitTunnel ?? true;
-    this.transitGateway = props.transitGateway;
     this.transportProtocol = props.transportProtocol;
     this.userBasedAuthentication = props.userBasedAuthentication;
     this.vpc = props.vpc;
@@ -129,7 +132,7 @@ export class NetworkIsolatedClientVpnEndpoint extends Resource implements IClien
     });
 
     for (let x = 0; x < this.maxAzs; x++) {
-      const subnet = new Subnet(this, `subnet-az${x + 1}}`, {
+      const subnet = new PrivateSubnet(this, `subnet-az${x + 1}}`, {
         availabilityZone: this.vpc.availabilityZones[x],
         cidrBlock: this.maxAzs === 1 ?
           this.vpcCidrBlock.vpcCidrBlockCidr :
@@ -141,18 +144,8 @@ export class NetworkIsolatedClientVpnEndpoint extends Resource implements IClien
       this._subnets.push(subnet);
     }
 
-    if (this.transitGateway) {
-      const transitGateway = this.transitGateway;
-
-      this._subnets.forEach((subnet) => {
-        for (let cidr of ['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16']) {
-          subnet.addRoute(`tgw-route-${cidr}`, {
-            destinationCidrBlock: cidr,
-            routerId: transitGateway.transitGatewayId,
-            routerType: RouterType.TRANSIT_GATEWAY,
-          });
-        }
-      });
+    if (props.transitGateway) {
+      this.registerTransitGateway(props.transitGateway);
     }
 
     const vpnCidr = this.vpnCidr.getCidr(this, 'vpn-cidr', {
@@ -215,6 +208,27 @@ export class NetworkIsolatedClientVpnEndpoint extends Resource implements IClien
           clientVpnEndpoint: this.clientVpnEndpoint,
           description: options.description,
           target: ClientVpnRouteTarget.subnet(x),
+        });
+      }
+    });
+  }
+
+  public registerTransitGateway(transitGateway: ITransitGateway): void {
+    if (this.transitGateway) {
+      throw new Error([
+        'Cannot register more than one transit gateway to an isolated client',
+        'VPN endpoint.',
+      ].join(' '));
+    }
+
+    this._transitGateway = transitGateway;
+
+    this._subnets.forEach((subnet) => {
+      for (let cidr of ['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16']) {
+        subnet.addRoute(`tgw-route-${cidr}`, {
+          destinationCidrBlock: cidr,
+          routerId: transitGateway.transitGatewayId,
+          routerType: RouterType.TRANSIT_GATEWAY,
         });
       }
     });

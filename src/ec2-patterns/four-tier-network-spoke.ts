@@ -2,6 +2,8 @@ import { Aspects, ResourceProps } from 'aws-cdk-lib';
 import { CfnRoute, DefaultInstanceTenancy, FlowLogOptions, GatewayVpcEndpointOptions, PrivateSubnet, RouterType, SubnetSelection, VpnConnectionOptions } from 'aws-cdk-lib/aws-ec2';
 import { IConstruct } from 'constructs';
 import { FourTierNetwork, FourTierNetworkHub, IpAddressManager } from '.';
+import { AddIsolatedClientVpnEndpointOptions } from './four-tier-network';
+import { NetworkIsolatedClientVpnEndpoint } from './network-isolated-client-vpn-endpoint';
 import { IIpamPool, ITransitGatewayAttachment } from '../ec2';
 import { IIpv4CidrAssignment } from '../ec2/lib/cidr-assignment';
 import { ITransitGateway } from '../ec2/transit-gateway';
@@ -60,5 +62,11 @@ export class FourTierNetworkSpoke extends FourTierNetwork {
         }
       },
     });
+  }
+
+  public addIsolatedClientVpnEndpoint(id: string, options: AddIsolatedClientVpnEndpointOptions): NetworkIsolatedClientVpnEndpoint {
+    const vpn = super.addIsolatedClientVpnEndpoint(id, options);
+    vpn.registerTransitGateway(this.transitGateway);
+    return vpn;
   }
 }
