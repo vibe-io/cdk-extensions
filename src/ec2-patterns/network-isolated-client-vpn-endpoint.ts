@@ -1,12 +1,16 @@
 import { Fn, Resource, ResourceProps } from 'aws-cdk-lib';
 import { ICertificate } from 'aws-cdk-lib/aws-certificatemanager';
-import { ClientVpnEndpoint, ClientVpnRoute, ClientVpnRouteTarget, ClientVpnUserBasedAuthentication, Connections, IClientVpnConnectionHandler, IConnectable, ISecurityGroup, ISubnet, IVpc, Peer, RouterType, Subnet, TransportProtocol, VpnPort } from 'aws-cdk-lib/aws-ec2';
+import { ClientVpnAuthorizationRule, ClientVpnAuthorizationRuleOptions, ClientVpnEndpoint, ClientVpnRoute, ClientVpnRouteTarget, ClientVpnUserBasedAuthentication, Connections, IClientVpnConnectionHandler, IClientVpnEndpoint, IConnectable, ISecurityGroup, ISubnet, IVpc, Peer, RouterType, Subnet, TransportProtocol, VpnPort } from 'aws-cdk-lib/aws-ec2';
 import { ILogGroup, ILogStream } from 'aws-cdk-lib/aws-logs';
-import { IConstruct } from 'constructs';
+import { IConstruct, IDependable } from 'constructs';
 import { ITransitGateway } from '../ec2';
 import { IIpv4CidrAssignment, Ipv4CidrAssignment } from '../ec2/lib/cidr-assignment';
 import { VpcCidrBlock } from '../ec2/vpc-cidr-block';
 
+
+export interface AddAuthorizationRuleOptions extends ClientVpnAuthorizationRuleOptions {
+  readonly scope?: IConstruct;
+}
 
 export interface AddMultiSubnetRouteOptions {
   readonly cidr: string;
@@ -38,7 +42,7 @@ export interface NetworkIsolatedClientVpnEndpointProps extends ResourceProps {
   readonly vpnCidr?: IIpv4CidrAssignment;
 }
 
-export class NetworkIsolatedClientVpnEndpoint extends Resource implements IConnectable {
+export class NetworkIsolatedClientVpnEndpoint extends Resource implements IClientVpnEndpoint, IConnectable {
   // Static properties
   public static readonly DEFAULT_VPN_CIDR: string = '172.16.29.0/22';
 
@@ -74,6 +78,10 @@ export class NetworkIsolatedClientVpnEndpoint extends Resource implements IConne
   public get subnets(): ISubnet[] {
     return [...this._subnets];
   }
+
+  // IClientVpnEndpoint properties
+  public readonly endpointId: string;
+  public readonly targetNetworksAssociated: IDependable;
 
   // IConnectable properties
   public readonly connections: Connections;
@@ -178,6 +186,15 @@ export class NetworkIsolatedClientVpnEndpoint extends Resource implements IConne
     this.connections = new Connections({
       peer: Peer.ipv4(this.vpcCidrBlock.vpcCidrBlockCidr),
     });
+
+    this.endpointId = this.clientVpnEndpoint.endpointId;
+    this.targetNetworksAssociated = this.clientVpnEndpoint.targetNetworksAssociated;
+  }
+
+  public addAuthorizationRule(id: string, options: AddAuthorizationRuleOptions): ClientVpnAuthorizationRule {
+    return options.scope ?
+      new ClientVpnAuthorizationRule(options.scope, id, options) :
+      this.clientVpnEndpoint.addAuthorizationRule(id, options);
   }
 
   public addMultiSubnetRoute(id: string, options: AddMultiSubnetRouteOptions): any {
