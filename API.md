@@ -21945,7 +21945,7 @@ public readonly DEFAULT_CLIENT_VPN_NETMASK: number;
 
 ### NetworkIsolatedClientVpnEndpoint <a name="NetworkIsolatedClientVpnEndpoint" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint"></a>
 
-- *Implements:* aws-cdk-lib.aws_ec2.IConnectable
+- *Implements:* aws-cdk-lib.aws_ec2.IClientVpnEndpoint, aws-cdk-lib.aws_ec2.IConnectable
 
 #### Initializers <a name="Initializers" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.Initializer"></a>
 
@@ -21987,6 +21987,7 @@ new ec2_patterns.NetworkIsolatedClientVpnEndpoint(scope: IConstruct, id: string,
 | --- | --- |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.addAuthorizationRule">addAuthorizationRule</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.addMultiSubnetRoute">addMultiSubnetRoute</a></code> | *No description.* |
 
 ---
@@ -22018,6 +22019,24 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addAuthorizationRule` <a name="addAuthorizationRule" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.addAuthorizationRule"></a>
+
+```typescript
+public addAuthorizationRule(id: string, options: AddAuthorizationRuleOptions): ClientVpnAuthorizationRule
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.addAuthorizationRule.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.addAuthorizationRule.parameter.options"></a>
+
+- *Type:* cdk-extensions.ec2_patterns.AddAuthorizationRuleOptions
 
 ---
 
@@ -22108,9 +22127,11 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.clientVpnEndpoint">clientVpnEndpoint</a></code> | <code>aws-cdk-lib.aws_ec2.ClientVpnEndpoint</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.connections">connections</a></code> | <code>aws-cdk-lib.aws_ec2.Connections</code> | The network connections associated with this resource. |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.endpointId">endpointId</a></code> | <code>string</code> | The endpoint ID. |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.maxAzs">maxAzs</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.serverCertificate">serverCertificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.subnets">subnets</a></code> | <code>aws-cdk-lib.aws_ec2.ISubnet[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.targetNetworksAssociated">targetNetworksAssociated</a></code> | <code>constructs.IDependable</code> | Dependable that can be depended upon to force target networks associations. |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.vpcCidrBlock">vpcCidrBlock</a></code> | <code>cdk-extensions.ec2.VpcCidrBlock</code> | *No description.* |
 | <code><a href="#cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.vpnCidr">vpnCidr</a></code> | <code>cdk-extensions.ec2.IIpv4CidrAssignment</code> | *No description.* |
@@ -22198,6 +22219,18 @@ The network connections associated with this resource.
 
 ---
 
+##### `endpointId`<sup>Required</sup> <a name="endpointId" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.endpointId"></a>
+
+```typescript
+public readonly endpointId: string;
+```
+
+- *Type:* string
+
+The endpoint ID.
+
+---
+
 ##### `maxAzs`<sup>Required</sup> <a name="maxAzs" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.maxAzs"></a>
 
 ```typescript
@@ -22225,6 +22258,18 @@ public readonly subnets: ISubnet[];
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.ISubnet[]
+
+---
+
+##### `targetNetworksAssociated`<sup>Required</sup> <a name="targetNetworksAssociated" id="cdk-extensions.ec2_patterns.NetworkIsolatedClientVpnEndpoint.property.targetNetworksAssociated"></a>
+
+```typescript
+public readonly targetNetworksAssociated: IDependable;
+```
+
+- *Type:* constructs.IDependable
+
+Dependable that can be depended upon to force target networks associations.
 
 ---
 
@@ -38791,6 +38836,75 @@ public readonly sources: string[];
 A list of identity sources to use when mapping a specified attribute to IAM Identity Center.
 
 > [[AWS::SSO::InstanceAccessControlAttributeConfiguration AccessControlAttributeValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source)]([AWS::SSO::InstanceAccessControlAttributeConfiguration AccessControlAttributeValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source))
+
+---
+
+### AddAuthorizationRuleOptions <a name="AddAuthorizationRuleOptions" id="cdk-extensions.ec2_patterns.AddAuthorizationRuleOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ec2_patterns.AddAuthorizationRuleOptions.Initializer"></a>
+
+```typescript
+import { ec2_patterns } from 'cdk-extensions'
+
+const addAuthorizationRuleOptions: ec2_patterns.AddAuthorizationRuleOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ec2_patterns.AddAuthorizationRuleOptions.property.cidr">cidr</a></code> | <code>string</code> | The IPv4 address range, in CIDR notation, of the network for which access is being authorized. |
+| <code><a href="#cdk-extensions.ec2_patterns.AddAuthorizationRuleOptions.property.description">description</a></code> | <code>string</code> | A brief description of the authorization rule. |
+| <code><a href="#cdk-extensions.ec2_patterns.AddAuthorizationRuleOptions.property.groupId">groupId</a></code> | <code>string</code> | The ID of the group to grant access to, for example, the Active Directory group or identity provider (IdP) group. |
+| <code><a href="#cdk-extensions.ec2_patterns.AddAuthorizationRuleOptions.property.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+
+---
+
+##### `cidr`<sup>Required</sup> <a name="cidr" id="cdk-extensions.ec2_patterns.AddAuthorizationRuleOptions.property.cidr"></a>
+
+```typescript
+public readonly cidr: string;
+```
+
+- *Type:* string
+
+The IPv4 address range, in CIDR notation, of the network for which access is being authorized.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.ec2_patterns.AddAuthorizationRuleOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+- *Default:* no description
+
+A brief description of the authorization rule.
+
+---
+
+##### `groupId`<sup>Optional</sup> <a name="groupId" id="cdk-extensions.ec2_patterns.AddAuthorizationRuleOptions.property.groupId"></a>
+
+```typescript
+public readonly groupId: string;
+```
+
+- *Type:* string
+- *Default:* authorize all groups
+
+The ID of the group to grant access to, for example, the Active Directory group or identity provider (IdP) group.
+
+---
+
+##### `scope`<sup>Optional</sup> <a name="scope" id="cdk-extensions.ec2_patterns.AddAuthorizationRuleOptions.property.scope"></a>
+
+```typescript
+public readonly scope: IConstruct;
+```
+
+- *Type:* constructs.IConstruct
 
 ---
 
