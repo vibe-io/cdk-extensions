@@ -130,6 +130,7 @@ export class FourTierNetworkHub extends FourTierNetwork {
 
   public addIsolatedClientVpnEndpoint(id: string, options: AddIsolatedClientVpnEndpointOptions): NetworkIsolatedClientVpnEndpoint {
     const vpn = super.addIsolatedClientVpnEndpoint(id, options);
+    this._clientVpns.push(vpn);
 
     if (this.transitGateway) {
       vpn.registerTransitGateway(this.transitGateway);
