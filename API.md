@@ -12243,8 +12243,6 @@ public readonly logFormat: FlowLogFormat;
 
 The fields to include in the flow log record, in the order in which they should appear.
 
-For a list of available fields, see {@link FlowLogField}.
-
 > [[FlowLog LogFormat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat)]([FlowLog LogFormat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat))
 
 ---
@@ -23561,13 +23559,13 @@ Check whether the given construct is a Resource.
 | <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.chart">chart</a></code> | <code>aws-cdk-lib.aws_eks.HelmChart</code> | The Helm chart that was used to deploy Prometheus. |
-| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.Cluster</code> | {@inheritdoc PrometheusProps.cluster}. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.Cluster</code> | The EKS cluster where Prometheus should be deployed. |
 | <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.fargateProfile">fargateProfile</a></code> | <code>aws-cdk-lib.aws_eks.FargateProfile</code> | The Fargate profile used for running the service in Fargate. |
-| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.namespace">namespace</a></code> | <code>string</code> | {@inheritdoc PrometheusOptions.namespace}. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be deployed. |
 | <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.serviceAccount">serviceAccount</a></code> | <code>aws-cdk-lib.aws_eks.ServiceAccount</code> | The service account that Prometheus will use to gain permissions for Kubernetes and AWS. |
-| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.serviceAccountName">serviceAccountName</a></code> | <code>string</code> | {@inheritdoc PrometheusOptions.serviceAccountName}. |
-| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.workspace">workspace</a></code> | <code>cdk-extensions.aps.IWorkspace</code> | {@inheritdoc PrometheusProps.workspace}. |
-| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | {@inheritdoc PropmetheusOptions.queueConfiguration}. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.serviceAccountName">serviceAccountName</a></code> | <code>string</code> | Name of the Kubernetes service account that should be created and used by Prometheus. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.workspace">workspace</a></code> | <code>cdk-extensions.aps.IWorkspace</code> | The Amazon Managed Service for Prometheus workspace where the Prometheus server should sned its data. |
+| <code><a href="#cdk-extensions.k8s_fargate.Prometheus.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | Configures the queue used to write to Amazon Managed Service for Prometheus. |
 
 ---
 
@@ -23634,7 +23632,7 @@ public readonly cluster: Cluster;
 
 - *Type:* aws-cdk-lib.aws_eks.Cluster
 
-{@inheritdoc PrometheusProps.cluster}.
+The EKS cluster where Prometheus should be deployed.
 
 ---
 
@@ -23658,7 +23656,7 @@ public readonly namespace: string;
 
 - *Type:* string
 
-{@inheritdoc PrometheusOptions.namespace}.
+The Kubernetes namespace where the service should be deployed.
 
 ---
 
@@ -23682,7 +23680,7 @@ public readonly serviceAccountName: string;
 
 - *Type:* string
 
-{@inheritdoc PrometheusOptions.serviceAccountName}.
+Name of the Kubernetes service account that should be created and used by Prometheus.
 
 ---
 
@@ -23694,7 +23692,7 @@ public readonly workspace: IWorkspace;
 
 - *Type:* cdk-extensions.aps.IWorkspace
 
-{@inheritdoc PrometheusProps.workspace}.
+The Amazon Managed Service for Prometheus workspace where the Prometheus server should sned its data.
 
 ---
 
@@ -23706,7 +23704,7 @@ public readonly queueConfiguration: QueueConfiguration;
 
 - *Type:* cdk-extensions.k8s_fargate.QueueConfiguration
 
-{@inheritdoc PropmetheusOptions.queueConfiguration}.
+Configures the queue used to write to Amazon Managed Service for Prometheus.
 
 ---
 
@@ -25440,8 +25438,8 @@ The AWS generated ID of the existing APS workspace to be imported.
 | <code><a href="#cdk-extensions.ram.ResourceShare.property.autoDiscovery">autoDiscovery</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.ram.ResourceShare.property.name">name</a></code> | <code>string</code> | Specifies the name of the resource share. |
 | <code><a href="#cdk-extensions.ram.ResourceShare.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ram.CfnResourceShare</code> | The underlying ResourceShare CloudFormation resource. |
-| <code><a href="#cdk-extensions.ram.ResourceShare.property.resourceShareArn">resourceShareArn</a></code> | <code>string</code> | {@inheritdoc IResourceShare.resourceShareArn}. |
-| <code><a href="#cdk-extensions.ram.ResourceShare.property.resourceShareId">resourceShareId</a></code> | <code>string</code> | {@inheritdoc IResourceShare.resourceShareId}. |
+| <code><a href="#cdk-extensions.ram.ResourceShare.property.resourceShareArn">resourceShareArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the RAM resource share. |
+| <code><a href="#cdk-extensions.ram.ResourceShare.property.resourceShareId">resourceShareId</a></code> | <code>string</code> | The ID of the RAM resource share. |
 | <code><a href="#cdk-extensions.ram.ResourceShare.property.allowExternalPrincipals">allowExternalPrincipals</a></code> | <code>boolean</code> | Specifies whether principals outside your organization in AWS Organizations can be associated with a resource share. |
 
 ---
@@ -25535,7 +25533,7 @@ public readonly resourceShareArn: string;
 
 - *Type:* string
 
-{@inheritdoc IResourceShare.resourceShareArn}.
+The Amazon Resource Name (ARN) of the RAM resource share.
 
 ---
 
@@ -25547,7 +25545,7 @@ public readonly resourceShareId: string;
 
 - *Type:* string
 
-{@inheritdoc IResourceShare.resourceShareId}.
+The ID of the RAM resource share.
 
 ---
 
@@ -44728,7 +44726,7 @@ const clusterPrometheusOptions: eks_patterns.ClusterPrometheusOptions = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be deployed. |
-| <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | {@inheritdoc QueueConfiguration}. |
+| <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | Configures the queue used to write to Amazon Managed Service for Prometheus. |
 | <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.serviceAccountName">serviceAccountName</a></code> | <code>string</code> | Name of the Kubernetes service account that should be created and used by Prometheus. |
 | <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.enabled">enabled</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-extensions.eks_patterns.ClusterPrometheusOptions.property.workspace">workspace</a></code> | <code>cdk-extensions.aps.IWorkspace</code> | *No description.* |
@@ -44755,7 +44753,7 @@ public readonly queueConfiguration: QueueConfiguration;
 
 - *Type:* cdk-extensions.k8s_fargate.QueueConfiguration
 
-{@inheritdoc QueueConfiguration}.
+Configures the queue used to write to Amazon Managed Service for Prometheus.
 
 ---
 
@@ -48686,8 +48684,6 @@ public readonly logFormat: FlowLogFormat;
 - *Type:* cdk-extensions.ec2.FlowLogFormat
 
 The fields to include in the flow log record, in the order in which they should appear.
-
-For a list of available fields, see {@link FlowLogField}.
 
 > [[FlowLog LogFormat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat)]([FlowLog LogFormat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logformat))
 
@@ -57985,7 +57981,7 @@ const prometheusOptions: k8s_fargate.PrometheusOptions = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.k8s_fargate.PrometheusOptions.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be deployed. |
-| <code><a href="#cdk-extensions.k8s_fargate.PrometheusOptions.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | {@inheritdoc QueueConfiguration}. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusOptions.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | Configures the queue used to write to Amazon Managed Service for Prometheus. |
 | <code><a href="#cdk-extensions.k8s_fargate.PrometheusOptions.property.serviceAccountName">serviceAccountName</a></code> | <code>string</code> | Name of the Kubernetes service account that should be created and used by Prometheus. |
 
 ---
@@ -58010,7 +58006,7 @@ public readonly queueConfiguration: QueueConfiguration;
 
 - *Type:* cdk-extensions.k8s_fargate.QueueConfiguration
 
-{@inheritdoc QueueConfiguration}.
+Configures the queue used to write to Amazon Managed Service for Prometheus.
 
 ---
 
@@ -58045,7 +58041,7 @@ const prometheusProps: k8s_fargate.PrometheusProps = { ... }
 | <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
 | <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
 | <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.namespace">namespace</a></code> | <code>string</code> | The Kubernetes namespace where the service should be deployed. |
-| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | {@inheritdoc QueueConfiguration}. |
+| <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.queueConfiguration">queueConfiguration</a></code> | <code>cdk-extensions.k8s_fargate.QueueConfiguration</code> | Configures the queue used to write to Amazon Managed Service for Prometheus. |
 | <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.serviceAccountName">serviceAccountName</a></code> | <code>string</code> | Name of the Kubernetes service account that should be created and used by Prometheus. |
 | <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.cluster">cluster</a></code> | <code>aws-cdk-lib.aws_eks.Cluster</code> | The EKS cluster where Prometheus should be deployed. |
 | <code><a href="#cdk-extensions.k8s_fargate.PrometheusProps.property.workspace">workspace</a></code> | <code>cdk-extensions.aps.IWorkspace</code> | The Amazon Managed Service for Prometheus workspace where the Prometheus server should sned its data. |
@@ -58135,7 +58131,7 @@ public readonly queueConfiguration: QueueConfiguration;
 
 - *Type:* cdk-extensions.k8s_fargate.QueueConfiguration
 
-{@inheritdoc QueueConfiguration}.
+Configures the queue used to write to Amazon Managed Service for Prometheus.
 
 ---
 
@@ -64453,7 +64449,7 @@ The ID of a Transit Gateway.
 This Transit Gateway may have been created by another VPC in the
 same account or shared by a VPC in another account. If this is passed then a Transit Gateway
 Attachment will be created for the specified Transit Gateway and a new one will not be created
-even if {@link TransitGatewayHubConfiguration.principal | principals} are provided.
+even if principals are provided.
 
 ---
 
@@ -77587,8 +77583,6 @@ Standard parse comfigurations which can be applied to Fluent Bit to allow for pa
 
 The records to which parsers are applied is controlled using the parser
 filter.
-
-> [{@link FluentBitParserFilter}]({@link FluentBitParserFilter})
 
 #### Initializers <a name="Initializers" id="cdk-extensions.k8s_aws.FluentBitParser.Initializer"></a>
 

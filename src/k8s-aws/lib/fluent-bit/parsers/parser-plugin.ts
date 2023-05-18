@@ -7,8 +7,6 @@ import { FluentBitJsonParser, FluentBitLogfmtParser, FluentBitLtsvParser, Fluent
  *
  * The records to which parsers are applied is controlled using the parser
  * filter.
- *
- * @see {@link FluentBitParserFilter}
  */
 export class FluentBitParser {
   /**

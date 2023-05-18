@@ -39,7 +39,8 @@ export interface PrometheusOptions {
   readonly namespace?: string;
 
   /**
-   * {@inheritdoc QueueConfiguration}
+   * Configures the queue used to write to Amazon Managed Service for
+   * Prometheus.
    */
   readonly queueConfiguration?: QueueConfiguration;
 
@@ -90,35 +91,38 @@ export class Prometheus extends Resource {
   public static readonly DEFAULT_NAMESPACE: string = 'prometheus';
 
   /**
-   * {@inheritdoc PrometheusProps.cluster}
+   * The EKS cluster where Prometheus should be deployed.
    *
    * @group Inputs
    */
   public readonly cluster: Cluster;
 
   /**
-   * {@inheritdoc PrometheusOptions.namespace}
+   * The Kubernetes namespace where the service should be deployed.
    *
    * @group Inputs
    */
   public readonly namespace: string;
 
   /**
-   * {@inheritdoc PropmetheusOptions.queueConfiguration}
+   * Configures the queue used to write to Amazon Managed Service for
+   * Prometheus.
    *
    * @group Inputs
    */
   public readonly queueConfiguration?: QueueConfiguration;
 
   /**
-   * {@inheritdoc PrometheusOptions.serviceAccountName}
+   * Name of the Kubernetes service account that should be created and used by
+   * Prometheus.
    *
    * @group Inputs
    */
   public readonly serviceAccountName: string;
 
   /**
-   * {@inheritdoc PrometheusProps.workspace}
+   * The Amazon Managed Service for Prometheus workspace where the Prometheus
+   * server should sned its data.
    *
    * @group Inputs
    */
