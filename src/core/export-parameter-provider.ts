@@ -118,5 +118,5 @@ class ParameterReferenceProvider implements IDynamicReferenceProvider {
   }
 }
 
-export const PROVIDER_KEY = 'dynamic-reference::export-parameter';
-export const PROVIDER = new ParameterReferenceProvider();
+export const PROVIDER_KEY: string = 'dynamic-reference::export-parameter';
+export const PROVIDER: IDynamicReferenceProvider = new ParameterReferenceProvider();

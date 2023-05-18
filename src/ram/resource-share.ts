@@ -289,12 +289,12 @@ export class ResourceShare extends ResourceShareBase {
   public readonly resource: CfnResourceShare;
 
   /**
-   * {@inheritdoc IResourceShare.resourceShareArn}
+   * The Amazon Resource Name (ARN) of the RAM resource share.
    */
   public readonly resourceShareArn: string;
 
   /**
-   * {@inheritdoc IResourceShare.resourceShareId}
+   * The ID of the RAM resource share.
    */
   public readonly resourceShareId: string;
 
