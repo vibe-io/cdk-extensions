@@ -409,25 +409,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.AlbLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
 
 ---
 
@@ -493,7 +493,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -516,7 +516,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -539,7 +539,13 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.AlbLogsBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -553,7 +559,7 @@ Adds a statement to the resource policy for a principal (i.e. account/role/serv
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -569,7 +575,18 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.AlbLogsBucket.grantDelete"></a>
 
@@ -577,7 +594,7 @@ Enables event bridge notification, causing all events below to be sent to EventB
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.AlbLogsBucket.grantDelete.parameter._identity"></a>
 
@@ -679,7 +696,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -702,7 +719,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -770,9 +787,10 @@ use the `grantPutAcl` method.
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
+Defines a CloudWatch event that triggers when something happens to this bucket.
 
-This method will not create the Trail.
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.AlbLogsBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -792,7 +810,7 @@ This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -819,7 +837,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -893,11 +911,9 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object.
+The https URL of an S3 object. For example:.
 
-For example:
-
-- `https://s3.us-west-1.amazonaws.com/onlybucket`
+`https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -913,12 +929,9 @@ For example:
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object.
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
 
-Specify `regional: false` at
-the options for non-regional URL. For example:
-
-- `https://only-bucket.s3.us-west-1.amazonaws.com`
+`https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -5193,25 +5206,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudfrontLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
 
 ---
 
@@ -5277,7 +5290,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -5300,7 +5313,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -5323,7 +5336,13 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -5337,7 +5356,7 @@ Adds a statement to the resource policy for a principal (i.e. account/role/serv
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -5353,7 +5372,18 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantDelete"></a>
 
@@ -5361,7 +5391,7 @@ Enables event bridge notification, causing all events below to be sent to EventB
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.grantDelete.parameter._identity"></a>
 
@@ -5463,7 +5493,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -5486,7 +5516,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -5554,9 +5584,10 @@ use the `grantPutAcl` method.
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
+Defines a CloudWatch event that triggers when something happens to this bucket.
 
-This method will not create the Trail.
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.CloudfrontLogsBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -5576,7 +5607,7 @@ This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -5603,7 +5634,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -5677,11 +5708,9 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object.
+The https URL of an S3 object. For example:.
 
-For example:
-
-- `https://s3.us-west-1.amazonaws.com/onlybucket`
+`https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -5697,12 +5726,9 @@ For example:
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object.
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
 
-Specify `regional: false` at
-the options for non-regional URL. For example:
-
-- `https://only-bucket.s3.us-west-1.amazonaws.com`
+`https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -6666,25 +6692,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.CloudtrailBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
 
 ---
 
@@ -6750,7 +6776,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -6773,7 +6799,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -6796,7 +6822,13 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.CloudtrailBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -6810,7 +6842,7 @@ Adds a statement to the resource policy for a principal (i.e. account/role/serv
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -6826,7 +6858,18 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.CloudtrailBucket.grantDelete"></a>
 
@@ -6834,7 +6877,7 @@ Enables event bridge notification, causing all events below to be sent to EventB
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.CloudtrailBucket.grantDelete.parameter._identity"></a>
 
@@ -6936,7 +6979,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -6959,7 +7002,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -7027,9 +7070,10 @@ use the `grantPutAcl` method.
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
+Defines a CloudWatch event that triggers when something happens to this bucket.
 
-This method will not create the Trail.
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.CloudtrailBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -7049,7 +7093,7 @@ This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -7076,7 +7120,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -7150,11 +7194,9 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object.
+The https URL of an S3 object. For example:.
 
-For example:
-
-- `https://s3.us-west-1.amazonaws.com/onlybucket`
+`https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -7170,12 +7212,9 @@ For example:
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object.
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
 
-Specify `regional: false` at
-the options for non-regional URL. For example:
-
-- `https://only-bucket.s3.us-west-1.amazonaws.com`
+`https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -12330,25 +12369,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.FlowLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
 
 ---
 
@@ -12414,7 +12453,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -12437,7 +12476,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -12460,7 +12499,13 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.FlowLogsBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -12474,7 +12519,7 @@ Adds a statement to the resource policy for a principal (i.e. account/role/serv
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -12490,7 +12535,18 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.FlowLogsBucket.grantDelete"></a>
 
@@ -12498,7 +12554,7 @@ Enables event bridge notification, causing all events below to be sent to EventB
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.FlowLogsBucket.grantDelete.parameter._identity"></a>
 
@@ -12600,7 +12656,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -12623,7 +12679,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -12691,9 +12747,10 @@ use the `grantPutAcl` method.
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
+Defines a CloudWatch event that triggers when something happens to this bucket.
 
-This method will not create the Trail.
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.FlowLogsBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -12713,7 +12770,7 @@ This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -12740,7 +12797,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -12814,11 +12871,9 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object.
+The https URL of an S3 object. For example:.
 
-For example:
-
-- `https://s3.us-west-1.amazonaws.com/onlybucket`
+`https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -12834,12 +12889,9 @@ For example:
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object.
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
 
-Specify `regional: false` at
-the options for non-regional URL. For example:
-
-- `https://only-bucket.s3.us-west-1.amazonaws.com`
+`https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -23762,25 +23814,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
 
 ---
 
@@ -23846,7 +23898,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -23869,7 +23921,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -23892,7 +23944,13 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.RawBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -23906,7 +23964,7 @@ Adds a statement to the resource policy for a principal (i.e. account/role/serv
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -23922,7 +23980,18 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.RawBucket.grantDelete"></a>
 
@@ -23930,7 +23999,7 @@ Enables event bridge notification, causing all events below to be sent to EventB
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.RawBucket.grantDelete.parameter._identity"></a>
 
@@ -24032,7 +24101,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -24055,7 +24124,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -24123,9 +24192,10 @@ use the `grantPutAcl` method.
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
+Defines a CloudWatch event that triggers when something happens to this bucket.
 
-This method will not create the Trail.
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.RawBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -24145,7 +24215,7 @@ This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -24172,7 +24242,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -24246,11 +24316,9 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object.
+The https URL of an S3 object. For example:.
 
-For example:
-
-- `https://s3.us-west-1.amazonaws.com/onlybucket`
+`https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -24266,12 +24334,9 @@ For example:
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object.
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
 
-Specify `regional: false` at
-the options for non-regional URL. For example:
-
-- `https://only-bucket.s3.us-west-1.amazonaws.com`
+`https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -26946,25 +27011,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
 | <code><a href="#cdk-extensions.s3_buckets.S3AccessLogsBucket.addLoggingAspect">addLoggingAspect</a></code> | *No description.* |
 
 ---
@@ -27031,7 +27096,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -27054,7 +27119,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -27077,7 +27142,13 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -27091,7 +27162,7 @@ Adds a statement to the resource policy for a principal (i.e. account/role/serv
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -27107,7 +27178,18 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.grantDelete"></a>
 
@@ -27115,7 +27197,7 @@ Enables event bridge notification, causing all events below to be sent to EventB
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.grantDelete.parameter._identity"></a>
 
@@ -27217,7 +27299,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -27240,7 +27322,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -27308,9 +27390,10 @@ use the `grantPutAcl` method.
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
+Defines a CloudWatch event that triggers when something happens to this bucket.
 
-This method will not create the Trail.
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.S3AccessLogsBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -27330,7 +27413,7 @@ This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -27357,7 +27440,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -27431,11 +27514,9 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object.
+The https URL of an S3 object. For example:.
 
-For example:
-
-- `https://s3.us-west-1.amazonaws.com/onlybucket`
+`https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -27451,12 +27532,9 @@ For example:
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object.
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
 
-Specify `regional: false` at
-the options for non-regional URL. For example:
-
-- `https://only-bucket.s3.us-west-1.amazonaws.com`
+`https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -29024,25 +29102,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.SesLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
 
 ---
 
@@ -29108,7 +29186,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -29131,7 +29209,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -29154,7 +29232,13 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.SesLogsBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -29168,7 +29252,7 @@ Adds a statement to the resource policy for a principal (i.e. account/role/serv
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -29184,7 +29268,18 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.SesLogsBucket.grantDelete"></a>
 
@@ -29192,7 +29287,7 @@ Enables event bridge notification, causing all events below to be sent to EventB
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.SesLogsBucket.grantDelete.parameter._identity"></a>
 
@@ -29294,7 +29389,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -29317,7 +29412,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -29385,9 +29480,10 @@ use the `grantPutAcl` method.
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
+Defines a CloudWatch event that triggers when something happens to this bucket.
 
-This method will not create the Trail.
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.SesLogsBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -29407,7 +29503,7 @@ This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -29434,7 +29530,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -29508,11 +29604,9 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object.
+The https URL of an S3 object. For example:.
 
-For example:
-
-- `https://s3.us-west-1.amazonaws.com/onlybucket`
+`https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -29528,12 +29622,9 @@ For example:
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object.
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
 
-Specify `regional: false` at
-the options for non-regional URL. For example:
-
-- `https://only-bucket.s3.us-west-1.amazonaws.com`
+`https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -35810,7 +35901,7 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.ec2.VpnConnection.metric">metric</a></code> | Return the given named metric for this VPNConnection. |
 | <code><a href="#cdk-extensions.ec2.VpnConnection.metricTunnelDataIn">metricTunnelDataIn</a></code> | The bytes received through the VPN tunnel. |
 | <code><a href="#cdk-extensions.ec2.VpnConnection.metricTunnelDataOut">metricTunnelDataOut</a></code> | The bytes sent through the VPN tunnel. |
-| <code><a href="#cdk-extensions.ec2.VpnConnection.metricTunnelState">metricTunnelState</a></code> | The state of the tunnel. |
+| <code><a href="#cdk-extensions.ec2.VpnConnection.metricTunnelState">metricTunnelState</a></code> | The state of the tunnel. 0 indicates DOWN and 1 indicates UP. |
 
 ---
 
@@ -35914,9 +36005,7 @@ Sum over 5 minutes
 public metricTunnelState(props?: MetricOptions): Metric
 ```
 
-The state of the tunnel.
-
-0 indicates DOWN and 1 indicates UP.
+The state of the tunnel. 0 indicates DOWN and 1 indicates UP.
 
 Average over 5 minutes
 
@@ -36209,25 +36298,25 @@ Arguments related to the configuration of the resource.
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantDelete">grantDelete</a></code> | Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantPublicAccess">grantPublicAccess</a></code> | Allows unrestricted access to objects from this bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantPut">grantPut</a></code> | Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal. |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantPutAcl">grantPutAcl</a></code> | Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantRead">grantRead</a></code> | Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantReadWrite">grantReadWrite</a></code> | Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User). |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.grantWrite">grantWrite</a></code> | Grant write permissions to this bucket to an IAM principal. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailEvent">onCloudTrailEvent</a></code> | Defines a CloudWatch event that triggers when something happens to this bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailPutObject">onCloudTrailPutObject</a></code> | Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailWriteObject">onCloudTrailWriteObject</a></code> | Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to. |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.s3UrlForObject">s3UrlForObject</a></code> | The S3 URL of an S3 object. |
 | <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.transferAccelerationUrlForObject">transferAccelerationUrlForObject</a></code> | The https Transfer Acceleration URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. |
-| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.urlForObject">urlForObject</a></code> | The https URL of an S3 object. For example:. |
+| <code><a href="#cdk-extensions.s3_buckets.WafLogsBucket.virtualHostedUrlForObject">virtualHostedUrlForObject</a></code> | The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:. |
 
 ---
 
@@ -36293,7 +36382,7 @@ Adds a bucket notification event destination.
 public addObjectCreatedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is created in the bucket.
+Subscribes a destination to receive notifications when an object is created in the bucket.
 
 This is identical to calling
 `onEvent(s3.EventType.OBJECT_CREATED)`.
@@ -36316,7 +36405,7 @@ This is identical to calling
 public addObjectRemovedNotification(_dest: IBucketNotificationDestination, _filters: NotificationKeyFilter): void
 ```
 
-Subscribes a destination to receive notifications when an object is removed from the bucket.
+Subscribes a destination to receive notifications when an object is removed from the bucket.
 
 This is identical to calling
 `onEvent(EventType.OBJECT_REMOVED)`.
@@ -36339,7 +36428,13 @@ This is identical to calling
 public addToResourcePolicy(permission: PolicyStatement): AddToResourcePolicyResult
 ```
 
-Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.  Note that the policy statement may or may not be added to the policy. For example, when an `IBucket` is created from an existing bucket, it's not possible to tell whether the bucket already has a policy attached, let alone to re-use that policy to add more statements to it. So it's safest to do nothing in these cases.
+Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+Note that the policy statement may or may not be added to the policy.
+For example, when an `IBucket` is created from an existing bucket,
+it's not possible to tell whether the bucket already has a policy
+attached, let alone to re-use that policy to add more statements to it.
+So it's safest to do nothing in these cases.
 
 ###### `permission`<sup>Required</sup> <a name="permission" id="cdk-extensions.s3_buckets.WafLogsBucket.addToResourcePolicy.parameter.permission"></a>
 
@@ -36353,7 +36448,7 @@ Adds a statement to the resource policy for a principal (i.e. account/role/serv
 public arnForObjects(_keyPattern: string): string
 ```
 
-Returns an ARN that represents all objects within the bucket that match the key pattern specified.
+Returns an ARN that represents all objects within the bucket that match the key pattern specified.
 
 To represent all keys, specify ``"*"``.
 
@@ -36369,7 +36464,18 @@ To represent all keys, specify ``"*"``.
 public enableEventBridgeNotification(): void
 ```
 
-Enables event bridge notification, causing all events below to be sent to EventBridge:  - Object Deleted (DeleteObject) - Object Deleted (Lifecycle expiration) - Object Restore Initiated - Object Restore Completed - Object Restore Expired - Object Storage Class Changed - Object Access Tier Changed - Object ACL Updated - Object Tags Added - Object Tags Deleted.
+Enables event bridge notification, causing all events below to be sent to EventBridge:.
+
+Object Deleted (DeleteObject)
+- Object Deleted (Lifecycle expiration)
+- Object Restore Initiated
+- Object Restore Completed
+- Object Restore Expired
+- Object Storage Class Changed
+- Object Access Tier Changed
+- Object ACL Updated
+- Object Tags Added
+- Object Tags Deleted
 
 ##### `grantDelete` <a name="grantDelete" id="cdk-extensions.s3_buckets.WafLogsBucket.grantDelete"></a>
 
@@ -36377,7 +36483,7 @@ Enables event bridge notification, causing all events below to be sent to EventB
 public grantDelete(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 
 ###### `_identity`<sup>Required</sup> <a name="_identity" id="cdk-extensions.s3_buckets.WafLogsBucket.grantDelete.parameter._identity"></a>
 
@@ -36479,7 +36585,7 @@ in this case, if you need to modify object ACLs, call this method explicitly.
 public grantRead(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If encryption is used, permission to use the key to decrypt the contents
 of the bucket will also be granted to the same principal.
@@ -36502,7 +36608,7 @@ of the bucket will also be granted to the same principal.
 public grantReadWrite(_identity: IGrantable, _objectsKeyPattern?: any): Grant
 ```
 
-Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 
 If an encryption key is used, permission to use the key for
 encrypt/decrypt will also be granted.
@@ -36570,9 +36676,10 @@ use the `grantPutAcl` method.
 public onCloudTrailEvent(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines a CloudWatch event that triggers when something happens to this bucket  Requires that there exists at least one CloudTrail Trail in your account that captures the event.
+Defines a CloudWatch event that triggers when something happens to this bucket.
 
-This method will not create the Trail.
+Requires that there exists at least one CloudTrail Trail in your account
+that captures the event. This method will not create the Trail.
 
 ###### `_id`<sup>Required</sup> <a name="_id" id="cdk-extensions.s3_buckets.WafLogsBucket.onCloudTrailEvent.parameter._id"></a>
 
@@ -36592,7 +36699,7 @@ This method will not create the Trail.
 public onCloudTrailPutObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
+Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
 
 Note that some tools like `aws s3 cp` will automatically use either
 PutObject or the multipart upload API depending on the file size,
@@ -36619,7 +36726,7 @@ that captures the event. This method will not create the Trail.
 public onCloudTrailWriteObject(_id: string, _options?: OnCloudTrailBucketEventOptions): Rule
 ```
 
-Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
+Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
 
 This includes
 the events PutObject, CopyObject, and CompleteMultipartUpload.
@@ -36693,11 +36800,9 @@ for dual-stack endpoint (connect to the bucket over IPv6). For example:
 public urlForObject(_key?: string): string
 ```
 
-The https URL of an S3 object.
+The https URL of an S3 object. For example:.
 
-For example:
-
-- `https://s3.us-west-1.amazonaws.com/onlybucket`
+`https://s3.us-west-1.amazonaws.com/onlybucket`
 - `https://s3.us-west-1.amazonaws.com/bucket/key`
 - `https://s3.cn-north-1.amazonaws.com.cn/china-bucket/mykey`
 
@@ -36713,12 +36818,9 @@ For example:
 public virtualHostedUrlForObject(_key?: string, _options?: VirtualHostedStyleUrlOptions): string
 ```
 
-The virtual hosted-style URL of an S3 object.
+The virtual hosted-style URL of an S3 object. Specify `regional: false` at the options for non-regional URL. For example:.
 
-Specify `regional: false` at
-the options for non-regional URL. For example:
-
-- `https://only-bucket.s3.us-west-1.amazonaws.com`
+`https://only-bucket.s3.us-west-1.amazonaws.com`
 - `https://bucket.s3.us-west-1.amazonaws.com/key`
 - `https://bucket.s3.amazonaws.com/key`
 - `https://china-bucket.s3.cn-north-1.amazonaws.com.cn/mykey`
@@ -85529,8 +85631,8 @@ new ec2.TieredSubnets(options: TieredSubnetsOptions)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.ec2.TieredSubnets.allocateSubnetsCidr">allocateSubnetsCidr</a></code> | Called by the VPC to retrieve Subnet options from the Ipam  Don't call this directly, the VPC will call it automatically. |
-| <code><a href="#cdk-extensions.ec2.TieredSubnets.allocateVpcCidr">allocateVpcCidr</a></code> | Called by the VPC to retrieve VPC options from the Ipam  Don't call this directly, the VPC will call it automatically. |
+| <code><a href="#cdk-extensions.ec2.TieredSubnets.allocateSubnetsCidr">allocateSubnetsCidr</a></code> | Called by the VPC to retrieve Subnet options from the Ipam. |
+| <code><a href="#cdk-extensions.ec2.TieredSubnets.allocateVpcCidr">allocateVpcCidr</a></code> | Called by the VPC to retrieve VPC options from the Ipam. |
 
 ---
 
@@ -85540,7 +85642,9 @@ new ec2.TieredSubnets(options: TieredSubnetsOptions)
 public allocateSubnetsCidr(input: AllocateCidrRequest): SubnetIpamOptions
 ```
 
-Called by the VPC to retrieve Subnet options from the Ipam  Don't call this directly, the VPC will call it automatically.
+Called by the VPC to retrieve Subnet options from the Ipam.
+
+Don't call this directly, the VPC will call it automatically.
 
 ###### `input`<sup>Required</sup> <a name="input" id="cdk-extensions.ec2.TieredSubnets.allocateSubnetsCidr.parameter.input"></a>
 
@@ -85554,7 +85658,9 @@ Called by the VPC to retrieve Subnet options from the Ipam  Don't call this di
 public allocateVpcCidr(): VpcIpamOptions
 ```
 
-Called by the VPC to retrieve VPC options from the Ipam  Don't call this directly, the VPC will call it automatically.
+Called by the VPC to retrieve VPC options from the Ipam.
+
+Don't call this directly, the VPC will call it automatically.
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -86013,8 +86119,8 @@ new ec2.TransitGatewayNatProvider(options: TransitGatewayNatProviderOptions)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-extensions.ec2.TransitGatewayNatProvider.configureNat">configureNat</a></code> | Called by the VPC to configure NAT  Don't call this directly, the VPC will call it automatically. |
-| <code><a href="#cdk-extensions.ec2.TransitGatewayNatProvider.configureSubnet">configureSubnet</a></code> | Configures subnet with the gateway  Don't call this directly, the VPC will call it automatically. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayNatProvider.configureNat">configureNat</a></code> | Called by the VPC to configure NAT. |
+| <code><a href="#cdk-extensions.ec2.TransitGatewayNatProvider.configureSubnet">configureSubnet</a></code> | Configures subnet with the gateway. |
 
 ---
 
@@ -86024,7 +86130,9 @@ new ec2.TransitGatewayNatProvider(options: TransitGatewayNatProviderOptions)
 public configureNat(options: ConfigureNatOptions): void
 ```
 
-Called by the VPC to configure NAT  Don't call this directly, the VPC will call it automatically.
+Called by the VPC to configure NAT.
+
+Don't call this directly, the VPC will call it automatically.
 
 ###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.ec2.TransitGatewayNatProvider.configureNat.parameter.options"></a>
 
@@ -86038,7 +86146,9 @@ Called by the VPC to configure NAT  Don't call this directly, the VPC will cal
 public configureSubnet(subnet: PrivateSubnet): void
 ```
 
-Configures subnet with the gateway  Don't call this directly, the VPC will call it automatically.
+Configures subnet with the gateway.
+
+Don't call this directly, the VPC will call it automatically.
 
 ###### `subnet`<sup>Required</sup> <a name="subnet" id="cdk-extensions.ec2.TransitGatewayNatProvider.configureSubnet.parameter.subnet"></a>
 
