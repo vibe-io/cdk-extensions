@@ -21,6 +21,7 @@ export * as networkmanager from './networkmanager';
 export * as ram from './ram';
 export * as ram_resources from './ram-resources';
 export * as rds from './rds';
+export * as resourcegroups from './resourcegroups';
 export * as route53 from './route53';
 export * as s3_buckets from './s3-buckets';
 export * as sso from './sso';
