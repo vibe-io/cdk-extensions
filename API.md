@@ -10423,6 +10423,726 @@ public readonly streamType: DeliveryStreamType;
 ---
 
 
+### DescriptionBuilder <a name="DescriptionBuilder" id="cdk-extensions.alerting.DescriptionBuilder"></a>
+
+- *Implements:* cdk-extensions.alerting.IDescriptionBuilderComponent, cdk-extensions.alerting.IDelayedChainable
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.DescriptionBuilder.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.DescriptionBuilder(scope: IConstruct, props?: DescriptionBuilderProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilder.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilder.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.DescriptionBuilderProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.DescriptionBuilder.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilder.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.DescriptionBuilderProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilder.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilder.addIterator">addIterator</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilder.addReference">addReference</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilder.addSection">addSection</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilder.render">render</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilder.setDelimiter">setDelimiter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilder.write">write</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.DescriptionBuilder.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addIterator` <a name="addIterator" id="cdk-extensions.alerting.DescriptionBuilder.addIterator"></a>
+
+```typescript
+public addIterator(id: string, props: DescriptionBuilderIteratorProps): DescriptionBuilderIterator
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilder.addIterator.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilder.addIterator.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.DescriptionBuilderIteratorProps
+
+---
+
+##### `addReference` <a name="addReference" id="cdk-extensions.alerting.DescriptionBuilder.addReference"></a>
+
+```typescript
+public addReference(id: string, props: AddReferenceProps): IChainable
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilder.addReference.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilder.addReference.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.AddReferenceProps
+
+---
+
+##### `addSection` <a name="addSection" id="cdk-extensions.alerting.DescriptionBuilder.addSection"></a>
+
+```typescript
+public addSection(id: string, props: DescriptionBuilderSectionProps): DescriptionBuilderSection
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilder.addSection.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilder.addSection.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.DescriptionBuilderSectionProps
+
+---
+
+##### `render` <a name="render" id="cdk-extensions.alerting.DescriptionBuilder.render"></a>
+
+```typescript
+public render(): IChainable
+```
+
+##### `setDelimiter` <a name="setDelimiter" id="cdk-extensions.alerting.DescriptionBuilder.setDelimiter"></a>
+
+```typescript
+public setDelimiter(id: string, props: SetDelimiterProps): IChainable
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilder.setDelimiter.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilder.setDelimiter.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.SetDelimiterProps
+
+---
+
+##### `write` <a name="write" id="cdk-extensions.alerting.DescriptionBuilder.write"></a>
+
+```typescript
+public write(id: string, props: WriteProps): IChainable
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilder.write.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilder.write.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.WriteProps
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilder.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.DescriptionBuilder.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.DescriptionBuilder.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.DescriptionBuilder.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilder.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilder.property.classifier">classifier</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilder.property.initialDescription">initialDescription</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilder.property.initializeNode">initializeNode</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IChainable</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.DescriptionBuilder.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `classifier`<sup>Required</sup> <a name="classifier" id="cdk-extensions.alerting.DescriptionBuilder.property.classifier"></a>
+
+```typescript
+public readonly classifier: string;
+```
+
+- *Type:* string
+
+---
+
+##### `initialDescription`<sup>Required</sup> <a name="initialDescription" id="cdk-extensions.alerting.DescriptionBuilder.property.initialDescription"></a>
+
+```typescript
+public readonly initialDescription: string;
+```
+
+- *Type:* string
+
+---
+
+##### `initializeNode`<sup>Required</sup> <a name="initializeNode" id="cdk-extensions.alerting.DescriptionBuilder.property.initializeNode"></a>
+
+```typescript
+public readonly initializeNode: IChainable;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IChainable
+
+---
+
+
+### DescriptionBuilderIterator <a name="DescriptionBuilderIterator" id="cdk-extensions.alerting.DescriptionBuilderIterator"></a>
+
+- *Implements:* cdk-extensions.alerting.IDescriptionBuilderComponent, cdk-extensions.alerting.IDelayedChainable
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.DescriptionBuilderIterator.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.DescriptionBuilderIterator(scope: IConstruct, id: string, props: DescriptionBuilderIteratorProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.DescriptionBuilderIteratorProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.DescriptionBuilderIterator.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilderIterator.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilderIterator.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.DescriptionBuilderIteratorProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.addIterator">addIterator</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.addReference">addReference</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.render">render</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.setDelimiter">setDelimiter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.write">write</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.DescriptionBuilderIterator.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addIterator` <a name="addIterator" id="cdk-extensions.alerting.DescriptionBuilderIterator.addIterator"></a>
+
+```typescript
+public addIterator(id: string, props: DescriptionBuilderIteratorProps): DescriptionBuilderIterator
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilderIterator.addIterator.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilderIterator.addIterator.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.DescriptionBuilderIteratorProps
+
+---
+
+##### `addReference` <a name="addReference" id="cdk-extensions.alerting.DescriptionBuilderIterator.addReference"></a>
+
+```typescript
+public addReference(id: string, props: AddReferenceProps): IChainable
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilderIterator.addReference.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilderIterator.addReference.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.AddReferenceProps
+
+---
+
+##### `render` <a name="render" id="cdk-extensions.alerting.DescriptionBuilderIterator.render"></a>
+
+```typescript
+public render(): IChainable
+```
+
+##### `setDelimiter` <a name="setDelimiter" id="cdk-extensions.alerting.DescriptionBuilderIterator.setDelimiter"></a>
+
+```typescript
+public setDelimiter(id: string, props: SetDelimiterProps): IChainable
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilderIterator.setDelimiter.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilderIterator.setDelimiter.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.SetDelimiterProps
+
+---
+
+##### `write` <a name="write" id="cdk-extensions.alerting.DescriptionBuilderIterator.write"></a>
+
+```typescript
+public write(id: string, props: WriteProps): IChainable
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilderIterator.write.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilderIterator.write.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.WriteProps
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.DescriptionBuilderIterator.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.DescriptionBuilderIterator.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.DescriptionBuilderIterator.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.property.arrayRef">arrayRef</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.property.classifier">classifier</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.property.fieldDelimiter">fieldDelimiter</a></code> | <code>cdk-extensions.alerting.AppendDelimiter</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.property.recordDelimiter">recordDelimiter</a></code> | <code>cdk-extensions.alerting.AppendDelimiter</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.property.resultPath">resultPath</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.property.sectionDelimiter">sectionDelimiter</a></code> | <code>cdk-extensions.alerting.AppendDelimiter</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIterator.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.DescriptionBuilderIterator.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `arrayRef`<sup>Required</sup> <a name="arrayRef" id="cdk-extensions.alerting.DescriptionBuilderIterator.property.arrayRef"></a>
+
+```typescript
+public readonly arrayRef: string;
+```
+
+- *Type:* string
+
+---
+
+##### `classifier`<sup>Required</sup> <a name="classifier" id="cdk-extensions.alerting.DescriptionBuilderIterator.property.classifier"></a>
+
+```typescript
+public readonly classifier: string;
+```
+
+- *Type:* string
+
+---
+
+##### `fieldDelimiter`<sup>Required</sup> <a name="fieldDelimiter" id="cdk-extensions.alerting.DescriptionBuilderIterator.property.fieldDelimiter"></a>
+
+```typescript
+public readonly fieldDelimiter: AppendDelimiter;
+```
+
+- *Type:* cdk-extensions.alerting.AppendDelimiter
+
+---
+
+##### `recordDelimiter`<sup>Required</sup> <a name="recordDelimiter" id="cdk-extensions.alerting.DescriptionBuilderIterator.property.recordDelimiter"></a>
+
+```typescript
+public readonly recordDelimiter: AppendDelimiter;
+```
+
+- *Type:* cdk-extensions.alerting.AppendDelimiter
+
+---
+
+##### `resultPath`<sup>Required</sup> <a name="resultPath" id="cdk-extensions.alerting.DescriptionBuilderIterator.property.resultPath"></a>
+
+```typescript
+public readonly resultPath: string;
+```
+
+- *Type:* string
+
+---
+
+##### `sectionDelimiter`<sup>Required</sup> <a name="sectionDelimiter" id="cdk-extensions.alerting.DescriptionBuilderIterator.property.sectionDelimiter"></a>
+
+```typescript
+public readonly sectionDelimiter: AppendDelimiter;
+```
+
+- *Type:* cdk-extensions.alerting.AppendDelimiter
+
+---
+
+##### `title`<sup>Optional</sup> <a name="title" id="cdk-extensions.alerting.DescriptionBuilderIterator.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+
+### DescriptionBuilderSection <a name="DescriptionBuilderSection" id="cdk-extensions.alerting.DescriptionBuilderSection"></a>
+
+- *Implements:* cdk-extensions.alerting.IDescriptionBuilderComponent, cdk-extensions.alerting.IDelayedChainable
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.DescriptionBuilderSection.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.DescriptionBuilderSection(scope: IConstruct, id: string, props: DescriptionBuilderSectionProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.DescriptionBuilderSectionProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.DescriptionBuilderSection.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilderSection.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilderSection.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.DescriptionBuilderSectionProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.addIterator">addIterator</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.addReference">addReference</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.addReferenceCheck">addReferenceCheck</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.render">render</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.setDelimiter">setDelimiter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.write">write</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.DescriptionBuilderSection.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addIterator` <a name="addIterator" id="cdk-extensions.alerting.DescriptionBuilderSection.addIterator"></a>
+
+```typescript
+public addIterator(id: string, props: DescriptionBuilderIteratorProps): DescriptionBuilderIterator
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilderSection.addIterator.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilderSection.addIterator.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.DescriptionBuilderIteratorProps
+
+---
+
+##### `addReference` <a name="addReference" id="cdk-extensions.alerting.DescriptionBuilderSection.addReference"></a>
+
+```typescript
+public addReference(id: string, props: AddReferenceProps): IChainable
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilderSection.addReference.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilderSection.addReference.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.AddReferenceProps
+
+---
+
+##### `addReferenceCheck` <a name="addReferenceCheck" id="cdk-extensions.alerting.DescriptionBuilderSection.addReferenceCheck"></a>
+
+```typescript
+public addReferenceCheck(ref: string): void
+```
+
+###### `ref`<sup>Required</sup> <a name="ref" id="cdk-extensions.alerting.DescriptionBuilderSection.addReferenceCheck.parameter.ref"></a>
+
+- *Type:* string
+
+---
+
+##### `render` <a name="render" id="cdk-extensions.alerting.DescriptionBuilderSection.render"></a>
+
+```typescript
+public render(): IChainable
+```
+
+##### `setDelimiter` <a name="setDelimiter" id="cdk-extensions.alerting.DescriptionBuilderSection.setDelimiter"></a>
+
+```typescript
+public setDelimiter(id: string, props: SetDelimiterProps): IChainable
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilderSection.setDelimiter.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilderSection.setDelimiter.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.SetDelimiterProps
+
+---
+
+##### `write` <a name="write" id="cdk-extensions.alerting.DescriptionBuilderSection.write"></a>
+
+```typescript
+public write(id: string, props: WriteProps): IChainable
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.DescriptionBuilderSection.write.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.DescriptionBuilderSection.write.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.WriteProps
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.DescriptionBuilderSection.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.DescriptionBuilderSection.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.DescriptionBuilderSection.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.property.classifier">classifier</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.property.refs">refs</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSection.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.DescriptionBuilderSection.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `classifier`<sup>Required</sup> <a name="classifier" id="cdk-extensions.alerting.DescriptionBuilderSection.property.classifier"></a>
+
+```typescript
+public readonly classifier: string;
+```
+
+- *Type:* string
+
+---
+
+##### `refs`<sup>Required</sup> <a name="refs" id="cdk-extensions.alerting.DescriptionBuilderSection.property.refs"></a>
+
+```typescript
+public readonly refs: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-extensions.alerting.DescriptionBuilderSection.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+
 ### Echoserver <a name="Echoserver" id="cdk-extensions.k8s_aws.Echoserver"></a>
 
 - *Implements:* aws-cdk-lib.aws_ec2.IConnectable, cdk-extensions.route53.IDnsResolvable
@@ -10895,6 +11615,323 @@ public readonly DEFAULT_TAG: string;
 - *Type:* string
 
 The default Docker tag of the image to use if none is provided as input.
+
+---
+
+### EcrScanFinding <a name="EcrScanFinding" id="cdk-extensions.alerting.EcrScanFinding"></a>
+
+- *Implements:* cdk-extensions.alerting.IIssueParser
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.EcrScanFinding.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.EcrScanFinding(scope: IConstruct, id: string, props?: EcrScanFindingProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.EcrScanFindingProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.EcrScanFinding.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.EcrScanFinding.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.EcrScanFinding.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.EcrScanFindingProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.bind">bind</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.registerIssueTrigger">registerIssueTrigger</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.EcrScanFinding.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.alerting.EcrScanFinding.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.alerting.EcrScanFinding.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.alerting.EcrScanFinding.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): IssueTrigger[]
+```
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.alerting.EcrScanFinding.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `registerIssueTrigger` <a name="registerIssueTrigger" id="cdk-extensions.alerting.EcrScanFinding.registerIssueTrigger"></a>
+
+```typescript
+public registerIssueTrigger(id: string, options?: EcrScanFindingEventOptions): IssueTrigger
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.EcrScanFinding.registerIssueTrigger.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.alerting.EcrScanFinding.registerIssueTrigger.parameter.options"></a>
+
+- *Type:* cdk-extensions.alerting.EcrScanFindingEventOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.EcrScanFinding.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.EcrScanFinding.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.EcrScanFinding.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.alerting.EcrScanFinding.isOwnedResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.EcrScanFinding.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.EcrScanFinding.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.alerting.EcrScanFinding.isResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.EcrScanFinding.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.EcrScanFinding.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.property.handler">handler</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.property.matchType">matchType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.property.triggers">triggers</a></code> | <code>cdk-extensions.alerting.IssueTrigger[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.EcrScanFinding.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.alerting.EcrScanFinding.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.alerting.EcrScanFinding.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `logging`<sup>Required</sup> <a name="logging" id="cdk-extensions.alerting.EcrScanFinding.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `handler`<sup>Required</sup> <a name="handler" id="cdk-extensions.alerting.EcrScanFinding.property.handler"></a>
+
+```typescript
+public readonly handler: IStateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IStateMachine
+
+---
+
+##### `matchType`<sup>Required</sup> <a name="matchType" id="cdk-extensions.alerting.EcrScanFinding.property.matchType"></a>
+
+```typescript
+public readonly matchType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `triggers`<sup>Required</sup> <a name="triggers" id="cdk-extensions.alerting.EcrScanFinding.property.triggers"></a>
+
+```typescript
+public readonly triggers: IssueTrigger[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueTrigger[]
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.EcrScanFinding.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.EcrScanFinding.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.property.MATCH_TYPE">MATCH_TYPE</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrScanFinding.property.SEVERITIES">SEVERITIES</a></code> | <code>cdk-extensions.alerting.EcrImageScanSeverity[]</code> | *No description.* |
+
+---
+
+##### `MATCH_TYPE`<sup>Required</sup> <a name="MATCH_TYPE" id="cdk-extensions.alerting.EcrScanFinding.property.MATCH_TYPE"></a>
+
+```typescript
+public readonly MATCH_TYPE: string;
+```
+
+- *Type:* string
+
+---
+
+##### `SEVERITIES`<sup>Required</sup> <a name="SEVERITIES" id="cdk-extensions.alerting.EcrScanFinding.property.SEVERITIES"></a>
+
+```typescript
+public readonly SEVERITIES: EcrImageScanSeverity[];
+```
+
+- *Type:* cdk-extensions.alerting.EcrImageScanSeverity[]
 
 ---
 
@@ -17159,6 +18196,663 @@ The type of entity being represented.
 ---
 
 
+### GuardDutyFinding <a name="GuardDutyFinding" id="cdk-extensions.alerting.GuardDutyFinding"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.GuardDutyFinding.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.GuardDutyFinding(scope: IConstruct, id: string, props?: GuardDutyFindingProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.GuardDutyFindingProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.GuardDutyFinding.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.GuardDutyFinding.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.GuardDutyFinding.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.GuardDutyFindingProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.bind">bind</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.addSectionField">addSectionField</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.registerIssueTrigger">registerIssueTrigger</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.GuardDutyFinding.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.alerting.GuardDutyFinding.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.alerting.GuardDutyFinding.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.alerting.GuardDutyFinding.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): IssueTrigger[]
+```
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.alerting.GuardDutyFinding.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `addSectionField` <a name="addSectionField" id="cdk-extensions.alerting.GuardDutyFinding.addSectionField"></a>
+
+```typescript
+public addSectionField(id: string, key: string, path: string): Chain
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.GuardDutyFinding.addSectionField.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.alerting.GuardDutyFinding.addSectionField.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `path`<sup>Required</sup> <a name="path" id="cdk-extensions.alerting.GuardDutyFinding.addSectionField.parameter.path"></a>
+
+- *Type:* string
+
+---
+
+##### `registerIssueTrigger` <a name="registerIssueTrigger" id="cdk-extensions.alerting.GuardDutyFinding.registerIssueTrigger"></a>
+
+```typescript
+public registerIssueTrigger(id: string, options?: GuardDutyFindingRuleOptions): IssueTrigger
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.GuardDutyFinding.registerIssueTrigger.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.alerting.GuardDutyFinding.registerIssueTrigger.parameter.options"></a>
+
+- *Type:* cdk-extensions.alerting.GuardDutyFindingRuleOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.GuardDutyFinding.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.GuardDutyFinding.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.GuardDutyFinding.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.alerting.GuardDutyFinding.isOwnedResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.GuardDutyFinding.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.GuardDutyFinding.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.alerting.GuardDutyFinding.isResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.GuardDutyFinding.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.GuardDutyFinding.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.property.handler">handler</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.property.matchType">matchType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.property.triggers">triggers</a></code> | <code>cdk-extensions.alerting.IssueTrigger[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.GuardDutyFinding.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.alerting.GuardDutyFinding.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.alerting.GuardDutyFinding.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `logging`<sup>Required</sup> <a name="logging" id="cdk-extensions.alerting.GuardDutyFinding.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `handler`<sup>Required</sup> <a name="handler" id="cdk-extensions.alerting.GuardDutyFinding.property.handler"></a>
+
+```typescript
+public readonly handler: IStateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IStateMachine
+
+---
+
+##### `matchType`<sup>Required</sup> <a name="matchType" id="cdk-extensions.alerting.GuardDutyFinding.property.matchType"></a>
+
+```typescript
+public readonly matchType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `triggers`<sup>Required</sup> <a name="triggers" id="cdk-extensions.alerting.GuardDutyFinding.property.triggers"></a>
+
+```typescript
+public readonly triggers: IssueTrigger[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueTrigger[]
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.GuardDutyFinding.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.GuardDutyFinding.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.property.MATCH_TYPE">MATCH_TYPE</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFinding.property.SEVERITIES">SEVERITIES</a></code> | <code>cdk-extensions.alerting.GuardDutySeverity[]</code> | *No description.* |
+
+---
+
+##### `MATCH_TYPE`<sup>Required</sup> <a name="MATCH_TYPE" id="cdk-extensions.alerting.GuardDutyFinding.property.MATCH_TYPE"></a>
+
+```typescript
+public readonly MATCH_TYPE: string;
+```
+
+- *Type:* string
+
+---
+
+##### `SEVERITIES`<sup>Required</sup> <a name="SEVERITIES" id="cdk-extensions.alerting.GuardDutyFinding.property.SEVERITIES"></a>
+
+```typescript
+public readonly SEVERITIES: GuardDutySeverity[];
+```
+
+- *Type:* cdk-extensions.alerting.GuardDutySeverity[]
+
+---
+
+### InspectorFinding <a name="InspectorFinding" id="cdk-extensions.alerting.InspectorFinding"></a>
+
+- *Implements:* cdk-extensions.alerting.IIssueParser
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.InspectorFinding.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.InspectorFinding(scope: IConstruct, id: string, props?: InspectorFindingProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.InspectorFindingProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.InspectorFinding.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.InspectorFinding.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.InspectorFinding.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.InspectorFindingProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.bind">bind</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.registerIssueTrigger">registerIssueTrigger</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.InspectorFinding.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.alerting.InspectorFinding.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.alerting.InspectorFinding.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.alerting.InspectorFinding.bind"></a>
+
+```typescript
+public bind(_node: IConstruct): IssueTrigger[]
+```
+
+###### `_node`<sup>Required</sup> <a name="_node" id="cdk-extensions.alerting.InspectorFinding.bind.parameter._node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `registerIssueTrigger` <a name="registerIssueTrigger" id="cdk-extensions.alerting.InspectorFinding.registerIssueTrigger"></a>
+
+```typescript
+public registerIssueTrigger(id: string, options?: InspectorFindingEventOptions): IssueTrigger
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.InspectorFinding.registerIssueTrigger.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.alerting.InspectorFinding.registerIssueTrigger.parameter.options"></a>
+
+- *Type:* cdk-extensions.alerting.InspectorFindingEventOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.InspectorFinding.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.InspectorFinding.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.InspectorFinding.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.alerting.InspectorFinding.isOwnedResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.InspectorFinding.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.InspectorFinding.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.alerting.InspectorFinding.isResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.InspectorFinding.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.InspectorFinding.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.property.handler">handler</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.property.matchType">matchType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.property.triggers">triggers</a></code> | <code>cdk-extensions.alerting.IssueTrigger[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.InspectorFinding.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.alerting.InspectorFinding.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.alerting.InspectorFinding.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `logging`<sup>Required</sup> <a name="logging" id="cdk-extensions.alerting.InspectorFinding.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `handler`<sup>Required</sup> <a name="handler" id="cdk-extensions.alerting.InspectorFinding.property.handler"></a>
+
+```typescript
+public readonly handler: IStateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IStateMachine
+
+---
+
+##### `matchType`<sup>Required</sup> <a name="matchType" id="cdk-extensions.alerting.InspectorFinding.property.matchType"></a>
+
+```typescript
+public readonly matchType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `triggers`<sup>Required</sup> <a name="triggers" id="cdk-extensions.alerting.InspectorFinding.property.triggers"></a>
+
+```typescript
+public readonly triggers: IssueTrigger[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueTrigger[]
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.InspectorFinding.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.InspectorFinding.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.property.MATCH_TYPE">MATCH_TYPE</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorFinding.property.SEVERITIES">SEVERITIES</a></code> | <code>cdk-extensions.alerting.InspectorSeverity[]</code> | *No description.* |
+
+---
+
+##### `MATCH_TYPE`<sup>Required</sup> <a name="MATCH_TYPE" id="cdk-extensions.alerting.InspectorFinding.property.MATCH_TYPE"></a>
+
+```typescript
+public readonly MATCH_TYPE: string;
+```
+
+- *Type:* string
+
+---
+
+##### `SEVERITIES`<sup>Required</sup> <a name="SEVERITIES" id="cdk-extensions.alerting.InspectorFinding.property.SEVERITIES"></a>
+
+```typescript
+public readonly SEVERITIES: InspectorSeverity[];
+```
+
+- *Type:* cdk-extensions.alerting.InspectorSeverity[]
+
+---
+
 ### InstanceAccessControlAttributeConfiguration <a name="InstanceAccessControlAttributeConfiguration" id="cdk-extensions.sso.InstanceAccessControlAttributeConfiguration"></a>
 
 Enables the attribute-based access control (ABAC) feature for the specified IAM Identity Center instance.
@@ -20389,6 +22083,879 @@ public readonly resource: CfnIPAMResourceDiscoveryAssociation;
 ---
 
 
+### IssueManager <a name="IssueManager" id="cdk-extensions.alerting.IssueManager"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.IssueManager.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.IssueManager(scope: IConstruct, id: string, props?: IssueManagerProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueManager.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueManager.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueManager.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.IssueManagerProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.IssueManager.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IssueManager.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.IssueManager.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.IssueManagerProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueManager.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.IssueManager.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.alerting.IssueManager.addHandler">addHandler</a></code> | Adds a destination that handles issues that get passed to the issue manager. |
+| <code><a href="#cdk-extensions.alerting.IssueManager.addIssueParser">addIssueParser</a></code> | Adds a parser that is used to transform incoming issues into a known format that can be passed to the destinations where they will be consumed by users. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.IssueManager.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.alerting.IssueManager.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.alerting.IssueManager.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addHandler` <a name="addHandler" id="cdk-extensions.alerting.IssueManager.addHandler"></a>
+
+```typescript
+public addHandler(handler: IIssueHandler): void
+```
+
+Adds a destination that handles issues that get passed to the issue manager.
+
+###### `handler`<sup>Required</sup> <a name="handler" id="cdk-extensions.alerting.IssueManager.addHandler.parameter.handler"></a>
+
+- *Type:* cdk-extensions.alerting.IIssueHandler
+
+The destination that will handle issues that have been raised.
+
+---
+
+##### `addIssueParser` <a name="addIssueParser" id="cdk-extensions.alerting.IssueManager.addIssueParser"></a>
+
+```typescript
+public addIssueParser(parser: IIssueParser): void
+```
+
+Adds a parser that is used to transform incoming issues into a known format that can be passed to the destinations where they will be consumed by users.
+
+###### `parser`<sup>Required</sup> <a name="parser" id="cdk-extensions.alerting.IssueManager.addIssueParser.parameter.parser"></a>
+
+- *Type:* cdk-extensions.alerting.IIssueParser
+
+A parser that handles a specific type of event that should trigger an issue to be raised.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueManager.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.alerting.IssueManager.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.alerting.IssueManager.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.IssueManager.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueManager.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.IssueManager.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.alerting.IssueManager.isOwnedResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueManager.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.IssueManager.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.alerting.IssueManager.isResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueManager.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.IssueManager.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueManager.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.IssueManager.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.IssueManager.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.alerting.IssueManager.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueManager.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.IssueManager.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.alerting.IssueManager.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.alerting.IssueManager.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.IssueManager.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.IssueManager.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+
+### IssueParserPluginBase <a name="IssueParserPluginBase" id="cdk-extensions.alerting.IssueParserPluginBase"></a>
+
+- *Implements:* cdk-extensions.alerting.IIssueParser
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.IssueParserPluginBase.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.IssueParserPluginBase(scope: IConstruct, id: string, props?: IssueParserPluginBaseProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.IssueParserPluginBaseProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.IssueParserPluginBase.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IssueParserPluginBase.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.IssueParserPluginBase.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.IssueParserPluginBaseProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.IssueParserPluginBase.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.alerting.IssueParserPluginBase.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.alerting.IssueParserPluginBase.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.alerting.IssueParserPluginBase.bind"></a>
+
+```typescript
+public bind(_node: IConstruct): IssueTrigger[]
+```
+
+###### `_node`<sup>Required</sup> <a name="_node" id="cdk-extensions.alerting.IssueParserPluginBase.bind.parameter._node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.IssueParserPluginBase.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueParserPluginBase.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.IssueParserPluginBase.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.alerting.IssueParserPluginBase.isOwnedResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueParserPluginBase.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.IssueParserPluginBase.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.alerting.IssueParserPluginBase.isResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueParserPluginBase.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.IssueParserPluginBase.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.property.handler">handler</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.property.matchType">matchType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.property.triggers">triggers</a></code> | <code>cdk-extensions.alerting.IssueTrigger[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBase.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.IssueParserPluginBase.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.alerting.IssueParserPluginBase.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.alerting.IssueParserPluginBase.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `logging`<sup>Required</sup> <a name="logging" id="cdk-extensions.alerting.IssueParserPluginBase.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `handler`<sup>Required</sup> <a name="handler" id="cdk-extensions.alerting.IssueParserPluginBase.property.handler"></a>
+
+```typescript
+public readonly handler: IStateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IStateMachine
+
+---
+
+##### `matchType`<sup>Required</sup> <a name="matchType" id="cdk-extensions.alerting.IssueParserPluginBase.property.matchType"></a>
+
+```typescript
+public readonly matchType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `triggers`<sup>Required</sup> <a name="triggers" id="cdk-extensions.alerting.IssueParserPluginBase.property.triggers"></a>
+
+```typescript
+public readonly triggers: IssueTrigger[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueTrigger[]
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.IssueParserPluginBase.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.IssueParserPluginBase.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+
+### IssuePluginBase <a name="IssuePluginBase" id="cdk-extensions.alerting.IssuePluginBase"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.IssuePluginBase.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.IssuePluginBase(scope: IConstruct, id: string, props: IssuePluginBaseProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBase.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.IssuePluginBaseProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.IssuePluginBase.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IssuePluginBase.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.IssuePluginBase.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.IssuePluginBaseProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.IssuePluginBase.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.alerting.IssuePluginBase.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.alerting.IssuePluginBase.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBase.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBase.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.IssuePluginBase.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssuePluginBase.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.IssuePluginBase.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.alerting.IssuePluginBase.isOwnedResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssuePluginBase.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.IssuePluginBase.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.alerting.IssuePluginBase.isResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssuePluginBase.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.IssuePluginBase.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBase.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBase.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.IssuePluginBase.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.alerting.IssuePluginBase.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.alerting.IssuePluginBase.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `logging`<sup>Required</sup> <a name="logging" id="cdk-extensions.alerting.IssuePluginBase.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+
+### IssueTrigger <a name="IssueTrigger" id="cdk-extensions.alerting.IssueTrigger"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.IssueTrigger.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.IssueTrigger(scope: IConstruct, id: string, props: IssueTriggerProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueTrigger.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueTrigger.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueTrigger.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.IssueTriggerProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.IssueTrigger.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IssueTrigger.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.IssueTrigger.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.IssueTriggerProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueTrigger.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.IssueTrigger.addOverride">addOverride</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueTrigger.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.IssueTrigger.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addOverride` <a name="addOverride" id="cdk-extensions.alerting.IssueTrigger.addOverride"></a>
+
+```typescript
+public addOverride(handlerOverrides: IssueHandlerOverride): void
+```
+
+###### `handlerOverrides`<sup>Required</sup> <a name="handlerOverrides" id="cdk-extensions.alerting.IssueTrigger.addOverride.parameter.handlerOverrides"></a>
+
+- *Type:* cdk-extensions.alerting.IssueHandlerOverride
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.alerting.IssueTrigger.bind"></a>
+
+```typescript
+public bind(stateMachine: StateMachine): Rule
+```
+
+###### `stateMachine`<sup>Required</sup> <a name="stateMachine" id="cdk-extensions.alerting.IssueTrigger.bind.parameter.stateMachine"></a>
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.StateMachine
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueTrigger.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.IssueTrigger.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueTrigger.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.IssueTrigger.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueTrigger.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.IssueTrigger.property.eventPattern">eventPattern</a></code> | <code>aws-cdk-lib.aws_events.EventPattern</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueTrigger.property.overrides">overrides</a></code> | <code>cdk-extensions.alerting.IssueHandlerOverride[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueTrigger.property.parser">parser</a></code> | <code>cdk-extensions.alerting.IIssueParser</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.IssueTrigger.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `eventPattern`<sup>Required</sup> <a name="eventPattern" id="cdk-extensions.alerting.IssueTrigger.property.eventPattern"></a>
+
+```typescript
+public readonly eventPattern: EventPattern;
+```
+
+- *Type:* aws-cdk-lib.aws_events.EventPattern
+
+---
+
+##### `overrides`<sup>Required</sup> <a name="overrides" id="cdk-extensions.alerting.IssueTrigger.property.overrides"></a>
+
+```typescript
+public readonly overrides: IssueHandlerOverride[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueHandlerOverride[]
+
+---
+
+##### `parser`<sup>Required</sup> <a name="parser" id="cdk-extensions.alerting.IssueTrigger.property.parser"></a>
+
+```typescript
+public readonly parser: IIssueParser;
+```
+
+- *Type:* cdk-extensions.alerting.IIssueParser
+
+---
+
+
 ### JdbcConnection <a name="JdbcConnection" id="cdk-extensions.glue.JdbcConnection"></a>
 
 Creates a Connection resource to a Java Database.
@@ -20796,6 +23363,428 @@ public readonly username: string;
 
 ---
 
+
+### JiraTicket <a name="JiraTicket" id="cdk-extensions.alerting.JiraTicket"></a>
+
+- *Implements:* cdk-extensions.alerting.IIssueHandler
+
+A standardized implementation that allows Jira tickets to be created in response to events detected in AWS.
+
+Intended for use with the `IssueManager` state machine which allows
+arbitrary types of events to be processed into standard values and then
+output or one of more issue tracking services.
+
+> [[AWS-CreateJiraIssue](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-createjiraissue.html)]([AWS-CreateJiraIssue](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-createjiraissue.html))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.JiraTicket.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.JiraTicket(scope: IConstruct, id: string, props: JiraTicketProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.JiraTicketProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.JiraTicket.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.JiraTicket.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.JiraTicket.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.JiraTicketProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.buildEventOverrides">buildEventOverrides</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.buildSeverityMap">buildSeverityMap</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.JiraTicket.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.alerting.JiraTicket.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.alerting.JiraTicket.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `buildEventOverrides` <a name="buildEventOverrides" id="cdk-extensions.alerting.JiraTicket.buildEventOverrides"></a>
+
+```typescript
+public buildEventOverrides(options: JiraTicketOverrideOptions): IssueHandlerOverride
+```
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.alerting.JiraTicket.buildEventOverrides.parameter.options"></a>
+
+- *Type:* cdk-extensions.alerting.JiraTicketOverrideOptions
+
+---
+
+##### `buildSeverityMap` <a name="buildSeverityMap" id="cdk-extensions.alerting.JiraTicket.buildSeverityMap"></a>
+
+```typescript
+public buildSeverityMap(): Chain
+```
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.JiraTicket.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.JiraTicket.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.JiraTicket.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.alerting.JiraTicket.isOwnedResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.JiraTicket.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.JiraTicket.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.alerting.JiraTicket.isResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.JiraTicket.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.JiraTicket.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.apiDestination">apiDestination</a></code> | <code>aws-cdk-lib.aws_events.ApiDestination</code> | Destination pointing to a Jira instance where tickets are to be created. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.connection">connection</a></code> | <code>aws-cdk-lib.aws_events.Connection</code> | API connection providing details of how to communicate with the configured Jira instance. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.credentials">credentials</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | The credentials to be used for connecting to Jira. The secret should be in JSON format and contain the key:. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.handler">handler</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | The State Machine that handles creating a Jira ticket for a passed issue. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.issueType">issueType</a></code> | <code>string</code> | The default issue type that issues should be created as if no other type is specified by the event that triggered the issue creation. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.jiraUrl">jiraUrl</a></code> | <code>string</code> | The URL of the Jira instance where tickets should be created. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.name">name</a></code> | <code>string</code> | The human friendly name that can be used to identify the plugin. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.priorityMap">priorityMap</a></code> | <code>cdk-extensions.alerting.JiraTicketPriorityMap</code> | A mapping of the standard severities supported by issue manager to priority levels supported by the destination Jira instance. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.project">project</a></code> | <code>string</code> | The name of the default project to use for creating issues if no other project is specified by the event that triggered the issue creation. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.assignee">assignee</a></code> | <code>string</code> | The default assignee that issues should be created with if no other assignee is specified by the event that triggered the issue creation. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus to use to trigger writes to the Jira instance. |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The length of time that the State Machine that handles creation of Jira tickets is allowed to run before timing out. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.JiraTicket.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.alerting.JiraTicket.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.alerting.JiraTicket.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `logging`<sup>Required</sup> <a name="logging" id="cdk-extensions.alerting.JiraTicket.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `apiDestination`<sup>Required</sup> <a name="apiDestination" id="cdk-extensions.alerting.JiraTicket.property.apiDestination"></a>
+
+```typescript
+public readonly apiDestination: ApiDestination;
+```
+
+- *Type:* aws-cdk-lib.aws_events.ApiDestination
+
+Destination pointing to a Jira instance where tickets are to be created.
+
+---
+
+##### `connection`<sup>Required</sup> <a name="connection" id="cdk-extensions.alerting.JiraTicket.property.connection"></a>
+
+```typescript
+public readonly connection: Connection;
+```
+
+- *Type:* aws-cdk-lib.aws_events.Connection
+
+API connection providing details of how to communicate with the configured Jira instance.
+
+---
+
+##### `credentials`<sup>Required</sup> <a name="credentials" id="cdk-extensions.alerting.JiraTicket.property.credentials"></a>
+
+```typescript
+public readonly credentials: ISecret;
+```
+
+- *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
+
+The credentials to be used for connecting to Jira. The secret should be in JSON format and contain the key:.
+
+username: The name of the user issues should be created as.
+password: A password or API key for the user specified in `username`.
+
+---
+
+##### `handler`<sup>Required</sup> <a name="handler" id="cdk-extensions.alerting.JiraTicket.property.handler"></a>
+
+```typescript
+public readonly handler: IStateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IStateMachine
+
+The State Machine that handles creating a Jira ticket for a passed issue.
+
+Internally this state machine uses the AWS managed `AWS-CreateJiraIssue`
+SSM Automation document.
+
+---
+
+##### `issueType`<sup>Required</sup> <a name="issueType" id="cdk-extensions.alerting.JiraTicket.property.issueType"></a>
+
+```typescript
+public readonly issueType: string;
+```
+
+- *Type:* string
+
+The default issue type that issues should be created as if no other type is specified by the event that triggered the issue creation.
+
+---
+
+##### `jiraUrl`<sup>Required</sup> <a name="jiraUrl" id="cdk-extensions.alerting.JiraTicket.property.jiraUrl"></a>
+
+```typescript
+public readonly jiraUrl: string;
+```
+
+- *Type:* string
+
+The URL of the Jira instance where tickets should be created.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.alerting.JiraTicket.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The human friendly name that can be used to identify the plugin.
+
+---
+
+##### `priorityMap`<sup>Required</sup> <a name="priorityMap" id="cdk-extensions.alerting.JiraTicket.property.priorityMap"></a>
+
+```typescript
+public readonly priorityMap: JiraTicketPriorityMap;
+```
+
+- *Type:* cdk-extensions.alerting.JiraTicketPriorityMap
+
+A mapping of the standard severities supported by issue manager to priority levels supported by the destination Jira instance.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdk-extensions.alerting.JiraTicket.property.project"></a>
+
+```typescript
+public readonly project: string;
+```
+
+- *Type:* string
+
+The name of the default project to use for creating issues if no other project is specified by the event that triggered the issue creation.
+
+---
+
+##### `assignee`<sup>Optional</sup> <a name="assignee" id="cdk-extensions.alerting.JiraTicket.property.assignee"></a>
+
+```typescript
+public readonly assignee: string;
+```
+
+- *Type:* string
+
+The default assignee that issues should be created with if no other assignee is specified by the event that triggered the issue creation.
+
+---
+
+##### `eventBus`<sup>Optional</sup> <a name="eventBus" id="cdk-extensions.alerting.JiraTicket.property.eventBus"></a>
+
+```typescript
+public readonly eventBus: IEventBus;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IEventBus
+
+The event bus to use to trigger writes to the Jira instance.
+
+This integration formats a Jira API response and then sends it to a Jira
+instance by means of an EventBridge Destination API and a specially
+crafted event pattern. This is the event bus where the rule to trigger the
+API will be added and the trigger event will be sent.
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.JiraTicket.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+The length of time that the State Machine that handles creation of Jira tickets is allowed to run before timing out.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.JiraTicket.property.DEFAULT_NAME">DEFAULT_NAME</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `DEFAULT_NAME`<sup>Required</sup> <a name="DEFAULT_NAME" id="cdk-extensions.alerting.JiraTicket.property.DEFAULT_NAME"></a>
+
+```typescript
+public readonly DEFAULT_NAME: string;
+```
+
+- *Type:* string
+
+---
 
 ### Job <a name="Job" id="cdk-extensions.glue.Job"></a>
 
@@ -22885,6 +25874,323 @@ public readonly DEFAULT_VPN_CIDR: string;
 ```
 
 - *Type:* string
+
+---
+
+### OpenSearchEvent <a name="OpenSearchEvent" id="cdk-extensions.alerting.OpenSearchEvent"></a>
+
+- *Implements:* cdk-extensions.alerting.IIssueParser
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.OpenSearchEvent.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.OpenSearchEvent(scope: IConstruct, id: string, props?: OpenSearchEventProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.OpenSearchEventProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.OpenSearchEvent.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.OpenSearchEvent.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.OpenSearchEvent.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.bind">bind</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.registerIssueTrigger">registerIssueTrigger</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.OpenSearchEvent.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.alerting.OpenSearchEvent.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.alerting.OpenSearchEvent.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.alerting.OpenSearchEvent.bind"></a>
+
+```typescript
+public bind(_node: IConstruct): IssueTrigger[]
+```
+
+###### `_node`<sup>Required</sup> <a name="_node" id="cdk-extensions.alerting.OpenSearchEvent.bind.parameter._node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `registerIssueTrigger` <a name="registerIssueTrigger" id="cdk-extensions.alerting.OpenSearchEvent.registerIssueTrigger"></a>
+
+```typescript
+public registerIssueTrigger(id: string, options?: OpenSearchEventRuleOptions): IssueTrigger
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.OpenSearchEvent.registerIssueTrigger.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.alerting.OpenSearchEvent.registerIssueTrigger.parameter.options"></a>
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventRuleOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.OpenSearchEvent.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.OpenSearchEvent.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.OpenSearchEvent.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.alerting.OpenSearchEvent.isOwnedResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.OpenSearchEvent.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.OpenSearchEvent.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.alerting.OpenSearchEvent.isResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.OpenSearchEvent.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.OpenSearchEvent.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.property.handler">handler</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.property.matchType">matchType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.property.triggers">triggers</a></code> | <code>cdk-extensions.alerting.IssueTrigger[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.OpenSearchEvent.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.alerting.OpenSearchEvent.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.alerting.OpenSearchEvent.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `logging`<sup>Required</sup> <a name="logging" id="cdk-extensions.alerting.OpenSearchEvent.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `handler`<sup>Required</sup> <a name="handler" id="cdk-extensions.alerting.OpenSearchEvent.property.handler"></a>
+
+```typescript
+public readonly handler: IStateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IStateMachine
+
+---
+
+##### `matchType`<sup>Required</sup> <a name="matchType" id="cdk-extensions.alerting.OpenSearchEvent.property.matchType"></a>
+
+```typescript
+public readonly matchType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `triggers`<sup>Required</sup> <a name="triggers" id="cdk-extensions.alerting.OpenSearchEvent.property.triggers"></a>
+
+```typescript
+public readonly triggers: IssueTrigger[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueTrigger[]
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.OpenSearchEvent.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.OpenSearchEvent.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.property.MATCH_TYPE">MATCH_TYPE</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEvent.property.SEVERITIES">SEVERITIES</a></code> | <code>cdk-extensions.alerting.OpenSearchEventSeverity[]</code> | *No description.* |
+
+---
+
+##### `MATCH_TYPE`<sup>Required</sup> <a name="MATCH_TYPE" id="cdk-extensions.alerting.OpenSearchEvent.property.MATCH_TYPE"></a>
+
+```typescript
+public readonly MATCH_TYPE: string;
+```
+
+- *Type:* string
+
+---
+
+##### `SEVERITIES`<sup>Required</sup> <a name="SEVERITIES" id="cdk-extensions.alerting.OpenSearchEvent.property.SEVERITIES"></a>
+
+```typescript
+public readonly SEVERITIES: OpenSearchEventSeverity[];
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventSeverity[]
 
 ---
 
@@ -29392,6 +32698,323 @@ public readonly s3Encryption: S3Encryption;
 
 ---
 
+
+### SecurityHubFinding <a name="SecurityHubFinding" id="cdk-extensions.alerting.SecurityHubFinding"></a>
+
+- *Implements:* cdk-extensions.alerting.IIssueParser
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.SecurityHubFinding.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.SecurityHubFinding(scope: IConstruct, id: string, props?: SecurityHubFindingProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.SecurityHubFindingProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.SecurityHubFinding.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.SecurityHubFinding.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.SecurityHubFinding.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.SecurityHubFindingProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.bind">bind</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.registerIssueTrigger">registerIssueTrigger</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.SecurityHubFinding.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.alerting.SecurityHubFinding.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.alerting.SecurityHubFinding.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.alerting.SecurityHubFinding.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): IssueTrigger[]
+```
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.alerting.SecurityHubFinding.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `registerIssueTrigger` <a name="registerIssueTrigger" id="cdk-extensions.alerting.SecurityHubFinding.registerIssueTrigger"></a>
+
+```typescript
+public registerIssueTrigger(id: string, options?: SecurityHubFindingEventOptions): IssueTrigger
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.SecurityHubFinding.registerIssueTrigger.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.alerting.SecurityHubFinding.registerIssueTrigger.parameter.options"></a>
+
+- *Type:* cdk-extensions.alerting.SecurityHubFindingEventOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.SecurityHubFinding.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.SecurityHubFinding.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.SecurityHubFinding.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.alerting.SecurityHubFinding.isOwnedResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.SecurityHubFinding.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.SecurityHubFinding.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.alerting.SecurityHubFinding.isResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.SecurityHubFinding.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.SecurityHubFinding.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.property.handler">handler</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.property.matchType">matchType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.property.triggers">triggers</a></code> | <code>cdk-extensions.alerting.IssueTrigger[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.SecurityHubFinding.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.alerting.SecurityHubFinding.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.alerting.SecurityHubFinding.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `logging`<sup>Required</sup> <a name="logging" id="cdk-extensions.alerting.SecurityHubFinding.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `handler`<sup>Required</sup> <a name="handler" id="cdk-extensions.alerting.SecurityHubFinding.property.handler"></a>
+
+```typescript
+public readonly handler: IStateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IStateMachine
+
+---
+
+##### `matchType`<sup>Required</sup> <a name="matchType" id="cdk-extensions.alerting.SecurityHubFinding.property.matchType"></a>
+
+```typescript
+public readonly matchType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `triggers`<sup>Required</sup> <a name="triggers" id="cdk-extensions.alerting.SecurityHubFinding.property.triggers"></a>
+
+```typescript
+public readonly triggers: IssueTrigger[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueTrigger[]
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.SecurityHubFinding.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.SecurityHubFinding.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.property.MATCH_TYPE">MATCH_TYPE</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFinding.property.SEVERITIES">SEVERITIES</a></code> | <code>cdk-extensions.alerting.SecurityHubSeverity[]</code> | *No description.* |
+
+---
+
+##### `MATCH_TYPE`<sup>Required</sup> <a name="MATCH_TYPE" id="cdk-extensions.alerting.SecurityHubFinding.property.MATCH_TYPE"></a>
+
+```typescript
+public readonly MATCH_TYPE: string;
+```
+
+- *Type:* string
+
+---
+
+##### `SEVERITIES`<sup>Required</sup> <a name="SEVERITIES" id="cdk-extensions.alerting.SecurityHubFinding.property.SEVERITIES"></a>
+
+```typescript
+public readonly SEVERITIES: SecurityHubSeverity[];
+```
+
+- *Type:* cdk-extensions.alerting.SecurityHubSeverity[]
+
+---
 
 ### SesLogsBucket <a name="SesLogsBucket" id="cdk-extensions.s3_buckets.SesLogsBucket"></a>
 
@@ -40700,6 +44323,67 @@ public readonly defaultNetmaskLength: number;
 
 ---
 
+### AddReferenceProps <a name="AddReferenceProps" id="cdk-extensions.alerting.AddReferenceProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.AddReferenceProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const addReferenceProps: alerting.AddReferenceProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.AddReferenceProps.property.value">value</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.AddReferenceProps.property.delimiter">delimiter</a></code> | <code>cdk-extensions.alerting.AppendDelimiter</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.AddReferenceProps.property.label">label</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.AddReferenceProps.property.required">required</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.alerting.AddReferenceProps.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
+
+---
+
+##### `delimiter`<sup>Optional</sup> <a name="delimiter" id="cdk-extensions.alerting.AddReferenceProps.property.delimiter"></a>
+
+```typescript
+public readonly delimiter: AppendDelimiter;
+```
+
+- *Type:* cdk-extensions.alerting.AppendDelimiter
+
+---
+
+##### `label`<sup>Optional</sup> <a name="label" id="cdk-extensions.alerting.AddReferenceProps.property.label"></a>
+
+```typescript
+public readonly label: string;
+```
+
+- *Type:* string
+
+---
+
+##### `required`<sup>Optional</sup> <a name="required" id="cdk-extensions.alerting.AddReferenceProps.property.required"></a>
+
+```typescript
+public readonly required: boolean;
+```
+
+- *Type:* boolean
+
+---
+
 ### AddressConfigurationProps <a name="AddressConfigurationProps" id="cdk-extensions.ec2.AddressConfigurationProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.ec2.AddressConfigurationProps.Initializer"></a>
@@ -47441,6 +51125,156 @@ public readonly streamType: DeliveryStreamType;
 
 ---
 
+### DescriptionBuilderIteratorProps <a name="DescriptionBuilderIteratorProps" id="cdk-extensions.alerting.DescriptionBuilderIteratorProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.DescriptionBuilderIteratorProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const descriptionBuilderIteratorProps: alerting.DescriptionBuilderIteratorProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIteratorProps.property.arrayRef">arrayRef</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIteratorProps.property.resultPath">resultPath</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIteratorProps.property.fieldDelimiter">fieldDelimiter</a></code> | <code>cdk-extensions.alerting.AppendDelimiter</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIteratorProps.property.recordDelimiter">recordDelimiter</a></code> | <code>cdk-extensions.alerting.AppendDelimiter</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIteratorProps.property.sectionDelimiter">sectionDelimiter</a></code> | <code>cdk-extensions.alerting.AppendDelimiter</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderIteratorProps.property.title">title</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `arrayRef`<sup>Required</sup> <a name="arrayRef" id="cdk-extensions.alerting.DescriptionBuilderIteratorProps.property.arrayRef"></a>
+
+```typescript
+public readonly arrayRef: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resultPath`<sup>Required</sup> <a name="resultPath" id="cdk-extensions.alerting.DescriptionBuilderIteratorProps.property.resultPath"></a>
+
+```typescript
+public readonly resultPath: string;
+```
+
+- *Type:* string
+
+---
+
+##### `fieldDelimiter`<sup>Optional</sup> <a name="fieldDelimiter" id="cdk-extensions.alerting.DescriptionBuilderIteratorProps.property.fieldDelimiter"></a>
+
+```typescript
+public readonly fieldDelimiter: AppendDelimiter;
+```
+
+- *Type:* cdk-extensions.alerting.AppendDelimiter
+
+---
+
+##### `recordDelimiter`<sup>Optional</sup> <a name="recordDelimiter" id="cdk-extensions.alerting.DescriptionBuilderIteratorProps.property.recordDelimiter"></a>
+
+```typescript
+public readonly recordDelimiter: AppendDelimiter;
+```
+
+- *Type:* cdk-extensions.alerting.AppendDelimiter
+
+---
+
+##### `sectionDelimiter`<sup>Optional</sup> <a name="sectionDelimiter" id="cdk-extensions.alerting.DescriptionBuilderIteratorProps.property.sectionDelimiter"></a>
+
+```typescript
+public readonly sectionDelimiter: AppendDelimiter;
+```
+
+- *Type:* cdk-extensions.alerting.AppendDelimiter
+
+---
+
+##### `title`<sup>Optional</sup> <a name="title" id="cdk-extensions.alerting.DescriptionBuilderIteratorProps.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+### DescriptionBuilderProps <a name="DescriptionBuilderProps" id="cdk-extensions.alerting.DescriptionBuilderProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.DescriptionBuilderProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const descriptionBuilderProps: alerting.DescriptionBuilderProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderProps.property.initialDescription">initialDescription</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `initialDescription`<sup>Optional</sup> <a name="initialDescription" id="cdk-extensions.alerting.DescriptionBuilderProps.property.initialDescription"></a>
+
+```typescript
+public readonly initialDescription: string;
+```
+
+- *Type:* string
+
+---
+
+### DescriptionBuilderSectionProps <a name="DescriptionBuilderSectionProps" id="cdk-extensions.alerting.DescriptionBuilderSectionProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.DescriptionBuilderSectionProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const descriptionBuilderSectionProps: alerting.DescriptionBuilderSectionProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSectionProps.property.title">title</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DescriptionBuilderSectionProps.property.referenceChecks">referenceChecks</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `title`<sup>Required</sup> <a name="title" id="cdk-extensions.alerting.DescriptionBuilderSectionProps.property.title"></a>
+
+```typescript
+public readonly title: string;
+```
+
+- *Type:* string
+
+---
+
+##### `referenceChecks`<sup>Optional</sup> <a name="referenceChecks" id="cdk-extensions.alerting.DescriptionBuilderSectionProps.property.referenceChecks"></a>
+
+```typescript
+public readonly referenceChecks: string[];
+```
+
+- *Type:* string[]
+
+---
+
 ### DomainOptions <a name="DomainOptions" id="cdk-extensions.route53.DomainOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.route53.DomainOptions.Initializer"></a>
@@ -47739,6 +51573,173 @@ public readonly tag: string;
 The Docker tag specifying the version of echoserver to use.
 
 > [[Google echoserver image repository](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/echoserver)]([Google echoserver image repository](https://console.cloud.google.com/gcr/images/google-containers/GLOBAL/echoserver))
+
+---
+
+### EcrScanFindingEventOptions <a name="EcrScanFindingEventOptions" id="cdk-extensions.alerting.EcrScanFindingEventOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.EcrScanFindingEventOptions.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const ecrScanFindingEventOptions: alerting.EcrScanFindingEventOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.EcrScanFindingEventOptions.property.overrides">overrides</a></code> | <code>cdk-extensions.alerting.IssueHandlerOverride[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrScanFindingEventOptions.property.severity">severity</a></code> | <code>cdk-extensions.alerting.IEcrImageScanSeverityConfiguration</code> | *No description.* |
+
+---
+
+##### `overrides`<sup>Optional</sup> <a name="overrides" id="cdk-extensions.alerting.EcrScanFindingEventOptions.property.overrides"></a>
+
+```typescript
+public readonly overrides: IssueHandlerOverride[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueHandlerOverride[]
+
+---
+
+##### `severity`<sup>Optional</sup> <a name="severity" id="cdk-extensions.alerting.EcrScanFindingEventOptions.property.severity"></a>
+
+```typescript
+public readonly severity: IEcrImageScanSeverityConfiguration;
+```
+
+- *Type:* cdk-extensions.alerting.IEcrImageScanSeverityConfiguration
+
+---
+
+### EcrScanFindingProps <a name="EcrScanFindingProps" id="cdk-extensions.alerting.EcrScanFindingProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.EcrScanFindingProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const ecrScanFindingProps: alerting.EcrScanFindingProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.EcrScanFindingProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.EcrScanFindingProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.alerting.EcrScanFindingProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.alerting.EcrScanFindingProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.EcrScanFindingProps.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrScanFindingProps.property.matchType">matchType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrScanFindingProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrScanFindingProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.alerting.EcrScanFindingProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.alerting.EcrScanFindingProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.alerting.EcrScanFindingProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.alerting.EcrScanFindingProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.alerting.EcrScanFindingProps.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `matchType`<sup>Optional</sup> <a name="matchType" id="cdk-extensions.alerting.EcrScanFindingProps.property.matchType"></a>
+
+```typescript
+public readonly matchType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.EcrScanFindingProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.EcrScanFindingProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
 
 ---
 
@@ -53847,6 +57848,140 @@ public readonly name: string;
 
 ---
 
+### GuardDutyFindingProps <a name="GuardDutyFindingProps" id="cdk-extensions.alerting.GuardDutyFindingProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.GuardDutyFindingProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const guardDutyFindingProps: alerting.GuardDutyFindingProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFindingProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFindingProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFindingProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFindingProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFindingProps.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.alerting.GuardDutyFindingProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.alerting.GuardDutyFindingProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.alerting.GuardDutyFindingProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.alerting.GuardDutyFindingProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.alerting.GuardDutyFindingProps.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+### GuardDutyFindingRuleOptions <a name="GuardDutyFindingRuleOptions" id="cdk-extensions.alerting.GuardDutyFindingRuleOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.GuardDutyFindingRuleOptions.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const guardDutyFindingRuleOptions: alerting.GuardDutyFindingRuleOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFindingRuleOptions.property.overrides">overrides</a></code> | <code>cdk-extensions.alerting.IssueHandlerOverride[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutyFindingRuleOptions.property.severity">severity</a></code> | <code>cdk-extensions.alerting.GuardDutySeverity[]</code> | *No description.* |
+
+---
+
+##### `overrides`<sup>Optional</sup> <a name="overrides" id="cdk-extensions.alerting.GuardDutyFindingRuleOptions.property.overrides"></a>
+
+```typescript
+public readonly overrides: IssueHandlerOverride[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueHandlerOverride[]
+
+---
+
+##### `severity`<sup>Optional</sup> <a name="severity" id="cdk-extensions.alerting.GuardDutyFindingRuleOptions.property.severity"></a>
+
+```typescript
+public readonly severity: GuardDutySeverity[];
+```
+
+- *Type:* cdk-extensions.alerting.GuardDutySeverity[]
+
+---
+
 ### HiveJsonInputSerDeOptions <a name="HiveJsonInputSerDeOptions" id="cdk-extensions.kinesis_firehose.HiveJsonInputSerDeOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.HiveJsonInputSerDeOptions.Initializer"></a>
@@ -53985,6 +58120,173 @@ public readonly processorConfiguration: ProcessorConfiguration;
 
 ```typescript
 public readonly retryDuration: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+### InspectorFindingEventOptions <a name="InspectorFindingEventOptions" id="cdk-extensions.alerting.InspectorFindingEventOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.InspectorFindingEventOptions.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const inspectorFindingEventOptions: alerting.InspectorFindingEventOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.InspectorFindingEventOptions.property.overrides">overrides</a></code> | <code>cdk-extensions.alerting.IssueHandlerOverride[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorFindingEventOptions.property.severity">severity</a></code> | <code>cdk-extensions.alerting.InspectorSeverity[]</code> | *No description.* |
+
+---
+
+##### `overrides`<sup>Optional</sup> <a name="overrides" id="cdk-extensions.alerting.InspectorFindingEventOptions.property.overrides"></a>
+
+```typescript
+public readonly overrides: IssueHandlerOverride[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueHandlerOverride[]
+
+---
+
+##### `severity`<sup>Optional</sup> <a name="severity" id="cdk-extensions.alerting.InspectorFindingEventOptions.property.severity"></a>
+
+```typescript
+public readonly severity: InspectorSeverity[];
+```
+
+- *Type:* cdk-extensions.alerting.InspectorSeverity[]
+
+---
+
+### InspectorFindingProps <a name="InspectorFindingProps" id="cdk-extensions.alerting.InspectorFindingProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.InspectorFindingProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const inspectorFindingProps: alerting.InspectorFindingProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.InspectorFindingProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.InspectorFindingProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.alerting.InspectorFindingProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.alerting.InspectorFindingProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.InspectorFindingProps.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorFindingProps.property.matchType">matchType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorFindingProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorFindingProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.alerting.InspectorFindingProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.alerting.InspectorFindingProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.alerting.InspectorFindingProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.alerting.InspectorFindingProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.alerting.InspectorFindingProps.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `matchType`<sup>Optional</sup> <a name="matchType" id="cdk-extensions.alerting.InspectorFindingProps.property.matchType"></a>
+
+```typescript
+public readonly matchType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.InspectorFindingProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.InspectorFindingProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
@@ -55749,6 +60051,407 @@ public readonly publiclyAdvertisable: boolean;
 
 ---
 
+### IssueManagerProps <a name="IssueManagerProps" id="cdk-extensions.alerting.IssueManagerProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.IssueManagerProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const issueManagerProps: alerting.IssueManagerProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueManagerProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.IssueManagerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.alerting.IssueManagerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.alerting.IssueManagerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.IssueManagerProps.property.handlers">handlers</a></code> | <code>cdk-extensions.alerting.IIssueHandler[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueManagerProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueManagerProps.property.parsers">parsers</a></code> | <code>cdk-extensions.alerting.IIssueParser[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueManagerProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.alerting.IssueManagerProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.alerting.IssueManagerProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.alerting.IssueManagerProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.alerting.IssueManagerProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `handlers`<sup>Optional</sup> <a name="handlers" id="cdk-extensions.alerting.IssueManagerProps.property.handlers"></a>
+
+```typescript
+public readonly handlers: IIssueHandler[];
+```
+
+- *Type:* cdk-extensions.alerting.IIssueHandler[]
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.IssueManagerProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `parsers`<sup>Optional</sup> <a name="parsers" id="cdk-extensions.alerting.IssueManagerProps.property.parsers"></a>
+
+```typescript
+public readonly parsers: IIssueParser[];
+```
+
+- *Type:* cdk-extensions.alerting.IIssueParser[]
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.IssueManagerProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+### IssueParserPluginBaseProps <a name="IssueParserPluginBaseProps" id="cdk-extensions.alerting.IssueParserPluginBaseProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.IssueParserPluginBaseProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const issueParserPluginBaseProps: alerting.IssueParserPluginBaseProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBaseProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBaseProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBaseProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBaseProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBaseProps.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBaseProps.property.matchType">matchType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBaseProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParserPluginBaseProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.alerting.IssueParserPluginBaseProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.alerting.IssueParserPluginBaseProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.alerting.IssueParserPluginBaseProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.alerting.IssueParserPluginBaseProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.alerting.IssueParserPluginBaseProps.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `matchType`<sup>Optional</sup> <a name="matchType" id="cdk-extensions.alerting.IssueParserPluginBaseProps.property.matchType"></a>
+
+```typescript
+public readonly matchType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.IssueParserPluginBaseProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.IssueParserPluginBaseProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+### IssuePluginBaseProps <a name="IssuePluginBaseProps" id="cdk-extensions.alerting.IssuePluginBaseProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.IssuePluginBaseProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const issuePluginBaseProps: alerting.IssuePluginBaseProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBaseProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBaseProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBaseProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBaseProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.IssuePluginBaseProps.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.alerting.IssuePluginBaseProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.alerting.IssuePluginBaseProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.alerting.IssuePluginBaseProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.alerting.IssuePluginBaseProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.alerting.IssuePluginBaseProps.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+### IssueTriggerProps <a name="IssueTriggerProps" id="cdk-extensions.alerting.IssueTriggerProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.IssueTriggerProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const issueTriggerProps: alerting.IssueTriggerProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueTriggerProps.property.eventPattern">eventPattern</a></code> | <code>aws-cdk-lib.aws_events.EventPattern</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueTriggerProps.property.parser">parser</a></code> | <code>cdk-extensions.alerting.IIssueParser</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueTriggerProps.property.overrides">overrides</a></code> | <code>cdk-extensions.alerting.IssueHandlerOverride[]</code> | *No description.* |
+
+---
+
+##### `eventPattern`<sup>Required</sup> <a name="eventPattern" id="cdk-extensions.alerting.IssueTriggerProps.property.eventPattern"></a>
+
+```typescript
+public readonly eventPattern: EventPattern;
+```
+
+- *Type:* aws-cdk-lib.aws_events.EventPattern
+
+---
+
+##### `parser`<sup>Required</sup> <a name="parser" id="cdk-extensions.alerting.IssueTriggerProps.property.parser"></a>
+
+```typescript
+public readonly parser: IIssueParser;
+```
+
+- *Type:* cdk-extensions.alerting.IIssueParser
+
+---
+
+##### `overrides`<sup>Optional</sup> <a name="overrides" id="cdk-extensions.alerting.IssueTriggerProps.property.overrides"></a>
+
+```typescript
+public readonly overrides: IssueHandlerOverride[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueHandlerOverride[]
+
+---
+
 ### JdbcConnectionProps <a name="JdbcConnectionProps" id="cdk-extensions.glue.JdbcConnectionProps"></a>
 
 Configuration for the Glue Workflow resource.
@@ -56012,6 +60715,346 @@ public readonly paths: string[];
 The path of the JDBC target.
 
 > [[AWS::Glue::Crawler JdbcTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-path)]([AWS::Glue::Crawler JdbcTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-path))
+
+---
+
+### JiraTicketOverrideOptions <a name="JiraTicketOverrideOptions" id="cdk-extensions.alerting.JiraTicketOverrideOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.JiraTicketOverrideOptions.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const jiraTicketOverrideOptions: alerting.JiraTicketOverrideOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.JiraTicketOverrideOptions.property.assignee">assignee</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketOverrideOptions.property.issuePriority">issuePriority</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketOverrideOptions.property.issueType">issueType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketOverrideOptions.property.project">project</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `assignee`<sup>Optional</sup> <a name="assignee" id="cdk-extensions.alerting.JiraTicketOverrideOptions.property.assignee"></a>
+
+```typescript
+public readonly assignee: string;
+```
+
+- *Type:* string
+
+---
+
+##### `issuePriority`<sup>Optional</sup> <a name="issuePriority" id="cdk-extensions.alerting.JiraTicketOverrideOptions.property.issuePriority"></a>
+
+```typescript
+public readonly issuePriority: string;
+```
+
+- *Type:* string
+
+---
+
+##### `issueType`<sup>Optional</sup> <a name="issueType" id="cdk-extensions.alerting.JiraTicketOverrideOptions.property.issueType"></a>
+
+```typescript
+public readonly issueType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `project`<sup>Optional</sup> <a name="project" id="cdk-extensions.alerting.JiraTicketOverrideOptions.property.project"></a>
+
+```typescript
+public readonly project: string;
+```
+
+- *Type:* string
+
+---
+
+### JiraTicketPriorityMap <a name="JiraTicketPriorityMap" id="cdk-extensions.alerting.JiraTicketPriorityMap"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.JiraTicketPriorityMap.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const jiraTicketPriorityMap: alerting.JiraTicketPriorityMap = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.JiraTicketPriorityMap.property.critical">critical</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketPriorityMap.property.default">default</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketPriorityMap.property.high">high</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketPriorityMap.property.info">info</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketPriorityMap.property.low">low</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketPriorityMap.property.medium">medium</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `critical`<sup>Optional</sup> <a name="critical" id="cdk-extensions.alerting.JiraTicketPriorityMap.property.critical"></a>
+
+```typescript
+public readonly critical: string;
+```
+
+- *Type:* string
+
+---
+
+##### `default`<sup>Optional</sup> <a name="default" id="cdk-extensions.alerting.JiraTicketPriorityMap.property.default"></a>
+
+```typescript
+public readonly default: string;
+```
+
+- *Type:* string
+
+---
+
+##### `high`<sup>Optional</sup> <a name="high" id="cdk-extensions.alerting.JiraTicketPriorityMap.property.high"></a>
+
+```typescript
+public readonly high: string;
+```
+
+- *Type:* string
+
+---
+
+##### `info`<sup>Optional</sup> <a name="info" id="cdk-extensions.alerting.JiraTicketPriorityMap.property.info"></a>
+
+```typescript
+public readonly info: string;
+```
+
+- *Type:* string
+
+---
+
+##### `low`<sup>Optional</sup> <a name="low" id="cdk-extensions.alerting.JiraTicketPriorityMap.property.low"></a>
+
+```typescript
+public readonly low: string;
+```
+
+- *Type:* string
+
+---
+
+##### `medium`<sup>Optional</sup> <a name="medium" id="cdk-extensions.alerting.JiraTicketPriorityMap.property.medium"></a>
+
+```typescript
+public readonly medium: string;
+```
+
+- *Type:* string
+
+---
+
+### JiraTicketProps <a name="JiraTicketProps" id="cdk-extensions.alerting.JiraTicketProps"></a>
+
+Configuration controlling how Jira tickets should be created in response to events.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.JiraTicketProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const jiraTicketProps: alerting.JiraTicketProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.JiraTicketProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.JiraTicketProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.alerting.JiraTicketProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.alerting.JiraTicketProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.JiraTicketProps.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketProps.property.credentials">credentials</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketProps.property.issueType">issueType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketProps.property.jiraUrl">jiraUrl</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketProps.property.priorityMap">priorityMap</a></code> | <code>cdk-extensions.alerting.JiraTicketPriorityMap</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketProps.property.project">project</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketProps.property.assignee">assignee</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.JiraTicketProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.alerting.JiraTicketProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.alerting.JiraTicketProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.alerting.JiraTicketProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.alerting.JiraTicketProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.alerting.JiraTicketProps.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `credentials`<sup>Required</sup> <a name="credentials" id="cdk-extensions.alerting.JiraTicketProps.property.credentials"></a>
+
+```typescript
+public readonly credentials: ISecret;
+```
+
+- *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
+
+---
+
+##### `issueType`<sup>Required</sup> <a name="issueType" id="cdk-extensions.alerting.JiraTicketProps.property.issueType"></a>
+
+```typescript
+public readonly issueType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `jiraUrl`<sup>Required</sup> <a name="jiraUrl" id="cdk-extensions.alerting.JiraTicketProps.property.jiraUrl"></a>
+
+```typescript
+public readonly jiraUrl: string;
+```
+
+- *Type:* string
+
+---
+
+##### `priorityMap`<sup>Required</sup> <a name="priorityMap" id="cdk-extensions.alerting.JiraTicketProps.property.priorityMap"></a>
+
+```typescript
+public readonly priorityMap: JiraTicketPriorityMap;
+```
+
+- *Type:* cdk-extensions.alerting.JiraTicketPriorityMap
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdk-extensions.alerting.JiraTicketProps.property.project"></a>
+
+```typescript
+public readonly project: string;
+```
+
+- *Type:* string
+
+---
+
+##### `assignee`<sup>Optional</sup> <a name="assignee" id="cdk-extensions.alerting.JiraTicketProps.property.assignee"></a>
+
+```typescript
+public readonly assignee: string;
+```
+
+- *Type:* string
+
+---
+
+##### `eventBus`<sup>Optional</sup> <a name="eventBus" id="cdk-extensions.alerting.JiraTicketProps.property.eventBus"></a>
+
+```typescript
+public readonly eventBus: IEventBus;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IEventBus
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.JiraTicketProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.JiraTicketProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
 
 ---
 
@@ -57820,6 +62863,223 @@ public readonly vpnCidr: IIpv4CidrAssignment;
 ```
 
 - *Type:* cdk-extensions.ec2.IIpv4CidrAssignment
+
+---
+
+### OpenSearchEventProps <a name="OpenSearchEventProps" id="cdk-extensions.alerting.OpenSearchEventProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.OpenSearchEventProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const openSearchEventProps: alerting.OpenSearchEventProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventProps.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventProps.property.matchType">matchType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.alerting.OpenSearchEventProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.alerting.OpenSearchEventProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.alerting.OpenSearchEventProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.alerting.OpenSearchEventProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.alerting.OpenSearchEventProps.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `matchType`<sup>Optional</sup> <a name="matchType" id="cdk-extensions.alerting.OpenSearchEventProps.property.matchType"></a>
+
+```typescript
+public readonly matchType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.OpenSearchEventProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.OpenSearchEventProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+### OpenSearchEventRuleOptions <a name="OpenSearchEventRuleOptions" id="cdk-extensions.alerting.OpenSearchEventRuleOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.OpenSearchEventRuleOptions.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const openSearchEventRuleOptions: alerting.OpenSearchEventRuleOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventRuleOptions.property.overrides">overrides</a></code> | <code>cdk-extensions.alerting.IssueHandlerOverride[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventRuleOptions.property.severity">severity</a></code> | <code>cdk-extensions.alerting.OpenSearchEventSeverity[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventRuleOptions.property.types">types</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType[]</code> | *No description.* |
+
+---
+
+##### `overrides`<sup>Optional</sup> <a name="overrides" id="cdk-extensions.alerting.OpenSearchEventRuleOptions.property.overrides"></a>
+
+```typescript
+public readonly overrides: IssueHandlerOverride[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueHandlerOverride[]
+
+---
+
+##### `severity`<sup>Optional</sup> <a name="severity" id="cdk-extensions.alerting.OpenSearchEventRuleOptions.property.severity"></a>
+
+```typescript
+public readonly severity: OpenSearchEventSeverity[];
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventSeverity[]
+
+---
+
+##### `types`<sup>Optional</sup> <a name="types" id="cdk-extensions.alerting.OpenSearchEventRuleOptions.property.types"></a>
+
+```typescript
+public readonly types: OpenSearchEventType[];
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType[]
+
+---
+
+### OpenSearchEventTypeProps <a name="OpenSearchEventTypeProps" id="cdk-extensions.alerting.OpenSearchEventTypeProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.OpenSearchEventTypeProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const openSearchEventTypeProps: alerting.OpenSearchEventTypeProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventTypeProps.property.detailType">detailType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventTypeProps.property.eventName">eventName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `detailType`<sup>Required</sup> <a name="detailType" id="cdk-extensions.alerting.OpenSearchEventTypeProps.property.detailType"></a>
+
+```typescript
+public readonly detailType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `eventName`<sup>Required</sup> <a name="eventName" id="cdk-extensions.alerting.OpenSearchEventTypeProps.property.eventName"></a>
+
+```typescript
+public readonly eventName: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -62027,6 +67287,173 @@ The encyption configuration for Amazon Simple Storage Service (Amazon S3) data.
 
 ---
 
+### SecurityHubFindingEventOptions <a name="SecurityHubFindingEventOptions" id="cdk-extensions.alerting.SecurityHubFindingEventOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.SecurityHubFindingEventOptions.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const securityHubFindingEventOptions: alerting.SecurityHubFindingEventOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFindingEventOptions.property.overrides">overrides</a></code> | <code>cdk-extensions.alerting.IssueHandlerOverride[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFindingEventOptions.property.severity">severity</a></code> | <code>cdk-extensions.alerting.ISecurityHubSeverityConfiguration</code> | *No description.* |
+
+---
+
+##### `overrides`<sup>Optional</sup> <a name="overrides" id="cdk-extensions.alerting.SecurityHubFindingEventOptions.property.overrides"></a>
+
+```typescript
+public readonly overrides: IssueHandlerOverride[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueHandlerOverride[]
+
+---
+
+##### `severity`<sup>Optional</sup> <a name="severity" id="cdk-extensions.alerting.SecurityHubFindingEventOptions.property.severity"></a>
+
+```typescript
+public readonly severity: ISecurityHubSeverityConfiguration;
+```
+
+- *Type:* cdk-extensions.alerting.ISecurityHubSeverityConfiguration
+
+---
+
+### SecurityHubFindingProps <a name="SecurityHubFindingProps" id="cdk-extensions.alerting.SecurityHubFindingProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.SecurityHubFindingProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const securityHubFindingProps: alerting.SecurityHubFindingProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFindingProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFindingProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFindingProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFindingProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFindingProps.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFindingProps.property.matchType">matchType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFindingProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubFindingProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.alerting.SecurityHubFindingProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.alerting.SecurityHubFindingProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.alerting.SecurityHubFindingProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.alerting.SecurityHubFindingProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.alerting.SecurityHubFindingProps.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `matchType`<sup>Optional</sup> <a name="matchType" id="cdk-extensions.alerting.SecurityHubFindingProps.property.matchType"></a>
+
+```typescript
+public readonly matchType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.SecurityHubFindingProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.SecurityHubFindingProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
 ### SesLogsBucketProps <a name="SesLogsBucketProps" id="cdk-extensions.s3_buckets.SesLogsBucketProps"></a>
 
 Configuration for objects bucket.
@@ -62361,6 +67788,34 @@ public readonly workGroup: IWorkGroup;
 The name of the workgroup where namedqueries should be created.
 
 > [[Setting up workgroups](https://docs.aws.amazon.com/athena/latest/ug/workgroups-procedure.html)]([Setting up workgroups](https://docs.aws.amazon.com/athena/latest/ug/workgroups-procedure.html))
+
+---
+
+### SetDelimiterProps <a name="SetDelimiterProps" id="cdk-extensions.alerting.SetDelimiterProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.SetDelimiterProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const setDelimiterProps: alerting.SetDelimiterProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.SetDelimiterProps.property.delimiter">delimiter</a></code> | <code>cdk-extensions.alerting.AppendDelimiter</code> | *No description.* |
+
+---
+
+##### `delimiter`<sup>Required</sup> <a name="delimiter" id="cdk-extensions.alerting.SetDelimiterProps.property.delimiter"></a>
+
+```typescript
+public readonly delimiter: AppendDelimiter;
+```
+
+- *Type:* cdk-extensions.alerting.AppendDelimiter
 
 ---
 
@@ -62707,6 +68162,67 @@ public readonly namespace: string;
 - *Type:* string
 
 The Kubernetes namespace where the secret store should be created.
+
+---
+
+### StateMachineLogging <a name="StateMachineLogging" id="cdk-extensions.alerting.StateMachineLogging"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.StateMachineLogging.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const stateMachineLogging: alerting.StateMachineLogging = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.StateMachineLogging.property.destination">destination</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.StateMachineLogging.property.enabled">enabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.StateMachineLogging.property.includeExecutionData">includeExecutionData</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.StateMachineLogging.property.level">level</a></code> | <code>aws-cdk-lib.aws_stepfunctions.LogLevel</code> | *No description.* |
+
+---
+
+##### `destination`<sup>Optional</sup> <a name="destination" id="cdk-extensions.alerting.StateMachineLogging.property.destination"></a>
+
+```typescript
+public readonly destination: ILogGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.alerting.StateMachineLogging.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `includeExecutionData`<sup>Optional</sup> <a name="includeExecutionData" id="cdk-extensions.alerting.StateMachineLogging.property.includeExecutionData"></a>
+
+```typescript
+public readonly includeExecutionData: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `level`<sup>Optional</sup> <a name="level" id="cdk-extensions.alerting.StateMachineLogging.property.level"></a>
+
+```typescript
+public readonly level: LogLevel;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.LogLevel
 
 ---
 
@@ -67803,6 +73319,89 @@ The details used for configuring logging for the APS workspace.
 
 ---
 
+### WriteProps <a name="WriteProps" id="cdk-extensions.alerting.WriteProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.WriteProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const writeProps: alerting.WriteProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.WriteProps.property.value">value</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.WriteProps.property.defaultDelimiter">defaultDelimiter</a></code> | <code>cdk-extensions.alerting.AppendDelimiter</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.WriteProps.property.delimiter">delimiter</a></code> | <code>cdk-extensions.alerting.AppendDelimiter</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.WriteProps.property.prefix">prefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.WriteProps.property.required">required</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.WriteProps.property.suffix">suffix</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.alerting.WriteProps.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
+
+---
+
+##### `defaultDelimiter`<sup>Optional</sup> <a name="defaultDelimiter" id="cdk-extensions.alerting.WriteProps.property.defaultDelimiter"></a>
+
+```typescript
+public readonly defaultDelimiter: AppendDelimiter;
+```
+
+- *Type:* cdk-extensions.alerting.AppendDelimiter
+
+---
+
+##### `delimiter`<sup>Optional</sup> <a name="delimiter" id="cdk-extensions.alerting.WriteProps.property.delimiter"></a>
+
+```typescript
+public readonly delimiter: AppendDelimiter;
+```
+
+- *Type:* cdk-extensions.alerting.AppendDelimiter
+
+---
+
+##### `prefix`<sup>Optional</sup> <a name="prefix" id="cdk-extensions.alerting.WriteProps.property.prefix"></a>
+
+```typescript
+public readonly prefix: string;
+```
+
+- *Type:* string
+
+---
+
+##### `required`<sup>Optional</sup> <a name="required" id="cdk-extensions.alerting.WriteProps.property.required"></a>
+
+```typescript
+public readonly required: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `suffix`<sup>Optional</sup> <a name="suffix" id="cdk-extensions.alerting.WriteProps.property.suffix"></a>
+
+```typescript
+public readonly suffix: string;
+```
+
+- *Type:* string
+
+---
+
 ### YearRange <a name="YearRange" id="cdk-extensions.aps.YearRange"></a>
 
 A numerical range of years.
@@ -69362,6 +74961,78 @@ athena.ApacheSparkOutputEncryption.sseS3()
 ```
 
 
+
+### AppendDelimiter <a name="AppendDelimiter" id="cdk-extensions.alerting.AppendDelimiter"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.AppendDelimiter.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.alerting.AppendDelimiter.of"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.AppendDelimiter.of(delimiter: string)
+```
+
+###### `delimiter`<sup>Required</sup> <a name="delimiter" id="cdk-extensions.alerting.AppendDelimiter.of.parameter.delimiter"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.AppendDelimiter.property.delimiter">delimiter</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `delimiter`<sup>Required</sup> <a name="delimiter" id="cdk-extensions.alerting.AppendDelimiter.property.delimiter"></a>
+
+```typescript
+public readonly delimiter: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.AppendDelimiter.property.NEWLINE">NEWLINE</a></code> | <code>cdk-extensions.alerting.AppendDelimiter</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.AppendDelimiter.property.PARAGRAPH">PARAGRAPH</a></code> | <code>cdk-extensions.alerting.AppendDelimiter</code> | *No description.* |
+
+---
+
+##### `NEWLINE`<sup>Required</sup> <a name="NEWLINE" id="cdk-extensions.alerting.AppendDelimiter.property.NEWLINE"></a>
+
+```typescript
+public readonly NEWLINE: AppendDelimiter;
+```
+
+- *Type:* cdk-extensions.alerting.AppendDelimiter
+
+---
+
+##### `PARAGRAPH`<sup>Required</sup> <a name="PARAGRAPH" id="cdk-extensions.alerting.AppendDelimiter.property.PARAGRAPH"></a>
+
+```typescript
+public readonly PARAGRAPH: AppendDelimiter;
+```
+
+- *Type:* cdk-extensions.alerting.AppendDelimiter
+
+---
 
 ### AppendDelimiterProcessor <a name="AppendDelimiterProcessor" id="cdk-extensions.kinesis_firehose.AppendDelimiterProcessor"></a>
 
@@ -72448,6 +78119,209 @@ public readonly retryInterval: Duration;
 - *Type:* aws-cdk-lib.Duration
 
 ---
+
+
+### EcrImageScanSeverity <a name="EcrImageScanSeverity" id="cdk-extensions.alerting.EcrImageScanSeverity"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.EcrImageScanSeverity.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.alerting.EcrImageScanSeverity.of"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.EcrImageScanSeverity.of(name: string, priority: number, standardized: string)
+```
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.alerting.EcrImageScanSeverity.of.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+###### `priority`<sup>Required</sup> <a name="priority" id="cdk-extensions.alerting.EcrImageScanSeverity.of.parameter.priority"></a>
+
+- *Type:* number
+
+---
+
+###### `standardized`<sup>Required</sup> <a name="standardized" id="cdk-extensions.alerting.EcrImageScanSeverity.of.parameter.standardized"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.EcrImageScanSeverity.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrImageScanSeverity.property.priority">priority</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrImageScanSeverity.property.standardized">standardized</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.alerting.EcrImageScanSeverity.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `priority`<sup>Required</sup> <a name="priority" id="cdk-extensions.alerting.EcrImageScanSeverity.property.priority"></a>
+
+```typescript
+public readonly priority: number;
+```
+
+- *Type:* number
+
+---
+
+##### `standardized`<sup>Required</sup> <a name="standardized" id="cdk-extensions.alerting.EcrImageScanSeverity.property.standardized"></a>
+
+```typescript
+public readonly standardized: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.EcrImageScanSeverity.property.CRITICAL">CRITICAL</a></code> | <code>cdk-extensions.alerting.EcrImageScanSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrImageScanSeverity.property.HIGH">HIGH</a></code> | <code>cdk-extensions.alerting.EcrImageScanSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrImageScanSeverity.property.LOW">LOW</a></code> | <code>cdk-extensions.alerting.EcrImageScanSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrImageScanSeverity.property.MEDIUM">MEDIUM</a></code> | <code>cdk-extensions.alerting.EcrImageScanSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrImageScanSeverity.property.UNDEFINED">UNDEFINED</a></code> | <code>cdk-extensions.alerting.EcrImageScanSeverity</code> | *No description.* |
+
+---
+
+##### `CRITICAL`<sup>Required</sup> <a name="CRITICAL" id="cdk-extensions.alerting.EcrImageScanSeverity.property.CRITICAL"></a>
+
+```typescript
+public readonly CRITICAL: EcrImageScanSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.EcrImageScanSeverity
+
+---
+
+##### `HIGH`<sup>Required</sup> <a name="HIGH" id="cdk-extensions.alerting.EcrImageScanSeverity.property.HIGH"></a>
+
+```typescript
+public readonly HIGH: EcrImageScanSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.EcrImageScanSeverity
+
+---
+
+##### `LOW`<sup>Required</sup> <a name="LOW" id="cdk-extensions.alerting.EcrImageScanSeverity.property.LOW"></a>
+
+```typescript
+public readonly LOW: EcrImageScanSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.EcrImageScanSeverity
+
+---
+
+##### `MEDIUM`<sup>Required</sup> <a name="MEDIUM" id="cdk-extensions.alerting.EcrImageScanSeverity.property.MEDIUM"></a>
+
+```typescript
+public readonly MEDIUM: EcrImageScanSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.EcrImageScanSeverity
+
+---
+
+##### `UNDEFINED`<sup>Required</sup> <a name="UNDEFINED" id="cdk-extensions.alerting.EcrImageScanSeverity.property.UNDEFINED"></a>
+
+```typescript
+public readonly UNDEFINED: EcrImageScanSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.EcrImageScanSeverity
+
+---
+
+### EcrImageScanSeverityConfiguration <a name="EcrImageScanSeverityConfiguration" id="cdk-extensions.alerting.EcrImageScanSeverityConfiguration"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.EcrImageScanSeverityConfiguration.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.EcrImageScanSeverityConfiguration()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.EcrImageScanSeverityConfiguration.all">all</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrImageScanSeverityConfiguration.custom">custom</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.EcrImageScanSeverityConfiguration.threshold">threshold</a></code> | *No description.* |
+
+---
+
+##### `all` <a name="all" id="cdk-extensions.alerting.EcrImageScanSeverityConfiguration.all"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.EcrImageScanSeverityConfiguration.all()
+```
+
+##### `custom` <a name="custom" id="cdk-extensions.alerting.EcrImageScanSeverityConfiguration.custom"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.EcrImageScanSeverityConfiguration.custom(levels: EcrImageScanSeverity)
+```
+
+###### `levels`<sup>Required</sup> <a name="levels" id="cdk-extensions.alerting.EcrImageScanSeverityConfiguration.custom.parameter.levels"></a>
+
+- *Type:* cdk-extensions.alerting.EcrImageScanSeverity
+
+---
+
+##### `threshold` <a name="threshold" id="cdk-extensions.alerting.EcrImageScanSeverityConfiguration.threshold"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.EcrImageScanSeverityConfiguration.threshold(level: EcrImageScanSeverity)
+```
+
+###### `level`<sup>Required</sup> <a name="level" id="cdk-extensions.alerting.EcrImageScanSeverityConfiguration.threshold.parameter.level"></a>
+
+- *Type:* cdk-extensions.alerting.EcrImageScanSeverity
+
+---
+
 
 
 ### ElasticsearchOutputBufferSize <a name="ElasticsearchOutputBufferSize" id="cdk-extensions.k8s_aws.ElasticsearchOutputBufferSize"></a>
@@ -79688,6 +85562,203 @@ resourcegroups.GroupConfiguration.tagFilter(props?: TagFilterProps)
 
 
 
+### GuardDutySeverity <a name="GuardDutySeverity" id="cdk-extensions.alerting.GuardDutySeverity"></a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.GuardDutySeverity.buildCondition">buildCondition</a></code> | *No description.* |
+
+---
+
+##### `buildCondition` <a name="buildCondition" id="cdk-extensions.alerting.GuardDutySeverity.buildCondition"></a>
+
+```typescript
+public buildCondition(path: string): Condition
+```
+
+###### `path`<sup>Required</sup> <a name="path" id="cdk-extensions.alerting.GuardDutySeverity.buildCondition.parameter.path"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.GuardDutySeverity.all">all</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutySeverity.custom">custom</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutySeverity.of">of</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutySeverity.threshold">threshold</a></code> | *No description.* |
+
+---
+
+##### `all` <a name="all" id="cdk-extensions.alerting.GuardDutySeverity.all"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.GuardDutySeverity.all()
+```
+
+##### `custom` <a name="custom" id="cdk-extensions.alerting.GuardDutySeverity.custom"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.GuardDutySeverity.custom(levels: GuardDutySeverity)
+```
+
+###### `levels`<sup>Required</sup> <a name="levels" id="cdk-extensions.alerting.GuardDutySeverity.custom.parameter.levels"></a>
+
+- *Type:* cdk-extensions.alerting.GuardDutySeverity
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.alerting.GuardDutySeverity.of"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.GuardDutySeverity.of(standardized: string, lowerBound?: number, upperBound?: number)
+```
+
+###### `standardized`<sup>Required</sup> <a name="standardized" id="cdk-extensions.alerting.GuardDutySeverity.of.parameter.standardized"></a>
+
+- *Type:* string
+
+---
+
+###### `lowerBound`<sup>Optional</sup> <a name="lowerBound" id="cdk-extensions.alerting.GuardDutySeverity.of.parameter.lowerBound"></a>
+
+- *Type:* number
+
+---
+
+###### `upperBound`<sup>Optional</sup> <a name="upperBound" id="cdk-extensions.alerting.GuardDutySeverity.of.parameter.upperBound"></a>
+
+- *Type:* number
+
+---
+
+##### `threshold` <a name="threshold" id="cdk-extensions.alerting.GuardDutySeverity.threshold"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.GuardDutySeverity.threshold(level: GuardDutySeverity)
+```
+
+###### `level`<sup>Required</sup> <a name="level" id="cdk-extensions.alerting.GuardDutySeverity.threshold.parameter.level"></a>
+
+- *Type:* cdk-extensions.alerting.GuardDutySeverity
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.GuardDutySeverity.property.standardized">standardized</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutySeverity.property.lowerBound">lowerBound</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutySeverity.property.upperBound">upperBound</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `standardized`<sup>Required</sup> <a name="standardized" id="cdk-extensions.alerting.GuardDutySeverity.property.standardized"></a>
+
+```typescript
+public readonly standardized: string;
+```
+
+- *Type:* string
+
+---
+
+##### `lowerBound`<sup>Optional</sup> <a name="lowerBound" id="cdk-extensions.alerting.GuardDutySeverity.property.lowerBound"></a>
+
+```typescript
+public readonly lowerBound: number;
+```
+
+- *Type:* number
+
+---
+
+##### `upperBound`<sup>Optional</sup> <a name="upperBound" id="cdk-extensions.alerting.GuardDutySeverity.property.upperBound"></a>
+
+```typescript
+public readonly upperBound: number;
+```
+
+- *Type:* number
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.GuardDutySeverity.property.CRITICAL">CRITICAL</a></code> | <code>cdk-extensions.alerting.GuardDutySeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutySeverity.property.HIGH">HIGH</a></code> | <code>cdk-extensions.alerting.GuardDutySeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutySeverity.property.INFORMATIONAL">INFORMATIONAL</a></code> | <code>cdk-extensions.alerting.GuardDutySeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutySeverity.property.LOW">LOW</a></code> | <code>cdk-extensions.alerting.GuardDutySeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.GuardDutySeverity.property.MEDIUM">MEDIUM</a></code> | <code>cdk-extensions.alerting.GuardDutySeverity</code> | *No description.* |
+
+---
+
+##### `CRITICAL`<sup>Required</sup> <a name="CRITICAL" id="cdk-extensions.alerting.GuardDutySeverity.property.CRITICAL"></a>
+
+```typescript
+public readonly CRITICAL: GuardDutySeverity;
+```
+
+- *Type:* cdk-extensions.alerting.GuardDutySeverity
+
+---
+
+##### `HIGH`<sup>Required</sup> <a name="HIGH" id="cdk-extensions.alerting.GuardDutySeverity.property.HIGH"></a>
+
+```typescript
+public readonly HIGH: GuardDutySeverity;
+```
+
+- *Type:* cdk-extensions.alerting.GuardDutySeverity
+
+---
+
+##### `INFORMATIONAL`<sup>Required</sup> <a name="INFORMATIONAL" id="cdk-extensions.alerting.GuardDutySeverity.property.INFORMATIONAL"></a>
+
+```typescript
+public readonly INFORMATIONAL: GuardDutySeverity;
+```
+
+- *Type:* cdk-extensions.alerting.GuardDutySeverity
+
+---
+
+##### `LOW`<sup>Required</sup> <a name="LOW" id="cdk-extensions.alerting.GuardDutySeverity.property.LOW"></a>
+
+```typescript
+public readonly LOW: GuardDutySeverity;
+```
+
+- *Type:* cdk-extensions.alerting.GuardDutySeverity
+
+---
+
+##### `MEDIUM`<sup>Required</sup> <a name="MEDIUM" id="cdk-extensions.alerting.GuardDutySeverity.property.MEDIUM"></a>
+
+```typescript
+public readonly MEDIUM: GuardDutySeverity;
+```
+
+- *Type:* cdk-extensions.alerting.GuardDutySeverity
+
+---
+
 ### HiveJsonInputSerDe <a name="HiveJsonInputSerDe" id="cdk-extensions.kinesis_firehose.HiveJsonInputSerDe"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.HiveJsonInputSerDe.Initializer"></a>
@@ -80299,6 +86370,214 @@ kinesis_firehose.InputFormat.openxJson(options: OpenxJsonInputSerDeOptions)
 
 
 
+### InspectorSeverity <a name="InspectorSeverity" id="cdk-extensions.alerting.InspectorSeverity"></a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.InspectorSeverity.buildCondition">buildCondition</a></code> | *No description.* |
+
+---
+
+##### `buildCondition` <a name="buildCondition" id="cdk-extensions.alerting.InspectorSeverity.buildCondition"></a>
+
+```typescript
+public buildCondition(path: string): Condition
+```
+
+###### `path`<sup>Required</sup> <a name="path" id="cdk-extensions.alerting.InspectorSeverity.buildCondition.parameter.path"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.InspectorSeverity.all">all</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorSeverity.custom">custom</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorSeverity.of">of</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorSeverity.threshold">threshold</a></code> | *No description.* |
+
+---
+
+##### `all` <a name="all" id="cdk-extensions.alerting.InspectorSeverity.all"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.InspectorSeverity.all()
+```
+
+##### `custom` <a name="custom" id="cdk-extensions.alerting.InspectorSeverity.custom"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.InspectorSeverity.custom(levels: InspectorSeverity)
+```
+
+###### `levels`<sup>Required</sup> <a name="levels" id="cdk-extensions.alerting.InspectorSeverity.custom.parameter.levels"></a>
+
+- *Type:* cdk-extensions.alerting.InspectorSeverity
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.alerting.InspectorSeverity.of"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.InspectorSeverity.of(standardized: string, original: string, priority: number)
+```
+
+###### `standardized`<sup>Required</sup> <a name="standardized" id="cdk-extensions.alerting.InspectorSeverity.of.parameter.standardized"></a>
+
+- *Type:* string
+
+---
+
+###### `original`<sup>Required</sup> <a name="original" id="cdk-extensions.alerting.InspectorSeverity.of.parameter.original"></a>
+
+- *Type:* string
+
+---
+
+###### `priority`<sup>Required</sup> <a name="priority" id="cdk-extensions.alerting.InspectorSeverity.of.parameter.priority"></a>
+
+- *Type:* number
+
+---
+
+##### `threshold` <a name="threshold" id="cdk-extensions.alerting.InspectorSeverity.threshold"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.InspectorSeverity.threshold(level: InspectorSeverity)
+```
+
+###### `level`<sup>Required</sup> <a name="level" id="cdk-extensions.alerting.InspectorSeverity.threshold.parameter.level"></a>
+
+- *Type:* cdk-extensions.alerting.InspectorSeverity
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.InspectorSeverity.property.original">original</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorSeverity.property.priority">priority</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorSeverity.property.standardized">standardized</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `original`<sup>Required</sup> <a name="original" id="cdk-extensions.alerting.InspectorSeverity.property.original"></a>
+
+```typescript
+public readonly original: string;
+```
+
+- *Type:* string
+
+---
+
+##### `priority`<sup>Required</sup> <a name="priority" id="cdk-extensions.alerting.InspectorSeverity.property.priority"></a>
+
+```typescript
+public readonly priority: number;
+```
+
+- *Type:* number
+
+---
+
+##### `standardized`<sup>Required</sup> <a name="standardized" id="cdk-extensions.alerting.InspectorSeverity.property.standardized"></a>
+
+```typescript
+public readonly standardized: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.InspectorSeverity.property.CRITICAL">CRITICAL</a></code> | <code>cdk-extensions.alerting.InspectorSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorSeverity.property.HIGH">HIGH</a></code> | <code>cdk-extensions.alerting.InspectorSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorSeverity.property.INFORMATIONAL">INFORMATIONAL</a></code> | <code>cdk-extensions.alerting.InspectorSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorSeverity.property.LOW">LOW</a></code> | <code>cdk-extensions.alerting.InspectorSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorSeverity.property.MEDIUM">MEDIUM</a></code> | <code>cdk-extensions.alerting.InspectorSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.InspectorSeverity.property.UNTRIAGED">UNTRIAGED</a></code> | <code>cdk-extensions.alerting.InspectorSeverity</code> | *No description.* |
+
+---
+
+##### `CRITICAL`<sup>Required</sup> <a name="CRITICAL" id="cdk-extensions.alerting.InspectorSeverity.property.CRITICAL"></a>
+
+```typescript
+public readonly CRITICAL: InspectorSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.InspectorSeverity
+
+---
+
+##### `HIGH`<sup>Required</sup> <a name="HIGH" id="cdk-extensions.alerting.InspectorSeverity.property.HIGH"></a>
+
+```typescript
+public readonly HIGH: InspectorSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.InspectorSeverity
+
+---
+
+##### `INFORMATIONAL`<sup>Required</sup> <a name="INFORMATIONAL" id="cdk-extensions.alerting.InspectorSeverity.property.INFORMATIONAL"></a>
+
+```typescript
+public readonly INFORMATIONAL: InspectorSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.InspectorSeverity
+
+---
+
+##### `LOW`<sup>Required</sup> <a name="LOW" id="cdk-extensions.alerting.InspectorSeverity.property.LOW"></a>
+
+```typescript
+public readonly LOW: InspectorSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.InspectorSeverity
+
+---
+
+##### `MEDIUM`<sup>Required</sup> <a name="MEDIUM" id="cdk-extensions.alerting.InspectorSeverity.property.MEDIUM"></a>
+
+```typescript
+public readonly MEDIUM: InspectorSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.InspectorSeverity
+
+---
+
+##### `UNTRIAGED`<sup>Required</sup> <a name="UNTRIAGED" id="cdk-extensions.alerting.InspectorSeverity.property.UNTRIAGED"></a>
+
+```typescript
+public readonly UNTRIAGED: InspectorSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.InspectorSeverity
+
+---
+
 ### Instance <a name="Instance" id="cdk-extensions.sso.Instance"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.sso.Instance.Initializer"></a>
@@ -80832,6 +87111,119 @@ ec2.Ipv6CidrAssignment.ipamPool(options: Ipv6CidrAssignmentIpamPoolOptions)
 
 ---
 
+
+
+### IssueHander <a name="IssueHander" id="cdk-extensions.alerting.IssueHander"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.IssueHander.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.IssueHander()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueHander.jiraTicket">jiraTicket</a></code> | *No description.* |
+
+---
+
+##### `jiraTicket` <a name="jiraTicket" id="cdk-extensions.alerting.IssueHander.jiraTicket"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueHander.jiraTicket(scope: IConstruct, id: string, props: JiraTicketProps)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.IssueHander.jiraTicket.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IssueHander.jiraTicket.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.IssueHander.jiraTicket.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.JiraTicketProps
+
+---
+
+
+
+### IssueHandlerOverride <a name="IssueHandlerOverride" id="cdk-extensions.alerting.IssueHandlerOverride"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.IssueHandlerOverride.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.IssueHandlerOverride(handler: IIssueHandler, overrides: {[ key: string ]: any})
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueHandlerOverride.Initializer.parameter.handler">handler</a></code> | <code>cdk-extensions.alerting.IIssueHandler</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueHandlerOverride.Initializer.parameter.overrides">overrides</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+
+---
+
+##### `handler`<sup>Required</sup> <a name="handler" id="cdk-extensions.alerting.IssueHandlerOverride.Initializer.parameter.handler"></a>
+
+- *Type:* cdk-extensions.alerting.IIssueHandler
+
+---
+
+##### `overrides`<sup>Required</sup> <a name="overrides" id="cdk-extensions.alerting.IssueHandlerOverride.Initializer.parameter.overrides"></a>
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueHandlerOverride.property.handler">handler</a></code> | <code>cdk-extensions.alerting.IIssueHandler</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueHandlerOverride.property.overrides">overrides</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+
+---
+
+##### `handler`<sup>Required</sup> <a name="handler" id="cdk-extensions.alerting.IssueHandlerOverride.property.handler"></a>
+
+```typescript
+public readonly handler: IIssueHandler;
+```
+
+- *Type:* cdk-extensions.alerting.IIssueHandler
+
+---
+
+##### `overrides`<sup>Required</sup> <a name="overrides" id="cdk-extensions.alerting.IssueHandlerOverride.property.overrides"></a>
+
+```typescript
+public readonly overrides: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
 
 
 ### JdbcTarget <a name="JdbcTarget" id="cdk-extensions.glue.JdbcTarget"></a>
@@ -83053,6 +89445,477 @@ The type name of ExternalDNS registry.
 
 ---
 
+
+### OpenSearchEventSeverity <a name="OpenSearchEventSeverity" id="cdk-extensions.alerting.OpenSearchEventSeverity"></a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventSeverity.buildCondition">buildCondition</a></code> | *No description.* |
+
+---
+
+##### `buildCondition` <a name="buildCondition" id="cdk-extensions.alerting.OpenSearchEventSeverity.buildCondition"></a>
+
+```typescript
+public buildCondition(path: string): Condition
+```
+
+###### `path`<sup>Required</sup> <a name="path" id="cdk-extensions.alerting.OpenSearchEventSeverity.buildCondition.parameter.path"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventSeverity.all">all</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventSeverity.custom">custom</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventSeverity.of">of</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventSeverity.threshold">threshold</a></code> | *No description.* |
+
+---
+
+##### `all` <a name="all" id="cdk-extensions.alerting.OpenSearchEventSeverity.all"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.OpenSearchEventSeverity.all()
+```
+
+##### `custom` <a name="custom" id="cdk-extensions.alerting.OpenSearchEventSeverity.custom"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.OpenSearchEventSeverity.custom(levels: OpenSearchEventSeverity)
+```
+
+###### `levels`<sup>Required</sup> <a name="levels" id="cdk-extensions.alerting.OpenSearchEventSeverity.custom.parameter.levels"></a>
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventSeverity
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.alerting.OpenSearchEventSeverity.of"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.OpenSearchEventSeverity.of(standardized: string, original: string, priority: number)
+```
+
+###### `standardized`<sup>Required</sup> <a name="standardized" id="cdk-extensions.alerting.OpenSearchEventSeverity.of.parameter.standardized"></a>
+
+- *Type:* string
+
+---
+
+###### `original`<sup>Required</sup> <a name="original" id="cdk-extensions.alerting.OpenSearchEventSeverity.of.parameter.original"></a>
+
+- *Type:* string
+
+---
+
+###### `priority`<sup>Required</sup> <a name="priority" id="cdk-extensions.alerting.OpenSearchEventSeverity.of.parameter.priority"></a>
+
+- *Type:* number
+
+---
+
+##### `threshold` <a name="threshold" id="cdk-extensions.alerting.OpenSearchEventSeverity.threshold"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.OpenSearchEventSeverity.threshold(level: OpenSearchEventSeverity)
+```
+
+###### `level`<sup>Required</sup> <a name="level" id="cdk-extensions.alerting.OpenSearchEventSeverity.threshold.parameter.level"></a>
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventSeverity
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventSeverity.property.original">original</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventSeverity.property.priority">priority</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventSeverity.property.standardized">standardized</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `original`<sup>Required</sup> <a name="original" id="cdk-extensions.alerting.OpenSearchEventSeverity.property.original"></a>
+
+```typescript
+public readonly original: string;
+```
+
+- *Type:* string
+
+---
+
+##### `priority`<sup>Required</sup> <a name="priority" id="cdk-extensions.alerting.OpenSearchEventSeverity.property.priority"></a>
+
+```typescript
+public readonly priority: number;
+```
+
+- *Type:* number
+
+---
+
+##### `standardized`<sup>Required</sup> <a name="standardized" id="cdk-extensions.alerting.OpenSearchEventSeverity.property.standardized"></a>
+
+```typescript
+public readonly standardized: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventSeverity.property.HIGH">HIGH</a></code> | <code>cdk-extensions.alerting.OpenSearchEventSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventSeverity.property.INFORMATIONAL">INFORMATIONAL</a></code> | <code>cdk-extensions.alerting.OpenSearchEventSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventSeverity.property.LOW">LOW</a></code> | <code>cdk-extensions.alerting.OpenSearchEventSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventSeverity.property.MEDIUM">MEDIUM</a></code> | <code>cdk-extensions.alerting.OpenSearchEventSeverity</code> | *No description.* |
+
+---
+
+##### `HIGH`<sup>Required</sup> <a name="HIGH" id="cdk-extensions.alerting.OpenSearchEventSeverity.property.HIGH"></a>
+
+```typescript
+public readonly HIGH: OpenSearchEventSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventSeverity
+
+---
+
+##### `INFORMATIONAL`<sup>Required</sup> <a name="INFORMATIONAL" id="cdk-extensions.alerting.OpenSearchEventSeverity.property.INFORMATIONAL"></a>
+
+```typescript
+public readonly INFORMATIONAL: OpenSearchEventSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventSeverity
+
+---
+
+##### `LOW`<sup>Required</sup> <a name="LOW" id="cdk-extensions.alerting.OpenSearchEventSeverity.property.LOW"></a>
+
+```typescript
+public readonly LOW: OpenSearchEventSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventSeverity
+
+---
+
+##### `MEDIUM`<sup>Required</sup> <a name="MEDIUM" id="cdk-extensions.alerting.OpenSearchEventSeverity.property.MEDIUM"></a>
+
+```typescript
+public readonly MEDIUM: OpenSearchEventSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventSeverity
+
+---
+
+### OpenSearchEventType <a name="OpenSearchEventType" id="cdk-extensions.alerting.OpenSearchEventType"></a>
+
+Represents a type of event that can be generated in response to circumstances happening on an AWS OpenSearch service cluster.
+
+> [[Monitoring OpenSearch Service events with Amazon EventBridge](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/monitoring-events.html)]([Monitoring OpenSearch Service events with Amazon EventBridge](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/monitoring-events.html))
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.alerting.OpenSearchEventType.of"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.OpenSearchEventType.of(props: OpenSearchEventTypeProps)
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.OpenSearchEventType.of.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventTypeProps
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.all">all</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.detailType">detailType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.eventName">eventName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `all`<sup>Required</sup> <a name="all" id="cdk-extensions.alerting.OpenSearchEventType.property.all"></a>
+
+```typescript
+public readonly all: OpenSearchEventType[];
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType[]
+
+---
+
+##### `detailType`<sup>Required</sup> <a name="detailType" id="cdk-extensions.alerting.OpenSearchEventType.property.detailType"></a>
+
+```typescript
+public readonly detailType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `eventName`<sup>Required</sup> <a name="eventName" id="cdk-extensions.alerting.OpenSearchEventType.property.eventName"></a>
+
+```typescript
+public readonly eventName: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.AUTO_TUNE">AUTO_TUNE</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.CLUSTER_RECOVERY">CLUSTER_RECOVERY</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.CUSTOM_INDEX_ROUTING">CUSTOM_INDEX_ROUTING</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.DISK_THROUGHPUT_THROTTLE">DISK_THROUGHPUT_THROTTLE</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.DOMAIN_UPDATE">DOMAIN_UPDATE</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.EBS_BURST_BALANCE">EBS_BURST_BALANCE</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.FAILED_SHARD_LOCK">FAILED_SHARD_LOCK</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.HIGH_JVM_USAGE">HIGH_JVM_USAGE</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.HIGH_SHARED_COUNT">HIGH_SHARED_COUNT</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.INSUFFICIENT_GARBAGE_COLLECTION">INSUFFICIENT_GARBAGE_COLLECTION</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.KMS_KEY_INACCESSIBLE">KMS_KEY_INACCESSIBLE</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.LARGE_SHARD_SIZE">LARGE_SHARD_SIZE</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.LOW_DISK_SPACE">LOW_DISK_SPACE</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.LOW_DISK_WATERMARK_BREACH">LOW_DISK_WATERMARK_BREACH</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.NODE_RETIREMENT">NODE_RETIREMENT</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.SERVICE_SOFTWARE_UPDATE">SERVICE_SOFTWARE_UPDATE</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.VPC_ENDPOINT_CREATE">VPC_ENDPOINT_CREATE</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.VPC_ENDPOINT_DELETE">VPC_ENDPOINT_DELETE</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.OpenSearchEventType.property.VPC_ENDPOINT_UPDATE">VPC_ENDPOINT_UPDATE</a></code> | <code>cdk-extensions.alerting.OpenSearchEventType</code> | *No description.* |
+
+---
+
+##### `AUTO_TUNE`<sup>Required</sup> <a name="AUTO_TUNE" id="cdk-extensions.alerting.OpenSearchEventType.property.AUTO_TUNE"></a>
+
+```typescript
+public readonly AUTO_TUNE: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `CLUSTER_RECOVERY`<sup>Required</sup> <a name="CLUSTER_RECOVERY" id="cdk-extensions.alerting.OpenSearchEventType.property.CLUSTER_RECOVERY"></a>
+
+```typescript
+public readonly CLUSTER_RECOVERY: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `CUSTOM_INDEX_ROUTING`<sup>Required</sup> <a name="CUSTOM_INDEX_ROUTING" id="cdk-extensions.alerting.OpenSearchEventType.property.CUSTOM_INDEX_ROUTING"></a>
+
+```typescript
+public readonly CUSTOM_INDEX_ROUTING: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `DISK_THROUGHPUT_THROTTLE`<sup>Required</sup> <a name="DISK_THROUGHPUT_THROTTLE" id="cdk-extensions.alerting.OpenSearchEventType.property.DISK_THROUGHPUT_THROTTLE"></a>
+
+```typescript
+public readonly DISK_THROUGHPUT_THROTTLE: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `DOMAIN_UPDATE`<sup>Required</sup> <a name="DOMAIN_UPDATE" id="cdk-extensions.alerting.OpenSearchEventType.property.DOMAIN_UPDATE"></a>
+
+```typescript
+public readonly DOMAIN_UPDATE: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `EBS_BURST_BALANCE`<sup>Required</sup> <a name="EBS_BURST_BALANCE" id="cdk-extensions.alerting.OpenSearchEventType.property.EBS_BURST_BALANCE"></a>
+
+```typescript
+public readonly EBS_BURST_BALANCE: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `FAILED_SHARD_LOCK`<sup>Required</sup> <a name="FAILED_SHARD_LOCK" id="cdk-extensions.alerting.OpenSearchEventType.property.FAILED_SHARD_LOCK"></a>
+
+```typescript
+public readonly FAILED_SHARD_LOCK: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `HIGH_JVM_USAGE`<sup>Required</sup> <a name="HIGH_JVM_USAGE" id="cdk-extensions.alerting.OpenSearchEventType.property.HIGH_JVM_USAGE"></a>
+
+```typescript
+public readonly HIGH_JVM_USAGE: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `HIGH_SHARED_COUNT`<sup>Required</sup> <a name="HIGH_SHARED_COUNT" id="cdk-extensions.alerting.OpenSearchEventType.property.HIGH_SHARED_COUNT"></a>
+
+```typescript
+public readonly HIGH_SHARED_COUNT: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `INSUFFICIENT_GARBAGE_COLLECTION`<sup>Required</sup> <a name="INSUFFICIENT_GARBAGE_COLLECTION" id="cdk-extensions.alerting.OpenSearchEventType.property.INSUFFICIENT_GARBAGE_COLLECTION"></a>
+
+```typescript
+public readonly INSUFFICIENT_GARBAGE_COLLECTION: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `KMS_KEY_INACCESSIBLE`<sup>Required</sup> <a name="KMS_KEY_INACCESSIBLE" id="cdk-extensions.alerting.OpenSearchEventType.property.KMS_KEY_INACCESSIBLE"></a>
+
+```typescript
+public readonly KMS_KEY_INACCESSIBLE: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `LARGE_SHARD_SIZE`<sup>Required</sup> <a name="LARGE_SHARD_SIZE" id="cdk-extensions.alerting.OpenSearchEventType.property.LARGE_SHARD_SIZE"></a>
+
+```typescript
+public readonly LARGE_SHARD_SIZE: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `LOW_DISK_SPACE`<sup>Required</sup> <a name="LOW_DISK_SPACE" id="cdk-extensions.alerting.OpenSearchEventType.property.LOW_DISK_SPACE"></a>
+
+```typescript
+public readonly LOW_DISK_SPACE: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `LOW_DISK_WATERMARK_BREACH`<sup>Required</sup> <a name="LOW_DISK_WATERMARK_BREACH" id="cdk-extensions.alerting.OpenSearchEventType.property.LOW_DISK_WATERMARK_BREACH"></a>
+
+```typescript
+public readonly LOW_DISK_WATERMARK_BREACH: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `NODE_RETIREMENT`<sup>Required</sup> <a name="NODE_RETIREMENT" id="cdk-extensions.alerting.OpenSearchEventType.property.NODE_RETIREMENT"></a>
+
+```typescript
+public readonly NODE_RETIREMENT: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `SERVICE_SOFTWARE_UPDATE`<sup>Required</sup> <a name="SERVICE_SOFTWARE_UPDATE" id="cdk-extensions.alerting.OpenSearchEventType.property.SERVICE_SOFTWARE_UPDATE"></a>
+
+```typescript
+public readonly SERVICE_SOFTWARE_UPDATE: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `VPC_ENDPOINT_CREATE`<sup>Required</sup> <a name="VPC_ENDPOINT_CREATE" id="cdk-extensions.alerting.OpenSearchEventType.property.VPC_ENDPOINT_CREATE"></a>
+
+```typescript
+public readonly VPC_ENDPOINT_CREATE: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `VPC_ENDPOINT_DELETE`<sup>Required</sup> <a name="VPC_ENDPOINT_DELETE" id="cdk-extensions.alerting.OpenSearchEventType.property.VPC_ENDPOINT_DELETE"></a>
+
+```typescript
+public readonly VPC_ENDPOINT_DELETE: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
+
+##### `VPC_ENDPOINT_UPDATE`<sup>Required</sup> <a name="VPC_ENDPOINT_UPDATE" id="cdk-extensions.alerting.OpenSearchEventType.property.VPC_ENDPOINT_UPDATE"></a>
+
+```typescript
+public readonly VPC_ENDPOINT_UPDATE: OpenSearchEventType;
+```
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventType
+
+---
 
 ### OpenSearchOutputBufferSize <a name="OpenSearchOutputBufferSize" id="cdk-extensions.k8s_aws.OpenSearchOutputBufferSize"></a>
 
@@ -85470,6 +92333,226 @@ The secret being referenced to import into Kubernetes.
 ---
 
 
+### SecurityHubSeverity <a name="SecurityHubSeverity" id="cdk-extensions.alerting.SecurityHubSeverity"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.SecurityHubSeverity.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.alerting.SecurityHubSeverity.of"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.SecurityHubSeverity.of(name: string, lowerBound: number, upperBound: number, standardized: string)
+```
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.alerting.SecurityHubSeverity.of.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+###### `lowerBound`<sup>Required</sup> <a name="lowerBound" id="cdk-extensions.alerting.SecurityHubSeverity.of.parameter.lowerBound"></a>
+
+- *Type:* number
+
+---
+
+###### `upperBound`<sup>Required</sup> <a name="upperBound" id="cdk-extensions.alerting.SecurityHubSeverity.of.parameter.upperBound"></a>
+
+- *Type:* number
+
+---
+
+###### `standardized`<sup>Required</sup> <a name="standardized" id="cdk-extensions.alerting.SecurityHubSeverity.of.parameter.standardized"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.SecurityHubSeverity.property.lowerBound">lowerBound</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubSeverity.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubSeverity.property.standardized">standardized</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubSeverity.property.upperBound">upperBound</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `lowerBound`<sup>Required</sup> <a name="lowerBound" id="cdk-extensions.alerting.SecurityHubSeverity.property.lowerBound"></a>
+
+```typescript
+public readonly lowerBound: number;
+```
+
+- *Type:* number
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.alerting.SecurityHubSeverity.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `standardized`<sup>Required</sup> <a name="standardized" id="cdk-extensions.alerting.SecurityHubSeverity.property.standardized"></a>
+
+```typescript
+public readonly standardized: string;
+```
+
+- *Type:* string
+
+---
+
+##### `upperBound`<sup>Required</sup> <a name="upperBound" id="cdk-extensions.alerting.SecurityHubSeverity.property.upperBound"></a>
+
+```typescript
+public readonly upperBound: number;
+```
+
+- *Type:* number
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.SecurityHubSeverity.property.CRITICAL">CRITICAL</a></code> | <code>cdk-extensions.alerting.SecurityHubSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubSeverity.property.HIGH">HIGH</a></code> | <code>cdk-extensions.alerting.SecurityHubSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubSeverity.property.INFORMATIONAL">INFORMATIONAL</a></code> | <code>cdk-extensions.alerting.SecurityHubSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubSeverity.property.LOW">LOW</a></code> | <code>cdk-extensions.alerting.SecurityHubSeverity</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubSeverity.property.MEDIUM">MEDIUM</a></code> | <code>cdk-extensions.alerting.SecurityHubSeverity</code> | *No description.* |
+
+---
+
+##### `CRITICAL`<sup>Required</sup> <a name="CRITICAL" id="cdk-extensions.alerting.SecurityHubSeverity.property.CRITICAL"></a>
+
+```typescript
+public readonly CRITICAL: SecurityHubSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.SecurityHubSeverity
+
+---
+
+##### `HIGH`<sup>Required</sup> <a name="HIGH" id="cdk-extensions.alerting.SecurityHubSeverity.property.HIGH"></a>
+
+```typescript
+public readonly HIGH: SecurityHubSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.SecurityHubSeverity
+
+---
+
+##### `INFORMATIONAL`<sup>Required</sup> <a name="INFORMATIONAL" id="cdk-extensions.alerting.SecurityHubSeverity.property.INFORMATIONAL"></a>
+
+```typescript
+public readonly INFORMATIONAL: SecurityHubSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.SecurityHubSeverity
+
+---
+
+##### `LOW`<sup>Required</sup> <a name="LOW" id="cdk-extensions.alerting.SecurityHubSeverity.property.LOW"></a>
+
+```typescript
+public readonly LOW: SecurityHubSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.SecurityHubSeverity
+
+---
+
+##### `MEDIUM`<sup>Required</sup> <a name="MEDIUM" id="cdk-extensions.alerting.SecurityHubSeverity.property.MEDIUM"></a>
+
+```typescript
+public readonly MEDIUM: SecurityHubSeverity;
+```
+
+- *Type:* cdk-extensions.alerting.SecurityHubSeverity
+
+---
+
+### SecurityHubSeverityConfiguration <a name="SecurityHubSeverityConfiguration" id="cdk-extensions.alerting.SecurityHubSeverityConfiguration"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.SecurityHubSeverityConfiguration.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.SecurityHubSeverityConfiguration()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.SecurityHubSeverityConfiguration.all">all</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubSeverityConfiguration.custom">custom</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.SecurityHubSeverityConfiguration.threshold">threshold</a></code> | *No description.* |
+
+---
+
+##### `all` <a name="all" id="cdk-extensions.alerting.SecurityHubSeverityConfiguration.all"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.SecurityHubSeverityConfiguration.all()
+```
+
+##### `custom` <a name="custom" id="cdk-extensions.alerting.SecurityHubSeverityConfiguration.custom"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.SecurityHubSeverityConfiguration.custom(levels: SecurityHubSeverity)
+```
+
+###### `levels`<sup>Required</sup> <a name="levels" id="cdk-extensions.alerting.SecurityHubSeverityConfiguration.custom.parameter.levels"></a>
+
+- *Type:* cdk-extensions.alerting.SecurityHubSeverity
+
+---
+
+##### `threshold` <a name="threshold" id="cdk-extensions.alerting.SecurityHubSeverityConfiguration.threshold"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.SecurityHubSeverityConfiguration.threshold(level: SecurityHubSeverity)
+```
+
+###### `level`<sup>Required</sup> <a name="level" id="cdk-extensions.alerting.SecurityHubSeverityConfiguration.threshold.parameter.level"></a>
+
+- *Type:* cdk-extensions.alerting.SecurityHubSeverity
+
+---
+
+
+
 ### SerializationLibrary <a name="SerializationLibrary" id="cdk-extensions.glue.SerializationLibrary"></a>
 
 Serialization library to use when serializing/deserializing (SerDe) table records.
@@ -85652,6 +92735,361 @@ public readonly REGEXP: SerializationLibrary;
 > [https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/serde2/RegexSerDe.html](https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/serde2/RegexSerDe.html)
 
 ---
+
+### SfnFn <a name="SfnFn" id="cdk-extensions.stepfunctions.SfnFn"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.stepfunctions.SfnFn.Initializer"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+new stepfunctions.SfnFn()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.array">array</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.arrayContains">arrayContains</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.arrayGetItem">arrayGetItem</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.arrayLength">arrayLength</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.arrayPartition">arrayPartition</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.arrayRange">arrayRange</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.arrayUnique">arrayUnique</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.base64Decode">base64Decode</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.base64Encode">base64Encode</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.format">format</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.hash">hash</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.jsonMerge">jsonMerge</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.jsonToString">jsonToString</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.mathAdd">mathAdd</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.mathRandom">mathRandom</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.stringSplit">stringSplit</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.stringToJson">stringToJson</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.SfnFn.uuid">uuid</a></code> | *No description.* |
+
+---
+
+##### `array` <a name="array" id="cdk-extensions.stepfunctions.SfnFn.array"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.array(values: any)
+```
+
+###### `values`<sup>Required</sup> <a name="values" id="cdk-extensions.stepfunctions.SfnFn.array.parameter.values"></a>
+
+- *Type:* any
+
+---
+
+##### `arrayContains` <a name="arrayContains" id="cdk-extensions.stepfunctions.SfnFn.arrayContains"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.arrayContains(array: string, lookingFor: any)
+```
+
+###### `array`<sup>Required</sup> <a name="array" id="cdk-extensions.stepfunctions.SfnFn.arrayContains.parameter.array"></a>
+
+- *Type:* string
+
+---
+
+###### `lookingFor`<sup>Required</sup> <a name="lookingFor" id="cdk-extensions.stepfunctions.SfnFn.arrayContains.parameter.lookingFor"></a>
+
+- *Type:* any
+
+---
+
+##### `arrayGetItem` <a name="arrayGetItem" id="cdk-extensions.stepfunctions.SfnFn.arrayGetItem"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.arrayGetItem(array: string, index: any)
+```
+
+###### `array`<sup>Required</sup> <a name="array" id="cdk-extensions.stepfunctions.SfnFn.arrayGetItem.parameter.array"></a>
+
+- *Type:* string
+
+---
+
+###### `index`<sup>Required</sup> <a name="index" id="cdk-extensions.stepfunctions.SfnFn.arrayGetItem.parameter.index"></a>
+
+- *Type:* any
+
+---
+
+##### `arrayLength` <a name="arrayLength" id="cdk-extensions.stepfunctions.SfnFn.arrayLength"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.arrayLength(array: string)
+```
+
+###### `array`<sup>Required</sup> <a name="array" id="cdk-extensions.stepfunctions.SfnFn.arrayLength.parameter.array"></a>
+
+- *Type:* string
+
+---
+
+##### `arrayPartition` <a name="arrayPartition" id="cdk-extensions.stepfunctions.SfnFn.arrayPartition"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.arrayPartition(array: string, size: any)
+```
+
+###### `array`<sup>Required</sup> <a name="array" id="cdk-extensions.stepfunctions.SfnFn.arrayPartition.parameter.array"></a>
+
+- *Type:* string
+
+---
+
+###### `size`<sup>Required</sup> <a name="size" id="cdk-extensions.stepfunctions.SfnFn.arrayPartition.parameter.size"></a>
+
+- *Type:* any
+
+---
+
+##### `arrayRange` <a name="arrayRange" id="cdk-extensions.stepfunctions.SfnFn.arrayRange"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.arrayRange(start: any, stop: any, step: any)
+```
+
+###### `start`<sup>Required</sup> <a name="start" id="cdk-extensions.stepfunctions.SfnFn.arrayRange.parameter.start"></a>
+
+- *Type:* any
+
+---
+
+###### `stop`<sup>Required</sup> <a name="stop" id="cdk-extensions.stepfunctions.SfnFn.arrayRange.parameter.stop"></a>
+
+- *Type:* any
+
+---
+
+###### `step`<sup>Required</sup> <a name="step" id="cdk-extensions.stepfunctions.SfnFn.arrayRange.parameter.step"></a>
+
+- *Type:* any
+
+---
+
+##### `arrayUnique` <a name="arrayUnique" id="cdk-extensions.stepfunctions.SfnFn.arrayUnique"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.arrayUnique(array: string)
+```
+
+###### `array`<sup>Required</sup> <a name="array" id="cdk-extensions.stepfunctions.SfnFn.arrayUnique.parameter.array"></a>
+
+- *Type:* string
+
+---
+
+##### `base64Decode` <a name="base64Decode" id="cdk-extensions.stepfunctions.SfnFn.base64Decode"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.base64Decode(value: string)
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.stepfunctions.SfnFn.base64Decode.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `base64Encode` <a name="base64Encode" id="cdk-extensions.stepfunctions.SfnFn.base64Encode"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.base64Encode(value: string)
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.stepfunctions.SfnFn.base64Encode.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `format` <a name="format" id="cdk-extensions.stepfunctions.SfnFn.format"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.format(template: string, values: string[])
+```
+
+###### `template`<sup>Required</sup> <a name="template" id="cdk-extensions.stepfunctions.SfnFn.format.parameter.template"></a>
+
+- *Type:* string
+
+---
+
+###### `values`<sup>Required</sup> <a name="values" id="cdk-extensions.stepfunctions.SfnFn.format.parameter.values"></a>
+
+- *Type:* string[]
+
+---
+
+##### `hash` <a name="hash" id="cdk-extensions.stepfunctions.SfnFn.hash"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.hash(data: string, algorithm: string)
+```
+
+###### `data`<sup>Required</sup> <a name="data" id="cdk-extensions.stepfunctions.SfnFn.hash.parameter.data"></a>
+
+- *Type:* string
+
+---
+
+###### `algorithm`<sup>Required</sup> <a name="algorithm" id="cdk-extensions.stepfunctions.SfnFn.hash.parameter.algorithm"></a>
+
+- *Type:* string
+
+---
+
+##### `jsonMerge` <a name="jsonMerge" id="cdk-extensions.stepfunctions.SfnFn.jsonMerge"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.jsonMerge(json1: string, json2: string)
+```
+
+###### `json1`<sup>Required</sup> <a name="json1" id="cdk-extensions.stepfunctions.SfnFn.jsonMerge.parameter.json1"></a>
+
+- *Type:* string
+
+---
+
+###### `json2`<sup>Required</sup> <a name="json2" id="cdk-extensions.stepfunctions.SfnFn.jsonMerge.parameter.json2"></a>
+
+- *Type:* string
+
+---
+
+##### `jsonToString` <a name="jsonToString" id="cdk-extensions.stepfunctions.SfnFn.jsonToString"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.jsonToString(data: string)
+```
+
+###### `data`<sup>Required</sup> <a name="data" id="cdk-extensions.stepfunctions.SfnFn.jsonToString.parameter.data"></a>
+
+- *Type:* string
+
+---
+
+##### `mathAdd` <a name="mathAdd" id="cdk-extensions.stepfunctions.SfnFn.mathAdd"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.mathAdd(value: string, step: any)
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.stepfunctions.SfnFn.mathAdd.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `step`<sup>Required</sup> <a name="step" id="cdk-extensions.stepfunctions.SfnFn.mathAdd.parameter.step"></a>
+
+- *Type:* any
+
+---
+
+##### `mathRandom` <a name="mathRandom" id="cdk-extensions.stepfunctions.SfnFn.mathRandom"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.mathRandom(start: any, end: any)
+```
+
+###### `start`<sup>Required</sup> <a name="start" id="cdk-extensions.stepfunctions.SfnFn.mathRandom.parameter.start"></a>
+
+- *Type:* any
+
+---
+
+###### `end`<sup>Required</sup> <a name="end" id="cdk-extensions.stepfunctions.SfnFn.mathRandom.parameter.end"></a>
+
+- *Type:* any
+
+---
+
+##### `stringSplit` <a name="stringSplit" id="cdk-extensions.stepfunctions.SfnFn.stringSplit"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.stringSplit(data: string, splitter: string)
+```
+
+###### `data`<sup>Required</sup> <a name="data" id="cdk-extensions.stepfunctions.SfnFn.stringSplit.parameter.data"></a>
+
+- *Type:* string
+
+---
+
+###### `splitter`<sup>Required</sup> <a name="splitter" id="cdk-extensions.stepfunctions.SfnFn.stringSplit.parameter.splitter"></a>
+
+- *Type:* string
+
+---
+
+##### `stringToJson` <a name="stringToJson" id="cdk-extensions.stepfunctions.SfnFn.stringToJson"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.stringToJson(data: string)
+```
+
+###### `data`<sup>Required</sup> <a name="data" id="cdk-extensions.stepfunctions.SfnFn.stringToJson.parameter.data"></a>
+
+- *Type:* string
+
+---
+
+##### `uuid` <a name="uuid" id="cdk-extensions.stepfunctions.SfnFn.uuid"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.SfnFn.uuid()
+```
+
+
 
 ### SharedPrincipal <a name="SharedPrincipal" id="cdk-extensions.ram.SharedPrincipal"></a>
 
@@ -86151,6 +93589,76 @@ Gets an object that allows for interacting with the stored state of a construct.
 - *Type:* constructs.IConstruct
 
 The construct for which state information is desired.
+
+---
+
+
+
+### StepFunctionValidation <a name="StepFunctionValidation" id="cdk-extensions.stepfunctions.StepFunctionValidation"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.stepfunctions.StepFunctionValidation.Initializer"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+new stepfunctions.StepFunctionValidation()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.stepfunctions.StepFunctionValidation.isIntrinsic">isIntrinsic</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.StepFunctionValidation.isJsonPath">isJsonPath</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.StepFunctionValidation.isStatesExpression">isStatesExpression</a></code> | *No description.* |
+
+---
+
+##### `isIntrinsic` <a name="isIntrinsic" id="cdk-extensions.stepfunctions.StepFunctionValidation.isIntrinsic"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.StepFunctionValidation.isIntrinsic(value: string)
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.stepfunctions.StepFunctionValidation.isIntrinsic.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `isJsonPath` <a name="isJsonPath" id="cdk-extensions.stepfunctions.StepFunctionValidation.isJsonPath"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.StepFunctionValidation.isJsonPath(value: string)
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.stepfunctions.StepFunctionValidation.isJsonPath.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `isStatesExpression` <a name="isStatesExpression" id="cdk-extensions.stepfunctions.StepFunctionValidation.isStatesExpression"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.StepFunctionValidation.isStatesExpression(value: string)
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.stepfunctions.StepFunctionValidation.isStatesExpression.parameter.value"></a>
+
+- *Type:* string
 
 ---
 
@@ -89065,6 +96573,25 @@ The IP address of the customer gateway.
 
 ---
 
+### IDelayedChainable <a name="IDelayedChainable" id="cdk-extensions.alerting.IDelayedChainable"></a>
+
+- *Implemented By:* cdk-extensions.alerting.DescriptionBuilder, cdk-extensions.alerting.DescriptionBuilderIterator, cdk-extensions.alerting.DescriptionBuilderSection, cdk-extensions.alerting.IDelayedChainable, cdk-extensions.alerting.IDescriptionBuilderComponent
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.IDelayedChainable.render">render</a></code> | *No description.* |
+
+---
+
+##### `render` <a name="render" id="cdk-extensions.alerting.IDelayedChainable.render"></a>
+
+```typescript
+public render(): IChainable
+```
+
+
 ### IDeliveryStream <a name="IDeliveryStream" id="cdk-extensions.kinesis_firehose.IDeliveryStream"></a>
 
 - *Extends:* aws-cdk-lib.IResource, aws-cdk-lib.aws_iam.IGrantable, aws-cdk-lib.aws_ec2.IConnectable
@@ -89326,6 +96853,113 @@ public renderBackupConfiguration(scope: IConstruct, enabled?: boolean): BackupCo
 ---
 
 
+### IDescriptionBuilderComponent <a name="IDescriptionBuilderComponent" id="cdk-extensions.alerting.IDescriptionBuilderComponent"></a>
+
+- *Extends:* cdk-extensions.alerting.IDelayedChainable
+
+- *Implemented By:* cdk-extensions.alerting.DescriptionBuilder, cdk-extensions.alerting.DescriptionBuilderIterator, cdk-extensions.alerting.DescriptionBuilderSection, cdk-extensions.alerting.IDescriptionBuilderComponent
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.IDescriptionBuilderComponent.addIterator">addIterator</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IDescriptionBuilderComponent.addReference">addReference</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IDescriptionBuilderComponent.setDelimiter">setDelimiter</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IDescriptionBuilderComponent.write">write</a></code> | *No description.* |
+
+---
+
+##### `addIterator` <a name="addIterator" id="cdk-extensions.alerting.IDescriptionBuilderComponent.addIterator"></a>
+
+```typescript
+public addIterator(id: string, props: DescriptionBuilderIteratorProps): DescriptionBuilderIterator
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IDescriptionBuilderComponent.addIterator.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.IDescriptionBuilderComponent.addIterator.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.DescriptionBuilderIteratorProps
+
+---
+
+##### `addReference` <a name="addReference" id="cdk-extensions.alerting.IDescriptionBuilderComponent.addReference"></a>
+
+```typescript
+public addReference(id: string, props: AddReferenceProps): IChainable
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IDescriptionBuilderComponent.addReference.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.IDescriptionBuilderComponent.addReference.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.AddReferenceProps
+
+---
+
+##### `setDelimiter` <a name="setDelimiter" id="cdk-extensions.alerting.IDescriptionBuilderComponent.setDelimiter"></a>
+
+```typescript
+public setDelimiter(id: string, props: SetDelimiterProps): IChainable
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IDescriptionBuilderComponent.setDelimiter.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.IDescriptionBuilderComponent.setDelimiter.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.SetDelimiterProps
+
+---
+
+##### `write` <a name="write" id="cdk-extensions.alerting.IDescriptionBuilderComponent.write"></a>
+
+```typescript
+public write(id: string, props: WriteProps): IChainable
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IDescriptionBuilderComponent.write.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.IDescriptionBuilderComponent.write.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.WriteProps
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IDescriptionBuilderComponent.property.classifier">classifier</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `classifier`<sup>Required</sup> <a name="classifier" id="cdk-extensions.alerting.IDescriptionBuilderComponent.property.classifier"></a>
+
+```typescript
+public readonly classifier: string;
+```
+
+- *Type:* string
+
+---
+
 ### IDnsResolvable <a name="IDnsResolvable" id="cdk-extensions.route53.IDnsResolvable"></a>
 
 - *Extends:* constructs.IConstruct
@@ -89380,6 +97014,29 @@ public readonly domainDiscovery: DomainDiscovery;
 ```
 
 - *Type:* cdk-extensions.route53.DomainDiscovery
+
+---
+
+### IEcrImageScanSeverityConfiguration <a name="IEcrImageScanSeverityConfiguration" id="cdk-extensions.alerting.IEcrImageScanSeverityConfiguration"></a>
+
+- *Implemented By:* cdk-extensions.alerting.IEcrImageScanSeverityConfiguration
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IEcrImageScanSeverityConfiguration.property.levels">levels</a></code> | <code>cdk-extensions.alerting.EcrImageScanSeverity[]</code> | *No description.* |
+
+---
+
+##### `levels`<sup>Required</sup> <a name="levels" id="cdk-extensions.alerting.IEcrImageScanSeverityConfiguration.property.levels"></a>
+
+```typescript
+public readonly levels: EcrImageScanSeverity[];
+```
+
+- *Type:* cdk-extensions.alerting.EcrImageScanSeverity[]
 
 ---
 
@@ -91151,6 +98808,189 @@ public readonly ipFamily: IpFamily;
 
 ---
 
+### IIssueHandler <a name="IIssueHandler" id="cdk-extensions.alerting.IIssueHandler"></a>
+
+- *Extends:* aws-cdk-lib.IResource
+
+- *Implemented By:* cdk-extensions.alerting.JiraTicket, cdk-extensions.alerting.IIssueHandler
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IIssueHandler.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.IIssueHandler.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.IIssueHandler.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.alerting.IIssueHandler.property.handler">handler</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IIssueHandler.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.IIssueHandler.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.alerting.IIssueHandler.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.alerting.IIssueHandler.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `handler`<sup>Required</sup> <a name="handler" id="cdk-extensions.alerting.IIssueHandler.property.handler"></a>
+
+```typescript
+public readonly handler: IStateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IStateMachine
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.alerting.IIssueHandler.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+### IIssueParser <a name="IIssueParser" id="cdk-extensions.alerting.IIssueParser"></a>
+
+- *Extends:* aws-cdk-lib.IResource
+
+- *Implemented By:* cdk-extensions.alerting.EcrScanFinding, cdk-extensions.alerting.GuardDutyFinding, cdk-extensions.alerting.InspectorFinding, cdk-extensions.alerting.IssueParserPluginBase, cdk-extensions.alerting.OpenSearchEvent, cdk-extensions.alerting.SecurityHubFinding, cdk-extensions.alerting.IIssueParser
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.IIssueParser.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.alerting.IIssueParser.bind"></a>
+
+```typescript
+public bind(node: IConstruct): IssueTrigger[]
+```
+
+###### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.IIssueParser.bind.parameter.node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IIssueParser.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.IIssueParser.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.IIssueParser.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.alerting.IIssueParser.property.handler">handler</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IIssueParser.property.matchType">matchType</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.IIssueParser.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.alerting.IIssueParser.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.alerting.IIssueParser.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `handler`<sup>Required</sup> <a name="handler" id="cdk-extensions.alerting.IIssueParser.property.handler"></a>
+
+```typescript
+public readonly handler: IStateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IStateMachine
+
+---
+
+##### `matchType`<sup>Required</sup> <a name="matchType" id="cdk-extensions.alerting.IIssueParser.property.matchType"></a>
+
+```typescript
+public readonly matchType: string;
+```
+
+- *Type:* string
+
+---
+
 ### IJob <a name="IJob" id="cdk-extensions.glue.IJob"></a>
 
 - *Extends:* constructs.IConstruct
@@ -92007,6 +99847,29 @@ public readonly secretStoreName: string;
 - *Type:* string
 
 The name of the secret store as it appears in Kubernetes.
+
+---
+
+### ISecurityHubSeverityConfiguration <a name="ISecurityHubSeverityConfiguration" id="cdk-extensions.alerting.ISecurityHubSeverityConfiguration"></a>
+
+- *Implemented By:* cdk-extensions.alerting.ISecurityHubSeverityConfiguration
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.ISecurityHubSeverityConfiguration.property.levels">levels</a></code> | <code>cdk-extensions.alerting.SecurityHubSeverity[]</code> | *No description.* |
+
+---
+
+##### `levels`<sup>Required</sup> <a name="levels" id="cdk-extensions.alerting.ISecurityHubSeverityConfiguration.property.levels"></a>
+
+```typescript
+public readonly levels: SecurityHubSeverity[];
+```
+
+- *Type:* cdk-extensions.alerting.SecurityHubSeverity[]
 
 ---
 

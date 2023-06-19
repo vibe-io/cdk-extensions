@@ -6,6 +6,7 @@ export * as core from './core';
 
 export * as asserts from './asserts';
 
+export * as alerting from './alerting';
 export * as aps from './aps';
 export * as athena from './athena';
 export * as ec2 from './ec2';
@@ -25,5 +26,6 @@ export * as resourcegroups from './resourcegroups';
 export * as route53 from './route53';
 export * as s3_buckets from './s3-buckets';
 export * as sso from './sso';
+export * as stepfunctions from './stepfunctions';
 
 export * as stacks from './stacks';
