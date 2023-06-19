@@ -16585,6 +16585,350 @@ public readonly resource: CfnGlobalNetwork;
 ---
 
 
+### Group <a name="Group" id="cdk-extensions.resourcegroups.Group"></a>
+
+- *Implements:* cdk-extensions.resourcegroups.IGroup
+
+#### Initializers <a name="Initializers" id="cdk-extensions.resourcegroups.Group.Initializer"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+new resourcegroups.Group(scope: IConstruct, id: string, props: GroupProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.Group.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.Group.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.Group.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.resourcegroups.GroupProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.resourcegroups.Group.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.resourcegroups.Group.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.resourcegroups.Group.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.resourcegroups.GroupProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.Group.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.resourcegroups.Group.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.resourcegroups.Group.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.resourcegroups.Group.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.resourcegroups.Group.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.Group.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.resourcegroups.Group.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.resourcegroups.Group.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.resourcegroups.Group.fromGroupArn">fromGroupArn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.Group.fromGroupAttributes">fromGroupAttributes</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.Group.fromGroupName">fromGroupName</a></code> | *No description.* |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.resourcegroups.Group.isConstruct"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+resourcegroups.Group.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.resourcegroups.Group.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.resourcegroups.Group.isOwnedResource"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+resourcegroups.Group.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.resourcegroups.Group.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.resourcegroups.Group.isResource"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+resourcegroups.Group.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.resourcegroups.Group.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromGroupArn` <a name="fromGroupArn" id="cdk-extensions.resourcegroups.Group.fromGroupArn"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+resourcegroups.Group.fromGroupArn(scope: IConstruct, id: string, arn: string)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.resourcegroups.Group.fromGroupArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.resourcegroups.Group.fromGroupArn.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `arn`<sup>Required</sup> <a name="arn" id="cdk-extensions.resourcegroups.Group.fromGroupArn.parameter.arn"></a>
+
+- *Type:* string
+
+---
+
+##### `fromGroupAttributes` <a name="fromGroupAttributes" id="cdk-extensions.resourcegroups.Group.fromGroupAttributes"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+resourcegroups.Group.fromGroupAttributes(scope: IConstruct, id: string, attrs: GroupAttributes)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.resourcegroups.Group.fromGroupAttributes.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.resourcegroups.Group.fromGroupAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.resourcegroups.Group.fromGroupAttributes.parameter.attrs"></a>
+
+- *Type:* cdk-extensions.resourcegroups.GroupAttributes
+
+---
+
+##### `fromGroupName` <a name="fromGroupName" id="cdk-extensions.resourcegroups.Group.fromGroupName"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+resourcegroups.Group.fromGroupName(scope: IConstruct, id: string, name: string)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.resourcegroups.Group.fromGroupName.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.resourcegroups.Group.fromGroupName.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.resourcegroups.Group.fromGroupName.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.Group.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.resourcegroups.Group.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.resourcegroups.Group.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.resourcegroups.Group.property.groupArn">groupArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.Group.property.groupName">groupName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.Group.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.Group.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_resourcegroups.CfnGroup</code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.Group.property.description">description</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.resourcegroups.Group.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.resourcegroups.Group.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.resourcegroups.Group.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `groupArn`<sup>Required</sup> <a name="groupArn" id="cdk-extensions.resourcegroups.Group.property.groupArn"></a>
+
+```typescript
+public readonly groupArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `groupName`<sup>Required</sup> <a name="groupName" id="cdk-extensions.resourcegroups.Group.property.groupName"></a>
+
+```typescript
+public readonly groupName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.resourcegroups.Group.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.resourcegroups.Group.property.resource"></a>
+
+```typescript
+public readonly resource: CfnGroup;
+```
+
+- *Type:* aws-cdk-lib.aws_resourcegroups.CfnGroup
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.resourcegroups.Group.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.Group.property.ARN_FORMAT">ARN_FORMAT</a></code> | <code>aws-cdk-lib.ArnFormat</code> | *No description.* |
+
+---
+
+##### `ARN_FORMAT`<sup>Required</sup> <a name="ARN_FORMAT" id="cdk-extensions.resourcegroups.Group.property.ARN_FORMAT"></a>
+
+```typescript
+public readonly ARN_FORMAT: ArnFormat;
+```
+
+- *Type:* aws-cdk-lib.ArnFormat
+
+---
+
 ### GroupBase <a name="GroupBase" id="cdk-extensions.sso.GroupBase"></a>
 
 - *Implements:* cdk-extensions.sso.IGroup, cdk-extensions.sso.IIdentityCenterPrincipal
@@ -43612,6 +43956,45 @@ than this input is also excluded for processing.
 
 ---
 
+### BoundGroupConfiguration <a name="BoundGroupConfiguration" id="cdk-extensions.resourcegroups.BoundGroupConfiguration"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.resourcegroups.BoundGroupConfiguration.Initializer"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+const boundGroupConfiguration: resourcegroups.BoundGroupConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.BoundGroupConfiguration.property.configuration">configuration</a></code> | <code>aws-cdk-lib.aws_resourcegroups.CfnGroup.ConfigurationItemProperty[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.BoundGroupConfiguration.property.query">query</a></code> | <code>aws-cdk-lib.aws_resourcegroups.CfnGroup.ResourceQueryProperty</code> | *No description.* |
+
+---
+
+##### `configuration`<sup>Optional</sup> <a name="configuration" id="cdk-extensions.resourcegroups.BoundGroupConfiguration.property.configuration"></a>
+
+```typescript
+public readonly configuration: ConfigurationItemProperty[];
+```
+
+- *Type:* aws-cdk-lib.aws_resourcegroups.CfnGroup.ConfigurationItemProperty[]
+
+---
+
+##### `query`<sup>Optional</sup> <a name="query" id="cdk-extensions.resourcegroups.BoundGroupConfiguration.property.query"></a>
+
+```typescript
+public readonly query: ResourceQueryProperty;
+```
+
+- *Type:* aws-cdk-lib.aws_resourcegroups.CfnGroup.ResourceQueryProperty
+
+---
+
 ### BufferingConfigurationOptions <a name="BufferingConfigurationOptions" id="cdk-extensions.kinesis_firehose.BufferingConfigurationOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.BufferingConfigurationOptions.Initializer"></a>
@@ -43837,6 +44220,34 @@ public readonly ipamPool: IIpamPool;
 ```
 
 - *Type:* cdk-extensions.ec2.IIpamPool
+
+---
+
+### CloudFormationStackProps <a name="CloudFormationStackProps" id="cdk-extensions.resourcegroups.CloudFormationStackProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.resourcegroups.CloudFormationStackProps.Initializer"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+const cloudFormationStackProps: resourcegroups.CloudFormationStackProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.CloudFormationStackProps.property.resourceTypes">resourceTypes</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `resourceTypes`<sup>Optional</sup> <a name="resourceTypes" id="cdk-extensions.resourcegroups.CloudFormationStackProps.property.resourceTypes"></a>
+
+```typescript
+public readonly resourceTypes: string[];
+```
+
+- *Type:* string[]
 
 ---
 
@@ -53274,6 +53685,162 @@ The AWS region this resource belongs to.
 
 ```typescript
 public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+### GroupAttributes <a name="GroupAttributes" id="cdk-extensions.resourcegroups.GroupAttributes"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.resourcegroups.GroupAttributes.Initializer"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+const groupAttributes: resourcegroups.GroupAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.GroupAttributes.property.arn">arn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.GroupAttributes.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `arn`<sup>Optional</sup> <a name="arn" id="cdk-extensions.resourcegroups.GroupAttributes.property.arn"></a>
+
+```typescript
+public readonly arn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.resourcegroups.GroupAttributes.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+### GroupProps <a name="GroupProps" id="cdk-extensions.resourcegroups.GroupProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.resourcegroups.GroupProps.Initializer"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+const groupProps: resourcegroups.GroupProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.GroupProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.resourcegroups.GroupProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.resourcegroups.GroupProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.resourcegroups.GroupProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.resourcegroups.GroupProps.property.configuration">configuration</a></code> | <code>cdk-extensions.resourcegroups.IGroupConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.GroupProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.GroupProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.resourcegroups.GroupProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.resourcegroups.GroupProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.resourcegroups.GroupProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.resourcegroups.GroupProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `configuration`<sup>Required</sup> <a name="configuration" id="cdk-extensions.resourcegroups.GroupProps.property.configuration"></a>
+
+```typescript
+public readonly configuration: IGroupConfiguration;
+```
+
+- *Type:* cdk-extensions.resourcegroups.IGroupConfiguration
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.resourcegroups.GroupProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.resourcegroups.GroupProps.property.name"></a>
+
+```typescript
+public readonly name: string;
 ```
 
 - *Type:* string
@@ -69964,6 +70531,120 @@ public readonly XML: ClassificationString;
 
 ---
 
+### CloudFormationStack <a name="CloudFormationStack" id="cdk-extensions.resourcegroups.CloudFormationStack"></a>
+
+- *Implements:* cdk-extensions.resourcegroups.IGroupConfiguration
+
+Configuration object for a Resource Group whose resources mirror those controlled by a CloudFormation stack.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.resourcegroups.CloudFormationStack.Initializer"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+new resourcegroups.CloudFormationStack(reference: IStackReference, props?: CloudFormationStackProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.CloudFormationStack.Initializer.parameter.reference">reference</a></code> | <code>cdk-extensions.resourcegroups.IStackReference</code> | A reference to a CloudFormation stack that determines the resources to be contained in the Resource Group. |
+| <code><a href="#cdk-extensions.resourcegroups.CloudFormationStack.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.resourcegroups.CloudFormationStackProps</code> | *No description.* |
+
+---
+
+##### `reference`<sup>Required</sup> <a name="reference" id="cdk-extensions.resourcegroups.CloudFormationStack.Initializer.parameter.reference"></a>
+
+- *Type:* cdk-extensions.resourcegroups.IStackReference
+
+A reference to a CloudFormation stack that determines the resources to be contained in the Resource Group.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.resourcegroups.CloudFormationStack.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.resourcegroups.CloudFormationStackProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.CloudFormationStack.addResourceType">addResourceType</a></code> | Add a resource type to the resource group. |
+| <code><a href="#cdk-extensions.resourcegroups.CloudFormationStack.bind">bind</a></code> | Associates this configuration with a construct that is handling the creation of a resource group. |
+
+---
+
+##### `addResourceType` <a name="addResourceType" id="cdk-extensions.resourcegroups.CloudFormationStack.addResourceType"></a>
+
+```typescript
+public addResourceType(typeId: string): CloudFormationStack
+```
+
+Add a resource type to the resource group.
+
+If no resource types are registered in the configuration then all resource
+types are allowed.
+
+###### `typeId`<sup>Required</sup> <a name="typeId" id="cdk-extensions.resourcegroups.CloudFormationStack.addResourceType.parameter.typeId"></a>
+
+- *Type:* string
+
+The type that is to be added to the resource group.
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.resourcegroups.CloudFormationStack.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): BoundGroupConfiguration
+```
+
+Associates this configuration with a construct that is handling the creation of a resource group.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.resourcegroups.CloudFormationStack.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct managing the creation of the Resource Group.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.CloudFormationStack.property.reference">reference</a></code> | <code>cdk-extensions.resourcegroups.IStackReference</code> | The details of the CloudFormation stack that is referenced to create the Resource Group. |
+| <code><a href="#cdk-extensions.resourcegroups.CloudFormationStack.property.resourceTypes">resourceTypes</a></code> | <code>string[]</code> | Collection of resource types that are allowed to be in the Resource Group being configured. |
+
+---
+
+##### `reference`<sup>Required</sup> <a name="reference" id="cdk-extensions.resourcegroups.CloudFormationStack.property.reference"></a>
+
+```typescript
+public readonly reference: IStackReference;
+```
+
+- *Type:* cdk-extensions.resourcegroups.IStackReference
+
+The details of the CloudFormation stack that is referenced to create the Resource Group.
+
+---
+
+##### `resourceTypes`<sup>Required</sup> <a name="resourceTypes" id="cdk-extensions.resourcegroups.CloudFormationStack.property.resourceTypes"></a>
+
+```typescript
+public readonly resourceTypes: string[];
+```
+
+- *Type:* string[]
+
+Collection of resource types that are allowed to be in the Resource Group being configured.
+
+---
+
+
 ### CloudWatchLoggingConfiguration <a name="CloudWatchLoggingConfiguration" id="cdk-extensions.kinesis_firehose.CloudWatchLoggingConfiguration"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.CloudWatchLoggingConfiguration.Initializer"></a>
@@ -78946,6 +79627,67 @@ sso.Group.fromGroupId(scope: IConstruct, id: string, groupId: string)
 
 
 
+### GroupConfiguration <a name="GroupConfiguration" id="cdk-extensions.resourcegroups.GroupConfiguration"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.resourcegroups.GroupConfiguration.Initializer"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+new resourcegroups.GroupConfiguration()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.GroupConfiguration.cloudFormationStack">cloudFormationStack</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.GroupConfiguration.tagFilter">tagFilter</a></code> | *No description.* |
+
+---
+
+##### `cloudFormationStack` <a name="cloudFormationStack" id="cdk-extensions.resourcegroups.GroupConfiguration.cloudFormationStack"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+resourcegroups.GroupConfiguration.cloudFormationStack(reference: IStackReference, props?: CloudFormationStackProps)
+```
+
+###### `reference`<sup>Required</sup> <a name="reference" id="cdk-extensions.resourcegroups.GroupConfiguration.cloudFormationStack.parameter.reference"></a>
+
+- *Type:* cdk-extensions.resourcegroups.IStackReference
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.resourcegroups.GroupConfiguration.cloudFormationStack.parameter.props"></a>
+
+- *Type:* cdk-extensions.resourcegroups.CloudFormationStackProps
+
+---
+
+##### `tagFilter` <a name="tagFilter" id="cdk-extensions.resourcegroups.GroupConfiguration.tagFilter"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+resourcegroups.GroupConfiguration.tagFilter(props?: TagFilterProps)
+```
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.resourcegroups.GroupConfiguration.tagFilter.parameter.props"></a>
+
+- *Type:* cdk-extensions.resourcegroups.TagFilterProps
+
+---
+
+
+
 ### HiveJsonInputSerDe <a name="HiveJsonInputSerDe" id="cdk-extensions.kinesis_firehose.HiveJsonInputSerDe"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.HiveJsonInputSerDe.Initializer"></a>
@@ -85270,6 +86012,61 @@ The SSM parameter being referenced to import into Kubernetes.
 ---
 
 
+### StackReference <a name="StackReference" id="cdk-extensions.resourcegroups.StackReference"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.resourcegroups.StackReference.Initializer"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+new resourcegroups.StackReference()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.StackReference.fromStack">fromStack</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.StackReference.fromStackId">fromStackId</a></code> | *No description.* |
+
+---
+
+##### `fromStack` <a name="fromStack" id="cdk-extensions.resourcegroups.StackReference.fromStack"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+resourcegroups.StackReference.fromStack(stack: Stack)
+```
+
+###### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.resourcegroups.StackReference.fromStack.parameter.stack"></a>
+
+- *Type:* aws-cdk-lib.Stack
+
+---
+
+##### `fromStackId` <a name="fromStackId" id="cdk-extensions.resourcegroups.StackReference.fromStackId"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+resourcegroups.StackReference.fromStackId(stackId: string)
+```
+
+###### `stackId`<sup>Required</sup> <a name="stackId" id="cdk-extensions.resourcegroups.StackReference.fromStackId.parameter.stackId"></a>
+
+- *Type:* string
+
+---
+
+
+
 ### State <a name="State" id="cdk-extensions.core.State"></a>
 
 Provides a means of storing and retrieving arbitrary data that can be associated with a construct.
@@ -85596,6 +86393,189 @@ public readonly LATEST: TableVersion;
 - *Type:* cdk-extensions.kinesis_firehose.TableVersion
 
 ---
+
+### TagFilter <a name="TagFilter" id="cdk-extensions.resourcegroups.TagFilter"></a>
+
+- *Implements:* cdk-extensions.resourcegroups.IGroupConfiguration
+
+#### Initializers <a name="Initializers" id="cdk-extensions.resourcegroups.TagFilter.Initializer"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+new resourcegroups.TagFilter(props?: TagFilterProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.TagFilter.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.resourcegroups.TagFilterProps</code> | Settings to use when applying the tag filter. |
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.resourcegroups.TagFilter.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.resourcegroups.TagFilterProps
+
+Settings to use when applying the tag filter.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.TagFilter.addResourceType">addResourceType</a></code> | Add a resource type to the resource group. |
+| <code><a href="#cdk-extensions.resourcegroups.TagFilter.addTagFilter">addTagFilter</a></code> | Adds a new tag filter that should be used for controlling the resources in the Resource Group. |
+| <code><a href="#cdk-extensions.resourcegroups.TagFilter.bind">bind</a></code> | Associates this configuration with a construct that is handling the creation of a resource group. |
+
+---
+
+##### `addResourceType` <a name="addResourceType" id="cdk-extensions.resourcegroups.TagFilter.addResourceType"></a>
+
+```typescript
+public addResourceType(typeId: string): TagFilter
+```
+
+Add a resource type to the resource group.
+
+If no resource types are registered in the configuration then all resource
+types are allowed.
+
+###### `typeId`<sup>Required</sup> <a name="typeId" id="cdk-extensions.resourcegroups.TagFilter.addResourceType.parameter.typeId"></a>
+
+- *Type:* string
+
+The type that is to be added to the resource group.
+
+---
+
+##### `addTagFilter` <a name="addTagFilter" id="cdk-extensions.resourcegroups.TagFilter.addTagFilter"></a>
+
+```typescript
+public addTagFilter(key: string, values: string): TagFilter
+```
+
+Adds a new tag filter that should be used for controlling the resources in the Resource Group.
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.resourcegroups.TagFilter.addTagFilter.parameter.key"></a>
+
+- *Type:* string
+
+The name of the tag to be filtered on.
+
+---
+
+###### `values`<sup>Required</sup> <a name="values" id="cdk-extensions.resourcegroups.TagFilter.addTagFilter.parameter.values"></a>
+
+- *Type:* string
+
+Values to match for the given tag.
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.resourcegroups.TagFilter.bind"></a>
+
+```typescript
+public bind(_scope: IConstruct): BoundGroupConfiguration
+```
+
+Associates this configuration with a construct that is handling the creation of a resource group.
+
+###### `_scope`<sup>Required</sup> <a name="_scope" id="cdk-extensions.resourcegroups.TagFilter.bind.parameter._scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The construct managing the creation of the Resource Group.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.TagFilter.property.resourceTypes">resourceTypes</a></code> | <code>string[]</code> | Collection of resource types that are allowed to be in the Resource Group being configured. |
+| <code><a href="#cdk-extensions.resourcegroups.TagFilter.property.tagFilters">tagFilters</a></code> | <code>{[ key: string ]: string[]}</code> | Collection of filters to be used to determine the resources that belong to the Resource Group. |
+
+---
+
+##### `resourceTypes`<sup>Required</sup> <a name="resourceTypes" id="cdk-extensions.resourcegroups.TagFilter.property.resourceTypes"></a>
+
+```typescript
+public readonly resourceTypes: string[];
+```
+
+- *Type:* string[]
+
+Collection of resource types that are allowed to be in the Resource Group being configured.
+
+---
+
+##### `tagFilters`<sup>Required</sup> <a name="tagFilters" id="cdk-extensions.resourcegroups.TagFilter.property.tagFilters"></a>
+
+```typescript
+public readonly tagFilters: {[ key: string ]: string[]};
+```
+
+- *Type:* {[ key: string ]: string[]}
+
+Collection of filters to be used to determine the resources that belong to the Resource Group.
+
+---
+
+
+### TagFilterProps <a name="TagFilterProps" id="cdk-extensions.resourcegroups.TagFilterProps"></a>
+
+Configuration options for configuring a Resource Group containing resources based on a set of matching tags.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.resourcegroups.TagFilterProps.Initializer"></a>
+
+```typescript
+import { resourcegroups } from 'cdk-extensions'
+
+new resourcegroups.TagFilterProps()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.TagFilterProps.property.resourceTypes">resourceTypes</a></code> | <code>string[]</code> | The resource types that are allowed to be in the Resource Group being configured. |
+| <code><a href="#cdk-extensions.resourcegroups.TagFilterProps.property.tagFilters">tagFilters</a></code> | <code>{[ key: string ]: string[]}</code> | The filters that should be used to determine the resources that belong to the resource group. |
+
+---
+
+##### `resourceTypes`<sup>Optional</sup> <a name="resourceTypes" id="cdk-extensions.resourcegroups.TagFilterProps.property.resourceTypes"></a>
+
+```typescript
+public readonly resourceTypes: string[];
+```
+
+- *Type:* string[]
+
+The resource types that are allowed to be in the Resource Group being configured.
+
+---
+
+##### `tagFilters`<sup>Optional</sup> <a name="tagFilters" id="cdk-extensions.resourcegroups.TagFilterProps.property.tagFilters"></a>
+
+```typescript
+public readonly tagFilters: {[ key: string ]: string[]};
+```
+
+- *Type:* {[ key: string ]: string[]}
+
+The filters that should be used to determine the resources that belong to the resource group.
+
+---
+
 
 ### TieredSubnets <a name="TieredSubnets" id="cdk-extensions.ec2.TieredSubnets"></a>
 
@@ -88677,6 +89657,40 @@ public readonly globalNetworkId: string;
 
 ---
 
+### IGroup <a name="IGroup" id="cdk-extensions.resourcegroups.IGroup"></a>
+
+- *Implemented By:* cdk-extensions.resourcegroups.Group, cdk-extensions.resourcegroups.IGroup
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.IGroup.property.groupArn">groupArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.IGroup.property.groupName">groupName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `groupArn`<sup>Required</sup> <a name="groupArn" id="cdk-extensions.resourcegroups.IGroup.property.groupArn"></a>
+
+```typescript
+public readonly groupArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `groupName`<sup>Required</sup> <a name="groupName" id="cdk-extensions.resourcegroups.IGroup.property.groupName"></a>
+
+```typescript
+public readonly groupName: string;
+```
+
+- *Type:* string
+
+---
+
 ### IGroup <a name="IGroup" id="cdk-extensions.sso.IGroup"></a>
 
 - *Implemented By:* cdk-extensions.sso.GroupBase, cdk-extensions.sso.IGroup
@@ -88701,6 +89715,31 @@ public readonly groupId: string;
 A GUID identifier for a group object in IAM Identity Center are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6).
 
 ---
+
+### IGroupConfiguration <a name="IGroupConfiguration" id="cdk-extensions.resourcegroups.IGroupConfiguration"></a>
+
+- *Implemented By:* cdk-extensions.resourcegroups.CloudFormationStack, cdk-extensions.resourcegroups.TagFilter, cdk-extensions.resourcegroups.IGroupConfiguration
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.IGroupConfiguration.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.resourcegroups.IGroupConfiguration.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): BoundGroupConfiguration
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.resourcegroups.IGroupConfiguration.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
 
 ### IIdentityCenterPrincipal <a name="IIdentityCenterPrincipal" id="cdk-extensions.sso.IIdentityCenterPrincipal"></a>
 
@@ -91058,6 +92097,40 @@ public readonly siteId: string;
 ```
 
 - *Type:* string
+
+---
+
+### IStackReference <a name="IStackReference" id="cdk-extensions.resourcegroups.IStackReference"></a>
+
+- *Implemented By:* cdk-extensions.resourcegroups.IStackReference
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.resourcegroups.IStackReference.property.stackId">stackId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.resourcegroups.IStackReference.property.stackConstruct">stackConstruct</a></code> | <code>aws-cdk-lib.Stack</code> | *No description.* |
+
+---
+
+##### `stackId`<sup>Required</sup> <a name="stackId" id="cdk-extensions.resourcegroups.IStackReference.property.stackId"></a>
+
+```typescript
+public readonly stackId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `stackConstruct`<sup>Optional</sup> <a name="stackConstruct" id="cdk-extensions.resourcegroups.IStackReference.property.stackConstruct"></a>
+
+```typescript
+public readonly stackConstruct: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
 
 ---
 
