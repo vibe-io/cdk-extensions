@@ -46487,6 +46487,7 @@ const awsIntegratedFargateClusterProps: eks_patterns.AwsIntegratedFargateCluster
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.clusterLogging">clusterLogging</a></code> | <code>aws-cdk-lib.aws_eks.ClusterLoggingTypes[]</code> | The cluster log types which you want to enable. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.coreDnsComputeType">coreDnsComputeType</a></code> | <code>aws-cdk-lib.aws_eks.CoreDnsComputeType</code> | Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.endpointAccess">endpointAccess</a></code> | <code>aws-cdk-lib.aws_eks.EndpointAccess</code> | Configure access to the Kubernetes API server endpoint.. |
+| <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.ipFamily">ipFamily</a></code> | <code>aws-cdk-lib.aws_eks.IpFamily</code> | Specify which IP family is used to assign Kubernetes pod and service IP addresses. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.kubectlEnvironment">kubectlEnvironment</a></code> | <code>{[ key: string ]: string}</code> | Environment variables for the kubectl execution. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.kubectlLayer">kubectlLayer</a></code> | <code>aws-cdk-lib.aws_lambda.ILayerVersion</code> | An AWS Lambda Layer which includes `kubectl` and Helm. |
 | <code><a href="#cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.kubectlMemory">kubectlMemory</a></code> | <code>aws-cdk-lib.Size</code> | Amount of memory to allocate to the provider's lambda function. |
@@ -46720,6 +46721,21 @@ public readonly endpointAccess: EndpointAccess;
 Configure access to the Kubernetes API server endpoint..
 
 > [https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html)
+
+---
+
+##### `ipFamily`<sup>Optional</sup> <a name="ipFamily" id="cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.property.ipFamily"></a>
+
+```typescript
+public readonly ipFamily: IpFamily;
+```
+
+- *Type:* aws-cdk-lib.aws_eks.IpFamily
+- *Default:* IpFamily.IP_V4
+
+Specify which IP family is used to assign Kubernetes pod and service IP addresses.
+
+> [https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily](https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily)
 
 ---
 
