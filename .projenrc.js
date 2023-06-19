@@ -15,6 +15,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '/.vscode/',
     '/tmp/',
   ],
+  jsiiVersion: '~5.0.0',
   lambdaOptions: {
     bundlingOptions: {
       externals: [
