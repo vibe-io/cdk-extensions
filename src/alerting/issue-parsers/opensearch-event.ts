@@ -151,7 +151,7 @@ export class OpenSearchEventType {
     eventName: 'VPC Endpoint Update Validation',
   });
 
-  public static get ALL(): OpenSearchEventType[] {
+  public static get all(): OpenSearchEventType[] {
     return [...ALL_EVENT_TYPES];
   }
 
@@ -293,7 +293,7 @@ export class OpenSearchEvent extends IssueParserPluginBase implements IIssuePars
 
   public registerIssueTrigger(id: string, options: OpenSearchEventRuleOptions = {}): IssueTrigger {
     const severityLevels = options.severity ?? OpenSearchEventSeverity.threshold(OpenSearchEventSeverity.MEDIUM);
-    const detailTypes = (options.types ?? OpenSearchEventType.ALL).reduce((prev, cur) => {
+    const detailTypes = (options.types ?? OpenSearchEventType.all).reduce((prev, cur) => {
       return prev.add(cur.detailType);
     }, new Set<string>());
     const events = options.types?.reduce((prev, cur) => {

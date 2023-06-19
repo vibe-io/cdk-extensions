@@ -58,7 +58,7 @@ export interface WriteProps {
   readonly suffix?: string;
 }
 
-interface IDelayedChainable {
+export interface IDelayedChainable {
   render(): IChainable;
 }
 
@@ -72,7 +72,16 @@ class DelayedChainable {
   }
 }
 
-abstract class DescriptionBuilderBase extends Construct implements IDelayedChainable {
+export interface IDescriptionBuilderComponent extends IDelayedChainable {
+  get classifier(): string;
+
+  addIterator(id: string, props: DescriptionBuilderIteratorProps): DescriptionBuilderIterator;
+  addReference(id: string, props: AddReferenceProps): IChainable;
+  setDelimiter(id: string, props: SetDelimiterProps): IChainable;
+  write(id: string, props: WriteProps): IChainable;
+}
+
+abstract class DescriptionBuilderBase extends Construct implements IDescriptionBuilderComponent, IDelayedChainable {
   private readonly _chain: IDelayedChainable[];
 
   public get classifier(): string {
@@ -184,7 +193,7 @@ abstract class DescriptionBuilderBase extends Construct implements IDelayedChain
     }
   }
 
-  protected registerBuilder(builder: DescriptionBuilderBase): DescriptionBuilderBase {
+  protected registerBuilder(builder: IDescriptionBuilderComponent): IDescriptionBuilderComponent {
     this._chain.push(builder);
     return builder;
   }

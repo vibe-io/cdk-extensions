@@ -138,7 +138,7 @@ export class SecurityHubFinding extends IssuePluginBase implements IIssueParser 
     });
   }
 
-  public bind(): IssueTrigger[] {
+  public bind(_scope: IConstruct): IssueTrigger[] {
     if (this.triggers.length === 0) {
       this.registerIssueTrigger('default');
     }
