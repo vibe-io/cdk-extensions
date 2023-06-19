@@ -170,6 +170,6 @@ export class SfnFn {
   }
 
   public static uuid(): string {
-    return `States.UUID()`;
+    return 'States.UUID()';
   }
 }

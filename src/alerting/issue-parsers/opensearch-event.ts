@@ -59,14 +59,21 @@ export interface OpenSearchEventTypeProps {
 }
 
 /**
+ * Collection of all OpenSearch event types. Gets expanded every time a new
+ * event type is registered.
+ *
+ * Making this a variable instead of a private static property makes the linter
+ * happy.
+ */
+const ALL_EVENT_TYPES: OpenSearchEventType[] = [];
+
+/**
  * Represents a type of event that can be generated in response to
  * circumstances happening on an AWS OpenSearch service cluster.
  *
  * @see [Monitoring OpenSearch Service events with Amazon EventBridge](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/monitoring-events.html)
  */
 export class OpenSearchEventType {
-  private static readonly _ALL: OpenSearchEventType[] = [];
-
   public static readonly AUTO_TUNE: OpenSearchEventType = OpenSearchEventType.of({
     detailType: 'Amazon OpenSearch Service Auto-Tune Notification',
     eventName: 'Auto-Tune Event',
@@ -145,7 +152,7 @@ export class OpenSearchEventType {
   });
 
   public static get ALL(): OpenSearchEventType[] {
-    return [...OpenSearchEventType._ALL];
+    return [...ALL_EVENT_TYPES];
   }
 
 
@@ -160,7 +167,7 @@ export class OpenSearchEventType {
     this.detailType = props.detailType;
     this.eventName = props.eventName;
 
-    OpenSearchEventType._ALL.push(this);
+    ALL_EVENT_TYPES.push(this);
   }
 }
 
