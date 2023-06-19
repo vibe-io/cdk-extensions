@@ -73,7 +73,7 @@ class DelayedChainable {
 }
 
 export interface IDescriptionBuilderComponent extends IDelayedChainable {
-  get classifier(): string;
+  readonly classifier: string;
 
   addIterator(id: string, props: DescriptionBuilderIteratorProps): DescriptionBuilderIterator;
   addReference(id: string, props: AddReferenceProps): IChainable;
