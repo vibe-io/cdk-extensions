@@ -1,7 +1,7 @@
 const { awscdk } = require('projen');
 
 const projectName = 'cdk-extensions';
-const cdkVersion = '2.79.1';
+const cdkVersion = '2.84.0';
 const docsBucket = 'docs.vibe.io';
 const docsBucketRegion = 'us-east-1';
 
@@ -15,6 +15,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '/.vscode/',
     '/tmp/',
   ],
+  jsiiVersion: '~5.0.0',
   lambdaOptions: {
     bundlingOptions: {
       externals: [
