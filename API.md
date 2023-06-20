@@ -8105,6 +8105,312 @@ The name of the workgroup where namedqueries should be created.
 ---
 
 
+### ConfigComplianceChange <a name="ConfigComplianceChange" id="cdk-extensions.alerting.ConfigComplianceChange"></a>
+
+- *Implements:* cdk-extensions.alerting.IIssueParser
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.ConfigComplianceChange.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.ConfigComplianceChange(scope: IConstruct, id: string, props?: ConfigComplianceChangeProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.ConfigComplianceChangeProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.ConfigComplianceChange.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.ConfigComplianceChange.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.ConfigComplianceChange.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.ConfigComplianceChangeProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.bind">bind</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.registerIssueTrigger">registerIssueTrigger</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.ConfigComplianceChange.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.alerting.ConfigComplianceChange.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.alerting.ConfigComplianceChange.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.alerting.ConfigComplianceChange.bind"></a>
+
+```typescript
+public bind(_node: IConstruct): IssueTrigger[]
+```
+
+###### `_node`<sup>Required</sup> <a name="_node" id="cdk-extensions.alerting.ConfigComplianceChange.bind.parameter._node"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `registerIssueTrigger` <a name="registerIssueTrigger" id="cdk-extensions.alerting.ConfigComplianceChange.registerIssueTrigger"></a>
+
+```typescript
+public registerIssueTrigger(id: string, options?: ConfigComplianceChangeRuleOptions): IssueTrigger
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.ConfigComplianceChange.registerIssueTrigger.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.alerting.ConfigComplianceChange.registerIssueTrigger.parameter.options"></a>
+
+- *Type:* cdk-extensions.alerting.ConfigComplianceChangeRuleOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.ConfigComplianceChange.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.ConfigComplianceChange.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.ConfigComplianceChange.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.alerting.ConfigComplianceChange.isOwnedResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.ConfigComplianceChange.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.ConfigComplianceChange.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.alerting.ConfigComplianceChange.isResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.ConfigComplianceChange.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.ConfigComplianceChange.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.property.handler">handler</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.property.matchType">matchType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.property.triggers">triggers</a></code> | <code>cdk-extensions.alerting.IssueTrigger[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.ConfigComplianceChange.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.alerting.ConfigComplianceChange.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.alerting.ConfigComplianceChange.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `logging`<sup>Required</sup> <a name="logging" id="cdk-extensions.alerting.ConfigComplianceChange.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `handler`<sup>Required</sup> <a name="handler" id="cdk-extensions.alerting.ConfigComplianceChange.property.handler"></a>
+
+```typescript
+public readonly handler: IStateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IStateMachine
+
+---
+
+##### `matchType`<sup>Required</sup> <a name="matchType" id="cdk-extensions.alerting.ConfigComplianceChange.property.matchType"></a>
+
+```typescript
+public readonly matchType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `triggers`<sup>Required</sup> <a name="triggers" id="cdk-extensions.alerting.ConfigComplianceChange.property.triggers"></a>
+
+```typescript
+public readonly triggers: IssueTrigger[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueTrigger[]
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.ConfigComplianceChange.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.ConfigComplianceChange.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChange.property.MATCH_TYPE">MATCH_TYPE</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `MATCH_TYPE`<sup>Required</sup> <a name="MATCH_TYPE" id="cdk-extensions.alerting.ConfigComplianceChange.property.MATCH_TYPE"></a>
+
+```typescript
+public readonly MATCH_TYPE: string;
+```
+
+- *Type:* string
+
+---
+
 ### Connection <a name="Connection" id="cdk-extensions.glue.Connection"></a>
 
 - *Implements:* aws-cdk-lib.aws_ec2.IConnectable
@@ -35104,6 +35410,163 @@ The regex pattern used to validate secret store names.
 
 ---
 
+### StringReplace <a name="StringReplace" id="cdk-extensions.stepfunctions.StringReplace"></a>
+
+- *Implements:* aws-cdk-lib.aws_stepfunctions.IChainable, aws-cdk-lib.aws_stepfunctions.INextable
+
+#### Initializers <a name="Initializers" id="cdk-extensions.stepfunctions.StringReplace.Initializer"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+new stepfunctions.StringReplace(scope: IConstruct, id: string, props: StringReplaceProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.stepfunctions.StringReplace.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.StringReplace.Initializer.parameter.id">id</a></code> | <code>string</code> | Descriptive identifier for this chainable. |
+| <code><a href="#cdk-extensions.stepfunctions.StringReplace.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.stepfunctions.StringReplaceProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.stepfunctions.StringReplace.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.stepfunctions.StringReplace.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+Descriptive identifier for this chainable.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.stepfunctions.StringReplace.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.stepfunctions.StringReplaceProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.stepfunctions.StringReplace.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.stepfunctions.StringReplace.next">next</a></code> | Go to the indicated state after this state. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.stepfunctions.StringReplace.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `next` <a name="next" id="cdk-extensions.stepfunctions.StringReplace.next"></a>
+
+```typescript
+public next(state: IChainable): Chain
+```
+
+Go to the indicated state after this state.
+
+###### `state`<sup>Required</sup> <a name="state" id="cdk-extensions.stepfunctions.StringReplace.next.parameter.state"></a>
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IChainable
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.stepfunctions.StringReplace.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.stepfunctions.StringReplace.isConstruct"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+stepfunctions.StringReplace.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.stepfunctions.StringReplace.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.stepfunctions.StringReplace.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.stepfunctions.StringReplace.property.endStates">endStates</a></code> | <code>aws-cdk-lib.aws_stepfunctions.INextable[]</code> | The chainable end state(s) of this chainable. |
+| <code><a href="#cdk-extensions.stepfunctions.StringReplace.property.id">id</a></code> | <code>string</code> | Descriptive identifier for this chainable. |
+| <code><a href="#cdk-extensions.stepfunctions.StringReplace.property.startState">startState</a></code> | <code>aws-cdk-lib.aws_stepfunctions.State</code> | The start state of this chainable. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.stepfunctions.StringReplace.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `endStates`<sup>Required</sup> <a name="endStates" id="cdk-extensions.stepfunctions.StringReplace.property.endStates"></a>
+
+```typescript
+public readonly endStates: INextable[];
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.INextable[]
+
+The chainable end state(s) of this chainable.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.stepfunctions.StringReplace.property.id"></a>
+
+```typescript
+public readonly id: string;
+```
+
+- *Type:* string
+
+Descriptive identifier for this chainable.
+
+---
+
+##### `startState`<sup>Required</sup> <a name="startState" id="cdk-extensions.stepfunctions.StringReplace.property.startState"></a>
+
+```typescript
+public readonly startState: State;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.State
+
+The start state of this chainable.
+
+---
+
+
 ### Table <a name="Table" id="cdk-extensions.glue.Table"></a>
 
 Creates a Table resource specifying tabular data in the Glue Database.
@@ -49236,6 +49699,184 @@ public readonly retryInterval: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+---
+
+### ConfigComplianceChangeProps <a name="ConfigComplianceChangeProps" id="cdk-extensions.alerting.ConfigComplianceChangeProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.ConfigComplianceChangeProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const configComplianceChangeProps: alerting.ConfigComplianceChangeProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChangeProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChangeProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChangeProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChangeProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChangeProps.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChangeProps.property.matchType">matchType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChangeProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChangeProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.alerting.ConfigComplianceChangeProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.alerting.ConfigComplianceChangeProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.alerting.ConfigComplianceChangeProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.alerting.ConfigComplianceChangeProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.alerting.ConfigComplianceChangeProps.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `matchType`<sup>Optional</sup> <a name="matchType" id="cdk-extensions.alerting.ConfigComplianceChangeProps.property.matchType"></a>
+
+```typescript
+public readonly matchType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.ConfigComplianceChangeProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.ConfigComplianceChangeProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+### ConfigComplianceChangeRuleOptions <a name="ConfigComplianceChangeRuleOptions" id="cdk-extensions.alerting.ConfigComplianceChangeRuleOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.ConfigComplianceChangeRuleOptions.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const configComplianceChangeRuleOptions: alerting.ConfigComplianceChangeRuleOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChangeRuleOptions.property.includeSecurityHub">includeSecurityHub</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChangeRuleOptions.property.overrides">overrides</a></code> | <code>cdk-extensions.alerting.IssueHandlerOverride[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.ConfigComplianceChangeRuleOptions.property.severity">severity</a></code> | <code>cdk-extensions.alerting.InspectorSeverity[]</code> | *No description.* |
+
+---
+
+##### `includeSecurityHub`<sup>Optional</sup> <a name="includeSecurityHub" id="cdk-extensions.alerting.ConfigComplianceChangeRuleOptions.property.includeSecurityHub"></a>
+
+```typescript
+public readonly includeSecurityHub: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `overrides`<sup>Optional</sup> <a name="overrides" id="cdk-extensions.alerting.ConfigComplianceChangeRuleOptions.property.overrides"></a>
+
+```typescript
+public readonly overrides: IssueHandlerOverride[];
+```
+
+- *Type:* cdk-extensions.alerting.IssueHandlerOverride[]
+
+---
+
+##### `severity`<sup>Optional</sup> <a name="severity" id="cdk-extensions.alerting.ConfigComplianceChangeRuleOptions.property.severity"></a>
+
+```typescript
+public readonly severity: InspectorSeverity[];
+```
+
+- *Type:* cdk-extensions.alerting.InspectorSeverity[]
 
 ---
 
@@ -68239,6 +68880,67 @@ public readonly level: LogLevel;
 ```
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.LogLevel
+
+---
+
+### StringReplaceProps <a name="StringReplaceProps" id="cdk-extensions.stepfunctions.StringReplaceProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.stepfunctions.StringReplaceProps.Initializer"></a>
+
+```typescript
+import { stepfunctions } from 'cdk-extensions'
+
+const stringReplaceProps: stepfunctions.StringReplaceProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.stepfunctions.StringReplaceProps.property.inputString">inputString</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.StringReplaceProps.property.outputKey">outputKey</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.StringReplaceProps.property.replace">replace</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.stepfunctions.StringReplaceProps.property.search">search</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `inputString`<sup>Required</sup> <a name="inputString" id="cdk-extensions.stepfunctions.StringReplaceProps.property.inputString"></a>
+
+```typescript
+public readonly inputString: string;
+```
+
+- *Type:* string
+
+---
+
+##### `outputKey`<sup>Required</sup> <a name="outputKey" id="cdk-extensions.stepfunctions.StringReplaceProps.property.outputKey"></a>
+
+```typescript
+public readonly outputKey: string;
+```
+
+- *Type:* string
+
+---
+
+##### `replace`<sup>Required</sup> <a name="replace" id="cdk-extensions.stepfunctions.StringReplaceProps.property.replace"></a>
+
+```typescript
+public readonly replace: string;
+```
+
+- *Type:* string
+
+---
+
+##### `search`<sup>Required</sup> <a name="search" id="cdk-extensions.stepfunctions.StringReplaceProps.property.search"></a>
+
+```typescript
+public readonly search: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -87250,6 +87952,193 @@ public readonly overrides: {[ key: string ]: any};
 ---
 
 
+### IssueParser <a name="IssueParser" id="cdk-extensions.alerting.IssueParser"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.IssueParser.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.IssueParser()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueParser.configComplianceChange">configComplianceChange</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParser.ecrScanFinding">ecrScanFinding</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParser.guardDutyFinding">guardDutyFinding</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParser.inspectorFinding">inspectorFinding</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParser.openSearchEvent">openSearchEvent</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.IssueParser.securityHubFinding">securityHubFinding</a></code> | *No description.* |
+
+---
+
+##### `configComplianceChange` <a name="configComplianceChange" id="cdk-extensions.alerting.IssueParser.configComplianceChange"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueParser.configComplianceChange(scope: IConstruct, id: string, props?: ConfigComplianceChangeProps)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.IssueParser.configComplianceChange.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IssueParser.configComplianceChange.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.IssueParser.configComplianceChange.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.ConfigComplianceChangeProps
+
+---
+
+##### `ecrScanFinding` <a name="ecrScanFinding" id="cdk-extensions.alerting.IssueParser.ecrScanFinding"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueParser.ecrScanFinding(scope: IConstruct, id: string, props?: EcrScanFindingProps)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.IssueParser.ecrScanFinding.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IssueParser.ecrScanFinding.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.IssueParser.ecrScanFinding.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.EcrScanFindingProps
+
+---
+
+##### `guardDutyFinding` <a name="guardDutyFinding" id="cdk-extensions.alerting.IssueParser.guardDutyFinding"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueParser.guardDutyFinding(scope: IConstruct, id: string, props?: GuardDutyFindingProps)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.IssueParser.guardDutyFinding.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IssueParser.guardDutyFinding.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.IssueParser.guardDutyFinding.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.GuardDutyFindingProps
+
+---
+
+##### `inspectorFinding` <a name="inspectorFinding" id="cdk-extensions.alerting.IssueParser.inspectorFinding"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueParser.inspectorFinding(scope: IConstruct, id: string, props?: InspectorFindingProps)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.IssueParser.inspectorFinding.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IssueParser.inspectorFinding.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.IssueParser.inspectorFinding.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.InspectorFindingProps
+
+---
+
+##### `openSearchEvent` <a name="openSearchEvent" id="cdk-extensions.alerting.IssueParser.openSearchEvent"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueParser.openSearchEvent(scope: IConstruct, id: string, props?: OpenSearchEventProps)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.IssueParser.openSearchEvent.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IssueParser.openSearchEvent.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.IssueParser.openSearchEvent.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.OpenSearchEventProps
+
+---
+
+##### `securityHubFinding` <a name="securityHubFinding" id="cdk-extensions.alerting.IssueParser.securityHubFinding"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueParser.securityHubFinding(scope: IConstruct, id: string, props?: SecurityHubFindingProps)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.IssueParser.securityHubFinding.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IssueParser.securityHubFinding.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.alerting.IssueParser.securityHubFinding.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.SecurityHubFindingProps
+
+---
+
+
+
 ### JdbcTarget <a name="JdbcTarget" id="cdk-extensions.glue.JdbcTarget"></a>
 
 - *Implements:* cdk-extensions.glue.ICrawlerTarget
@@ -98918,7 +99807,7 @@ public readonly name: string;
 
 - *Extends:* aws-cdk-lib.IResource
 
-- *Implemented By:* cdk-extensions.alerting.EcrScanFinding, cdk-extensions.alerting.GuardDutyFinding, cdk-extensions.alerting.InspectorFinding, cdk-extensions.alerting.IssueParserPluginBase, cdk-extensions.alerting.OpenSearchEvent, cdk-extensions.alerting.SecurityHubFinding, cdk-extensions.alerting.IIssueParser
+- *Implemented By:* cdk-extensions.alerting.ConfigComplianceChange, cdk-extensions.alerting.EcrScanFinding, cdk-extensions.alerting.GuardDutyFinding, cdk-extensions.alerting.InspectorFinding, cdk-extensions.alerting.IssueParserPluginBase, cdk-extensions.alerting.OpenSearchEvent, cdk-extensions.alerting.SecurityHubFinding, cdk-extensions.alerting.IIssueParser
 
 #### Methods <a name="Methods" id="Methods"></a>
 

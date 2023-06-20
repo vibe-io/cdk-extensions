@@ -1,4 +1,5 @@
 import { IConstruct } from 'constructs';
+import { ConfigComplianceChange, ConfigComplianceChangeProps } from './config-compliance-change';
 import { EcrScanFinding, EcrScanFindingProps } from './ecr-scan-finding';
 import { GuardDutyFinding, GuardDutyFindingProps } from './guard-duty-finding';
 import { InspectorFinding, InspectorFindingProps } from './inspector-finding';
@@ -7,6 +8,10 @@ import { SecurityHubFinding, SecurityHubFindingProps } from './security-hub-find
 
 
 export class IssueParser {
+  public static configComplianceChange(scope: IConstruct, id: string, props: ConfigComplianceChangeProps = {}): ConfigComplianceChange {
+    return new ConfigComplianceChange(scope, id, props);
+  }
+
   public static ecrScanFinding(scope: IConstruct, id: string, props: EcrScanFindingProps = {}): EcrScanFinding {
     return new EcrScanFinding(scope, id, props);
   }
