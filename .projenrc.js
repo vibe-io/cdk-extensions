@@ -9,6 +9,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Kevin Lucas',
   authorAddress: 'kevinluc08@gmail.com',
   cdkVersion: cdkVersion,
+  constructsVersion: '10.0.39',
   defaultReleaseBranch: 'master',
   gitignore: [
     '/docs/generated/',
