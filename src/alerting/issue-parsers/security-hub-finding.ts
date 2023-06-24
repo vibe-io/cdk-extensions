@@ -1,5 +1,6 @@
-import { Duration } from 'aws-cdk-lib';
+import { ArnFormat, Duration } from 'aws-cdk-lib';
 import { Chain, Choice, Condition, IStateMachine, Pass, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
+import { CallAwsService } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { IConstruct } from 'constructs';
 import { SfnFn } from '../../stepfunctions';
 import { IssueHandlerOverride } from '../issue-handler-override';
@@ -114,6 +115,27 @@ export class SecurityHubFinding extends IssuePluginBase implements IIssueParser 
 
     const mapSeverity = this.buildSeverityMap();
 
+    const setFindingNotified = new CallAwsService(this, 'set-finding-notified', {
+      action: 'batchUpdateFindings',
+      iamResources: [this.stack.formatArn({
+        arnFormat: ArnFormat.SLASH_RESOURCE_NAME,
+        resource: 'hub',
+        resourceName: '*',
+        service: 'securityhub',
+      })],
+      parameters: {
+        FindingIdentifiers: [{
+          Id: '$.Finding.Id',
+          ProductArn: '$.Finding.ProductArn',
+        }],
+        Workflow: {
+          Status: 'NOTIFIED',
+        },
+      },
+      resultPath: '$.Update',
+      service: 'securityhub',
+    });
+
     const formatOutput = new Pass(this, 'format-output', {
       parameters: {
         'Alert': true,
@@ -126,6 +148,7 @@ export class SecurityHubFinding extends IssuePluginBase implements IIssueParser 
     const definition = extractFinding
       .next(buildDescription)
       .next(mapSeverity)
+      .next(setFindingNotified)
       .next(formatOutput);
 
     this.handler = new StateMachine(this, 'state-machine', {
@@ -277,6 +300,10 @@ export class SecurityHubFinding extends IssuePluginBase implements IIssueParser 
       resultPath: '$.ResourceIterator',
     });
 
+    // An ugly workaround for:
+    // https://github.com/aws/aws-cdk/issues/16218
+    const finalize = new Pass(this, 'finalize-resources');
+
     return checkResources
       .when(Condition.isPresent('$.Finding.Resources'), addHeader
         .next(initializeIterator)
@@ -288,8 +315,10 @@ export class SecurityHubFinding extends IssuePluginBase implements IIssueParser 
             .next(addResource)
             .next(step)
             .next(iterateResource))
-          .afterwards({ includeOtherwise: true })))
-      .afterwards({ includeOtherwise: true });
+          .otherwise(finalize)
+          .afterwards()))
+      .otherwise(finalize)
+      .afterwards();
   }
 
   protected buildSeverityMap(): Chain {
@@ -487,6 +516,11 @@ export class SecurityHubFinding extends IssuePluginBase implements IIssueParser 
                 {
                   Normalized: normalized,
                 },
+              ],
+            },
+            Workflow: {
+              Status: [
+                'NEW',
               ],
             },
           },
