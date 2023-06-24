@@ -125,8 +125,8 @@ export class SecurityHubFinding extends IssuePluginBase implements IIssueParser 
       })],
       parameters: {
         FindingIdentifiers: [{
-          Id: '$.Finding.Id',
-          ProductArn: '$.Finding.ProductArn',
+          'Id.$': '$.Finding.Id',
+          'ProductArn.$': '$.Finding.ProductArn',
         }],
         Workflow: {
           Status: 'NOTIFIED',
