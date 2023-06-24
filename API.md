@@ -47651,7 +47651,7 @@ public readonly mastersRole: IRole;
 ```
 
 - *Type:* aws-cdk-lib.aws_iam.IRole
-- *Default:* a role that assumable by anyone with permissions in the same account will automatically be defined
+- *Default:* no masters role.
 
 An IAM role that will be added to the `system:masters` Kubernetes RBAC group.
 
@@ -47844,6 +47844,7 @@ const awsLoggingStackProps: stacks.AwsLoggingStackProps = { ... }
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.env">env</a></code> | <code>aws-cdk-lib.Environment</code> | The AWS environment (account/region) where this stack will be deployed. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.permissionsBoundary">permissionsBoundary</a></code> | <code>aws-cdk-lib.PermissionsBoundary</code> | Options for applying a permissions boundary to all IAM Roles and Users created within this Stage. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.stackName">stackName</a></code> | <code>string</code> | Name to deploy the stack with. |
+| <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.suppressTemplateIndentation">suppressTemplateIndentation</a></code> | <code>boolean</code> | Enable this flag to suppress indentation in generated CloudFormation templates. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.synthesizer">synthesizer</a></code> | <code>aws-cdk-lib.IStackSynthesizer</code> | Synthesis method to use while deploying this stack. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.tags">tags</a></code> | <code>{[ key: string ]: string}</code> | Stack tags that will be applied to all the taggable resources and the stack itself. |
 | <code><a href="#cdk-extensions.stacks.AwsLoggingStackProps.property.terminationProtection">terminationProtection</a></code> | <code>boolean</code> | Whether to enable termination protection for this stack. |
@@ -48002,6 +48003,23 @@ public readonly stackName: string;
 - *Default:* Derived from construct path.
 
 Name to deploy the stack with.
+
+---
+
+##### `suppressTemplateIndentation`<sup>Optional</sup> <a name="suppressTemplateIndentation" id="cdk-extensions.stacks.AwsLoggingStackProps.property.suppressTemplateIndentation"></a>
+
+```typescript
+public readonly suppressTemplateIndentation: boolean;
+```
+
+- *Type:* boolean
+- *Default:* the value of `@aws-cdk/core:suppressTemplateIndentation`, or `false` if that is not set.
+
+Enable this flag to suppress indentation in generated CloudFormation templates.
+
+If not specified, the value of the `@aws-cdk/core:suppressTemplateIndentation`
+context key will be used. If that is not specified, then the
+default value `false` will be used.
 
 ---
 
@@ -65552,7 +65570,7 @@ const rawBucketProps: s3_buckets.RawBucketProps = { ... }
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.accelerateConfiguration">accelerateConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.AccelerateConfigurationProperty</code> | Configures the transfer acceleration state for an Amazon S3 bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.accessControl">accessControl</a></code> | <code>string</code> | A canned access control list (ACL) that grants predefined permissions to the bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.analyticsConfigurations">analyticsConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty[]</code> | Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.bucketEncryption">bucketEncryption</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty</code> | Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS) bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.bucketEncryption">bucketEncryption</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty</code> | Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | A name for the bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.corsConfiguration">corsConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.CorsConfigurationProperty</code> | Describes the cross-origin access configuration for objects in an Amazon S3 bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.intelligentTieringConfigurations">intelligentTieringConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.IntelligentTieringConfigurationProperty[]</code> | Defines how Amazon S3 handles Intelligent-Tiering storage. |
@@ -65628,7 +65646,7 @@ public readonly bucketEncryption: IResolvable | BucketEncryptionProperty;
 
 - *Type:* aws-cdk-lib.IResolvable | aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty
 
-Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS) bucket.
+Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS).
 
 For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide* .
 
