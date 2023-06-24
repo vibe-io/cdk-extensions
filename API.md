@@ -11449,6 +11449,394 @@ public readonly title: string;
 ---
 
 
+### Discord <a name="Discord" id="cdk-extensions.alerting.Discord"></a>
+
+- *Implements:* cdk-extensions.alerting.IIssueHandler
+
+A standardized implementation that allows Discord messages to be sent in response to events detected in AWS.
+
+Intended for use with the `IssueManager` state machine which allows
+arbitrary types of events to be processed into standard values and then
+output or one of more issue tracking services.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.alerting.Discord.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+new alerting.Discord(scope: IConstruct, id: string, props: DiscordProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.Discord.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.alerting.Discord.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.alerting.Discord.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.alerting.DiscordProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.Discord.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.Discord.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.Discord.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.DiscordProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.Discord.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.alerting.Discord.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.alerting.Discord.buildEventOverrides">buildEventOverrides</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.alerting.Discord.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.alerting.Discord.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.alerting.Discord.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `buildEventOverrides` <a name="buildEventOverrides" id="cdk-extensions.alerting.Discord.buildEventOverrides"></a>
+
+```typescript
+public buildEventOverrides(options: DiscordOverrideOptions): IssueHandlerOverride
+```
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.alerting.Discord.buildEventOverrides.parameter.options"></a>
+
+- *Type:* cdk-extensions.alerting.DiscordOverrideOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.alerting.Discord.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.alerting.Discord.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.alerting.Discord.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.alerting.Discord.isConstruct"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.Discord.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.alerting.Discord.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.alerting.Discord.isOwnedResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.Discord.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.Discord.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.alerting.Discord.isResource"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.Discord.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.alerting.Discord.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.Discord.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.alerting.Discord.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.Discord.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.alerting.Discord.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.Discord.property.apiDestination">apiDestination</a></code> | <code>aws-cdk-lib.aws_events.ApiDestination</code> | Destination pointing to a Jira instance where tickets are to be created. |
+| <code><a href="#cdk-extensions.alerting.Discord.property.channel">channel</a></code> | <code>string</code> | The default Discord channel where messages processed by the handler should be sent if no override is given. |
+| <code><a href="#cdk-extensions.alerting.Discord.property.connection">connection</a></code> | <code>aws-cdk-lib.aws_events.Connection</code> | API connection providing details of how to communicate with the configured Jira instance. |
+| <code><a href="#cdk-extensions.alerting.Discord.property.handler">handler</a></code> | <code>aws-cdk-lib.aws_stepfunctions.IStateMachine</code> | The State Machine that handles creating a Jira ticket for a passed issue. |
+| <code><a href="#cdk-extensions.alerting.Discord.property.mentions">mentions</a></code> | <code>string[]</code> | Collection of users or roles who should be mentioned by default when sending a message to Discord. |
+| <code><a href="#cdk-extensions.alerting.Discord.property.name">name</a></code> | <code>string</code> | The human friendly name that can be used to identify the plugin. |
+| <code><a href="#cdk-extensions.alerting.Discord.property.token">token</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | The token for a Discord bot that has permissions to post in the destination channels. |
+| <code><a href="#cdk-extensions.alerting.Discord.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus to use to trigger writes to the Jira instance. |
+| <code><a href="#cdk-extensions.alerting.Discord.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | The length of time that the State Machine that handles creation of Jira tickets is allowed to run before timing out. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.alerting.Discord.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.alerting.Discord.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.alerting.Discord.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `logging`<sup>Required</sup> <a name="logging" id="cdk-extensions.alerting.Discord.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `apiDestination`<sup>Required</sup> <a name="apiDestination" id="cdk-extensions.alerting.Discord.property.apiDestination"></a>
+
+```typescript
+public readonly apiDestination: ApiDestination;
+```
+
+- *Type:* aws-cdk-lib.aws_events.ApiDestination
+
+Destination pointing to a Jira instance where tickets are to be created.
+
+---
+
+##### `channel`<sup>Required</sup> <a name="channel" id="cdk-extensions.alerting.Discord.property.channel"></a>
+
+```typescript
+public readonly channel: string;
+```
+
+- *Type:* string
+
+The default Discord channel where messages processed by the handler should be sent if no override is given.
+
+---
+
+##### `connection`<sup>Required</sup> <a name="connection" id="cdk-extensions.alerting.Discord.property.connection"></a>
+
+```typescript
+public readonly connection: Connection;
+```
+
+- *Type:* aws-cdk-lib.aws_events.Connection
+
+API connection providing details of how to communicate with the configured Jira instance.
+
+---
+
+##### `handler`<sup>Required</sup> <a name="handler" id="cdk-extensions.alerting.Discord.property.handler"></a>
+
+```typescript
+public readonly handler: IStateMachine;
+```
+
+- *Type:* aws-cdk-lib.aws_stepfunctions.IStateMachine
+
+The State Machine that handles creating a Jira ticket for a passed issue.
+
+Internally this state machine uses the AWS managed `AWS-CreateJiraIssue`
+SSM Automation document.
+
+---
+
+##### `mentions`<sup>Required</sup> <a name="mentions" id="cdk-extensions.alerting.Discord.property.mentions"></a>
+
+```typescript
+public readonly mentions: string[];
+```
+
+- *Type:* string[]
+
+Collection of users or roles who should be mentioned by default when sending a message to Discord.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.alerting.Discord.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The human friendly name that can be used to identify the plugin.
+
+---
+
+##### `token`<sup>Required</sup> <a name="token" id="cdk-extensions.alerting.Discord.property.token"></a>
+
+```typescript
+public readonly token: ISecret;
+```
+
+- *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
+
+The token for a Discord bot that has permissions to post in the destination channels.
+
+The secret should be in JSON format and contain the
+key:
+
+token: The token for the bot that has permissions to post in the
+destination Discord channels.
+
+---
+
+##### `eventBus`<sup>Optional</sup> <a name="eventBus" id="cdk-extensions.alerting.Discord.property.eventBus"></a>
+
+```typescript
+public readonly eventBus: IEventBus;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IEventBus
+
+The event bus to use to trigger writes to the Jira instance.
+
+This integration formats a Jira API response and then sends it to a Jira
+instance by means of an EventBridge Destination API and a specially
+crafted event pattern. This is the event bus where the rule to trigger the
+API will be added and the trigger event will be sent.
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.Discord.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+The length of time that the State Machine that handles creation of Jira tickets is allowed to run before timing out.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.Discord.property.DEFAULT_NAME">DEFAULT_NAME</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.Discord.property.MESSAGES_ENDPOINT">MESSAGES_ENDPOINT</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `DEFAULT_NAME`<sup>Required</sup> <a name="DEFAULT_NAME" id="cdk-extensions.alerting.Discord.property.DEFAULT_NAME"></a>
+
+```typescript
+public readonly DEFAULT_NAME: string;
+```
+
+- *Type:* string
+
+---
+
+##### `MESSAGES_ENDPOINT`<sup>Required</sup> <a name="MESSAGES_ENDPOINT" id="cdk-extensions.alerting.Discord.property.MESSAGES_ENDPOINT"></a>
+
+```typescript
+public readonly MESSAGES_ENDPOINT: string;
+```
+
+- *Type:* string
+
+---
+
 ### Echoserver <a name="Echoserver" id="cdk-extensions.k8s_aws.Echoserver"></a>
 
 - *Implements:* aws-cdk-lib.aws_ec2.IConnectable, cdk-extensions.route53.IDnsResolvable
@@ -51932,6 +52320,208 @@ public readonly referenceChecks: string[];
 
 ---
 
+### DiscordOverrideOptions <a name="DiscordOverrideOptions" id="cdk-extensions.alerting.DiscordOverrideOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.DiscordOverrideOptions.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const discordOverrideOptions: alerting.DiscordOverrideOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.DiscordOverrideOptions.property.channel">channel</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DiscordOverrideOptions.property.mentions">mentions</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `channel`<sup>Optional</sup> <a name="channel" id="cdk-extensions.alerting.DiscordOverrideOptions.property.channel"></a>
+
+```typescript
+public readonly channel: string;
+```
+
+- *Type:* string
+
+---
+
+##### `mentions`<sup>Optional</sup> <a name="mentions" id="cdk-extensions.alerting.DiscordOverrideOptions.property.mentions"></a>
+
+```typescript
+public readonly mentions: string[];
+```
+
+- *Type:* string[]
+
+---
+
+### DiscordProps <a name="DiscordProps" id="cdk-extensions.alerting.DiscordProps"></a>
+
+Configuration controlling how Discord messages should be sent in response to events.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.alerting.DiscordProps.Initializer"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+const discordProps: alerting.DiscordProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.alerting.DiscordProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.DiscordProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.alerting.DiscordProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.alerting.DiscordProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.alerting.DiscordProps.property.logging">logging</a></code> | <code>cdk-extensions.alerting.StateMachineLogging</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DiscordProps.property.channel">channel</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DiscordProps.property.token">token</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DiscordProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DiscordProps.property.mentions">mentions</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DiscordProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.alerting.DiscordProps.property.timeout">timeout</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.alerting.DiscordProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.alerting.DiscordProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.alerting.DiscordProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.alerting.DiscordProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdk-extensions.alerting.DiscordProps.property.logging"></a>
+
+```typescript
+public readonly logging: StateMachineLogging;
+```
+
+- *Type:* cdk-extensions.alerting.StateMachineLogging
+
+---
+
+##### `channel`<sup>Required</sup> <a name="channel" id="cdk-extensions.alerting.DiscordProps.property.channel"></a>
+
+```typescript
+public readonly channel: string;
+```
+
+- *Type:* string
+
+---
+
+##### `token`<sup>Required</sup> <a name="token" id="cdk-extensions.alerting.DiscordProps.property.token"></a>
+
+```typescript
+public readonly token: ISecret;
+```
+
+- *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
+
+---
+
+##### `eventBus`<sup>Optional</sup> <a name="eventBus" id="cdk-extensions.alerting.DiscordProps.property.eventBus"></a>
+
+```typescript
+public readonly eventBus: IEventBus;
+```
+
+- *Type:* aws-cdk-lib.aws_events.IEventBus
+
+---
+
+##### `mentions`<sup>Optional</sup> <a name="mentions" id="cdk-extensions.alerting.DiscordProps.property.mentions"></a>
+
+```typescript
+public readonly mentions: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.alerting.DiscordProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-extensions.alerting.DiscordProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
 ### DomainOptions <a name="DomainOptions" id="cdk-extensions.route53.DomainOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.route53.DomainOptions.Initializer"></a>
@@ -87859,7 +88449,34 @@ new alerting.IssueHander()
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#cdk-extensions.alerting.IssueHander.discord">discord</a></code> | *No description.* |
 | <code><a href="#cdk-extensions.alerting.IssueHander.jiraTicket">jiraTicket</a></code> | *No description.* |
+
+---
+
+##### `discord` <a name="discord" id="cdk-extensions.alerting.IssueHander.discord"></a>
+
+```typescript
+import { alerting } from 'cdk-extensions'
+
+alerting.IssueHander.discord(scope: IConstruct, id: string, props: DiscordProps)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.alerting.IssueHander.discord.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.alerting.IssueHander.discord.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.alerting.IssueHander.discord.parameter.props"></a>
+
+- *Type:* cdk-extensions.alerting.DiscordProps
 
 ---
 
@@ -99725,7 +100342,7 @@ public readonly ipFamily: IpFamily;
 
 - *Extends:* aws-cdk-lib.IResource
 
-- *Implemented By:* cdk-extensions.alerting.JiraTicket, cdk-extensions.alerting.IIssueHandler
+- *Implemented By:* cdk-extensions.alerting.Discord, cdk-extensions.alerting.JiraTicket, cdk-extensions.alerting.IIssueHandler
 
 
 #### Properties <a name="Properties" id="Properties"></a>
