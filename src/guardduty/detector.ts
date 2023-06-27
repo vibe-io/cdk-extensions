@@ -1,14 +1,14 @@
-import { ArnFormat, Lazy, Resource, ResourceProps } from "aws-cdk-lib";
-import { IFeature } from "./lib/features";
-import { IConstruct } from "constructs";
-import { CfnDetector } from "aws-cdk-lib/aws-guardduty";
-import { IDataSource } from "./lib/data-source";
-import { ResourceImporter } from "../utils/importer";
+import { ArnFormat, Lazy, Resource, ResourceProps } from 'aws-cdk-lib';
+import { CfnDetector } from 'aws-cdk-lib/aws-guardduty';
+import { IConstruct } from 'constructs';
+import { IDataSource } from './lib/data-source';
+import { IFeature } from './lib/features';
+import { ResourceImporter } from '../utils/importer';
 
 
 /**
  * Specifies how frequently updated findings are exported.
- * 
+ *
  * @see [Detector FindingPublishingFrequency](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency)
  */
 export class FindingPublishingFrequency {
@@ -29,13 +29,13 @@ export class FindingPublishingFrequency {
 
   /**
    * Escape hatch for specifying custom publishing frequency values.
-   * 
+   *
    * This is primarily intended in case additional options are added and
    * support for those values has not yet been officially added.
-   * 
+   *
    * Where possible it is recommended that the existing provided values be
    * used.
-   * 
+   *
    * @param label The label for the publishing frequency value as would be
    * expected by CloudFormation.
    * @returns An object that can be used for setting the publishing frequency
@@ -54,7 +54,7 @@ export class FindingPublishingFrequency {
 
   /**
    * Creates a new instance of the FindingPublishingFrequency class.
-   * 
+   *
    * @param label The label for the publishing frequency value as would be
    * expected by CloudFormation.
    */
@@ -99,21 +99,21 @@ export interface DetectorAttributes {
 export interface DetectorOptions {
   /**
    * Specifies whether the detector is to be enabled on creation.
-   * 
+   *
    * @see [Detector Enable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable)
    */
   readonly enabled?: boolean;
 
   /**
    * Collection of additional features to be configured on the detector.
-   * 
+   *
    * @see [Detector Features](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-features)
    */
   readonly features?: IFeature[];
 
   /**
    * Specifies how frequently updated findings are exported.
-   * 
+   *
    * @see [Detector FindingPublishingFrequency](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency)
    */
   readonly publishingFrequency?: FindingPublishingFrequency;
@@ -141,7 +141,7 @@ abstract class DetectorBase extends Resource implements IDetector {
 
   /**
    * Creates a new instance of the DetectorBase resource.
-   * 
+   *
    * @param scope A CDK Construct that will serve as this resource's parent in
    * the construct tree.
    * @param id A name to be associated with the stack and used in resource
@@ -155,10 +155,10 @@ abstract class DetectorBase extends Resource implements IDetector {
 
 /**
  * Represents a GuardDuty detector.
- * 
+ *
  * A detector is an object that represents the GuardDuty service. A detector is
  * required for GuardDuty to become operational.
- * 
+ *
  * @see [AWS::GuardDuty::Detector](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html)
  */
 export class Detector extends DetectorBase {
@@ -170,7 +170,7 @@ export class Detector extends DetectorBase {
   /**
    * Imports an existing GuardDuty detector by specifying its Amazon Resource
    * Name (ARN).
-   * 
+   *
    * @param scope A CDK Construct that will serve as this resources's parent in
    * the construct tree.
    * @param id A name to be associated with the stack and used in resource
@@ -188,7 +188,7 @@ export class Detector extends DetectorBase {
   /**
    * Imports an existing GuardDuty detector by explicitly specifying its
    * attributes.
-   * 
+   *
    * @param scope A CDK Construct that will serve as this resources's parent in
    * the construct tree.
    * @param id A name to be associated with the stack and used in resource
@@ -217,7 +217,7 @@ export class Detector extends DetectorBase {
   /**
    * Imports an existing GuardDuty detector by specifiying its AWS generated
    * ID.
-   * 
+   *
    * @param scope A CDK Construct that will serve as this resources's parent in
    * the construct tree.
    * @param id A name to be associated with the stack and used in resource
@@ -241,27 +241,27 @@ export class Detector extends DetectorBase {
 
   /**
    * Specifies whether the detector is to be enabled on creation.
-   * 
+   *
    * @see [Detector Enable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable)
-   * 
+   *
    * @group Inputs
    */
   public readonly enabled: boolean;
 
   /**
    * Specifies how frequently updated findings are exported.
-   * 
+   *
    * @see [Detector FindingPublishingFrequency](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency)
-   * 
+   *
    * @group Inputs
    */
   public readonly publishingFrequency?: FindingPublishingFrequency;
 
   /**
    * Collection of additional features to be configured on the detector.
-   * 
+   *
    * @see [Detector Features](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-features)
-   * 
+   *
    * @group Inputs
    */
   public get features(): IFeature[] {
@@ -270,9 +270,9 @@ export class Detector extends DetectorBase {
 
   /**
    * The underlying Detector CloudFormation resource.
-   * 
+   *
    * @see [AWS::GuardDuty::Detector](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html)
-   * 
+   *
    * @group Resources
    */
   public readonly resource: CfnDetector;
@@ -290,7 +290,7 @@ export class Detector extends DetectorBase {
 
   /**
    * Creates a new instance of the Detector resource.
-   * 
+   *
    * @param scope A CDK Construct that will serve as this resource's parent in
    * the construct tree.
    * @param id A name to be associated with the stack and used in resource
@@ -340,11 +340,11 @@ export class Detector extends DetectorBase {
                 status: feature.enabled ? 'ENABLED' : 'DISABLED',
               };
             });
-          }
+          },
         },
         {
           omitEmptyArray: true,
-        }
+        },
       ),
       findingPublishingFrequency: this.publishingFrequency?.label,
     });
@@ -361,10 +361,10 @@ export class Detector extends DetectorBase {
       this.addFeature(x);
     });
   }
-  
+
   /**
    * Configures a feature to be enabled on the detector.
-   * 
+   *
    * @param feature The feature to be configured.
    * @returns The detector on which the feature was configured.
    */
@@ -377,7 +377,7 @@ export class Detector extends DetectorBase {
       throw new Error([
         `Could not add feature to GuardDuty detector '${this.node.addr}'`,
         'because there is already a feature with the same name',
-        `(${feature.name}) already exists.`
+        `(${feature.name}) already exists.`,
       ].join(' '));
     }
 

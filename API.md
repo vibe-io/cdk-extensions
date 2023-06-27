@@ -11449,6 +11449,445 @@ public readonly title: string;
 ---
 
 
+### Detector <a name="Detector" id="cdk-extensions.guardduty.Detector"></a>
+
+- *Implements:* cdk-extensions.guardduty.IDetector
+
+Represents a GuardDuty detector.
+
+A detector is an object that represents the GuardDuty service. A detector is
+required for GuardDuty to become operational.
+
+> [[AWS::GuardDuty::Detector](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html)]([AWS::GuardDuty::Detector](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html))
+
+#### Initializers <a name="Initializers" id="cdk-extensions.guardduty.Detector.Initializer"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+new guardduty.Detector(scope: IConstruct, id: string, props?: DetectorProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.Detector.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | A CDK Construct that will serve as this resource's parent in the construct tree. |
+| <code><a href="#cdk-extensions.guardduty.Detector.Initializer.parameter.id">id</a></code> | <code>string</code> | A name to be associated with the stack and used in resource naming. |
+| <code><a href="#cdk-extensions.guardduty.Detector.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.guardduty.DetectorProps</code> | Arguments related to the configuration of the resource. |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.guardduty.Detector.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resource's parent in the construct tree.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.guardduty.Detector.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.guardduty.Detector.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.guardduty.DetectorProps
+
+Arguments related to the configuration of the resource.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.guardduty.Detector.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.guardduty.Detector.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.guardduty.Detector.addFeature">addFeature</a></code> | Configures a feature to be enabled on the detector. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.guardduty.Detector.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.guardduty.Detector.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.guardduty.Detector.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addFeature` <a name="addFeature" id="cdk-extensions.guardduty.Detector.addFeature"></a>
+
+```typescript
+public addFeature(feature: IFeature): Detector
+```
+
+Configures a feature to be enabled on the detector.
+
+###### `feature`<sup>Required</sup> <a name="feature" id="cdk-extensions.guardduty.Detector.addFeature.parameter.feature"></a>
+
+- *Type:* cdk-extensions.guardduty.IFeature
+
+The feature to be configured.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.guardduty.Detector.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.guardduty.Detector.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.guardduty.Detector.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.guardduty.Detector.fromDetectorArn">fromDetectorArn</a></code> | Imports an existing GuardDuty detector by specifying its Amazon Resource Name (ARN). |
+| <code><a href="#cdk-extensions.guardduty.Detector.fromDetectorAttributes">fromDetectorAttributes</a></code> | Imports an existing GuardDuty detector by explicitly specifying its attributes. |
+| <code><a href="#cdk-extensions.guardduty.Detector.fromDetectorId">fromDetectorId</a></code> | Imports an existing GuardDuty detector by specifiying its AWS generated ID. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.guardduty.Detector.isConstruct"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.Detector.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.guardduty.Detector.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.guardduty.Detector.isOwnedResource"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.Detector.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.guardduty.Detector.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.guardduty.Detector.isResource"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.Detector.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.guardduty.Detector.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromDetectorArn` <a name="fromDetectorArn" id="cdk-extensions.guardduty.Detector.fromDetectorArn"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.Detector.fromDetectorArn(scope: IConstruct, id: string, detectorArn: string)
+```
+
+Imports an existing GuardDuty detector by specifying its Amazon Resource Name (ARN).
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.guardduty.Detector.fromDetectorArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.guardduty.Detector.fromDetectorArn.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `detectorArn`<sup>Required</sup> <a name="detectorArn" id="cdk-extensions.guardduty.Detector.fromDetectorArn.parameter.detectorArn"></a>
+
+- *Type:* string
+
+The ARN of the existing GuardDuty detector to be imported.
+
+---
+
+##### `fromDetectorAttributes` <a name="fromDetectorAttributes" id="cdk-extensions.guardduty.Detector.fromDetectorAttributes"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.Detector.fromDetectorAttributes(scope: IConstruct, id: string, attrs: DetectorAttributes)
+```
+
+Imports an existing GuardDuty detector by explicitly specifying its attributes.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.guardduty.Detector.fromDetectorAttributes.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.guardduty.Detector.fromDetectorAttributes.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.guardduty.Detector.fromDetectorAttributes.parameter.attrs"></a>
+
+- *Type:* cdk-extensions.guardduty.DetectorAttributes
+
+The attributes of the existing GuardDuty detector to be imported.
+
+---
+
+##### `fromDetectorId` <a name="fromDetectorId" id="cdk-extensions.guardduty.Detector.fromDetectorId"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.Detector.fromDetectorId(scope: IConstruct, id: string, detectorId: string)
+```
+
+Imports an existing GuardDuty detector by specifiying its AWS generated ID.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.guardduty.Detector.fromDetectorId.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+A CDK Construct that will serve as this resources's parent in the construct tree.
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.guardduty.Detector.fromDetectorId.parameter.id"></a>
+
+- *Type:* string
+
+A name to be associated with the stack and used in resource naming.
+
+Must be unique within the context of 'scope'.
+
+---
+
+###### `detectorId`<sup>Required</sup> <a name="detectorId" id="cdk-extensions.guardduty.Detector.fromDetectorId.parameter.detectorId"></a>
+
+- *Type:* string
+
+The AWS generated ID of an existing GuardDuty detector to be imported.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.Detector.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.guardduty.Detector.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.guardduty.Detector.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.guardduty.Detector.property.detectorArn">detectorArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the GuardDuty detector. |
+| <code><a href="#cdk-extensions.guardduty.Detector.property.detectorId">detectorId</a></code> | <code>string</code> | The ID generated by AWS for the GuardDuty detector. |
+| <code><a href="#cdk-extensions.guardduty.Detector.property.enabled">enabled</a></code> | <code>boolean</code> | Specifies whether the detector is to be enabled on creation. |
+| <code><a href="#cdk-extensions.guardduty.Detector.property.features">features</a></code> | <code>cdk-extensions.guardduty.IFeature[]</code> | Collection of additional features to be configured on the detector. |
+| <code><a href="#cdk-extensions.guardduty.Detector.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_guardduty.CfnDetector</code> | The underlying Detector CloudFormation resource. |
+| <code><a href="#cdk-extensions.guardduty.Detector.property.publishingFrequency">publishingFrequency</a></code> | <code>cdk-extensions.guardduty.FindingPublishingFrequency</code> | Specifies how frequently updated findings are exported. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.guardduty.Detector.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.guardduty.Detector.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.guardduty.Detector.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `detectorArn`<sup>Required</sup> <a name="detectorArn" id="cdk-extensions.guardduty.Detector.property.detectorArn"></a>
+
+```typescript
+public readonly detectorArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the GuardDuty detector.
+
+---
+
+##### `detectorId`<sup>Required</sup> <a name="detectorId" id="cdk-extensions.guardduty.Detector.property.detectorId"></a>
+
+```typescript
+public readonly detectorId: string;
+```
+
+- *Type:* string
+
+The ID generated by AWS for the GuardDuty detector.
+
+---
+
+##### `enabled`<sup>Required</sup> <a name="enabled" id="cdk-extensions.guardduty.Detector.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+Specifies whether the detector is to be enabled on creation.
+
+> [[Detector Enable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable)]([Detector Enable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable))
+
+---
+
+##### `features`<sup>Required</sup> <a name="features" id="cdk-extensions.guardduty.Detector.property.features"></a>
+
+```typescript
+public readonly features: IFeature[];
+```
+
+- *Type:* cdk-extensions.guardduty.IFeature[]
+
+Collection of additional features to be configured on the detector.
+
+> [[Detector Features](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-features)]([Detector Features](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-features))
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.guardduty.Detector.property.resource"></a>
+
+```typescript
+public readonly resource: CfnDetector;
+```
+
+- *Type:* aws-cdk-lib.aws_guardduty.CfnDetector
+
+The underlying Detector CloudFormation resource.
+
+> [[AWS::GuardDuty::Detector](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html)]([AWS::GuardDuty::Detector](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html))
+
+---
+
+##### `publishingFrequency`<sup>Optional</sup> <a name="publishingFrequency" id="cdk-extensions.guardduty.Detector.property.publishingFrequency"></a>
+
+```typescript
+public readonly publishingFrequency: FindingPublishingFrequency;
+```
+
+- *Type:* cdk-extensions.guardduty.FindingPublishingFrequency
+
+Specifies how frequently updated findings are exported.
+
+> [[Detector FindingPublishingFrequency](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency)]([Detector FindingPublishingFrequency](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency))
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.Detector.property.ARN_FORMAT">ARN_FORMAT</a></code> | <code>aws-cdk-lib.ArnFormat</code> | The format this resource uses for it's Amazon Resource Name (ARN). |
+
+---
+
+##### `ARN_FORMAT`<sup>Required</sup> <a name="ARN_FORMAT" id="cdk-extensions.guardduty.Detector.property.ARN_FORMAT"></a>
+
+```typescript
+public readonly ARN_FORMAT: ArnFormat;
+```
+
+- *Type:* aws-cdk-lib.ArnFormat
+
+The format this resource uses for it's Amazon Resource Name (ARN).
+
+---
+
 ### Discord <a name="Discord" id="cdk-extensions.alerting.Discord"></a>
 
 - *Implements:* cdk-extensions.alerting.IIssueHandler
@@ -52338,6 +52777,246 @@ public readonly referenceChecks: string[];
 
 ---
 
+### DetectorAttributes <a name="DetectorAttributes" id="cdk-extensions.guardduty.DetectorAttributes"></a>
+
+Configuration for importing an existing GuardDuty detector.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.guardduty.DetectorAttributes.Initializer"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+const detectorAttributes: guardduty.DetectorAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.DetectorAttributes.property.detectorArn">detectorArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the GuardDuty detector. |
+| <code><a href="#cdk-extensions.guardduty.DetectorAttributes.property.detectorId">detectorId</a></code> | <code>string</code> | The ID generated by AWS for the GuardDuty detector. |
+
+---
+
+##### `detectorArn`<sup>Optional</sup> <a name="detectorArn" id="cdk-extensions.guardduty.DetectorAttributes.property.detectorArn"></a>
+
+```typescript
+public readonly detectorArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the GuardDuty detector.
+
+---
+
+##### `detectorId`<sup>Optional</sup> <a name="detectorId" id="cdk-extensions.guardduty.DetectorAttributes.property.detectorId"></a>
+
+```typescript
+public readonly detectorId: string;
+```
+
+- *Type:* string
+
+The ID generated by AWS for the GuardDuty detector.
+
+---
+
+### DetectorOptions <a name="DetectorOptions" id="cdk-extensions.guardduty.DetectorOptions"></a>
+
+Optional configuration for the detector resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.guardduty.DetectorOptions.Initializer"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+const detectorOptions: guardduty.DetectorOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.DetectorOptions.property.enabled">enabled</a></code> | <code>boolean</code> | Specifies whether the detector is to be enabled on creation. |
+| <code><a href="#cdk-extensions.guardduty.DetectorOptions.property.features">features</a></code> | <code>cdk-extensions.guardduty.IFeature[]</code> | Collection of additional features to be configured on the detector. |
+| <code><a href="#cdk-extensions.guardduty.DetectorOptions.property.publishingFrequency">publishingFrequency</a></code> | <code>cdk-extensions.guardduty.FindingPublishingFrequency</code> | Specifies how frequently updated findings are exported. |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.guardduty.DetectorOptions.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+Specifies whether the detector is to be enabled on creation.
+
+> [[Detector Enable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable)]([Detector Enable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable))
+
+---
+
+##### `features`<sup>Optional</sup> <a name="features" id="cdk-extensions.guardduty.DetectorOptions.property.features"></a>
+
+```typescript
+public readonly features: IFeature[];
+```
+
+- *Type:* cdk-extensions.guardduty.IFeature[]
+
+Collection of additional features to be configured on the detector.
+
+> [[Detector Features](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-features)]([Detector Features](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-features))
+
+---
+
+##### `publishingFrequency`<sup>Optional</sup> <a name="publishingFrequency" id="cdk-extensions.guardduty.DetectorOptions.property.publishingFrequency"></a>
+
+```typescript
+public readonly publishingFrequency: FindingPublishingFrequency;
+```
+
+- *Type:* cdk-extensions.guardduty.FindingPublishingFrequency
+
+Specifies how frequently updated findings are exported.
+
+> [[Detector FindingPublishingFrequency](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency)]([Detector FindingPublishingFrequency](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency))
+
+---
+
+### DetectorProps <a name="DetectorProps" id="cdk-extensions.guardduty.DetectorProps"></a>
+
+Configuration for the dector resource.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.guardduty.DetectorProps.Initializer"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+const detectorProps: guardduty.DetectorProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.DetectorProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.guardduty.DetectorProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.guardduty.DetectorProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.guardduty.DetectorProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.guardduty.DetectorProps.property.enabled">enabled</a></code> | <code>boolean</code> | Specifies whether the detector is to be enabled on creation. |
+| <code><a href="#cdk-extensions.guardduty.DetectorProps.property.features">features</a></code> | <code>cdk-extensions.guardduty.IFeature[]</code> | Collection of additional features to be configured on the detector. |
+| <code><a href="#cdk-extensions.guardduty.DetectorProps.property.publishingFrequency">publishingFrequency</a></code> | <code>cdk-extensions.guardduty.FindingPublishingFrequency</code> | Specifies how frequently updated findings are exported. |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.guardduty.DetectorProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.guardduty.DetectorProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.guardduty.DetectorProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.guardduty.DetectorProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.guardduty.DetectorProps.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+Specifies whether the detector is to be enabled on creation.
+
+> [[Detector Enable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable)]([Detector Enable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable))
+
+---
+
+##### `features`<sup>Optional</sup> <a name="features" id="cdk-extensions.guardduty.DetectorProps.property.features"></a>
+
+```typescript
+public readonly features: IFeature[];
+```
+
+- *Type:* cdk-extensions.guardduty.IFeature[]
+
+Collection of additional features to be configured on the detector.
+
+> [[Detector Features](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-features)]([Detector Features](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-features))
+
+---
+
+##### `publishingFrequency`<sup>Optional</sup> <a name="publishingFrequency" id="cdk-extensions.guardduty.DetectorProps.property.publishingFrequency"></a>
+
+```typescript
+public readonly publishingFrequency: FindingPublishingFrequency;
+```
+
+- *Type:* cdk-extensions.guardduty.FindingPublishingFrequency
+
+Specifies how frequently updated findings are exported.
+
+> [[Detector FindingPublishingFrequency](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency)]([Detector FindingPublishingFrequency](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency))
+
+---
+
 ### DiscordOverrideOptions <a name="DiscordOverrideOptions" id="cdk-extensions.alerting.DiscordOverrideOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.alerting.DiscordOverrideOptions.Initializer"></a>
@@ -53005,6 +53684,62 @@ public readonly timeout: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+---
+
+### EksRuntimeMonitoringOptions <a name="EksRuntimeMonitoringOptions" id="cdk-extensions.guardduty.EksRuntimeMonitoringOptions"></a>
+
+Configuration for the EKS runtime monitoring GuardDuty detector feature.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.guardduty.EksRuntimeMonitoringOptions.Initializer"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+const eksRuntimeMonitoringOptions: guardduty.EksRuntimeMonitoringOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.EksRuntimeMonitoringOptions.property.enabled">enabled</a></code> | <code>boolean</code> | Whether the feature should be enabled or not. |
+| <code><a href="#cdk-extensions.guardduty.EksRuntimeMonitoringOptions.property.addonManagement">addonManagement</a></code> | <code>boolean</code> | Determines whether GuardDuty is allowed to manage addons for the EKS cluster. |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.guardduty.EksRuntimeMonitoringOptions.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+Whether the feature should be enabled or not.
+
+> [[FeatureConfigurations Status](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-status)]([FeatureConfigurations Status](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-status))
+
+---
+
+##### `addonManagement`<sup>Optional</sup> <a name="addonManagement" id="cdk-extensions.guardduty.EksRuntimeMonitoringOptions.property.addonManagement"></a>
+
+```typescript
+public readonly addonManagement: boolean;
+```
+
+- *Type:* boolean
+
+Determines whether GuardDuty is allowed to manage addons for the EKS cluster.
+
+If both runtime monitoring and addon management are enabled GuardDuty can
+automatically manage the GuardDuty security agent addon that is used to
+send findings to GuardDuty.
+
+If runtime monitoring is enabled and addon management is disabled you must
+manage the GuardDuty security agent manually.
+
+> [[Configuring EKS Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/eks-protection-configuration.html)]([Configuring EKS Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/eks-protection-configuration.html))
 
 ---
 
@@ -54015,6 +54750,40 @@ public readonly cluster: ICluster;
 - *Type:* aws-cdk-lib.aws_eks.ICluster
 
 The EKS Cluster to configure Fargate logging for.
+
+---
+
+### FeatureOptions <a name="FeatureOptions" id="cdk-extensions.guardduty.FeatureOptions"></a>
+
+Configuration shared by all GuardDuty detector features.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.guardduty.FeatureOptions.Initializer"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+const featureOptions: guardduty.FeatureOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.FeatureOptions.property.enabled">enabled</a></code> | <code>boolean</code> | Whether the feature should be enabled or not. |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.guardduty.FeatureOptions.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+Whether the feature should be enabled or not.
+
+> [[FeatureConfigurations Status](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-status)]([FeatureConfigurations Status](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-status))
 
 ---
 
@@ -62929,6 +63698,38 @@ public readonly partitions: {[ key: string ]: string};
 
 ---
 
+### KubernetesOptions <a name="KubernetesOptions" id="cdk-extensions.guardduty.KubernetesOptions"></a>
+
+Options for configuring Kubernetes as a data source for GuardDuty.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.guardduty.KubernetesOptions.Initializer"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+const kubernetesOptions: guardduty.KubernetesOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.KubernetesOptions.property.auditLogs">auditLogs</a></code> | <code>boolean</code> | Controls whether EKS audit logs should be used as a data source for GuardDuty. |
+
+---
+
+##### `auditLogs`<sup>Optional</sup> <a name="auditLogs" id="cdk-extensions.guardduty.KubernetesOptions.property.auditLogs"></a>
+
+```typescript
+public readonly auditLogs: boolean;
+```
+
+- *Type:* boolean
+
+Controls whether EKS audit logs should be used as a data source for GuardDuty.
+
+---
+
 ### LambdaPartitioningOptions <a name="LambdaPartitioningOptions" id="cdk-extensions.kinesis_firehose.LambdaPartitioningOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.kinesis_firehose.LambdaPartitioningOptions.Initializer"></a>
@@ -63284,6 +64085,38 @@ public readonly retention: RetentionDays;
 The length of time logs sent to log groups created by AWS Lambda should be retained before being deleted.
 
 > [[LogGroup RetentionInDays](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays)]([LogGroup RetentionInDays](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays))
+
+---
+
+### MalwareProtectionOptions <a name="MalwareProtectionOptions" id="cdk-extensions.guardduty.MalwareProtectionOptions"></a>
+
+Options for configuring data sources for GuardDuty malware protection.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.guardduty.MalwareProtectionOptions.Initializer"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+const malwareProtectionOptions: guardduty.MalwareProtectionOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.MalwareProtectionOptions.property.ebsVolumes">ebsVolumes</a></code> | <code>boolean</code> | Controls whether EBS volumes should be scanned for malware by GuardDuty. |
+
+---
+
+##### `ebsVolumes`<sup>Optional</sup> <a name="ebsVolumes" id="cdk-extensions.guardduty.MalwareProtectionOptions.property.ebsVolumes"></a>
+
+```typescript
+public readonly ebsVolumes: boolean;
+```
+
+- *Type:* boolean
+
+Controls whether EBS volumes should be scanned for malware by GuardDuty.
 
 ---
 
@@ -67956,6 +68789,38 @@ public readonly kmsKey: IKey;
 - *Default:* no kms key if mode = S3_MANAGED. A key will be created if one is not provided and mode = KMS.
 
 The KMS key to be used to encrypt the data.
+
+---
+
+### S3LogsOptions <a name="S3LogsOptions" id="cdk-extensions.guardduty.S3LogsOptions"></a>
+
+Options for configuring whether S3 data events should be used as a data source for GuardDuty.
+
+#### Initializer <a name="Initializer" id="cdk-extensions.guardduty.S3LogsOptions.Initializer"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+const s3LogsOptions: guardduty.S3LogsOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.S3LogsOptions.property.enabled">enabled</a></code> | <code>boolean</code> | Controls whether S3 data events are enabled as a data source for GuardDuty. |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.guardduty.S3LogsOptions.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+Controls whether S3 data events are enabled as a data source for GuardDuty.
 
 ---
 
@@ -78975,6 +79840,90 @@ The number of terabytes this `DataSize` will represent.
 
 
 
+### DataSource <a name="DataSource" id="cdk-extensions.guardduty.DataSource"></a>
+
+A data source that will be configured for a GuardDuty detector.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.guardduty.DataSource.Initializer"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+new guardduty.DataSource()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.guardduty.DataSource.kubernetes">kubernetes</a></code> | Creates a data source configuration for processing Kubernetes (EKS) events. |
+| <code><a href="#cdk-extensions.guardduty.DataSource.malwareProtection">malwareProtection</a></code> | Creates a data source configuration allowing GuardDuty top perform malware scanning. |
+| <code><a href="#cdk-extensions.guardduty.DataSource.s3Logs">s3Logs</a></code> | Creates a data source configuration for analyzing S3 data events in GuardDuty. |
+
+---
+
+##### `kubernetes` <a name="kubernetes" id="cdk-extensions.guardduty.DataSource.kubernetes"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.DataSource.kubernetes(options?: KubernetesOptions)
+```
+
+Creates a data source configuration for processing Kubernetes (EKS) events.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.guardduty.DataSource.kubernetes.parameter.options"></a>
+
+- *Type:* cdk-extensions.guardduty.KubernetesOptions
+
+Options for configuring Kubernetes as a data source for GuardDuty.
+
+---
+
+##### `malwareProtection` <a name="malwareProtection" id="cdk-extensions.guardduty.DataSource.malwareProtection"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.DataSource.malwareProtection(options?: MalwareProtectionOptions)
+```
+
+Creates a data source configuration allowing GuardDuty top perform malware scanning.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.guardduty.DataSource.malwareProtection.parameter.options"></a>
+
+- *Type:* cdk-extensions.guardduty.MalwareProtectionOptions
+
+Options for configuring data sources for GuardDuty malware protection.
+
+---
+
+##### `s3Logs` <a name="s3Logs" id="cdk-extensions.guardduty.DataSource.s3Logs"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.DataSource.s3Logs(options?: S3LogsOptions)
+```
+
+Creates a data source configuration for analyzing S3 data events in GuardDuty.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.guardduty.DataSource.s3Logs.parameter.options"></a>
+
+- *Type:* cdk-extensions.guardduty.S3LogsOptions
+
+Options for configuring whether S3 data events should be used as a data source for GuardDuty.
+
+---
+
+
+
 ### DeliveryStreamDestination <a name="DeliveryStreamDestination" id="cdk-extensions.kinesis_firehose.DeliveryStreamDestination"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.kinesis_firehose.DeliveryStreamDestination.Initializer"></a>
@@ -80160,6 +81109,274 @@ Options configuring how ExternalDNS will use TXT records to validate ownership.
 ---
 
 
+
+### Feature <a name="Feature" id="cdk-extensions.guardduty.Feature"></a>
+
+A feature that will be configured for a GuardDuty detector.
+
+#### Initializers <a name="Initializers" id="cdk-extensions.guardduty.Feature.Initializer"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+new guardduty.Feature()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.guardduty.Feature.ebsMalwareProtection">ebsMalwareProtection</a></code> | Controls whether GuardDuty should scan the EBS volumes associated with EC2 instances for malware and report the results. |
+| <code><a href="#cdk-extensions.guardduty.Feature.eksAuditLogs">eksAuditLogs</a></code> | Helps you detect potentially suspicious activities in your EKS clusters within Amazon Elastic Kubernetes Service by monitoring the audit logs generated by your clusters. |
+| <code><a href="#cdk-extensions.guardduty.Feature.eksRuntimeMonitoring">eksRuntimeMonitoring</a></code> | EKS Runtime Monitoring provides runtime threat detection coverage for Amazon Elastic Kubernetes Service (Amazon EKS) nodes and containers within your AWS environment. |
+| <code><a href="#cdk-extensions.guardduty.Feature.lambdaNetworkLogs">lambdaNetworkLogs</a></code> | Lambda Protection helps you identify potential security threats when an AWS Lambda function gets invoked in your AWS environment. |
+| <code><a href="#cdk-extensions.guardduty.Feature.rdsLoginEvents">rdsLoginEvents</a></code> | RDS Protection in Amazon GuardDuty analyzes and profiles RDS login activity for potential access threats to your Amazon Aurora databases (Amazon Aurora MySQL-Compatible Edition and Aurora PostgreSQL-Compatible Edition). |
+| <code><a href="#cdk-extensions.guardduty.Feature.s3DataEvents">s3DataEvents</a></code> | S3 protection enables Amazon GuardDuty to monitor object-level API operations to identify potential security risks for data within your S3 buckets. |
+
+---
+
+##### `ebsMalwareProtection` <a name="ebsMalwareProtection" id="cdk-extensions.guardduty.Feature.ebsMalwareProtection"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.Feature.ebsMalwareProtection(options?: FeatureOptions)
+```
+
+Controls whether GuardDuty should scan the EBS volumes associated with EC2 instances for malware and report the results.
+
+> [[GuardDuty Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html)]([GuardDuty Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html))
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.guardduty.Feature.ebsMalwareProtection.parameter.options"></a>
+
+- *Type:* cdk-extensions.guardduty.FeatureOptions
+
+Options for configuring the feature.
+
+---
+
+##### `eksAuditLogs` <a name="eksAuditLogs" id="cdk-extensions.guardduty.Feature.eksAuditLogs"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.Feature.eksAuditLogs(options?: FeatureOptions)
+```
+
+Helps you detect potentially suspicious activities in your EKS clusters within Amazon Elastic Kubernetes Service by monitoring the audit logs generated by your clusters.
+
+> [[EKS Audit Log Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-eks-audit-log-monitoring.html)]([EKS Audit Log Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-eks-audit-log-monitoring.html))
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.guardduty.Feature.eksAuditLogs.parameter.options"></a>
+
+- *Type:* cdk-extensions.guardduty.FeatureOptions
+
+Options for configuring the feature.
+
+---
+
+##### `eksRuntimeMonitoring` <a name="eksRuntimeMonitoring" id="cdk-extensions.guardduty.Feature.eksRuntimeMonitoring"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.Feature.eksRuntimeMonitoring(options?: EksRuntimeMonitoringOptions)
+```
+
+EKS Runtime Monitoring provides runtime threat detection coverage for Amazon Elastic Kubernetes Service (Amazon EKS) nodes and containers within your AWS environment.
+
+EKS Runtime Monitoring uses a new GuardDuty security
+agent that adds runtime visibility into individual EKS workloads, for
+example, file access, process execution, and network connections.
+
+> [[EKS Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-eks-runtime-monitoring.html)]([EKS Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-eks-runtime-monitoring.html))
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.guardduty.Feature.eksRuntimeMonitoring.parameter.options"></a>
+
+- *Type:* cdk-extensions.guardduty.EksRuntimeMonitoringOptions
+
+Options for configuring the feature.
+
+---
+
+##### `lambdaNetworkLogs` <a name="lambdaNetworkLogs" id="cdk-extensions.guardduty.Feature.lambdaNetworkLogs"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.Feature.lambdaNetworkLogs(options?: FeatureOptions)
+```
+
+Lambda Protection helps you identify potential security threats when an AWS Lambda function gets invoked in your AWS environment.
+
+When you enable
+Lambda Protection, GuardDuty starts monitoring Lambda network activity
+logs, starting with VPC Flow Logs from all Lambda functions for account,
+including those logs that don't use VPC networking, and are generated when
+the Lambda function gets invoked.
+
+> [[GuardDuty Lambda Protection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-eks-runtime-monitoring.html)]([GuardDuty Lambda Protection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-eks-runtime-monitoring.html))
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.guardduty.Feature.lambdaNetworkLogs.parameter.options"></a>
+
+- *Type:* cdk-extensions.guardduty.FeatureOptions
+
+Options for configuring the feature.
+
+---
+
+##### `rdsLoginEvents` <a name="rdsLoginEvents" id="cdk-extensions.guardduty.Feature.rdsLoginEvents"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.Feature.rdsLoginEvents(options?: FeatureOptions)
+```
+
+RDS Protection in Amazon GuardDuty analyzes and profiles RDS login activity for potential access threats to your Amazon Aurora databases (Amazon Aurora MySQL-Compatible Edition and Aurora PostgreSQL-Compatible Edition).
+
+> [[GuardDuty RDS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-eks-runtime-monitoring.html)]([GuardDuty RDS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-eks-runtime-monitoring.html))
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.guardduty.Feature.rdsLoginEvents.parameter.options"></a>
+
+- *Type:* cdk-extensions.guardduty.FeatureOptions
+
+Options for configuring the feature.
+
+---
+
+##### `s3DataEvents` <a name="s3DataEvents" id="cdk-extensions.guardduty.Feature.s3DataEvents"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.Feature.s3DataEvents(options?: FeatureOptions)
+```
+
+S3 protection enables Amazon GuardDuty to monitor object-level API operations to identify potential security risks for data within your S3 buckets.
+
+> [[GuardDuty S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-eks-runtime-monitoring.html)]([GuardDuty S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-eks-runtime-monitoring.html))
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.guardduty.Feature.s3DataEvents.parameter.options"></a>
+
+- *Type:* cdk-extensions.guardduty.FeatureOptions
+
+Options for configuring the feature.
+
+---
+
+
+
+### FindingPublishingFrequency <a name="FindingPublishingFrequency" id="cdk-extensions.guardduty.FindingPublishingFrequency"></a>
+
+Specifies how frequently updated findings are exported.
+
+> [[Detector FindingPublishingFrequency](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency)]([Detector FindingPublishingFrequency](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency))
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.guardduty.FindingPublishingFrequency.of">of</a></code> | Escape hatch for specifying custom publishing frequency values. |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.guardduty.FindingPublishingFrequency.of"></a>
+
+```typescript
+import { guardduty } from 'cdk-extensions'
+
+guardduty.FindingPublishingFrequency.of(label: string)
+```
+
+Escape hatch for specifying custom publishing frequency values.
+
+This is primarily intended in case additional options are added and
+support for those values has not yet been officially added.
+
+Where possible it is recommended that the existing provided values be
+used.
+
+###### `label`<sup>Required</sup> <a name="label" id="cdk-extensions.guardduty.FindingPublishingFrequency.of.parameter.label"></a>
+
+- *Type:* string
+
+The label for the publishing frequency value as would be expected by CloudFormation.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.FindingPublishingFrequency.property.label">label</a></code> | <code>string</code> | The label for the publishing frequency value as would be expected by CloudFormation. |
+
+---
+
+##### `label`<sup>Required</sup> <a name="label" id="cdk-extensions.guardduty.FindingPublishingFrequency.property.label"></a>
+
+```typescript
+public readonly label: string;
+```
+
+- *Type:* string
+
+The label for the publishing frequency value as would be expected by CloudFormation.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.FindingPublishingFrequency.property.FIFTEEN_MINUTES">FIFTEEN_MINUTES</a></code> | <code>cdk-extensions.guardduty.FindingPublishingFrequency</code> | Publish findings every fifteen minutes. |
+| <code><a href="#cdk-extensions.guardduty.FindingPublishingFrequency.property.ONE_HOUR">ONE_HOUR</a></code> | <code>cdk-extensions.guardduty.FindingPublishingFrequency</code> | Publish findings every hour. |
+| <code><a href="#cdk-extensions.guardduty.FindingPublishingFrequency.property.SIX_HOURS">SIX_HOURS</a></code> | <code>cdk-extensions.guardduty.FindingPublishingFrequency</code> | Publish findings every six hours. |
+
+---
+
+##### `FIFTEEN_MINUTES`<sup>Required</sup> <a name="FIFTEEN_MINUTES" id="cdk-extensions.guardduty.FindingPublishingFrequency.property.FIFTEEN_MINUTES"></a>
+
+```typescript
+public readonly FIFTEEN_MINUTES: FindingPublishingFrequency;
+```
+
+- *Type:* cdk-extensions.guardduty.FindingPublishingFrequency
+
+Publish findings every fifteen minutes.
+
+---
+
+##### `ONE_HOUR`<sup>Required</sup> <a name="ONE_HOUR" id="cdk-extensions.guardduty.FindingPublishingFrequency.property.ONE_HOUR"></a>
+
+```typescript
+public readonly ONE_HOUR: FindingPublishingFrequency;
+```
+
+- *Type:* cdk-extensions.guardduty.FindingPublishingFrequency
+
+Publish findings every hour.
+
+---
+
+##### `SIX_HOURS`<sup>Required</sup> <a name="SIX_HOURS" id="cdk-extensions.guardduty.FindingPublishingFrequency.property.SIX_HOURS"></a>
+
+```typescript
+public readonly SIX_HOURS: FindingPublishingFrequency;
+```
+
+- *Type:* cdk-extensions.guardduty.FindingPublishingFrequency
+
+Publish findings every six hours.
+
+---
 
 ### FlowLogDestination <a name="FlowLogDestination" id="cdk-extensions.ec2.FlowLogDestination"></a>
 
@@ -98121,6 +99338,37 @@ The IP address of the customer gateway.
 
 ---
 
+### IDataSource <a name="IDataSource" id="cdk-extensions.guardduty.IDataSource"></a>
+
+- *Implemented By:* cdk-extensions.guardduty.IDataSource
+
+Represents a data source that should be enabled on a detector.
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.guardduty.IDataSource.bind">bind</a></code> | Associates the data source with a resource configuring a GuardDuty detector. |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.guardduty.IDataSource.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): CFNDataSourceConfigurationsProperty
+```
+
+Associates the data source with a resource configuring a GuardDuty detector.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.guardduty.IDataSource.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+The resource managing the detector being configured.
+
+---
+
+
 ### IDelayedChainable <a name="IDelayedChainable" id="cdk-extensions.alerting.IDelayedChainable"></a>
 
 - *Implemented By:* cdk-extensions.alerting.DescriptionBuilder, cdk-extensions.alerting.DescriptionBuilderIterator, cdk-extensions.alerting.DescriptionBuilderSection, cdk-extensions.alerting.IDelayedChainable, cdk-extensions.alerting.IDescriptionBuilderComponent
@@ -98508,6 +99756,46 @@ public readonly classifier: string;
 
 ---
 
+### IDetector <a name="IDetector" id="cdk-extensions.guardduty.IDetector"></a>
+
+- *Implemented By:* cdk-extensions.guardduty.Detector, cdk-extensions.guardduty.IDetector
+
+Represents a GuardDuty detector in AWS.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.IDetector.property.detectorArn">detectorArn</a></code> | <code>string</code> | The Amazon Resource Name (ARN) of the GuardDuty detector. |
+| <code><a href="#cdk-extensions.guardduty.IDetector.property.detectorId">detectorId</a></code> | <code>string</code> | The ID generated by AWS for the GuardDuty detector. |
+
+---
+
+##### `detectorArn`<sup>Required</sup> <a name="detectorArn" id="cdk-extensions.guardduty.IDetector.property.detectorArn"></a>
+
+```typescript
+public readonly detectorArn: string;
+```
+
+- *Type:* string
+
+The Amazon Resource Name (ARN) of the GuardDuty detector.
+
+---
+
+##### `detectorId`<sup>Required</sup> <a name="detectorId" id="cdk-extensions.guardduty.IDetector.property.detectorId"></a>
+
+```typescript
+public readonly detectorId: string;
+```
+
+- *Type:* string
+
+The ID generated by AWS for the GuardDuty detector.
+
+---
+
 ### IDnsResolvable <a name="IDnsResolvable" id="cdk-extensions.route53.IDnsResolvable"></a>
 
 - *Extends:* constructs.IConstruct
@@ -98627,6 +99915,128 @@ public readonly registryType: string;
 ```
 
 - *Type:* string
+
+---
+
+### IFeature <a name="IFeature" id="cdk-extensions.guardduty.IFeature"></a>
+
+- *Implemented By:* cdk-extensions.guardduty.IFeature
+
+Represents a feature that will be configured for a GuardDuty detector.
+
+> [[DetectorFeatureConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html)]([DetectorFeatureConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html))
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.IFeature.property.enabled">enabled</a></code> | <code>boolean</code> | Whether the feature should be enabled or not. |
+| <code><a href="#cdk-extensions.guardduty.IFeature.property.name">name</a></code> | <code>string</code> | Name of the feature. |
+| <code><a href="#cdk-extensions.guardduty.IFeature.property.dataSource">dataSource</a></code> | <code>cdk-extensions.guardduty.IDataSource</code> | Provides a data source that must be enabled for the feature to function. |
+| <code><a href="#cdk-extensions.guardduty.IFeature.property.settings">settings</a></code> | <code>cdk-extensions.guardduty.IFeatureSetting[]</code> | Additional configuration of the feature. |
+
+---
+
+##### `enabled`<sup>Required</sup> <a name="enabled" id="cdk-extensions.guardduty.IFeature.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+Whether the feature should be enabled or not.
+
+> [[FeatureConfigurations Status](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-status)]([FeatureConfigurations Status](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-status))
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.guardduty.IFeature.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Name of the feature.
+
+> [[FeatureConfigurations Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-name)]([FeatureConfigurations Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-name))
+
+---
+
+##### `dataSource`<sup>Optional</sup> <a name="dataSource" id="cdk-extensions.guardduty.IFeature.property.dataSource"></a>
+
+```typescript
+public readonly dataSource: IDataSource;
+```
+
+- *Type:* cdk-extensions.guardduty.IDataSource
+
+Provides a data source that must be enabled for the feature to function.
+
+> [[Detector DataSources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources)]([Detector DataSources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources))
+
+---
+
+##### `settings`<sup>Optional</sup> <a name="settings" id="cdk-extensions.guardduty.IFeature.property.settings"></a>
+
+```typescript
+public readonly settings: IFeatureSetting[];
+```
+
+- *Type:* cdk-extensions.guardduty.IFeatureSetting[]
+
+Additional configuration of the feature.
+
+> [[FeatureConfigurations AdditionalConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-additionalconfiguration)]([FeatureConfigurations AdditionalConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-additionalconfiguration))
+
+---
+
+### IFeatureSetting <a name="IFeatureSetting" id="cdk-extensions.guardduty.IFeatureSetting"></a>
+
+- *Implemented By:* cdk-extensions.guardduty.IFeatureSetting
+
+Additional configuration of the feature.
+
+> [[FeatureConfigurations AdditionalConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-additionalconfiguration)]([FeatureConfigurations AdditionalConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html#cfn-guardduty-detector-featureconfigurations-additionalconfiguration))
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.guardduty.IFeatureSetting.property.enabled">enabled</a></code> | <code>boolean</code> | Status of the additional configuration of a feature. |
+| <code><a href="#cdk-extensions.guardduty.IFeatureSetting.property.name">name</a></code> | <code>string</code> | Name of the additional configuration of a feature. |
+
+---
+
+##### `enabled`<sup>Required</sup> <a name="enabled" id="cdk-extensions.guardduty.IFeatureSetting.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+Status of the additional configuration of a feature.
+
+> [[FeatureAdditionalConfiguration Status](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html#cfn-guardduty-detector-featureadditionalconfiguration-status)]([FeatureAdditionalConfiguration Status](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html#cfn-guardduty-detector-featureadditionalconfiguration-status))
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.guardduty.IFeatureSetting.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Name of the additional configuration of a feature.
+
+> [[FeatureAdditionalConfiguration Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html#cfn-guardduty-detector-featureadditionalconfiguration-name)]([FeatureAdditionalConfiguration Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html#cfn-guardduty-detector-featureadditionalconfiguration-name))
 
 ---
 

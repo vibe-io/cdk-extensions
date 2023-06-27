@@ -1,5 +1,5 @@
-import { CfnDetector } from "aws-cdk-lib/aws-guardduty";
-import { IConstruct } from "constructs";
+import { CfnDetector } from 'aws-cdk-lib/aws-guardduty';
+import { IConstruct } from 'constructs';
 
 
 /**
@@ -9,7 +9,7 @@ export interface IDataSource {
   /**
    * Associates the data source with a resource configuring a GuardDuty
    * detector.
-   * 
+   *
    * @param scope The resource managing the detector being configured.
    */
   bind(scope: IConstruct): CfnDetector.CFNDataSourceConfigurationsProperty;
@@ -55,7 +55,7 @@ export class DataSource {
   /**
    * Creates a data source configuration for processing Kubernetes (EKS)
    * events.
-   * 
+   *
    * @param options Options for configuring Kubernetes as a data source for
    * GuardDuty.
    * @returns An object representing the configured data source.
@@ -77,7 +77,7 @@ export class DataSource {
   /**
    * Creates a data source configuration allowing GuardDuty top perform malware
    * scanning.
-   * 
+   *
    * @param options Options for configuring data sources for GuardDuty malware
    * protection.
    * @returns An object representing the configured data source.
@@ -99,7 +99,7 @@ export class DataSource {
   /**
    * Creates a data source configuration for analyzing S3 data events in
    * GuardDuty.
-   * 
+   *
    * @param options Options for configuring whether S3 data events should be
    * used as a data source for GuardDuty.
    * @returns An object representing the configured data source.
