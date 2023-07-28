@@ -2,8 +2,8 @@ import { Stack } from 'aws-cdk-lib';
 import { Effect, IRole, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { IStream, Stream } from 'aws-cdk-lib/aws-kinesis';
 import { IConstruct } from 'constructs';
-import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
 import { FluentBitOutputPluginBase, FluentBitOutputPluginCommonOptions } from './output-plugin-base';
+import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
 
 
 /**

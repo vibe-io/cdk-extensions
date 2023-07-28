@@ -3,8 +3,8 @@ import { CfnWorkspace } from 'aws-cdk-lib/aws-aps';
 import { ILogGroup, LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { ITopic } from 'aws-cdk-lib/aws-sns';
 import { IConstruct } from 'constructs';
-import { undefinedIfNoKeys } from '../utils/formatting';
 import { AlertManagerConfiguration, IAlertManagerConfiguration } from './lib/alert-manager';
+import { undefinedIfNoKeys } from '../utils/formatting';
 
 
 /**

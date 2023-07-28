@@ -41,6 +41,54 @@
       ],
       "condition": "! git log --oneline -1 | grep -q \"chore(release):\""
     },
+    "bundle": {
+      "name": "bundle",
+      "description": "Prepare assets",
+      "steps": [
+        {
+          "spawn": "bundle:ec2/lib/custom-resources/transit-gateway-resolver.lambda"
+        },
+        {
+          "spawn": "bundle:ec2/lib/custom-resources/vpc-cidr-block-resolver.lambda"
+        }
+      ]
+    },
+    "bundle:ec2/lib/custom-resources/transit-gateway-resolver.lambda": {
+      "name": "bundle:ec2/lib/custom-resources/transit-gateway-resolver.lambda",
+      "description": "Create a JavaScript bundle from src/ec2/lib/custom-resources/transit-gateway-resolver.lambda.ts",
+      "steps": [
+        {
+          "exec": "esbuild --bundle src/ec2/lib/custom-resources/transit-gateway-resolver.lambda.ts --target=\"node16\" --platform=\"node\" --outfile=\"assets/ec2/lib/custom-resources/transit-gateway-resolver.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/client-ec2"
+        }
+      ]
+    },
+    "bundle:ec2/lib/custom-resources/transit-gateway-resolver.lambda:watch": {
+      "name": "bundle:ec2/lib/custom-resources/transit-gateway-resolver.lambda:watch",
+      "description": "Continuously update the JavaScript bundle from src/ec2/lib/custom-resources/transit-gateway-resolver.lambda.ts",
+      "steps": [
+        {
+          "exec": "esbuild --bundle src/ec2/lib/custom-resources/transit-gateway-resolver.lambda.ts --target=\"node16\" --platform=\"node\" --outfile=\"assets/ec2/lib/custom-resources/transit-gateway-resolver.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/client-ec2 --watch"
+        }
+      ]
+    },
+    "bundle:ec2/lib/custom-resources/vpc-cidr-block-resolver.lambda": {
+      "name": "bundle:ec2/lib/custom-resources/vpc-cidr-block-resolver.lambda",
+      "description": "Create a JavaScript bundle from src/ec2/lib/custom-resources/vpc-cidr-block-resolver.lambda.ts",
+      "steps": [
+        {
+          "exec": "esbuild --bundle src/ec2/lib/custom-resources/vpc-cidr-block-resolver.lambda.ts --target=\"node16\" --platform=\"node\" --outfile=\"assets/ec2/lib/custom-resources/vpc-cidr-block-resolver.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/client-ec2"
+        }
+      ]
+    },
+    "bundle:ec2/lib/custom-resources/vpc-cidr-block-resolver.lambda:watch": {
+      "name": "bundle:ec2/lib/custom-resources/vpc-cidr-block-resolver.lambda:watch",
+      "description": "Continuously update the JavaScript bundle from src/ec2/lib/custom-resources/vpc-cidr-block-resolver.lambda.ts",
+      "steps": [
+        {
+          "exec": "esbuild --bundle src/ec2/lib/custom-resources/vpc-cidr-block-resolver.lambda.ts --target=\"node16\" --platform=\"node\" --outfile=\"assets/ec2/lib/custom-resources/vpc-cidr-block-resolver.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/client-ec2 --watch"
+        }
+      ]
+    },
     "clobber": {
       "name": "clobber",
       "description": "hard resets to HEAD of origin and cleans the local repo",
@@ -130,6 +178,24 @@
         }
       ]
     },
+    "install": {
+      "name": "install",
+      "description": "Install project dependencies and update lockfile (non-frozen)",
+      "steps": [
+        {
+          "exec": "yarn install --check-files"
+        }
+      ]
+    },
+    "install:ci": {
+      "name": "install:ci",
+      "description": "Install project dependencies using frozen lockfile",
+      "steps": [
+        {
+          "exec": "yarn install --check-files --frozen-lockfile"
+        }
+      ]
+    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package",
@@ -208,7 +274,12 @@
     },
     "pre-compile": {
       "name": "pre-compile",
-      "description": "Prepare the project for compilation"
+      "description": "Prepare the project for compilation",
+      "steps": [
+        {
+          "spawn": "bundle"
+        }
+      ]
     },
     "release": {
       "name": "release",
@@ -239,7 +310,8 @@
       "description": "Run tests",
       "steps": [
         {
-          "exec": "jest --passWithNoTests --all --updateSnapshot"
+          "exec": "jest --passWithNoTests --updateSnapshot",
+          "receiveArgs": true
         },
         {
           "spawn": "eslint"
@@ -282,19 +354,19 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='aws-cdk-lib,constructs'"
+          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii-rosetta,jsii'"
         },
         {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='aws-cdk-lib,constructs'"
+          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii-rosetta,jsii'"
         },
         {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='aws-cdk-lib,constructs'"
+          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii-rosetta,jsii'"
         },
         {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='aws-cdk-lib,constructs'"
+          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii-rosetta,jsii'"
         },
         {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='aws-cdk-lib,constructs'"
+          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii-rosetta,jsii'"
         },
         {
           "exec": "yarn install --check-files"
@@ -321,7 +393,7 @@
     }
   },
   "env": {
-    "PATH": "$(npx -c \"node -e \\\"console.log(process.env.PATH)\\\"\")"
+    "PATH": "$(npx -c \"node --print process.env.PATH\")"
   },
   "//": "~~ Generated by projen. To modify, edit .projenrc.js and run \"npx projen\"."
 }

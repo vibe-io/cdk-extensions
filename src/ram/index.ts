@@ -7,13 +7,4 @@
  */
 export * from './resource-share';
 
-
-/**
- * @category Classes
- */
-export * from './lib/shared-principal';
-
-/**
- * @category Classes
- */
-export * from './lib/shared-resource';
+export * from './lib';

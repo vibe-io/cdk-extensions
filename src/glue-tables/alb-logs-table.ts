@@ -2,7 +2,7 @@ import { Annotations, Lazy, ResourceProps, Stack, Stage, Token } from 'aws-cdk-l
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { RegionInfo } from 'aws-cdk-lib/region-info';
 import { Construct } from 'constructs';
-import { NamedQuery } from '../athena';
+import { IWorkGroup, NamedQuery } from '../athena';
 import { BasicColumn, Database, Table, TableType } from '../glue';
 import { InputFormat, OutputFormat, SerializationLibrary } from '../glue/lib/data-format';
 
@@ -17,44 +17,65 @@ export interface AlbLogsTableProps extends ResourceProps {
    * @see [AWS S3 iBucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.IBucket.html)
    */
   readonly bucket: IBucket;
+
   /**
    * Boolean indicating whether to create default Athena queries for the ALB Logs
    *
    * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
    */
   readonly createQueries?: boolean;
+
   /**
    * A cdk-extensions/glue {@link aws-glue!Database } object that the table should be created in.
    *
    * @see [AWS::Glue::Database](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html)
    */
   readonly database: Database;
+
   /**
    * Boolean for adding "friendly names" for the created Athena queries.
    */
   readonly friendlyQueryNames?: boolean;
+
   /**
    * Name for Alb Logs Table
    */
   readonly name?: string;
+
   /**
    * Set a custom prefix for the S3 Bucket
    */
   readonly s3Prefix?: string;
+
+  /**
+   * The name of the workgroup where namedqueries should be created.
+   *
+   * @see [NamedQuery WorkGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup)
+   * @see [Setting up workgroups](https://docs.aws.amazon.com/athena/latest/ug/workgroups-procedure.html)
+   */
+  readonly workGroup?: IWorkGroup;
 }
 
 export class AlbLogsTable extends Table {
-  // Input properties
   /**
    * Boolean indicating whether to create default Athena queries for the ALB Logs
    *
    * @see [`CfnNamedQueries`](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_athena/CfnNamedQuery.html)
    */
   public readonly createQueries: boolean;
+
   /**
    * Boolean for adding "friendly names" for the created Athena queries.
    */
   public readonly friendlyQueryNames: boolean;
+
+  /**
+   * The name of the workgroup where namedqueries should be created.
+   *
+   * @see [NamedQuery WorkGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup)
+   * @see [Setting up workgroups](https://docs.aws.amazon.com/athena/latest/ug/workgroups-procedure.html)
+   */
+  public readonly workGroup?: IWorkGroup;
 
   // Resource properties
   public readonly status5xxNamedQuery?: NamedQuery;
@@ -62,14 +83,14 @@ export class AlbLogsTable extends Table {
 
 
   /**
-     * Creates a new instance of the AlbLogsTable class.
-     *
-     * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
-     * @param id A name to be associated with the stack and used in resource naming. Must be unique
-     * within the context of 'scope'.
-     * @param props Arguments related to the configuration of the resource.
-     */
-  constructor(scope: Construct, id: string, props: AlbLogsTableProps) {
+   * Creates a new instance of the AlbLogsTable class.
+   *
+   * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
+   * @param id A name to be associated with the stack and used in resource naming. Must be unique
+   * within the context of 'scope'.
+   * @param props Arguments related to the configuration of the resource.
+   */
+  public constructor(scope: Construct, id: string, props: AlbLogsTableProps) {
     const projectionYear = new Date().getFullYear() - 1;
 
     super(scope, id, {
@@ -284,6 +305,7 @@ export class AlbLogsTable extends Table {
 
     this.createQueries = props.createQueries ?? true;
     this.friendlyQueryNames = props.friendlyQueryNames ?? false;
+    this.workGroup = props.workGroup;
 
     if (this.createQueries) {
       this.topIpsNamedQuery = new NamedQuery(this, 'top-ips-named-query', {
@@ -305,6 +327,7 @@ export class AlbLogsTable extends Table {
           'GROUP BY client_ip',
           'ORDER by total DESC LIMIT 100;',
         ].join('\n'),
+        workGroup: props.workGroup,
       });
 
       this.status5xxNamedQuery = new NamedQuery(this, 'status-5xx-named-query', {
@@ -329,6 +352,7 @@ export class AlbLogsTable extends Table {
           "    AND FROM_ISO8601_TIMESTAMP(time) >= NOW() - PARSE_DURATION('1d')",
           'ORDER BY time DESC LIMIT 100;',
         ].join('\n'),
+        workGroup: props.workGroup,
       });
     }
   }

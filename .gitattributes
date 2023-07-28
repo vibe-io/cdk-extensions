@@ -11,6 +11,7 @@
 /.gitignore linguist-generated
 /.mergify.yml linguist-generated
 /.npmignore linguist-generated
+/.npmrc linguist-generated
 /.projen/** linguist-generated
 /.projen/deps.json linguist-generated
 /.projen/files.json linguist-generated
@@ -18,5 +19,7 @@
 /API.md linguist-generated
 /LICENSE linguist-generated
 /package.json linguist-generated
+/src/ec2/lib/custom-resources/transit-gateway-resolver-function.ts linguist-generated
+/src/ec2/lib/custom-resources/vpc-cidr-block-resolver-function.ts linguist-generated
 /tsconfig.dev.json linguist-generated
 /yarn.lock linguist-generated

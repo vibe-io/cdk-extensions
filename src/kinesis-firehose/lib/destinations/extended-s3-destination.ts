@@ -2,14 +2,14 @@ import { Lazy } from 'aws-cdk-lib';
 import { CfnDeliveryStream } from 'aws-cdk-lib/aws-kinesisfirehose';
 import { IBucket } from 'aws-cdk-lib/aws-s3';
 import { IConstruct } from 'constructs';
+import { DeliveryStreamDestinationConfiguration } from './delivery-stream-destination';
+import { S3Destination, S3DestinationOptions } from './s3-destination';
 import { definedFieldsOrUndefined } from '../../../utils/formatting';
 import { BackupConfiguration } from '../backup-configuration';
 import { DataFormatConversion } from '../data-format-processing/data-format-conversion';
 import { DynamicPartitioning } from '../dynamic-partitioning';
 import { ProcessorConfiguration } from '../processor-configuration';
 import { DeliveryStreamProcessor } from '../processors/delivery-stream-processor';
-import { DeliveryStreamDestinationConfiguration } from './delivery-stream-destination';
-import { S3Destination, S3DestinationOptions } from './s3-destination';
 
 
 export interface ExtendedS3DestinationOptions extends S3DestinationOptions {

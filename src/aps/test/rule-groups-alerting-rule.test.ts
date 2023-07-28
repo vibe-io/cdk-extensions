@@ -1,7 +1,7 @@
 import { Duration, Names } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
-import { PrometheusRule } from '..';
 import { defaultAlertingRuleProps, getDefaultRuleGroup } from './default-values';
+import { PrometheusRule } from '..';
 
 
 test('alerting rule renders properly with minimum config', () => {

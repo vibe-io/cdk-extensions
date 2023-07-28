@@ -1,13 +1,16 @@
 {
   "dependencies": [
     {
+      "name": "@aws-sdk/client-ec2",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
-      "version": "^27",
       "type": "build"
     },
     {
       "name": "@types/node",
-      "version": "^14",
+      "version": "^16",
       "type": "build"
     },
     {
@@ -22,12 +25,16 @@
     },
     {
       "name": "aws-cdk-lib",
-      "version": "2.66.0",
+      "version": "2.87.0",
       "type": "build"
     },
     {
       "name": "constructs",
       "version": "10.0.5",
+      "type": "build"
+    },
+    {
+      "name": "esbuild",
       "type": "build"
     },
     {
@@ -48,17 +55,12 @@
       "type": "build"
     },
     {
-      "name": "jest-junit",
-      "version": "^13",
-      "type": "build"
-    },
-    {
       "name": "jest",
-      "version": "^27",
       "type": "build"
     },
     {
-      "name": "jsii",
+      "name": "jest-junit",
+      "version": "^15",
       "type": "build"
     },
     {
@@ -74,7 +76,13 @@
       "type": "build"
     },
     {
-      "name": "json-schema",
+      "name": "jsii-rosetta",
+      "version": "~5.0.0",
+      "type": "build"
+    },
+    {
+      "name": "jsii",
+      "version": "~5.0.0",
       "type": "build"
     },
     {
@@ -93,7 +101,6 @@
     },
     {
       "name": "ts-jest",
-      "version": "^27",
       "type": "build"
     },
     {
@@ -101,23 +108,8 @@
       "type": "build"
     },
     {
-      "name": "@types/prettier",
-      "version": "2.6.0",
-      "type": "override"
-    },
-    {
-      "name": "@types/responselike",
-      "version": "1.0.0",
-      "type": "override"
-    },
-    {
-      "name": "got",
-      "version": "12.3.1",
-      "type": "override"
-    },
-    {
       "name": "aws-cdk-lib",
-      "version": "^2.66.0",
+      "version": "^2.87.0",
       "type": "peer"
     },
     {

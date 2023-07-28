@@ -1,6 +1,6 @@
 import { IConstruct } from 'constructs';
-import { ResolvedFluentBitConfiguration } from '..';
 import { FluentBitParserPluginBase, FluentBitParserPluginCommonOptions } from './parser-plugin-base';
+import { ResolvedFluentBitConfiguration } from '..';
 
 
 /**

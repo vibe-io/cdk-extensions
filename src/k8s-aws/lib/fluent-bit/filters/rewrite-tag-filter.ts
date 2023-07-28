@@ -1,7 +1,7 @@
 import { IConstruct } from 'constructs';
+import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from './filter-plugin-base';
 import { DataSize } from '../../../../core';
 import { ResolvedFluentBitConfiguration } from '../resolved-fluent-bit-configuration';
-import { FluentBitFilterPluginBase, FluentBitFilterPluginCommonOptions } from './filter-plugin-base';
 
 
 /**

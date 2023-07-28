@@ -1,8 +1,16 @@
 import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import { AnalyticsEngine, AthenaSqlEngineVersion, WorkGroup } from '../athena';
+import { DataSize } from '../core';
 import { FlowLogFormat } from '../ec2';
 import { Database } from '../glue';
 import { AlbLogsBucket, CloudfrontLogsBucket, CloudtrailBucket, FlowLogsBucket, S3AccessLogsBucket, SesLogsBucket, WafLogsBucket } from '../s3-buckets';
+
+
+export interface LoggingWorkGroupConfiguration {
+  readonly enabled?: boolean;
+  readonly queryScannedBytesLimit?: DataSize;
+}
 
 /**
 * Configuration for AwsLoggingStack.
@@ -12,43 +20,58 @@ export interface AwsLoggingStackProps extends StackProps {
    * A cdk-extensions/s3-buckets {@link aws-s3-buckets!AlbLogsBucket} object.
    */
   readonly albLogsBucket?: AlbLogsBucket;
+
   /**
    * A cdk-extensions/s3-buckets {@link aws-s3-buckets!CloudfrontLogsBucket} object.
    */
   readonly cloudfrontLogsBucket?: CloudfrontLogsBucket;
+
   /**
    * A cdk-extensions/s3-buckets {@link aws-s3-buckets!CloudtrailBucket} object.
    */
   readonly cloudtrailLogsBucket?: CloudtrailBucket;
+
   /**
    * Name used for the Glue Database that will be created
    */
   readonly databaseName?: string;
+
   /**
    * A cdk-extensions/s3-buckets {@link aws-s3-buckets!FlowLogsBucket} object.
    */
   readonly flowLogsBucket?: FlowLogsBucket;
+
   /**
    * A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs
    */
   readonly flowLogsFormat?: FlowLogFormat;
+
   /**
    * Boolean for adding "friendly names" for the created Athena queries.
    */
   readonly friendlyQueryNames?: boolean;
+
   /**
    * A cdk-extensions/s3-buckets {@link aws-s3-buckets!SesLogsBucket} object.
    */
   readonly sesLogsBucket?: SesLogsBucket;
+
   /**
    * Boolean for using "standardized" naming (i.e. "aws-${service}-logs-${account}
    * -${region}") for the created S3 Buckets.
    */
   readonly standardizeNames?: boolean;
+
   /**
    * A cdk-extensions/s3-buckets {@link aws-s3-buckets!WafLogsBucket} object.
    */
   readonly wafLogsBucket?: WafLogsBucket;
+
+  /**
+   * Controls settings for an Athena WorkGroup used to query logs produced by
+   * AWS services.
+   */
+  readonly workGroupConfiguration?: LoggingWorkGroupConfiguration;
 }
 
 /**
@@ -68,24 +91,33 @@ export interface AwsLoggingStackProps extends StackProps {
  * @see {@link aws-s3-buckets!WafLogsBucket | cdk-extensions/s3-buckets WafLogsBucket}
  */
 export class AwsLoggingStack extends Stack {
-  // Input properties
   /**
    * Name for the AWS Logs Glue Database
    */
   public readonly databaseName: string;
+
   /**
-   * A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the desired formatting for Flow Logs
+   * A cdk-extentions/ec2 {@link aws-ec2!FlowLogFormat } object defining the
+   * desired formatting for Flow Logs.
    */
   public readonly flowLogsFormat: FlowLogFormat;
+
   /**
    * Boolean for adding "friendly names" for the created Athena queries.
    */
   public readonly friendlyQueryNames?: boolean;
+
   /**
    * Boolean for using standardized names (i.e. "aws-${service}-logs-${account}
    * -${region}") for the created S3 Buckets.
    */
   public readonly standardizeNames: boolean;
+
+  /**
+   * Controls settings for an Athena WorkGroup used to query logs produced by
+   * AWS services.
+   */
+  readonly workGroupConfiguration: LoggingWorkGroupConfiguration;
 
   // Resource properties
   public readonly albLogsBucket: AlbLogsBucket;
@@ -96,22 +128,41 @@ export class AwsLoggingStack extends Stack {
   public readonly s3AccessLogsBucket: S3AccessLogsBucket;
   public readonly sesLogsBucket: SesLogsBucket;
   public readonly wafLogsBucket: WafLogsBucket;
+  public readonly workGroup?: WorkGroup;
 
   /**
-     * Creates a new instance of the AwsLoggingStack class.
-     *
-     * @param scope A CDK Construct that will serve as this stack's parent in the construct tree.
-     * @param id A name to be associated with the stack and used in resource naming. Must be unique
-     * within the context of 'scope'.
-     * @param props Arguments related to the configuration of the resource.
-     */
-  constructor(scope: Construct, id: string, props: AwsLoggingStackProps = {}) {
+   * Creates a new instance of the AwsLoggingStack class.
+   *
+   * @param scope A CDK Construct that will serve as this stack's parent in
+   * the construct tree.
+   * @param id A name to be associated with the stack and used in resource
+   * naming. Must be unique within the context of 'scope'.
+   * @param props Arguments related to the configuration of the resource.
+   */
+  public constructor(scope: Construct, id: string, props: AwsLoggingStackProps = {}) {
     super(scope, id, props);
 
     this.databaseName = props.databaseName ?? 'awslogs';
     this.flowLogsFormat = props.flowLogsFormat ?? FlowLogFormat.V2;
     this.friendlyQueryNames = props.friendlyQueryNames ?? props.standardizeNames ?? true;
     this.standardizeNames = props.standardizeNames ?? true;
+    this.workGroupConfiguration = props.workGroupConfiguration ?? {
+      enabled: true,
+      queryScannedBytesLimit: DataSize.tebibytes(1000),
+    };
+
+    if (this.workGroupConfiguration.enabled ?? true) {
+      this.workGroup = new WorkGroup(this, 'workgroup', {
+        description: 'Controls queries for logging related to AWS services.',
+        engine: AnalyticsEngine.athenaSql({
+          enforceConfiguration: true,
+          engineVersion: AthenaSqlEngineVersion.AUTO,
+          publishMetrics: true,
+          queryScannedBytesLimit: this.workGroupConfiguration.queryScannedBytesLimit,
+        }),
+        name: this.standardizeNames ? 'aws-logging' : undefined,
+      });
+    }
 
     this.database = new Database(this, 'database', {
       name: this.databaseName,
@@ -122,6 +173,7 @@ export class AwsLoggingStack extends Stack {
       database: this.database,
       friendlyQueryNames: this.friendlyQueryNames,
       tableName: 's3_access_logs',
+      workGroup: this.workGroup,
     });
 
     this.albLogsBucket = props.albLogsBucket ?? new AlbLogsBucket(this, 'alb-logs-bucket', {
@@ -129,6 +181,7 @@ export class AwsLoggingStack extends Stack {
       database: this.database,
       friendlyQueryNames: this.friendlyQueryNames,
       tableName: 'alb_logs',
+      workGroup: this.workGroup,
     });
 
     this.cloudfrontLogsBucket = props.cloudfrontLogsBucket ?? new CloudfrontLogsBucket(this, 'cloudfront-logs-bucket', {
@@ -136,6 +189,7 @@ export class AwsLoggingStack extends Stack {
       database: this.database,
       friendlyQueryNames: this.friendlyQueryNames,
       tableName: 'cloudfront_logs',
+      workGroup: this.workGroup,
     });
 
     this.cloudtrailLogsBucket = props.cloudtrailLogsBucket ?? new CloudtrailBucket(this, 'cloudtail-logs-bucket', {
@@ -143,6 +197,7 @@ export class AwsLoggingStack extends Stack {
       database: this.database,
       friendlyQueryNames: this.friendlyQueryNames,
       tableName: 'cloudtrail_logs',
+      workGroup: this.workGroup,
     });
 
     this.flowLogsBucket = props.flowLogsBucket ?? new FlowLogsBucket(this, 'flow-logs-bucket', {
@@ -151,6 +206,7 @@ export class AwsLoggingStack extends Stack {
       format: this.flowLogsFormat,
       friendlyQueryNames: this.friendlyQueryNames,
       tableName: 'flow_logs',
+      workGroup: this.workGroup,
     });
 
     this.sesLogsBucket = props.sesLogsBucket ?? new SesLogsBucket(this, 'ses-logs-bucket', {
@@ -158,6 +214,7 @@ export class AwsLoggingStack extends Stack {
       database: this.database,
       friendlyQueryNames: this.friendlyQueryNames,
       tableName: 'ses_logs',
+      workGroup: this.workGroup,
     });
 
     this.wafLogsBucket = props.wafLogsBucket ?? new WafLogsBucket(this, 'waf-logs-bucket', {
@@ -165,6 +222,7 @@ export class AwsLoggingStack extends Stack {
       database: this.database,
       friendlyQueryNames: this.friendlyQueryNames,
       tableName: 'waf_logs',
+      workGroup: this.workGroup,
     });
 
     this.s3AccessLogsBucket.addLoggingAspect(this);

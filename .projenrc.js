@@ -1,7 +1,7 @@
 const { awscdk } = require('projen');
 
 const projectName = 'cdk-extensions';
-const cdkVersion = '2.66.0';
+const cdkVersion = '2.87.0';
 const docsBucket = 'docs.vibe.io';
 const docsBucketRegion = 'us-east-1';
 
@@ -13,7 +13,16 @@ const project = new awscdk.AwsCdkConstructLibrary({
   gitignore: [
     '/docs/generated/',
     '/.vscode/',
+    '/tmp/',
   ],
+  jsiiVersion: '~5.0.0',
+  lambdaOptions: {
+    bundlingOptions: {
+      externals: [
+        '@aws-sdk/client-ec2',
+      ],
+    },
+  },
   publishToGo: {
     gitBranch: 'master',
     githubUseSsh: true,
@@ -29,7 +38,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   },
   name: projectName,
   repositoryUrl: 'https://github.com/vibe-io/cdk-extensions.git',
-
+  devDeps: [
+    '@aws-sdk/client-ec2',
+  ],
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */

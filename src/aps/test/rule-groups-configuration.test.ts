@@ -1,7 +1,7 @@
 import { Duration, Names } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
-import { PrometheusRule, RuleGroupConfiguration, RuleGroupsNamespace } from '..';
 import { defaultAlertingRuleProps, getDefaultWorkspace } from './default-values';
+import { PrometheusRule, RuleGroupConfiguration, RuleGroupsNamespace } from '..';
 
 
 test('rule groups configuration should render properly with minimum configuration', () => {
