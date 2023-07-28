@@ -3,7 +3,7 @@ import { IApplicationConfigurationSchemaDocument } from "./application-configura
 import { Document } from "./document";
 import { DocumentType, DocumentUpdateMethod, IDocument } from "./document-base";
 import { DocumentContent } from "./lib/document-content";
-import { PermissiveApplicationConfigurationSchema } from "./open-application-configuration-schema";
+import { PermissiveApplicationConfigurationSchema } from "./lib/permissive-application-configuration-schema";
 
 
 export interface IApplicationConfigurationDocument extends IDocument {}

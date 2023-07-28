@@ -1,17 +1,17 @@
-import { Lazy } from "aws-cdk-lib";
-import { IManagedPolicy, IRole, Role } from "aws-cdk-lib/aws-iam";
+import { ArnFormat, Resource, Stack } from "aws-cdk-lib";
+import { DocumentBase, IDocument } from "./document-base";
 import { IConstruct } from "constructs";
-import { DocumentBase, DocumentType, IDocument } from "./document-base";
-import { DocumentContent } from "./lib/document-content";
-import { DocumentFormat } from "./lib/document-format";
 
 
 export enum AutomationSchemaVersion {
   VER_0_3 = '0.3',
 }
 
-export interface IAutomationDocument extends IDocument {}
+export interface IAutomationDocument extends IDocument {
+  readonly automationDefinitionArn: string;
 
+  arnforAutomationDefinitionVersion(version: string): string;
+}
 
 
 export interface AutomationDocumentProps {
@@ -20,9 +20,37 @@ export interface AutomationDocumentProps {
 }
 
 export class AutomationDocument extends DocumentBase {
+  public static readonly ARN_FORMAT: ArnFormat = ArnFormat.SLASH_RESOURCE_NAME;
   public static readonly DEFAULT_SCHEMA_VERSION: AutomationSchemaVersion = AutomationSchemaVersion.VER_0_3;
 
-  public readonly description?: string;
+
+  public static fromManaged(scope: IConstruct, id: string, managedDocumentName: string): IAutomationDocument {
+    class Import extends Resource implements IAutomationDocument {
+      readonly automationDefinitionArn: string = Stack.of(scope).formatArn({
+        account: '',
+        arnFormat: AutomationDocument.ARN_FORMAT,
+        resource: 'automation-definition',
+        resourceName: managedDocumentName,
+        service: 'ssm',
+      });
+      readonly documentArn: string = Stack.of(scope).formatArn({
+        account: '',
+        arnFormat: AutomationDocument.ARN_FORMAT,
+        resource: 'document',
+        resourceName: managedDocumentName,
+        service: 'ssm',
+      });
+      readonly documentName: string = managedDocumentName;
+
+      public arnforAutomationDefinitionVersion(version: string): string {
+        return `${this.automationDefinitionArn}:${version}`;
+      }
+    }
+
+    return new Import(scope, id);
+  }
+
+  /*public readonly description?: string;
   public readonly role: Role;
   public readonly schemaVersion: AutomationSchemaVersion;
   
@@ -53,5 +81,5 @@ export class AutomationDocument extends DocumentBase {
       parameters: ,
       schemaVersion: this.schemaVersion
     });
-  }
+  }*/
 }

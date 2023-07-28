@@ -1,8 +1,8 @@
 import { ResourceProps } from "aws-cdk-lib";
 import { IConstruct } from "constructs";
-import { ApplicationConfigurationSchemaDocument } from "./application-configuration-schema-document";
-import { DocumentUpdateMethod } from "./document-base";
-import { JsonSchema } from "./lib/json-schema";
+import { ApplicationConfigurationSchemaDocument } from "../application-configuration-schema-document";
+import { DocumentUpdateMethod } from "../document-base";
+import { JsonSchema } from "./json-schema";
 
 
 export interface PermissiveApplicationConfigurationSchemaProps extends ResourceProps {
