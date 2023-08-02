@@ -29,6 +29,7 @@ export * as resourcegroups from './resourcegroups';
 export * as route53 from './route53';
 export * as s3_buckets from './s3-buckets';
 export * as securityhub from './securityhub';
+export * as securityhub_patterns from './securityhub-patterns';
 export * as sso from './sso';
 export * as ssm from './ssm';
 export * as stepfunctions from './stepfunctions';
