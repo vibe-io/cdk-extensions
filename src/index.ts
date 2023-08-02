@@ -9,6 +9,7 @@ export * as asserts from './asserts';
 export * as alerting from './alerting';
 export * as aps from './aps';
 export * as athena from './athena';
+export * as config from './config';
 export * as ec2 from './ec2';
 export * as ec2_patterns from './ec2-patterns';
 export * as eks_patterns from './eks-patterns';
