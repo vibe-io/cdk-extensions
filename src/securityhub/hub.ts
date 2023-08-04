@@ -5,8 +5,8 @@ import { ResourceImporter } from "../utils/importer";
 
 
 export class ControlFindingGenerator {
-  static readonly SECURITY_CONTROL: ControlFindingGenerator;
-  static readonly STANDARD_CONTROL: ControlFindingGenerator;
+  public static readonly SECURITY_CONTROL: ControlFindingGenerator = ControlFindingGenerator.of('SECURITY_CONTROL');
+  public static readonly STANDARD_CONTROL: ControlFindingGenerator = ControlFindingGenerator.of('STANDARD_CONTROL');
 
   static of(value: string): ControlFindingGenerator {
     return new ControlFindingGenerator(value);

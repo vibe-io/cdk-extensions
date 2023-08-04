@@ -145,8 +145,8 @@ export class Standard extends StandardBase {
   }
 
 
-  private readonly _disabledControls;
-  private readonly _scopedRuleSet;
+  private readonly _disabledControls: CfnStandard.StandardsControlProperty[];
+  private readonly _scopedRuleSet: ScopedRuleSet;
 
   public readonly resource: CfnStandard;
   public readonly standardArn: string;

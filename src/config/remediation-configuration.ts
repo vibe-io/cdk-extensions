@@ -32,7 +32,7 @@ export interface RemediationConfigurationProps extends ResourceProps {
 }
 
 export class RemediationConfiguration extends RemediationConfigurationBase {
-  public static readonly ARN_FORMAT: ArnFormat;
+  public static readonly ARN_FORMAT: ArnFormat = ArnFormat.SLASH_RESOURCE_NAME;
 
   public static fromRemediationConfigurationArn(scope: IConstruct, id: string, arn: string): IRemediationConfiguration {
     return RemediationConfiguration.fromRemediationConfigurationAttributes(scope, id, {
@@ -64,7 +64,7 @@ export class RemediationConfiguration extends RemediationConfigurationBase {
   }
 
 
-  private readonly _parameters;
+  private readonly _parameters: {[key: string]: any};
 
   public readonly automatic?: boolean;
   public readonly configRule: IRule;

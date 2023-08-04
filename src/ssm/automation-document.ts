@@ -46,7 +46,7 @@ export class AutomationDocument extends DocumentBase implements IAutomationDocum
         });
         public readonly documentName = managedDocumentName;
 
-        public arnForAutomationDefinitionVersion(version): string {
+        public arnForAutomationDefinitionVersion(version: string): string {
           return `${this.automationDefinitionArn}:${version}`;
         }
       }
