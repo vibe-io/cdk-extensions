@@ -1,6 +1,7 @@
 import { IConstruct } from "constructs";
 import { IAutomationDocument } from "../../ssm";
 import { CfnRemediationConfiguration } from "aws-cdk-lib/aws-config";
+import { definedFieldsOrUndefined } from "../../utils/formatting";
 
 
 export class RemediationTargetType {
@@ -41,12 +42,12 @@ export class RemediationTarget {
     return {
       bind: (_scope) => {
         return {
-          controls: {
-            ssmControls: {
+          controls: definedFieldsOrUndefined({
+            ssmControls: definedFieldsOrUndefined({
               concurrentExecutionRatePercentage: props.concurrencyPercentage,
               errorPercentage: props.errorPercentage,
-            }
-          },
+            })
+          }),
           targetId: props.document.documentName,
           targetType: RemediationTargetType.SSM_DOCUMENT,
           targetVersion: props.version,
