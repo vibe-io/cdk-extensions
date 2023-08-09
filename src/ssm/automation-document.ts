@@ -1,4 +1,4 @@
-import { ArnFormat, Resource, Stack } from 'aws-cdk-lib';
+import { Resource, Stack } from 'aws-cdk-lib';
 import { IConstruct } from 'constructs';
 import { DocumentBase, DocumentType, IDocument } from './document-base';
 import { DocumentContent, DocumentFormat } from './lib';
