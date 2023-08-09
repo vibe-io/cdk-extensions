@@ -25,7 +25,6 @@ export interface IAutomationDocument extends IDocument {
 }
 
 export class AutomationDocument extends DocumentBase implements IAutomationDocument {
-  public static readonly ARN_FORMAT: ArnFormat = ArnFormat.SLASH_RESOURCE_NAME;
   public static readonly DEFAULT_SCHEMA_VERSION: AutomationSchemaVersion = AutomationSchemaVersion.VER_0_3;
 
   public static fromManaged(scope: IConstruct, id: string, managedDocumentName: string): IAutomationDocument {
