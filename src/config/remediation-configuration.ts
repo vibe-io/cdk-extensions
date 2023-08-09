@@ -1,8 +1,8 @@
-import { ArnFormat, Duration, Lazy, Resource, ResourceProps } from "aws-cdk-lib";
-import { CfnRemediationConfiguration, IRule } from "aws-cdk-lib/aws-config";
-import { IRemediationTarget } from "./lib";
-import { IConstruct } from "constructs";
-import { ResourceImporter } from "../utils/importer";
+import { ArnFormat, Duration, Lazy, Resource, ResourceProps } from 'aws-cdk-lib';
+import { CfnRemediationConfiguration, IRule } from 'aws-cdk-lib/aws-config';
+import { IConstruct } from 'constructs';
+import { IRemediationTarget } from './lib';
+import { ResourceImporter } from '../utils/importer';
 
 
 export interface IRemediationConfiguration {
@@ -43,7 +43,7 @@ export class RemediationConfiguration extends RemediationConfigurationBase {
   public static fromRemediationConfigurationAttributes(
     scope: IConstruct,
     id: string,
-    attrs: RemediationConfigurationAttributes
+    attrs: RemediationConfigurationAttributes,
   ): IRemediationConfiguration {
     const importer = new ResourceImporter(scope, id, {
       arnFormat: RemediationConfiguration.ARN_FORMAT,
@@ -75,9 +75,9 @@ export class RemediationConfiguration extends RemediationConfigurationBase {
   public readonly maximumAutomaticAttempts?: number;
   public readonly resourceType?: string;
   public readonly retryInterval?: Duration;
-  
+
   public readonly resource: CfnRemediationConfiguration;
-  
+
   public readonly remediationConfigurationArn: string;
   public readonly remediationConfigurationName: string;
 
@@ -111,7 +111,7 @@ export class RemediationConfiguration extends RemediationConfigurationBase {
       parameters: Lazy.any({
         produce: () => {
           return this.renderParameters();
-        }
+        },
       }),
       resourceType: this.resourceType,
       retryAttemptSeconds: this.retryInterval?.toSeconds(),
@@ -139,14 +139,14 @@ export class RemediationConfiguration extends RemediationConfigurationBase {
     if (key in this._parameters) {
       throw new Error([
         `A parameter with the key '${key}' already exists in the remediation`,
-        `configuration '${this.node.path}'. Cannot add duplicate parameter.`
+        `configuration '${this.node.path}'. Cannot add duplicate parameter.`,
       ].join(' '));
     }
 
     this._parameters[key] = {
       StaticValue: {
-        Values: values
-      }
+        Values: values,
+      },
     };
   }
 

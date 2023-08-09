@@ -1,6 +1,6 @@
-import { ArnFormat } from "aws-cdk-lib";
-import { DocumentBase, DocumentBaseProps } from "./document-base";
-import { IConstruct } from "constructs";
+import { ArnFormat } from 'aws-cdk-lib';
+import { IConstruct } from 'constructs';
+import { DocumentBase, DocumentBaseProps } from './document-base';
 
 
 export interface DocumentProps extends DocumentBaseProps {}

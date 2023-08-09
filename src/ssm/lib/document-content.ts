@@ -1,6 +1,6 @@
+import { Lazy, Stack } from 'aws-cdk-lib';
 import { IConstruct } from 'constructs';
 import { DocumentFormat } from './document-format';
-import { Lazy, Stack } from 'aws-cdk-lib';
 
 
 export interface DocumentContentResult {
@@ -29,11 +29,11 @@ export class DocumentContent {
           content: Lazy.string({
             produce: () => {
               return Stack.of(scope).toJsonString(props.input);
-            }
+            },
           }),
           documentFormat: DocumentFormat.JSON,
         };
-      }
+      },
     };
   }
 
@@ -44,7 +44,7 @@ export class DocumentContent {
           content: props.content,
           documentFormat: props.documentFormat,
         };
-      }
+      },
     };
   }
 }
