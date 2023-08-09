@@ -1,10 +1,10 @@
-import { ResourceProps } from "aws-cdk-lib";
-import { ManagedRule, MaximumExecutionFrequency } from "aws-cdk-lib/aws-config";
-import { IConstruct } from "constructs";
-import { RemediationConfiguration } from "../config/remediation-configuration";
-import { Effect, ManagedPolicy, PolicyStatement, Role, ServicePrincipal } from "aws-cdk-lib/aws-iam";
-import { RemediationTarget } from "../config/lib";
-import { AutomationDocument } from "../ssm";
+import { ResourceProps } from 'aws-cdk-lib';
+import { ManagedRule, MaximumExecutionFrequency } from 'aws-cdk-lib/aws-config';
+import { Effect, ManagedPolicy, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
+import { IConstruct } from 'constructs';
+import { RemediationTarget } from '../config/lib';
+import { RemediationConfiguration } from '../config/remediation-configuration';
+import { AutomationDocument } from '../ssm';
 
 
 export interface IamPasswordPolicyProps extends ResourceProps {
@@ -62,19 +62,19 @@ export class IamPasswordPolicy extends ManagedRule {
     const requireUppercaseCharacters = props.requireUppercaseCharacters ?? IamPasswordPolicy.DEFAULT_REQUIRE_UPPERCASE_CHARACTERS;
 
     super(scope, id, {
-        configRuleName: props.configRuleName,
-        description: props.description ?? IamPasswordPolicy.DEFAULT_DESCRIPTION,
-        identifier: managedRuleName,
-        inputParameters: {
-            MaxPasswordAge: maxPasswordAge,
-            MinimumPasswordLength: minimumPasswordLength,
-            PasswordReusePrevention: passwordReusePrevention,
-            RequireLowercaseCharacters: requireLowercaseCharacters,
-            RequireNumbers: requireNumbers,
-            RequireSymbols: requireSymbols,
-            RequireUppercaseCharacters: requireUppercaseCharacters,
-        },
-        maximumExecutionFrequency: props.maximumExecutionFrequency,
+      configRuleName: props.configRuleName,
+      description: props.description ?? IamPasswordPolicy.DEFAULT_DESCRIPTION,
+      identifier: managedRuleName,
+      inputParameters: {
+        MaxPasswordAge: maxPasswordAge,
+        MinimumPasswordLength: minimumPasswordLength,
+        PasswordReusePrevention: passwordReusePrevention,
+        RequireLowercaseCharacters: requireLowercaseCharacters,
+        RequireNumbers: requireNumbers,
+        RequireSymbols: requireSymbols,
+        RequireUppercaseCharacters: requireUppercaseCharacters,
+      },
+      maximumExecutionFrequency: props.maximumExecutionFrequency,
     });
 
     this.maxPasswordAge = maxPasswordAge;
@@ -111,7 +111,7 @@ export class IamPasswordPolicy extends ManagedRule {
       assumedBy: new ServicePrincipal('ssm.amazonaws.com'),
       description: description,
       managedPolicies: [
-        this.remediationPolicy
+        this.remediationPolicy,
       ],
     });
 
@@ -122,29 +122,29 @@ export class IamPasswordPolicy extends ManagedRule {
           this.remediationRole.roleArn,
         ],
         MaxPasswordAge: [
-          maxPasswordAge
+          maxPasswordAge,
         ],
         MinimumPasswordLength: [
-          minimumPasswordLength
+          minimumPasswordLength,
         ],
         PasswordReusePrevention: [
-          passwordReusePrevention
+          passwordReusePrevention,
         ],
         RequireLowercaseCharacters: [
-          requireLowercaseCharacters
+          requireLowercaseCharacters,
         ],
         RequireNumbers: [
-          requireNumbers
+          requireNumbers,
         ],
         RequireSymbols: [
-          requireSymbols
+          requireSymbols,
         ],
         RequireUppercaseCharacters: [
-          requireUppercaseCharacters
+          requireUppercaseCharacters,
         ],
       },
       target: RemediationTarget.automationDocument({
-        document: AutomationDocument.fromManaged(this, 'remediation-document', IamPasswordPolicy.REMEDIATION_DOCUMENT_NAME)
+        document: AutomationDocument.fromManaged(this, 'remediation-document', IamPasswordPolicy.REMEDIATION_DOCUMENT_NAME),
       }),
     });
   }

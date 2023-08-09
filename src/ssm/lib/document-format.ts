@@ -9,7 +9,7 @@ export class DocumentFormat {
 
 
   public readonly value: string;
-  
+
   private constructor(value: string) {
     this.value = value;
   }

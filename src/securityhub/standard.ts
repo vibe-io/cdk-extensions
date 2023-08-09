@@ -1,6 +1,6 @@
-import { ArnFormat, IResource, Lazy, Resource, ResourceProps, Stack } from "aws-cdk-lib";
-import { CfnStandard } from "aws-cdk-lib/aws-securityhub";
-import { IConstruct } from "constructs";
+import { ArnFormat, IResource, Lazy, Resource, ResourceProps, Stack } from 'aws-cdk-lib';
+import { CfnStandard } from 'aws-cdk-lib/aws-securityhub';
+import { IConstruct } from 'constructs';
 
 
 export interface RuleSetProps {
@@ -111,7 +111,7 @@ export class RuleSet {
         resource: (this._props.global ?? false) ? 'ruleset' : 'standard',
         resourceName: `${this._props.id}/v/${this._props.version}`,
         service: 'securityhub',
-      })
+      }),
     };
   }
 }
@@ -140,7 +140,7 @@ export class Standard extends StandardBase {
     class Import extends StandardBase {
       public readonly standardArn = arn;
     }
-    
+
     return new Import(scope, id);
   }
 
@@ -165,11 +165,11 @@ export class Standard extends StandardBase {
         {
           produce: () => {
             return this._disabledControls;
-          }
+          },
         },
         {
           omitEmptyArray: true,
-        }
+        },
       ),
       standardsArn: this.standardArn,
     });

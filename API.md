@@ -3472,6 +3472,352 @@ an AWS account.
 ---
 
 
+### AutomationDocument <a name="AutomationDocument" id="cdk-extensions.ssm.AutomationDocument"></a>
+
+- *Implements:* cdk-extensions.ssm.IAutomationDocument
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.arnForAutomationDefinitionVersion">arnForAutomationDefinitionVersion</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ssm.AutomationDocument.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ssm.AutomationDocument.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ssm.AutomationDocument.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `arnForAutomationDefinitionVersion` <a name="arnForAutomationDefinitionVersion" id="cdk-extensions.ssm.AutomationDocument.arnForAutomationDefinitionVersion"></a>
+
+```typescript
+public arnForAutomationDefinitionVersion(version: string): string
+```
+
+###### `version`<sup>Required</sup> <a name="version" id="cdk-extensions.ssm.AutomationDocument.arnForAutomationDefinitionVersion.parameter.version"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.fromManaged">fromManaged</a></code> | *No description.* |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ssm.AutomationDocument.isConstruct"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.AutomationDocument.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ssm.AutomationDocument.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ssm.AutomationDocument.isOwnedResource"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.AutomationDocument.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ssm.AutomationDocument.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ssm.AutomationDocument.isResource"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.AutomationDocument.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ssm.AutomationDocument.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromManaged` <a name="fromManaged" id="cdk-extensions.ssm.AutomationDocument.fromManaged"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.AutomationDocument.fromManaged(scope: IConstruct, id: string, managedDocumentName: string)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ssm.AutomationDocument.fromManaged.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ssm.AutomationDocument.fromManaged.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `managedDocumentName`<sup>Required</sup> <a name="managedDocumentName" id="cdk-extensions.ssm.AutomationDocument.fromManaged.parameter.managedDocumentName"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.content">content</a></code> | <code>cdk-extensions.ssm.IDocumentContent</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.documentArn">documentArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.documentName">documentName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.requires">requires</a></code> | <code>cdk-extensions.ssm.DocumentRequirement[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ssm.CfnDocument</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.documentType">documentType</a></code> | <code>cdk-extensions.ssm.DocumentType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.targetType">targetType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.updateMethod">updateMethod</a></code> | <code>cdk-extensions.ssm.DocumentUpdateMethod</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.versionName">versionName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.automationDefinitionArn">automationDefinitionArn</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ssm.AutomationDocument.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ssm.AutomationDocument.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ssm.AutomationDocument.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `content`<sup>Required</sup> <a name="content" id="cdk-extensions.ssm.AutomationDocument.property.content"></a>
+
+```typescript
+public readonly content: IDocumentContent;
+```
+
+- *Type:* cdk-extensions.ssm.IDocumentContent
+
+---
+
+##### `documentArn`<sup>Required</sup> <a name="documentArn" id="cdk-extensions.ssm.AutomationDocument.property.documentArn"></a>
+
+```typescript
+public readonly documentArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `documentName`<sup>Required</sup> <a name="documentName" id="cdk-extensions.ssm.AutomationDocument.property.documentName"></a>
+
+```typescript
+public readonly documentName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `requires`<sup>Required</sup> <a name="requires" id="cdk-extensions.ssm.AutomationDocument.property.requires"></a>
+
+```typescript
+public readonly requires: DocumentRequirement[];
+```
+
+- *Type:* cdk-extensions.ssm.DocumentRequirement[]
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ssm.AutomationDocument.property.resource"></a>
+
+```typescript
+public readonly resource: CfnDocument;
+```
+
+- *Type:* aws-cdk-lib.aws_ssm.CfnDocument
+
+---
+
+##### `documentType`<sup>Optional</sup> <a name="documentType" id="cdk-extensions.ssm.AutomationDocument.property.documentType"></a>
+
+```typescript
+public readonly documentType: DocumentType;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentType
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ssm.AutomationDocument.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `targetType`<sup>Optional</sup> <a name="targetType" id="cdk-extensions.ssm.AutomationDocument.property.targetType"></a>
+
+```typescript
+public readonly targetType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `updateMethod`<sup>Optional</sup> <a name="updateMethod" id="cdk-extensions.ssm.AutomationDocument.property.updateMethod"></a>
+
+```typescript
+public readonly updateMethod: DocumentUpdateMethod;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentUpdateMethod
+
+---
+
+##### `versionName`<sup>Optional</sup> <a name="versionName" id="cdk-extensions.ssm.AutomationDocument.property.versionName"></a>
+
+```typescript
+public readonly versionName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `automationDefinitionArn`<sup>Required</sup> <a name="automationDefinitionArn" id="cdk-extensions.ssm.AutomationDocument.property.automationDefinitionArn"></a>
+
+```typescript
+public readonly automationDefinitionArn: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.ARN_FORMAT">ARN_FORMAT</a></code> | <code>aws-cdk-lib.ArnFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.AutomationDocument.property.DEFAULT_SCHEMA_VERSION">DEFAULT_SCHEMA_VERSION</a></code> | <code>cdk-extensions.ssm.AutomationSchemaVersion</code> | *No description.* |
+
+---
+
+##### `ARN_FORMAT`<sup>Required</sup> <a name="ARN_FORMAT" id="cdk-extensions.ssm.AutomationDocument.property.ARN_FORMAT"></a>
+
+```typescript
+public readonly ARN_FORMAT: ArnFormat;
+```
+
+- *Type:* aws-cdk-lib.ArnFormat
+
+---
+
+##### `DEFAULT_SCHEMA_VERSION`<sup>Required</sup> <a name="DEFAULT_SCHEMA_VERSION" id="cdk-extensions.ssm.AutomationDocument.property.DEFAULT_SCHEMA_VERSION"></a>
+
+```typescript
+public readonly DEFAULT_SCHEMA_VERSION: AutomationSchemaVersion;
+```
+
+- *Type:* cdk-extensions.ssm.AutomationSchemaVersion
+
+---
+
 ### AwsIntegratedFargateCluster <a name="AwsIntegratedFargateCluster" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.eks_patterns.AwsIntegratedFargateCluster.Initializer"></a>
@@ -12276,6 +12622,640 @@ public readonly MESSAGES_ENDPOINT: string;
 
 ---
 
+### Document <a name="Document" id="cdk-extensions.ssm.Document"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ssm.Document.Initializer"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+new ssm.Document(scope: IConstruct, id: string, props: DocumentProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.Document.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.Document.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.Document.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ssm.DocumentProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ssm.Document.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ssm.Document.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ssm.Document.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ssm.DocumentProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ssm.Document.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ssm.Document.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ssm.Document.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ssm.Document.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ssm.Document.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ssm.Document.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ssm.Document.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ssm.Document.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ssm.Document.isConstruct"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.Document.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ssm.Document.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ssm.Document.isOwnedResource"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.Document.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ssm.Document.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ssm.Document.isResource"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.Document.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ssm.Document.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.Document.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ssm.Document.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ssm.Document.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ssm.Document.property.content">content</a></code> | <code>cdk-extensions.ssm.IDocumentContent</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.Document.property.documentArn">documentArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.Document.property.documentName">documentName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.Document.property.requires">requires</a></code> | <code>cdk-extensions.ssm.DocumentRequirement[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.Document.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ssm.CfnDocument</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.Document.property.documentType">documentType</a></code> | <code>cdk-extensions.ssm.DocumentType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.Document.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.Document.property.targetType">targetType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.Document.property.updateMethod">updateMethod</a></code> | <code>cdk-extensions.ssm.DocumentUpdateMethod</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.Document.property.versionName">versionName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ssm.Document.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ssm.Document.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ssm.Document.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `content`<sup>Required</sup> <a name="content" id="cdk-extensions.ssm.Document.property.content"></a>
+
+```typescript
+public readonly content: IDocumentContent;
+```
+
+- *Type:* cdk-extensions.ssm.IDocumentContent
+
+---
+
+##### `documentArn`<sup>Required</sup> <a name="documentArn" id="cdk-extensions.ssm.Document.property.documentArn"></a>
+
+```typescript
+public readonly documentArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `documentName`<sup>Required</sup> <a name="documentName" id="cdk-extensions.ssm.Document.property.documentName"></a>
+
+```typescript
+public readonly documentName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `requires`<sup>Required</sup> <a name="requires" id="cdk-extensions.ssm.Document.property.requires"></a>
+
+```typescript
+public readonly requires: DocumentRequirement[];
+```
+
+- *Type:* cdk-extensions.ssm.DocumentRequirement[]
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ssm.Document.property.resource"></a>
+
+```typescript
+public readonly resource: CfnDocument;
+```
+
+- *Type:* aws-cdk-lib.aws_ssm.CfnDocument
+
+---
+
+##### `documentType`<sup>Optional</sup> <a name="documentType" id="cdk-extensions.ssm.Document.property.documentType"></a>
+
+```typescript
+public readonly documentType: DocumentType;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentType
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ssm.Document.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `targetType`<sup>Optional</sup> <a name="targetType" id="cdk-extensions.ssm.Document.property.targetType"></a>
+
+```typescript
+public readonly targetType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `updateMethod`<sup>Optional</sup> <a name="updateMethod" id="cdk-extensions.ssm.Document.property.updateMethod"></a>
+
+```typescript
+public readonly updateMethod: DocumentUpdateMethod;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentUpdateMethod
+
+---
+
+##### `versionName`<sup>Optional</sup> <a name="versionName" id="cdk-extensions.ssm.Document.property.versionName"></a>
+
+```typescript
+public readonly versionName: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.Document.property.ARN_FORMAT">ARN_FORMAT</a></code> | <code>aws-cdk-lib.ArnFormat</code> | *No description.* |
+
+---
+
+##### `ARN_FORMAT`<sup>Required</sup> <a name="ARN_FORMAT" id="cdk-extensions.ssm.Document.property.ARN_FORMAT"></a>
+
+```typescript
+public readonly ARN_FORMAT: ArnFormat;
+```
+
+- *Type:* aws-cdk-lib.ArnFormat
+
+---
+
+### DocumentBase <a name="DocumentBase" id="cdk-extensions.ssm.DocumentBase"></a>
+
+- *Implements:* cdk-extensions.ssm.IDocument
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ssm.DocumentBase.Initializer"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+new ssm.DocumentBase(scope: IConstruct, id: string, props: DocumentBaseProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.ssm.DocumentBaseProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ssm.DocumentBase.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.ssm.DocumentBase.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ssm.DocumentBase.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.ssm.DocumentBaseProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.ssm.DocumentBase.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.ssm.DocumentBase.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.ssm.DocumentBase.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.ssm.DocumentBase.isConstruct"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.DocumentBase.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.ssm.DocumentBase.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.ssm.DocumentBase.isOwnedResource"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.DocumentBase.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ssm.DocumentBase.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.ssm.DocumentBase.isResource"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.DocumentBase.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.ssm.DocumentBase.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.property.content">content</a></code> | <code>cdk-extensions.ssm.IDocumentContent</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.property.documentArn">documentArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.property.documentName">documentName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.property.requires">requires</a></code> | <code>cdk-extensions.ssm.DocumentRequirement[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_ssm.CfnDocument</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.property.documentType">documentType</a></code> | <code>cdk-extensions.ssm.DocumentType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.property.targetType">targetType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.property.updateMethod">updateMethod</a></code> | <code>cdk-extensions.ssm.DocumentUpdateMethod</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.property.versionName">versionName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ssm.DocumentBase.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ssm.DocumentBase.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ssm.DocumentBase.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `content`<sup>Required</sup> <a name="content" id="cdk-extensions.ssm.DocumentBase.property.content"></a>
+
+```typescript
+public readonly content: IDocumentContent;
+```
+
+- *Type:* cdk-extensions.ssm.IDocumentContent
+
+---
+
+##### `documentArn`<sup>Required</sup> <a name="documentArn" id="cdk-extensions.ssm.DocumentBase.property.documentArn"></a>
+
+```typescript
+public readonly documentArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `documentName`<sup>Required</sup> <a name="documentName" id="cdk-extensions.ssm.DocumentBase.property.documentName"></a>
+
+```typescript
+public readonly documentName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `requires`<sup>Required</sup> <a name="requires" id="cdk-extensions.ssm.DocumentBase.property.requires"></a>
+
+```typescript
+public readonly requires: DocumentRequirement[];
+```
+
+- *Type:* cdk-extensions.ssm.DocumentRequirement[]
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.ssm.DocumentBase.property.resource"></a>
+
+```typescript
+public readonly resource: CfnDocument;
+```
+
+- *Type:* aws-cdk-lib.aws_ssm.CfnDocument
+
+---
+
+##### `documentType`<sup>Optional</sup> <a name="documentType" id="cdk-extensions.ssm.DocumentBase.property.documentType"></a>
+
+```typescript
+public readonly documentType: DocumentType;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentType
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ssm.DocumentBase.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `targetType`<sup>Optional</sup> <a name="targetType" id="cdk-extensions.ssm.DocumentBase.property.targetType"></a>
+
+```typescript
+public readonly targetType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `updateMethod`<sup>Optional</sup> <a name="updateMethod" id="cdk-extensions.ssm.DocumentBase.property.updateMethod"></a>
+
+```typescript
+public readonly updateMethod: DocumentUpdateMethod;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentUpdateMethod
+
+---
+
+##### `versionName`<sup>Optional</sup> <a name="versionName" id="cdk-extensions.ssm.DocumentBase.property.versionName"></a>
+
+```typescript
+public readonly versionName: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentBase.property.ARN_FORMAT">ARN_FORMAT</a></code> | <code>aws-cdk-lib.ArnFormat</code> | *No description.* |
+
+---
+
+##### `ARN_FORMAT`<sup>Required</sup> <a name="ARN_FORMAT" id="cdk-extensions.ssm.DocumentBase.property.ARN_FORMAT"></a>
+
+```typescript
+public readonly ARN_FORMAT: ArnFormat;
+```
+
+- *Type:* aws-cdk-lib.ArnFormat
+
+---
+
 ### Echoserver <a name="Echoserver" id="cdk-extensions.k8s_aws.Echoserver"></a>
 
 - *Implements:* aws-cdk-lib.aws_ec2.IConnectable, cdk-extensions.route53.IDnsResolvable
@@ -19666,6 +20646,936 @@ public readonly SEVERITIES: GuardDutySeverity[];
 ```
 
 - *Type:* cdk-extensions.alerting.GuardDutySeverity[]
+
+---
+
+### Hub <a name="Hub" id="cdk-extensions.securityhub.Hub"></a>
+
+- *Implements:* cdk-extensions.securityhub.IHub
+
+#### Initializers <a name="Initializers" id="cdk-extensions.securityhub.Hub.Initializer"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+new securityhub.Hub(scope: IConstruct, id: string, props?: HubProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.Hub.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.Hub.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.Hub.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.securityhub.HubProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.securityhub.Hub.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.securityhub.Hub.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-extensions.securityhub.Hub.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.securityhub.HubProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.securityhub.Hub.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.securityhub.Hub.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.securityhub.Hub.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.securityhub.Hub.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.securityhub.Hub.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.securityhub.Hub.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.securityhub.Hub.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.securityhub.Hub.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.securityhub.Hub.fromHubArn">fromHubArn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.Hub.fromHubAttributes">fromHubAttributes</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.Hub.fromHubName">fromHubName</a></code> | *No description.* |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.securityhub.Hub.isConstruct"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+securityhub.Hub.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.securityhub.Hub.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.securityhub.Hub.isOwnedResource"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+securityhub.Hub.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.securityhub.Hub.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.securityhub.Hub.isResource"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+securityhub.Hub.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.securityhub.Hub.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromHubArn` <a name="fromHubArn" id="cdk-extensions.securityhub.Hub.fromHubArn"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+securityhub.Hub.fromHubArn(scope: IConstruct, id: string, arn: string)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.securityhub.Hub.fromHubArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.securityhub.Hub.fromHubArn.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `arn`<sup>Required</sup> <a name="arn" id="cdk-extensions.securityhub.Hub.fromHubArn.parameter.arn"></a>
+
+- *Type:* string
+
+---
+
+##### `fromHubAttributes` <a name="fromHubAttributes" id="cdk-extensions.securityhub.Hub.fromHubAttributes"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+securityhub.Hub.fromHubAttributes(scope: IConstruct, id: string, attrs: HubAttributes)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.securityhub.Hub.fromHubAttributes.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.securityhub.Hub.fromHubAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.securityhub.Hub.fromHubAttributes.parameter.attrs"></a>
+
+- *Type:* cdk-extensions.securityhub.HubAttributes
+
+---
+
+##### `fromHubName` <a name="fromHubName" id="cdk-extensions.securityhub.Hub.fromHubName"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+securityhub.Hub.fromHubName(scope: IConstruct, id: string, name: string)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.securityhub.Hub.fromHubName.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.securityhub.Hub.fromHubName.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.securityhub.Hub.fromHubName.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.Hub.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.securityhub.Hub.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.securityhub.Hub.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.securityhub.Hub.property.hubArn">hubArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.Hub.property.hubName">hubName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.Hub.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_securityhub.CfnHub</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.Hub.property.autoEnableControls">autoEnableControls</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.Hub.property.consolidatedFindings">consolidatedFindings</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.Hub.property.controlFindingGenerator">controlFindingGenerator</a></code> | <code>cdk-extensions.securityhub.ControlFindingGenerator</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.Hub.property.enableDefaultStandards">enableDefaultStandards</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.securityhub.Hub.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.securityhub.Hub.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.securityhub.Hub.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `hubArn`<sup>Required</sup> <a name="hubArn" id="cdk-extensions.securityhub.Hub.property.hubArn"></a>
+
+```typescript
+public readonly hubArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `hubName`<sup>Required</sup> <a name="hubName" id="cdk-extensions.securityhub.Hub.property.hubName"></a>
+
+```typescript
+public readonly hubName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.securityhub.Hub.property.resource"></a>
+
+```typescript
+public readonly resource: CfnHub;
+```
+
+- *Type:* aws-cdk-lib.aws_securityhub.CfnHub
+
+---
+
+##### `autoEnableControls`<sup>Optional</sup> <a name="autoEnableControls" id="cdk-extensions.securityhub.Hub.property.autoEnableControls"></a>
+
+```typescript
+public readonly autoEnableControls: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `consolidatedFindings`<sup>Optional</sup> <a name="consolidatedFindings" id="cdk-extensions.securityhub.Hub.property.consolidatedFindings"></a>
+
+```typescript
+public readonly consolidatedFindings: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `controlFindingGenerator`<sup>Optional</sup> <a name="controlFindingGenerator" id="cdk-extensions.securityhub.Hub.property.controlFindingGenerator"></a>
+
+```typescript
+public readonly controlFindingGenerator: ControlFindingGenerator;
+```
+
+- *Type:* cdk-extensions.securityhub.ControlFindingGenerator
+
+---
+
+##### `enableDefaultStandards`<sup>Optional</sup> <a name="enableDefaultStandards" id="cdk-extensions.securityhub.Hub.property.enableDefaultStandards"></a>
+
+```typescript
+public readonly enableDefaultStandards: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.Hub.property.ARN_FORMAT">ARN_FORMAT</a></code> | <code>aws-cdk-lib.ArnFormat</code> | *No description.* |
+
+---
+
+##### `ARN_FORMAT`<sup>Required</sup> <a name="ARN_FORMAT" id="cdk-extensions.securityhub.Hub.property.ARN_FORMAT"></a>
+
+```typescript
+public readonly ARN_FORMAT: ArnFormat;
+```
+
+- *Type:* aws-cdk-lib.ArnFormat
+
+---
+
+### IamPasswordPolicy <a name="IamPasswordPolicy" id="cdk-extensions.config_rules.IamPasswordPolicy"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.config_rules.IamPasswordPolicy.Initializer"></a>
+
+```typescript
+import { config_rules } from 'cdk-extensions'
+
+new config_rules.IamPasswordPolicy(scope: IConstruct, id: string, props: IamPasswordPolicyProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.config_rules.IamPasswordPolicyProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.config_rules.IamPasswordPolicy.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.config_rules.IamPasswordPolicy.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.config_rules.IamPasswordPolicy.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.config_rules.IamPasswordPolicyProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.onComplianceChange">onComplianceChange</a></code> | Defines an EventBridge event rule which triggers for rule compliance events. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.onEvent">onEvent</a></code> | Defines an EventBridge event rule which triggers for rule events. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.onReEvaluationStatus">onReEvaluationStatus</a></code> | Defines an EventBridge event rule which triggers for rule re-evaluation status events. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.config_rules.IamPasswordPolicy.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.config_rules.IamPasswordPolicy.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.config_rules.IamPasswordPolicy.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `onComplianceChange` <a name="onComplianceChange" id="cdk-extensions.config_rules.IamPasswordPolicy.onComplianceChange"></a>
+
+```typescript
+public onComplianceChange(id: string, options?: OnEventOptions): Rule
+```
+
+Defines an EventBridge event rule which triggers for rule compliance events.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.config_rules.IamPasswordPolicy.onComplianceChange.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.config_rules.IamPasswordPolicy.onComplianceChange.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_events.OnEventOptions
+
+---
+
+##### `onEvent` <a name="onEvent" id="cdk-extensions.config_rules.IamPasswordPolicy.onEvent"></a>
+
+```typescript
+public onEvent(id: string, options?: OnEventOptions): Rule
+```
+
+Defines an EventBridge event rule which triggers for rule events.
+
+Use
+`rule.addEventPattern(pattern)` to specify a filter.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.config_rules.IamPasswordPolicy.onEvent.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.config_rules.IamPasswordPolicy.onEvent.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_events.OnEventOptions
+
+---
+
+##### `onReEvaluationStatus` <a name="onReEvaluationStatus" id="cdk-extensions.config_rules.IamPasswordPolicy.onReEvaluationStatus"></a>
+
+```typescript
+public onReEvaluationStatus(id: string, options?: OnEventOptions): Rule
+```
+
+Defines an EventBridge event rule which triggers for rule re-evaluation status events.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.config_rules.IamPasswordPolicy.onReEvaluationStatus.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.config_rules.IamPasswordPolicy.onReEvaluationStatus.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_events.OnEventOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.fromConfigRuleName">fromConfigRuleName</a></code> | Imports an existing rule. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.config_rules.IamPasswordPolicy.isConstruct"></a>
+
+```typescript
+import { config_rules } from 'cdk-extensions'
+
+config_rules.IamPasswordPolicy.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.config_rules.IamPasswordPolicy.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.config_rules.IamPasswordPolicy.isOwnedResource"></a>
+
+```typescript
+import { config_rules } from 'cdk-extensions'
+
+config_rules.IamPasswordPolicy.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.config_rules.IamPasswordPolicy.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.config_rules.IamPasswordPolicy.isResource"></a>
+
+```typescript
+import { config_rules } from 'cdk-extensions'
+
+config_rules.IamPasswordPolicy.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.config_rules.IamPasswordPolicy.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromConfigRuleName` <a name="fromConfigRuleName" id="cdk-extensions.config_rules.IamPasswordPolicy.fromConfigRuleName"></a>
+
+```typescript
+import { config_rules } from 'cdk-extensions'
+
+config_rules.IamPasswordPolicy.fromConfigRuleName(scope: Construct, id: string, configRuleName: string)
+```
+
+Imports an existing rule.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.config_rules.IamPasswordPolicy.fromConfigRuleName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.config_rules.IamPasswordPolicy.fromConfigRuleName.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `configRuleName`<sup>Required</sup> <a name="configRuleName" id="cdk-extensions.config_rules.IamPasswordPolicy.fromConfigRuleName.parameter.configRuleName"></a>
+
+- *Type:* string
+
+the name of the rule.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.configRuleArn">configRuleArn</a></code> | <code>string</code> | The arn of the rule. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.configRuleComplianceType">configRuleComplianceType</a></code> | <code>string</code> | The compliance status of the rule. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.configRuleId">configRuleId</a></code> | <code>string</code> | The id of the rule. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.configRuleName">configRuleName</a></code> | <code>string</code> | The name of the rule. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.maxPasswordAge">maxPasswordAge</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.minimumPasswordLength">minimumPasswordLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.passwordReusePrevention">passwordReusePrevention</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.remediationConfiguration">remediationConfiguration</a></code> | <code>cdk-extensions.config.RemediationConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.remediationPolicy">remediationPolicy</a></code> | <code>aws-cdk-lib.aws_iam.ManagedPolicy</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.remediationRole">remediationRole</a></code> | <code>aws-cdk-lib.aws_iam.Role</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.requireLowercaseCharacters">requireLowercaseCharacters</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.requireNumbers">requireNumbers</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.requireSymbols">requireSymbols</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.requireUppercaseCharacters">requireUppercaseCharacters</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.config_rules.IamPasswordPolicy.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.config_rules.IamPasswordPolicy.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.config_rules.IamPasswordPolicy.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `configRuleArn`<sup>Required</sup> <a name="configRuleArn" id="cdk-extensions.config_rules.IamPasswordPolicy.property.configRuleArn"></a>
+
+```typescript
+public readonly configRuleArn: string;
+```
+
+- *Type:* string
+
+The arn of the rule.
+
+---
+
+##### `configRuleComplianceType`<sup>Required</sup> <a name="configRuleComplianceType" id="cdk-extensions.config_rules.IamPasswordPolicy.property.configRuleComplianceType"></a>
+
+```typescript
+public readonly configRuleComplianceType: string;
+```
+
+- *Type:* string
+
+The compliance status of the rule.
+
+---
+
+##### `configRuleId`<sup>Required</sup> <a name="configRuleId" id="cdk-extensions.config_rules.IamPasswordPolicy.property.configRuleId"></a>
+
+```typescript
+public readonly configRuleId: string;
+```
+
+- *Type:* string
+
+The id of the rule.
+
+---
+
+##### `configRuleName`<sup>Required</sup> <a name="configRuleName" id="cdk-extensions.config_rules.IamPasswordPolicy.property.configRuleName"></a>
+
+```typescript
+public readonly configRuleName: string;
+```
+
+- *Type:* string
+
+The name of the rule.
+
+---
+
+##### `maxPasswordAge`<sup>Required</sup> <a name="maxPasswordAge" id="cdk-extensions.config_rules.IamPasswordPolicy.property.maxPasswordAge"></a>
+
+```typescript
+public readonly maxPasswordAge: number;
+```
+
+- *Type:* number
+
+---
+
+##### `minimumPasswordLength`<sup>Required</sup> <a name="minimumPasswordLength" id="cdk-extensions.config_rules.IamPasswordPolicy.property.minimumPasswordLength"></a>
+
+```typescript
+public readonly minimumPasswordLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `passwordReusePrevention`<sup>Required</sup> <a name="passwordReusePrevention" id="cdk-extensions.config_rules.IamPasswordPolicy.property.passwordReusePrevention"></a>
+
+```typescript
+public readonly passwordReusePrevention: number;
+```
+
+- *Type:* number
+
+---
+
+##### `remediationConfiguration`<sup>Required</sup> <a name="remediationConfiguration" id="cdk-extensions.config_rules.IamPasswordPolicy.property.remediationConfiguration"></a>
+
+```typescript
+public readonly remediationConfiguration: RemediationConfiguration;
+```
+
+- *Type:* cdk-extensions.config.RemediationConfiguration
+
+---
+
+##### `remediationPolicy`<sup>Required</sup> <a name="remediationPolicy" id="cdk-extensions.config_rules.IamPasswordPolicy.property.remediationPolicy"></a>
+
+```typescript
+public readonly remediationPolicy: ManagedPolicy;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.ManagedPolicy
+
+---
+
+##### `remediationRole`<sup>Required</sup> <a name="remediationRole" id="cdk-extensions.config_rules.IamPasswordPolicy.property.remediationRole"></a>
+
+```typescript
+public readonly remediationRole: Role;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.Role
+
+---
+
+##### `requireLowercaseCharacters`<sup>Required</sup> <a name="requireLowercaseCharacters" id="cdk-extensions.config_rules.IamPasswordPolicy.property.requireLowercaseCharacters"></a>
+
+```typescript
+public readonly requireLowercaseCharacters: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `requireNumbers`<sup>Required</sup> <a name="requireNumbers" id="cdk-extensions.config_rules.IamPasswordPolicy.property.requireNumbers"></a>
+
+```typescript
+public readonly requireNumbers: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `requireSymbols`<sup>Required</sup> <a name="requireSymbols" id="cdk-extensions.config_rules.IamPasswordPolicy.property.requireSymbols"></a>
+
+```typescript
+public readonly requireSymbols: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `requireUppercaseCharacters`<sup>Required</sup> <a name="requireUppercaseCharacters" id="cdk-extensions.config_rules.IamPasswordPolicy.property.requireUppercaseCharacters"></a>
+
+```typescript
+public readonly requireUppercaseCharacters: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_DESCRIPTION">DEFAULT_DESCRIPTION</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_MAX_PASSWORD_AGE">DEFAULT_MAX_PASSWORD_AGE</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_MINIMUM_PASSWORD_LENGTH">DEFAULT_MINIMUM_PASSWORD_LENGTH</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_PASSWORD_REUSE_PREVENTION">DEFAULT_PASSWORD_REUSE_PREVENTION</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_REQUIRE_LOWERCASE_CHARACTERS">DEFAULT_REQUIRE_LOWERCASE_CHARACTERS</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_REQUIRE_NUMBERS">DEFAULT_REQUIRE_NUMBERS</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_REQUIRE_SYMBOLS">DEFAULT_REQUIRE_SYMBOLS</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_REQUIRE_UPPERCASE_CHARACTERS">DEFAULT_REQUIRE_UPPERCASE_CHARACTERS</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.MANAGED_RULE_NAME">MANAGED_RULE_NAME</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicy.property.REMEDIATION_DOCUMENT_NAME">REMEDIATION_DOCUMENT_NAME</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `DEFAULT_DESCRIPTION`<sup>Required</sup> <a name="DEFAULT_DESCRIPTION" id="cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_DESCRIPTION"></a>
+
+```typescript
+public readonly DEFAULT_DESCRIPTION: string;
+```
+
+- *Type:* string
+
+---
+
+##### `DEFAULT_MAX_PASSWORD_AGE`<sup>Required</sup> <a name="DEFAULT_MAX_PASSWORD_AGE" id="cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_MAX_PASSWORD_AGE"></a>
+
+```typescript
+public readonly DEFAULT_MAX_PASSWORD_AGE: number;
+```
+
+- *Type:* number
+
+---
+
+##### `DEFAULT_MINIMUM_PASSWORD_LENGTH`<sup>Required</sup> <a name="DEFAULT_MINIMUM_PASSWORD_LENGTH" id="cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_MINIMUM_PASSWORD_LENGTH"></a>
+
+```typescript
+public readonly DEFAULT_MINIMUM_PASSWORD_LENGTH: number;
+```
+
+- *Type:* number
+
+---
+
+##### `DEFAULT_PASSWORD_REUSE_PREVENTION`<sup>Required</sup> <a name="DEFAULT_PASSWORD_REUSE_PREVENTION" id="cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_PASSWORD_REUSE_PREVENTION"></a>
+
+```typescript
+public readonly DEFAULT_PASSWORD_REUSE_PREVENTION: number;
+```
+
+- *Type:* number
+
+---
+
+##### `DEFAULT_REQUIRE_LOWERCASE_CHARACTERS`<sup>Required</sup> <a name="DEFAULT_REQUIRE_LOWERCASE_CHARACTERS" id="cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_REQUIRE_LOWERCASE_CHARACTERS"></a>
+
+```typescript
+public readonly DEFAULT_REQUIRE_LOWERCASE_CHARACTERS: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `DEFAULT_REQUIRE_NUMBERS`<sup>Required</sup> <a name="DEFAULT_REQUIRE_NUMBERS" id="cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_REQUIRE_NUMBERS"></a>
+
+```typescript
+public readonly DEFAULT_REQUIRE_NUMBERS: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `DEFAULT_REQUIRE_SYMBOLS`<sup>Required</sup> <a name="DEFAULT_REQUIRE_SYMBOLS" id="cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_REQUIRE_SYMBOLS"></a>
+
+```typescript
+public readonly DEFAULT_REQUIRE_SYMBOLS: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `DEFAULT_REQUIRE_UPPERCASE_CHARACTERS`<sup>Required</sup> <a name="DEFAULT_REQUIRE_UPPERCASE_CHARACTERS" id="cdk-extensions.config_rules.IamPasswordPolicy.property.DEFAULT_REQUIRE_UPPERCASE_CHARACTERS"></a>
+
+```typescript
+public readonly DEFAULT_REQUIRE_UPPERCASE_CHARACTERS: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `MANAGED_RULE_NAME`<sup>Required</sup> <a name="MANAGED_RULE_NAME" id="cdk-extensions.config_rules.IamPasswordPolicy.property.MANAGED_RULE_NAME"></a>
+
+```typescript
+public readonly MANAGED_RULE_NAME: string;
+```
+
+- *Type:* string
+
+---
+
+##### `REMEDIATION_DOCUMENT_NAME`<sup>Required</sup> <a name="REMEDIATION_DOCUMENT_NAME" id="cdk-extensions.config_rules.IamPasswordPolicy.property.REMEDIATION_DOCUMENT_NAME"></a>
+
+```typescript
+public readonly REMEDIATION_DOCUMENT_NAME: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -29913,6 +31823,402 @@ Guide.
 
 ---
 
+### RemediationConfiguration <a name="RemediationConfiguration" id="cdk-extensions.config.RemediationConfiguration"></a>
+
+- *Implements:* cdk-extensions.config.IRemediationConfiguration
+
+#### Initializers <a name="Initializers" id="cdk-extensions.config.RemediationConfiguration.Initializer"></a>
+
+```typescript
+import { config } from 'cdk-extensions'
+
+new config.RemediationConfiguration(scope: IConstruct, id: string, props: RemediationConfigurationProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.config.RemediationConfigurationProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.config.RemediationConfiguration.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.config.RemediationConfiguration.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.config.RemediationConfiguration.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.config.RemediationConfigurationProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.addParameter">addParameter</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.config.RemediationConfiguration.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.config.RemediationConfiguration.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.config.RemediationConfiguration.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `addParameter` <a name="addParameter" id="cdk-extensions.config.RemediationConfiguration.addParameter"></a>
+
+```typescript
+public addParameter(key: string, values: string): void
+```
+
+###### `key`<sup>Required</sup> <a name="key" id="cdk-extensions.config.RemediationConfiguration.addParameter.parameter.key"></a>
+
+- *Type:* string
+
+---
+
+###### `values`<sup>Required</sup> <a name="values" id="cdk-extensions.config.RemediationConfiguration.addParameter.parameter.values"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationArn">fromRemediationConfigurationArn</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationAttributes">fromRemediationConfigurationAttributes</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationName">fromRemediationConfigurationName</a></code> | *No description.* |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.config.RemediationConfiguration.isConstruct"></a>
+
+```typescript
+import { config } from 'cdk-extensions'
+
+config.RemediationConfiguration.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.config.RemediationConfiguration.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.config.RemediationConfiguration.isOwnedResource"></a>
+
+```typescript
+import { config } from 'cdk-extensions'
+
+config.RemediationConfiguration.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.config.RemediationConfiguration.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.config.RemediationConfiguration.isResource"></a>
+
+```typescript
+import { config } from 'cdk-extensions'
+
+config.RemediationConfiguration.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.config.RemediationConfiguration.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromRemediationConfigurationArn` <a name="fromRemediationConfigurationArn" id="cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationArn"></a>
+
+```typescript
+import { config } from 'cdk-extensions'
+
+config.RemediationConfiguration.fromRemediationConfigurationArn(scope: IConstruct, id: string, arn: string)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationArn.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `arn`<sup>Required</sup> <a name="arn" id="cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationArn.parameter.arn"></a>
+
+- *Type:* string
+
+---
+
+##### `fromRemediationConfigurationAttributes` <a name="fromRemediationConfigurationAttributes" id="cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationAttributes"></a>
+
+```typescript
+import { config } from 'cdk-extensions'
+
+config.RemediationConfiguration.fromRemediationConfigurationAttributes(scope: IConstruct, id: string, attrs: RemediationConfigurationAttributes)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationAttributes.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationAttributes.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `attrs`<sup>Required</sup> <a name="attrs" id="cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationAttributes.parameter.attrs"></a>
+
+- *Type:* cdk-extensions.config.RemediationConfigurationAttributes
+
+---
+
+##### `fromRemediationConfigurationName` <a name="fromRemediationConfigurationName" id="cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationName"></a>
+
+```typescript
+import { config } from 'cdk-extensions'
+
+config.RemediationConfiguration.fromRemediationConfigurationName(scope: IConstruct, id: string, name: string)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationName.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationName.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.config.RemediationConfiguration.fromRemediationConfigurationName.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.property.configRule">configRule</a></code> | <code>aws-cdk-lib.aws_config.IRule</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.property.remediationConfigurationArn">remediationConfigurationArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.property.remediationConfigurationName">remediationConfigurationName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_config.CfnRemediationConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.property.automatic">automatic</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.property.maximumAutomaticAttempts">maximumAutomaticAttempts</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.property.retryInterval">retryInterval</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.config.RemediationConfiguration.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.config.RemediationConfiguration.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.config.RemediationConfiguration.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `configRule`<sup>Required</sup> <a name="configRule" id="cdk-extensions.config.RemediationConfiguration.property.configRule"></a>
+
+```typescript
+public readonly configRule: IRule;
+```
+
+- *Type:* aws-cdk-lib.aws_config.IRule
+
+---
+
+##### `remediationConfigurationArn`<sup>Required</sup> <a name="remediationConfigurationArn" id="cdk-extensions.config.RemediationConfiguration.property.remediationConfigurationArn"></a>
+
+```typescript
+public readonly remediationConfigurationArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `remediationConfigurationName`<sup>Required</sup> <a name="remediationConfigurationName" id="cdk-extensions.config.RemediationConfiguration.property.remediationConfigurationName"></a>
+
+```typescript
+public readonly remediationConfigurationName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.config.RemediationConfiguration.property.resource"></a>
+
+```typescript
+public readonly resource: CfnRemediationConfiguration;
+```
+
+- *Type:* aws-cdk-lib.aws_config.CfnRemediationConfiguration
+
+---
+
+##### `automatic`<sup>Optional</sup> <a name="automatic" id="cdk-extensions.config.RemediationConfiguration.property.automatic"></a>
+
+```typescript
+public readonly automatic: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `maximumAutomaticAttempts`<sup>Optional</sup> <a name="maximumAutomaticAttempts" id="cdk-extensions.config.RemediationConfiguration.property.maximumAutomaticAttempts"></a>
+
+```typescript
+public readonly maximumAutomaticAttempts: number;
+```
+
+- *Type:* number
+
+---
+
+##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="cdk-extensions.config.RemediationConfiguration.property.resourceType"></a>
+
+```typescript
+public readonly resourceType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `retryInterval`<sup>Optional</sup> <a name="retryInterval" id="cdk-extensions.config.RemediationConfiguration.property.retryInterval"></a>
+
+```typescript
+public readonly retryInterval: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config.RemediationConfiguration.property.ARN_FORMAT">ARN_FORMAT</a></code> | <code>aws-cdk-lib.ArnFormat</code> | *No description.* |
+
+---
+
+##### `ARN_FORMAT`<sup>Required</sup> <a name="ARN_FORMAT" id="cdk-extensions.config.RemediationConfiguration.property.ARN_FORMAT"></a>
+
+```typescript
+public readonly ARN_FORMAT: ArnFormat;
+```
+
+- *Type:* aws-cdk-lib.ArnFormat
+
+---
+
 ### ResourceShare <a name="ResourceShare" id="cdk-extensions.ram.ResourceShare"></a>
 
 - *Implements:* cdk-extensions.ram.IResourceShare
@@ -34149,6 +36455,217 @@ public readonly SEVERITIES: SecurityHubSeverity[];
 
 ---
 
+### SecurityManager <a name="SecurityManager" id="cdk-extensions.securityhub_patterns.SecurityManager"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.securityhub_patterns.SecurityManager.Initializer"></a>
+
+```typescript
+import { securityhub_patterns } from 'cdk-extensions'
+
+new securityhub_patterns.SecurityManager(scope: IConstruct, id: string, props: SecurityManagerProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManager.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManager.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManager.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.securityhub_patterns.SecurityManagerProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.securityhub_patterns.SecurityManager.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.securityhub_patterns.SecurityManager.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.securityhub_patterns.SecurityManager.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.securityhub_patterns.SecurityManagerProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManager.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManager.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.securityhub_patterns.SecurityManager.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.securityhub_patterns.SecurityManager.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.securityhub_patterns.SecurityManager.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManager.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManager.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManager.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.securityhub_patterns.SecurityManager.isConstruct"></a>
+
+```typescript
+import { securityhub_patterns } from 'cdk-extensions'
+
+securityhub_patterns.SecurityManager.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.securityhub_patterns.SecurityManager.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.securityhub_patterns.SecurityManager.isOwnedResource"></a>
+
+```typescript
+import { securityhub_patterns } from 'cdk-extensions'
+
+securityhub_patterns.SecurityManager.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.securityhub_patterns.SecurityManager.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.securityhub_patterns.SecurityManager.isResource"></a>
+
+```typescript
+import { securityhub_patterns } from 'cdk-extensions'
+
+securityhub_patterns.SecurityManager.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.securityhub_patterns.SecurityManager.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManager.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManager.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManager.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManager.property.autoRemediate">autoRemediate</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManager.property.hub">hub</a></code> | <code>cdk-extensions.securityhub.IHub</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.securityhub_patterns.SecurityManager.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.securityhub_patterns.SecurityManager.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.securityhub_patterns.SecurityManager.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `autoRemediate`<sup>Required</sup> <a name="autoRemediate" id="cdk-extensions.securityhub_patterns.SecurityManager.property.autoRemediate"></a>
+
+```typescript
+public readonly autoRemediate: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `hub`<sup>Optional</sup> <a name="hub" id="cdk-extensions.securityhub_patterns.SecurityManager.property.hub"></a>
+
+```typescript
+public readonly hub: IHub;
+```
+
+- *Type:* cdk-extensions.securityhub.IHub
+
+---
+
+
 ### SesLogsBucket <a name="SesLogsBucket" id="cdk-extensions.s3_buckets.SesLogsBucket"></a>
 
 #### Initializers <a name="Initializers" id="cdk-extensions.s3_buckets.SesLogsBucket.Initializer"></a>
@@ -36234,6 +38751,282 @@ public readonly NAME_VALIDATOR_REGEX: string;
 - *Type:* string
 
 The regex pattern used to validate secret store names.
+
+---
+
+### Standard <a name="Standard" id="cdk-extensions.securityhub.Standard"></a>
+
+- *Implements:* cdk-extensions.securityhub.IStandard
+
+#### Initializers <a name="Initializers" id="cdk-extensions.securityhub.Standard.Initializer"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+new securityhub.Standard(scope: IConstruct, id: string, props: StandardProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.Standard.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.Standard.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.Standard.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.securityhub.StandardProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.securityhub.Standard.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.securityhub.Standard.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.securityhub.Standard.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.securityhub.StandardProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.securityhub.Standard.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.securityhub.Standard.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.securityhub.Standard.disableControl">disableControl</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.securityhub.Standard.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.securityhub.Standard.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.securityhub.Standard.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `disableControl` <a name="disableControl" id="cdk-extensions.securityhub.Standard.disableControl"></a>
+
+```typescript
+public disableControl(control: string, options: DisableControlOptions): void
+```
+
+###### `control`<sup>Required</sup> <a name="control" id="cdk-extensions.securityhub.Standard.disableControl.parameter.control"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdk-extensions.securityhub.Standard.disableControl.parameter.options"></a>
+
+- *Type:* cdk-extensions.securityhub.DisableControlOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.securityhub.Standard.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.securityhub.Standard.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.securityhub.Standard.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.securityhub.Standard.fromStandardArn">fromStandardArn</a></code> | *No description.* |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.securityhub.Standard.isConstruct"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+securityhub.Standard.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.securityhub.Standard.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.securityhub.Standard.isOwnedResource"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+securityhub.Standard.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.securityhub.Standard.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.securityhub.Standard.isResource"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+securityhub.Standard.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.securityhub.Standard.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromStandardArn` <a name="fromStandardArn" id="cdk-extensions.securityhub.Standard.fromStandardArn"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+securityhub.Standard.fromStandardArn(scope: IConstruct, id: string, arn: string)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.securityhub.Standard.fromStandardArn.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.securityhub.Standard.fromStandardArn.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `arn`<sup>Required</sup> <a name="arn" id="cdk-extensions.securityhub.Standard.fromStandardArn.parameter.arn"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.Standard.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.securityhub.Standard.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.securityhub.Standard.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.securityhub.Standard.property.resource">resource</a></code> | <code>aws-cdk-lib.aws_securityhub.CfnStandard</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.Standard.property.standardArn">standardArn</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.securityhub.Standard.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.securityhub.Standard.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.securityhub.Standard.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `resource`<sup>Required</sup> <a name="resource" id="cdk-extensions.securityhub.Standard.property.resource"></a>
+
+```typescript
+public readonly resource: CfnStandard;
+```
+
+- *Type:* aws-cdk-lib.aws_securityhub.CfnStandard
+
+---
+
+##### `standardArn`<sup>Required</sup> <a name="standardArn" id="cdk-extensions.securityhub.Standard.property.standardArn"></a>
+
+```typescript
+public readonly standardArn: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.Standard.property.ARN_FORMAT">ARN_FORMAT</a></code> | <code>aws-cdk-lib.ArnFormat</code> | *No description.* |
+
+---
+
+##### `ARN_FORMAT`<sup>Required</sup> <a name="ARN_FORMAT" id="cdk-extensions.securityhub.Standard.property.ARN_FORMAT"></a>
+
+```typescript
+public readonly ARN_FORMAT: ArnFormat;
+```
+
+- *Type:* aws-cdk-lib.ArnFormat
 
 ---
 
@@ -41096,6 +43889,416 @@ public readonly vpcCidrBlockCidr: string;
 
 ---
 
+
+### VpcDefaultSecurityGroupClosed <a name="VpcDefaultSecurityGroupClosed" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.Initializer"></a>
+
+```typescript
+import { config_rules } from 'cdk-extensions'
+
+new config_rules.VpcDefaultSecurityGroupClosed(scope: IConstruct, id: string, props: VpcDefaultSecurityGroupClosedProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.Initializer.parameter.scope">scope</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.Initializer.parameter.props">props</a></code> | <code>cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.Initializer.parameter.props"></a>
+
+- *Type:* cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.onComplianceChange">onComplianceChange</a></code> | Defines an EventBridge event rule which triggers for rule compliance events. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.onEvent">onEvent</a></code> | Defines an EventBridge event rule which triggers for rule events. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.onReEvaluationStatus">onReEvaluationStatus</a></code> | Defines an EventBridge event rule which triggers for rule re-evaluation status events. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `onComplianceChange` <a name="onComplianceChange" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.onComplianceChange"></a>
+
+```typescript
+public onComplianceChange(id: string, options?: OnEventOptions): Rule
+```
+
+Defines an EventBridge event rule which triggers for rule compliance events.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.onComplianceChange.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.onComplianceChange.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_events.OnEventOptions
+
+---
+
+##### `onEvent` <a name="onEvent" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.onEvent"></a>
+
+```typescript
+public onEvent(id: string, options?: OnEventOptions): Rule
+```
+
+Defines an EventBridge event rule which triggers for rule events.
+
+Use
+`rule.addEventPattern(pattern)` to specify a filter.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.onEvent.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.onEvent.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_events.OnEventOptions
+
+---
+
+##### `onReEvaluationStatus` <a name="onReEvaluationStatus" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.onReEvaluationStatus"></a>
+
+```typescript
+public onReEvaluationStatus(id: string, options?: OnEventOptions): Rule
+```
+
+Defines an EventBridge event rule which triggers for rule re-evaluation status events.
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.onReEvaluationStatus.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.onReEvaluationStatus.parameter.options"></a>
+
+- *Type:* aws-cdk-lib.aws_events.OnEventOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.fromConfigRuleName">fromConfigRuleName</a></code> | Imports an existing rule. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.isConstruct"></a>
+
+```typescript
+import { config_rules } from 'cdk-extensions'
+
+config_rules.VpcDefaultSecurityGroupClosed.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.isOwnedResource"></a>
+
+```typescript
+import { config_rules } from 'cdk-extensions'
+
+config_rules.VpcDefaultSecurityGroupClosed.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.isResource"></a>
+
+```typescript
+import { config_rules } from 'cdk-extensions'
+
+config_rules.VpcDefaultSecurityGroupClosed.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `fromConfigRuleName` <a name="fromConfigRuleName" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.fromConfigRuleName"></a>
+
+```typescript
+import { config_rules } from 'cdk-extensions'
+
+config_rules.VpcDefaultSecurityGroupClosed.fromConfigRuleName(scope: Construct, id: string, configRuleName: string)
+```
+
+Imports an existing rule.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.fromConfigRuleName.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.fromConfigRuleName.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `configRuleName`<sup>Required</sup> <a name="configRuleName" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.fromConfigRuleName.parameter.configRuleName"></a>
+
+- *Type:* string
+
+the name of the rule.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.configRuleArn">configRuleArn</a></code> | <code>string</code> | The arn of the rule. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.configRuleComplianceType">configRuleComplianceType</a></code> | <code>string</code> | The compliance status of the rule. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.configRuleId">configRuleId</a></code> | <code>string</code> | The id of the rule. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.configRuleName">configRuleName</a></code> | <code>string</code> | The name of the rule. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.remediationConfiguration">remediationConfiguration</a></code> | <code>cdk-extensions.config.RemediationConfiguration</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.remediationPolicy">remediationPolicy</a></code> | <code>aws-cdk-lib.aws_iam.ManagedPolicy</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.remediationRole">remediationRole</a></code> | <code>aws-cdk-lib.aws_iam.Role</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `configRuleArn`<sup>Required</sup> <a name="configRuleArn" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.configRuleArn"></a>
+
+```typescript
+public readonly configRuleArn: string;
+```
+
+- *Type:* string
+
+The arn of the rule.
+
+---
+
+##### `configRuleComplianceType`<sup>Required</sup> <a name="configRuleComplianceType" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.configRuleComplianceType"></a>
+
+```typescript
+public readonly configRuleComplianceType: string;
+```
+
+- *Type:* string
+
+The compliance status of the rule.
+
+---
+
+##### `configRuleId`<sup>Required</sup> <a name="configRuleId" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.configRuleId"></a>
+
+```typescript
+public readonly configRuleId: string;
+```
+
+- *Type:* string
+
+The id of the rule.
+
+---
+
+##### `configRuleName`<sup>Required</sup> <a name="configRuleName" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.configRuleName"></a>
+
+```typescript
+public readonly configRuleName: string;
+```
+
+- *Type:* string
+
+The name of the rule.
+
+---
+
+##### `remediationConfiguration`<sup>Required</sup> <a name="remediationConfiguration" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.remediationConfiguration"></a>
+
+```typescript
+public readonly remediationConfiguration: RemediationConfiguration;
+```
+
+- *Type:* cdk-extensions.config.RemediationConfiguration
+
+---
+
+##### `remediationPolicy`<sup>Required</sup> <a name="remediationPolicy" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.remediationPolicy"></a>
+
+```typescript
+public readonly remediationPolicy: ManagedPolicy;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.ManagedPolicy
+
+---
+
+##### `remediationRole`<sup>Required</sup> <a name="remediationRole" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.remediationRole"></a>
+
+```typescript
+public readonly remediationRole: Role;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.Role
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.DEFAULT_DESCRIPTION">DEFAULT_DESCRIPTION</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.MANAGED_RULE_NAME">MANAGED_RULE_NAME</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.REMEDIATION_DOCUMENT_NAME">REMEDIATION_DOCUMENT_NAME</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `DEFAULT_DESCRIPTION`<sup>Required</sup> <a name="DEFAULT_DESCRIPTION" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.DEFAULT_DESCRIPTION"></a>
+
+```typescript
+public readonly DEFAULT_DESCRIPTION: string;
+```
+
+- *Type:* string
+
+---
+
+##### `MANAGED_RULE_NAME`<sup>Required</sup> <a name="MANAGED_RULE_NAME" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.MANAGED_RULE_NAME"></a>
+
+```typescript
+public readonly MANAGED_RULE_NAME: string;
+```
+
+- *Type:* string
+
+---
+
+##### `REMEDIATION_DOCUMENT_NAME`<sup>Required</sup> <a name="REMEDIATION_DOCUMENT_NAME" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosed.property.REMEDIATION_DOCUMENT_NAME"></a>
+
+```typescript
+public readonly REMEDIATION_DOCUMENT_NAME: string;
+```
+
+- *Type:* string
+
+---
 
 ### VpnConnection <a name="VpnConnection" id="cdk-extensions.ec2.VpnConnection"></a>
 
@@ -47748,6 +50951,67 @@ public readonly requesterPays: boolean;
 
 ---
 
+### AutomationDocumentRemediationProps <a name="AutomationDocumentRemediationProps" id="cdk-extensions.config.AutomationDocumentRemediationProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.config.AutomationDocumentRemediationProps.Initializer"></a>
+
+```typescript
+import { config } from 'cdk-extensions'
+
+const automationDocumentRemediationProps: config.AutomationDocumentRemediationProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config.AutomationDocumentRemediationProps.property.document">document</a></code> | <code>cdk-extensions.ssm.IAutomationDocument</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.AutomationDocumentRemediationProps.property.concurrencyPercentage">concurrencyPercentage</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.AutomationDocumentRemediationProps.property.errorPercentage">errorPercentage</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.AutomationDocumentRemediationProps.property.version">version</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `document`<sup>Required</sup> <a name="document" id="cdk-extensions.config.AutomationDocumentRemediationProps.property.document"></a>
+
+```typescript
+public readonly document: IAutomationDocument;
+```
+
+- *Type:* cdk-extensions.ssm.IAutomationDocument
+
+---
+
+##### `concurrencyPercentage`<sup>Optional</sup> <a name="concurrencyPercentage" id="cdk-extensions.config.AutomationDocumentRemediationProps.property.concurrencyPercentage"></a>
+
+```typescript
+public readonly concurrencyPercentage: number;
+```
+
+- *Type:* number
+
+---
+
+##### `errorPercentage`<sup>Optional</sup> <a name="errorPercentage" id="cdk-extensions.config.AutomationDocumentRemediationProps.property.errorPercentage"></a>
+
+```typescript
+public readonly errorPercentage: number;
+```
+
+- *Type:* number
+
+---
+
+##### `version`<sup>Optional</sup> <a name="version" id="cdk-extensions.config.AutomationDocumentRemediationProps.property.version"></a>
+
+```typescript
+public readonly version: string;
+```
+
+- *Type:* string
+
+---
+
 ### AwsIntegratedFargateClusterProps <a name="AwsIntegratedFargateClusterProps" id="cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.eks_patterns.AwsIntegratedFargateClusterProps.Initializer"></a>
@@ -53017,6 +56281,34 @@ Specifies how frequently updated findings are exported.
 
 ---
 
+### DisableControlOptions <a name="DisableControlOptions" id="cdk-extensions.securityhub.DisableControlOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.securityhub.DisableControlOptions.Initializer"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+const disableControlOptions: securityhub.DisableControlOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.DisableControlOptions.property.reason">reason</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `reason`<sup>Required</sup> <a name="reason" id="cdk-extensions.securityhub.DisableControlOptions.property.reason"></a>
+
+```typescript
+public readonly reason: string;
+```
+
+- *Type:* string
+
+---
+
 ### DiscordOverrideOptions <a name="DiscordOverrideOptions" id="cdk-extensions.alerting.DiscordOverrideOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.alerting.DiscordOverrideOptions.Initializer"></a>
@@ -53216,6 +56508,406 @@ public readonly timeout: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+---
+
+### DocumentBaseProps <a name="DocumentBaseProps" id="cdk-extensions.ssm.DocumentBaseProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ssm.DocumentBaseProps.Initializer"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+const documentBaseProps: ssm.DocumentBaseProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentBaseProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ssm.DocumentBaseProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ssm.DocumentBaseProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ssm.DocumentBaseProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ssm.DocumentBaseProps.property.content">content</a></code> | <code>cdk-extensions.ssm.IDocumentContent</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBaseProps.property.documentType">documentType</a></code> | <code>cdk-extensions.ssm.DocumentType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBaseProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBaseProps.property.requires">requires</a></code> | <code>cdk-extensions.ssm.DocumentRequirement[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBaseProps.property.targetType">targetType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBaseProps.property.updateMethod">updateMethod</a></code> | <code>cdk-extensions.ssm.DocumentUpdateMethod</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentBaseProps.property.versionName">versionName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ssm.DocumentBaseProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ssm.DocumentBaseProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ssm.DocumentBaseProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ssm.DocumentBaseProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `content`<sup>Required</sup> <a name="content" id="cdk-extensions.ssm.DocumentBaseProps.property.content"></a>
+
+```typescript
+public readonly content: IDocumentContent;
+```
+
+- *Type:* cdk-extensions.ssm.IDocumentContent
+
+---
+
+##### `documentType`<sup>Optional</sup> <a name="documentType" id="cdk-extensions.ssm.DocumentBaseProps.property.documentType"></a>
+
+```typescript
+public readonly documentType: DocumentType;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentType
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ssm.DocumentBaseProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `requires`<sup>Optional</sup> <a name="requires" id="cdk-extensions.ssm.DocumentBaseProps.property.requires"></a>
+
+```typescript
+public readonly requires: DocumentRequirement[];
+```
+
+- *Type:* cdk-extensions.ssm.DocumentRequirement[]
+
+---
+
+##### `targetType`<sup>Optional</sup> <a name="targetType" id="cdk-extensions.ssm.DocumentBaseProps.property.targetType"></a>
+
+```typescript
+public readonly targetType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `updateMethod`<sup>Optional</sup> <a name="updateMethod" id="cdk-extensions.ssm.DocumentBaseProps.property.updateMethod"></a>
+
+```typescript
+public readonly updateMethod: DocumentUpdateMethod;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentUpdateMethod
+
+---
+
+##### `versionName`<sup>Optional</sup> <a name="versionName" id="cdk-extensions.ssm.DocumentBaseProps.property.versionName"></a>
+
+```typescript
+public readonly versionName: string;
+```
+
+- *Type:* string
+
+---
+
+### DocumentContentResult <a name="DocumentContentResult" id="cdk-extensions.ssm.DocumentContentResult"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ssm.DocumentContentResult.Initializer"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+const documentContentResult: ssm.DocumentContentResult = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentContentResult.property.content">content</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentContentResult.property.documentFormat">documentFormat</a></code> | <code>cdk-extensions.ssm.DocumentFormat</code> | *No description.* |
+
+---
+
+##### `content`<sup>Required</sup> <a name="content" id="cdk-extensions.ssm.DocumentContentResult.property.content"></a>
+
+```typescript
+public readonly content: string;
+```
+
+- *Type:* string
+
+---
+
+##### `documentFormat`<sup>Required</sup> <a name="documentFormat" id="cdk-extensions.ssm.DocumentContentResult.property.documentFormat"></a>
+
+```typescript
+public readonly documentFormat: DocumentFormat;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentFormat
+
+---
+
+### DocumentProps <a name="DocumentProps" id="cdk-extensions.ssm.DocumentProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ssm.DocumentProps.Initializer"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+const documentProps: ssm.DocumentProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.ssm.DocumentProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.ssm.DocumentProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.ssm.DocumentProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.ssm.DocumentProps.property.content">content</a></code> | <code>cdk-extensions.ssm.IDocumentContent</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentProps.property.documentType">documentType</a></code> | <code>cdk-extensions.ssm.DocumentType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentProps.property.requires">requires</a></code> | <code>cdk-extensions.ssm.DocumentRequirement[]</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentProps.property.targetType">targetType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentProps.property.updateMethod">updateMethod</a></code> | <code>cdk-extensions.ssm.DocumentUpdateMethod</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentProps.property.versionName">versionName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.ssm.DocumentProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.ssm.DocumentProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.ssm.DocumentProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.ssm.DocumentProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `content`<sup>Required</sup> <a name="content" id="cdk-extensions.ssm.DocumentProps.property.content"></a>
+
+```typescript
+public readonly content: IDocumentContent;
+```
+
+- *Type:* cdk-extensions.ssm.IDocumentContent
+
+---
+
+##### `documentType`<sup>Optional</sup> <a name="documentType" id="cdk-extensions.ssm.DocumentProps.property.documentType"></a>
+
+```typescript
+public readonly documentType: DocumentType;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentType
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.ssm.DocumentProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `requires`<sup>Optional</sup> <a name="requires" id="cdk-extensions.ssm.DocumentProps.property.requires"></a>
+
+```typescript
+public readonly requires: DocumentRequirement[];
+```
+
+- *Type:* cdk-extensions.ssm.DocumentRequirement[]
+
+---
+
+##### `targetType`<sup>Optional</sup> <a name="targetType" id="cdk-extensions.ssm.DocumentProps.property.targetType"></a>
+
+```typescript
+public readonly targetType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `updateMethod`<sup>Optional</sup> <a name="updateMethod" id="cdk-extensions.ssm.DocumentProps.property.updateMethod"></a>
+
+```typescript
+public readonly updateMethod: DocumentUpdateMethod;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentUpdateMethod
+
+---
+
+##### `versionName`<sup>Optional</sup> <a name="versionName" id="cdk-extensions.ssm.DocumentProps.property.versionName"></a>
+
+```typescript
+public readonly versionName: string;
+```
+
+- *Type:* string
+
+---
+
+### DocumentRequirement <a name="DocumentRequirement" id="cdk-extensions.ssm.DocumentRequirement"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ssm.DocumentRequirement.Initializer"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+const documentRequirement: ssm.DocumentRequirement = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentRequirement.property.document">document</a></code> | <code>cdk-extensions.ssm.IDocument</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentRequirement.property.version">version</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `document`<sup>Required</sup> <a name="document" id="cdk-extensions.ssm.DocumentRequirement.property.document"></a>
+
+```typescript
+public readonly document: IDocument;
+```
+
+- *Type:* cdk-extensions.ssm.IDocument
+
+---
+
+##### `version`<sup>Optional</sup> <a name="version" id="cdk-extensions.ssm.DocumentRequirement.property.version"></a>
+
+```typescript
+public readonly version: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -60160,6 +63852,367 @@ public readonly retryDuration: Duration;
 
 ---
 
+### HubAttributes <a name="HubAttributes" id="cdk-extensions.securityhub.HubAttributes"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.securityhub.HubAttributes.Initializer"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+const hubAttributes: securityhub.HubAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.HubAttributes.property.arn">arn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.HubAttributes.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `arn`<sup>Optional</sup> <a name="arn" id="cdk-extensions.securityhub.HubAttributes.property.arn"></a>
+
+```typescript
+public readonly arn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.securityhub.HubAttributes.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+### HubProps <a name="HubProps" id="cdk-extensions.securityhub.HubProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.securityhub.HubProps.Initializer"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+const hubProps: securityhub.HubProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.HubProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.securityhub.HubProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.securityhub.HubProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.securityhub.HubProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.securityhub.HubProps.property.autoEnableControls">autoEnableControls</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.HubProps.property.consolidatedFindings">consolidatedFindings</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.HubProps.property.enableDefaultStandards">enableDefaultStandards</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.securityhub.HubProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.securityhub.HubProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.securityhub.HubProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.securityhub.HubProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `autoEnableControls`<sup>Optional</sup> <a name="autoEnableControls" id="cdk-extensions.securityhub.HubProps.property.autoEnableControls"></a>
+
+```typescript
+public readonly autoEnableControls: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `consolidatedFindings`<sup>Optional</sup> <a name="consolidatedFindings" id="cdk-extensions.securityhub.HubProps.property.consolidatedFindings"></a>
+
+```typescript
+public readonly consolidatedFindings: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `enableDefaultStandards`<sup>Optional</sup> <a name="enableDefaultStandards" id="cdk-extensions.securityhub.HubProps.property.enableDefaultStandards"></a>
+
+```typescript
+public readonly enableDefaultStandards: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+### IamPasswordPolicyProps <a name="IamPasswordPolicyProps" id="cdk-extensions.config_rules.IamPasswordPolicyProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.config_rules.IamPasswordPolicyProps.Initializer"></a>
+
+```typescript
+import { config_rules } from 'cdk-extensions'
+
+const iamPasswordPolicyProps: config_rules.IamPasswordPolicyProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.autoRemediation">autoRemediation</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.configRuleName">configRuleName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.maximumExecutionFrequency">maximumExecutionFrequency</a></code> | <code>aws-cdk-lib.aws_config.MaximumExecutionFrequency</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.maxPasswordAge">maxPasswordAge</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.minimumPasswordLength">minimumPasswordLength</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.passwordReusePrevention">passwordReusePrevention</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.requireLowercaseCharacters">requireLowercaseCharacters</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.requireNumbers">requireNumbers</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.requireSymbols">requireSymbols</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.IamPasswordPolicyProps.property.requireUppercaseCharacters">requireUppercaseCharacters</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `autoRemediation`<sup>Optional</sup> <a name="autoRemediation" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.autoRemediation"></a>
+
+```typescript
+public readonly autoRemediation: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `configRuleName`<sup>Optional</sup> <a name="configRuleName" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.configRuleName"></a>
+
+```typescript
+public readonly configRuleName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `maximumExecutionFrequency`<sup>Optional</sup> <a name="maximumExecutionFrequency" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.maximumExecutionFrequency"></a>
+
+```typescript
+public readonly maximumExecutionFrequency: MaximumExecutionFrequency;
+```
+
+- *Type:* aws-cdk-lib.aws_config.MaximumExecutionFrequency
+
+---
+
+##### `maxPasswordAge`<sup>Optional</sup> <a name="maxPasswordAge" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.maxPasswordAge"></a>
+
+```typescript
+public readonly maxPasswordAge: number;
+```
+
+- *Type:* number
+
+---
+
+##### `minimumPasswordLength`<sup>Optional</sup> <a name="minimumPasswordLength" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.minimumPasswordLength"></a>
+
+```typescript
+public readonly minimumPasswordLength: number;
+```
+
+- *Type:* number
+
+---
+
+##### `passwordReusePrevention`<sup>Optional</sup> <a name="passwordReusePrevention" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.passwordReusePrevention"></a>
+
+```typescript
+public readonly passwordReusePrevention: number;
+```
+
+- *Type:* number
+
+---
+
+##### `requireLowercaseCharacters`<sup>Optional</sup> <a name="requireLowercaseCharacters" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.requireLowercaseCharacters"></a>
+
+```typescript
+public readonly requireLowercaseCharacters: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `requireNumbers`<sup>Optional</sup> <a name="requireNumbers" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.requireNumbers"></a>
+
+```typescript
+public readonly requireNumbers: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `requireSymbols`<sup>Optional</sup> <a name="requireSymbols" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.requireSymbols"></a>
+
+```typescript
+public readonly requireSymbols: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `requireUppercaseCharacters`<sup>Optional</sup> <a name="requireUppercaseCharacters" id="cdk-extensions.config_rules.IamPasswordPolicyProps.property.requireUppercaseCharacters"></a>
+
+```typescript
+public readonly requireUppercaseCharacters: boolean;
+```
+
+- *Type:* boolean
+
+---
+
 ### InspectorFindingEventOptions <a name="InspectorFindingEventOptions" id="cdk-extensions.alerting.InspectorFindingEventOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.alerting.InspectorFindingEventOptions.Initializer"></a>
@@ -64964,6 +69017,34 @@ public readonly vpnCidr: IIpv4CidrAssignment;
 
 ---
 
+### ObjectContentProps <a name="ObjectContentProps" id="cdk-extensions.ssm.ObjectContentProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ssm.ObjectContentProps.Initializer"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+const objectContentProps: ssm.ObjectContentProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.ObjectContentProps.property.input">input</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+
+---
+
+##### `input`<sup>Required</sup> <a name="input" id="cdk-extensions.ssm.ObjectContentProps.property.input"></a>
+
+```typescript
+public readonly input: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
 ### OpenSearchEventProps <a name="OpenSearchEventProps" id="cdk-extensions.alerting.OpenSearchEventProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.alerting.OpenSearchEventProps.Initializer"></a>
@@ -67047,6 +71128,278 @@ public readonly transitGateway: ITransitGateway;
 
 ---
 
+### RemediationConfigurationAttributes <a name="RemediationConfigurationAttributes" id="cdk-extensions.config.RemediationConfigurationAttributes"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.config.RemediationConfigurationAttributes.Initializer"></a>
+
+```typescript
+import { config } from 'cdk-extensions'
+
+const remediationConfigurationAttributes: config.RemediationConfigurationAttributes = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config.RemediationConfigurationAttributes.property.arn">arn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfigurationAttributes.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `arn`<sup>Optional</sup> <a name="arn" id="cdk-extensions.config.RemediationConfigurationAttributes.property.arn"></a>
+
+```typescript
+public readonly arn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.config.RemediationConfigurationAttributes.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+### RemediationConfigurationProps <a name="RemediationConfigurationProps" id="cdk-extensions.config.RemediationConfigurationProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.config.RemediationConfigurationProps.Initializer"></a>
+
+```typescript
+import { config } from 'cdk-extensions'
+
+const remediationConfigurationProps: config.RemediationConfigurationProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config.RemediationConfigurationProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.config.RemediationConfigurationProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.config.RemediationConfigurationProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.config.RemediationConfigurationProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.config.RemediationConfigurationProps.property.configRule">configRule</a></code> | <code>aws-cdk-lib.aws_config.IRule</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfigurationProps.property.staticParameters">staticParameters</a></code> | <code>{[ key: string ]: any[]}</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfigurationProps.property.target">target</a></code> | <code>cdk-extensions.config.IRemediationTarget</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfigurationProps.property.automatic">automatic</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfigurationProps.property.maximumAutomaticAttempts">maximumAutomaticAttempts</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfigurationProps.property.resourceParameter">resourceParameter</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfigurationProps.property.resourceType">resourceType</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationConfigurationProps.property.retryInterval">retryInterval</a></code> | <code>aws-cdk-lib.Duration</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.config.RemediationConfigurationProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.config.RemediationConfigurationProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.config.RemediationConfigurationProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.config.RemediationConfigurationProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `configRule`<sup>Required</sup> <a name="configRule" id="cdk-extensions.config.RemediationConfigurationProps.property.configRule"></a>
+
+```typescript
+public readonly configRule: IRule;
+```
+
+- *Type:* aws-cdk-lib.aws_config.IRule
+
+---
+
+##### `staticParameters`<sup>Required</sup> <a name="staticParameters" id="cdk-extensions.config.RemediationConfigurationProps.property.staticParameters"></a>
+
+```typescript
+public readonly staticParameters: {[ key: string ]: any[]};
+```
+
+- *Type:* {[ key: string ]: any[]}
+
+---
+
+##### `target`<sup>Required</sup> <a name="target" id="cdk-extensions.config.RemediationConfigurationProps.property.target"></a>
+
+```typescript
+public readonly target: IRemediationTarget;
+```
+
+- *Type:* cdk-extensions.config.IRemediationTarget
+
+---
+
+##### `automatic`<sup>Optional</sup> <a name="automatic" id="cdk-extensions.config.RemediationConfigurationProps.property.automatic"></a>
+
+```typescript
+public readonly automatic: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `maximumAutomaticAttempts`<sup>Optional</sup> <a name="maximumAutomaticAttempts" id="cdk-extensions.config.RemediationConfigurationProps.property.maximumAutomaticAttempts"></a>
+
+```typescript
+public readonly maximumAutomaticAttempts: number;
+```
+
+- *Type:* number
+
+---
+
+##### `resourceParameter`<sup>Optional</sup> <a name="resourceParameter" id="cdk-extensions.config.RemediationConfigurationProps.property.resourceParameter"></a>
+
+```typescript
+public readonly resourceParameter: string;
+```
+
+- *Type:* string
+
+---
+
+##### `resourceType`<sup>Optional</sup> <a name="resourceType" id="cdk-extensions.config.RemediationConfigurationProps.property.resourceType"></a>
+
+```typescript
+public readonly resourceType: string;
+```
+
+- *Type:* string
+
+---
+
+##### `retryInterval`<sup>Optional</sup> <a name="retryInterval" id="cdk-extensions.config.RemediationConfigurationProps.property.retryInterval"></a>
+
+```typescript
+public readonly retryInterval: Duration;
+```
+
+- *Type:* aws-cdk-lib.Duration
+
+---
+
+### RemediationTargetConfiguration <a name="RemediationTargetConfiguration" id="cdk-extensions.config.RemediationTargetConfiguration"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.config.RemediationTargetConfiguration.Initializer"></a>
+
+```typescript
+import { config } from 'cdk-extensions'
+
+const remediationTargetConfiguration: config.RemediationTargetConfiguration = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config.RemediationTargetConfiguration.property.targetId">targetId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationTargetConfiguration.property.targetType">targetType</a></code> | <code>cdk-extensions.config.RemediationTargetType</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationTargetConfiguration.property.controls">controls</a></code> | <code>aws-cdk-lib.aws_config.CfnRemediationConfiguration.ExecutionControlsProperty</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.RemediationTargetConfiguration.property.targetVersion">targetVersion</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `targetId`<sup>Required</sup> <a name="targetId" id="cdk-extensions.config.RemediationTargetConfiguration.property.targetId"></a>
+
+```typescript
+public readonly targetId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `targetType`<sup>Required</sup> <a name="targetType" id="cdk-extensions.config.RemediationTargetConfiguration.property.targetType"></a>
+
+```typescript
+public readonly targetType: RemediationTargetType;
+```
+
+- *Type:* cdk-extensions.config.RemediationTargetType
+
+---
+
+##### `controls`<sup>Optional</sup> <a name="controls" id="cdk-extensions.config.RemediationTargetConfiguration.property.controls"></a>
+
+```typescript
+public readonly controls: ExecutionControlsProperty;
+```
+
+- *Type:* aws-cdk-lib.aws_config.CfnRemediationConfiguration.ExecutionControlsProperty
+
+---
+
+##### `targetVersion`<sup>Optional</sup> <a name="targetVersion" id="cdk-extensions.config.RemediationTargetConfiguration.property.targetVersion"></a>
+
+```typescript
+public readonly targetVersion: string;
+```
+
+- *Type:* string
+
+---
+
 ### RemoteVpnEndpointConfiguration <a name="RemoteVpnEndpointConfiguration" id="cdk-extensions.ec2.RemoteVpnEndpointConfiguration"></a>
 
 Configuration object containing the vlues needed to configure the remote end of a VPN connection.
@@ -68304,6 +72657,89 @@ The name of the rule groups namespace.
 
 ---
 
+### RuleSetProps <a name="RuleSetProps" id="cdk-extensions.securityhub.RuleSetProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.securityhub.RuleSetProps.Initializer"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+const ruleSetProps: securityhub.RuleSetProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.RuleSetProps.property.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.RuleSetProps.property.version">version</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.RuleSetProps.property.default">default</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.RuleSetProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.RuleSetProps.property.global">global</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.RuleSetProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.securityhub.RuleSetProps.property.id"></a>
+
+```typescript
+public readonly id: string;
+```
+
+- *Type:* string
+
+---
+
+##### `version`<sup>Required</sup> <a name="version" id="cdk-extensions.securityhub.RuleSetProps.property.version"></a>
+
+```typescript
+public readonly version: string;
+```
+
+- *Type:* string
+
+---
+
+##### `default`<sup>Optional</sup> <a name="default" id="cdk-extensions.securityhub.RuleSetProps.property.default"></a>
+
+```typescript
+public readonly default: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.securityhub.RuleSetProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `global`<sup>Optional</sup> <a name="global" id="cdk-extensions.securityhub.RuleSetProps.property.global"></a>
+
+```typescript
+public readonly global: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.securityhub.RuleSetProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
 ### S3AccessLogsBucketProps <a name="S3AccessLogsBucketProps" id="cdk-extensions.s3_buckets.S3AccessLogsBucketProps"></a>
 
 Configuration for objects bucket.
@@ -69013,6 +73449,89 @@ Setting this value to true prioritizes the customer's extra JAR files in the cla
 
 ---
 
+### ScopedRuleSet <a name="ScopedRuleSet" id="cdk-extensions.securityhub.ScopedRuleSet"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.securityhub.ScopedRuleSet.Initializer"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+const scopedRuleSet: securityhub.ScopedRuleSet = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.ScopedRuleSet.property.arn">arn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.ScopedRuleSet.property.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.ScopedRuleSet.property.version">version</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.ScopedRuleSet.property.default">default</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.ScopedRuleSet.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.ScopedRuleSet.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `arn`<sup>Required</sup> <a name="arn" id="cdk-extensions.securityhub.ScopedRuleSet.property.arn"></a>
+
+```typescript
+public readonly arn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-extensions.securityhub.ScopedRuleSet.property.id"></a>
+
+```typescript
+public readonly id: string;
+```
+
+- *Type:* string
+
+---
+
+##### `version`<sup>Required</sup> <a name="version" id="cdk-extensions.securityhub.ScopedRuleSet.property.version"></a>
+
+```typescript
+public readonly version: string;
+```
+
+- *Type:* string
+
+---
+
+##### `default`<sup>Optional</sup> <a name="default" id="cdk-extensions.securityhub.ScopedRuleSet.property.default"></a>
+
+```typescript
+public readonly default: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.securityhub.ScopedRuleSet.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-extensions.securityhub.ScopedRuleSet.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
 ### SecretFieldReference <a name="SecretFieldReference" id="cdk-extensions.k8s_aws.SecretFieldReference"></a>
 
 Options for how to synchronize a specific field in a secret being imported.
@@ -69581,6 +74100,151 @@ public readonly timeout: Duration;
 ```
 
 - *Type:* aws-cdk-lib.Duration
+
+---
+
+### SecurityHubOptions <a name="SecurityHubOptions" id="cdk-extensions.securityhub_patterns.SecurityHubOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.securityhub_patterns.SecurityHubOptions.Initializer"></a>
+
+```typescript
+import { securityhub_patterns } from 'cdk-extensions'
+
+const securityHubOptions: securityhub_patterns.SecurityHubOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityHubOptions.property.enabled">enabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityHubOptions.property.hub">hub</a></code> | <code>cdk-extensions.securityhub.IHub</code> | *No description.* |
+
+---
+
+##### `enabled`<sup>Optional</sup> <a name="enabled" id="cdk-extensions.securityhub_patterns.SecurityHubOptions.property.enabled"></a>
+
+```typescript
+public readonly enabled: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `hub`<sup>Optional</sup> <a name="hub" id="cdk-extensions.securityhub_patterns.SecurityHubOptions.property.hub"></a>
+
+```typescript
+public readonly hub: IHub;
+```
+
+- *Type:* cdk-extensions.securityhub.IHub
+
+---
+
+### SecurityManagerProps <a name="SecurityManagerProps" id="cdk-extensions.securityhub_patterns.SecurityManagerProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.securityhub_patterns.SecurityManagerProps.Initializer"></a>
+
+```typescript
+import { securityhub_patterns } from 'cdk-extensions'
+
+const securityManagerProps: securityhub_patterns.SecurityManagerProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManagerProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManagerProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManagerProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManagerProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManagerProps.property.autoRemediate">autoRemediate</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub_patterns.SecurityManagerProps.property.securityHub">securityHub</a></code> | <code>cdk-extensions.securityhub_patterns.SecurityHubOptions</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.securityhub_patterns.SecurityManagerProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.securityhub_patterns.SecurityManagerProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.securityhub_patterns.SecurityManagerProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.securityhub_patterns.SecurityManagerProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `autoRemediate`<sup>Optional</sup> <a name="autoRemediate" id="cdk-extensions.securityhub_patterns.SecurityManagerProps.property.autoRemediate"></a>
+
+```typescript
+public readonly autoRemediate: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `securityHub`<sup>Optional</sup> <a name="securityHub" id="cdk-extensions.securityhub_patterns.SecurityManagerProps.property.securityHub"></a>
+
+```typescript
+public readonly securityHub: SecurityHubOptions;
+```
+
+- *Type:* cdk-extensions.securityhub_patterns.SecurityHubOptions
 
 ---
 
@@ -70295,6 +74959,112 @@ The Kubernetes namespace where the secret store should be created.
 
 ---
 
+### StandardProps <a name="StandardProps" id="cdk-extensions.securityhub.StandardProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.securityhub.StandardProps.Initializer"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+const standardProps: securityhub.StandardProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.StandardProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.securityhub.StandardProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.securityhub.StandardProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.securityhub.StandardProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.securityhub.StandardProps.property.ruleSet">ruleSet</a></code> | <code>cdk-extensions.securityhub.RuleSet</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.StandardProps.property.disabledControls">disabledControls</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.securityhub.StandardProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.securityhub.StandardProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.securityhub.StandardProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.securityhub.StandardProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `ruleSet`<sup>Required</sup> <a name="ruleSet" id="cdk-extensions.securityhub.StandardProps.property.ruleSet"></a>
+
+```typescript
+public readonly ruleSet: RuleSet;
+```
+
+- *Type:* cdk-extensions.securityhub.RuleSet
+
+---
+
+##### `disabledControls`<sup>Optional</sup> <a name="disabledControls" id="cdk-extensions.securityhub.StandardProps.property.disabledControls"></a>
+
+```typescript
+public readonly disabledControls: string[];
+```
+
+- *Type:* string[]
+
+---
+
 ### StateMachineLogging <a name="StateMachineLogging" id="cdk-extensions.alerting.StateMachineLogging"></a>
 
 #### Initializer <a name="Initializer" id="cdk-extensions.alerting.StateMachineLogging.Initializer"></a>
@@ -70353,6 +75123,45 @@ public readonly level: LogLevel;
 ```
 
 - *Type:* aws-cdk-lib.aws_stepfunctions.LogLevel
+
+---
+
+### StringContentProps <a name="StringContentProps" id="cdk-extensions.ssm.StringContentProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.ssm.StringContentProps.Initializer"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+const stringContentProps: ssm.StringContentProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.StringContentProps.property.content">content</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.StringContentProps.property.documentFormat">documentFormat</a></code> | <code>cdk-extensions.ssm.DocumentFormat</code> | *No description.* |
+
+---
+
+##### `content`<sup>Required</sup> <a name="content" id="cdk-extensions.ssm.StringContentProps.property.content"></a>
+
+```typescript
+public readonly content: string;
+```
+
+- *Type:* string
+
+---
+
+##### `documentFormat`<sup>Required</sup> <a name="documentFormat" id="cdk-extensions.ssm.StringContentProps.property.documentFormat"></a>
+
+```typescript
+public readonly documentFormat: DocumentFormat;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentFormat
 
 ---
 
@@ -73399,6 +78208,134 @@ public readonly vpc: IVpc;
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+---
+
+### VpcDefaultSecurityGroupClosedProps <a name="VpcDefaultSecurityGroupClosedProps" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.Initializer"></a>
+
+```typescript
+import { config_rules } from 'cdk-extensions'
+
+const vpcDefaultSecurityGroupClosedProps: config_rules.VpcDefaultSecurityGroupClosedProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.account">account</a></code> | <code>string</code> | The AWS account ID this resource belongs to. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.environmentFromArn">environmentFromArn</a></code> | <code>string</code> | ARN to deduce region and account from. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.physicalName">physicalName</a></code> | <code>string</code> | The value passed in by users to the physical name prop of the resource. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.region">region</a></code> | <code>string</code> | The AWS region this resource belongs to. |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.autoRemediation">autoRemediation</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.configRuleName">configRuleName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.maximumExecutionFrequency">maximumExecutionFrequency</a></code> | <code>aws-cdk-lib.aws_config.MaximumExecutionFrequency</code> | *No description.* |
+
+---
+
+##### `account`<sup>Optional</sup> <a name="account" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.account"></a>
+
+```typescript
+public readonly account: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same account as the stack it belongs to
+
+The AWS account ID this resource belongs to.
+
+---
+
+##### `environmentFromArn`<sup>Optional</sup> <a name="environmentFromArn" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.environmentFromArn"></a>
+
+```typescript
+public readonly environmentFromArn: string;
+```
+
+- *Type:* string
+- *Default:* take environment from `account`, `region` parameters, or use Stack environment.
+
+ARN to deduce region and account from.
+
+The ARN is parsed and the account and region are taken from the ARN.
+This should be used for imported resources.
+
+Cannot be supplied together with either `account` or `region`.
+
+---
+
+##### `physicalName`<sup>Optional</sup> <a name="physicalName" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.physicalName"></a>
+
+```typescript
+public readonly physicalName: string;
+```
+
+- *Type:* string
+- *Default:* The physical name will be allocated by CloudFormation at deployment time
+
+The value passed in by users to the physical name prop of the resource.
+
+`undefined` implies that a physical name will be allocated by
+  CloudFormation during deployment.
+- a concrete value implies a specific physical name
+- `PhysicalName.GENERATE_IF_NEEDED` is a marker that indicates that a physical will only be generated
+  by the CDK if it is needed for cross-environment references. Otherwise, it will be allocated by CloudFormation.
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+- *Default:* the resource is in the same region as the stack it belongs to
+
+The AWS region this resource belongs to.
+
+---
+
+##### `autoRemediation`<sup>Optional</sup> <a name="autoRemediation" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.autoRemediation"></a>
+
+```typescript
+public readonly autoRemediation: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `configRuleName`<sup>Optional</sup> <a name="configRuleName" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.configRuleName"></a>
+
+```typescript
+public readonly configRuleName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+---
+
+##### `maximumExecutionFrequency`<sup>Optional</sup> <a name="maximumExecutionFrequency" id="cdk-extensions.config_rules.VpcDefaultSecurityGroupClosedProps.property.maximumExecutionFrequency"></a>
+
+```typescript
+public readonly maximumExecutionFrequency: MaximumExecutionFrequency;
+```
+
+- *Type:* aws-cdk-lib.aws_config.MaximumExecutionFrequency
 
 ---
 
@@ -77831,6 +82768,67 @@ athena.AthenaSqlOutputEncryption.sseS3()
 
 
 
+### AutomationSchemaVersion <a name="AutomationSchemaVersion" id="cdk-extensions.ssm.AutomationSchemaVersion"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ssm.AutomationSchemaVersion.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.ssm.AutomationSchemaVersion.of"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.AutomationSchemaVersion.of(version: string)
+```
+
+###### `version`<sup>Required</sup> <a name="version" id="cdk-extensions.ssm.AutomationSchemaVersion.of.parameter.version"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.AutomationSchemaVersion.property.version">version</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `version`<sup>Required</sup> <a name="version" id="cdk-extensions.ssm.AutomationSchemaVersion.property.version"></a>
+
+```typescript
+public readonly version: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.AutomationSchemaVersion.property.VER_0_3">VER_0_3</a></code> | <code>cdk-extensions.ssm.AutomationSchemaVersion</code> | *No description.* |
+
+---
+
+##### `VER_0_3`<sup>Required</sup> <a name="VER_0_3" id="cdk-extensions.ssm.AutomationSchemaVersion.property.VER_0_3"></a>
+
+```typescript
+public readonly VER_0_3: AutomationSchemaVersion;
+```
+
+- *Type:* cdk-extensions.ssm.AutomationSchemaVersion
+
+---
+
 ### AwsServiceDiscoveryRegistry <a name="AwsServiceDiscoveryRegistry" id="cdk-extensions.k8s_aws.AwsServiceDiscoveryRegistry"></a>
 
 - *Implements:* cdk-extensions.k8s_aws.IExternalDnsRegistry
@@ -78788,6 +83786,78 @@ The name of the Column.
 
 ---
 
+
+### ControlFindingGenerator <a name="ControlFindingGenerator" id="cdk-extensions.securityhub.ControlFindingGenerator"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.securityhub.ControlFindingGenerator.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.securityhub.ControlFindingGenerator.of"></a>
+
+```typescript
+import { securityhub } from 'cdk-extensions'
+
+securityhub.ControlFindingGenerator.of(value: string)
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.securityhub.ControlFindingGenerator.of.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.ControlFindingGenerator.property.value">value</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.securityhub.ControlFindingGenerator.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.ControlFindingGenerator.property.SECURITY_CONTROL">SECURITY_CONTROL</a></code> | <code>cdk-extensions.securityhub.ControlFindingGenerator</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.ControlFindingGenerator.property.STANDARD_CONTROL">STANDARD_CONTROL</a></code> | <code>cdk-extensions.securityhub.ControlFindingGenerator</code> | *No description.* |
+
+---
+
+##### `SECURITY_CONTROL`<sup>Required</sup> <a name="SECURITY_CONTROL" id="cdk-extensions.securityhub.ControlFindingGenerator.property.SECURITY_CONTROL"></a>
+
+```typescript
+public readonly SECURITY_CONTROL: ControlFindingGenerator;
+```
+
+- *Type:* cdk-extensions.securityhub.ControlFindingGenerator
+
+---
+
+##### `STANDARD_CONTROL`<sup>Required</sup> <a name="STANDARD_CONTROL" id="cdk-extensions.securityhub.ControlFindingGenerator.property.STANDARD_CONTROL"></a>
+
+```typescript
+public readonly STANDARD_CONTROL: ControlFindingGenerator;
+```
+
+- *Type:* cdk-extensions.securityhub.ControlFindingGenerator
+
+---
 
 ### CustomerGatewayConfigurationRemoteVpnEndpoint <a name="CustomerGatewayConfigurationRemoteVpnEndpoint" id="cdk-extensions.ec2.CustomerGatewayConfigurationRemoteVpnEndpoint"></a>
 
@@ -80040,6 +85110,365 @@ public readonly processorType: ProcessorType;
 
 ---
 
+
+### DocumentContent <a name="DocumentContent" id="cdk-extensions.ssm.DocumentContent"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.ssm.DocumentContent.Initializer"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+new ssm.DocumentContent()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentContent.fromObject">fromObject</a></code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentContent.fromString">fromString</a></code> | *No description.* |
+
+---
+
+##### `fromObject` <a name="fromObject" id="cdk-extensions.ssm.DocumentContent.fromObject"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.DocumentContent.fromObject(props: ObjectContentProps)
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ssm.DocumentContent.fromObject.parameter.props"></a>
+
+- *Type:* cdk-extensions.ssm.ObjectContentProps
+
+---
+
+##### `fromString` <a name="fromString" id="cdk-extensions.ssm.DocumentContent.fromString"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.DocumentContent.fromString(props: StringContentProps)
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.ssm.DocumentContent.fromString.parameter.props"></a>
+
+- *Type:* cdk-extensions.ssm.StringContentProps
+
+---
+
+
+
+### DocumentFormat <a name="DocumentFormat" id="cdk-extensions.ssm.DocumentFormat"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentFormat.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.ssm.DocumentFormat.of"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.DocumentFormat.of(value: string)
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.ssm.DocumentFormat.of.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentFormat.property.value">value</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.ssm.DocumentFormat.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentFormat.property.JSON">JSON</a></code> | <code>cdk-extensions.ssm.DocumentFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentFormat.property.TEXT">TEXT</a></code> | <code>cdk-extensions.ssm.DocumentFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentFormat.property.YAML">YAML</a></code> | <code>cdk-extensions.ssm.DocumentFormat</code> | *No description.* |
+
+---
+
+##### `JSON`<sup>Required</sup> <a name="JSON" id="cdk-extensions.ssm.DocumentFormat.property.JSON"></a>
+
+```typescript
+public readonly JSON: DocumentFormat;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentFormat
+
+---
+
+##### `TEXT`<sup>Required</sup> <a name="TEXT" id="cdk-extensions.ssm.DocumentFormat.property.TEXT"></a>
+
+```typescript
+public readonly TEXT: DocumentFormat;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentFormat
+
+---
+
+##### `YAML`<sup>Required</sup> <a name="YAML" id="cdk-extensions.ssm.DocumentFormat.property.YAML"></a>
+
+```typescript
+public readonly YAML: DocumentFormat;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentFormat
+
+---
+
+### DocumentType <a name="DocumentType" id="cdk-extensions.ssm.DocumentType"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentType.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.ssm.DocumentType.of"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.DocumentType.of(value: string)
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.ssm.DocumentType.of.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentType.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-extensions.ssm.DocumentType.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentType.property.APPLICATION_CONFIGURATION">APPLICATION_CONFIGURATION</a></code> | <code>cdk-extensions.ssm.DocumentType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentType.property.APPLICATION_CONFIGURATION_SCHEMA">APPLICATION_CONFIGURATION_SCHEMA</a></code> | <code>cdk-extensions.ssm.DocumentType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentType.property.AUTOMATION">AUTOMATION</a></code> | <code>cdk-extensions.ssm.DocumentType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentType.property.AUTOMATION_CHANGE_TEMPLATE">AUTOMATION_CHANGE_TEMPLATE</a></code> | <code>cdk-extensions.ssm.DocumentType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentType.property.COMMAND">COMMAND</a></code> | <code>cdk-extensions.ssm.DocumentType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentType.property.DEPLOYMENT_STRATEGY">DEPLOYMENT_STRATEGY</a></code> | <code>cdk-extensions.ssm.DocumentType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentType.property.PACKAGE">PACKAGE</a></code> | <code>cdk-extensions.ssm.DocumentType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentType.property.POLICY">POLICY</a></code> | <code>cdk-extensions.ssm.DocumentType</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentType.property.SESSION">SESSION</a></code> | <code>cdk-extensions.ssm.DocumentType</code> | *No description.* |
+
+---
+
+##### `APPLICATION_CONFIGURATION`<sup>Required</sup> <a name="APPLICATION_CONFIGURATION" id="cdk-extensions.ssm.DocumentType.property.APPLICATION_CONFIGURATION"></a>
+
+```typescript
+public readonly APPLICATION_CONFIGURATION: DocumentType;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentType
+
+---
+
+##### `APPLICATION_CONFIGURATION_SCHEMA`<sup>Required</sup> <a name="APPLICATION_CONFIGURATION_SCHEMA" id="cdk-extensions.ssm.DocumentType.property.APPLICATION_CONFIGURATION_SCHEMA"></a>
+
+```typescript
+public readonly APPLICATION_CONFIGURATION_SCHEMA: DocumentType;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentType
+
+---
+
+##### `AUTOMATION`<sup>Required</sup> <a name="AUTOMATION" id="cdk-extensions.ssm.DocumentType.property.AUTOMATION"></a>
+
+```typescript
+public readonly AUTOMATION: DocumentType;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentType
+
+---
+
+##### `AUTOMATION_CHANGE_TEMPLATE`<sup>Required</sup> <a name="AUTOMATION_CHANGE_TEMPLATE" id="cdk-extensions.ssm.DocumentType.property.AUTOMATION_CHANGE_TEMPLATE"></a>
+
+```typescript
+public readonly AUTOMATION_CHANGE_TEMPLATE: DocumentType;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentType
+
+---
+
+##### `COMMAND`<sup>Required</sup> <a name="COMMAND" id="cdk-extensions.ssm.DocumentType.property.COMMAND"></a>
+
+```typescript
+public readonly COMMAND: DocumentType;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentType
+
+---
+
+##### `DEPLOYMENT_STRATEGY`<sup>Required</sup> <a name="DEPLOYMENT_STRATEGY" id="cdk-extensions.ssm.DocumentType.property.DEPLOYMENT_STRATEGY"></a>
+
+```typescript
+public readonly DEPLOYMENT_STRATEGY: DocumentType;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentType
+
+---
+
+##### `PACKAGE`<sup>Required</sup> <a name="PACKAGE" id="cdk-extensions.ssm.DocumentType.property.PACKAGE"></a>
+
+```typescript
+public readonly PACKAGE: DocumentType;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentType
+
+---
+
+##### `POLICY`<sup>Required</sup> <a name="POLICY" id="cdk-extensions.ssm.DocumentType.property.POLICY"></a>
+
+```typescript
+public readonly POLICY: DocumentType;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentType
+
+---
+
+##### `SESSION`<sup>Required</sup> <a name="SESSION" id="cdk-extensions.ssm.DocumentType.property.SESSION"></a>
+
+```typescript
+public readonly SESSION: DocumentType;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentType
+
+---
+
+### DocumentUpdateMethod <a name="DocumentUpdateMethod" id="cdk-extensions.ssm.DocumentUpdateMethod"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentUpdateMethod.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.ssm.DocumentUpdateMethod.of"></a>
+
+```typescript
+import { ssm } from 'cdk-extensions'
+
+ssm.DocumentUpdateMethod.of(value: string)
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.ssm.DocumentUpdateMethod.of.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentUpdateMethod.property.value">value</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.ssm.DocumentUpdateMethod.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.DocumentUpdateMethod.property.NEW_VERSION">NEW_VERSION</a></code> | <code>cdk-extensions.ssm.DocumentUpdateMethod</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.DocumentUpdateMethod.property.REPLACE">REPLACE</a></code> | <code>cdk-extensions.ssm.DocumentUpdateMethod</code> | *No description.* |
+
+---
+
+##### `NEW_VERSION`<sup>Required</sup> <a name="NEW_VERSION" id="cdk-extensions.ssm.DocumentUpdateMethod.property.NEW_VERSION"></a>
+
+```typescript
+public readonly NEW_VERSION: DocumentUpdateMethod;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentUpdateMethod
+
+---
+
+##### `REPLACE`<sup>Required</sup> <a name="REPLACE" id="cdk-extensions.ssm.DocumentUpdateMethod.property.REPLACE"></a>
+
+```typescript
+public readonly REPLACE: DocumentUpdateMethod;
+```
+
+- *Type:* cdk-extensions.ssm.DocumentUpdateMethod
+
+---
 
 ### Domain <a name="Domain" id="cdk-extensions.route53.Domain"></a>
 
@@ -94491,6 +99920,204 @@ public readonly referencedPolicy: ReferencedManagedPolicy;
 ---
 
 
+### RemediationTarget <a name="RemediationTarget" id="cdk-extensions.config.RemediationTarget"></a>
+
+#### Initializers <a name="Initializers" id="cdk-extensions.config.RemediationTarget.Initializer"></a>
+
+```typescript
+import { config } from 'cdk-extensions'
+
+new config.RemediationTarget()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.config.RemediationTarget.automationDocument">automationDocument</a></code> | *No description.* |
+
+---
+
+##### `automationDocument` <a name="automationDocument" id="cdk-extensions.config.RemediationTarget.automationDocument"></a>
+
+```typescript
+import { config } from 'cdk-extensions'
+
+config.RemediationTarget.automationDocument(props: AutomationDocumentRemediationProps)
+```
+
+###### `props`<sup>Required</sup> <a name="props" id="cdk-extensions.config.RemediationTarget.automationDocument.parameter.props"></a>
+
+- *Type:* cdk-extensions.config.AutomationDocumentRemediationProps
+
+---
+
+
+
+### RemediationTargetType <a name="RemediationTargetType" id="cdk-extensions.config.RemediationTargetType"></a>
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.config.RemediationTargetType.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-extensions.config.RemediationTargetType.of"></a>
+
+```typescript
+import { config } from 'cdk-extensions'
+
+config.RemediationTargetType.of(value: string)
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.config.RemediationTargetType.of.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config.RemediationTargetType.property.value">value</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="cdk-extensions.config.RemediationTargetType.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config.RemediationTargetType.property.SSM_DOCUMENT">SSM_DOCUMENT</a></code> | <code>cdk-extensions.config.RemediationTargetType</code> | *No description.* |
+
+---
+
+##### `SSM_DOCUMENT`<sup>Required</sup> <a name="SSM_DOCUMENT" id="cdk-extensions.config.RemediationTargetType.property.SSM_DOCUMENT"></a>
+
+```typescript
+public readonly SSM_DOCUMENT: RemediationTargetType;
+```
+
+- *Type:* cdk-extensions.config.RemediationTargetType
+
+---
+
+### RuleSet <a name="RuleSet" id="cdk-extensions.securityhub.RuleSet"></a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.securityhub.RuleSet.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.securityhub.RuleSet.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): ScopedRuleSet
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.securityhub.RuleSet.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.RuleSet.property.ARN_FORMAT">ARN_FORMAT</a></code> | <code>aws-cdk-lib.ArnFormat</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.RuleSet.property.CIS_FOUNDATIONS_1_2_0">CIS_FOUNDATIONS_1_2_0</a></code> | <code>cdk-extensions.securityhub.RuleSet</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.RuleSet.property.CIS_FOUNDATIONS_1_4_0">CIS_FOUNDATIONS_1_4_0</a></code> | <code>cdk-extensions.securityhub.RuleSet</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.RuleSet.property.FOUNDATIONAL_BEST_PRACTICES_1_0_0">FOUNDATIONAL_BEST_PRACTICES_1_0_0</a></code> | <code>cdk-extensions.securityhub.RuleSet</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.RuleSet.property.NIST_800_53_5_0_0">NIST_800_53_5_0_0</a></code> | <code>cdk-extensions.securityhub.RuleSet</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.RuleSet.property.PCI_DSS_3_2_1">PCI_DSS_3_2_1</a></code> | <code>cdk-extensions.securityhub.RuleSet</code> | *No description.* |
+
+---
+
+##### `ARN_FORMAT`<sup>Required</sup> <a name="ARN_FORMAT" id="cdk-extensions.securityhub.RuleSet.property.ARN_FORMAT"></a>
+
+```typescript
+public readonly ARN_FORMAT: ArnFormat;
+```
+
+- *Type:* aws-cdk-lib.ArnFormat
+
+---
+
+##### `CIS_FOUNDATIONS_1_2_0`<sup>Required</sup> <a name="CIS_FOUNDATIONS_1_2_0" id="cdk-extensions.securityhub.RuleSet.property.CIS_FOUNDATIONS_1_2_0"></a>
+
+```typescript
+public readonly CIS_FOUNDATIONS_1_2_0: RuleSet;
+```
+
+- *Type:* cdk-extensions.securityhub.RuleSet
+
+---
+
+##### `CIS_FOUNDATIONS_1_4_0`<sup>Required</sup> <a name="CIS_FOUNDATIONS_1_4_0" id="cdk-extensions.securityhub.RuleSet.property.CIS_FOUNDATIONS_1_4_0"></a>
+
+```typescript
+public readonly CIS_FOUNDATIONS_1_4_0: RuleSet;
+```
+
+- *Type:* cdk-extensions.securityhub.RuleSet
+
+---
+
+##### `FOUNDATIONAL_BEST_PRACTICES_1_0_0`<sup>Required</sup> <a name="FOUNDATIONAL_BEST_PRACTICES_1_0_0" id="cdk-extensions.securityhub.RuleSet.property.FOUNDATIONAL_BEST_PRACTICES_1_0_0"></a>
+
+```typescript
+public readonly FOUNDATIONAL_BEST_PRACTICES_1_0_0: RuleSet;
+```
+
+- *Type:* cdk-extensions.securityhub.RuleSet
+
+---
+
+##### `NIST_800_53_5_0_0`<sup>Required</sup> <a name="NIST_800_53_5_0_0" id="cdk-extensions.securityhub.RuleSet.property.NIST_800_53_5_0_0"></a>
+
+```typescript
+public readonly NIST_800_53_5_0_0: RuleSet;
+```
+
+- *Type:* cdk-extensions.securityhub.RuleSet
+
+---
+
+##### `PCI_DSS_3_2_1`<sup>Required</sup> <a name="PCI_DSS_3_2_1" id="cdk-extensions.securityhub.RuleSet.property.PCI_DSS_3_2_1"></a>
+
+```typescript
+public readonly PCI_DSS_3_2_1: RuleSet;
+```
+
+- *Type:* cdk-extensions.securityhub.RuleSet
+
+---
+
 ### S3Code <a name="S3Code" id="cdk-extensions.glue.S3Code"></a>
 
 Glue job Code from an S3 bucket.
@@ -99157,6 +104784,118 @@ public bind(scope: IConstruct): AthenaResultEncryptionConfiguration
 ---
 
 
+### IAutomationDocument <a name="IAutomationDocument" id="cdk-extensions.ssm.IAutomationDocument"></a>
+
+- *Extends:* cdk-extensions.ssm.IDocument
+
+- *Implemented By:* cdk-extensions.ssm.AutomationDocument, cdk-extensions.ssm.IAutomationDocument
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ssm.IAutomationDocument.arnForAutomationDefinitionVersion">arnForAutomationDefinitionVersion</a></code> | *No description.* |
+
+---
+
+##### `arnForAutomationDefinitionVersion` <a name="arnForAutomationDefinitionVersion" id="cdk-extensions.ssm.IAutomationDocument.arnForAutomationDefinitionVersion"></a>
+
+```typescript
+public arnForAutomationDefinitionVersion(version: string): string
+```
+
+###### `version`<sup>Required</sup> <a name="version" id="cdk-extensions.ssm.IAutomationDocument.arnForAutomationDefinitionVersion.parameter.version"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.IAutomationDocument.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ssm.IAutomationDocument.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ssm.IAutomationDocument.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ssm.IAutomationDocument.property.documentArn">documentArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.IAutomationDocument.property.documentName">documentName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.IAutomationDocument.property.automationDefinitionArn">automationDefinitionArn</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ssm.IAutomationDocument.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ssm.IAutomationDocument.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ssm.IAutomationDocument.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `documentArn`<sup>Required</sup> <a name="documentArn" id="cdk-extensions.ssm.IAutomationDocument.property.documentArn"></a>
+
+```typescript
+public readonly documentArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `documentName`<sup>Required</sup> <a name="documentName" id="cdk-extensions.ssm.IAutomationDocument.property.documentName"></a>
+
+```typescript
+public readonly documentName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `automationDefinitionArn`<sup>Required</sup> <a name="automationDefinitionArn" id="cdk-extensions.ssm.IAutomationDocument.property.automationDefinitionArn"></a>
+
+```typescript
+public readonly automationDefinitionArn: string;
+```
+
+- *Type:* string
+
+---
+
 ### ICidrAssignment <a name="ICidrAssignment" id="cdk-extensions.ec2.ICidrAssignment"></a>
 
 - *Implemented By:* cdk-extensions.ec2.ICidrAssignment, cdk-extensions.ec2.IIpv4CidrAssignment, cdk-extensions.ec2.IIpv6CidrAssignment
@@ -99853,6 +105592,113 @@ public readonly domainDiscovery: DomainDiscovery;
 
 ---
 
+### IDocument <a name="IDocument" id="cdk-extensions.ssm.IDocument"></a>
+
+- *Extends:* aws-cdk-lib.IResource
+
+- *Implemented By:* cdk-extensions.ssm.AutomationDocument, cdk-extensions.ssm.Document, cdk-extensions.ssm.DocumentBase, cdk-extensions.ssm.IAutomationDocument, cdk-extensions.ssm.IDocument
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.ssm.IDocument.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.ssm.IDocument.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.ssm.IDocument.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.ssm.IDocument.property.documentArn">documentArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.ssm.IDocument.property.documentName">documentName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.ssm.IDocument.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.ssm.IDocument.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.ssm.IDocument.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `documentArn`<sup>Required</sup> <a name="documentArn" id="cdk-extensions.ssm.IDocument.property.documentArn"></a>
+
+```typescript
+public readonly documentArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `documentName`<sup>Required</sup> <a name="documentName" id="cdk-extensions.ssm.IDocument.property.documentName"></a>
+
+```typescript
+public readonly documentName: string;
+```
+
+- *Type:* string
+
+---
+
+### IDocumentContent <a name="IDocumentContent" id="cdk-extensions.ssm.IDocumentContent"></a>
+
+- *Implemented By:* cdk-extensions.ssm.IDocumentContent
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.ssm.IDocumentContent.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.ssm.IDocumentContent.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): DocumentContentResult
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.ssm.IDocumentContent.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
 ### IEcrImageScanSeverityConfiguration <a name="IEcrImageScanSeverityConfiguration" id="cdk-extensions.alerting.IEcrImageScanSeverityConfiguration"></a>
 
 - *Implemented By:* cdk-extensions.alerting.IEcrImageScanSeverityConfiguration
@@ -100355,6 +106201,40 @@ public bind(scope: IConstruct): BoundGroupConfiguration
 
 ---
 
+
+### IHub <a name="IHub" id="cdk-extensions.securityhub.IHub"></a>
+
+- *Implemented By:* cdk-extensions.securityhub.Hub, cdk-extensions.securityhub.IHub
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.IHub.property.hubArn">hubArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.securityhub.IHub.property.hubName">hubName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `hubArn`<sup>Required</sup> <a name="hubArn" id="cdk-extensions.securityhub.IHub.property.hubArn"></a>
+
+```typescript
+public readonly hubArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `hubName`<sup>Required</sup> <a name="hubName" id="cdk-extensions.securityhub.IHub.property.hubName"></a>
+
+```typescript
+public readonly hubName: string;
+```
+
+- *Type:* string
+
+---
 
 ### IIdentityCenterPrincipal <a name="IIdentityCenterPrincipal" id="cdk-extensions.sso.IIdentityCenterPrincipal"></a>
 
@@ -102504,6 +108384,65 @@ The type of the scope.
 
 ---
 
+### IRemediationConfiguration <a name="IRemediationConfiguration" id="cdk-extensions.config.IRemediationConfiguration"></a>
+
+- *Implemented By:* cdk-extensions.config.RemediationConfiguration, cdk-extensions.config.IRemediationConfiguration
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.config.IRemediationConfiguration.property.remediationConfigurationArn">remediationConfigurationArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-extensions.config.IRemediationConfiguration.property.remediationConfigurationName">remediationConfigurationName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `remediationConfigurationArn`<sup>Required</sup> <a name="remediationConfigurationArn" id="cdk-extensions.config.IRemediationConfiguration.property.remediationConfigurationArn"></a>
+
+```typescript
+public readonly remediationConfigurationArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `remediationConfigurationName`<sup>Required</sup> <a name="remediationConfigurationName" id="cdk-extensions.config.IRemediationConfiguration.property.remediationConfigurationName"></a>
+
+```typescript
+public readonly remediationConfigurationName: string;
+```
+
+- *Type:* string
+
+---
+
+### IRemediationTarget <a name="IRemediationTarget" id="cdk-extensions.config.IRemediationTarget"></a>
+
+- *Implemented By:* cdk-extensions.config.IRemediationTarget
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-extensions.config.IRemediationTarget.bind">bind</a></code> | *No description.* |
+
+---
+
+##### `bind` <a name="bind" id="cdk-extensions.config.IRemediationTarget.bind"></a>
+
+```typescript
+public bind(scope: IConstruct): RemediationTargetConfiguration
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-extensions.config.IRemediationTarget.bind.parameter.scope"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
 ### IRemoteVpnEndpoint <a name="IRemoteVpnEndpoint" id="cdk-extensions.ec2.IRemoteVpnEndpoint"></a>
 
 - *Implemented By:* cdk-extensions.ec2.CustomerGatewayConfigurationRemoteVpnEndpoint, cdk-extensions.ec2.CustomerGatewayRemoteVpnEndpoint, cdk-extensions.ec2.IRemoteVpnEndpoint
@@ -102952,6 +108891,77 @@ public readonly stackConstruct: Stack;
 ```
 
 - *Type:* aws-cdk-lib.Stack
+
+---
+
+### IStandard <a name="IStandard" id="cdk-extensions.securityhub.IStandard"></a>
+
+- *Extends:* aws-cdk-lib.IResource
+
+- *Implemented By:* cdk-extensions.securityhub.Standard, cdk-extensions.securityhub.IStandard
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-extensions.securityhub.IStandard.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-extensions.securityhub.IStandard.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-extensions.securityhub.IStandard.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#cdk-extensions.securityhub.IStandard.property.standardArn">standardArn</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-extensions.securityhub.IStandard.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="cdk-extensions.securityhub.IStandard.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="cdk-extensions.securityhub.IStandard.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `standardArn`<sup>Required</sup> <a name="standardArn" id="cdk-extensions.securityhub.IStandard.property.standardArn"></a>
+
+```typescript
+public readonly standardArn: string;
+```
+
+- *Type:* string
 
 ---
 

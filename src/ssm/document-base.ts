@@ -1,12 +1,12 @@
-import { ArnFormat, IResource, Lazy, PhysicalName, Resource, ResourceProps } from "aws-cdk-lib";
-import { IDocumentContent } from "./lib";
-import { IConstruct } from "constructs";
-import { CfnDocument } from "aws-cdk-lib/aws-ssm";
+import { ArnFormat, IResource, Lazy, PhysicalName, Resource, ResourceProps } from 'aws-cdk-lib';
+import { CfnDocument } from 'aws-cdk-lib/aws-ssm';
+import { IConstruct } from 'constructs';
+import { IDocumentContent } from './lib';
 
 
 export interface IDocument extends IResource {
-readonly documentArn: string;
-readonly documentName: string;
+  readonly documentArn: string;
+  readonly documentName: string;
 }
 
 export class DocumentType {
@@ -89,7 +89,7 @@ export class DocumentBase extends Resource implements IDocument {
     super(scope, id, {
       physicalName: props.name ?? PhysicalName.GENERATE_IF_NEEDED,
     });
-    
+
     this._requires = [];
 
     this.content = props.content;
@@ -102,46 +102,46 @@ export class DocumentBase extends Resource implements IDocument {
     const boundContent = this.content.bind(this);
 
     this.resource = new CfnDocument(this, 'Resource', {
-        content: boundContent.content,
-        documentFormat: boundContent.documentFormat.value,
-        documentType: this.documentType?.name,
-        name: this.name,
-        requires: Lazy.any(
-          {
-            produce: () => {
-              return this._requires.map((x) => {
-                return {
-                  name: x.document.documentName,
-                  version: x.version,
-                };
-              });
-            }
+      content: boundContent.content,
+      documentFormat: boundContent.documentFormat.value,
+      documentType: this.documentType?.name,
+      name: this.name,
+      requires: Lazy.any(
+        {
+          produce: () => {
+            return this._requires.map((x) => {
+              return {
+                name: x.document.documentName,
+                version: x.version,
+              };
+            });
           },
-          {
-              omitEmptyArray: true,
-          }
-        ),
-        targetType: this.targetType,
-        updateMethod: this.updateMethod?.value,
-        versionName: this.versionName,
+        },
+        {
+          omitEmptyArray: true,
+        },
+      ),
+      targetType: this.targetType,
+      updateMethod: this.updateMethod?.value,
+      versionName: this.versionName,
     });
 
     this.documentArn = this.stack.formatArn({
-        arnFormat: DocumentBase.ARN_FORMAT,
-        resource: 'document',
-        resourceName: this.resource.ref,
-        service: 'ssm',
+      arnFormat: DocumentBase.ARN_FORMAT,
+      resource: 'document',
+      resourceName: this.resource.ref,
+      service: 'ssm',
     });
     this.documentName = this.resource.ref;
-    
+
     props.requires?.forEach((x) => {
-        this.addRequirement(x);
+      this.addRequirement(x);
     });
 
     this.node.addValidation({
-        validate: () => {
-            return this.validate();
-        }
+      validate: () => {
+        return this.validate();
+      },
     });
   }
 
@@ -170,7 +170,7 @@ export class DocumentBase extends Resource implements IDocument {
         `Provided version name '${this.versionName}' failed validation. Valid`,
         'version names must be between 1 and 128 charactes and contain',
         'only alphanumeric characters, underscores, hyphens, and periods.',
-        `Regular expression used for validation: ${versionNameRegex}.`
+        `Regular expression used for validation: ${versionNameRegex}.`,
       ].join(' '));
     }
 

@@ -1,7 +1,7 @@
-import { ArnFormat, Resource, ResourceProps } from "aws-cdk-lib";
-import { CfnHub } from "aws-cdk-lib/aws-securityhub";
-import { IConstruct } from "constructs";
-import { ResourceImporter } from "../utils/importer";
+import { ArnFormat, Resource, ResourceProps } from 'aws-cdk-lib';
+import { CfnHub } from 'aws-cdk-lib/aws-securityhub';
+import { IConstruct } from 'constructs';
+import { ResourceImporter } from '../utils/importer';
 
 
 export class ControlFindingGenerator {
@@ -56,9 +56,9 @@ export class Hub extends HubBase {
       service: 'securityhub',
       resource: 'hub',
     });
-    
+
     const identities = importer.resolveIdentities(attrs.arn, attrs.name);
-    
+
     class Import extends HubBase {
       public readonly hubArn = identities.arn;
       public readonly hubName = identities.id;
@@ -91,11 +91,10 @@ export class Hub extends HubBase {
     this.autoEnableControls = props.autoEnableControls;
     this.consolidatedFindings = props.consolidatedFindings;
     this.enableDefaultStandards = props.enableDefaultStandards;
-    
+
     if (this.consolidatedFindings === true) {
       this.controlFindingGenerator = ControlFindingGenerator.SECURITY_CONTROL;
-    }
-    else if (this.consolidatedFindings === false) {
+    } else if (this.consolidatedFindings === false) {
       this.controlFindingGenerator = ControlFindingGenerator.STANDARD_CONTROL;
     }
 

@@ -1,10 +1,10 @@
-import { ArnFormat, ResourceProps } from "aws-cdk-lib";
-import { ManagedRule, MaximumExecutionFrequency, ResourceType, RuleScope } from "aws-cdk-lib/aws-config";
-import { Effect, ManagedPolicy, PolicyStatement, Role, ServicePrincipal } from "aws-cdk-lib/aws-iam";
-import { RemediationConfiguration } from "../config/remediation-configuration";
-import { IConstruct } from "constructs";
-import { RemediationTarget } from "../config/lib";
-import { AutomationDocument } from "../ssm";
+import { ArnFormat, ResourceProps } from 'aws-cdk-lib';
+import { ManagedRule, MaximumExecutionFrequency, ResourceType, RuleScope } from 'aws-cdk-lib/aws-config';
+import { Effect, ManagedPolicy, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
+import { IConstruct } from 'constructs';
+import { RemediationTarget } from '../config/lib';
+import { RemediationConfiguration } from '../config/remediation-configuration';
+import { AutomationDocument } from '../ssm';
 
 
 export interface VpcDefaultSecurityGroupClosedProps extends ResourceProps {
@@ -75,12 +75,12 @@ export class VpcDefaultSecurityGroupClosed extends ManagedRule {
         }),
       ],
     });
-    
+
     this.remediationRole = new Role(this, 'remediation-role', {
       assumedBy: new ServicePrincipal('ssm.amazonaws.com'),
       description: description,
       managedPolicies: [
-        this.remediationPolicy
+        this.remediationPolicy,
       ],
     });
     this.remediationConfiguration = new RemediationConfiguration(this, 'remediation-configuration', {
@@ -92,7 +92,7 @@ export class VpcDefaultSecurityGroupClosed extends ManagedRule {
         ],
       },
       target: RemediationTarget.automationDocument({
-        document: AutomationDocument.fromManaged(this, 'remediation-document', VpcDefaultSecurityGroupClosed.REMEDIATION_DOCUMENT_NAME)
+        document: AutomationDocument.fromManaged(this, 'remediation-document', VpcDefaultSecurityGroupClosed.REMEDIATION_DOCUMENT_NAME),
       }),
     });
   }
