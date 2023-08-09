@@ -40,7 +40,11 @@ export class RemediationConfiguration extends RemediationConfigurationBase {
     });
   }
 
-  public static fromRemediationConfigurationAttributes(scope: IConstruct, id: string, attrs: RemediationConfigurationAttributes): IRemediationConfiguration {
+  public static fromRemediationConfigurationAttributes(
+    scope: IConstruct,
+    id: string,
+    attrs: RemediationConfigurationAttributes
+  ): IRemediationConfiguration {
     const importer = new ResourceImporter(scope, id, {
       arnFormat: RemediationConfiguration.ARN_FORMAT,
       service: 'config',
