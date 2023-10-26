@@ -24,6 +24,26 @@ export class StopEc2Instance extends Resource {
       iamResources: [
         '*'
       ],
+      parameters: {
+        'Filters': [
+          {
+            'Name': 'resource-id',
+            'Values.$': SfnFn.array('$.InstanceId'),
+          },
+          {
+            'Name': 'resource-type',
+            'Values': [
+              'instance',
+            ]
+          },
+          {
+            'Name': 'key',
+            'Values': [
+              'aws:autoscaling:groupName',
+            ],
+          },
+        ],
+      },
       resultPath: '$.AutoScaling',
       resultSelector: {
         'TagCount.$': SfnFn.arrayLength('$.Tags'),

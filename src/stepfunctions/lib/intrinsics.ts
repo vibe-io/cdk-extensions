@@ -149,7 +149,7 @@ export class SfnFn {
   }
 
   public static mathAdd(value: string, step: any): string {
-    assertExpressionOrInt(step, 'step', 'MathAdd');
+    assertExpressionOrInt(value, 'step', 'MathAdd');
 
     return `States.MathAdd(${value}, ${step})`;
   }

@@ -106,7 +106,7 @@ export class StatusController extends Construct {
 
     this.checkStatus = new Choice(this, 'check-status');
     this.readyCondition = Condition.and(
-      Condition.numberGreaterThan(`${this.lifecyclePath}}.RemainingAttempts`, 0),
+      Condition.numberGreaterThan(`${this.lifecyclePath}.RemainingAttempts`, 0),
       props.readyCondition,
     );
     this.successCondition = props.successCondition;
