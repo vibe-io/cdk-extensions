@@ -21,7 +21,9 @@ export class StartAutoScalingGroup extends Resource {
 
     const getInitialCount = new CallAwsService(this, 'get-initial-count', {
       action: 'describeAutoScalingGroups',
-      iamResources: [],
+      iamResources: [
+        '*',
+      ],
       parameters: {
         'AutoScalingGroupNames.$': SfnFn.array('$.AutoScalingGroupName'),
       },
@@ -39,7 +41,14 @@ export class StartAutoScalingGroup extends Resource {
 
     const getTarget = new CallAwsService(this, 'get-target', {
       action: 'getParameter',
-      iamResources: [],
+      iamResources: [
+        this.stack.formatArn({
+          arnFormat: ArnFormat.SLASH_RESOURCE_NAME,
+          resource: 'parameter',
+          resourceName: 'scaling/asg/*',
+          service: 'ssm',
+        }),
+      ],
       parameters: {
         'Name.$': SfnFn.format('/scaling/asg/{}', [
           '$.AutoScalingGroupName'

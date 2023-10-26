@@ -21,7 +21,9 @@ export class StopAutoScalingGroup extends Resource {
 
     const getInitialCount = new CallAwsService(this, 'get-initial-count', {
       action: 'describeAutoScalingGroups',
-      iamResources: [],
+      iamResources: [
+        '*',
+      ],
       parameters: {
         'AutoScalingGroupNames.$': SfnFn.array('$.AutoScalingGroupName'),
       },
@@ -131,9 +133,9 @@ export class StopAutoScalingGroup extends Resource {
         ],
         parameters: {
           'AutoScalingGroupName.$': '$.AutoScalingGroupName',
-          'DesiredCapacity.$': 0,
-          'MaxSize.$': 0,
-          'MinSize.$': 0,
+          'DesiredCapacity': 0,
+          'MaxSize': 0,
+          'MinSize': 0,
         },
         service: 'autoscaling',
       },
@@ -148,12 +150,11 @@ export class StopAutoScalingGroup extends Resource {
     });
 
     getCachedCount.addCatch(putSkipped.next(statusController.success), {
-        errors: [
-          'Ssm.ParameterNotFoundException',
-        ],
-        resultPath: JsonPath.DISCARD,
-      }
-    )
+      errors: [
+        'Ssm.ParameterNotFoundException',
+      ],
+      resultPath: JsonPath.DISCARD,
+    });
 
     const definition = getInitialCount
       .next(checkRunning
