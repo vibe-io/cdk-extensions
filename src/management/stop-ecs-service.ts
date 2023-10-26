@@ -134,8 +134,9 @@ export class StopEcsService extends Resource {
           'Services.$': SfnFn.array('$.ServiceName'),
         },
         resultSelector: {
-          'Desired.$': '$.AutoScalingGroups[0].DesiredCapacity',
-          'Running.$': SfnFn.arrayLength("$.AutoScalingGroups[0].Instances[?(@.LifecycleState!='Standby')]")
+          'Desired.$': '$.Services[0].DesiredCount',
+          'Pending.$': '$.Services[0].PendingCount',
+          'Running.$': '$.Services[0].RunningCount',
         },
         service: 'ecs',
       },
@@ -150,9 +151,9 @@ export class StopEcsService extends Resource {
           }),
         ],
         parameters: {
-          'Desired.$': '$.Services[0].DesiredCount',
-          'Pending.$': '$.Services[0].PendingCount',
-          'Running.$': '$.Services[0].RunningCount',
+          'Cluster.$': '$.ClusterName',
+          'DesiredCount': 0,
+          'Service.$': '$.ServiceName',
         },
         service: 'ecs',
       },
