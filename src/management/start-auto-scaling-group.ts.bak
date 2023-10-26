@@ -1,0 +1,210 @@
+import { Duration, Resource } from 'aws-cdk-lib';
+import { Choice, Condition, DefinitionBody, Fail, Pass, StateMachine, Succeed, Wait, WaitTime } from 'aws-cdk-lib/aws-stepfunctions';
+import { CallAwsService } from 'aws-cdk-lib/aws-stepfunctions-tasks';
+import { IConstruct } from 'constructs';
+import { ResourceManagerProps } from './lib/inputs';
+import { ILogGroup } from 'aws-cdk-lib/aws-logs';
+import { resolveLogging } from './lib/logging';
+import { SfnFn } from '../stepfunctions';
+import { StatusController } from './lib/status-controller';
+
+
+export interface StartAutoScalingGroupProps extends ResourceManagerProps {}
+
+export class StartAutoScalingGroup extends Resource {
+  public readonly logGroup?: ILogGroup;
+  public readonly stateMachine: StateMachine;
+
+
+  public constructor(scope: IConstruct, id: string, props: StartAutoScalingGroupProps = {}) {
+    super(scope, id, props);
+
+    const addTtl = new Pass(this, 'get-initial-count', {
+      parameters: {
+        'AutoScalingGroupName.$': '$.AutoScalingGroupName',
+        'RemainingAttempts': 3,
+        'Ttl': 120,
+      }
+    });
+
+    const getInitialCount = new CallAwsService(this, 'get-initial-count', {
+      action: 'describeAutoScalingGroups',
+      iamResources: [],
+      parameters: {
+        'AutoScalingGroupNames.$': SfnFn.array('$.AutoScalingGroupName'),
+      },
+      resultPath: '$.Initial',
+      resultSelector: {
+        'Desired.$': '$.AutoScalingGroups[0].DesiredCapacity',
+        'Max.$': '$.AutoScalingGroups[0].MaxSize',
+        'Min.$': '$.AutoScalingGroups[0].MinSize',
+      },
+      service: 'autoscaling',
+    });
+
+    const checkStopped = new Choice(this, 'check-stopped');
+    const isStopped = Condition.numberEquals('$.Initial.Desired', 0);
+
+    const getTarget = new CallAwsService(this, 'get-target', {
+      action: 'getParameter',
+      iamResources: [],
+      parameters: {
+        'Name.$': SfnFn.format('/scaling/asg/{}', [
+          '$.AutoScalingGroupName'
+        ]),
+      },
+      resultPath: '$.Target',
+      resultSelector: {
+        'Settings.$': SfnFn.stringToJson('$.Parameter.Value'),
+      },
+      service: 'ssm',
+    });
+
+
+    const statusController = new StatusController(this, 'status-controller', {
+      readyCondition: Condition.numberEquals('$.Current.Desired', 0),
+      statusGetter: {
+        action: 'describeAutoScalingGroups',
+        iamResources: [],
+        parameters: {
+          'AutoScalingGroupNames.$': SfnFn.array('$.AutoScalingGroupName'),
+        },
+        resultSelector: {
+          'Desired.$': '$.AutoScalingGroups[0].DesiredCapacity',
+          'Running.$': SfnFn.arrayLength("$.AutoScalingGroups[0].Instances[?(@.LifecycleState!='Standby')]")
+        },
+        service: 'autoscaling',
+      },
+      statusSetter: {
+        action: 'updateAutoScalingGroup',
+        iamResources: [],
+        parameters: {
+          'AutoScalingGroupName.$': '$.AutoScalingGroupName',
+          'DesiredCapacity.$': '$.Target.Settings.Desired',
+          'MaxSize.$': '$.Target.Settings.Max',
+          'MinSize.$': '$.Target.Settings.Min',
+        },
+        service: 'autoscaling',
+      },
+      successCondition: Condition.and(
+        Condition.numberGreaterThan('$.Current.Desired', 0),
+        Condition.numberGreaterThanEqualsJsonPath('$.Current.Running', '$.Current.Desired'),
+      ),
+      waitCondition: Condition.and(
+        Condition.numberGreaterThan('$.Current.Desired', 0),
+        Condition.numberLessThanJsonPath('$.Current.Running', '$.Current.Desired'),
+      ),
+    });
+
+
+    const getCurrentCount = new CallAwsService(this, 'get-current-count', {
+      action: 'describeAutoScalingGroups',
+      iamResources: [],
+      parameters: {
+        'AutoScalingGroupNames.$': SfnFn.array('$.AutoScalingGroupName'),
+      },
+      resultPath: '$.Current',
+      resultSelector: {
+        'Desired.$': '$.AutoScalingGroups[0].DesiredCapacity',
+        'Running.$': SfnFn.arrayLength("$.AutoScalingGroups[0].Instances[?(@.LifecycleState!='Standby')]")
+      },
+      service: 'autoscaling',
+    });
+
+    const checkCounts = new Choice(this, 'check-counts');
+    const checkCountsSkipped = Condition.and(
+      Condition.isPresent('$.Target.Settings.Skipped'),
+      Condition.booleanEquals('$.Target.Settings.Skipped', true),
+    );
+    const checkCountsWait = Condition.and(
+      Condition.numberGreaterThan('$.Current.Desired', 0),
+      Condition.numberLessThanJsonPath('$.Current.Running', '$.Current.Desired'),
+    );
+    const checkCountsIsStopped = Condition.and(
+      Condition.numberGreaterThan('$.RemainingAttempts', 0),
+      Condition.numberEquals('$.Current.Desired', 0),
+    );
+    const checkCountsMaxAttemptsExceeded = Condition.numberEquals('$.Current.Desired', 0);
+    const checkCountsComplete = Condition.and(
+      Condition.numberGreaterThan('$.Current.Desired', 0),
+      Condition.numberGreaterThanEqualsJsonPath('$.Current.Running', '$.Current.Desired'),
+    );
+    const checkCountsTtlExceeded = Condition.numberLessThanEquals('$.Ttl', 0);
+
+    const decrementTtl = new Pass(this, 'decrement-ttl', {
+      parameters: {
+        'AutoScalingGroupName.$': '$.AutoScalingGroupName',
+        'Current.$': '$.Current',
+        'Initial.$': '$.Initial',
+        'RemainingAttempts.$': '$.RemainingAttempts',
+        'Ttl.$': SfnFn.mathAdd('$.Ttl', -1),
+      }
+    });
+
+    const pollDelay = new Wait(this, 'poll-delay', {
+      time: WaitTime.duration(Duration.seconds(15)),
+    });
+
+    const resetTtl = new Pass(this, 'reset-ttl', {
+      parameters: {
+        'AutoScalingGroupName.$': '$.AutoScalingGroupName',
+        'Current.$': '$.Current',
+        'Initial.$': '$.Initial',
+        'RemainingAttempts.$': 'States.MathAdd($.RemainingAttempts, -1)',
+        'Ttl': 120,
+      }
+    });
+
+    const updateAutoScalingGroup = new CallAwsService(this, 'update-auto-scaling-group', {
+      action: 'updateAutoScalingGroup',
+      iamResources: [],
+      parameters: {
+        'AutoScalingGroupName.$': '$.AutoScalingGroupName',
+        'DesiredCapacity.$': '$.Target.Settings.Desired',
+        'MaxSize.$': '$.Target.Settings.Max',
+        'MinSize.$': '$.Target.Settings.Min',
+      },
+      service: 'autoscaling',
+    });
+
+    const maxRetriesExceeded = new Fail(this, 'max-retries-exceeded', {
+      cause: 'The operation exceeded the maximum number of automatic retries.',
+      error: 'MaxRetriesExceededError',
+    });
+
+    const ttlExceeded = new Fail(this, 'ttl-exceeded', {
+      cause: 'Operation failed because the resource failed to reach the a desired state within the timeout period.',
+      error: 'TtlExceededError',
+    });
+
+    const success = new Succeed(this, 'success');
+
+    const closeLoop = pollDelay.next(getCurrentCount);
+
+    const definition = addTtl
+      .next(getInitialCount)
+      .next(checkStopped
+        .when(isStopped, getTarget
+          .next(getCurrentCount)
+          .next(checkCounts
+            .when(checkCountsSkipped, success)))
+            .when(checkCountsWait, decrementTtl
+              .next(closeLoop))
+            .when(checkCountsIsStopped, updateAutoScalingGroup
+              .next(resetTtl)
+              .next(closeLoop))
+            .when(checkCountsMaxAttemptsExceeded, maxRetriesExceeded)
+            .when(checkCountsComplete, success)
+            .when(checkCountsTtlExceeded, ttlExceeded)
+        .otherwise(success));
+
+    const logging = resolveLogging(this, props.logging);
+    this.logGroup = logging?.destination;
+
+    this.stateMachine = new StateMachine(this, 'Resource', {
+      definitionBody: DefinitionBody.fromChainable(definition),
+      logs: logging,
+      tracingEnabled: props.tracingEnabled ?? true,
+    });
+  }
+}
