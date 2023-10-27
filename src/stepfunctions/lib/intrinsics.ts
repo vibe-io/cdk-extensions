@@ -45,6 +45,10 @@ function toInline(value: any): string {
 }
 
 export class SfnFn {
+  public static account(): string {
+    return SfnFn.arrayGetItem(SfnFn.stringSplit('$$.Execution.Id', ':'), 4);
+  }
+
   public static array(...values: any[]): string {
     const joinedValues = values.map((x) => {
       return toInline(x);
@@ -159,6 +163,14 @@ export class SfnFn {
     assertExpressionOrInt(end, 'end', 'MathRandom');
 
     return `States.MathRandom(${toInline(start)}, ${toInline(end)})`;
+  }
+
+  public static partition(): string {
+    return SfnFn.arrayGetItem(SfnFn.stringSplit('$$.Execution.Id', ':'), 1);
+  }
+
+  public static region(): string {
+    return SfnFn.arrayGetItem(SfnFn.stringSplit('$$.Execution.Id', ':'), 3);
   }
 
   public static stringSplit(data: string, splitter: string): string {

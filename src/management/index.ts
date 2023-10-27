@@ -1,5 +1,6 @@
 export * from './lib';
 
+export * from './manage-ec2-instances';
 export * from './start-app-runner-service';
 export * from './start-auto-scaling-group';
 export * from './start-ec2-instance';
