@@ -1,4 +1,4 @@
-import { ArnFormat, Resource } from 'aws-cdk-lib';
+import { ArnFormat, Duration, Resource } from 'aws-cdk-lib';
 import { Condition, DefinitionBody, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { IConstruct } from 'constructs';
 import { ResourceManagerProps } from './lib/inputs';
@@ -20,6 +20,7 @@ export class StopRdsCluster extends Resource {
 
     const statusRef = StatusController.statusRef('Status');
     const statusController = new StatusController(this, 'status-controller', {
+      pollDelay: Duration.seconds(60),
       readyCondition: Condition.stringEquals(statusRef, 'available'),
       statusGetter: {
         action: 'describeDBClusters',

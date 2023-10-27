@@ -20,6 +20,7 @@ export interface StatusControllerUnmatchedErrorProps {
 
 export interface StatusControllerProps {
   readonly maxRetries?: number;
+  readonly pollDelay?: Duration;
   readonly readyCondition: Condition;
   readonly statusGetter: StatusControllerActionProps;
   readonly statusSetter: StatusControllerActionProps;
@@ -43,6 +44,7 @@ export class StatusController extends Construct {
   }
 
   public static readonly DEFAULT_MAX_RETRIES: number = 3;
+  public static readonly DEFAULT_POLL_DELAY_DURATION: Duration = Duration.seconds(15);
   public static readonly DEFAULT_TTL: number = 120;
 
   private readonly lifecyclePath: string;
@@ -65,6 +67,7 @@ export class StatusController extends Construct {
   private readonly waitCondition: Condition;
 
   public readonly maxRetries: number;
+  public readonly pollDelayDuration: Duration;
   public readonly ttl: number;
   
   public readonly success: Succeed;
@@ -76,6 +79,7 @@ export class StatusController extends Construct {
     this.lifecyclePath = StatusController.DEFAULT_LIFECYCLE_PATH
 
     this.maxRetries = props.maxRetries ?? StatusController.DEFAULT_MAX_RETRIES;
+    this.pollDelayDuration = props.pollDelay ?? StatusController.DEFAULT_POLL_DELAY_DURATION;
     this.ttl = props.ttl ?? StatusController.DEFAULT_TTL;
 
     this.addTtl = new Pass(this, 'add-ttl', {
@@ -123,7 +127,7 @@ export class StatusController extends Construct {
     });
 
     this.pollDelay = new Wait(this, 'poll-delay', {
-      time: WaitTime.duration(Duration.seconds(15)),
+      time: WaitTime.duration(this.pollDelayDuration),
     });
 
     this.resetTtl = new Pass(this, 'reset-ttl', {
