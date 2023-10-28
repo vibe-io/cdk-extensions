@@ -1,3 +1,6 @@
+
+
+
 import { Resource } from 'aws-cdk-lib';
 import { Choice, Condition, DefinitionBody, Fail, IntegrationPattern, Parallel, Pass, StateMachine, Succeed, TaskInput } from 'aws-cdk-lib/aws-stepfunctions';
 import { StepFunctionsStartExecution } from 'aws-cdk-lib/aws-stepfunctions-tasks';
@@ -22,7 +25,6 @@ import { StopRdsCluster } from './stop-rds-cluster';
 import { StopEcsService } from './stop-ecs-service';
 import { StopEc2Instance } from './stop-ec2-instance';
 import { StopAutoScalingGroup } from './stop-auto-scaling-group';
-import { HandlerReference } from './lib/handler-reference';
 
 
 export interface ResourceManagerProps extends ResourceManagerBaseProps {}
@@ -61,7 +63,7 @@ export class ResourceManager extends Resource {
         'DryRun.$': '$.DryRun',
         'Tags.$': '$.Tags',
       }),
-      stateMachine: HandlerReference.create(this, 'auto-scaling-group-manager', 'manage-auto-scaling-groups'),
+      stateMachine: StateMachine.fromStateMachineName(this, 'auto-scaling-group-manager', 'manage-auto-scaling-groups'),
     });
 
     const handleEc2Instances = new StepFunctionsStartExecution(this, 'handle-ec2-instances', {
@@ -72,7 +74,7 @@ export class ResourceManager extends Resource {
         'DryRun.$': '$.DryRun',
         'Tags.$': '$.Tags',
       }),
-      stateMachine: HandlerReference.create(this, 'ec2-instance-manager', 'manage-ec2-instances'),
+      stateMachine: StateMachine.fromStateMachineName(this, 'ec2-instance-manager', 'manage-ec2-instances'),
     });
 
     const handleEcsServices = new StepFunctionsStartExecution(this, 'handle-ecs-services', {
@@ -83,7 +85,7 @@ export class ResourceManager extends Resource {
         'DryRun.$': '$.DryRun',
         'Tags.$': '$.Tags',
       }),
-      stateMachine: HandlerReference.create(this, 'ecs-service-manager', 'manage-ecs-services'),
+      stateMachine: StateMachine.fromStateMachineName(this, 'ecs-service-manager', 'manage-ecs-services'),
     });
 
     const handleRdsClusters = new StepFunctionsStartExecution(this, 'handle-rds-clusters', {
@@ -94,7 +96,7 @@ export class ResourceManager extends Resource {
         'DryRun.$': '$.DryRun',
         'Tags.$': '$.Tags',
       }),
-      stateMachine: HandlerReference.create(this, 'rds-cluster-manager', 'manage-rds-clusters'),
+      stateMachine: StateMachine.fromStateMachineName(this, 'rds-cluster-manager', 'manage-rds-clusters'),
     });
 
     const handleRdsInstances = new StepFunctionsStartExecution(this, 'handle-rds-instances', {
@@ -105,7 +107,7 @@ export class ResourceManager extends Resource {
         'DryRun.$': '$.DryRun',
         'Tags.$': '$.Tags',
       }),
-      stateMachine: HandlerReference.create(this, 'rds-instance-manager', 'manage-rds-instances'),
+      stateMachine: StateMachine.fromStateMachineName(this, 'rds-instance-manager', 'manage-rds-instances'),
     });
 
     parallel.branch(
