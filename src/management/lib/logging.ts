@@ -18,6 +18,7 @@ export function resolveLogging(scope: IConstruct, options: ResourceManagerLoggin
 
   return {
     destination: options.destination ?? new LogGroup(scope, 'log-group', {
+      logGroupName: `/aws/vendedlogs/states/${scope.node.id}`,
       retention: options.retention ?? RetentionDays.TWO_WEEKS,
     }),
     includeExecutionData: options.includeExecutionData ?? true,

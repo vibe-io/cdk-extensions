@@ -5,7 +5,7 @@ import { PolicyStatement } from "aws-cdk-lib/aws-iam";
 
 
 export interface ExecuteHandlerProps extends TaskStateBaseProps {
-  readonly actionPath: string;
+  readonly action: string;
   readonly comment?: string;
   readonly input: {[key: string]: any};
   readonly inputPath?: string;
@@ -17,7 +17,7 @@ export interface ExecuteHandlerProps extends TaskStateBaseProps {
 }
 
 export class ExecuteHandler extends TaskStateBase {
-  private readonly actionPath: string;
+  private readonly action: string;
   private readonly input: {[key: string]: any};
   private readonly resourceType: string;
 
@@ -31,7 +31,7 @@ export class ExecuteHandler extends TaskStateBase {
       integrationPattern: IntegrationPattern.RUN_JOB,
     });
 
-    this.actionPath = props.actionPath;
+    this.action = props.action;
     this.input = props.input;
     this.resourceType = props.resourceType;
 
@@ -49,7 +49,7 @@ export class ExecuteHandler extends TaskStateBase {
           Aws.PARTITION,
           JsonPath.arrayGetItem(JsonPath.stringSplit(JsonPath.executionId, ':'), 3),
           JsonPath.arrayGetItem(JsonPath.stringSplit(JsonPath.executionId, ':'), 4),
-          JsonPath.stringAt(this.actionPath),
+          this.action,
           this.resourceType,
         ]),
       }),

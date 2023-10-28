@@ -1,14 +1,14 @@
 import { ArnFormat, Duration, Resource } from 'aws-cdk-lib';
 import { Condition, DefinitionBody, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { IConstruct } from 'constructs';
-import { ResourceManagerProps } from './lib/inputs';
+import { ResourceManagerBaseProps } from './lib/inputs';
 import { ILogGroup } from 'aws-cdk-lib/aws-logs';
 import { resolveLogging } from './lib/logging';
 import { SfnFn } from '../stepfunctions';
 import { StatusController } from './lib/status-controller';
 
 
-export interface StopRdsClusterProps extends ResourceManagerProps {}
+export interface StopRdsClusterProps extends ResourceManagerBaseProps {}
 
 export class StopRdsCluster extends Resource {
   public readonly logGroup?: ILogGroup;
@@ -92,6 +92,7 @@ export class StopRdsCluster extends Resource {
     this.stateMachine = new StateMachine(this, 'Resource', {
       definitionBody: DefinitionBody.fromChainable(definition),
       logs: logging,
+      stateMachineName: 'stop-rds-cluster',
       tracingEnabled: props.tracingEnabled ?? true,
     });
   }

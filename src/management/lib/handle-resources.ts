@@ -6,7 +6,9 @@ import { ExecuteHandler } from "./execute-handler";
 
 export interface HandleResourcesProps {
   readonly actionPath?: string;
+  readonly childInput?: {[key: string]: any};
   readonly itemsPath: string;
+  readonly resourceArnField: string;
   readonly resourceType: string;
 }
 
@@ -24,7 +26,9 @@ export class HandleResources extends StateMachineFragment {
   private readonly success: Succeed;
 
   public readonly actionPath: string;
+  public readonly childInput: {[key: string]: any};
   public readonly itemsPath: string;
+  public readonly resourceArnField: string;
   public readonly resourceType: string;
 
   public readonly endStates: INextable[];
@@ -35,7 +39,9 @@ export class HandleResources extends StateMachineFragment {
     super(scope, id);
 
     this.actionPath = props.actionPath ?? HandleResources.DEFAULT_ACTION_PATH;
+    this.childInput = props.childInput ?? {};
     this.itemsPath = props.itemsPath;
+    this.resourceArnField = props.resourceArnField;
     this.resourceType = props.resourceType;
 
     this.checkDryRun = new Choice(this, 'check-dry-run');
@@ -59,24 +65,22 @@ export class HandleResources extends StateMachineFragment {
     });
 
     this.handleResource = new ExecuteHandler(this, 'handle-resources', {
-      actionPath: this.actionPath,
-      input: {
-        InstanceId: JsonPath.stringAt('$.ResourceId'),
-      },
+      action: JsonPath.stringAt(this.actionPath),
+      input: this.childInput,
       resourceType: this.resourceType,
       resultPath: JsonPath.DISCARD,
     });
 
     this.recordSuccess = new Pass(this, 'record-success', {
       parameters: {
-        'ResourceArn.$': '$.ResourceArn',
+        'ResourceArn.$': `$.${this.resourceArnField}`,
         'Result': 'success'
       },
     });
 
     this.recordFailure = new Pass(this, 'record-failure', {
       parameters: {
-        'ResourceArn.$': '$.ResourceArn',
+        'ResourceArn.$': `$.${this.resourceArnField}`,
         'Result': 'failed'
       },
     });
@@ -97,7 +101,7 @@ export class HandleResources extends StateMachineFragment {
         },
         'Success': {
           'Count.$': SfnFn.arrayLength('$'),
-          'Resources.$': '$[*].InstanceArn',
+          'Resources.$': `$[*].${this.resourceArnField}`,
         },
       },
     });

@@ -2,14 +2,14 @@ import { ArnFormat, Resource } from 'aws-cdk-lib';
 import { Choice, Condition, DefinitionBody, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { CallAwsService } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { IConstruct } from 'constructs';
-import { ResourceManagerProps } from './lib/inputs';
+import { ResourceManagerBaseProps } from './lib/inputs';
 import { ILogGroup } from 'aws-cdk-lib/aws-logs';
 import { resolveLogging } from './lib/logging';
 import { SfnFn } from '../stepfunctions';
 import { StatusController } from './lib/status-controller';
 
 
-export interface StartEcsServiceProps extends ResourceManagerProps {}
+export interface StartEcsServiceProps extends ResourceManagerBaseProps {}
 
 export class StartEcsService extends Resource {
   public readonly logGroup?: ILogGroup;
@@ -125,6 +125,7 @@ export class StartEcsService extends Resource {
     this.stateMachine = new StateMachine(this, 'Resource', {
       definitionBody: DefinitionBody.fromChainable(definition),
       logs: logging,
+      stateMachineName: 'start-ecs-service',
       tracingEnabled: props.tracingEnabled ?? true,
     });
   }

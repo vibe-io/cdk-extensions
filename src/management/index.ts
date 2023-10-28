@@ -1,6 +1,11 @@
 export * from './lib';
 
+export * from './manage-auto-scaling-groups';
 export * from './manage-ec2-instances';
+export * from './manage-ecs-services';
+export * from './manage-rds-clusters';
+export * from './manage-rds-instances';
+export * from './resource-manager';
 export * from './start-app-runner-service';
 export * from './start-auto-scaling-group';
 export * from './start-ec2-instance';

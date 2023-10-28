@@ -2,14 +2,14 @@ import { ArnFormat, Resource } from 'aws-cdk-lib';
 import { Choice, Condition, DefinitionBody, JsonPath, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { CallAwsService } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { IConstruct } from 'constructs';
-import { ResourceManagerProps } from './lib/inputs';
+import { ResourceManagerBaseProps } from './lib/inputs';
 import { ILogGroup } from 'aws-cdk-lib/aws-logs';
 import { resolveLogging } from './lib/logging';
 import { SfnFn } from '../stepfunctions';
 import { StatusController } from './lib/status-controller';
 
 
-export interface StopAutoScalingGroupProps extends ResourceManagerProps {}
+export interface StopAutoScalingGroupProps extends ResourceManagerBaseProps {}
 
 export class StopAutoScalingGroup extends Resource {
   public readonly logGroup?: ILogGroup;
@@ -169,6 +169,7 @@ export class StopAutoScalingGroup extends Resource {
     this.stateMachine = new StateMachine(this, 'Resource', {
       definitionBody: DefinitionBody.fromChainable(definition),
       logs: logging,
+      stateMachineName: 'stop-auto-scaling-group',
       tracingEnabled: props.tracingEnabled ?? true,
     });
   }

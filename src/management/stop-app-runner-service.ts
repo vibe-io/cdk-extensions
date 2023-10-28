@@ -1,7 +1,7 @@
 import { ArnFormat, Resource } from 'aws-cdk-lib';
 import { Condition, DefinitionBody, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { IConstruct } from 'constructs';
-import { ResourceManagerProps } from './lib/inputs';
+import { ResourceManagerBaseProps } from './lib/inputs';
 import { ILogGroup } from 'aws-cdk-lib/aws-logs';
 import { resolveLogging } from './lib/logging';
 import { SfnFn } from '../stepfunctions';
@@ -9,7 +9,7 @@ import { StatusController } from './lib/status-controller';
 import { CallAwsService } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 
 
-export interface StopAppRunnerServiceProps extends ResourceManagerProps {}
+export interface StopAppRunnerServiceProps extends ResourceManagerBaseProps {}
 
 export class StopAppRunnerService extends Resource {
   public readonly logGroup?: ILogGroup;
@@ -102,6 +102,7 @@ export class StopAppRunnerService extends Resource {
     this.stateMachine = new StateMachine(this, 'Resource', {
       definitionBody: DefinitionBody.fromChainable(definition),
       logs: logging,
+      stateMachineName: 'stop-app-runner-service',
       tracingEnabled: props.tracingEnabled ?? true,
     });
   }

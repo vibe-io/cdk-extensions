@@ -35,10 +35,10 @@ export class BuildFilters extends StateMachineFragment {
     this.filterFromTag = new Pass(this, 'filter-from-tag', {
       parameters: {
         'Name.$': SfnFn.format('tag:{}', [
-          '$.Name',
+          '$.Key',
         ]),
         'Values.$': '$.Values',
-      }
+      },
     });
 
     this.iterateInput.iterator(this.filterFromTag);

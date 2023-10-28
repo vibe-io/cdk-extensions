@@ -2,14 +2,14 @@ import { ArnFormat, Resource } from 'aws-cdk-lib';
 import { Choice, Condition, DefinitionBody, Fail, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { CallAwsService } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { IConstruct } from 'constructs';
-import { ResourceManagerProps } from './lib/inputs';
+import { ResourceManagerBaseProps } from './lib/inputs';
 import { ILogGroup } from 'aws-cdk-lib/aws-logs';
 import { resolveLogging } from './lib/logging';
 import { SfnFn } from '../stepfunctions';
 import { StatusController } from './lib/status-controller';
 
 
-export interface StopEc2InstanceProps extends ResourceManagerProps {}
+export interface StopEc2InstanceProps extends ResourceManagerBaseProps {}
 
 export class StopEc2Instance extends Resource {
   public readonly logGroup?: ILogGroup;
@@ -118,6 +118,7 @@ export class StopEc2Instance extends Resource {
     this.stateMachine = new StateMachine(this, 'Resource', {
       definitionBody: DefinitionBody.fromChainable(definition),
       logs: logging,
+      stateMachineName: 'stop-ec2-instance',
       tracingEnabled: props.tracingEnabled ?? true,
     });
   }
