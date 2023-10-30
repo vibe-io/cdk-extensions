@@ -2,8 +2,8 @@
 
 
 import { Resource } from 'aws-cdk-lib';
-import { Choice, Condition, DefinitionBody, Fail, IntegrationPattern, Parallel, Pass, StateMachine, Succeed, TaskInput } from 'aws-cdk-lib/aws-stepfunctions';
-import { StepFunctionsStartExecution } from 'aws-cdk-lib/aws-stepfunctions-tasks';
+import { Choice, Condition, DefinitionBody, Fail, FieldUtils, IntegrationPattern, JsonPath, Parallel, Pass, StateMachine, Succeed, TaskInput } from 'aws-cdk-lib/aws-stepfunctions';
+import { EventBridgePutEvents, StepFunctionsStartExecution } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { IConstruct } from 'constructs';
 import { ResourceManagerBaseProps } from './lib/inputs';
 import { ILogGroup } from 'aws-cdk-lib/aws-logs';
@@ -51,8 +51,27 @@ export class ResourceManager extends Resource {
       outputPath: '$.Merged',
     });
 
+    const putInitEvent = new EventBridgePutEvents(this, 'put-init-event', {
+      entries: [{
+        detail: TaskInput.fromObject({
+          action: JsonPath.stringAt('$.Action'),
+          dryRun: JsonPath.stringAt('$.DryRun'),
+          eventType: 'INIT',
+          execution: JsonPath.stringAt('$$.Execution'),
+          stateMachine: JsonPath.stringAt('$$.StateMachine'),
+          tags: JsonPath.stringAt('$.Tags'),
+        }),
+        detailType: 'Resource Manager Lifecycle Event',
+        source: 'resource-manager',
+      }],
+      resultPath: JsonPath.DISCARD,
+    });
+
     const parallel = new Parallel(this, 'parallel', {
-      outputPath: '$[*].Output',
+      resultPath: '$.Result',
+      resultSelector: FieldUtils.renderObject({
+        Executions: JsonPath.objectAt('$[*].Output'),
+      }),
     });
 
     const handleAutoScalingGroups = new StepFunctionsStartExecution(this, 'handle-auto-scaling-groups', {
@@ -119,32 +138,42 @@ export class ResourceManager extends Resource {
     );
 
     const summarizeResults = new Pass(this, 'summarize-results', {
-      parameters: {
-        'Failed': {
-          'Count.$': 'States.ArrayLength($[*].Failed.Resources[*])',
-          'Resources.$': '$[*].Failed.Resources[*]',
+      parameters: FieldUtils.renderObject({
+        Action: JsonPath.stringAt('$.Action'),
+        DryRun: JsonPath.stringAt('$.DryRun'),
+        Resources: {
+          Failed: {
+            Count: JsonPath.arrayLength(JsonPath.listAt('$[*].Failed.Resources[*]')),
+            Resources: JsonPath.objectAt('$[*].Failed.Resources[*]'),
+          },
+          Success: {
+            Count: JsonPath.arrayLength(JsonPath.listAt('$[*].Success.Resources[*]')),
+            Resources: JsonPath.objectAt('$[*].Success.Resources[*]'),
+          },
         },
-        'Success': {
-          'Count.$': 'States.ArrayLength($[*].Success.Resources[*])',
-          'Resources.$': '$[*].Success.Resources[*]',
-        },
-      },
+        Tags: JsonPath.stringAt('$.Tags'),
+      }),
     });
 
     const checkFailed = new Choice(this, 'check-failed');
-    const hasFailedResourcesCondition = Condition.numberGreaterThan('$.Failed.Count', 0);
+    const hasFailedResourcesCondition = Condition.numberGreaterThan('$.Resources.Failed.Count', 0);
 
+    const putSuccessEvent = this.makeResultEvent('success');
     const success = new Succeed(this, 'success');
 
+    const putFailedEvent = this.makeResultEvent('failed');
     const fail = new Fail(this, 'fail');
 
     const definition = addDefaults
       .next(mergeDefaults)
+      .next(putInitEvent)
       .next(parallel)
       .next(summarizeResults)
       .next(checkFailed
-        .when(hasFailedResourcesCondition, fail)
-        .otherwise(success));
+        .when(hasFailedResourcesCondition, putFailedEvent
+          .next(fail))
+        .otherwise(putSuccessEvent
+          .next(success)));
 
     const logging = resolveLogging(this, props.logging);
     this.logGroup = logging?.destination;
@@ -175,5 +204,25 @@ export class ResourceManager extends Resource {
     new StopEcsService(this, 'stop-ecs-service');
     new StopRdsCluster(this, 'stop-rds-cluster');
     new StopRdsInstance(this, 'stop-rds-instance');
+  }
+
+  private makeResultEvent(result: string) {
+    return new EventBridgePutEvents(this, `put-${result}-event`, {
+      entries: [{
+        detail: TaskInput.fromObject({
+          action: JsonPath.stringAt('$.Action'),
+          dryRun: JsonPath.stringAt('$.DryRun'),
+          eventType: 'COMPLETE',
+          execution: JsonPath.stringAt('$$.Execution'),
+          resources: JsonPath.stringAt('$.Resources'),
+          result: result.toUpperCase(),
+          stateMachine: JsonPath.stringAt('$$.StateMachine'),
+          tags: JsonPath.stringAt('$.Tags'),
+        }),
+        detailType: 'Resource Manager Lifecycle Event',
+        source: 'resource-manager',
+      }],
+      resultPath: JsonPath.DISCARD,
+    });
   }
 }
