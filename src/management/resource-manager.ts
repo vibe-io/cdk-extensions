@@ -143,12 +143,12 @@ export class ResourceManager extends Resource {
         DryRun: JsonPath.stringAt('$.DryRun'),
         Resources: {
           Failed: {
-            Count: JsonPath.arrayLength(JsonPath.listAt('$[*].Failed.Resources[*]')),
-            Resources: JsonPath.objectAt('$[*].Failed.Resources[*]'),
+            Count: JsonPath.arrayLength(JsonPath.listAt('$.Result.Executions[*].Failed.Resources[*]')),
+            Resources: JsonPath.objectAt('$.Result.Executions[*].Failed.Resources[*]'),
           },
           Success: {
-            Count: JsonPath.arrayLength(JsonPath.listAt('$[*].Success.Resources[*]')),
-            Resources: JsonPath.objectAt('$[*].Success.Resources[*]'),
+            Count: JsonPath.arrayLength(JsonPath.listAt('$.Result.Executions[*].Success.Resources[*]')),
+            Resources: JsonPath.objectAt('$.Result.Executions[*].Success.Resources[*]'),
           },
         },
         Tags: JsonPath.stringAt('$.Tags'),
