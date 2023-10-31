@@ -76,7 +76,7 @@ export class StatusController extends Construct {
   public constructor(scope: IConstruct, id: string, props: StatusControllerProps) {
     super(scope, id);
 
-    this.lifecyclePath = StatusController.DEFAULT_LIFECYCLE_PATH
+    this.lifecyclePath = StatusController.DEFAULT_LIFECYCLE_PATH;
 
     this.maxRetries = props.maxRetries ?? StatusController.DEFAULT_MAX_RETRIES;
     this.pollDelayDuration = props.pollDelay ?? StatusController.DEFAULT_POLL_DELAY_DURATION;
