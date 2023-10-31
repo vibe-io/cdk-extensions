@@ -47,8 +47,8 @@ export class ManageRdsInstances extends Resource {
     // Don't manage instances in a cluster or instances that don't support
     // stopping per official documentation:
     // https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html#USER_StopInstance.Limitations
-    const checkCluster = new Choice(this, 'check-cluster');
-    const isCluster = Condition.or(
+    const checkUnsupported = new Choice(this, 'check-unsupported');
+    const isUnsupported = Condition.or(
       Condition.and(
         Condition.isPresent('$.DbClusterIdentifier'),
         Condition.isNotNull('$.DbClusterIdentifier'),
@@ -81,8 +81,8 @@ export class ManageRdsInstances extends Resource {
       }
     });
 
-    filterInstances.iterator(checkCluster
-      .when(isCluster, reportNotMatched)
+    filterInstances.iterator(checkUnsupported
+      .when(isUnsupported, reportNotMatched)
       .otherwise(reportMatched));
 
     const evaluateTags = new EvaluateTags(this, 'evaluate-tags', {
