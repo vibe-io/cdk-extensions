@@ -25,6 +25,7 @@ import { StopRdsCluster } from './stop-rds-cluster';
 import { StopEcsService } from './stop-ecs-service';
 import { StopEc2Instance } from './stop-ec2-instance';
 import { StopAutoScalingGroup } from './stop-auto-scaling-group';
+import { ManageAppRunnerServices } from './manage-app-runner-services';
 
 
 export interface ResourceManagerProps extends ResourceManagerBaseProps {}
@@ -72,6 +73,17 @@ export class ResourceManager extends Resource {
       resultSelector: FieldUtils.renderObject({
         Executions: JsonPath.objectAt('$[*].Output'),
       }),
+    });
+
+    const handleAppRunnerServices = new StepFunctionsStartExecution(this, 'handle-app-runner-services', {
+      associateWithParent: true,
+      integrationPattern: IntegrationPattern.RUN_JOB,
+      input: TaskInput.fromObject({
+        'Action.$': '$.Action',
+        'DryRun.$': '$.DryRun',
+        'Tags.$': '$.Tags',
+      }),
+      stateMachine: StateMachine.fromStateMachineName(this, 'app-runner-service-manager', 'manage-app-runner-services'),
     });
 
     const handleAutoScalingGroups = new StepFunctionsStartExecution(this, 'handle-auto-scaling-groups', {
@@ -130,6 +142,7 @@ export class ResourceManager extends Resource {
     });
 
     parallel.branch(
+      handleAppRunnerServices,
       handleAutoScalingGroups,
       handleEc2Instances,
       handleEcsServices,
@@ -185,6 +198,7 @@ export class ResourceManager extends Resource {
       tracingEnabled: props.tracingEnabled ?? true,
     });
 
+    new ManageAppRunnerServices(this, 'manage-app-runner-services');
     new ManageAutoScalingGroups(this, 'manage-auto-scaling-groups');
     new ManageEc2Instances(this, 'manage-ec2-instances');
     new ManageEcsServices(this, 'manage-ecs-services');
