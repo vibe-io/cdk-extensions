@@ -44,10 +44,27 @@ export class ManageRdsInstances extends Resource {
       },
     });
 
+    // Don't manage instances in a cluster or instances that don't support
+    // stopping per official documentation:
+    // https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html#USER_StopInstance.Limitations
     const checkCluster = new Choice(this, 'check-cluster');
-    const isCluster = Condition.and(
-      Condition.isPresent('$.DbClusterIdentifier'),
-      Condition.isNotNull('$.DbClusterIdentifier'),
+    const isCluster = Condition.or(
+      Condition.and(
+        Condition.isPresent('$.DbClusterIdentifier'),
+        Condition.isNotNull('$.DbClusterIdentifier'),
+      ),
+      Condition.and(
+        Condition.isPresent('$.ReadReplicaDBInstanceIdentifiers[0]'),
+      ),
+      Condition.and(
+        Condition.isPresent('$.ReadReplicaSourceDBInstanceIdentifier'),
+        Condition.isNotNull('$.ReadReplicaSourceDBInstanceIdentifier'),
+      ),
+      Condition.and(
+        Condition.isPresent('$.MultiAZ'),
+        Condition.booleanEquals('$.MultiAZ', true),
+        Condition.stringMatches('$.Engine', 'sqlserver-*'),
+      ),
     );
 
     const reportMatched = new Pass(this, 'report-matched', {
