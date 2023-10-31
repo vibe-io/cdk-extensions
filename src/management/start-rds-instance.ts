@@ -1,4 +1,4 @@
-import { ArnFormat, Resource } from 'aws-cdk-lib';
+import { ArnFormat, Duration, Resource } from 'aws-cdk-lib';
 import { Choice, Condition, DefinitionBody, Fail, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { CallAwsService } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { IConstruct } from 'constructs';
@@ -44,6 +44,7 @@ export class StartRdsInstance extends Resource {
 
     const statusRef = StatusController.statusRef('Status');
     const statusController = new StatusController(this, 'status-controller', {
+      pollDelay: Duration.seconds(60),
       readyCondition: Condition.stringEquals(statusRef, 'stopped'),
       statusGetter: {
         action: 'describeDBInstances',

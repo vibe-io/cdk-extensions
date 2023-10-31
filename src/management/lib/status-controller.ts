@@ -115,7 +115,7 @@ export class StatusController extends Construct {
     );
     this.successCondition = props.successCondition;
     this.maxAttemptsExceededCondition = props.readyCondition;
-    this.ttlExceededCondition = Condition.numberLessThanEquals('$.Lifecycle.Ttl', 0);
+    this.ttlExceededCondition = Condition.numberLessThanEquals(`${this.lifecyclePath}.Ttl`, 0);
     this.waitCondition = props.waitCondition;
 
     this.decrementTtl = new Pass(this, 'decrement-ttl', {
