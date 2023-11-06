@@ -1,5 +1,5 @@
 import { ArnFormat, Resource } from 'aws-cdk-lib';
-import { DefinitionBody, FieldUtils, JsonPath, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
+import { Choice, Condition, DefinitionBody, FieldUtils, JsonPath, Map, Pass, StateMachine } from 'aws-cdk-lib/aws-stepfunctions';
 import { CallAwsService } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { IConstruct } from 'constructs';
 import { ResourceManagerBaseProps } from './lib/inputs';
@@ -36,6 +36,41 @@ export class ManageRdsClusters extends Resource {
       service: 'rds',
     });
 
+    const filterClusters = new Map(this, 'filter-clusters', {
+      itemsPath: '$.Available.Clusters',
+      resultPath: '$.Available',
+      resultSelector: {
+        'Clusters.$': '$[?(@.Matched==true)].Resource',
+      },
+    });
+
+    // Don't manage clusters that don't support stopping per official
+    // documentation:
+    // https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html#aurora-cluster-stop-limitations
+    const checkUnsupported = new Choice(this, 'check-unsupported');
+    const isUnsupported = Condition.and(
+      Condition.isPresent('$.EngineMode'),
+      Condition.stringEquals('$.EngineMode', 'serverless'),
+    );
+
+    const reportMatched = new Pass(this, 'report-matched', {
+      parameters: {
+        'Matched': true,
+        'Resource.$': '$',
+      }
+    });
+
+    const reportNotMatched = new Pass(this, 'report-not-matched', {
+      parameters: {
+        'Matched': false,
+        'Resource.$': '$',
+      }
+    });
+
+    filterClusters.iterator(checkUnsupported
+      .when(isUnsupported, reportNotMatched)
+      .otherwise(reportMatched));
+
     const evaluateTags = new EvaluateTags(this, 'evaluate-tags', {
       desiredTagsPath: '$.Tags',
       resourcesPath: '$.Available.Clusters',
@@ -52,6 +87,7 @@ export class ManageRdsClusters extends Resource {
     });
 
     const definition = describeClusters
+      .next(filterClusters)
       .next(evaluateTags)
       .next(handleResources);
 
