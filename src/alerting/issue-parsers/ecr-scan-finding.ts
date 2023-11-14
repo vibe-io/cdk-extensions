@@ -1,5 +1,5 @@
 import { ArnFormat, Duration, Lazy } from 'aws-cdk-lib';
-import { Chain, Choice, Condition, IStateMachine, Pass, Result, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
+import { Chain, Choice, Condition, DefinitionBody, IStateMachine, Pass, Result, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
 import { CallAwsService } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { IConstruct } from 'constructs';
 import { SfnFn } from '../../stepfunctions';
@@ -229,7 +229,7 @@ export class EcrScanFinding extends IssuePluginBase implements IIssueParser {
         .afterwards());
 
     this.handler = new StateMachine(this, 'state-machine', {
-      definition: definition,
+      definitionBody: DefinitionBody.fromChainable(definition),
       logs: this.buildLogging(),
       stateMachineName: this.name,
       stateMachineType: StateMachineType.EXPRESS,

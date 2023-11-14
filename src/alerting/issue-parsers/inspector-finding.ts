@@ -1,5 +1,5 @@
 import { Duration } from 'aws-cdk-lib';
-import { Condition, IStateMachine, Pass, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
+import { Condition, DefinitionBody, IStateMachine, Pass, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
 import { IConstruct } from 'constructs';
 import { AppendDelimiter, DescriptionBuilder } from './description-builder';
 import { IssueParserPluginBase, IssueParserPluginBaseProps } from './issue-parser-plugin-base';
@@ -117,7 +117,7 @@ export class InspectorFinding extends IssueParserPluginBase implements IIssuePar
       .next(formatOutput);
 
     this.handler = new StateMachine(this, 'state-machine', {
-      definition: definition,
+      definitionBody: DefinitionBody.fromChainable(definition),
       logs: this.buildLogging(),
       stateMachineName: this.name,
       stateMachineType: StateMachineType.EXPRESS,

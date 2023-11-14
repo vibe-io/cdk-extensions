@@ -1,5 +1,5 @@
 import { ArnFormat, Duration } from 'aws-cdk-lib';
-import { Chain, Choice, Condition, IStateMachine, Pass, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
+import { Chain, Choice, Condition, DefinitionBody, IStateMachine, Pass, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
 import { CallAwsService } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { IConstruct } from 'constructs';
 import { SfnFn } from '../../stepfunctions';
@@ -152,7 +152,7 @@ export class SecurityHubFinding extends IssuePluginBase implements IIssueParser 
       .next(formatOutput);
 
     this.handler = new StateMachine(this, 'state-machine', {
-      definition: definition,
+      definitionBody: DefinitionBody.fromChainable(definition),
       logs: this.buildLogging(),
       stateMachineName: this.name,
       stateMachineType: StateMachineType.EXPRESS,

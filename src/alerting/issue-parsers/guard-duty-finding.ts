@@ -1,5 +1,5 @@
 import { Duration } from 'aws-cdk-lib';
-import { Chain, Choice, Condition, IStateMachine, Pass, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
+import { Chain, Choice, Condition, DefinitionBody, IStateMachine, Pass, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
 import { IConstruct } from 'constructs';
 import { IssueParserPluginBase } from './issue-parser-plugin-base';
 import { SfnFn } from '../../stepfunctions';
@@ -171,7 +171,7 @@ export class GuardDutyFinding extends IssueParserPluginBase {
       .next(formatOutput);
 
     this.handler = new StateMachine(this, 'state-machine', {
-      definition: definition,
+      definitionBody: DefinitionBody.fromChainable(definition),
       logs: this.buildLogging(),
       stateMachineName: this.name,
       stateMachineType: StateMachineType.EXPRESS,
