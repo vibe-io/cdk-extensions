@@ -2,7 +2,7 @@ import { ArnFormat, RemovalPolicy, Resource, ResourceProps } from 'aws-cdk-lib';
 import { EventField, Match, Rule, RuleTargetInput } from 'aws-cdk-lib/aws-events';
 import { SfnStateMachine } from 'aws-cdk-lib/aws-events-targets';
 import { ILogGroup, LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
-import { LogLevel, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
+import { DefinitionBody, LogLevel, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
 import { CallAwsService } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { IConstruct } from 'constructs';
 
@@ -186,7 +186,7 @@ export class LogRetentionController extends Resource {
     });
 
     this.stateMachine = new StateMachine(this, 'state-machine', {
-      definition: putRetentionPolicy,
+      definitionBody: DefinitionBody.fromChainable(putRetentionPolicy),
       logs: this.executionLogGroup === undefined ? undefined : {
         destination: this.executionLogGroup,
         includeExecutionData: this.executionLogging?.includeExecutionData ?? true,

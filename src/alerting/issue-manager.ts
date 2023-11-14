@@ -1,5 +1,5 @@
 import { Annotations, Aspects, Duration, IResource, Resource, ResourceProps } from 'aws-cdk-lib';
-import { Choice, Condition, Fail, IChainable, IStateMachine, IntegrationPattern, Parallel, Pass, StateMachine, StateMachineType, Succeed, TaskInput } from 'aws-cdk-lib/aws-stepfunctions';
+import { Choice, Condition, DefinitionBody, Fail, IChainable, IStateMachine, IntegrationPattern, Parallel, Pass, StateMachine, StateMachineType, Succeed, TaskInput } from 'aws-cdk-lib/aws-stepfunctions';
 import { StepFunctionsStartExecution } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { IConstruct } from 'constructs';
 import { IssueTrigger } from './issue-trigger';
@@ -98,7 +98,7 @@ export class IssueManager extends Resource {
           }
 
           const stateMachine = new StateMachine(this, 'state-machine', {
-            definition: identifyIssue,
+            definitionBody: DefinitionBody.fromChainable(identifyIssue),
             stateMachineName: this.name,
             stateMachineType: StateMachineType.STANDARD,
             timeout: this.timeout,
