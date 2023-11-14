@@ -3,7 +3,7 @@ import { ApiDestination, Authorization, Connection, HttpMethod, HttpParameter, I
 import { ApiDestination as EventsApiDestination } from 'aws-cdk-lib/aws-events-targets';
 import { ISecret } from 'aws-cdk-lib/aws-secretsmanager';
 import { Queue } from 'aws-cdk-lib/aws-sqs';
-import { Chain, Choice, Condition, IStateMachine, Pass, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
+import { Chain, Choice, Condition, DefinitionBody, IStateMachine, Pass, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
 import { CallAwsService } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { IConstruct } from 'constructs';
 import { SfnFn } from '../../stepfunctions';
@@ -362,7 +362,7 @@ export class JiraTicket extends IssuePluginBase implements IIssueHandler {
       .next(putEvent);
 
     this.handler = new StateMachine(this, 'state-machine', {
-      definition: definition,
+      definitionBody: DefinitionBody.fromChainable(definition),
       logs: this.buildLogging(),
       stateMachineType: StateMachineType.EXPRESS,
       timeout: this.timeout,

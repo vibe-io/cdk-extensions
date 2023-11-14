@@ -108,7 +108,7 @@ export class TrustedAdvisorCheck extends IssueParserPluginBase implements IIssue
       .next(formatOutput);
 
     this.handler = new StateMachine(this, 'state-machine', {
-      definition: definition,
+      definitionBody: DefinitionBody.fromChainable(definition),
       logs: this.buildLogging(),
       stateMachineName: this.name,
       stateMachineType: StateMachineType.EXPRESS,

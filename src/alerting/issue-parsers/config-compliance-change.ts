@@ -1,5 +1,5 @@
 import { ArnFormat, Duration } from 'aws-cdk-lib';
-import { Chain, IStateMachine, Pass, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
+import { Chain, DefinitionBody, IStateMachine, Pass, StateMachine, StateMachineType } from 'aws-cdk-lib/aws-stepfunctions';
 import { CallAwsService } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { IConstruct } from 'constructs';
 import { DescriptionBuilder } from './description-builder';
@@ -108,7 +108,7 @@ export class ConfigComplianceChange extends IssueParserPluginBase implements IIs
       .next(formatOutput);
 
     this.handler = new StateMachine(this, 'state-machine', {
-      definition: definition,
+      definitionBody: DefinitionBody.fromChainable(definition),
       logs: this.buildLogging(),
       stateMachineName: this.name,
       stateMachineType: StateMachineType.EXPRESS,

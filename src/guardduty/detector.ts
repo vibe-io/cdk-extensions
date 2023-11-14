@@ -328,9 +328,9 @@ export class Detector extends DetectorBase {
       features: Lazy.any(
         {
           produce: () => {
-            return this._features.map((feature): CfnDetector.FeatureConfigurationsProperty => {
+            return this._features.map((feature): CfnDetector.CFNFeatureConfigurationProperty => {
               return {
-                additionalConfiguration: feature.settings?.map((setting): CfnDetector.FeatureAdditionalConfigurationProperty => {
+                additionalConfiguration: feature.settings?.map((setting): CfnDetector.CFNFeatureConfigurationProperty => {
                   return {
                     name: setting.name,
                     status: setting.enabled ? 'ENABLED' : 'DISABLED',
