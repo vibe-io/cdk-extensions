@@ -5027,7 +5027,7 @@ If this is a nested stack, this represents its `AWS::CloudFormation::Stack` reso
 
 ---
 
-##### `terminationProtection`<sup>Optional</sup> <a name="terminationProtection" id="cdk-extensions.stacks.AwsLoggingStack.property.terminationProtection"></a>
+##### `terminationProtection`<sup>Required</sup> <a name="terminationProtection" id="cdk-extensions.stacks.AwsLoggingStack.property.terminationProtection"></a>
 
 ```typescript
 public readonly terminationProtection: boolean;
@@ -15253,6 +15253,7 @@ Import a Flow Log by it's Id.
 | <code><a href="#cdk-extensions.ec2.FlowLog.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-extensions.ec2.FlowLog.property.flowLogId">flowLogId</a></code> | <code>string</code> | The Id of the VPC Flow Log. |
 | <code><a href="#cdk-extensions.ec2.FlowLog.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | The S3 bucket to publish flow logs to. |
+| <code><a href="#cdk-extensions.ec2.FlowLog.property.deliveryStreamArn">deliveryStreamArn</a></code> | <code>string</code> | The ARN of the Kinesis Data Firehose delivery stream to publish flow logs to. |
 | <code><a href="#cdk-extensions.ec2.FlowLog.property.iamRole">iamRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The iam role used to publish logs to CloudWatch. |
 | <code><a href="#cdk-extensions.ec2.FlowLog.property.keyPrefix">keyPrefix</a></code> | <code>string</code> | S3 bucket key prefix to publish the flow logs under. |
 | <code><a href="#cdk-extensions.ec2.FlowLog.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | The CloudWatch Logs LogGroup to publish flow logs to. |
@@ -15330,6 +15331,18 @@ public readonly bucket: IBucket;
 - *Type:* aws-cdk-lib.aws_s3.IBucket
 
 The S3 bucket to publish flow logs to.
+
+---
+
+##### `deliveryStreamArn`<sup>Optional</sup> <a name="deliveryStreamArn" id="cdk-extensions.ec2.FlowLog.property.deliveryStreamArn"></a>
+
+```typescript
+public readonly deliveryStreamArn: string;
+```
+
+- *Type:* string
+
+The ARN of the Kinesis Data Firehose delivery stream to publish flow logs to.
 
 ---
 
@@ -51385,7 +51398,7 @@ To deploy the layer locally define it in your app as follows:
 ```ts
 const layer = new lambda.LayerVersion(this, 'proxy-agent-layer', {
   code: lambda.Code.fromAsset(`${__dirname}/layer.zip`),
-  compatibleRuntimes: [lambda.Runtime.NODEJS_14_X],
+  compatibleRuntimes: [lambda.Runtime.NODEJS_LATEST],
 });
 ```
 
@@ -70482,7 +70495,7 @@ const rawBucketProps: s3_buckets.RawBucketProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.accelerateConfiguration">accelerateConfiguration</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.AccelerateConfigurationProperty</code> | Configures the transfer acceleration state for an Amazon S3 bucket. |
-| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.accessControl">accessControl</a></code> | <code>string</code> | A canned access control list (ACL) that grants predefined permissions to the bucket. |
+| <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.accessControl">accessControl</a></code> | <code>string</code> | > This is a legacy property, and it is not recommended for most use cases. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.analyticsConfigurations">analyticsConfigurations</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty[]</code> | Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket. |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.bucketEncryption">bucketEncryption</a></code> | <code>aws-cdk-lib.IResolvable \| aws-cdk-lib.aws_s3.CfnBucket.BucketEncryptionProperty</code> | Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). |
 | <code><a href="#cdk-extensions.s3_buckets.RawBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | A name for the bucket. |
@@ -70528,11 +70541,15 @@ public readonly accessControl: string;
 
 - *Type:* string
 
-A canned access control list (ACL) that grants predefined permissions to the bucket.
+> This is a legacy property, and it is not recommended for most use cases.
 
-For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide* .
+A majority of modern use cases in Amazon S3 no longer require the use of ACLs, and we recommend that you keep ACLs disabled. For more information, see [Controlling object ownership](https://docs.aws.amazon.com//AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide* .
 
-Be aware that the syntax for this property differs from the information provided in the *Amazon S3 User Guide* . The AccessControl property is case-sensitive and must be one of the following values: Private, PublicRead, PublicReadWrite, AuthenticatedRead, LogDeliveryWrite, BucketOwnerRead, BucketOwnerFullControl, or AwsExecRead.
+A canned access control list (ACL) that grants predefined permissions to the bucket. For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide* .
+
+S3 buckets are created with ACLs disabled by default. Therefore, unless you explicitly set the [AWS::S3::OwnershipControls](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html) property to enable ACLs, your resource will fail to deploy with any value other than Private. Use cases requiring ACLs are uncommon.
+
+The majority of access control configurations can be successfully and more easily achieved with bucket policies. For more information, see [AWS::S3::BucketPolicy](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html) . For examples of common policy configurations, including S3 Server Access Logs buckets and more, see [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) in the *Amazon S3 User Guide* .
 
 > [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-accesscontrol](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-accesscontrol)
 
