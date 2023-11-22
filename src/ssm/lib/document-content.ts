@@ -1,11 +1,15 @@
-import { Lazy, Stack } from 'aws-cdk-lib';
 import { IConstruct } from 'constructs';
 import { DocumentFormat } from './document-format';
+import { renderDocumentContentObject } from './utils';
 
 
 export interface DocumentContentResult {
   readonly content: string;
   readonly documentFormat: DocumentFormat;
+}
+
+export interface DocumentContentBindOptions {
+  readonly format?: DocumentFormat;
 }
 
 export interface IDocumentContent {
@@ -14,6 +18,7 @@ export interface IDocumentContent {
 
 export interface ObjectContentProps {
   readonly input: {[key: string]: any};
+  readonly documentFormat?: DocumentFormat;
 }
 
 export interface StringContentProps {
@@ -25,14 +30,14 @@ export class DocumentContent {
   public static fromObject(props: ObjectContentProps): IDocumentContent {
     return {
       bind: (scope) => {
+        const format = props.documentFormat ?? DocumentFormat.JSON;
         return {
-          content: Lazy.string({
-            produce: () => {
-              return Stack.of(scope).toJsonString(props.input);
-            },
+          content: renderDocumentContentObject(scope, {
+            input: props.input,
+            documentFormat: format,
           }),
-          documentFormat: DocumentFormat.JSON,
-        };
+          documentFormat: format,
+        }
       },
     };
   }
